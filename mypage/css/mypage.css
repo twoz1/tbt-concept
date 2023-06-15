@@ -1,0 +1,224 @@
+h2 {
+    text-transform: capitalize;
+    font-size: 44px;
+    text-align: center;
+}
+
+.cover {
+    margin: 40px 0;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 50px;
+    float: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/*메인영역*/
+.m_c {
+    min-width: 905px;
+    padding: 100px 0;
+}
+
+/*회원정보 시작*/
+.member_cover .member_box {
+    width: 100%;
+    height: 150px;
+    background-color: #eee;
+    position: relative;
+}
+
+.member_cover .member_box .member_left {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+    vertical-align: middle;
+}
+
+.member_left .round {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.member_left .round span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.member_left p {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.member_left p span {
+    display: block;
+
+}
+
+.member_right {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+.member_right .coupon {
+    width: 200px;
+    height: 100px;
+    border: 1px solid #000;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/*회원정보 끝*/
+
+/*_list 시작*/
+.cover table {
+    width: 100%;
+    height: 200px;
+    border: solid #000;
+    border-width: 2px 0;
+    text-align: center;
+}
+
+.cover tr {
+    border-bottom: 1px solid #0003;
+}
+
+.cover th {
+    height: 50px;
+    border-bottom: 1px solid #000;
+    font-size: 16px;
+}
+
+.cover td {
+    height: 100px;
+}
+
+.cover td .ship {
+    display: block;
+    width: 70px;
+    margin: 5px auto;
+    line-height: 2;
+    background-color: #000;
+    color: #fff;
+}
+
+.cover td .ship:hover {
+    background-color: orangered;
+}
+
+.wishlist i {
+    font-size: 24px;
+    color: orangered;
+}
+
+.orderlist>span a {
+    font-size: 15px;
+    float: right;
+    margin: 15px 5px 0 0;
+    color: orangered;
+}
+
+/*_list 끝*/
+/*modal 시작*/
+/*modal 주문내역*/
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal figcaption {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 0 3px 0;
+}
+
+.modal table {
+    width: 500px;
+    text-align: center;
+}
+
+.modal th,
+.modal td {
+    border: 0.5px solid #000;
+    height: 25px;
+}
+
+.modal td.total {
+    height: 30px;
+    text-align: right;
+    padding-right: 5px;
+
+}
+
+.modal th {
+    background-color: #ccc;
+}
+
+.modal .button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.modal .button a {
+    padding: 5px 15px;
+    border: 1px solid;
+    margin: 0 10px;
+}
+
+.modal .button a.close {
+    background-color: #000;
+    color: #fff;
+}
+
+.modal_order {
+    display: none;
+}
+
+/*modal 리뷰작성*/
+
+.modal_review label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.review_star {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.review_star a i.fa-star {
+    font-size: 25px;
+}
+
+/*modal 끝*/
