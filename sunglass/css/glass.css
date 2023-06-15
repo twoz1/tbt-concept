@@ -1,0 +1,153 @@
+
+/* ======================메인<배너======================================== */
+
+#banner {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    /* border: 1px solid; */
+    /* box-sizing: border-box; */
+    margin-bottom: 30px;
+    position: relative;
+    min-width: 1000px;
+}
+
+#banner img {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ======================메인<카테고리================================ */
+
+
+#category>ul {
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    height: 20px;
+    line-height: 20px;
+    width: 100%;
+}
+
+#category>ul::after {
+    content: "";
+    display: block;
+    clear: right;
+}
+
+#category>ul>li {
+    float: right;
+    position: relative;
+    width: 100px;
+}
+
+#category ul ul {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    display: none;
+
+}
+
+#category ul li:hover ul {
+    display: block;
+    font-size: 1em;
+
+}
+
+
+
+/* ======================메인<선글라스 사진============================= */
+.photo_layout {
+    text-align: center;
+    width: 100%;
+    /* border: 1px solid; */
+}
+
+.photo_layout:last-child {
+    margin-top: 5px;
+}
+
+.photo_layout ul {
+    width: 100%;
+}
+
+.photo_layout ul li {
+    width: 24.625%;
+    margin-left: .5%;
+    float: left;
+}
+
+.photo_layout ul li:first-child {
+    margin-left: 0;
+}
+
+img {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.photo_layout ul img:hover {
+    display: block;
+    width: 100%;
+    transform: scale(1.05);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+img:nth-child(2) {
+    display: none;
+}
+
+#photo_2 a:hover img:nth-child(1) {
+    display: none;
+}
+
+#photo_2 a:hover img:nth-child(2) {
+    display: block;
+}
+
+
+/* ==================메인<선글라스 사진 속 텍스트========================================== */
+
+.item_name,
+.item_price {
+    font-size: 13px;
+}
+
+/* div ul li:hover .item_name,
+div ul li:hover .item_price,
+div ul li:hover .shop_now{
+    text-indent: 0;
+    display: block;
+    width: 100%;
+} */
+
+a {
+    color: black;
+}
+
+.shop_now {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* =================메인< 바닥 페이지================================ */
+.next_page {
+    margin-top: 30px;
+    font-size: 2vh;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.next_page a {
+    font-size: 15px;
+    margin: 0 5px 50px;
+}
