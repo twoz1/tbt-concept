@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지 | tbt concept</title>
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="./css/mypage.css">
+    <script src="https://kit.fontawesome.com/990bbe298b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="center h_c"></div>
+    </header>
+    <main>
+        <div class="center m_c">
+            <h2>my page</h2>
+            <div class="member_cover cover">
+                <h3>회원 정보</h3>
+                <div class="member_box">
+                    <div class="member_left">
+                        <div class="round">
+                            <span>회원 등급</span>
+                        </div>
+                        <p>
+                            <span><strong>최고조</strong> 회원님 안녕하세요!</span>
+                            <span>현재 주문건수 2건으로 땡땡 등급입니다.</span>
+                        </p>
+                    </div>
+                    <div class="member_right">
+                        <div class="coupon"></div>
+                        <div class="coupon"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="orderlist cover">
+                <h3>최근 주문 내역</h3>
+                <span><a href="#">MORE<i class="fa-sharp fa-small fa-plus"></i></a></span>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">주문일</th>
+                            <th scope="col">주문번호</th>
+                            <th scope="col">상품정보</th>
+                            <th scope="col">옵션</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">상품금액</th>
+                            <th scope="col">주문상황</th>
+                            <th scope="col">리뷰</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>배송중<a href="#" class="ship">배송조회</a></td>
+                            <td><a href="#">작성하기</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>배송중<a href="#" class="ship">배송조회</a></td>
+                            <td><a href="#">작성하기</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="couponlist cover">
+                <h3>보유중인 쿠폰</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">발급일자</th>
+                            <th scope="col">쿠폰명</th>
+                            <th scope="col">유효기간</th>
+                            <th scope="col">상태</th>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>회원가입 감사 10% 할인 쿠폰</td>
+                            <td>2023-01-31</td>
+                            <td>사용가능</td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>s/s기념 10% 할인 쿠폰</td>
+                            <td>2023-01-31</td>
+                            <td>사용가능</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="wishlist cover">
+                <h3>관심 상품</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">관심등록일</th>
+                            <th scope="col">상품명</th>
+                            <th scope="col">옵션</th>
+                            <th scope="col">상태</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>Black</td>
+                            <td><a href="#"><i class="fa-sharp fa-solid fa-heart"></i></a></td>
+                            <td><a href="#">장바구니에 담기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>Black</td>
+                            <td><a href="#"><i class="fa-sharp fa-solid fa-heart"></i></a></td>
+                            <td><a href="#">장바구니에 담기&gt;</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="center f_c"></div>
+    </footer>
+
+    <div class="modal_cover">
+        <div class="modal_order modal">
+            <figure>
+                <figcaption>주문자 정보</figcaption>
+                <table>
+                    <tr>
+                        <th scope="row">주문번호</th>
+                        <td>20230101S210</td>
+                        <th>주문일자</th>
+                        <td scope="row">2023-01-01</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">주문자</th>
+                        <td>최고조</td>
+                        <th>입금현황</th>
+                        <td scope="row">입금완료</td>
+                    </tr>
+                </table>
+            </figure>
+
+            <figure>
+                <figcaption>배송지 정보</figcaption>
+                <table>
+                    <colgroup>
+                        <col style="width:101px;">
+                        <col style="width:120px;">
+                        <col style="width:120px;">
+                        <col>
+                    </colgroup>
+                    <tr>
+                        <th scope="row">수취인명</th>
+                        <td>최고조</td>
+                        <th>수취인 연락처</th>
+                        <td scope="row">010-1234-1234</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">주소</th>
+                        <td colspan="3">경기도 성남시 수정구 구미동</td>
+                    </tr>
+                </table>
+            </figure>
+
+            <figure>
+                <figcaption>상품 정보</figcaption>
+                <table>
+                    <tr>
+                        <th scope="col">상품명</th>
+                        <th scope="col">옵션</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">금액</th>
+                    </tr>
+                    <tr>
+                        <td>tbt N-01</td>
+                        <td>black</td>
+                        <td>1</td>
+                        <td>100,000원</td>
+                    </tr>
+                    <tr>
+                        <td>tbt N-01</td>
+                        <td>black</td>
+                        <td>1</td>
+                        <td>100,000원</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="total">상품금액 <strong>200,000원</strong> + 배송비 <strong>3,000원</strong> =
+                            <strong>203,000원</strong>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+            <figure>
+                <figcaption>배송 현황</figcaption>
+                <table>
+                    <tr>
+                        <th style="width:101px;">배송사</th>
+                        <td>CJ대한통운</td>
+                        <th>송장번호</th>
+                        <td>1234567890</td>
+                    </tr>
+                </table>
+            </figure>
+            <div class="button">
+                <a href="#">택배 조회 바로가기</a>
+                <a href="#" class="close">닫기</a>
+            </div>
+        </div>
+        <div class="modal_review modal">
+            <form action="#">
+                <table>
+                    <tr>
+                        <td>별점</td>
+                        <td>
+                            <div class="review_star">
+                                <a href="#"><i class="fa-regular fa-star"></i></a>
+                                <a href="#"><i class="fa-regular fa-star"></i></a>
+                                <a href="#"><i class="fa-regular fa-star"></i></a>
+                                <a href="#"><i class="fa-regular fa-star"></i></a>
+                                <a href="#"><i class="fa-regular fa-star"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <label for="star">별점
+                </label>
+                <label for="file">파일 첨부
+                    <input type="file">
+                </label>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
