@@ -1,0 +1,70 @@
+#pop_basket {
+    display: block;
+}
+
+.layer_cont {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 330px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 30px;
+}
+
+.layer_cont>p {
+    margin: 0;
+    display: block;
+    padding: 20px;
+    line-height: 1.4;
+    font-size: 16px;
+}
+/* =====================쇼핑계속하기/쇼핑백확인===================== */
+.btn_wrap {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    height: 37px;
+    line-height: 37px;
+    cursor: pointer;
+}
+
+.btn_wrap a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn_gray_small,
+.btn_black_small {
+    width: 90px;
+    margin: 0 4px;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.btn_gray_small {
+    background-color: #7d7d7d;
+    border: 1px solid #7d7d7d;
+}
+
+.btn_black_small {
+    background-color: black;
+    border: 1px solid #000000;
+}
+
+/* =====================(X)버튼===================== */
+.btn_close {
+    background-color: white;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    color: #4e4e4e;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

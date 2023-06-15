@@ -1,0 +1,52 @@
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+.pop_CS {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    height: auto;
+    width: 600px;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    text-align: left;
+}
+
+.pop_CS h2 {
+    font-size: 18px;
+    margin: 1.5rem 0 0.5rem 1rem;
+}
+
+.pop_CS p {
+    height: auto;
+    width: 560px;
+    font-size: 12px;
+    background-color: rgb(233, 232, 232);
+    border-top: 3px black solid;
+    padding: 0.8rem;
+}
+
+.btn_close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+
+.btn_close button {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    width: 120px;
+    height: 35px;
+}

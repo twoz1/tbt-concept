@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tbt concept</title>
+    <script src="https://kit.fontawesome.com/af2026a640.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="cs1ON1.css">
+</head>
+
+<body>
+    <header>
+        <div class="center h_c"></div>
+    </header>
+
+    <!-- ======================main====================== -->
+    <main>
+        <div class="center m_c">
+            <div class="cs1on1_title">
+                <h2><strong>CUSTOMER SERVICE</strong></h2>
+                <ul>
+                    <li>HOME</li>
+                    <li>&nbsp;&gt;&nbsp;</li>
+                    <li>CUSTOMER SERVICE</li>
+                    <li>&nbsp;&gt;&nbsp;</li>
+                    <li>1 &#58; 1 문의</li>
+                </ul>
+            </div>
+            <hr>
+
+            <div class="cs1on1_subtitle">
+                <h3><strong>1 &#58; 1 문의</strong></h3>
+                <p>
+                    문의하신 사항은 성실하게 답변 드리겠습니다.
+                    문의하기 전에 FAQ를 참고해주세요.
+                </p>
+            </div>
+    <!-- =====================1:1 문의 입력 정보창======================= -->
+            <form action="">
+                <figure>
+                    <!-- <figcaption></figcaption> -->
+                    <table>
+                        <!-- <colgroup>
+                            
+                        </colgroup> -->
+        
+                        <tbody>
+                            <tr class="tr_custInfo">
+                                <th>
+                                    회원정보
+                                    <span class="spanRed">&#42;</span>
+                                </th>
+                                <td>
+                                    <input type="text" maxlength="13" required>
+                                </td>
+                            </tr>
+        
+                            <tr class="tr_inquiry">
+                                <th>
+                                    문의유형
+                                    <span class="spanRed">&#42;</span>
+                                </th>
+                                <td>
+                                    <select required>
+                                        <option value="문의유형선택">문의 유형 선택</option>
+                                        <option value="취소문의">취소문의</option>
+                                        <option value="배송문의">배송문의</option>
+                                        <option value="반품문의">반품문의</option>
+                                        <option value="교환문의">교환문의</option>
+                                        <option value="환불문의">환불문의</option>
+                                        <option value="AS문의">AS문의</option>
+                                        <option value="오류문의">오류문의</option>
+                                    </select>
+    
+                                    <span>
+                                        &#8903; 구매 전 상품문의는 상품페이지 하단 상품 Q&A로 문의해주시기 바랍니다.
+                                    </span>
+                                </td>
+                            </tr>
+        
+                            <tr class="tr_replyAlert">
+                                <th>
+                                    답변 알림
+                                    <span class="spanRed">&#42;</span>
+                                </th>
+                                <td>
+                                    <select required>
+                                        <option value="선택">선택</option>
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="070">070</option>
+                                    </select>
+                                    &ndash;&nbsp;<input type="text" maxlength="4" required>
+                                    &ndash;&nbsp;<input type="text" maxlength="4" required>
+    
+                                    <div>
+                                        <span>
+                                            &#8903; 답변이 등록되면 휴대폰 SMS로 알려드립니다.
+                                        </span>
+    
+                                        <label for="answerYes">
+                                            <input type="radio" name="answer" id="answerYes" value="yes" checked required>예
+                                        </label>
+                                        <label for="answerNo">
+                                            <input type="radio" name="answer" id="answerNo" value="no" required>아니오
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+        
+                            <tr class="tr_inqTitle">
+                                <th>
+                                    제목
+                                    <span class="spanRed">&#42;</span>
+                                </th>
+                                <td>
+                                    <input type="text" maxlength="13" required>
+                                </td>
+                            </tr>
+        
+                            <tr class="tr_inqContent">
+                                <th>
+                                    문의 내용
+                                    <span class="spanRed">&#42;</span>
+                                </th>
+                                <td>
+                                    <div>
+                                        <textarea name="inqContent" cols="120" rows="30" minlength="20" maxlength="500" placeholder="20자 이상 작성하세요. (최대 500자)"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+        
+                            <tr class="tr_fileRef">
+                                <th>
+                                    파일첨부
+                                </th>
+                                <td>
+                                    <input type="file" name="btn_fileRef" id="btn_fileRef" multiple value="파일선택">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
+
+                <div class="privacy_Agree">
+                    <input type="radio" required>
+                    개인정보 수집 및 이용에 대한 동의 (필수)
+                </div>
+
+                <div class="btn_sumit">
+                    <button type="button_gray_cancel">
+                        <a href="">취소</a>
+                    </button>
+                
+                    <button type="button_gray_submit" onclick="location.href='#'">
+                        <a href="">등록</a>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- =====================footer======================= -->
+    <footer>
+        <div class="center f_c"></div>
+    </footer>
+</body>
+
+</html>

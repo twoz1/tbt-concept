@@ -1,0 +1,67 @@
+/* =====================main - subtitle===================== */
+
+.cs_title {
+    text-align: center;
+    margin: 4rem;
+}
+
+.cs_title h2 {
+    font-size: 44px;
+}
+
+.cs_title ul{
+    list-style: none;
+    display: inline-block;
+}
+
+.cs_title li {
+    float: left;
+    font-size: 12px;
+    color: darkgray;
+}
+
+/* =====================main - FAQ search Box===================== */
+.cs_sch {
+    display: flex;
+    border: 2px solid black;
+    width: 1236px;
+    min-width: 90%;
+    height: 160px;
+    margin-top: 4rem;
+}
+
+.cs_schLeft {
+    width: 70%;
+    padding: 2rem;
+}
+
+.cs_inner_schLeft {
+    border-bottom: 2px solid black;
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.cs_schLeft h3 {
+    display: inline-block;
+    font-size: 24px;
+}
+
+.cs_schLeft input{
+    border-width: 0;
+    width: 80%;
+    margin-left: 1.5rem;
+    font-size: 22px;
+}
+
+button {
+    border: none;
+    background-color: white;
+    font-size: 21px;
+    margin-bottom: 0.3rem;
+}
+
+.cs_schRight {
+    background-color: black;
+    width: 30%;
+    justify-content: flex-end;
+}
