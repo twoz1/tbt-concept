@@ -1,0 +1,260 @@
+@charset "uft-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+html {
+    font-size: 14px;
+    color: #000;
+}
+
+.center {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*header영역 시작*/
+.h_c {
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+}
+
+/*로고*/
+.h_c h1.logo {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/*검색창*/
+.h_c .head_search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.h_c .head_search input {
+    width: 400px;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.h_c .head_search button {
+    width: 50px;
+    line-height: 35px;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+/*아이콘 바로가기*/
+.h_icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.h_icon li {
+    display: inline-block;
+    margin: 0 7px;
+
+}
+
+.h_icon li a .fa-solid {
+    display: block;
+    text-decoration: none;
+    font-size: 28px;
+    text-align: center;
+}
+
+/*메뉴gnb*/
+.gnb {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 40px;
+    white-space: nowrap;
+}
+
+.gnb li {
+    display: inline-block;
+    text-align: center;
+    padding: 0 12px;
+    font: 16px bold;
+    position: relative;
+}
+
+.gnb li::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 16px;
+    background-color: #000;
+    position: absolute;
+    top: 2.5px;
+    left: 100%;
+}
+
+.gnb li:last-child::after {
+    display: none;
+}
+
+.gnb li a {
+    text-align: center;
+}
+
+/*header영역 끝*/
+
+.f_c>footer {
+    width: 700px;
+    height: 200px;
+}
+
+.f_c div>pre {
+    display: inline-block;
+    text-align: left;
+    line-height: 2;
+}
+
+.f_c div:nth-of-type(1) {
+    display: inline;
+    text-align: left;
+
+}
+
+.f_c div:nth-of-type(2) {
+    display: inline-block;
+    text-align: left;
+    position: absolute;
+}
+
+.f_c div:nth-of-type(2)>em {
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.538);
+    width: 100px;
+    line-height: 50px;
+}
+
+.m_c {
+    height: auto;
+}
+
+.image_slide_1 {
+    border: solid 0px;
+    background: url(../image/acb8987c810c484780752e1dfc6cc995.jpeg) center/cover; 
+    background-repeat: no-repeat;
+    width: 1240px;
+    height: 300px;
+}
+/*===========image_slide============ */
+/*================================== */
+.what_new{
+    border: solid 1px;
+    font-size: 1.3em;
+    line-height: 300px;
+}
+.what_new_title {
+    display: inline-block;
+}
+.what_new>ul {
+    display: inline-block;
+}
+.img {
+    /* display: inline-block; */
+    white-space: nowrap;
+}
+img {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    margin-top: -156px;
+}
+.front {
+    margin: 0 auto;
+}
+/* ==============new================ */
+/* ================================= */
+.collection{
+    border: solid 1px;
+    font-size: 1.3em;
+    height: 300px;
+}
+/* ===========collection============ */
+/* ================================= */
+.best {
+    border: solid 1px;
+    font-size: 1.3em;
+    height: 300px;
+}
+/* ==============best=============== */
+/* ================================= */
+
+/* ================================= */
+/* ==============main=============== */
+
+.f_c {
+    height: 200px;
+    background-color: rgba(128, 128, 128, 0.412);
+}
+
+.foot_left>p {
+    white-space: pre-line;
+    display: inline-block;
+    line-height: 30px;
+    width: 50%;
+    margin-left: 200px;
+    margin-top: 25px;
+    opacity: .8;
+}
+
+.foot_right {
+    margin-top: 30px;
+}
+
+.foot_right>em {
+    white-space: pre-line;
+    display: inline-block;
+    width: 30px;
+}
+
+.foot_right>p {
+    line-height: 2;
+    margin-top: 23px;
+}
+
+.foot_direct_button {
+    display: inline-block;
+    text-align: center;
+    margin-left: 260px;
+    background-color: rgba(255, 255, 255, 0.519);
+    line-height: 120px;
+    /* margin-top: 50px; */
+}
+
+
+
+
+
+/* ================================= */
+/* ==============footer============= */

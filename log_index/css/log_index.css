@@ -1,0 +1,367 @@
+@charset "uft-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+html {
+    font-size: 14px;
+    color: #000;
+}
+
+.center {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/*header영역 시작*/
+.h_c {
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+}
+.h_c>p{
+    float: right;
+    margin-top: 30px;
+    margin-right: 40px;
+    opacity: .4;
+}
+/*로고*/
+.h_c h1.logo {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/*검색창*/
+.h_c .head_search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.h_c .head_search input {
+    width: 400px;
+    border: 1px solid #000;
+    padding: 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+
+}
+
+.h_c .head_search button {
+    width: 50px;
+    line-height: 35px;
+    border: 0px solid #000;
+    background-color: #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/*아이콘 바로가기*/
+.h_icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.h_icon li {
+    display: inline-block;
+    margin: 0 7px;
+
+}
+
+.h_icon li a .fa-solid {
+    display: block;
+    text-decoration: none;
+    font-size: 28px;
+    text-align: center;
+}
+
+/*메뉴gnb*/
+.gnb {
+    position: absolute;
+    bottom: 0;
+    left: 48%;
+    transform: translateX(-50%);
+    line-height: 40px;
+    white-space: nowrap;
+}
+
+.gnb li {
+    display: inline-block;
+    text-align: center;
+    padding: 0 12px;
+    font: 16px bold;
+    position: relative;
+}
+
+.gnb li::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 16px;
+    background-color: #000;
+    position: absolute;
+    top: 2.5px;
+    left: 100%;
+}
+
+.gnb li:last-child::after {
+    display: none;
+}
+
+.gnb li a {
+    text-align: center;
+}
+
+/*=============header영역 끝===============*/
+/*========================================*/
+
+
+
+/*=============main 시작=================*/
+/*========================================*/
+
+
+.m_c {
+    height: auto;
+}
+
+.image_slide_1,
+.what_new,
+.collection,
+.best {
+    margin: 50px 0 50px 0;
+}
+
+hr {
+    font-size: 3px;
+}
+
+.image_slide_1 {
+    border: solid 0px;
+    background: url(../image/acb8987c810c484780752e1dfc6cc995.jpeg) center/cover;
+    background-repeat: no-repeat;
+    width: 1240px;
+    height: 300px;
+}
+
+/*===========image_slide============ */
+/*================================== */
+.what_new {
+    border: solid 0px;
+    font-size: 1.3em;
+    height: 400px;
+    background-color: #fff;
+}
+
+.what_new_title {
+    text-align: center;
+    width:170px;
+    height: 400px;
+    line-height: 390px;
+    float: left;
+}
+
+.what_new li {
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    margin-left: 4%;
+}
+.what_new li:first-child {
+    
+    margin-left: 0%;
+}
+
+.what_new>ul {
+    white-space: nowrap;
+    /* width: calc(100% - 80px); */
+    float: left;
+}
+.what_new_item {
+    width:  calc(100% - 18%);
+    float: left;
+}
+
+.what_new button {
+    margin: 177px 10px;
+    float: left;
+    border: solid 0px;
+    font-size: 30px;
+    background-color: #fff;
+}
+
+img {
+    width: 225px;
+    height: 300px;
+}
+
+img:nth-child(2) {
+    display: none;
+    
+}
+
+.what_new li a:hover img:nth-child(1) {
+    display: none;
+}
+
+.what_new li a:hover img:nth-child(2) {
+    display: block;
+    width: 250px;
+    height: 320px;
+}
+
+/* ============what`snew============ */
+/* ================================= */
+.collection {
+    border: solid 0px;
+    line-height: 400px;
+    text-align: center;
+    background: url(../image/collection.jpg) center/cover;
+    background-size: 1500px 800px;
+    background-position-x: -200px;
+}
+.collection>a {
+    color: #fff;
+    font-size: 30px;
+}
+
+
+/* ===========collection============ */
+/* ================================= */
+.best {
+    border: solid 0px;
+    font-size: 1.3em;
+    height: 400px;
+    background-color: rgba(128, 128, 128, 0.227);
+}
+
+.best_title {
+    text-align: center;
+}
+
+.best_item li {
+    display: inline-block;
+    text-align: center;
+    width: 295px;
+}
+
+
+.best_item>ul {
+    white-space: nowrap;
+}
+
+.best_item button {
+    border: solid 0px;
+    font-size: 30px;
+    background-color: rgba(194, 194, 194, 0.028);
+}
+
+
+.best_item li a:hover img:nth-child(1) {
+    display: none;
+}
+
+.best_item li a:hover img:nth-child(2) {
+    display: block;
+    width: 300px;
+    height: 350px;
+}
+
+/* ==============best=============== */
+/* ================================= */
+
+/* ================================= */
+/* ============main영역 끝============ */
+
+.f_c {
+    height: 200px;
+    background-color: rgba(128, 128, 128, 0.412);
+}
+
+.foot_left>p {
+    white-space: pre-line;
+    display: inline-block;
+    line-height: 30px;
+    width: 50%;
+    margin-left: 200px;
+    margin-top: 25px;
+    opacity: .8;
+}
+
+.foot_right {
+    margin-top: 30px;
+}
+
+.foot_right>em {
+    white-space: pre-line;
+    display: inline-block;
+    width: 30px;
+}
+
+.foot_right>p {
+    line-height: 2;
+    margin-top: 23px;
+}
+
+.foot_direct_button {
+    display: inline-block;
+    text-align: center;
+    margin-left: 260px;
+    background-color: rgba(255, 255, 255, 0.519);
+    line-height: 120px;
+    /* margin-top: 50px; */
+}
+
+
+.f_c>footer {
+    width: 700px;
+    height: 200px;
+}
+
+.f_c div>pre {
+    display: inline-block;
+    text-align: left;
+    line-height: 2;
+}
+
+.f_c div:nth-of-type(1) {
+    display: inline;
+    text-align: left;
+
+}
+
+.f_c div:nth-of-type(2) {
+    display: inline-block;
+    text-align: left;
+    position: absolute;
+}
+
+.f_c div:nth-of-type(2)>em {
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.538);
+    width: 100px;
+    line-height: 50px;
+}
+/* ================================= */
+/* ==============footer============= */
