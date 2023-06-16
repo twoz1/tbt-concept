@@ -13,8 +13,59 @@
 
 <body>
     <header>
-        <div class="center h_c"></div>
+        <div class="center h_c">
+            <h1 class="logo">
+                <a href="./index.html">TbT concept</a>
+            </h1>
+            <form class="head_search" action="./index.html" method="get">
+                <input name="query" type="text" value="">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <ul class="h_icon">
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>JOIN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login/log_in.html">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>LOGIN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./mypage/mypage.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>MY</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>CART</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="gnb">
+                <li>
+                    <a href="./new_goods/newGoods.html">NEW</a>
+                </li>
+                <li>
+                    <a href="#">COLLECTION</a>
+                </li>
+                <li>
+                    <a href="#">GLASSES</a>
+                </li>
+                <li>
+                    <a href="./sunglass/sunglass.html">SUNGLASSES</a>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                </li>
+            </ul>
     </header>
+    <hr>
     <main>
         <div class="center m_c">
             <h2>my page</h2>
@@ -229,6 +280,7 @@
         <div class="modal_review modal">
             <form action="#">
                 <table>
+                    <caption>리뷰작성</caption>
                     <tr>
                         <td>별점</td>
                         <td>
@@ -241,15 +293,20 @@
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>파일첨부</td>
+                        <td><input type="file" name="review_file"></td>
+                    </tr>
+                    <tr>
+                        <td>리뷰작성</td>
+                        <td><textarea name="review_text" id="review_text" placeholder="30자 이상 200자 이하"></textarea></td>
+                    </tr>
                 </table>
-                <label for="star">별점
-                </label>
-                <label for="file">파일 첨부
-                    <input type="file">
-                </label>
+                <div class="review_button">
+                    <button type="reset">초기화</button>
+                    <button>완료</button>
+                </div>
             </form>
-        </div>
-    </div>
 </body>
 
 </html>

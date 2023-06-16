@@ -156,73 +156,112 @@ table {
     transform: translate(-50%, -50%);
 }
 
-.modal figcaption {
+.modal_order figcaption {
     font-size: 16px;
     font-weight: bold;
     margin: 15px 0 3px 0;
 }
 
-.modal table {
+.modal_order table {
     width: 500px;
     text-align: center;
 }
 
-.modal th,
-.modal td {
-    border: 0.5px solid #000;
+.modal_order th,
+.modal_order td {
+    border: 1px solid #000;
     height: 25px;
 }
 
-.modal td.total {
+.modal_order td.total {
     height: 30px;
     text-align: right;
     padding-right: 5px;
 
 }
 
-.modal th {
+.modal_order th {
     background-color: #ccc;
 }
 
-.modal .button {
+.modal_order .button {
     margin-top: 50px;
     text-align: center;
 }
 
-.modal .button a {
+.modal_order .button a {
     padding: 5px 15px;
     border: 1px solid;
     margin: 0 10px;
 }
 
-.modal .button a.close {
+.modal_order .button a.close {
     background-color: #000;
     color: #fff;
 }
 
-.modal_order {
-    /* display: none; */
-}
-
 /*modal 리뷰작성*/
 
-.modal_review label {
+.modal_review caption {
+    font-size: 24px;
+    text-align: left;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.modal_review table tr td {
+    padding: 10px 0;
     font-size: 16px;
-    display: block;
-    margin-bottom: 20px;
+}
+
+.modal_review table tr td:first-child {
+    width: 120px;
+    font-weight: bold;
 }
 
 .review_star {
     display: inline-block;
-    margin-left: 20px;
 }
 
 .review_star a i.fa-star {
     font-size: 25px;
 }
 
+.modal_review td textarea {
+    width: 300px;
+    height: 150px;
+    border: 1px solid;
+    outline: 0;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.review_button {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.review_button button {
+    padding: 7px 15px;
+    font-size: 14px;
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.review_button button:last-child {
+    margin-left: 10px;
+}
+
+.review_button button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 /*modal 끝*/
 
-.modal_review {
+.modal_cover {
     display: none;
 }
