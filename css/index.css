@@ -32,12 +32,7 @@ html {
     height: 150px;
     background-color: rgb(255, 255, 255);
 }
-.h_c>p{
-    float: right;
-    margin-top: 30px;
-    margin-right: 40px;
-    opacity: .4;
-}
+
 /*로고*/
 .h_c h1.logo {
     font-size: 30px;
@@ -66,11 +61,11 @@ html {
 }
 
 .h_c .head_search button {
-    width: 50px;
+    width: 5px;
     line-height: 35px;
     border: 0px solid #000;
     background-color: #fff;
-    color: #fff;
+    color: #000;
     cursor: pointer;
 }
 
@@ -99,7 +94,7 @@ html {
 .gnb {
     position: absolute;
     bottom: 0;
-    left: 48%;
+    left: 50%;
     transform: translateX(-50%);
     line-height: 40px;
     white-space: nowrap;

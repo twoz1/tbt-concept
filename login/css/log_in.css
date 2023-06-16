@@ -61,11 +61,11 @@ html {
 }
 
 .h_c .head_search button {
-    width: 50px;
+    width: 5px;
     line-height: 35px;
     border: 0px solid #000;
     background-color: #fff;
-    color: #fff;
+    color: #000;
     cursor: pointer;
 }
 
@@ -142,12 +142,12 @@ html {
     font-size: 50px;
     line-height: 50px;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 .member_log {
     font-size: 20px;
     font-weight: bold;
-    height: 200px;
+    /* height: 200px; */
     width: 600px;
     margin: 50px auto;
     position: relative;
@@ -175,6 +175,7 @@ html {
     margin-left: 40px;
 }
 .log_button>button {
+    background-color: rgba(128, 128, 128, 0.395);
     position: absolute;
     width: 150px;
     height: 100px;
@@ -195,6 +196,23 @@ html {
 .join>a {
     background-color: rgba(128, 128, 128, 0.464);
     
+}
+
+.new_join_wrap {
+    font-size: 20px;
+    /* font-weight: bold; */
+    height: 200px;
+    width: 600px;
+    margin: 50px auto;
+    position: relative;
+    display: inline-block;
+}
+
+.join_opt>ul {
+    white-space: nowrap;
+}
+.join_opt li {
+    display: inline-block;
 }
 /* ================================= */
 /* ==============main=============== */
