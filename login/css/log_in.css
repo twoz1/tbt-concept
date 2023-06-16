@@ -201,18 +201,36 @@ html {
 .new_join_wrap {
     font-size: 20px;
     /* font-weight: bold; */
-    height: 200px;
+    height: 100px;
     width: 600px;
     margin: 50px auto;
     position: relative;
     display: inline-block;
+    display: flex;
+}
+.join_sns {
+    width: 300px;
+    display: flex;
+    display: inline-block;
+}
+.join_sns>p{
+    display: inline-block;
+    opacity: .4;
+    
 }
 
 .join_opt>ul {
     white-space: nowrap;
+    display: inline-block;
+    width: 0px;
+    float: right;
 }
 .join_opt li {
     display: inline-block;
+}
+.join_opt li img {
+    width: 40px;
+    height: 40px;
 }
 /* ================================= */
 /* ==============main=============== */
