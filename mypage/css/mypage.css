@@ -201,7 +201,7 @@ table {
 }
 
 .modal_order {
-    display: none;
+    /* display: none; */
 }
 
 /*modal 리뷰작성*/
@@ -222,3 +222,7 @@ table {
 }
 
 /*modal 끝*/
+
+.modal_review {
+    display: none;
+}
