@@ -1,0 +1,188 @@
+body>* {
+    margin: 0;
+    padding: 0;
+}
+
+/* =====================main - subtitle===================== */
+.basket_title {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.basket_title h2 {
+    font-size: 44px;
+}
+
+.basket_title ul {
+    list-style: none;
+    display: inline-block;
+}
+
+.basket_title li {
+    float: left;
+    font-size: 12px;
+    color: darkgray;
+}
+
+/* =====================main - table===================== */
+.basket_box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-width: 1220px;
+}
+
+.basket_table h3 {
+    font-size: 22px;
+    margin: 6rem 0 0.5rem 0.5rem;
+}
+
+.basket_box form {
+    width: 70%;
+    min-width: 820px;
+}
+
+.basket_table table {
+    width: 100%;
+    min-width: 720px;
+    border: solid 2px black;
+    border-right: none;
+    border-left: none;
+    border-collapse: collapse;
+}
+
+.basket_table table tr {
+    border-bottom: 1px solid darkgray;
+}
+
+.basket_table thead {
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.basket_table tbody tr {
+    height: 130px;
+    font-size: 14px;
+}
+
+.basket_table tr th:first-of-type {
+    width: 5%;
+}
+
+.basket_table tr th:first-of-type input {
+    cursor: pointer;
+}
+
+.basket_table thead tr th:nth-of-type(2) {
+    width: 52%;
+}
+
+.basket_table thead tr th:nth-of-type(3) {
+    width: 15%;
+}
+
+.basket_table thead tr th:nth-of-type(3) {
+    width: 28%;
+}
+
+.goods_name {
+    width: 52%;
+    display: flex;
+    margin: calc((130px - 110px)/2) 2rem;
+}
+
+.goods_name img {
+    width: 110px;
+    height: 110px;
+}
+
+.goods_name span {
+    margin-top: 0.5rem;
+    margin-left: 0.8rem;
+}
+
+.goods_quantity {
+    width: 15%;
+    text-align: center;
+}
+
+.goods_quantity select {
+    cursor: pointer;
+}
+
+.goods_price {
+    width: 28%;
+    text-align: center;
+}
+
+.basket_payment {
+    margin-left: auto;
+    margin-top: 8.7rem;
+    background-color: #eee;
+    width: 25%;
+    min-width: 300px;
+    height: 300px;
+    text-align: center;
+}
+
+.basket_payment h3{
+    font-size: 18px;
+    margin: 2rem 0 2rem 0;
+}
+
+.basket_payment hr {
+    margin: 0 0 2rem 0;
+}
+.basket_payment ul {
+    height: 180px;
+    text-align: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    list-style: none;
+}
+
+.basket_payment ul li {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.basket_payment ul li strong {
+    font-size: 16px;
+    margin: 0.2rem;
+}
+
+.basket_payment button {
+    border: none;
+    background-color: black;
+    width: 305px;
+    height: 50px;
+    flex-direction: end;
+    cursor: pointer;
+}
+
+.basket_payment button a {
+    color: white;
+}
+
+.btn_bottom button {
+    border: none;
+    height: 40px;
+    width: 150px;
+    margin: 2rem 0 8rem 0;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.btn_bottom button:nth-of-type(1) {
+    background-color: white;
+}
+
+.btn_bottom button:nth-of-type(2) {
+    background-color: black;
+}
+
+.btn_bottom button:nth-of-type(2) a {
+    color: white;
+}

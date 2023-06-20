@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tbt concept</title>
     <script src="https://kit.fontawesome.com/af2026a640.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href=".//css/cs_total.css">
+    <link rel="stylesheet" href="../cs_total/css/cs_total.css">
+    <link rel="stylesheet" href="../header_footer.css">
 </head>
 
 <body>
@@ -32,31 +33,28 @@
                 <!-- =====================검색 상단바======================= -->
                 <div class="cs_sch">
                     <div class="cs_schLeft">
-                        <div class="cs_inner_schLeft">
-                            <h3>
-                                <strong>FAQ<br>SEARCH</strong>
-                            </h3>
+                        <span>
+                            <strong>FAQ<br>SEARCH</stronlog>
+                        </span>
 
-                            <label for="schText">
-                                <!-- input 엔터기능 구현하기 -->
-                                <input type="text" id="schText" placeholder="검색 후 문의가 해결되지 않으면 1&#58;1 상담을 이용하세요&#46;"
-                                    maxlength="26">
-                            </label>
+                        <label for="schText">
+                            <input type="text" id="schText" placeholder="검색 후 문의가 해결되지 않으면 1&#58;1 상담을 이용하세요&#46;" maxlength="26">
+                        </label>
 
-                            <button type="submit" name="button" onclick="location.href='#'">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <!-- <hr> -->
-                        </div>
+                        <button type="submit" name="button" onclick="location.href='#'">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
 
                     <div class="cs_schRight">
-                        <h3>
-                            <strong>고객센터 이용안내</strong>
-                            <p>1566&#45;1234</p>
-                            <p>운영시간 &#58; 평일 09&#58;00 &#126; 18&#58;00
-                                (점심시간 &#58; 12&#58;30 &#126; 13&#58;30)</p>
-                        </h3>
+                        <div>
+                            <span><strong>고객센터 이용안내</strong></span>
+                            <p>
+                                1566&#45;1234<br>
+                                운영시간 &#58; 평일 09&#58;00 &#126; 18&#58;00<br>
+                                (점심시간 &#58; 12&#58;30 &#126; 13&#58;30)
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -99,7 +97,7 @@
                         <div>
                             <p>
                                 <a href="#">
-                                    <strong>&#91;취소&#93;</strong>
+                                   <strong>&#91;취소&#93;</strong>
                                     주문을 취소하고 싶어요&#46;
                                 </a>
                             </p>
@@ -243,24 +241,18 @@
                 <li>1 &#58; 1 문의</li>
             </ul>
         </div>
-        <hr>
     
-        <div class="cs1on1_subtitle">
-            <h3><strong>1 &#58; 1 문의</strong></h3>
-            <p>
-                문의하신 사항은 성실하게 답변 드리겠습니다.
-                문의하기 전에 FAQ를 참고해주세요.
-            </p>
-        </div>
     <!-- ==========1:1 문의 입력 정보창=========== -->
-        <form action="">
+        <form  class="subtitle_1on1" action="">
             <figure>
-                <!-- <figcaption></figcaption> -->
+                <figcaption><strong>1&#58;1 문의</strong></figcaption>
+            
+                <p>
+                  문의하신 사항은 성실하게 답변 드리겠습니다.
+                  문의하기 전에 FAQ를 참고해주세요.
+                </p>
+            
                 <table>
-                    <!-- <colgroup>
-                        
-                    </colgroup> -->
-    
                     <tbody>
                         <tr class="tr_custInfo">
                             <th>
@@ -271,7 +263,7 @@
                                 <input type="text" maxlength="13" required>
                             </td>
                         </tr>
-    
+                    
                         <tr class="tr_inquiry">
                             <th>
                                 문의유형
@@ -288,13 +280,13 @@
                                     <option value="AS문의">AS문의</option>
                                     <option value="오류문의">오류문의</option>
                                 </select>
-    
+                            
                                 <span>
                                     &#8903; 구매 전 상품문의는 상품페이지 하단 상품 Q&A로 문의해주시기 바랍니다.
                                 </span>
                             </td>
                         </tr>
-    
+                    
                         <tr class="tr_replyAlert">
                             <th>
                                 답변 알림
@@ -312,12 +304,12 @@
                                 </select>
                                 &ndash;&nbsp;<input type="text" maxlength="4" required>
                                 &ndash;&nbsp;<input type="text" maxlength="4" required>
-    
+                            
                                 <div>
                                     <span>
                                         &#8903; 답변이 등록되면 휴대폰 SMS로 알려드립니다.
                                     </span>
-    
+                                
                                     <label for="answerYes">
                                         <input type="radio" name="answer" id="answerYes" value="yes" checked required>예
                                     </label>
@@ -327,7 +319,7 @@
                                 </div>
                             </td>
                         </tr>
-    
+                    
                         <tr class="tr_inqTitle">
                             <th>
                                 제목
@@ -337,7 +329,7 @@
                                 <input type="text" maxlength="13" required>
                             </td>
                         </tr>
-    
+                    
                         <tr class="tr_inqContent">
                             <th>
                                 문의 내용
@@ -349,7 +341,7 @@
                                 </div>
                             </td>
                         </tr>
-    
+                    
                         <tr class="tr_fileRef">
                             <th>
                                 파일첨부
@@ -361,18 +353,18 @@
                     </tbody>
                 </table>
             </figure>
-    
+        
             <div class="privacy_Agree">
                 <input type="radio" required>
                 개인정보 수집 및 이용에 대한 동의 (필수)
             </div>
-    
+        
             <div class="btn_sumit">
-                <button type="button_gray_cancel">
+                <button type="submit">
                     <a href="">취소</a>
                 </button>
             
-                <button type="button_gray_submit" onclick="location.href='#'">
+                <button type="submit" onclick="location.href='#'">
                     <a href="">등록</a>
                 </button>
             </div>
