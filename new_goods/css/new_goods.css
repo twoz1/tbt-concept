@@ -42,7 +42,7 @@ body * {
     margin-bottom: 8rem;
 }
 
-/* =====================main - glass / sunglass===================== */
+/* =====================main - (glass / sunglass) 레이아웃 똑같음===================== */
 .new_glass {
     margin-bottom: 8rem;
 }
@@ -59,7 +59,7 @@ body * {
     background-color: white;
     border: none;
     color: black;
-    font-size: 24px;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -87,6 +87,17 @@ body * {
     height: 400px;
 }
 
+.new_glass_img ul li a:nth-of-type(2) {
+    display: none;
+}
+
+.new_glass_img ul li:hover a:nth-of-type(1) {
+    display: none;
+}
+
+.new_glass_img ul li:hover a:nth-of-type(2) {
+    display: block;
+}
 /* =====================main - new_slide_poster===================== */
 
 .new_slide_poster {
