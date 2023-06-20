@@ -31,9 +31,13 @@
     cursor: pointer;
 }
 
-.btn_wrap a {
+.btn_wrap div a {
     text-decoration: none;
     color: white;
+}
+
+.btn_wrap div:first-of-type a {
+    color: black;
 }
 
 .btn_gray_small,
@@ -45,8 +49,8 @@
 }
 
 .btn_gray_small {
-    background-color: #7d7d7d;
-    border: 1px solid #7d7d7d;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .btn_black_small {
