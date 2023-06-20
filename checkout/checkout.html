@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="./css/checkout.css">
+    <script src="https://kit.fontawesome.com/990bbe298b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="center h_c">
+            <h1 class="logo">
+                <a href="./index.html">TbT concept</a>
+            </h1>
+            <form class="head_search" action="./index.html" method="get">
+                <input name="query" type="text" value="">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <ul class="h_icon">
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>CART</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./mypage/mypage.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>MY</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login/log_in.html">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>LOGIN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>JOIN</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="gnb">
+                <li>
+                    <a href="./new_goods/newGoods.html">NEW</a>
+                </li>
+                <li>
+                    <a href="./collection/collection.html">COLLECTION</a>
+                </li>
+                <li>
+                    <a href="#">GLASSES</a>
+                </li>
+                <li>
+                    <a href="./sunglass/sunglass.html">SUNGLASSES</a>
+                </li>
+                <li>
+                    <a href="./cs_total/csTotal.html">고객센터</a>
+                </li>
+            </ul>
+    </header>
+
+
+    <main>
+        <div class="quick_menu">
+            <div class="side_bar">
+                <div class="direct">
+                    <span class="to_top">
+                        <span><a href="#"><i class="fa-solid fa-chevron-up"></i></a></span>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+        <div class="image_slide">
+            <ul>
+                <li class="image_slide_1"></li>
+
+            </ul>
+        </div>
+        <div class="center m_c">
+            <h2 class="title">Checkout</h2>
+            <span class="sub_title">쇼핑백<i class="fa-solid fa-chevron-right"></i><span class="ch_sec">주문결제</span><i
+                    class="fa-solid fa-chevron-right"></i>결제완료</span>
+            <form action="server.html">
+
+                <div class="checkout">
+                    <h2 class="address-tit">배송지 정보</h2>
+                    <h3><span>&#42;</span>필수항목</h3>
+                </div>
+
+                <table class="information">
+                    <tbody>
+                        <tr>
+                            <th>배송지 선택 <span>&#42;</span></th>
+                            <td class="address">
+                                <span><input type="radio" checked required>기본주소</span>
+                                <span><input type="radio">최근 배송지</span>
+                                <span><input type="radio">새로 입력</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>받으시는 분 <span>&#42;</span></th>
+                            <td class="receiver">
+                                <input type="text" name="receiver_name" id="receiver_name_read" placeholder="최*조"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>휴대폰 번호 <span>&#42;</span></th>
+                            <td class="receiver_phone"><select name="receiver_phone" id="receiver_phone_read">
+
+                                    <optgroup label="receiver_name_phone">
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="070">070</option>
+                                    </optgroup>
+                                </select>
+                                <input type="text" minlength="3" maxlength="4">
+                                <input type="text" minlength="4" maxlength="4">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>배송 주소 <span>&#42;</span></th>
+                            <td class="customer_address">
+                                <input type="text" minlength="7">
+                                <p><input type="text" placeholder="상세주소를 입력해주세요"><input type="text"
+                                        style="margin-left: 5px;"></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>배송 메세지</th>
+                            <td class="message"> <input type="text" placeholder="메세지를 입력하세요."></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="checkout">
+                    <h2 class="item_tit">주문상품</h2>
+                </div>
+                <table class="item">
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <th>상품정보</th>
+                            <th>수량</th>
+                            <th>가격</th>
+                            <th>총 상품 금액</th>
+                            <th>배송비</th>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <th class="item_img"><img src="../image/glass_1.jpeg" alt=""></th>
+                            <td>1</td>
+                            <td>30,000</td>
+                            <td>30,000</td>
+                            <td>무료</td>
+                        </tr>
+
+                        <tr>
+                            <td><span>&#42;</span>제주&#47;도서산간 지역의 경우 추가 배송비가 발생할 수 있습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="checkout">
+                    <h2 class="discount_tit">할인받기</h2>
+                </div>
+                <table class="discount">
+                    <tbody>
+                        <tr>
+                            <th>결제 예정금액</th>
+                            <td>30,000</td>
+                        </tr>
+                        <tr>
+                            <th>할인 쿠폰</th>
+                            <td><input type="text" placeholder="쿠폰을 사용해보세요."><span>원</span> <button>쿠폰사용 조회하기</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>T Ponit</th>
+                            <td><input type="text"><span>P</span><input type="checkbox">모두사용하기</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="checkout">
+                    <h2 class="pay_tit">결제수단</h2>
+                </div>
+                <table class="pay">
+                    <tbody>
+                        <tr>
+                            <th colspan="2"><input type="radio">일반결제</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2"><a href="pay1">신용카드</a><a href="pay2">간편결제</a><a href="pay3">휴대폰결제</a></th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <select name="pay_select" id="pay_select_read">
+                                    <optgroup label="pay_select">
+
+                                        <option value="difault">카드선택</option>
+                                        <option value="신한">신한카드</option>
+                                        <option value="농협">농협카드</option>
+                                        <option value="국민">국민카드</option>
+                                        <option value="삼성">삼성카드</option>
+                                    </optgroup>
+                                </select>
+                                <select name="pay_month_select" id="pay_month_select_read">
+                                    <optgroup label="pay_month_select">
+                                        <option value="difault">할부선택</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </optgroup>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <pre>-할부 최소 금액은 5만원이며 30만원 이상 결제 시에 카드사에 따라 공인인증 사용이 요구될 수 있습니다.
+-청구할인은 카드사에서 제공하며, 결제대금의 청구 시점에 차감 청구되는 할인 방식입니다.
+-수협, 광주, 전북JB, MG 새마을, 우체국, 저축은행, 산업, 제주, 신협, 현대증권카드는 사용할 수 없습니다.</pre>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="center f_c">
+            <div class="foot_left">
+                <p>
+                    상호명 : TbT concept ㅣ 주소 : 경기도 성남시 분당구 돌마로 46 &#40;광천빌딩 5층&#41;
+                    카피라이트 :&copy;&#40;주&#41;티비티컨셉코리아&nbsp;ALL&nbsp;RIGHT&nbsp;RESERVED ㅣ 사업자등록번호 : 221-90-2000
+                    개인정보보호책임자 : 최고조 ㅣ 호스팅서비스 :&#40;TBT concept&#41;
+                </p>
+            </div>
+            <div class="foot_right">
+                <em>고객센터</em>
+                <p>
+                    전화번호 : 031-1234-5678<br>
+                    운영시간 : 09:00 ~ 18:00
+                </p>
+            </div>
+            <div class="foot_direct_button">
+                <a href="./cs_total/csTotal.html">바로가기</a>
+            </div>
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

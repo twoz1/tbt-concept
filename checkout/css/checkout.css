@@ -1,0 +1,263 @@
+.title {
+    font-size: 44px;
+    text-align: center;
+    margin: 50px 0 30px 0;
+}
+
+.sub_title {
+    width: 100%;
+    height: 0;
+    color: gray;
+    font-size: 20px;
+    letter-spacing: 25px;
+    margin: 0px 30%;
+    white-space: nowrap;
+}
+
+.ch_sec {
+    margin: 0;
+    opacity: 1;
+    color: black;
+
+}
+
+.to_top i {
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.quick_menu {
+    z-index: 100;
+    position: fixed;
+    right: 130px;
+    bottom: 50px;
+}
+
+/* =========================== */
+/* ============title========== */
+.checkout h3 {
+    margin-left: 70%;
+}
+
+.checkout h3>span {
+    color: orangered;
+}
+
+.address-tit {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 40px 0 20px 0;
+}
+
+.information {
+    border: 2px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    width: 75%;
+    height: 30%;
+}
+
+.information tr:nth-last-child(1) th {
+    border: 0px;
+}
+
+.information th>span {
+    color: orangered;
+}
+
+.information tr,
+th,
+td {
+    border-bottom: 1px solid gray;
+    height: 70px;
+}
+
+.address input {
+    width: 10%;
+}
+
+.receiver input {
+    width: 300px;
+    height: 20px;
+    margin-left: 30px;
+}
+
+.receiver_phone>select {
+    margin-left: 30px;
+    height: 25px;
+}
+
+.receiver_phone input {
+    width: 60px;
+    height: 20px;
+}
+
+.customer_address input {
+    width: 250px;
+    height: 20px;
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+.customer_address p>input {
+    width: 400px;
+    height: 20px;
+}
+
+.customer_address p>input+input {
+    width: 200px;
+    height: 20px;
+}
+
+.message {
+    border: 0px solid;
+}
+
+.information tr:nth-last-of-type(2)>td {
+    margin: 0 auto;
+}
+
+/* ================================ */
+/* =========information============ */
+.item_tit {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 20px 0 20px 0;
+}
+
+.item {
+    border: 2px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    width: 75%;
+    height: 30%;
+}
+
+.item th * {
+    width: 40%;
+}
+
+.item td {
+    width: 15%;
+    text-align: center;
+}
+
+.item tr:nth-last-child(1) td {
+    border: 0px;
+    text-align: left;
+    font-size: 12px;
+    color: gray;
+    margin-left: 100px;
+    width: 500px;
+}
+
+.message input {
+    margin-left: 30px;
+    width: 300px;
+    height: 20px;
+}
+
+.item_img img {
+    width: 100px;
+    height: 140px;
+}
+
+.item tr:nth-last-of-type(1) span {
+    color: orangered;
+}
+
+/* ================================== */
+/* ===============item=============== */
+.discount_tit {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 20px 0 20px 0;
+}
+
+.discount {
+    border: 2px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    width: 75%;
+    height: 30%;
+}
+
+.discount tr:nth-last-of-type(1) th {
+    border: 0px;
+}
+
+.discount tr:nth-last-of-type(1) td {
+    border: 0px;
+}
+
+.discount tr,
+th,
+td {
+    border-bottom: 1px solid gray;
+    height: 70px;
+}
+
+/* ===================================== */
+/* ==============discount=============== */
+.pay_tit {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 20px 0 20px 0;
+}
+
+.pay {
+    border: 2px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    width: 75%;
+    height: 30%;
+}
+
+.pay tr:nth-of-type(1) th {
+    text-align: left;
+}
+
+.pay tr:nth-of-type(1) th>input {
+    margin-left: 100px;
+}
+
+.pay tr:nth-of-type(2) th {
+    text-align: left;
+}
+
+.pay tr:nth-of-type(2) th>a {
+    margin-left: 100px;
+}
+
+.pay tr:nth-of-type(1) th {
+    text-align: left;
+}
+
+.pay tr:nth-last-of-type(2) th {
+    background-color: rgba(128, 128, 128, 0.103);
+    border: 0px;
+    text-align: left;
+}
+
+.pay tr:nth-last-of-type(2) select {
+    margin-left: 100px;
+}
+
+
+
+.pay tr:nth-last-of-type(1) th {
+    border: 0px;
+    text-align: justify;
+    color: gray;
+    font-size: 10px;
+    background-color: rgba(128, 128, 128, 0.103);
+}
+
+/* ===================================== */
+/* ================pay================== */
