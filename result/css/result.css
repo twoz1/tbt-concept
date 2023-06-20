@@ -3,7 +3,7 @@
     height: 200px;
     overflow: hidden;
     background-color: #000;
-    position:relative;
+    position: relative;
 }
 
 .img_box a,
@@ -14,10 +14,10 @@
     opacity: .9;
 }
 
-.img_box a img{
-    position:absolute;
-    top:-60px;
-    left:0;
+.img_box a img {
+    position: absolute;
+    top: -60px;
+    left: 0;
 }
 
 .result_cover {
@@ -51,7 +51,7 @@
     float: left;
 }
 
-.button_cover .button a:hover {
+.button_cover .button:last-of-type a {
     background-color: #000;
     color: #fff;
 }

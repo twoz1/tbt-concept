@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매장찾기 &#124; TBT concept &#40;TBT컨셉&#41;</title>
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="./css/store.css">
+</head>
+
+<body>
+    <header>
+        <div class="center h_c"></div>
+    </header>
+    <main>
+        <div class="center m_c">
+            <div id="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1585.848637893303!2d127.10651099681853!3d37.34967497890743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b59c702bb5bd5%3A0xf4c1cd6ac6561210!2z6re466aw7Lu07ZOo7YSw7JWE7Lm0642w66-4IOyEseuCqOu2hOuLueygkA!5e0!3m2!1sko!2skr!4v1687157865622!5m2!1sko!2skr"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="control">
+                    <h3>매장찾기</h3>
+                    <form action="#">
+                        <label for="find_name">지점명으로 찾기</label>
+                        <input type="text" name="find_name">
+
+                        <label for="find_adress">주소로 찾기</label>
+                        <div class="select_box">
+                            <select name="find_adress" id="find_adress_city">
+                                <option value="seoul">서울특별시</option>
+                                <option value="seongnam">성남시</option>
+                            </select>
+                            <select name="find_adress" id="find_adress_dong">
+                                <option value="gumi">구미동</option>
+                                <option value="pangyo">판교동</option>
+                            </select>
+                        </div>
+
+
+                        <label for="find_result">검색결과 &#40;2&#41;건</label>
+                        <ul class="find_result_list">
+                            <li><a href="#">
+                                    <strong>TBT concept 미금점</strong>
+                                    <p>
+                                        경기도 성남시 분당구 구미동 123-123 건물 3층 305호
+                                    </p>
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <strong>TBT concept 판교점</strong>
+                                    <p>
+                                        경기도 성남시 수정구
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="button">
+                            <button type="re
+                            ">초기화</button>
+                            <button>닫기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="center f_c"></div>
+    </footer>
+</body>
+
+</html>
