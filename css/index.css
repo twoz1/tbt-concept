@@ -47,7 +47,7 @@ hr {
     font-size: 30px;
     height: 400px;
     background-color: #fff;
-    min-width: 956px;
+    min-width: 1200px;
     width: 100%;
 }
 
@@ -91,7 +91,7 @@ hr {
 
 
 .what_new button {
-    margin: 177px 10px;
+    margin: 150px 10px;
     float: left;
     border: solid 0px;
     font-size: 30px;
@@ -120,16 +120,15 @@ img:nth-child(2) {
 
 /* ============what`snew============ */
 /* ================================= */
-.collection_title {
-    text-align: center;
-    /* margin-left: 46%; */
-    font-weight: bold;
-    font-size: 30px;
-}
+
+
 .collection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border: solid 0px;
-    line-height: 400px;
-    text-align: center;
+    height: 400px;
+    align-items: center;
     background: url(../image/flsjdfalskdfjkasljfdlk.jpeg) center/cover;
     background-size: 1500px 800px;
     background-position-x: -200px;
@@ -137,7 +136,18 @@ img:nth-child(2) {
 
 .collection>a {
     color: #fff;
-    font-size: 30px;
+    font-size: 44px;
+    font-weight: bold;
+}
+.collection>a+a {
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100px;
+    background-color: #000;
+    text-align: center;
+    line-height: 25px;
 }
 
 

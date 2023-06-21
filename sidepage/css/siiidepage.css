@@ -1,0 +1,89 @@
+* {
+    text-decoration: none;
+    border-collapse: collapse;
+    color: black;
+}
+body {
+    min-width: 1115px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid;
+    margin: auto;
+    margin-top: 10%;
+    width: 500px;
+}
+table tr,th,td {
+    height: 50px;
+    border: 1px solid;
+}
+/* ============================= */
+table tr:nth-of-type(1) a{
+    color: black;
+    float: right;
+    width: 20px;
+}
+table tr:nth-of-type(1) th{
+    border-bottom: 2px solid;
+}
+/* ============================ */
+table tr:nth-of-type(2) a {
+    border: 2px solid;
+    border-bottom: 0px;
+}
+table tr:nth-of-type(2) a+a {
+    border: 2px solid;
+    border-top: 0px;
+    border-right: 0px;
+}
+table tr:nth-of-type(2) span {
+    margin: 0 10px;
+}
+/* =================================== */
+table tr:nth-of-type(3) td {
+    font-size: 14px;
+}
+/* ========================= */
+
+table tr:nth-of-type(4) span {
+    margin: 0 50px;
+    border-bottom: 0px;
+}
+
+/* ===================================== */
+
+table tr:nth-of-type(5) th {
+    height: 150px;
+    text-align: justify;
+}
+
+table tr:nth-of-type(5) img {
+   vertical-align: middle;
+   width: 70px;
+   height: 70px;
+   margin: 20px;
+}
+table tr:nth-of-type(5) span {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: normal;
+}
+table tr:nth-of-type(5) select {
+    margin-right: -50px;
+}
+/* =================================== */
+table tr:nth-of-type(6) button {
+    background-color: white;
+    border: 1px solid;
+    width: 150px;
+    height: 40px;
+}
+table tr:nth-of-type(6) button+button {
+    background-color: #000;
+    
+}
+table tr:nth-of-type(6) button+button>a {
+    color: #fff;
+    
+}

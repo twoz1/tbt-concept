@@ -174,10 +174,16 @@ header {
     text-align: center;
     margin-right: 175px;
     margin-top: 90px;
-    background-color: #eee;
+    background-color: #000;
     line-height: 40px;
     width: 100px;
     float: right;
+    border: 1px solid;
+    border-radius: 15%;
+    cursor: pointer;
+}
+.foot_direct_button a {
+    color: white;
 }
 
 

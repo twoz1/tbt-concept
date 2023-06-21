@@ -1,7 +1,10 @@
 .m_c {
     height: auto;
 }
-
+div input {
+    border: 1px solid #000;
+    margin-left: 10px;
+}
 .log_cont hr {
     width: 1240px;
     margin-left: -320px;
@@ -34,6 +37,7 @@
     height: 20px;
     /* margin: 40px; */
     width: 500px;
+    font-size: 20px;
 }
 
 .user_id>input {
@@ -44,12 +48,13 @@
 .user_password {
     margin-top: 30px;
     margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .user_password>input {
     width: 300px;
     height: 30px;
-    margin-left: 40px;
+    margin-left: 50px;
 }
 
 .log_button>button {
@@ -57,11 +62,12 @@
     color: white;
     position: absolute;
     width: 150px;
-    height: 100px;
+    height: 90px;
     right: 0;
     top: 0;
     border: 0;
     font-size: 20px;
+    cursor: pointer;
 }
 
 
@@ -69,9 +75,8 @@
     display: inline-block;
     margin-left: 60px;
 }
-
-.user_remember>type {
-
+.user_remember input{
+    margin-right: 10px;
 }
 .join {
     display: inline-block;
