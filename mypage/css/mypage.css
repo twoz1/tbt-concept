@@ -139,18 +139,29 @@ table {
     padding: 5px;
 }
 
-.cover td .ship {
-    display: block;
-    width: 70px;
-    margin: 5px auto;
-    line-height: 2;
+.cover td .delivery {
+    margin-top: 5px;
+}
+
+.cover td .delivery a {
+    padding: 3px 5px;
     background-color: #000;
     color: #fff;
 }
 
-.cover td .ship:hover {
+.cover td .delivery a:hover {
     background-color: orangered;
 }
+
+.orderlist a.review:hover {
+    text-decoration: underline;
+}
+
+.orderlist .product p {
+    color: #aaa;
+}
+
+/* 관심상품 */
 
 .wishlist i {
     font-size: 24px;
@@ -281,15 +292,24 @@ table {
 
 .review_button button:last-child {
     margin-left: 10px;
-}
-
-.review_button button:hover {
     background-color: #000;
     color: #fff;
 }
 
 /*modal 끝*/
 
-.modal_cover {
+.modal_cover,
+.modal_order,
+.modal_review {
     display: none;
 }
+
+/* .modal_cover,
+.modal_review {
+    display: block;
+} */
+
+/* .modal_cover,
+.modal_cover .modal_order {
+    display: block;
+} */
