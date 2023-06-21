@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문내역조회 &#124; TBT concept &#40;TBT컨셉&#41;</title>
+    <link rel="stylesheet" href="./css/header_footer.css">
+    <link rel="stylesheet" href="./css/orderlist.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+</head>
+
+<body>
+    <header>
+        <div class="center h_c"></div>
+    </header>
+    <main>
+        <div class="center m_c">
+            <h2>order list</h2>
+            <div class="search_bar">
+                <form action="#">
+                    <div class="quick">
+                        <button class="on">최근 1개월</button>
+                        <button>최근 3개월</button>
+                        <button>최근 1년</button>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="date">
+                        </label>
+                        <label> ~
+                            <input type="date">
+                        </label>
+                    </div>
+                    <button class="date_submit" type="submit">검색</button>
+                </form>
+            </div>
+            <div class="orderlist">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">주문일</th>
+                            <th scope="col">주문번호</th>
+                            <th scope="col">상품정보</th>
+                            <th scope="col">옵션</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">상품금액</th>
+                            <th scope="col">주문상황</th>
+                            <th scope="col">리뷰</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>
+                                <p class="delivery_text">배송중</p>
+                                <p class="delivery"><a href="#">배송조회</a></p>
+                            </td>
+                            <td><a href="#" class="review">작성하기</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>
+                                <p class="delivery_text">배송완료</p>
+                            </td>
+                            <td><a href="#" class="review">작성하기</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>
+                                <p class="delivery_text">배송완료</p>
+                            </td>
+                            <td><a href="#" class="review">작성하기</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>
+                                <p class="delivery_text">배송완료</p>
+                            </td>
+                            <td><a>작성완료</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>
+                                <p class="delivery_text">배송완료</p>
+                            </td>
+                            <td><a>작성완료</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                        <tr>
+                            <td>2023-01-01</td>
+                            <td>20230101S210</td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
+                            <td>Black</td>
+                            <td>1</td>
+                            <td>100,000원</td>
+                            <td>
+                                <p class="delivery_text">배송완료</p>
+                            </td>
+                            <td><a>작성완료</a></td>
+                            <td><a href="#">더보기&gt;</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="center f_c"></div>
+    </footer>
+</body>
+
+</html>

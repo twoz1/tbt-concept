@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지 | tbt concept</title>
+    <title>마이페이지 &#124; TBT concept &#40;TBT컨셉&#41;</title>
     <link rel="stylesheet" href="../css/header_footer.css">
     <link rel="stylesheet" href="./css/mypage.css">
     <script src="https://kit.fontawesome.com/990bbe298b.js" crossorigin="anonymous"></script>
@@ -13,8 +13,59 @@
 
 <body>
     <header>
-        <div class="center h_c"></div>
+        <div class="center h_c">
+            <h1 class="logo">
+                <a href="./index.html">TbT concept</a>
+            </h1>
+            <form class="head_search" action="./index.html" method="get">
+                <input name="query" type="text" value="">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <ul class="h_icon">
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>JOIN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login/log_in.html">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>LOGIN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./mypage/mypage.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>MY</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>CART</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="gnb">
+                <li>
+                    <a href="./new_goods/newGoods.html">NEW</a>
+                </li>
+                <li>
+                    <a href="#">COLLECTION</a>
+                </li>
+                <li>
+                    <a href="#">GLASSES</a>
+                </li>
+                <li>
+                    <a href="./sunglass/sunglass.html">SUNGLASSES</a>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                </li>
+            </ul>
     </header>
+    <hr>
     <main>
         <div class="center m_c">
             <h2>my page</h2>
@@ -31,8 +82,18 @@
                         </p>
                     </div>
                     <div class="member_right">
-                        <div class="coupon"></div>
-                        <div class="coupon"></div>
+                        <div class="coupon">
+                            <p>
+                                회원가입 감사<br><strong>10%</strong> <span>할인쿠폰</span><br><a href="#">다운로드 <i
+                                        class="fa-solid fa-download"></i></a>
+                            </p>
+                        </div>
+                        <div class="coupon">
+                            <p>
+                                spring / summer기념<br><strong>10%</strong> <span>할인쿠폰</span><br><a href="#">다운로드 <i
+                                        class="fa-solid fa-download"></i></a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,23 +118,38 @@
                         <tr>
                             <td>2023-01-01</td>
                             <td>20230101S210</td>
-                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
                             <td>Black</td>
                             <td>1</td>
                             <td>100,000원</td>
-                            <td>배송중<a href="#" class="ship">배송조회</a></td>
-                            <td><a href="#">작성하기</a></td>
+                            <td>
+                                <p class="delivery_text">배송중</p>
+                                <p class="delivery"><a href="#">배송조회</a></p>
+                            </td>
+                            <td><a href="#" class="review">작성하기</a></td>
                             <td><a href="#">더보기&gt;</a></td>
                         </tr>
                         <tr>
                             <td>2023-01-01</td>
                             <td>20230101S210</td>
-                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
                             <td>Black</td>
                             <td>1</td>
                             <td>100,000원</td>
-                            <td>배송중<a href="#" class="ship">배송조회</a></td>
-                            <td><a href="#">작성하기</a></td>
+                            <td>
+                                <p class="delivery_text">배송완료</p>
+                            </td>
+                            <td><a href="#" class="review">작성하기</a></td>
                             <td><a href="#">더보기&gt;</a></td>
                         </tr>
                     </tbody>
@@ -112,21 +188,31 @@
                             <th scope="col">관심등록일</th>
                             <th scope="col">상품명</th>
                             <th scope="col">옵션</th>
-                            <th scope="col">상태</th>
+                            <th scope="col" style="width:50px;">상태</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>2023-01-01</td>
-                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
                             <td>Black</td>
                             <td><a href="#"><i class="fa-sharp fa-solid fa-heart"></i></a></td>
                             <td><a href="#">장바구니에 담기&gt;</a></td>
                         </tr>
                         <tr>
                             <td>2023-01-01</td>
-                            <td><a href="">tbt N-01<br><span>sunglass N-01 시리즈 black,white,navy</span></a></td>
+                            <td>
+                                <a href="#" class="product">
+                                    <strong>tbt N-01</strong>
+                                    <p>sunglass N-01 시리즈 black,white,navy</p>
+                                </a>
+                            </td>
                             <td>Black</td>
                             <td><a href="#"><i class="fa-sharp fa-solid fa-heart"></i></a></td>
                             <td><a href="#">장바구니에 담기&gt;</a></td>
@@ -229,6 +315,7 @@
         <div class="modal_review modal">
             <form action="#">
                 <table>
+                    <caption>리뷰작성</caption>
                     <tr>
                         <td>별점</td>
                         <td>
@@ -241,15 +328,20 @@
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>파일첨부</td>
+                        <td><input type="file" name="review_file"></td>
+                    </tr>
+                    <tr>
+                        <td>리뷰작성</td>
+                        <td><textarea name="review_text" id="review_text" placeholder="30자 이상 200자 이하"></textarea></td>
+                    </tr>
                 </table>
-                <label for="star">별점
-                </label>
-                <label for="file">파일 첨부
-                    <input type="file">
-                </label>
+                <div class="review_button">
+                    <button type="reset">초기화</button>
+                    <button>완료</button>
+                </div>
             </form>
-        </div>
-    </div>
 </body>
 
 </html>

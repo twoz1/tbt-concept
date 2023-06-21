@@ -2,16 +2,17 @@ h2 {
     text-transform: capitalize;
     font-size: 44px;
     text-align: center;
+    margin: 70px 0;
 }
 
 .cover {
-    margin: 40px 0;
+    margin: 50px 0;
 }
 
 h3 {
     font-size: 24px;
-    line-height: 50px;
     float: left;
+    margin-bottom: 10px;
 }
 
 table {
@@ -20,8 +21,7 @@ table {
 
 /*메인영역*/
 .m_c {
-    min-width: 905px;
-    padding: 100px 0;
+    padding-bottom: 50px;
 }
 
 /*회원정보 시작*/
@@ -30,6 +30,8 @@ table {
     height: 150px;
     background-color: #eee;
     position: relative;
+
+    min-width: 1025px;
 }
 
 .member_cover .member_box .member_left {
@@ -78,11 +80,36 @@ table {
 }
 
 .member_right .coupon {
-    width: 200px;
-    height: 100px;
-    border: 1px solid #000;
+    width: 260px;
+    height: 115px;
     display: inline-block;
     margin-left: 20px;
+    background: url(../image/coupon_bg.png) 0/100% 100%;
+    position: relative;
+}
+
+.member_right .coupon p {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.member_right .coupon p span {
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.member_right .coupon p strong {
+    font-size: 30px;
+    color: orangered;
+    vertical-align: middle;
+}
+
+.member_right .coupon p i {
+    font-size: 16px;
 }
 
 /*회원정보 끝*/
@@ -104,24 +131,37 @@ table {
     height: 50px;
     border-bottom: 1px solid #000;
     font-size: 16px;
+    padding: 5px;
 }
 
 .cover td {
     height: 100px;
+    padding: 5px;
 }
 
-.cover td .ship {
-    display: block;
-    width: 70px;
-    margin: 5px auto;
-    line-height: 2;
+.cover td .delivery {
+    margin-top: 5px;
+}
+
+.cover td .delivery a {
+    padding: 3px 5px;
     background-color: #000;
     color: #fff;
 }
 
-.cover td .ship:hover {
+.cover td .delivery a:hover {
     background-color: orangered;
 }
+
+.orderlist a.review:hover {
+    text-decoration: underline;
+}
+
+.orderlist .product p {
+    color: #aaa;
+}
+
+/* 관심상품 */
 
 .wishlist i {
     font-size: 24px;
@@ -132,7 +172,6 @@ table {
     font-size: 15px;
     float: right;
     margin: 15px 5px 0 0;
-    color: orangered;
 }
 
 /*_list 끝*/
@@ -156,69 +195,121 @@ table {
     transform: translate(-50%, -50%);
 }
 
-.modal figcaption {
+.modal_order figcaption {
     font-size: 16px;
     font-weight: bold;
     margin: 15px 0 3px 0;
 }
 
-.modal table {
+.modal_order table {
     width: 500px;
     text-align: center;
 }
 
-.modal th,
-.modal td {
-    border: 0.5px solid #000;
+.modal_order th,
+.modal_order td {
+    border: 1px solid #000;
     height: 25px;
 }
 
-.modal td.total {
+.modal_order td.total {
     height: 30px;
     text-align: right;
     padding-right: 5px;
 
 }
 
-.modal th {
-    background-color: #ccc;
+.modal_order th {
+    background-color: #eee;
 }
 
-.modal .button {
+.modal_order .button {
     margin-top: 50px;
     text-align: center;
 }
 
-.modal .button a {
+.modal_order .button a {
     padding: 5px 15px;
     border: 1px solid;
     margin: 0 10px;
 }
 
-.modal .button a.close {
+.modal_order .button a.close {
     background-color: #000;
     color: #fff;
 }
 
-.modal_order {
-    display: none;
-}
-
 /*modal 리뷰작성*/
 
-.modal_review label {
+.modal_review caption {
+    font-size: 24px;
+    text-align: left;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.modal_review table tr td {
+    padding: 10px 0;
     font-size: 16px;
-    display: block;
-    margin-bottom: 20px;
+}
+
+.modal_review table tr td:first-child {
+    width: 120px;
+    font-weight: bold;
 }
 
 .review_star {
     display: inline-block;
-    margin-left: 20px;
 }
 
 .review_star a i.fa-star {
     font-size: 25px;
 }
 
+.modal_review td textarea {
+    width: 300px;
+    height: 150px;
+    border: 1px solid;
+    outline: 0;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.review_button {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.review_button button {
+    padding: 7px 15px;
+    font-size: 14px;
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.review_button button:last-child {
+    margin-left: 10px;
+    background-color: #000;
+    color: #fff;
+}
+
 /*modal 끝*/
+
+.modal_cover,
+.modal_order,
+.modal_review {
+    display: none;
+}
+
+/* .modal_cover,
+.modal_review {
+    display: block;
+} */
+
+/* .modal_cover,
+.modal_cover .modal_order {
+    display: block;
+} */
