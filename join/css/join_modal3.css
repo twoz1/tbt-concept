@@ -1,0 +1,74 @@
+.modal_3{
+    width:30%;
+    height: 400px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    margin: calc((100vh - 400px) / 2) auto;
+    min-width: 990px;
+}
+
+.modal_3 table{
+    border-collapse: collapse;
+    height: 100px;
+}
+
+#first_tr{
+    border-top: 3px solid;
+}
+
+#first_tr td{
+    padding-left: 20px;
+}
+
+.modal_3 table td{
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+#second_tr td{
+    padding-left: 20px;
+}
+
+.second_tr_td{
+    border-right: 1px solid #e2e0e0;
+}
+
+#other_services{
+    width: 100px;
+}
+
+#second_tr td:nth-of-type(3){
+    text-decoration: underline;
+}
+
+ul li:nth-of-type(1){
+    text-decoration: underline;
+    font-weight: bold;
+}
+/* ==================버튼==================================== */
+.button_box{
+    display: flex;
+    justify-content: center;
+}
+
+.button_box button{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    border: none;
+}
+
+.button_box button a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.modal_3{
+    /* display: none; */
+}

@@ -18,6 +18,14 @@
     left: 50%;
     transform: translateX(-50%);
 }
+.title{
+   text-align: center;
+    font-size: 24px;
+}
+.title h2{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
 
 /* ======================메인<카테고리================================ */
 
@@ -64,7 +72,6 @@
 .photo_layout {
     text-align: center;
     width: 100%;
-    /* border: 1px solid; */
 }
 
 .photo_layout:last-child {
@@ -104,11 +111,11 @@ img:nth-child(2) {
     display: none;
 }
 
-#photo_2 a:hover img:nth-child(1) {
+.photo_2 a:hover img:nth-child(1) {
     display: none;
 }
 
-#photo_2 a:hover img:nth-child(2) {
+.photo_2 a:hover img:nth-child(2) {
     display: block;
 }
 
@@ -120,13 +127,6 @@ img:nth-child(2) {
     font-size: 13px;
 }
 
-/* div ul li:hover .item_name,
-div ul li:hover .item_price,
-div ul li:hover .shop_now{
-    text-indent: 0;
-    display: block;
-    width: 100%;
-} */
 
 a {
     color: black;
@@ -139,15 +139,16 @@ a {
 
 /* =================메인< 바닥 페이지================================ */
 .next_page {
-    margin-top: 30px;
+
     font-size: 2vh;
-    display: inline-block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: inline-block; */
+    margin: auto;
+    /* width: 100%; */
+    text-align: center;
 }
 
 .next_page a {
     font-size: 15px;
-    margin: 0 5px 50px;
+    margin: 70px 5px 70px;
+    display: inline-block;
 }

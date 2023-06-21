@@ -1,0 +1,324 @@
+* {
+    list-style: none;
+
+}
+body{
+    min-width: 1260px;
+}
+
+.main_photo {
+    width: 55%;
+}
+
+.main_photo img {
+    width: 80%;
+    height: 80%;
+}
+
+.sub_photo .sub_photo a {
+    display: inline-block;
+}
+
+.sub_photo img {
+    width: 13%;
+    height: 15%;
+    margin-top: 8px;
+    margin-left: 3px;
+}
+
+
+section {
+    display: flex;
+    /* min-width: 1216px; */
+}
+
+
+section .choice div:not(:nth-of-type(5)) {
+
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding: 25px;
+}
+
+section .choice div:nth-of-type(3) p {
+
+    margin-bottom: 8px;
+}
+
+section .choice button {
+    width: 43%;
+    height: 50px;
+    background-color: white;
+    margin-left: 20px;
+    margin-top: 20PX;
+}
+
+section .choice button:nth-of-type(2) {
+    background-color: black;
+    color: white;
+}
+
+section .choice select {
+    height: 30px;
+}
+
+section .choice div:nth-of-type(4) strong {
+    margin-right: 340px;
+}
+
+
+
+
+/* ==================nav===================================================== */
+
+
+.nav ul {
+    margin: 15px 0;
+    width: 100%;
+    display: flex;
+}
+
+.nav ul li {
+    width: 25%;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid;
+}
+
+.nav ul li a {
+    color: black;
+}
+
+.nav1 ul li:nth-of-type(1) {
+    background-color: #eee;
+    font-weight: 700;
+}
+
+.nav2 ul li:nth-of-type(2) {
+    background-color: #eee;
+    font-weight: 700;
+}
+
+.nav3 ul li:nth-of-type(3) {
+    background-color: #eee;
+    font-weight: 700;
+}
+
+.nav4 ul li:nth-of-type(4) {
+    background-color: #eee;
+    font-weight: 700;
+}
+
+
+
+/* ====================detail 섹션=============================================== */
+.detail {
+    text-align: center;
+}
+
+.detail img {
+    width: 60%;
+    height: 40%;
+    margin-top: 30px;
+}
+
+/* ==========================리뷰============================================= */
+
+
+.review_score_percent {
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.review_score_percent .review_left {
+    /* flex-basis: 40%; */
+    align-self: center;
+    margin-left: 60px;
+    font-size: 18px;
+    flex: 4;
+}
+
+.review_score_percent .review_left p {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.review_score_percent .review_left #star_icon {
+    font-size: 25px;
+    color: orangered;
+
+}
+
+.review_score_percent .review_right {
+    /* flex-basis: 60%; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 6;
+}
+
+#star_score {
+    font-size: 30px;
+}
+
+.review_right strong {
+    display: inline-block;
+    margin-right: 20px;
+    width: 90px;
+}
+
+.bar {
+    height: 10px;
+    border: 1px solid;
+    border-radius: 20px;
+    width: 300px;
+    display: inline-block;
+}
+
+#top_bar {
+    background-color: black;
+}
+
+/* ========================================== */
+
+.review_nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.star_id_date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer_review {
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+    justify-content: space-around;
+    margin: 40px 20px;
+}
+
+/* ======================================== */
+.customer_review_button button {
+    background-color: white;
+    border: 0;
+}
+
+.customer_review_button {
+    /* font-size: 5px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer_review_button a {
+    font-size: 12px;
+}
+
+/* ============================================================= */
+
+#q_a_button {
+    display: flex;
+    justify-content: end;
+}
+
+#q_a_button button {
+    background-color: black;
+    border: none;
+    width: 70px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+#q_a_button a {
+    color: white;
+}
+
+.customer_q_a {
+    margin: 30px;
+    height: 80px;
+
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+}
+
+#q_a_answer_complecation {
+    flex: 1;
+}
+
+#q_a_answer_complecation em {
+    font-style: normal;
+    border: 1px solid;
+    border-radius: 10%;
+    padding: 1px;
+    background-color: #eee;
+}
+
+#q_a_inquiy {
+    flex: 6;
+}
+
+#q_a_user_id {
+    flex: 1;
+
+}
+
+#q_a_date {
+    flex: 1;
+}
+
+.customer_q_a_next_page{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.customer_q_a_next_page button{
+    border: none;
+    background-color: white;
+    margin:3px
+}
+.customer_q_a_next_page button a{
+   font-size: 12px;
+}
+/* =======return&delivery================================ */
+.return_delivery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 880px;
+    gap: 30px;
+    margin-left: 30px;
+    
+}
+
+.return_delivery_content{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.return_delivery_content tr,
+.return_delivery_content td
+{
+    border: 1px solid #eee;
+}
+
+.return_delivery_content td ul {
+    padding: 10px;
+}
+.return_delivery_content td ul li{
+    list-style: circle;
+    margin-bottom: 3px;
+    margin-left: 30px;
+}
+
+.return_delivery_content th{
+    background-color: #eee;
+    width: 100px;
+    padding: 10px;
+}
+
