@@ -28,9 +28,15 @@ html {
 }
 
 /*header영역 시작*/
+header {
+    border-bottom: 1px solid;
+    height: 190px;
+}
+
 .h_c {
-    height: 150px;
+    height: 100%;
     background-color: rgb(255, 255, 255);
+    
 }
 
 /*로고*/
@@ -41,7 +47,10 @@ html {
     left: 0;
     transform: translateY(-50%);
 }
-
+.logo img {
+    width: 150px;
+    height: 100px;
+}
 /*검색창*/
 .h_c .head_search {
     position: absolute;
@@ -130,7 +139,8 @@ html {
 
 .f_c {
     height: 200px;
-    background-color: rgba(128, 128, 128, 0.412);
+    min-width: 1100px;
+    /* background-color: rgba(128, 128, 128, 0.412); */
 }
 
 .foot_left>p {
@@ -138,7 +148,7 @@ html {
     display: inline-block;
     line-height: 30px;
     width: 50%;
-    margin-left: 200px;
+    margin-left: 100px;
     margin-top: 25px;
     opacity: .8;
 }
@@ -156,15 +166,24 @@ html {
 .foot_right>p {
     line-height: 2;
     margin-top: 23px;
+    
 }
 
 .foot_direct_button {
     display: inline-block;
     text-align: center;
-    margin-left: 260px;
-    background-color: rgba(255, 255, 255, 0.519);
-    line-height: 120px;
-    /* margin-top: 50px; */
+    margin-right: 175px;
+    margin-top: 90px;
+    background-color: #000;
+    line-height: 40px;
+    width: 100px;
+    float: right;
+    border: 1px solid;
+    border-radius: 15%;
+    cursor: pointer;
+}
+.foot_direct_button a {
+    color: white;
 }
 
 
@@ -194,9 +213,12 @@ html {
 .f_c div:nth-of-type(2)>em {
     display: inline-block;
     text-align: center;
-    background-color: rgba(128, 128, 128, 0.538);
     width: 100px;
-    line-height: 50px;
+    line-height: 30px;
+}
+footer {
+    background-color: rgba(128, 128, 128, 0.538);
+
 }
 
 /* ================================= */
