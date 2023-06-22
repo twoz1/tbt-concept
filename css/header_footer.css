@@ -49,7 +49,7 @@ header {
 }
 .logo img {
     width: 150px;
-    height: 100px;
+    height: auto;
 }
 /*검색창*/
 .h_c .head_search {
