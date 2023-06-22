@@ -37,6 +37,7 @@
     height: 20px;
     line-height: 20px;
     width: 100%;
+
 }
 
 #category>ul::after {
@@ -49,6 +50,7 @@
     float: right;
     position: relative;
     width: 100px;
+    cursor: pointer;
 }
 
 #category ul ul {
@@ -124,7 +126,7 @@ img:nth-child(2) {
 
 .item_name,
 .item_price {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 

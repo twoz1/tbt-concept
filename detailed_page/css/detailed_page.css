@@ -51,10 +51,15 @@ section .choice button {
     background-color: white;
     margin-left: 20px;
     margin-top: 20PX;
+    /* display: inline-block; */
 }
 
 section .choice button:nth-of-type(2) {
     background-color: black;
+    color: white;
+}
+section .choice button:nth-of-type(2) a {
+
     color: white;
 }
 

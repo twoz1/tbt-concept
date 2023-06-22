@@ -19,6 +19,8 @@
     border-left: none;
     overflow-y: scroll;
     white-space: pre-line;
+    background-color: #eee;
+    padding: 10px;
 }
 
 
