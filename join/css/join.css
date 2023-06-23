@@ -60,23 +60,23 @@ em {
 table{
     min-width: 628px;
 }
-table td {
+table tbody td {
     height: 20px;
 }
 
 /* ============================================== */
 
-table th,
+table tbody th,
 td {
     border-top: 1px solid rgb(228, 228, 228);
 
 }
 
- tr {
+tbody tr {
     text-align: left;
 }
 
- th {
+tbody th {
     padding-left: 20px;
     /* min-width:628px */
 }
