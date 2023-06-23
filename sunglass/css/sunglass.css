@@ -1,12 +1,9 @@
-
 /* ======================메인<배너======================================== */
 
 #banner {
     width: 100%;
     height: 320px;
     overflow: hidden;
-    /* border: 1px solid; */
-    /* box-sizing: border-box; */
     margin-bottom: 30px;
     position: relative;
     min-width: 1000px;
@@ -18,11 +15,13 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.title{
-   text-align: center;
+
+.title {
+    text-align: center;
     font-size: 24px;
 }
-.title h2{
+
+.title h2 {
     margin-top: 70px;
     margin-bottom: 70px;
 }
@@ -59,54 +58,55 @@
     width: 100%;
     background-color: white;
     display: none;
-
 }
 
 #category ul li:hover ul {
     display: block;
-    font-size: 1em;
-
 }
 
+#category ul>li:hover {
+    background-color: black;
+    color: white;
+}
+
+#category ul li ul li:hover a {
+    color: orangered;
+
+}
 
 
 /* ======================메인<선글라스 사진============================= */
-.photo_layout {
+
+
+.photo_line {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.photo_line .photo_layout ul {
+    display: flex;
+    gap: 8px;
     text-align: center;
-    width: 100%;
 }
 
-.photo_layout:last-child {
-    margin-top: 5px;
-}
-
-.photo_layout ul {
-    width: 100%;
-}
-
-.photo_layout ul li {
+.photo_line .photo_layout ul li {
     width: 24.625%;
-    margin-left: .5%;
-    float: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.photo_layout ul li:first-child {
-    margin-left: 0;
-}
-
-img {
-    display: inline-block;
+.photo_layout img {
     width: 100%;
-    vertical-align: top;
-    margin-bottom: 10px;
-    margin-top: 5px;
 }
+
 
 .photo_layout ul img:hover {
     display: block;
     width: 100%;
     transform: scale(1.05);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 img:nth-child(2) {
@@ -121,7 +121,6 @@ img:nth-child(2) {
     display: block;
 }
 
-
 /* ==================메인<선글라스 사진 속 텍스트========================================== */
 
 .item_name,
@@ -129,23 +128,22 @@ img:nth-child(2) {
     font-size: 14px;
 }
 
-
-a {
-    color: black;
-}
-
 .shop_now {
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
+
+.shop_now a {
+    background-color: orangered;
+    padding: 2px;
+    color: white;
+}
+
 
 /* =================메인< 바닥 페이지================================ */
 .next_page {
 
     font-size: 2vh;
-    /* display: inline-block; */
     margin: auto;
-    /* width: 100%; */
     text-align: center;
 }
 
