@@ -21,7 +21,7 @@ a {
     clear: both;
 }
 
-ul.title_ul {
+.title_route ul{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -29,7 +29,7 @@ ul.title_ul {
     justify-content: center;
 }
 
-ul.title_ul li {
+.title_route ul li {
     font-size: 12px;
     color: darkgray;
     margin-top: 1rem;
