@@ -15,16 +15,19 @@ body * {
 
 .cs_title ul {
     list-style: none;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .cs_title li {
-    float: left;
     font-size: 12px;
     color: darkgray;
+    margin-top: 1rem;
 }
 
-/* =====================main - 검색 상단바===================== */
+/* =====================main상단바===================== */
 .cs_sch {
     display: grid;
     grid-template-columns: 7fr 3fr;
@@ -198,6 +201,15 @@ body * {
 
 
 /* ========modal_pop_cs====================================================================================================================================== */
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
+
 /* =======common======= */
 .spanRed {
     color: orangered;
@@ -205,8 +217,13 @@ body * {
 
 /* =======layout======== */
 /* ==========main========= */
-.modal_cs1on1 {
+
+.modal_1 {
     display: none;
+}
+
+.modal_cs1on1 {
+    background-color: white;
     width: 100%;
     min-width: 1170px;
     max-width: 1240px;
@@ -225,19 +242,21 @@ body * {
 
 .cs1on1_title h2 {
     font-size: 44px;
-    margin: 0 0 1rem 0;
+    margin: 0 auto;
 }
 
 .cs1on1_title ul {
-    display: inline-block;
-    font-size: 12px;
     list-style: none;
-    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     padding: 0;
 }
 
 .cs1on1_title ul li {
-    float: left;
+    font-size: 12px;
+    color: darkgray;
     margin-bottom: 4rem;
 }
 
@@ -263,7 +282,7 @@ body * {
 
 .subtitle_1on1 p{
     float: right;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .subtitle_1on1 table th {
@@ -378,15 +397,6 @@ body * {
     margin: 4rem 0;
 }
 
-.btn_sumit a {
-    text-decoration: none;
-    color: black;
-}
-
-.btn_sumit button:nth-last-of-type(1) a {
-    color: white;
-}
-
 .btn_sumit button {
     border: none;
     margin: 0 0.8rem;
@@ -403,6 +413,7 @@ body * {
 .btn_sumit button:nth-of-type(2) {
     background-color: black;
     border: 1px solid black;
+    color: white;
 }
 
 /* ======( modal_pop_cs / modal_pop_new )레이아웃이 같음================================================================================================================================ */
@@ -412,13 +423,14 @@ body * {
     justify-content: center;
 }
 
-.modal_popcs_freqAsk,
-.modal_popcs_news {
+.modal_2,
+.modal_3 {
     display: none;
 }
 
 .pop_CS {
-    position: fixed;
+    position: absolute;
+    background-color: white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -429,7 +441,7 @@ body * {
     text-align: left;
 }
 
-.pop_CS h2 {
+.pop_CS span {
     font-size: 18px;
     margin: 1.5rem 0 0.5rem 1rem;
 }
@@ -441,32 +453,7 @@ body * {
     background-color: #eee;
     border-top: 3px black solid;
     padding: 0.8rem;
-}
-
-.pop_CS {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    height: auto;
-    width: 600px;
-    padding: 1.5rem 1.5rem 0 1.5rem;
-    text-align: left;
-}
-
-.pop_CS h2 {
-    font-size: 18px;
-    margin: 1.5rem 0 0.5rem 1rem;
-}
-
-.pop_CS p {
-    height: auto;
-    width: 560px;
-    font-size: 12px;
-    background-color: #eee;
-    border-top: 3px black solid;
-    padding: 0.8rem;
+    margin-bottom: 0;
 }
 
 .btn_close {
