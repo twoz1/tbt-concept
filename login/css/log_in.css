@@ -72,11 +72,14 @@ div input {
 .user_id>input {
     width: 300px;
     height: 30px;
+    background-color: #eee;
+    border: 0px;
+    padding-left: 10px;
 }
 
 .user_password {
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-size: 20px;
 }
 
@@ -84,6 +87,9 @@ div input {
     width: 300px;
     height: 30px;
     margin-left: 50px;
+    border: 0px;
+    padding-left: 10px;
+    background-color: #eee;
 }
 
 .log_button>button {
@@ -102,57 +108,53 @@ div input {
 
 .user_remember {
     display: inline-block;
-    margin-left: 60px;
+    margin-left: 70px;
+    font-size: 14px;
 }
 
 .user_remember input {
     margin-right: 10px;
 }
-
 .join {
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .join>a {
-    background-color: rgba(128, 128, 128, 0.62);
-
+    font-size: 14px;
 }
 
 .new_join_wrap {
     font-size: 20px;
-    /* font-weight: bold; */
     height: 100px;
-    line-height: 100px;
     width: 600px;
-    margin: 50px auto;
-    position: relative;
-    display: inline-block;
     display: flex;
+    align-items: center;
+    margin: 50px auto;
+
 }
 
 .join_sns {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
 }
 
 .join_sns>p {
-    display: inline-block;
     opacity: .4;
 
 }
 
 
-.join_opt>ul {
-    white-space: nowrap;
-    width: 0px;
-    float: right;
-    /* margin-top: 15px; */
+.join_opt ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
 }
 
-.join_opt li {
-    display: inline-block;
-    margin: 15px 18px;
-}
+
+
 
 .join_opt li img {
     border: 0px solid;

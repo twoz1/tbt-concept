@@ -26,12 +26,16 @@ img {
     /* margin: 50px 0 0 0; */
 }
 
+.collection ul {
+    display: flex;
+    flex-direction: column;
+}
 .collection li:nth-child(even) {
-    float: left;
+    align-self: start;
 }
 
 .collection li:nth-child(odd) {
-    float: right;
+    align-self: end;
 }
 
 .to_top {

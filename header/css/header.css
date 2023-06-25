@@ -60,10 +60,15 @@ header {
     top: 50%;
     transform: translateY(-50%);
 }
-.logo img {
+.logo>a {
+    background: url(../css/title.png)center/100% no-repeat;
+    text-indent: -9999em;
+    display: inline-block;
     width: 150px;
-    height: auto;
+    height: 100px;
 }
+
+
 /*검색창*/
 .h_c .head_search {
     position: absolute;
