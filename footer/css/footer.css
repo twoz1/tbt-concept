@@ -1,0 +1,42 @@
+.f_c {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foot_left>p {
+    line-height: 25px;
+    color: white;
+}
+
+.foot_right {
+    display: flex;
+    color: #fff;
+    gap: 20px;
+    align-items: center;
+}
+.fc_tit {
+    font-style: normal;
+    font-size: 18px;
+}
+.fc_number {
+    font-size: 30px;
+    line-height:40px;
+}
+
+.foot_right div p:nth-last-of-type(1),
+.foot_right div p:nth-last-of-type(2) {
+    line-height:20px;
+}
+
+.f_c_right a {
+    display: inline-block;
+    color: #fff;
+    background-color: orangered;
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+}
