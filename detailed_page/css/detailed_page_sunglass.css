@@ -2,7 +2,8 @@
     list-style: none;
 
 }
-body{
+
+body {
     min-width: 1260px;
 }
 
@@ -28,9 +29,11 @@ body{
 
 
 section {
+    margin-top: 10px;
     display: flex;
 }
-section .choice{
+
+section .choice {
     display: flex;
     flex-direction: column;
     gap: 45px;
@@ -56,6 +59,7 @@ section .choice button:nth-of-type(2) {
     background-color: black;
     color: white;
 }
+
 section .choice button:nth-of-type(2) a {
 
     color: white;
@@ -276,52 +280,54 @@ section .choice div:nth-of-type(3) strong {
     flex: 1;
 }
 
-.customer_q_a_next_page{
+.customer_q_a_next_page {
     text-align: center;
     margin-bottom: 30px;
 }
-.customer_q_a_next_page button{
+
+.customer_q_a_next_page button {
     border: none;
     background-color: white;
-    margin:3px
+    margin: 3px
 }
-.customer_q_a_next_page button a{
-   font-size: 12px;
+
+.customer_q_a_next_page button a {
+    font-size: 12px;
 }
+
 /* =======return&delivery================================ */
-.return_delivery{
+.return_delivery {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 880px;
     gap: 30px;
     margin-left: 30px;
-    
+
 }
 
-.return_delivery_content{
+.return_delivery_content {
     border: 1px solid;
     border-collapse: collapse;
 }
 
 .return_delivery_content tr,
-.return_delivery_content td
-{
+.return_delivery_content td {
     border: 1px solid #eee;
 }
 
 .return_delivery_content td ul {
     padding: 10px;
 }
-.return_delivery_content td ul li{
+
+.return_delivery_content td ul li {
     list-style: circle;
     margin-bottom: 3px;
     margin-left: 30px;
 }
 
-.return_delivery_content th{
+.return_delivery_content th {
     background-color: #eee;
     width: 100px;
     padding: 10px;
 }
-

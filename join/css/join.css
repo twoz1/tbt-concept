@@ -1,9 +1,7 @@
 main div,
 table {
-
-    width: 70%;
+    width: 80%;
     margin: auto;
-
 }
 
 div:first-of-type {
@@ -60,25 +58,23 @@ em {
 table{
     min-width: 628px;
 }
-table td {
+table tbody td {
     height: 20px;
 }
 
 /* ============================================== */
 
-table th,
+table tbody th,
 td {
     border-top: 1px solid rgb(228, 228, 228);
-
 }
 
- tr {
+tbody tr {
     text-align: left;
 }
 
- th {
+tbody th {
     padding-left: 20px;
-    /* min-width:628px */
 }
 
 .input_box {
@@ -99,7 +95,6 @@ ul {
     list-style: none;
     text-align: left;
     min-width: 400px
-
 }
 
 div:nth-last-of-type(3) {
@@ -111,24 +106,19 @@ div:nth-last-of-type(3) {
     font-size: 5px;
     white-space: right;
     padding-left: 20px;
-    margin-top: 0;
 }
 
 /* ==================================== */
 
 div:nth-of-type(4) {
     margin-top: 50px;
-
-
 }
 
 div:nth-of-type(4) ul li {
     background-color: #eee;
-    margin-top: 3px;
-    line-height: 35px;
+    margin-top: 2px;
+    line-height: 40px;
     padding-left: 10px;
-
-
 }
 
 
@@ -139,8 +129,6 @@ div:nth-of-type(4) ul li {
     background-color: #eee;
     border: 1px solid gray;
     float: right;
-    
-
 }
 
 
@@ -150,11 +138,8 @@ div:nth-of-type(4) ul li {
     width: 150px;
     line-height: 40px;
     margin: 40px 20px 40px 0;
-
-    /* border: 0; */
     background-color: white;
     border: 0.5px solid;
-
 }
 
 #right_button {
