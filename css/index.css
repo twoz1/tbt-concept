@@ -59,58 +59,53 @@ hr {
 
 /*===========image_slide============ */
 /*================================== */
+.cf::after {
+    display: block;
+    content: "";
+    clear: both;
+}
 .what_new {
     border: solid 0px;
     font-size: 30px;
-    height: 400px;
+    display: flex;
     background-color: #fff;
     min-width: 1200px;
     width: 100%;
 }
 
-
+.what_new em {
+    font-style: normal;
+}
 .what_new_title {
     text-align: center;
     width: 170px;
-    height: 100%;
-    line-height: 50px;
     position: relative;
-    float: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
-.what_new_title>a {
-    position: absolute;
-    top: 30%;
-    transform: translatex(-50%);
-}
 
-.what_new li {
-    display: inline-block;
-    text-align: center;
-    font-size: 16px;
-    width: 20%;
-    height: 50%;
-    margin-left: 4%;
-}
 
-.what_new li:first-child {
-    margin-left: 0%;
-}
 
-.what_new>ul {
-    white-space: nowrap;
-    /* width: calc(100% - 80px); */
-    float: left;
-}
+
+
 
 .what_new_item {
-    width: calc(100% - 18%);
-    float: left;
+    width: calc(100% - 170px);
+}
+.what_new_item ul {
+    display: flex;
+    justify-content: space-between;
+}
+.what_new_item li {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
 }
 
-
 .what_new button {
-    margin: 150px 10px;
+    margin: 100px 10px;
     float: left;
     border: solid 0px;
     font-size: 30px;
@@ -120,7 +115,8 @@ hr {
 
 img {
     width: 225px;
-    height: 300px;
+    display: block;
+    /* height: 300px; */
 }
 
 img:nth-child(2) {
@@ -149,9 +145,7 @@ img:nth-child(2) {
     border: solid 0px;
     height: 400px;
     align-items: center;
-    background: url(../image/flsjdfalskdfjkasljfdlk.jpeg) center/cover;
-    background-size: 1500px 800px;
-    background-position-x: -200px;
+    background: url(../image/flsjdfalskdfjkasljfdlk.jpeg) center/100% no-repeat;
 }
 
 .collection>a {
@@ -181,7 +175,10 @@ img:nth-child(2) {
     /* margin-bottom: 100px; */
     /* background-color: rgba(128, 128, 128, 0.227); */
 }
-
+.best em {
+    font-style: normal;
+    font-size: 16px;
+}
 .best_title>a {
     font-size: 30px;
 }
@@ -193,23 +190,21 @@ img:nth-child(2) {
 .best_title {
     text-align: center;
 }
+/* ===================== */
+.best_item ul {
+    display: flex;
 
-.best_item li {
-    display: inline-block;
-    text-align: center;
-    width: 295px;
+    justify-content: space-between;
 }
 
-
-.best_item>ul {
-    white-space: nowrap;
+.best_item li {
+    text-align: center;
 }
 
 .best_item button {
     border: solid 0px;
     font-size: 30px;
-    background-color: rgba(194, 194, 194, 0.028);
-    transform: translateY(-400%);
+    background-color:#fff;
     cursor: pointer;
 }
 
@@ -220,7 +215,7 @@ img:nth-child(2) {
 
 .best_item li a:hover img:nth-child(2) {
     display: block;
-    margin-left: 30px;
+    /* margin-left: 30px; */
 }
 
 /* ==============best=============== */
