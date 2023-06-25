@@ -5,14 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../header/css/header.css">
+    <link rel="stylesheet" href="../footer/css/footer.css">
+    <script src="https://kit.fontawesome.com/990bbe298b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/detailed_page_sunglass.css">
     <script src="https://kit.fontawesome.com/990bbe298b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <div class="center h_c"></div>
+        <div class="center h_c">
+            <h1 class="logo">
+                <a href="./index.html"><img src="./image/title.png" alt="logo"></a>
+            </h1>
+            <form class="head_search" action="./index.html" method="get">
+                <input name="query" type="text" value="">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <ul class="h_icon">
+                <li>
+                    <a href="./orderlist/orderlist.html">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>CART</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./mypage/mypage.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>MY</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./login/log_in.html">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>LOGIN</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./join/join.html">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>JOIN</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="gnb">
+                <li>
+                    <a href="./new_goods/new_goods.html">NEW</a>
+                </li>
+                <li>
+                    <a href="./collection/collection.html">COLLECTION</a>
+                </li>
+                <li>
+                    <a href="./glasses/glasses.html">GLASSES</a>
+                </li>
+                <li>
+                    <a href="./sunglass/sunglasses.html">SUNGLASSES</a>
+                </li>
+                <li>
+                    <a href="./cs_total/cs_total.html">고객센터</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <main>
@@ -43,9 +96,10 @@
                         <strong>TOTAL</strong>
                         <span>0</span>
                     </div>
-                    <div>
+                    <div class="choice_button">
                         <button>바로 구매</button>
                         <button>쇼핑백 담기</button>
+                        <a href="#"><i class="fa-sharp fa-solid fa-heart"></i></a>
                     </div>
                 </div>
 
@@ -291,7 +345,29 @@
     </main>
 
     <footer>
-        <div class="center f_c"></div>
+        <div class="center f_c">
+            <div class="foot_left">
+                <p> 상호명 &#58; TbT concept ㅣ 주소 &#58; 경기도 성남시 분당구 돌마로 46 &#40;광천빌딩 5층&#41;</p>
+                <p> &#40;주&#41;티비티컨셉코리아 &nbsp;&copy;ALL&nbsp;RIGHT&nbsp;RESERVED ㅣ 사업자등록번호 &#58;221&#45;90&#45;2000</p>
+                <p> 개인정보보호책임자 &#58; 최고조 ㅣ 호스팅서비스 &#58; &#40;TBT concept&#41;</p>
+            </div>
+
+            <div class="foot_right">
+                <div>
+                    <em class="fc_tit">고객센터</em>
+                    <p class="fc_number">
+                        031&#45;1234&#45;5678<br>
+                    </p>
+                    <p>
+                        운영시간 &#58; 09&#58;00 &sim; 18&#58;00
+                    </p>
+                    <p>cs&#95;help&#64;tbtconcept&#46;co&#46;kr</p>
+                </div>
+                <div class="f_c_right">
+                    <a href="./cs_total/cs_total.html">바로가기</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>

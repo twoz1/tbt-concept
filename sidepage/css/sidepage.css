@@ -1,12 +1,28 @@
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 body {
     min-width: 1115px;
 }
 
 table {
     border: 1px solid;
-    margin: auto;
-    margin-top: 10%;
-    width: 500px;
+    width: 550px;
 }
 
 table tr,th,td {

@@ -1,3 +1,12 @@
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
+
 
 .modal_2{
     width:30%;
@@ -7,9 +16,12 @@
     flex-direction: column;
     justify-content: center;
     padding: 30px;
-    margin: auto;
-    margin-top: calc((100vh - 500px) / 2);
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     min-width: 990px;
+    background-color: white;
 }
 table{
     border-collapse: collapse;

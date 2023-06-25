@@ -1,3 +1,11 @@
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
 
 .modal{
     width: 30%;
@@ -7,10 +15,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* z-index: 1; */
-    /* position: flex; */
-    margin:calc((100vh - 550px) / 2) auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     min-width: 990px;
+    background-color: white;
 }
 
 .content{

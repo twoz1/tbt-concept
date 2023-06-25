@@ -70,6 +70,7 @@ hr {
     background-color: #fff;
     min-width: 1200px;
     width: 100%;
+    margin: 150px 0;
 }
 
 .what_new em {
@@ -84,18 +85,21 @@ hr {
     display: flex;
 }
 
-
-
-
-
-
-
-.what_new_item {
-    width: calc(100% - 170px);
-}
-.what_new_item ul {
+.what_new_item ul{
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+}
+
+.what_new_item li:nth-child(odd) img{
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.what_new_item li:nth-child(even) img{
+    vertical-align: top;
+    width: 90%;
+    margin-bottom: 15px;
 }
 .what_new_item li {
     text-align: center;
@@ -112,10 +116,11 @@ hr {
     cursor: pointer;
 }
 
-img {
+.best img {
     width: 225px;
-    display: block;
+    /* display: block; */
     /* height: 300px; */
+    margin-bottom: 20px;
 }
 
 img:nth-child(2) {
@@ -130,6 +135,7 @@ img:nth-child(2) {
 .what_new li a:hover img:nth-child(2) {
     display: block;
     /* width: 250px; */
+    text-align: center;
     /* height: 320px; */
 }
 
@@ -141,7 +147,6 @@ img:nth-child(2) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: solid 0px;
     height: 400px;
     align-items: center;
     background: url(../image/flsjdfalskdfjkasljfdlk.jpeg) center/100% no-repeat;
@@ -154,25 +159,21 @@ img:nth-child(2) {
 }
 
 .collection>a+a {
-    border: 2px solid #000;
     color: #fff;
     font-size: 14px;
     font-weight: bold;
     width: 100px;
     background-color: #000;
+    padding: 5px;
     text-align: center;
-    line-height: 25px;
+    line-height: 30px;
 }
 
 
 /* ===========collection============ */
 /* ================================= */
 .best {
-    border: solid 0px;
-    /* font-size: 30px; */
     height: 400px;
-    /* margin-bottom: 100px; */
-    /* background-color: rgba(128, 128, 128, 0.227); */
 }
 .best em {
     font-style: normal;
