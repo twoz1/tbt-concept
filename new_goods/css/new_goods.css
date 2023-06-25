@@ -1,8 +1,3 @@
-body * {
-    margin: 0;
-    padding: 0;
-}
-
 /* =====================main - subtitle===================== */
 .new_title {
     text-align: center;
@@ -49,6 +44,7 @@ body * {
 }
 
 .new_glass_title {
+    display: inline-block;
     text-align: left;
     font-size: 24px;
     margin-left: 0.7rem;
@@ -56,12 +52,13 @@ body * {
 
 .btn_plus {
     float: right;
-    margin-right: 0.7rem;
     background-color: white;
     border: none;
+}
+
+.btn_plus a {
     color: black;
     font-size: 30px;
-    cursor: pointer;
 }
 
 .new_glass_img {
