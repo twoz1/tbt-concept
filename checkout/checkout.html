@@ -14,7 +14,7 @@
     <header>
         <div class="center h_c">
             <h1 class="logo">
-                <a href="../index.html"><img src="../image/title.png" alt=""></a>
+                <a href="../index.html"><img src="../image/title.png" alt="logo"></a>
             </h1>
             <form class="head_search" action="./index.html" method="get">
                 <input name="query" type="text" value="">
@@ -22,25 +22,25 @@
             </form>
             <ul class="h_icon">
                 <li>
-                    <a href="#">
+                    <a href="../orderlist/orderlist.html">
                         <i class="fa-solid fa-bag-shopping"></i>
                         <span>CART</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./mypage/mypage.html">
+                    <a href="../mypage/mypage.html">
                         <i class="fa-solid fa-user"></i>
                         <span>MY</span>
                     </a>
                 </li>
                 <li>
-                    <a href="./login/log_in.html">
+                    <a href="../login/log_in.html">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         <span>LOGIN</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../join/join.html">
                         <i class="fa-solid fa-user-plus"></i>
                         <span>JOIN</span>
                     </a>
@@ -48,19 +48,19 @@
             </ul>
             <ul class="gnb">
                 <li>
-                    <a href="./new_goods/newGoods.html">NEW</a>
+                    <a href="../new_goods/new_goods.html">NEW</a>
                 </li>
                 <li>
-                    <a href="./collection/collection.html">COLLECTION</a>
+                    <a href="../collection/collection.html">COLLECTION</a>
                 </li>
                 <li>
-                    <a href="#">GLASSES</a>
+                    <a href="../glasses/glasses.html">GLASSES</a>
                 </li>
                 <li>
-                    <a href="./sunglass/sunglass.html">SUNGLASSES</a>
+                    <a href="../sunglass/sunglasses.html">SUNGLASSES</a>
                 </li>
                 <li>
-                    <a href="./cs_total/csTotal.html">고객센터</a>
+                    <a href="../cs_total/cs_total.html">고객센터</a>
                 </li>
             </ul>
     </header>
@@ -122,7 +122,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>배송 메세지</th>
+                                    <th>배송 메시지</th>
                                     <td class="message"> <input type="text" placeholder="메세지를 입력하세요."></td>
                                 </tr>
                             </tbody>
@@ -145,7 +145,7 @@
 
                                 <tr>
                                     <td style="width:20px;"><input type="checkbox"></td>
-                                    <th class="item_img"><img src="../image/glass_1.jpeg" alt=""></th>
+                                    <th class="item_img"><img src="../image/glass_1.jpeg" alt="glass_1"></th>
                                     <td>1</td>
                                     <td>30&#46;000</td>
                                     <td>30&#46;000</td>
@@ -268,9 +268,7 @@
                                 </th>
                             </tr>
                             <tr>
-                                <th colspan="2"><input type="checkbox"><span>주문 상품정보에 동의&#40;필수&#41;<a
-                                            href="../sidepage/side1.html">내용보기</a></span>
-                                </th>
+                                <th colspan="2"><input type="checkbox"><span>주문 상품정보에 동의&#40;필수&#41;<a href="../sidepage/side1.html">내용보기</a></span></th>
                             </tr>
                             <tr>
                                 <th colspan="2"><input type="checkbox"><span>결제대행서비스 이용을 위한 <br>개인정보 제3자 제공
@@ -286,14 +284,7 @@
                     </table>
                 </div>
                 <div class="side_pay side_pay3">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th><input type="submit" value="결제하기"></th>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                    <button>결제하기</button>
                 </div>
             </section>
             <div class="to_top">
@@ -303,23 +294,27 @@
     <footer>
         <div class="center f_c">
             <div class="foot_left">
-                <p>
-                    상호명 &#58; TbT concept ㅣ 주소 &#58; 경기도 성남시 분당구 돌마로 46 &#40;광천빌딩 5층&#41;
-                    카피라이트 &#58; &copy;&#40;주&#41;티비티컨셉코리아&nbsp;ALL&nbsp;RIGHT&nbsp;RESERVED ㅣ 사업자등록번호 &#58;
-                    221&#45;90&#45;2000
-                    개인정보보호책임자 &#58; 최고조 ㅣ 호스팅서비스 &#58; &#40;TBT concept&#41;
-                </p>
+                <p> 상호명 &#58; TbT concept ㅣ 주소 &#58; 경기도 성남시 분당구 돌마로 46 &#40;광천빌딩 5층&#41;</p>
+                <p> &#40;주&#41;티비티컨셉코리아 &nbsp;&copy;ALL&nbsp;RIGHT&nbsp;RESERVED ㅣ 사업자등록번호 &#58;221&#45;90&#45;2000</p>
+                <p> 개인정보보호책임자 &#58; 최고조 ㅣ 호스팅서비스 &#58; &#40;TBT concept&#41;</p>
             </div>
+
             <div class="foot_right">
-                <em>고객센터</em>
-                <p>
-                    전화번호 &#58; 031&#45;1234&#45;5678<br>
-                    운영시간 &#58; 09&#58;00 &sim; 18&#58;00
-                </p>
+                <div>
+                    <em class="fc_tit">고객센터</em>
+                    <p class="fc_number">
+                        전화번호 &#58; 031&#45;1234&#45;5678<br>
+                    </p>
+                    <p>
+                        운영시간 &#58; 09&#58;00 &sim; 18&#58;00
+                    </p>
+                    <p>cs&#95;help&#64;tbtconcept&#46;co&#46;kr</p>
+                </div>
+                <div class="f_c_right">
+                    <a href="./cs_total/cs_total.html">바로가기</a>
+                </div>
             </div>
-            <div class="foot_direct_button">
-                <a href="./cs_total/csTotal.html">바로가기</a>
-            </div>
+         
         </div>
 
     </footer>
