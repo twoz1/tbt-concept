@@ -51,7 +51,6 @@ div input {
 .member_log {
     font-size: 20px;
     font-weight: bold;
-    /* height: 200px; */
     width: 600px;
     margin: 50px auto;
     position: relative;
@@ -64,7 +63,6 @@ div input {
 .user_id {
     display: inline-block;
     height: 20px;
-    /* margin: 40px; */
     width: 500px;
     font-size: 20px;
 }

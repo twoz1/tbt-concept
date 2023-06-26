@@ -14,7 +14,6 @@ img {
 
 .collection>h2 {
     font-size: 44px;
-    /* color: gray; */
     margin: 100px;
 }
 
@@ -24,9 +23,7 @@ img {
     height: 8400px;
 }
 
-.collection li {
-    /* margin: 50px 0 0 0; */
-}
+
 
 .collection ul {
     display: flex;

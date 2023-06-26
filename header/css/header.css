@@ -91,6 +91,7 @@ h3 {
 header {
     border-bottom: 1px solid;
     height: 190px;
+    position: relative;
 }
 
 .h_c {
@@ -172,6 +173,12 @@ header {
 
 /*메뉴gnb*/
 .gnb {
+    background-color: #000;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -187,7 +194,9 @@ header {
     font: 16px bold;
     position: relative;
 }
-
+.gnb li:hover a {
+    color: orangered;
+}
 .gnb li::after {
     content: '';
     display: block;
@@ -205,4 +214,5 @@ header {
 
 .gnb li a {
     text-align: center;
+    color: #fff;
 }
