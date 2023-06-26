@@ -3,6 +3,10 @@ body * {
     padding: 0;
 }
 
+.title_route {
+    margin: 7rem;
+}
+
 /* =====================main상단바===================== */
 .cs_sch {
     display: grid;
