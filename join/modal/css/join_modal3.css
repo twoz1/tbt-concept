@@ -63,21 +63,20 @@ ul li:nth-of-type(1){
     font-weight: bold;
 }
 /* ==================버튼==================================== */
-.button_box{
-    display: flex;
-    justify-content: center;
-}
 
-.button_box button{
+
+.close_button{
+    margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
     width: 120px;
-    height: 35px;
+    line-height: 35px;
+    text-align: center;
     background-color: black;
     border: none;
 }
 
-.button_box button a{
+.close_button a{
     color: white;
     text-decoration: none;
 }
