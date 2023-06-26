@@ -1,14 +1,36 @@
 @charset "uft-8";
 
+@media screen and (max-width : 600px) {
+    header {
+        height: 240px;
+    }
+
+
+}
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil3Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
-
+table {
+    border-collapse: collapse;
+}
 ul,
 li {
     list-style: none;
-    border-collapse: collapse;
 }
 
 a {
@@ -21,11 +43,13 @@ a {
     display: block;
     clear: both;
 }
+
 .title_route {
     margin: 6rem;
     text-transform: uppercase;
 }
-.title_route ul{
+
+.title_route ul {
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -59,24 +83,9 @@ h2 {
 
 h3 {
     font-size: 24px;
-    font-family: 'TheJamsil5Bold';
-    font-weight: normal;
+    font-family: 'TheJamsil3Bold';
 }
 
-@media screen and (max-width : 600px) {
-    header {
-        height: 240px;
-    }
-
-
-}
-
-@font-face {
-    font-family: 'TheJamsil5Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
 
 
 header {

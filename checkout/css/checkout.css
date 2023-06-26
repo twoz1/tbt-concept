@@ -176,8 +176,6 @@ table {
     border: 1px solid #000;
     padding: 2px 5px;
     vertical-align: middle;
-}
-.discount td button > a {
     color: #fff;
 }
 .discount td input[type="checkbox"] {
@@ -284,6 +282,9 @@ table {
 
 .side_pay3 table th {
     width: 310px;
+}
+.side_pay3 a {
+    color: #fff;
 }
 
 

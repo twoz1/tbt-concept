@@ -6,38 +6,7 @@
     height: auto;
 }
 
-.to_top {
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border: 1px solid orangered;
-    border-radius: 50%;
-    box-sizing: border-box;
-}
 
-.to_top a {
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.to_top a i {
-    font-size: 25px;
-    color: orangered;
-}
-
-.quick_menu {
-    z-index: 100;
-    position: fixed;
-    right: 200px;
-    bottom: 50px;
-}
 
 .what_new,
 .collection,
