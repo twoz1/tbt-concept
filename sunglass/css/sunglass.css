@@ -16,17 +16,6 @@
     transform: translateX(-50%);
 }
 
-/* .title {
-    text-align: center;
-    font-size: 24px;
-}
-
-.title h2 {
-    margin-top: 70px;
-    margin-bottom: 70px;
-} */
-
-
 /* ======================메인<카테고리================================ */
 #category>ul {
     display: flex;

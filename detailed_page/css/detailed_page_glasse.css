@@ -43,20 +43,28 @@ section .choice div:nth-of-type(3) p {
     margin-bottom: 8px;
 }
 
+#lens_option{
+    width: 455px;
+}
+
 .choice_button{
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.choice_button button{
+.choice_button a{
     margin-top: 20px;
     width: 40%;
     height: 50px;
+    line-height: 50px;
     background-color: white;
+    background-color: white;
+    border: 1px solid;
+    text-align: center;
 }
 
-.choice_button a{
+.choice_button a:nth-child(3){
     margin-top: 20px;
     border: 2px solid #aba8a8;
     height: 50px;
@@ -72,12 +80,8 @@ section .choice div:nth-of-type(3) p {
     color: orangered;
 }
 
-section .choice button:nth-of-type(2) {
+section .choice a:nth-of-type(2) {
     background-color: black;
-    color: white;
-}
-section .choice button:nth-of-type(2) a {
-
     color: white;
 }
 
@@ -86,9 +90,8 @@ section .choice select {
 }
 
 section .choice div:nth-of-type(4) strong {
-    margin-right: 340px;
+    margin-right: 300px;
 }
-
 
 
 
@@ -137,6 +140,11 @@ section .choice div:nth-of-type(4) strong {
 
 
 /* ====================detail 섹션=============================================== */
+.product_detail{
+    text-align: center;
+    padding: 20px;
+}
+
 .detail {
     text-align: center;
 }
@@ -151,7 +159,7 @@ section .choice div:nth-of-type(4) strong {
 
 
 .review_score_percent {
-    height: 200px;
+    height: 250px;
     display: flex;
     align-items: center;
 }
@@ -219,7 +227,7 @@ section .choice div:nth-of-type(4) strong {
 .customer_review {
     display: flex;
     flex-direction: column;
-    height: 130px;
+    height: 150px;
     justify-content: space-around;
     margin: 40px 20px;
 }
