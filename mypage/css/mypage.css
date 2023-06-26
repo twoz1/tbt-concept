@@ -1,5 +1,13 @@
+table {
+    border-collapse: collapse;
+}
+
 .cover {
     margin: 50px 0;
+}
+
+h3 {
+    line-height: 40px;
 }
 
 /*메인영역*/
@@ -134,6 +142,16 @@
 
 .cover td .delivery a:hover {
     background-color: orangered;
+}
+
+.orderlist .order_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderlist .order_title span {
+    align-self: end;
+    margin-bottom: 5px;
 }
 
 .orderlist a.review:hover {
