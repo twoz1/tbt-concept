@@ -3,10 +3,12 @@ body>* {
     padding: 0;
 }
 
+.d_flex {
+    display: flex;
+}
+
 /* =====================main - table===================== */
 .basket_box {
-    display: flex;
-    flex-direction: row;
     width: 100%;
     min-width: 1220px;
 }
@@ -16,7 +18,7 @@ body>* {
     margin-bottom: 0.3rem;
 }
 
-.basket_box form {
+.basket_box figure {
     width: 70%;
     min-width: 820px;
 }
@@ -96,7 +98,7 @@ body>* {
 }
 
 .basket_payment {
-    margin-left: auto;
+    margin-left: 2rem;
     margin-top: 1.3rem;
     background-color: #eee;
     width: 25%;

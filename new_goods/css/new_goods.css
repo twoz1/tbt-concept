@@ -5,7 +5,6 @@
 }
 
 .new_rec h3 {
-    font-size: 24px;
     color: orangered;
 }
 
@@ -22,7 +21,6 @@
 .new_glass_title {
     display: inline-block;
     text-align: left;
-    font-size: 24px;
     margin-left: 0.7rem;
 }
 
