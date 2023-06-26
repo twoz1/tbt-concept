@@ -1,27 +1,4 @@
 /* =====================main - subtitle===================== */
-.new_title {
-    text-align: center;
-    margin: 4rem;
-}
-
-.new_title h2 {
-    font-size: 44px;
-}
-
-.new_title ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.new_title li {
-    font-size: 12px;
-    color: darkgray;
-    margin-top: 1rem;
-}
-
 .new_rec {
     text-align: center;
     margin: 4rem;
