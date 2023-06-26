@@ -30,6 +30,22 @@ section {
     /* min-width: 1216px; */
 }
 
+section .choice {
+    display: flex;
+    flex-direction: column;
+}
+
+section .choice div:first-child{
+    display: flex;
+    justify-content: space-between
+}
+section .choice div:first-child span{
+  margin-right: 10px;
+}
+section .choice div:first-child span em{
+font-style: normal;
+color: orangered;
+}
 
 section .choice div:not(:nth-of-type(5)) {
 
@@ -43,20 +59,27 @@ section .choice div:nth-of-type(3) p {
     margin-bottom: 8px;
 }
 
+#lens_option{
+    width: 455px;
+}
+
 .choice_button{
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.choice_button button{
+.choice_button a{
     margin-top: 20px;
     width: 40%;
     height: 50px;
+    line-height: 50px;
     background-color: white;
+    border: 1px solid;
+    text-align: center;
 }
 
-.choice_button a{
+.choice_button a:nth-child(3){
     margin-top: 20px;
     border: 2px solid #aba8a8;
     height: 50px;
@@ -72,12 +95,8 @@ section .choice div:nth-of-type(3) p {
     color: orangered;
 }
 
-section .choice button:nth-of-type(2) {
+section .choice a:nth-of-type(2) {
     background-color: black;
-    color: white;
-}
-section .choice button:nth-of-type(2) a {
-
     color: white;
 }
 
@@ -86,9 +105,8 @@ section .choice select {
 }
 
 section .choice div:nth-of-type(4) strong {
-    margin-right: 340px;
+    margin-right: 300px;
 }
-
 
 
 
@@ -137,6 +155,11 @@ section .choice div:nth-of-type(4) strong {
 
 
 /* ====================detail 섹션=============================================== */
+.product_detail{
+    text-align: center;
+    padding: 20px;
+}
+
 .detail {
     text-align: center;
 }
@@ -151,7 +174,7 @@ section .choice div:nth-of-type(4) strong {
 
 
 .review_score_percent {
-    height: 200px;
+    height: 250px;
     display: flex;
     align-items: center;
 }
@@ -219,7 +242,7 @@ section .choice div:nth-of-type(4) strong {
 .customer_review {
     display: flex;
     flex-direction: column;
-    height: 130px;
+    height: 150px;
     justify-content: space-around;
     margin: 40px 20px;
 }
@@ -241,22 +264,22 @@ section .choice div:nth-of-type(4) strong {
 
 /* ============================================================= */
 
-#q_a_button {
+.q_a_button {
     display: flex;
-    justify-content: end;
-}
-
-#q_a_button button {
-    background-color: black;
+    justify-content: flex-end;
     border: none;
-    width: 70px;
-    height: 30px;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
-#q_a_button a {
+.q_a_button a {
+    background-color: black;
     color: white;
+    width: 70px;
+    text-align: center;
+    line-height: 30px;
 }
+
+
 
 .customer_q_a {
     margin: 30px;
