@@ -39,16 +39,17 @@
     font-size: 15px;
 }
 
-.modal button{
+.close_button{
     margin-top: 25px;
     margin-bottom: 25px;
     width: 120px;
-    height: 35px;
+    line-height: 35px;
+    text-align: center;
     background-color: black;
     border: none;
 }
 
-.modal button a{
+.close_button a{
     color: white;
     text-decoration: none;
 }
