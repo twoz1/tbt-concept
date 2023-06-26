@@ -13,7 +13,7 @@ body>* {
 
 .basket_table h3 {
     font-size: 22px;
-    /* margin: 6rem 0 0.5rem 0.5rem; */
+    margin-bottom: 0.3rem;
 }
 
 .basket_box form {
@@ -76,7 +76,7 @@ body>* {
     height: 110px;
 }
 
-.goods_name span {
+.goods_name a {
     margin-top: 0.5rem;
     margin-left: 0.8rem;
 }
@@ -97,7 +97,7 @@ body>* {
 
 .basket_payment {
     margin-left: auto;
-    margin-top: 2rem;
+    margin-top: 1.3rem;
     background-color: #eee;
     width: 25%;
     min-width: 300px;
@@ -135,14 +135,11 @@ body>* {
 .basket_payment button {
     border: none;
     background-color: black;
+    color: white;
     width: 305px;
     height: 50px;
     flex-direction: end;
     cursor: pointer;
-}
-
-.basket_payment button a {
-    color: white;
 }
 
 .btn_bottom button {
@@ -151,17 +148,11 @@ body>* {
     width: 120px;
     margin: 2rem 0 8rem 0;
     border: 1px solid black;
-    cursor: pointer;
-}
-
-.btn_bottom button:nth-of-type(1) {
     background-color: white;
+    cursor: pointer;
 }
 
 .btn_bottom button:nth-of-type(2) {
     background-color: black;
-}
-
-.btn_bottom button:nth-of-type(2) a {
     color: white;
 }
