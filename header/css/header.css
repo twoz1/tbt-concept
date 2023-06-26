@@ -21,11 +21,13 @@ a {
     display: block;
     clear: both;
 }
+
 .title_route {
     margin: 6rem;
     text-transform: uppercase;
 }
-.title_route ul{
+
+.title_route ul {
     list-style: none;
     display: flex;
     flex-direction: row;
