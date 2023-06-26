@@ -143,6 +143,13 @@ table {
 .item {
     text-align: center;
 }
+.item_name,
+.item_price {
+    font-size: 14px;
+}
+.item_name {
+    margin-top: 5px;
+}
 
 .item_img img {
     margin: auto;
