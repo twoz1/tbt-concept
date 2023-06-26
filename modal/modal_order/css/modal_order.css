@@ -1,0 +1,62 @@
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal_order figcaption {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 0 3px 0;
+}
+
+.modal_order table {
+    width: 500px;
+    text-align: center;
+}
+
+.modal_order th,
+.modal_order td {
+    border: 1px solid #000;
+    box-sizing: border-box;
+    height: 25px;
+}
+
+.modal_order td.total {
+    height: 30px;
+    text-align: right;
+    padding-right: 5px;
+
+}
+
+.modal_order th {
+    background-color: #ddd;
+}
+
+.modal_order .button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.modal_order .button a {
+    padding: 5px 15px;
+    border: 1px solid;
+    margin: 0 10px;
+}
+
+.modal_order .button a.close {
+    background-color: #000;
+    color: #fff;
+}
