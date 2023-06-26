@@ -62,8 +62,8 @@ table tr:nth-of-type(7) td {
 }
 table tr:nth-of-type(7) button{
     border: 0;
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 35px;
     background-color: black;
     margin-left: 40%;
 }

@@ -8,6 +8,7 @@
 ul,
 li {
     list-style: none;
+    border-collapse: collapse;
 }
 
 a {
@@ -20,7 +21,9 @@ a {
     display: block;
     clear: both;
 }
-
+.title_route {
+    margin: 8rem;
+}
 .title_route ul{
     list-style: none;
     display: flex;
@@ -30,9 +33,9 @@ a {
 }
 
 .title_route ul li {
+    margin-top: 1rem;
     font-size: 12px;
     color: darkgray;
-    margin-top: 1rem;
 }
 
 html {
@@ -48,6 +51,7 @@ html {
 }
 
 h2 {
+    text-transform: uppercase;
     font-size: 44px;
     text-align: center;
     font-family: 'TheJamsil5Bold';

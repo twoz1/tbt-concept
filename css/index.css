@@ -72,7 +72,18 @@ hr {
     width: 100%;
     margin: 150px 0;
 }
-
+.item_name,
+.item_price {
+    font-size: 14px;
+}
+.shop_this {
+    margin-top: 20px;
+}
+.shop_this a {
+    background-color: orangered;
+    padding: 2px;
+    color: white;
+}
 .what_new em {
     font-style: normal;
 }
@@ -100,6 +111,8 @@ hr {
     vertical-align: top;
     width: 90%;
     margin-bottom: 15px;
+    margin: 12px;
+    margin-bottom: 23px;
 }
 .what_new_item li {
     text-align: center;
@@ -116,16 +129,10 @@ hr {
     cursor: pointer;
 }
 
-.best img {
-    width: 225px;
-    /* display: block; */
-    /* height: 300px; */
-    margin-bottom: 20px;
-}
 
 img:nth-child(2) {
     display: none;
-
+    
 }
 
 .what_new li a:hover img:nth-child(1) {
@@ -193,12 +200,19 @@ img:nth-child(2) {
 /* ===================== */
 .best_item ul {
     display: flex;
-
+    
     justify-content: space-between;
 }
 
 .best_item li {
     text-align: center;
+}
+.best img {
+    vertical-align: top;
+    width: 225px;
+    /* display: block; */
+    /* height: 300px; */
+    margin-bottom: 20px;
 }
 
 .best_item button {

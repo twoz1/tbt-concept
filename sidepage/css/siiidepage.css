@@ -122,8 +122,8 @@ table tr:nth-of-type(5) select {
 table tr:nth-of-type(6) button {
     background-color: white;
     border: 1px solid;
-    width: 150px;
-    height: 40px;
+    width: 120px;
+    height: 35px;
 }
 
 table tr:nth-of-type(6) button+button {
