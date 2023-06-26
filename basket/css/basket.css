@@ -13,7 +13,7 @@ body>* {
 
 .basket_table h3 {
     font-size: 22px;
-    margin: 6rem 0 0.5rem 0.5rem;
+    /* margin: 6rem 0 0.5rem 0.5rem; */
 }
 
 .basket_box form {
@@ -97,7 +97,7 @@ body>* {
 
 .basket_payment {
     margin-left: auto;
-    margin-top: 8.7rem;
+    margin-top: 2rem;
     background-color: #eee;
     width: 25%;
     min-width: 300px;
