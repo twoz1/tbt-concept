@@ -30,8 +30,9 @@
     line-height: 30px;
 }
 
-.result_cover h2 {
+.result_cover p {
     font-size: 24px;
+    font-weight: bold;
 }
 
 .button_cover {
