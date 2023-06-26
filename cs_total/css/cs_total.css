@@ -53,11 +53,6 @@ body * {
 }
 
 /* =====================main - 검색 퀵 메뉴===================== */
-.cs_quickMemu h3 {
-    font-size: 24px;
-    margin-bottom: 0;
-}
-
 .cs_quickMemu ul {
     list-style: none;
     display: inline-block;
@@ -94,12 +89,12 @@ body * {
     margin-top: 8rem;
 }
 
-.cs1on1_ask hr {
-    margin: 0.5rem 0;
+.cs1on1_ask h3 {
+    display: inline-block;
 }
 
-.cs1on1_ask span {
-    font-size: 24px;
+.cs1on1_ask hr {
+    margin: 0.5rem 0;
 }
 
 .btn_cs1on1 {
@@ -119,10 +114,6 @@ body * {
 
 .freq_ask hr {
     margin-top: 0.5rem;
-}
-
-.freq_ask span {
-    font-size: 24px;
 }
 
 .freq_ask p {
