@@ -1,7 +1,9 @@
 .m_c {
     height: auto;
 }
-
+hr {
+    color: #eee;
+}
 .to_top {
     width: 50px;
     height: 50px;
@@ -29,98 +31,62 @@
 }
 /* ==================sidebar================= */
 /* ==================main input================= */
-div input {
+table input {
     border: 1px solid #000;
     margin-left: 10px;
-}
-
-.log_cont hr {
-    width: 1240px;
-    margin-left: -320px;
-    margin-top: 50px;
-}
-
-.sub_title {
-    font-size: 44px;
-    line-height: 50px;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 130px;
-}
-
-.member_log {
-    font-size: 20px;
-    font-weight: bold;
-    width: 600px;
-    margin: 50px auto;
-    position: relative;
-}
-
-.member_log>form {
-    width: 100%;
-}
-
-.user_id {
-    display: inline-block;
-    height: 20px;
-    width: 500px;
-    font-size: 20px;
-}
-
-.user_id>input {
-    width: 300px;
-    height: 30px;
     background-color: #eee;
-    border: 0px;
     padding-left: 10px;
 }
 
-.user_password {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 20px;
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
 }
-
-.user_password>input {
-    width: 300px;
-    height: 30px;
-    margin-left: 50px;
-    border: 0px;
-    padding-left: 10px;
-    background-color: #eee;
-}
-
-.log_button>button {
+.login button {
+    height: 83px;
+    width:  130px;
     background-color: #000;
     color: white;
-    position: absolute;
-    width: 150px;
-    height: 90px;
-    right: 0;
-    top: 0;
-    border: 0;
+    border: 0px;
     font-size: 20px;
-    cursor: pointer;
+}
+.login {
+    margin-top: 50px;
+}
+.log_input {
+    height: 100px;
+}
+.log_input td input {
+    width: 300px;
+    height: 30px;
+    border: 0px solid;
+}
+
+.log_input th {
+    font-size: 16px;
+}
+
+.log_input tr:nth-of-type(3) th{
+    align-self: center;
 }
 
 
-.user_remember {
-    display: inline-block;
-    margin-left: 70px;
-    font-size: 14px;
+.remember {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0 50px -100px;
 }
+.remember a {
+    margin-left: 50px;
+}
+/* ================================ */
 
-.user_remember input {
-    margin-right: 10px;
-}
-.join {
-    display: inline-block;
-    margin-left: 30px;
-}
 
-.join>a {
-    font-size: 14px;
-}
+
 
 .new_join_wrap {
     font-size: 20px;
@@ -133,10 +99,11 @@ div input {
 }
 
 .join_sns {
+    white-space: nowrap;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .join_sns>p {
