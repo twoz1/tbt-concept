@@ -108,7 +108,7 @@ header {
 .logo>a {
     background: url(../css/title.png)center/100% no-repeat;
     text-indent: -9999em;
-    display: inline-block;
+    display: block;
     width: 150px;
     height: 100px;
 }
