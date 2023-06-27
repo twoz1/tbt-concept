@@ -37,6 +37,7 @@ body * {
     border-right-width: 0;
     width: 600px;
     font-size: 16px;
+    outline: none;
 }
 
 .cs_schRight {
@@ -104,7 +105,7 @@ body * {
 .btn_cs1on1 a {
     text-decoration: none;
     color: orangered;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* =====================main - 자주 찾는 질문===================== */
