@@ -44,6 +44,10 @@ hr {
     margin: 150px 0;
 }
 
+.item_name {
+    margin-top: 15px;
+}
+
 .item_name,
 .item_price {
     font-size: 14px;
@@ -75,27 +79,13 @@ hr {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* gap: 25px; */
+    gap: 15px;
 }
 
 .what_new_item ul {
     display: flex;
-    gap: 10px;
     text-align: center;
-}
-
-.what_new_item li:nth-child(odd) img {
-    vertical-align: top;
-    width: 100%;
-    margin-bottom: 15px;
-    margin-left: 5px;
-}
-
-.what_new_item li:nth-child(even) img {
-    vertical-align: top;
-    width: 93%;
-    margin: 8px 13px;
-    margin-bottom: 27px;
+    gap: 10px;
 }
 
 .what_new_item li {
@@ -103,10 +93,20 @@ hr {
     font-size: 16px;
     font-style: normal;
     width: 100%;
+    flex: 5.5;
+}
+
+.what_new_item li:nth-child(even) {
+    flex: 4.5
+}
+
+.what_new_item ul li a img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .what_new button {
-    /* margin: 100px 10px; */
     border: solid 0px;
     font-size: 30px;
     background-color: #fff;
@@ -114,7 +114,7 @@ hr {
 }
 
 
-img:nth-child(2) {
+.what_new_item li a img:nth-child(2) {
     display: none;
 
 }
@@ -185,18 +185,23 @@ img:nth-child(2) {
 /* ===================== */
 .best_item ul {
     display: flex;
+    gap: 10px;
 
     justify-content: space-between;
 }
 
 .best_item li {
     text-align: center;
+    width: 100%;
 }
 
-.best img {
-    vertical-align: top;
-    width: 225px;
-    margin-bottom: 20px;
+.best_item ul li a img {
+    display: block;
+    width: 100%;
+}
+
+.best_item ul li a img:nth-child(2) {
+    display: none;
 }
 
 .best_item button {
@@ -204,15 +209,6 @@ img:nth-child(2) {
     font-size: 30px;
     background-color: #fff;
     cursor: pointer;
-}
-
-
-.best_item li a:hover img:nth-child(1) {
-    display: none;
-}
-
-.best_item li a:hover img:nth-child(2) {
-    display: block;
 }
 
 /* ==============best=============== */
