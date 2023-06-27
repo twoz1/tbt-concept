@@ -196,12 +196,20 @@ hr {
 }
 
 .best_item ul li a img {
-    display: block;
     width: 100%;
+    display: block;
 }
 
 .best_item ul li a img:nth-child(2) {
     display: none;
+}
+
+.best_item ul li:hover a img:nth-child(1) {
+    display: none;
+}
+
+.best_item ul li:hover a img:nth-child(2) {
+    display: block;
 }
 
 .best_item button {
