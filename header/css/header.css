@@ -7,6 +7,7 @@
 
 
 }
+
 @font-face {
     font-family: 'TheJamsil5Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
@@ -14,20 +15,17 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'TheJamsil3Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-}
+
 
 * {
     margin: 0;
     padding: 0;
 }
+
 table {
     border-collapse: collapse;
 }
+
 ul,
 li {
     list-style: none;
@@ -83,7 +81,6 @@ h2 {
 
 h3 {
     font-size: 24px;
-    font-family: 'TheJamsil3Bold';
 }
 
 
@@ -194,9 +191,11 @@ header {
     font: 16px bold;
     position: relative;
 }
+
 .gnb li:hover a {
     color: orangered;
 }
+
 .gnb li::after {
     content: '';
     display: block;
