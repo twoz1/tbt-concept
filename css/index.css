@@ -50,7 +50,7 @@ hr {
 }
 
 .shop_this {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .shop_this a {
@@ -65,7 +65,6 @@ hr {
 
 .what_new_title {
     text-align: center;
-    width: 170px;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -89,20 +88,21 @@ hr {
     vertical-align: top;
     width: 100%;
     margin-bottom: 15px;
+    margin-left: 5px;
 }
 
 .what_new_item li:nth-child(even) img {
     vertical-align: top;
-    width: 90%;
-    margin-bottom: 15px;
-    margin: 12px;
-    margin-bottom: 23px;
+    width: 93%;
+    margin: 8px 13px;
+    margin-bottom: 27px;
 }
 
 .what_new_item li {
     text-align: center;
     font-size: 16px;
     font-style: normal;
+    width: 100%;
 }
 
 .what_new button {
