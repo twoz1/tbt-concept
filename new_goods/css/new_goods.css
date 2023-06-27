@@ -32,6 +32,10 @@
     border: none;
 }
 
+.btn_plus:hover a {
+    color: orangered;
+}
+
 .btn_plus a {
     color: black;
     font-size: 30px;
