@@ -16,6 +16,7 @@
 /* =====================main - (glass / sunglass) 레이아웃 똑같음===================== */
 .new_glass {
     margin-bottom: 8rem;
+    min-width: 1050px;
 }
 
 .new_glass_title {
@@ -97,6 +98,7 @@
 .new_slide_img {
     display: inline-block;
     width: 100%;
+    min-width: 1050px;
     height: 500px;
     overflow: hidden;
 }
