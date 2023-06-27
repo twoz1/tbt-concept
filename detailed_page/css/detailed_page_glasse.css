@@ -27,7 +27,6 @@ body{
 section {
     display: flex;
     margin-top: 10px;
-    /* min-width: 1216px; */
 }
 
 section .choice {
@@ -87,7 +86,6 @@ section .choice div:nth-of-type(3) p {
     width: 12%;
     text-align: center;
     box-sizing: border-box;
-
 }
 
 .choice_button i {
@@ -111,10 +109,11 @@ section .choice div:nth-of-type(4) strong {
 
 
 /* ==================nav===================================================== */
-
+.nav{
+    margin: 60px 0;
+}
 
 .nav ul {
-    margin: 15px 0;
     width: 100%;
     display: flex;
 }
@@ -157,7 +156,6 @@ section .choice div:nth-of-type(4) strong {
 /* ====================detail 섹션=============================================== */
 .product_detail{
     text-align: center;
-    padding: 20px;
 }
 
 .detail {
@@ -174,9 +172,9 @@ section .choice div:nth-of-type(4) strong {
 
 
 .review_score_percent {
-    height: 250px;
     display: flex;
     align-items: center;
+    margin-bottom: 60px;
 }
 
 .review_score_percent .review_left {
@@ -192,7 +190,7 @@ section .choice div:nth-of-type(4) strong {
 }
 
 .review_score_percent .review_left #star_icon {
-    font-size: 25px;
+    font-size: 30px;
     color: orangered;
 
 }
@@ -231,7 +229,6 @@ section .choice div:nth-of-type(4) strong {
 .review_nav {
     display: flex;
     gap: 10px;
-    margin-bottom: 5px;
 }
 
 .star_id_date {
@@ -244,7 +241,7 @@ section .choice div:nth-of-type(4) strong {
     flex-direction: column;
     height: 150px;
     justify-content: space-around;
-    margin: 40px 20px;
+    margin: 20px 20px 0;
 }
 
 /* ======================================== */
@@ -268,7 +265,7 @@ section .choice div:nth-of-type(4) strong {
     display: flex;
     justify-content: flex-end;
     border: none;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .q_a_button a {
@@ -284,7 +281,6 @@ section .choice div:nth-of-type(4) strong {
 .customer_q_a {
     margin: 30px;
     height: 80px;
-
     border-top: 1px solid;
     border-bottom: 1px solid;
     display: flex;
@@ -333,9 +329,9 @@ section .choice div:nth-of-type(4) strong {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 880px;
     gap: 30px;
     margin-left: 30px;
+    margin-bottom: 60px;
     
 }
 
