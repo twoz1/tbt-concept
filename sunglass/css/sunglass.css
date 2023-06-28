@@ -84,25 +84,26 @@
 
 
 img {
-    display: inline-block;
     width: 100%;
     vertical-align: top;
-    margin-bottom: 10px;
 }
 
-.photo_layout ul img:hover {
+.photo_layout ul .product_photo:hover {
     display: block;
-    width: 100%;
     transform: scale(1.04);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
     cursor: crosshair;
+}
+
+.photo_layout ul li div:nth-child(2){
+    margin-top: 10px;
 }
 
 img:nth-child(2) {
     display: none;
 }
 
-.photo_2 a:hover img:nth-child(1) {
+.photo_2 a:nth-child(1):hover img {
     display: none;
 }
 
@@ -124,8 +125,11 @@ img:nth-child(2) {
 
 .shop_this a {
     background-color: orangered;
-    padding: 2px;
     color: white;
+    display: block;
+    width: 100px;
+    margin: auto;
+    line-height: 23px;
 }
 
 
