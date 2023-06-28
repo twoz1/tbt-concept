@@ -23,7 +23,6 @@ table {
     min-width: 628px;
     border-bottom: 1px solid black;
     height: 300px;
-    /* border-collapse: collapse; */
 }
 
 table #sale_coupon {
@@ -93,7 +92,7 @@ table th {
 #letter {
     display: block;
     font-size: 5px;
-    white-space: right;
+    white-space: nowrap;
     padding-left: 20px;
 }
 

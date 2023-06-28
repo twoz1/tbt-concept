@@ -24,33 +24,33 @@ body {
 }
 
 
-section {
+.section {
     margin-top: 10px;
     display: flex;
 }
 
-section .choice {
+.section .choice {
     display: flex;
     flex-direction: column;
     gap: 45px;
 
 }
 
-section .choice div:first-child{
+.section .choice div:first-child{
     display: flex;
     justify-content: space-between
 }
-section .choice div:first-child span{
+.section .choice div:first-child span{
   margin-right: 10px;
 }
-section .choice div:first-child span em{
+.section .choice div:first-child span em{
 font-style: normal;
 color: orangered;
 }
 
 
 
-section .choice div:not(:nth-of-type(4)) {
+.section .choice div:not(:nth-of-type(4)) {
     margin-bottom: 30px;
     border-bottom: 1px solid #eee;
     padding: 25px;
@@ -92,17 +92,17 @@ section .choice div:not(:nth-of-type(4)) {
 }
 
 
-section .choice a:nth-child(2) {
+.section .choice a:nth-child(2) {
     background-color: black;
     color: white;
     /* border: 1px solid; */
 }
 
-section .choice select {
+.section .choice select {
     height: 30px;
 }
 
-section .choice div:nth-of-type(3) strong {
+.section .choice div:nth-of-type(3) strong {
     margin-right: 300px;
 }
 
@@ -249,12 +249,10 @@ section .choice div:nth-of-type(3) strong {
 }
 
 /* ======================================== */
-.customer_review_button button {
-    background-color: white;
-    border: 0;
-}
 
 .customer_review_button {
+    background-color: white;
+    border: 0;
     display: flex;
     justify-content: space-between;
 }
@@ -317,13 +315,11 @@ section .choice div:nth-of-type(3) strong {
 .customer_q_a_next_page{
     text-align: center;
     margin-bottom: 30px;
-}
-.customer_q_a_next_page button{
     border: none;
     background-color: white;
     margin:3px
 }
-.customer_q_a_next_page button a{
+.customer_q_a_next_page a{
    font-size: 12px;
 }
 /* =======return&delivery================================ */
