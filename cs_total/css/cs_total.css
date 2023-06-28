@@ -179,7 +179,7 @@ body * {
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: #0009;
+    background-color: rgb(0, 0, 0, 0.7);
 }
 
 /* =======common======= */

@@ -140,7 +140,6 @@ body>* {
     color: white;
     width: 305px;
     height: 50px;
-    flex-direction: end;
     cursor: pointer;
 }
 
