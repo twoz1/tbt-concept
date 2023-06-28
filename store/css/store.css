@@ -26,7 +26,8 @@
     font-size: 24px;
 }
 
-.control label {
+.control label,
+.control span {
     display: block;
     margin: 15px 0 5px 0;
     font-size: 16px;
@@ -74,12 +75,14 @@ ul.find_result_list li strong {
 
 .control .button {
     margin: 20px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .control .button button {
     cursor: pointer;
-    padding: 5px 10px;
+    width: 120px;
+    height: 35px;
     border: 1px solid #000;
     background-color: #fff;
 }
