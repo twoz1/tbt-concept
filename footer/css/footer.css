@@ -16,18 +16,20 @@
     gap: 20px;
     align-items: center;
 }
+
 .fc_tit {
     font-style: normal;
     font-size: 18px;
 }
+
 .fc_number {
     font-size: 30px;
-    line-height:40px;
+    line-height: 40px;
 }
 
 .foot_right div p:nth-last-of-type(1),
 .foot_right div p:nth-last-of-type(2) {
-    line-height:20px;
+    line-height: 20px;
 }
 
 .f_c_right a {

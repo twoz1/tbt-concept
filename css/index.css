@@ -59,8 +59,11 @@ hr {
 
 .shop_this a {
     background-color: orangered;
-    padding: 2px;
     color: white;
+    display: block;
+    width: 100px;
+    margin: auto;
+    line-height: 23px;
 }
 
 .what_new em {
@@ -170,6 +173,11 @@ hr {
     font-size: 16px;
 }
 
+.best_item {
+    display: flex;
+    gap: 5px;
+}
+
 .best_title>a {
     font-size: 30px;
 }
@@ -226,7 +234,6 @@ hr {
     margin-top: 200px;
     height: 800px;
     width: 100%;
-    overflow: hidden;
     background-color: #000;
 }
 

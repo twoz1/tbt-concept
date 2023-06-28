@@ -175,7 +175,7 @@ table {
 .discount td a {
     color: #fff;
     background-color: #000;
-    pad: 3px 5px;
+    gap: 3px 5px;
 }
 .discount td a:hover {
     background-color: orangered;
