@@ -1,0 +1,152 @@
+table,
+.required_entry,
+.general_agreement,
+.check_agreement {
+    width: 80%;
+    margin: auto;
+}
+
+/* ============================ */
+.required_entry {
+    text-align: right;
+    font-size: 8px;
+}
+
+.point_color {
+    color: orangered;
+
+}
+
+/* =================================== */
+
+table {
+
+    min-width: 628px;
+    border-bottom: 1px solid black;
+    height: 300px;
+}
+
+table #sale_coupon {
+    text-align: center;
+    background-color: orangered;
+}
+
+table div {
+    width: 100%;
+    height: 25px;
+}
+
+#sale_coupon strong {
+    font-size: 15px;
+    color: white;
+}
+
+#sale_coupon em {
+    font-size: 10px;
+    font-style: normal;
+    color: white;
+}
+
+/* ============================= */
+
+table td {
+    height: 20px;
+}
+
+/* ============================================== */
+
+table tr {
+    text-align: left;
+}
+
+table th,
+td {
+    border-top: 1px solid rgb(228, 228, 228);
+}
+
+table th {
+    padding-left: 20px;
+}
+
+.input_box {
+    width: 300px;
+    height: 29px;
+    text-align: left;
+    background-color: #eee;
+    border: 0;
+    padding-left: 10px;
+}
+
+#last_input_box {
+    height: 30px;
+}
+
+/* ================================ */
+.general_agreement {
+    margin-top: 70px;
+}
+
+.general_agreement ul {
+    text-align: left;
+    min-width: 400px
+}
+
+#letter {
+    display: block;
+    font-size: 5px;
+    white-space: nowrap;
+    padding-left: 20px;
+}
+
+/* ==================================== */
+
+.check_agreement {
+    margin-top: 50px;
+}
+
+.check_agreement ul li {
+    background-color: #eee;
+    margin-top: 2px;
+    line-height: 40px;
+    padding-left: 10px;
+}
+
+
+.check_agreement ul li a {
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin: calc((35px - 25px)/2) 20px;
+    background-color: #eee;
+    border: 1px solid gray;
+    float: right;
+}
+
+
+/* ====================================================================== */
+
+
+.join_button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.join_button a {
+    width: 150px;
+    line-height: 40px;
+    text-align: center;
+    background-color: white;
+    border: 0.5px solid;
+}
+
+.join_button a:last-child {
+    background-color: black;
+    color: white;
+}
+
+
+/* ========================================================== */
