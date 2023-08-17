@@ -1,15 +1,8 @@
-import '../../styles/items/Collection.css';
-import Title from './Compo/Title';
-import Main from './Compo/Main';
 const Collection = () => {
     return (
-        <div>
-            <div className="center m_c">
-                <div className='collection'>
-                    <Title></Title>
-                    <Main></Main>
-                </div>
-            </div>
+        <div class="collection_m">
+            <a href="./collection/collection.html">Collection</a>
+            <a href="./collection/collection.html">바로가기</a>
         </div>
     );
 };

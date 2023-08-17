@@ -1,9 +1,9 @@
 import '../styles/components/Main.css';
 import ImageSlide from './Main/ImageSlide';
-import New from './Main/New';
-import Collection from './Main/Collection';
-import Best from './Main/Best';
-import Video from './Main/Video';
+import New from '../pages/items/New';
+import Collection from '../pages/items/Collection';
+import Best from '../pages/items/Best';
+import Video from '../pages/items/Video';
 import App from './Main/App';
 
 const Main = () => {

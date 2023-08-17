@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination } from 'swiper';
 
-export default function App() {
+export default function ImgSlide() {
     return (
         <>
             <Swiper spaceBetween={50} slidesPerView={1} pagination={{ clickable: true }} modules={[Pagination]} className="mySwiper">
