@@ -1,4 +1,4 @@
-import '../../../styles/payments/css/Modal_basket.css';
+import '../../../styles/payments/Modal_basket.css';
 
 const Modal_basket = () => {
     return (

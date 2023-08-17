@@ -1,0 +1,45 @@
+.basket_payment {
+    margin-left: 2rem;
+    margin-top: 1.3rem;
+    background-color: #eee;
+    width: 25%;
+    min-width: 300px;
+    height: 300px;
+    text-align: center;
+}
+
+.basket_payment h3{
+    font-size: 18px;
+    margin: 2rem 0 2rem 0;
+}
+
+.basket_payment hr {
+    margin: 0 0 2rem 0;
+}
+.basket_payment ul {
+    height: 180px;
+    text-align: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    list-style: none;
+}
+
+.basket_payment ul li {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.basket_payment ul li strong {
+    font-size: 16px;
+    margin: 0.2rem;
+}
+
+.basket_payment button {
+    border: none;
+    background-color: black;
+    color: white;
+    width: 305px;
+    height: 50px;
+    cursor: pointer;
+}

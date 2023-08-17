@@ -1,4 +1,4 @@
-import '../../styles/customerService/css/CS_total.css';
+import '../../styles/customerService/CS_total.css';
 
 const Modal_csPop = () => {
     return (

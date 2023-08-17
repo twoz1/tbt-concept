@@ -102,62 +102,12 @@ h3 {
 /*회원정보 끝*/
 
 /*_list 시작*/
-.cover table {
+.cover > table{
     width: 100%;
-    height: 200px;
     border: solid #000;
     border-width: 2px 0;
     text-align: center;
 }
-
-.cover tr {
-    border-bottom: 1px solid #0003;
-}
-
-.cover th {
-    height: 50px;
-    border-bottom: 1px solid #000;
-    font-size: 16px;
-    padding: 5px;
-}
-
-.cover td {
-    height: 100px;
-    padding: 5px;
-}
-
-.cover td .delivery {
-    margin-top: 5px;
-}
-
-.cover td .delivery a {
-    padding: 3px 5px;
-    background-color: #000;
-    color: #fff;
-}
-
-.cover td .delivery a:hover {
-    background-color: orangered;
-}
-
-.orderlist .order_title {
-    display: flex;
-    justify-content: space-between;
-}
-
-.orderlist .order_title span {
-    align-self: end;
-    margin-bottom: 5px;
-}
-
-.orderlist a.review:hover {
-    text-decoration: underline;
-}
-
-.orderlist .product p {
-    color: #aaa;
-}
-
 /* 관심상품 */
 
 .wishlist i {

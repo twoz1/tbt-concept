@@ -1,0 +1,18 @@
+/* =====================main - 자주 찾는 질문===================== */
+.freq_ask {
+    margin-top: 8rem;
+}
+
+.freq_ask hr {
+    margin-top: 0.5rem;
+}
+
+.freq_ask p {
+    margin: 1rem 0;
+}
+
+.freq_ask a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}

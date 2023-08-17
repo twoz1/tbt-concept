@@ -1,7 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Footer.css';
 const Footer = () => {
     return (
-        <div className='footer'>
+        <div className="footer">
             <div className="center f_c">
                 <div className="foot_left">
                     <p> 상호명 &#58; TbT concept ㅣ 주소 &#58; 경기도 성남시 분당구 돌마로 46 &#40;광천빌딩 5층&#41;</p>
@@ -31,7 +33,8 @@ const Footer = () => {
                         <span className="to_top">
                             <span>
                                 <a href="#">
-                                    <i class="fa-solid fa-chevron-up"></i>
+                                    <FontAwesomeIcon icon={faChevronUp} class='fa-solid'/>
+                                    {/* <i class="fa-solid fa-chevron-up"></i> */}
                                 </a>
                             </span>
                         </span>

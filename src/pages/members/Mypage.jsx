@@ -1,6 +1,11 @@
 import '../../styles/members/Mypage.css';
+import MyOrderList from './MyOrderList';
+import MyCouponList from './MyCouponList';
+import MyWishList from './MyWishList';
 
-const Mypage = () => {
+
+
+const Mypage = ({order}) => {
 
     return (
         <div className="Mypage">
@@ -41,131 +46,9 @@ const Mypage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="orderlist cover">
-                    <div className="order_title">
-                        <h3>최근 주문 내역</h3>
-                        <span><a href="../orderlist/orderlist.html">MORE<i className="fa-sharp fa-small fa-plus"></i></a></span>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">주문일</th>
-                                <th scope="col">주문번호</th>
-                                <th scope="col">상품정보</th>
-                                <th scope="col">옵션</th>
-                                <th scope="col">수량</th>
-                                <th scope="col">상품금액</th>
-                                <th scope="col">주문상황</th>
-                                <th scope="col">리뷰</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2023-01-01</td>
-                                <td>20230101S210</td>
-                                <td>
-                                    <a href="#" className="product">
-                                        <strong>tbt N-01</strong>
-                                        <p>sunglass N-01 시리즈 black,white,navy</p>
-                                    </a>
-                                </td>
-                                <td>Black</td>
-                                <td>1</td>
-                                <td>100,000원</td>
-                                <td>
-                                    <p className="delivery_text">배송중</p>
-                                    <p className="delivery"><a href="#">배송조회</a></p>
-                                </td>
-                                <td><a href="#" className="review">작성하기</a></td>
-                                <td><a href="#">더보기&gt;</a></td>
-                            </tr>
-                            <tr>
-                                <td>2023-01-01</td>
-                                <td>20230101S210</td>
-                                <td>
-                                    <a href="#" className="product">
-                                        <strong>tbt N-01</strong>
-                                        <p>sunglass N-01 시리즈 black,white,navy</p>
-                                    </a>
-                                </td>
-                                <td>Black</td>
-                                <td>1</td>
-                                <td>100,000원</td>
-                                <td>
-                                    <p className="delivery_text">배송완료</p>
-                                </td>
-                                <td><a href="#" className="review">작성하기</a></td>
-                                <td><a href="#">더보기&gt;</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div className="couponlist cover">
-                    <h3>보유중인 쿠폰</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">발급일자</th>
-                                <th scope="col">쿠폰명</th>
-                                <th scope="col">유효기간</th>
-                                <th scope="col">상태</th>
-                            </tr>
-                            <tr>
-                                <td>2023-01-01</td>
-                                <td>회원가입 감사 10% 할인 쿠폰</td>
-                                <td>2023-01-31</td>
-                                <td>사용가능</td>
-                            </tr>
-                            <tr>
-                                <td>2023-01-01</td>
-                                <td>s/s기념 10% 할인 쿠폰</td>
-                                <td>2023-01-31</td>
-                                <td>사용가능</td>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div className="wishlist cover">
-                    <h3>관심 상품</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">관심등록일</th>
-                                <th scope="col">상품명</th>
-                                <th scope="col">옵션</th>
-                                <th scope="col">상태</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2023-01-01</td>
-                                <td>
-                                    <a href="#" className="product">
-                                        <strong>tbt N-01</strong>
-                                        <p>sunglass N-01 시리즈 black,white,navy</p>
-                                    </a>
-                                </td>
-                                <td>Black</td>
-                                <td><a href="#"><i className="fa-sharp fa-solid fa-heart"></i></a></td>
-                                <td><a href="#">장바구니에 담기&gt;</a></td>
-                            </tr>
-                            <tr>
-                                <td>2023-01-01</td>
-                                <td>
-                                    <a href="#" className="product">
-                                        <strong>tbt N-01</strong>
-                                        <p>sunglass N-01 시리즈 black,white,navy</p>
-                                    </a>
-                                </td>
-                                <td>Black</td>
-                                <td><a href="#"><i className="fa-sharp fa-solid fa-heart"></i></a></td>
-                                <td><a href="#">장바구니에 담기&gt;</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <MyOrderList order={order}/>
+                <MyCouponList />
+                <MyWishList />
             </div>
         </div>
     );

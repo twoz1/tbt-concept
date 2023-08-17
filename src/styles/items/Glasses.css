@@ -103,7 +103,7 @@ img:nth-child(2) {
     display: none;
 }
 
-.photo_2 a:nth-child(1):hover img {
+.photo_2 a:hover img {
     display: none;
 }
 
@@ -141,7 +141,7 @@ img:nth-child(2) {
     text-align: center;
 }
 
-.next_page a {
+.next_page span {
     font-size: 15px;
     margin: 70px 5px 70px;
     display: inline-block;

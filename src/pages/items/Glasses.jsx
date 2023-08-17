@@ -1,12 +1,125 @@
 
 import '../../styles/items/Glasses.css'
+import Category from './components/Category';
+import NextPage from './components/NextPage';
+import Product from './components/Product';
+
+import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg'
+import g_andyBrownCrystal_02 from '../../images/g_andyBrownCrystal_02.jpg'
+
+import g_antonCrystal_01 from '../../images/g_antonCrystal_01.jpg'
+import g_antonCrystal_02 from '../../images/g_antonCrystal_02.jpg'
+
+import g_boatPeach_01 from '../../images/g_boatPeach_01.jpg'
+import g_boatPeach_02 from '../../images/g_boatPeach_02.jpg'
+
+import g_landCrystal_01 from '../../images/g_landCrystal_01.jpg'
+import g_landCrystal_02 from '../../images/g_landCrystal_02.jpg'
+
+import g_quinbyBlack_01 from '../../images/g_quinbyBlack_01.jpg'
+import g_quinbyBlack_02 from '../../images/g_quinbyBlack_02.jpg'
+
+import g_quinbyGreyCrystal_01 from '../../images/g_quinbyGreyCrystal_01.jpg'
+import g_quinbyGreyCrystal_02 from '../../images/g_quinbyGreyCrystal_02.jpg'
+
+import g_sharonGoldCrystal_01 from '../../images/g_sharonGoldCrystal_01.jpg'
+import g_sharonGoldCrystal_02 from '../../images/g_sharonGoldCrystal_02.jpg'
+
+import g_tenaBlack_01 from '../../images/g_tenaBlack_01.jpg'
+import g_tenaBlack_02 from '../../images/g_tenaBlack_02.jpg'
+
+
+
+// import glassesBanner from '../../images/glassesBanner.jpg'
+
+
+const products=[{
+
+    name : 'Andy Brown Crystal',
+    price : '81,000원',
+    link : './items/DetailedPage',
+    imageFront : g_andyBrownCrystal_01 ,
+    imageSide : g_andyBrownCrystal_02 ,
+    shopThis : 'SHOP THIS',
+},
+{
+    name : 'Anton Crystal',
+    price : '81,000원',
+    link : './items/DetailedPage',
+    imageFront : g_antonCrystal_01 ,
+    imageSide : g_antonCrystal_02 ,
+    shopThis : 'SHOP THIS',
+
+},
+{
+    name : 'Boat Peach',
+    price : '81,000원',
+    link : './items/DetailedPage',
+    imageFront : g_boatPeach_01 ,
+    imageSide : g_boatPeach_02 ,
+    shopThis : 'SHOP THIS',
+
+},
+{
+    name : 'Land Crystal',
+    price : '81,000원',
+    link : './items/DetailedPage',
+    imageFront : g_landCrystal_01 ,
+    imageSide : g_landCrystal_02 ,
+    shopThis : 'SHOP THIS',
+
+},
+
+]
+
+const secondLineProducts=[{
+
+name : 'Quin by Black',
+price : '81,000원',
+link : './items/DetailedPage',
+imageFront : g_quinbyBlack_01 ,
+imageSide : g_quinbyBlack_02 ,
+shopThis : 'SHOP THIS',
+
+},
+{
+name : 'Quin by GreyCrystal',
+price : '81,000원',
+link : './items/DetailedPage',
+imageFront : g_quinbyGreyCrystal_01 ,
+imageSide : g_quinbyGreyCrystal_02 ,
+shopThis : 'SHOP THIS',
+
+},
+{
+name : 'sharon Gold Crystal_01',
+price : '81,000원',
+link : './items/DetailedPage',
+imageFront : g_sharonGoldCrystal_01 ,
+imageSide : g_sharonGoldCrystal_02 ,
+shopThis : 'SHOP THIS',
+
+},
+{
+name : 'tena Black',
+price : '81,000원',
+link : './items/DetailedPage',
+imageFront : g_tenaBlack_01 ,
+imageSide : g_tenaBlack_02 ,
+shopThis : 'SHOP THIS',
+
+},
+]
+
+
+
 const Glasses = () => {
     return (
         <div className='Glasses'>
             <div className="center m_c">
 
                 <div id="banner">
-                    <img src={require("../../images/banner.jpg")} alt="glasses_banner_img" />
+                    <img src={require("../../images/glassesBanner.jpg")} alt="glasses_banner_img" />
                 </div>
 
                 <div className="title_route">
@@ -18,98 +131,12 @@ const Glasses = () => {
                     </ul>
                 </div>
 
-                <div id="category">
-                    <ul>
-                        <li>category
-                            <ul>
-                                <li><a href="../sunglass/sunglasses.html">sunglass</a></li>
-                                <li><a href="#"> glass</a></li>
-                            </ul>
-                        </li>
-
-                        <li>sort by &#58;
-                            <ul>
-                                <li><a href="#">낮은 가격</a></li>
-                                <li><a href="#">높은 가격</a></li>
-                                <li><a href="#">인기순</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="photo_line">
-                    <div className="photo_layout cf">
-                        <ul>
-                            <li className="photo_2">
-                                <a href="../detailed_page/detailed_page_glass.html" className="product_photo"><img src="./img/glass_1.jpeg" alt="EVA Crystal 정면" />
-                                    <img src="./img/glass_1_side.jpeg" alt="EVA Crystal 측면" /></a>
-                                <div className="item_name"><span>EVA Crystal</span></div>
-                                <div className="item_price"><span>89,000원</span></div>
-                                <div className="shop_this"><a href="../detailed_page/detailed_page_glass.html">SHOT THIS &#62;</a></div>
-                            </li>
-                            <li >
-                                <a href="#" className="product_photo"><img src="./img/glass_2.jpeg" alt="ANDY Flesh 정면" />
-                                    <img src="./img/glass_2_side.jpeg" alt="EVA Crystal 측면" /></a>
-                                <div className="item_name"><span>ANDY Flesh</span></div>
-                                <div className="item_price"><span>89,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                            <li className="photo_2">
-                                <a href="#" className="product_photo"><img src="./img/glass_3.jpeg" alt="ANDY Black 정면" />
-                                    <img src="./img/glass_3_side.jpeg" alt="ANDY Black 측면" /></a>
-                                <div className="item_name"><span>ANDY Black</span></div>
-                                <div className="item_price"><span>89,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                            <li>
-                                <a href="#" className="product_photo"><img src="./img/glass_4.jpeg" alt="ANDY Black Crystal 정면" />
-                                    <img src="./img/glass_4_side.jpeg" alt="ANDY Black Crystal 측면" /></a>
-                                <div className="item_name"><span>ANDY Black Crystal</span></div>
-                                <div className="item_price"><span>89,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="photo_layout cf">
-                        <ul>
-                            <li className="photo_2">
-                                <a href="#" className="product_photo"><img src="./img/glass_5.jpeg" alt="CALLA Black" />
-                                    <img src="./img/glass55.jpg" alt="CALLA Black 측면" /></a>
-                                <div className="item_name"><span>CALLA Black</span></div>
-                                <div className="item_price"><span>129,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                            <li>
-                                <a href="#" className="product_photo"><img src="./img/glass6.jpg" alt="CALLA Khaki Cystal" />
-                                    <img src="./img/glass66.jpg" alt="CALLA Khaki Cystal 측면" /></a>
-                                <div className="item_name"><span>CALLA Khaki Cystal</span></div>
-                                <div className="item_price"><span>129,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                            <li className="photo_2">
-                                <a href="#" className="product_photo"><img src="./img/glass7.jpg" alt="CALLA Crystal 정면" />
-                                    <img src="./img/sunglass77.jpg" alt="CALLA Crystal 측면" /></a>
-                                <div className="item_name"><span>CALLA Crystal</span></div>
-                                <div className="item_price"><span>129,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                            <li>
-                                <a href="#" className="product_photo"><img src="./img/glass8.jpg" alt="CALLA Grey Crystal" />
-                                    <img src="./img/glass88.jpg" alt="CALLA Grey Crystal 측면" /></a>
-                                <div className="item_name"><span>CALLA Grey Crystal</span></div>
-                                <div className="item_price"><span>129,000원</span></div>
-                                <div className="shop_this"><a href="#">SHOT THIS &#62;</a></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+                <Category></Category>
+                <Product products={products} secondLineProducts={secondLineProducts}/>
                 <div className="next_page">
-                    <a href="#">1 </a>
-                    <a href="./glasses2.html">2 </a>
+                    <span>1</span>
+                    <span>2 </span>
                 </div>
-
             </div>
         </div>
     );

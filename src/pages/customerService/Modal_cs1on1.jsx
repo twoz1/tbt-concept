@@ -1,6 +1,58 @@
-import '../../styles/customerService/css/CS_total.css';
+import { useState } from 'react';
+import '../../styles/customerService/Modal_cs1on1.css';
 
-const Modal_cs1on1 = () => {
+
+
+//모달창 컴포넌트
+const Modal_cs1on1 = ({ setShowPopup }) => {
+
+    //모달창 끄기 구현 ("취소" 버튼 onClick 이벤트 핸들러)
+    const closeModal = () => {
+        setShowPopup(false);
+    };
+
+    // 1:1 문의 유효성 검사
+
+    // 회원정보===================================================
+    const [userEmail, setUserEmail] = useState('');
+    const [emailValid, setEmailValid] = useState(false);
+    const emailRegEx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+
+    const emailCheck = (e) => {
+        setUserEmail(e.target.value);
+
+        if (emailRegEx.test(userEmail)) {
+            setEmailValid(true);
+        } else {
+            setEmailValid(false);
+        }
+    };
+
+    // 답변알림===================================================
+
+    const [userPhoneNum, setUserPhoneNum] = useState('');
+    const [phoneNumValid, setPhoneNumValid] = useState(false);
+    const phoneNumRegEx = /^[0-9]+$/;
+
+    const phoneNumCheck = (e) => {
+        setUserPhoneNum(e.target.value);
+        // const newUserPhoneNum = e.target.value;
+        // console.log (`test1 => ${UserPhoneNum}`);
+
+        if (phoneNumRegEx.test(userPhoneNum)) {
+            setPhoneNumValid(true);
+            // console.log (`test2 => ${UserPhoneNum}`);
+
+            // setUserPhoneNum(newUserPhoneNum);
+        } else {
+            setPhoneNumValid(false);
+            // console.log (`test3 => ${newUserPhoneNum}`);
+
+        }
+        // setUserPhoneNum(newUserPhoneNum);
+        // console.log (`test4 => ${serPhoneNum}`);
+
+    };
 
     return (
         <div>
@@ -18,15 +70,10 @@ const Modal_cs1on1 = () => {
                         </ul>
                     </div>
 
-                {/* ==========1:1 문의 입력 정보창=========== */}
+                    {/* ==========1:1 문의 입력 정보창=========== */}
                     <form className="subtitle_1on1" action="#">
                         <figure>
                             <figcaption><strong>1&#58;1 문의</strong></figcaption>
-
-                            <p>
-                            문의하신 사항은 성실하게 답변 드리겠습니다.
-                            문의하기 전에 FAQ를 참고해주세요.
-                            </p>
 
                             <table>
                                 <tbody>
@@ -36,7 +83,21 @@ const Modal_cs1on1 = () => {
                                             <span className="spanRed">&#42;</span>
                                         </th>
                                         <td>
-                                            {/* <input type="text" maxlength="13" required/> */}
+                                            <input type="email"
+                                                value={userEmail}
+                                                placeholder='이메일형태로 입력해주세요.'
+                                                required
+                                                onChange={emailCheck} />
+
+                                            <div className='validCheck'>
+                                                {0 < userEmail.length && userEmail.length < 5 && (
+                                                    <span>이메일을 5자 이상으로 입력해주세요.</span>
+                                                )}
+
+                                                {userEmail.length >= 5 && !emailValid && (
+                                                    <span>회원정보는 이메일 형식으로 입력해주세요.</span>
+                                                )}
+                                            </div>
                                         </td>
                                     </tr>
 
@@ -78,21 +139,35 @@ const Modal_cs1on1 = () => {
                                                 <option value="018">018</option>
                                                 <option value="070">070</option>
                                             </select>
-                                            {/* &ndash;&nbsp;<input type="text" maxlength="4" required/> */}
-                                            {/* &ndash;&nbsp;<input type="text" maxlength="4" required/> */}
+                                            &nbsp;&ndash;&nbsp;<input type="text"
+                                                value={userPhoneNum}
+                                                maxLength={8}
+                                                placeholder='"-"를 제외하고 입력'
+                                                required
+                                                onChange={phoneNumCheck} />
 
-                                            <div>
+                                            <div className='alertDiv'>
                                                 <span>
                                                     &#8903; 답변이 등록되면 휴대폰 SMS로 알려드립니다.
                                                 </span>
 
-                                                <label for="answerYes">
-                                                    {/* <input type="radio" name="answer" id="answerYes" value="yes" checked required/>예 */}
+                                                <label htmlFor="answerYes">
+                                                    <input type="radio" name="answer" id="answerYes" value="yes" checked required />예
                                                 </label>
 
-                                                <label for="answerNo">
-                                                    {/* <input type="radio" name="answer" id="answerNo" value="no" required/>아니오 */}
+                                                <label htmlFor="answerNo">
+                                                    <input type="radio" name="answer" id="answerNo" value="no" required />아니오
                                                 </label>
+                                            </div>
+
+                                            <div className='validCheck'>
+                                                {0 < userPhoneNum.length && userPhoneNum.length < 8 && (
+                                                    <span>"-" 제외하고 8자 입력해주세요.</span>
+                                                )}
+
+                                                {userPhoneNum.length == 8 && !phoneNumValid && (
+                                                    <span>숫자로 입력해주세요.</span>
+                                                )}
                                             </div>
                                         </td>
                                     </tr>
@@ -103,7 +178,7 @@ const Modal_cs1on1 = () => {
                                             <span className="spanRed">&#42;</span>
                                         </th>
                                         <td>
-                                            {/* <input type="text" maxlength="13" required/> */}
+                                            <input type="text" maxLength="13" required />
                                         </td>
                                     </tr>
 
@@ -114,7 +189,7 @@ const Modal_cs1on1 = () => {
                                         </th>
                                         <td>
                                             <div>
-                                                <textarea name="inqContent" cols="120" rows="30" minlength="20" maxlength="500" placeholder="20자 이상 작성하세요. (최대 500자)"></textarea>
+                                                <textarea name="inqContent" cols="120" rows="30" minLength={20} maxLength="500" placeholder="20자 이상 작성하세요. (최대 500자)"></textarea>
                                             </div>
                                         </td>
                                     </tr>
@@ -125,7 +200,7 @@ const Modal_cs1on1 = () => {
                                         </th>
                                         <td>
                                             {/* input에 type="file" 추가하기 (추가했을 때 오류떴었음) */}
-                                            <input name="btn_fileRef" id="btn_fileRef" value="파일선택" multiple/>
+                                            <input type="file" name="btn_fileRef" id="btn_fileRef" multiple />
                                         </td>
                                     </tr>
                                 </tbody>
@@ -133,15 +208,14 @@ const Modal_cs1on1 = () => {
                         </figure>
 
                         <div className="privacy_Agree">
-                            {/* <input type="radio" required/> */}
+                            <input type="radio" required />
                             개인정보 수집 및 이용에 대한 동의 &#40;필수&#41;
                         </div>
 
-                        <div className="btn_sumit">
-                            <button type="button">취소</button>
-                            <button type="button">등록</button>
+                        <div className="btn_submit">
+                            <button onClick={closeModal}>취소</button>
+                            <button>등록</button>
                         </div>
-                        beth_amber_olivegreen_01
                     </form>
                 </div>
             </div>

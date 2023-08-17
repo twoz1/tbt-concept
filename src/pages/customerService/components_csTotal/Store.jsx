@@ -12,9 +12,8 @@ const Store = () => {
                     <div className="control">
                         <h3>매장찾기</h3>
                         <form action="#">
-                            <label for="find_name">지점명으로 찾기</label>
+                            <label htmlFor="find_name">지점명으로 찾기</label>
                             <input type="text" name="find_name" id="find_name" />
-
                             <span>주소로 찾기</span>
                             <div className="select_box">
                                 <select name="find_adress" id="find_adress_city">

@@ -1,0 +1,44 @@
+.cs_sch {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    border: 3px solid black;
+    height: 160px;
+    width: 100%;
+    min-width: 1200px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    margin: 8rem 0;
+}
+
+.cs_schLeft * {
+    display: inline-block;
+}
+
+.cs_schLeft span {
+    font-size: 24px;
+    text-align: left;
+    margin-right: 2rem;
+}
+
+.cs_schLeft input {
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    width: 600px;
+    font-size: 16px;
+    outline: none;
+}
+
+.cs_schRight {
+    min-width: 333px;
+    border-left: 3px solid black;
+    color: black;
+}
+
+.cs_schLeft button {
+    background-color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}

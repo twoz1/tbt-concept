@@ -1,30 +1,4 @@
-@font-face {
-    font-family: 'TheJamsil5Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
 
-
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-ul,
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: #000;
-}
 .f_c {
     height: 200px;
     display: flex;
@@ -87,10 +61,14 @@ a {
     align-items: center;
 }
 
-.to_top a i {
+.to_top a  {
     font-size: 25px;
     color: orangered;
 }
+.to_top a  {
+    color: orangered;
+}
+
 
 .quick_menu {
     z-index: 100;
@@ -99,6 +77,6 @@ a {
     bottom: 50px;
 }
 
-footer {
+.footer {
     background-color: #333;
 }

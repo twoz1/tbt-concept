@@ -1,6 +1,4 @@
-.m_c {
-    height: auto;
-}
+
 hr {
     color: #eee;
 }
@@ -78,7 +76,7 @@ table input {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 20px 0 50px -100px;
+    margin: 20px 0 30px -100px;
 }
 .remember a {
     margin-left: 50px;
@@ -118,7 +116,9 @@ table input {
     align-items: center;
 }
 
-
+.join_opt li{
+    height: 46px;
+}
 
 
 .join_opt li img {
@@ -130,3 +130,20 @@ table input {
 
 /* ================================= */
 /* ==============main=============== */
+
+.error_message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.error_message span {
+    color: orangered;
+}
+
+.join_opt button{
+    height: 0px;
+    border: 0px;
+    cursor: pointer;
+    
+}

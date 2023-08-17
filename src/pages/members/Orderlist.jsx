@@ -1,39 +1,46 @@
 import '../../styles/members/Orderlist.css';
+import { useState } from 'react';
+import MyOrderItem from './MyOrderItem';
 
-const Orderlist = () => {
-    return(
-        <div className="Orderlist">
+const Orderlist = ({ order }) => {
+    const [btnActive, setBtnActive] = useState("");
+    const clickBtn = (e) => {
+        setBtnActive(e.target.value);
+
+    }
+    return (
+        <div className="Orderlist cover">
             <div className="center m_c">
-            <div className="title_route">
-                <h2>order list</h2>
-                <ul>
-                    <li>HOME</li>
-                    <li>&nbsp;&gt;&nbsp;</li>
-                    <li>my page</li>
-                    <li>&nbsp;&gt;&nbsp;</li>
-                    <li>order list</li>
-                </ul>
-            </div>
-            <div className="search_bar">
-                <form action="#">
-                    <div className="quick">
-                        <button className="on">최근 1개월</button>
-                        <button>최근 3개월</button>
-                        <button>최근 1년</button>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="date"/>
-                        </label>
-                        <label> ~
-                            <input type="date"/>
-                        </label>
-                    </div>
-                    <button className="date_submit" type="submit">검색</button>
-                </form>
-            </div>
-            <div className="orderlist">
-                <table>
+                <div className="title_route">
+                    <h2>order list</h2>
+                    <ul>
+                        <li>HOME</li>
+                        <li>&nbsp;&gt;&nbsp;</li>
+                        <li>my page</li>
+                        <li>&nbsp;&gt;&nbsp;</li>
+                        <li>order list</li>
+                    </ul>
+                </div>
+                <div className="search_bar">
+                    <form action="#">
+                        <div className="quick">
+                            <button onClick={clickBtn} value="1month" className={btnActive === "1month" ? "on" : ""}>최근 1개월</button>
+                            <button onClick={clickBtn} value="3months" className={btnActive === "3months" ? "on" : ""}>최근 3개월</button>
+                            <button onClick={clickBtn} value="1year" className={btnActive === "1year" ? "on" : ""}>최근 1년</button>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="date" />
+                            </label>
+                            <span> ~ </span>
+                            <label>
+                                <input type="date" />
+                            </label>
+                        </div>
+                        <button className="date_submit" type="submit">검색</button>
+                    </form>
+                </div>
+                <table className="ordertable">
                     <thead>
                         <tr>
                             <th scope="col">주문일</th>
@@ -44,122 +51,12 @@ const Orderlist = () => {
                             <th scope="col">상품금액</th>
                             <th scope="col">주문상황</th>
                             <th scope="col">리뷰</th>
+                            <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>2023-01-01</td>
-                            <td>20230101S210</td>
-                            <td>
-                                <a href="#" className="product">
-                                    <strong>tbt N-01</strong>
-                                    <p>sunglass N-01 시리즈 black,white,navy</p>
-                                </a>
-                            </td>
-                            <td>Black</td>
-                            <td>1</td>
-                            <td>100,000원</td>
-                            <td>
-                                <p className="delivery_text">배송중</p>
-                                <p className="delivery"><a href="#">배송조회</a></p>
-                            </td>
-                            <td><a href="#" className="review">작성하기</a></td>
-                            <td><a href="#">더보기&gt;</a></td>
-                        </tr>
-                        <tr>
-                            <td>2023-01-01</td>
-                            <td>20230101S210</td>
-                            <td>
-                                <a href="#" className="product">
-                                    <strong>tbt N-01</strong>
-                                    <p>sunglass N-01 시리즈 black,white,navy</p>
-                                </a>
-                            </td>
-                            <td>Black</td>
-                            <td>1</td>
-                            <td>100,000원</td>
-                            <td>
-                                <p className="delivery_text">배송완료</p>
-                            </td>
-                            <td><a href="#" className="review">작성하기</a></td>
-                            <td><a href="#">더보기&gt;</a></td>
-                        </tr>
-                        <tr>
-                            <td>2023-01-01</td>
-                            <td>20230101S210</td>
-                            <td>
-                                <a href="#" className="product">
-                                    <strong>tbt N-01</strong>
-                                    <p>sunglass N-01 시리즈 black,white,navy</p>
-                                </a>
-                            </td>
-                            <td>Black</td>
-                            <td>1</td>
-                            <td>100,000원</td>
-                            <td>
-                                <p className="delivery_text">배송완료</p>
-                            </td>
-                            <td><a href="#" className="review">작성하기</a></td>
-                            <td><a href="#">더보기&gt;</a></td>
-                        </tr>
-                        <tr>
-                            <td>2023-01-01</td>
-                            <td>20230101S210</td>
-                            <td>
-                                <a href="#" className="product">
-                                    <strong>tbt N-01</strong>
-                                    <p>sunglass N-01 시리즈 black,white,navy</p>
-                                </a>
-                            </td>
-                            <td>Black</td>
-                            <td>1</td>
-                            <td>100,000원</td>
-                            <td>
-                                <p className="delivery_text">배송완료</p>
-                            </td>
-                            <td><a>작성완료</a></td>
-                            <td><a href="#">더보기&gt;</a></td>
-                        </tr>
-                        <tr>
-                            <td>2023-01-01</td>
-                            <td>20230101S210</td>
-                            <td>
-                                <a href="#" className="product">
-                                    <strong>tbt N-01</strong>
-                                    <p>sunglass N-01 시리즈 black,white,navy</p>
-                                </a>
-                            </td>
-                            <td>Black</td>
-                            <td>1</td>
-                            <td>100,000원</td>
-                            <td>
-                                <p className="delivery_text">배송완료</p>
-                            </td>
-                            <td><a>작성완료</a></td>
-                            <td><a href="#">더보기&gt;</a></td>
-                        </tr>
-                        <tr>
-                            <td>2023-01-01</td>
-                            <td>20230101S210</td>
-                            <td>
-                                <a href="#" className="product">
-                                    <strong>tbt N-01</strong>
-                                    <p>sunglass N-01 시리즈 black,white,navy</p>
-                                </a>
-                            </td>
-                            <td>Black</td>
-                            <td>1</td>
-                            <td>100,000원</td>
-                            <td>
-                                <p className="delivery_text">배송완료</p>
-                            </td>
-                            <td><a>작성완료</a></td>
-                            <td><a href="#">더보기&gt;</a></td>
-                        </tr>
-                    </tbody>
+                    {order.map((it) => { return (<MyOrderItem key={it.id}{...it} />) })}
                 </table>
             </div>
-        </div>
         </div>
     );
 }

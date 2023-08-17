@@ -1,0 +1,118 @@
+
+.modal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    min-width: 1115px;
+}
+
+.modal {
+    border-collapse: collapse;
+}
+.modal table {
+    width: 800px;
+    
+}
+
+.modal tr,
+th,
+td {
+    height: 50px;
+    border: 0px solid;
+}
+
+/* ============================= */
+.modal tr:nth-of-type(1) a {
+    color: black;
+    float: right;
+    width: 20px;
+}
+
+.modal tr:nth-of-type(1) th {
+    border-bottom: 2px solid;
+    text-align: center;
+}
+
+/* ============================ */
+.modal tr:nth-of-type(2) th {
+    border-bottom: 2px solid;
+}
+.modal tr:nth-of-type(2) a {
+    border: 0px solid;
+    margin: 0 50px;
+}
+
+.modal tr:nth-of-type(2) a+a {
+    border: 1px solid;
+    border-bottom: 0px;
+}
+
+.modal tr:nth-of-type(2) span {
+    margin: 0 10px;
+}
+
+/* =================================== */
+.modal tr:nth-of-type(3) td {
+    font-size: 14px;
+}
+.modal tr:nth-of-type(3) span{
+    margin: 0 55px;
+    color: orangered;
+}
+
+/* ========================= */
+
+.modal tr:nth-of-type(4) td {
+    font-size: 15px;
+}
+.modal tr:nth-of-type(4) span {
+    margin: 0 6px;
+}
+
+
+
+/* ===================================== */
+
+.modal tr:nth-of-type(5) td {
+    font-size: 14px;
+}
+.modal tr:nth-of-type(5) span{
+    margin: 0 32px;
+}
+
+
+
+
+
+/* =================================== */
+.modal tr:nth-of-type(6) button {
+    background-color: white;
+    border: 1px solid;
+    width: 120px;
+    height: 35px;
+}
+
+.modal tr:nth-of-type(6) button+button {
+    background-color: #000;
+
+}
+
+.modal tr:nth-of-type(6) button+button>a {
+    color: #fff;
+
+}

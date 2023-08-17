@@ -1,4 +1,4 @@
-import '../../styles/items/css/New_goods.css';
+import '../../styles/items/New_goods.css';
 
 const New_goods = () => {
     return (

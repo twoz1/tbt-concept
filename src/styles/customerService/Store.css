@@ -80,7 +80,6 @@ ul.find_result_list li strong {
 }
 
 .control .button button {
-    cursor: pointer;
     width: 120px;
     height: 35px;
     border: 1px solid #000;
