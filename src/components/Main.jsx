@@ -1,16 +1,14 @@
 import '../styles/components/Main.css';
-import ImageSlide from './Main/ImageSlide';
+import ImgSlide from '../pages/items/ImgSlide';
 import New from '../pages/items/New';
 import Collection from '../pages/items/Collection';
 import Best from '../pages/items/Best';
 import Video from '../pages/items/Video';
-import App from './Main/App';
 
 const Main = () => {
     return (
         <div>
-            <App></App>
-            {/* <ImageSlide></ImageSlide> */}
+            <ImgSlide></ImgSlide>
             <div className="center">
                 <New></New>
                 <Collection></Collection>

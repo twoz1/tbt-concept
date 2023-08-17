@@ -6,10 +6,6 @@ import Discount from './compo/Discount';
 import Pay from './compo/Pay';
 import SidePay1 from './compo/SidePay1';
 import SidePay2 from './compo/SidePay2';
-import CheckModal1 from './compo/Modal/CheckModal1';
-import CheckModal2 from './compo/Modal/CheckModal2';
-import CheckModal3 from './compo/Modal/CheckModal3';
-import CheckModal4 from './compo/Modal/CheckModal4';
 const Checkout = () => {
     return (
         <div>
@@ -24,10 +20,6 @@ const Checkout = () => {
                             <Item></Item>
                             <Discount></Discount>
                             <Pay></Pay>
-                            {/* <CheckModal1></CheckModal1> */}
-                            {/* <CheckModal2></CheckModal2> */}
-                            <CheckModal3></CheckModal3>
-                            {/* <CheckModal4></CheckModal4> */}
                         </form>
                     </section>
                     <section className="check_right">
