@@ -11,11 +11,14 @@ import Main from './components/Main';
 import Checkout from './pages/payments/Checkout';
 import Collection from './pages/items/Collection';
 import Login from './pages/members/Login';
-import { useState } from 'react';
 import Mypage from './pages/members/Mypage';
 import Store from './pages/customerService/Store';
 import ResultFrame from './pages/customerService/ResultFrame';
 import Orderlist from './pages/members/Orderlist';
+import New_goods from './pages/items/New_goods';
+import { useState } from 'react';
+import { NavLink, Link, Route, Routes } from 'react-router-dom';
+
 
 const orderList = [
     {
@@ -50,30 +53,31 @@ function App() {
     return (
         <div className="App">
             <Header />
-            {/* 이지공간 */}
-            {/* <Sunglasses /> */}
-            <Join/>
-            {/* <Glasses/> */}
-            {/* <DetailedPage/> */}
-            {/* 이지공간 */}
-            {/* 진휘공간 */}
-            {/* <Header /> */}
-            {/* <Main /> */}
-            {/* <Login /> */}
-            {/* <Collection /> */}
-            {/* <Checkout /> */}
-            {/* <Footer /> */}
-            {/* 진휘공간 */}
-            {/* 현주공간 */}
-            {/* <Mypage order={order}/> */}
-            {/* <Store /> */}
-            {/* <ResultFrame/> */}
-            {/* <Orderlist order={order} /> */}
-            {/* 현주공간 */}
-            {/* 찬미공간 */}
-            {/* <Basket /> */}
-            {/* <CS_total /> */}
-            {/* 찬미공간 */}
+
+            <Routes>
+                {/* ----------------고정 헤더의 링크-------- */}
+                <Route path='/' element={<Main />}></Route >
+                <Route path='/sunglasses' element={<Sunglasses />}></Route >
+                <Route path='/glasses' element={<Glasses />}></Route >
+                <Route path='/collection' element={<Collection />}></Route >
+                <Route path='/new' element={<New_goods />}></Route >
+                <Route path='/store' element={<Store />}></Route >
+
+                <Route path='/cart' element={<Basket />}></Route >
+                <Route path='/my' element={<Mypage order={order} />}></Route >
+                <Route path='/login' element={<Login />}></Route >
+                <Route path='/join' element={<Join />}></Route >
+
+                <Route path='/cs' element={<CS_total />}></Route >
+
+                {/* ----------------고정 헤더의 링크-------- */}
+                {/* ----------------이지가 링크투-------- */}
+
+                {/* ----------------이지가 링크투-------- */}
+
+
+
+            </Routes>
 
             <Footer />
         </div>

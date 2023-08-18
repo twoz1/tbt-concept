@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faBagShopping, faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Header.css';
+import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <div className="header">
             <div className="center h_c">
                 <h1 className="logo">
-                    <a href="./index.html">TBTconcept</a>
+                    <Link to="/">TBTconcept</Link>
                 </h1>
                 <form className="head_search" action="#" method="get">
                     <input name="query" type="text" value="" />
@@ -16,50 +17,50 @@ const Header = () => {
                 </form>
                 <ul className="h_icon">
                     <li>
-                        <a href="./basket/basket.html">
+                        <Link to="/cart">
                         <FontAwesomeIcon icon={faBagShopping} className='fa-solid'/>
                             {/* <i class="fa-solid fa-bag-shopping"></i> */}
                             <span>CART</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="./mypage/mypage.html">
+                        <Link to="/my">
                             <FontAwesomeIcon icon={faUser} className='fa-solid'/>
                             {/* <i class="fa-solid fa-user"></i> */}
                             <span>MY</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="./login/log_in.html">
+                        <Link to="/login">
                         <FontAwesomeIcon icon={faRightToBracket} className='fa-solid'/>
                             {/* <i class="fa-solid fa-arrow-right-to-bracket"></i> */}
                             <span>LOGIN</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="./join/join.html">
+                        <Link to="/join">
                         <FontAwesomeIcon icon={faUserPlus} className='fa-solid'/>
                             {/* <i class="fa-solid fa-user-plus"></i> */}
                             <span>JOIN</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
             <ul className="gnb">
                 <li>
-                    <a href="./new_goods/new_goods.html">NEW</a>
+                    <Link to="/new">NEW</Link>
                 </li>
                 <li>
-                    <a href="./collection/collection.html">COLLECTION</a>
+                    <Link to="/collection">COLLECTION</Link>
                 </li>
                 <li>
-                    <a href="./glasses/glasses.html">GLASSES</a>
+                    <Link to="/glasses">GLASSES</Link>
                 </li>
                 <li>
-                    <a href="./sunglass/sunglasses.html">SUNGLASSES</a>
+                    <Link to ="/sunglasses">SUNGLASSES</Link>
                 </li>
                 <li>
-                    <a href="./store/store.html">STORE</a>
+                    <Link to="/store">STORE</Link>
                 </li>
             </ul>
         </div>

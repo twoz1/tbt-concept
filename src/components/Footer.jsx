@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Footer.css';
+import { NavLink, Link, Route, Routes } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className="footer">
@@ -22,7 +23,7 @@ const Footer = () => {
                         <p>cs&#95;help&#64;tbtconcept&#46;co&#46;kr</p>
                     </div>
                     <div className="f_c_right">
-                        <a href="./cs_total/cs_total.html">바로가기</a>
+                        <Link to="/cs">바로가기</Link>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-table,
+.Join table,
 .required_entry,
 .general_agreement,
 .check_agreement {
@@ -19,19 +19,19 @@ table,
 
 /* =================================== */
 
-table {
+.Join table {
 
     min-width: 628px;
     border-bottom: 1px solid black;
     height: 350px;
 }
 
-table #sale_coupon {
+.Join table #sale_coupon {
     text-align: center;
     background-color: orangered;
 }
 
-table div {
+.Join table div {
     width: 100%;
     /* height: 40px; */
 }
@@ -49,28 +49,28 @@ table div {
 
 /* ============================= */
 
-table td {
+.Join table td {
     height: 0px;
 }
 
 /* ============================================== */
 
-table tr {
+.Join table tr {
     text-align: left;
 }
 
-table th,
-td {
+.Join table th,
+.Join td {
     border-top: 1px solid rgb(228, 228, 228);
 }
 
-table th {
+.Join table th {
     padding-left: 20px;
 }
-table tr div{
+.Join table tr div{
     height: 5px;
 }
-table tr td span{
+.Join table tr td span{
     font-size: 3px;
     color: orangered;
     
