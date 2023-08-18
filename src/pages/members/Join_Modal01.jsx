@@ -1,4 +1,4 @@
-import './join_modal1.css';
+import '../../styles/members/join_modal01.css';
 const Join_Modal01 = ({closeModal}) => {
     return (
         <div className="Join_Modal01">

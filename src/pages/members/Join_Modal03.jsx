@@ -1,4 +1,4 @@
-import './join_modal3.css';
+import '../../styles/members/join_modal03.css';
 const Join_Modal03 = () => {
     return (
         <div className="Join_Modal03">
