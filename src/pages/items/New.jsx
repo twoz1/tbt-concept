@@ -18,16 +18,16 @@ const New = () => {
             {/* <!--============== 메인 타이틀========== --> */}
             {/* <!--============== whatnew=========== --> */}
 
-                <button>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                    {/* <i className="fa-solid fa-chevron-left"></i> */}
-                </button>
+            <button>
+                <FontAwesomeIcon icon={faChevronLeft} />
+                {/* <i className="fa-solid fa-chevron-left"></i> */}
+            </button>
             <div className="what_new_item cf">
                 <ul>
                     <li className="sunglass_1">
                         <a href="./new_goods/new_goods.html">
-                            <img src="./images/s_bibiBlack_01.jpeg" alt="bibi black" />
-                            <img src="./images/s_bibiBlack_02.jpeg" alt="bibi black_side" />
+                            <img src={require('../../images/s_bibiBlack_01.jpeg')} />
+                            <img src={require('../../images/s_bibiBlack_02.jpeg')} />
                         </a>
                         <div className="item_name">
                             <span>bibi black</span>
@@ -41,8 +41,8 @@ const New = () => {
                     </li>
                     <li className="sunglass_2">
                         <a href="./new_goods/new_goods.html">
-                            <img src="./images/s_depsBlack_01.jpeg" alt="s_depsBlack" />
-                            <img src="./images/s_depsBlack_02.jpeg" alt="s_depsBlack_side" />
+                            <img src={require('../../images/s_depsBlack_01.jpeg')} />
+                            <img src={require('../../images/s_depsBlack_02.jpeg')} />
                         </a>
                         <div className="item_name">
                             <span>depsBlack</span>
@@ -56,8 +56,8 @@ const New = () => {
                     </li>
                     <li className="glass_1">
                         <a href="./detailed_page/detailed_page_glass.html">
-                            <img src="./images/g_andyBrownCrystal_01.jpg" alt="g_andyBrownCrystal" />
-                            <img src="./images/g_andyBrownCrystal_02.jpg" alt="g_andyBrownCrystal_side" />
+                            <img src={require('../../images/g_andyBrownCrystal_01.jpg')} />
+                            <img src={require('../../images/g_andyBrownCrystal_02.jpg')} />
                         </a>
                         <div className="item_name">
                             <span>andyBrownCrystal</span>
@@ -71,8 +71,8 @@ const New = () => {
                     </li>
                     <li className="glass_2">
                         <a href="./new_goods/new_goods.html">
-                            <img src="./images/g_antonCrystal_01.jpg" alt="g_antonCrystal" />
-                            <img src="./images/g_antonCrystal_02.jpg" alt="g_antonCrystal_side" />
+                            <img src={require('../../images/g_antonCrystal_01.jpg')} />
+                            <img src={require('../../images/g_antonCrystal_02.jpg')} />
                         </a>
                         <div className="item_name">
                             <span>antonCrystal</span>

@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     background-color: rgb(0, 0, 0, 0.7);
+    z-index: 999;
 }
 
 /* =======common======= */
@@ -148,6 +149,12 @@
 
 .tr_inqContent div {
     margin: 1.5rem 1.5rem 1.5rem 0;
+}
+
+/* ===========main - table - 파일 첨부 ========== */
+.fileUpload {
+    background-color: white;
+    border: none;
 }
 
 /* =============main - 개인정보 동의 =========== */

@@ -42,16 +42,16 @@
 
 import React from 'react';
 
-const Product = ({ displayedItemInfo}) => {
+const Product1 = ({ displayedItemInfo1}) => {
   const itemsPerRow = 4;
-  const rows = Math.ceil(displayedItemInfo.length / itemsPerRow);
+  const rows = Math.ceil(displayedItemInfo1.length / itemsPerRow);
 
   return (
     <div className="photo_line">
       {[...Array(rows)].map((_, rowIndex) => (
         <div className="photo_layout cf" key={rowIndex}>
           <ul>
-          {displayedItemInfo
+          {displayedItemInfo1
               .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
               .map((item) => (
                 <li className="photo_2" key={item.name}>
@@ -71,4 +71,4 @@ const Product = ({ displayedItemInfo}) => {
   );
 };
 
-export default Product;
+export default Product1;

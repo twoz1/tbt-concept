@@ -139,10 +139,12 @@ img:nth-child(2) {
     font-size: 2vh;
     margin: auto;
     text-align: center;
+    
 }
 
 .next_page span {
     font-size: 15px;
-    margin: 70px 5px 70px;
+    margin: 70px 10px 70px;
     display: inline-block;
+    cursor: grab;
 }

@@ -1,16 +1,43 @@
+import { useState } from 'react';
 import '../../../styles/customerService/FAQsearch.css';
+import SearchFAQItems from './SearchFAQItems';
 
-const FAQsearch = () => {
+
+const FAQsearch = ({ searchFAQ }) => {
+
+    //FAQ 검색구현을 위한 useState
+    const [search, setSearch] = useState('');
+
+    const onChangeSearch = (e) => {
+        setSearch(e.target.value);
+        console.log ("입력 중..");
+    }
+
+    const getSearchResult = () => {
+        return (
+            search === '' ? [] : searchFAQ.filter((freqQues) =>
+            (freqQues.freqQuesTitle.toLowerCase().includes(search.toLowerCase())
+                || freqQues.freqQuesCat.toLowerCase().includes(search.toLowerCase())
+            ))
+        );
+    }
+
+
     return (
         <div>
             <div className="cs_sch">
                 <div className="cs_schLeft">
                     <span>
-                        <strong>FAQ<br/>SEARCH</strong>
+                        <strong>FAQ<br />SEARCH</strong>
                     </span>
 
                     <label htmlFor="schText">
-                        <input type="text" id="schText" placeholder="검색 후 문의가 해결되지 않으면 1&#58;1 상담을 이용하세요&#46;" maxLength="26" />
+                        <input type="text" id="schText"
+                            placeholder="검색 후 문의가 해결되지 않으면 1&#58;1 상담을 이용하세요&#46;"
+                            maxLength={26}
+                            value={search}
+                            onChange={onChangeSearch}
+                        />
                     </label>
 
                     <button type="submit" name="button">
@@ -28,6 +55,17 @@ const FAQsearch = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                {getSearchResult().map((freqQues) => (
+                    <SearchFAQItems
+                        key={freqQues.id}
+                        freqQuesCat={freqQues.freqQuesCat}
+                        freqQuesTitle={freqQues.freqQuesTitle}
+                        contents={freqQues.contents}
+                    />
+                ))}
             </div>
         </div>//최종div
     );

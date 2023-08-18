@@ -1,23 +1,24 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components_Basket/BasketGoods';
 import BasketPriceBox from './components_Basket/BasketPriceBox';
+import MockItems from '../payments/MockItems';
 
-
-const mockBasket = [
-    {
-        id: 0,
-        basketIMG: '../../../images/cstotalNewService_03.jpg',
-        goodsName: "EVA crystal-violet tint",
-        goodsQuantity: 5,
-        goodsPrice: 165000
-    }
-];
 
 const Basket = () => {
 
+    console.log(MockItems[0].name);
 
 
+/*     const MockItemsArr = MockItems.map((it) => ({
+        name: it.name,
+        price: it.price,
+        link: it.link,
+        imageFront: it.imageFront,
+        imageSide: it.imageSide,
+        shopThis: it.shopThis
+    })); */
 
+    // console.log(MockItemsArr.name);
 
     return (
         <div>

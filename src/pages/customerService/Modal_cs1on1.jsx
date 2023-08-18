@@ -4,15 +4,9 @@ import '../../styles/customerService/Modal_cs1on1.css';
 
 
 //모달창 컴포넌트
-const Modal_cs1on1 = ({ setShowPopup }) => {
-
-    //모달창 끄기 구현 ("취소" 버튼 onClick 이벤트 핸들러)
-    const closeModal = () => {
-        setShowPopup(false);
-    };
+const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
     // 1:1 문의 유효성 검사
-
     // 회원정보===================================================
     const [userEmail, setUserEmail] = useState('');
     const [emailValid, setEmailValid] = useState(false);
@@ -36,22 +30,12 @@ const Modal_cs1on1 = ({ setShowPopup }) => {
 
     const phoneNumCheck = (e) => {
         setUserPhoneNum(e.target.value);
-        // const newUserPhoneNum = e.target.value;
-        // console.log (`test1 => ${UserPhoneNum}`);
 
         if (phoneNumRegEx.test(userPhoneNum)) {
             setPhoneNumValid(true);
-            // console.log (`test2 => ${UserPhoneNum}`);
-
-            // setUserPhoneNum(newUserPhoneNum);
         } else {
             setPhoneNumValid(false);
-            // console.log (`test3 => ${newUserPhoneNum}`);
-
         }
-        // setUserPhoneNum(newUserPhoneNum);
-        // console.log (`test4 => ${serPhoneNum}`);
-
     };
 
     return (
@@ -199,8 +183,7 @@ const Modal_cs1on1 = ({ setShowPopup }) => {
                                             파일첨부
                                         </th>
                                         <td>
-                                            {/* input에 type="file" 추가하기 (추가했을 때 오류떴었음) */}
-                                            <input type="file" name="btn_fileRef" id="btn_fileRef" multiple />
+                                            <input className='fileUpload' type="file" name="btn_fileRef" id="btn_fileRef" multiple />
                                         </td>
                                     </tr>
                                 </tbody>
@@ -213,7 +196,7 @@ const Modal_cs1on1 = ({ setShowPopup }) => {
                         </div>
 
                         <div className="btn_submit">
-                            <button onClick={closeModal}>취소</button>
+                            <button onClick={() => closeModal('inqProdCS1on1')}>취소</button>
                             <button>등록</button>
                         </div>
                     </form>

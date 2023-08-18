@@ -1,4 +1,8 @@
 /* =====================main - NEWS===================== */
+.newsZ_index {
+    z-index: 999;
+}
+
 .news {
     margin: 8rem 0;
 }
@@ -11,13 +15,28 @@
     margin-top: 0.5rem;
 }
 
-.news a {
-    text-decoration: none;
-    color: black;
+.news button {
     font-size: 18px;
-    cursor: pointer;
+    background-color: white;
+    border: none;
 }
 
 .news_list p{
     margin: 1rem 0;
+}
+
+.newsCloseBTN {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+
+.newsCloseBTN button {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    width: 120px;
+    height: 35px;
 }

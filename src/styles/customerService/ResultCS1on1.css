@@ -1,4 +1,4 @@
-.modal_cover {
+.modal_cover_1{
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -15,11 +15,8 @@
 /* =======layout======== */
 /* ==========main========= */
 
-.modal_1 {
-    z-index: 999;
-}
 
-.modal_cs1on1 {
+.modal_cs1on1_1 {
     background-color: white;
     width: 100%;
     min-width: 1170px;
@@ -33,12 +30,12 @@
 }
 
 /* =========main - table 기본 설정 ========== */
-.subtitle_1on1 {
+.subtitle_1on1_1 {
     width: 100%;
 }
 
 
-.subtitle_1on1 table {
+.subtitle_1on1_1 table {
     border: solid 2px black;
     border-right: none;
     border-left: none;
@@ -46,18 +43,18 @@
     width: 100%;
 }
 
-.subtitle_1on1 figcaption{
+.subtitle_1on1_1 figcaption{
     display: inline-block;
     font-size: 24px;
     margin: 1rem 0 0.7rem 0.5rem;
 }
 
-.subtitle_1on1 p{
+.subtitle_1on1_1 p{
     float: right;
     margin-top: 1.5rem;
 }
 
-.subtitle_1on1 table th {
+.subtitle_1on1_1 table th {
     border-bottom: solid 1px darkgray;
     height: 100px;
     width: 30%;
@@ -67,13 +64,13 @@
     font-size: 18px;
 }
 
-.subtitle_1on1 table td {
+.subtitle_1on1_1 table td {
     border-bottom: solid 1px darkgray;
     width: 70%;
 }
 
 /* =========main - table - 회원정보 ========= */
-.tr_custInfo input {
+.tr_custInfo_1 input {
     height: 35px;
     width: 174px;
     background-color: #eee;
@@ -82,7 +79,7 @@
 }
 
 /* ===========main - table - 문의유형 =========== */
-.tr_inquiry select {
+.tr_inquiry_1 select {
     height: 30px;
     width: 200px;
     background-color: #eee;
@@ -90,50 +87,19 @@
     cursor: pointer;
 }
 
-.tr_inquiry select option {
+.tr_inquiry_1 select option {
     background-color: white;
 }
 
-.tr_inquiry select+span {
+.tr_inquiry_1 select+span {
     font-size: 12px;
     margin-left: 2rem;
 }
 
-/* ==========main - table - 답변알림 ========== */
-.tr_replyAlert input,
-.tr_replyAlert select {
-    text-align: center;
-    height: 30px;
-    background-color: #eee;
-    border: none;
-}
 
-.tr_replyAlert select {
-    width: 70px;
-    cursor: pointer;
-}
-
-.tr_replyAlert select option {
-    background-color: white;
-}
-
-.tr_replyAlert input[type="text"] {
-    width: 160px;
-}
-
-.alertDiv {
-    font-size: 12px;
-    display: inline-block;
-    margin-left: 2rem;
-}
-
-.alertDiv input {
-    height: auto;
-    cursor: pointer;
-}
 
 /* ==========main - table - 제목 ========== */
-.tr_inqTitle input {
+.tr_inqTitle_1 input {
     height: 30px;
     width: 200px;
     background-color: #eee;
@@ -142,10 +108,29 @@
 }
 
 /* ===========main - table - 문의 내용 ========== */
-.tr_inqContent th {
+.tr_inqContent_1 th {
     height: 500px;
 }
 
-.tr_inqContent div {
+.tr_inqContent_1 div {
     margin: 1.5rem 1.5rem 1.5rem 0;
+}
+
+
+/* 버튼  */
+.resCloseBTN {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resCloseBTN button {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    width: 120px;
+    height: 35px;
 }

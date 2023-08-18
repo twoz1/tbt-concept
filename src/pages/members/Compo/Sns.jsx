@@ -1,4 +1,4 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 const Sns = () => {
     const Rest_api_key = 'REST API KEY'; //REST API KEY
     const redirect_uri = 'http://localhost:3000/auth'; //Redirect URI
@@ -42,26 +42,26 @@ const Sns = () => {
                             <li className="naver">
                                 {/* <a href="https://www.naver.com/"> */}
                                 <button id="naverIdLogin">
-                                    <img src="./images/naver.png" alt="naver" />
+                                    <img src={require('../../../images/naver.png')} />
                                 </button>
                                 {/* </a> */}
                             </li>
                             <li className="kakao">
                                 {/* <a href="https://www.kakaocorp.com/page/"> */}
                                 <button onClick={handleLogin}>
-                                    <img src="./images/kakao.jpeg" alt="" />
+                                    <img src={require('../../../images/kakao.jpeg')} />
                                 </button>
                                 {/* </a> */}
                             </li>
                             <li className="insta">
                                 <a href="https://www.instagram.com/">
-                                    <img src="./images/insta.jpeg" alt="" />
+                                    <img src={require('../../../images/insta.jpeg')} />
                                 </a>
                             </li>
                             <li className="google">
                                 {/* <a href="https://www.google.co.kr/?hl=ko"> */}
                                 <button>
-                                    <img src="./images/google.jpeg" alt="" />
+                                    <img src={require('../../../images/google.jpeg')} />
                                 </button>
                                 {/* </a> */}
                             </li>

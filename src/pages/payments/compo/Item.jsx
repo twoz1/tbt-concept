@@ -12,7 +12,16 @@ const Item = () => {
     const handleIndividualSelect = () => {
         setIndividualSelect(!individualSelect);
     };
+    const products1 = [{
 
+        name: 'Bibi Black',
+        price: '169,000원',
+        link: './items/DetailedPage',
+        imageFront: '../../../images/s_bibiBlack_01.jpeg',
+        imageSide: '../../../images/s_bibiBlack_02.jpeg',
+        shopThis: 'SHOP THIS',
+    },
+    ]
     return (
         <div class="item">
             <h3>주문상품</h3>
@@ -29,19 +38,20 @@ const Item = () => {
                         <th>총 상품 금액</th>
                         <th>배송비</th>
                     </tr>
-
-                    <tr>
-                        <td>
-                            <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
-                        </td>
-                        <td className="item_img">
-                            <img src="../../images/s_bibiBlack_01.jpeg" alt="bibiBlack_01" />
-                        </td>
-                        <td>1</td>
-                        <td>89,000</td>
-                        <td>89,000</td>
-                        <td>무료</td>
-                    </tr>
+                    {products1.map((item, index) => (
+                        <tr>
+                            <td>
+                                <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
+                            </td>
+                            <td className="item_img">
+                                <img src={require(item.imageFront)} />
+                            </td>
+                            <td>1</td>
+                            <td>{item.price}</td>
+                            <td>89,000</td>
+                            <td>무료</td>
+                        </tr>
+                    ))}
 
                     <tr>
                         <td colSpan="6">

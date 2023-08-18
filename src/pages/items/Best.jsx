@@ -1,6 +1,31 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { useRef } from 'react';
 const Best = () => {
+    const best_list = useRef(),
+        btn_pre = useRef(),
+        btn_next = useRef(),
+        best_idx = useRef(0);
+
+    function clickBackBtn(e) {
+        best_idx.current--;
+        best_list.current.style.left = `${-best_idx.current * 25}%`;
+
+        btn_next.current.classList.remove('nonVisible');
+        if (best_idx.current <= 0) {
+            btn_pre.current.classList.add('nonVisible');
+        }
+    }
+
+    function clickNext(e) {
+        best_idx.current++;
+        best_list.current.style.left = `${-best_idx.current * 25}%`;
+
+        btn_pre.current.classList.remove('nonVisible');
+        if (best_idx.current >= 4) {
+            btn_next.current.classList.add('nonVisible');
+        }
+    }
     return (
         <div className="best">
             <div className="best_title">
@@ -13,15 +38,11 @@ const Best = () => {
                 </a>
             </div>
             <div className="best_item">
-                <button>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                    {/* <i className="fa-solid fa-chevron-left"></i> */}
-                </button>
-                <ul>
+                <ul className="best_list" ref={best_list}>
                     <li className="sunglass_3">
                         <a href="./detailed_page/detailed_page.html">
-                            <img src="./images/s_evaCrystalVioletTint_01.jpg" alt="evaCrystalVioletTint" />
-                            <img src="./images/s_evaCrystalVioletTint_02.jpg" alt="evaCrystalVioletTint_side" />
+                            <img src={require('../../images/s_evaCrystalVioletTint_01.jpg')} />
+                            <img src={require('../../images/s_evaCrystalVioletTint_02.jpg')} />
                         </a>
                         <div className="item_name">
                             <span>eva crystal&#45;violet tint</span>
@@ -35,8 +56,8 @@ const Best = () => {
                     </li>
                     <li className="sunglass_4">
                         <a href="sunglass_4">
-                            <img src="./images/s_hangangBlack_01.jpeg" alt="hangangBlack" />
-                            <img src="./images/s_hangangBlack_02.jpeg" alt="hangangBlack_side" />
+                            <img src={require('../../images/s_hangangBlack_01.jpeg')} />
+                            <img src={require('../../images/s_hangangBlack_02.jpeg')} />
                         </a>
                         <div className="item_name">
                             <span>hangangBlack</span>
@@ -50,8 +71,8 @@ const Best = () => {
                     </li>
                     <li className="glass_3">
                         <a href="./detailed_page/detailed_page_glass.html">
-                            <img src="./images/g_boatPeach_01.jpg" alt="boatPeach" />
-                            <img src="./images/g_boatPeach_02.jpg" alt="boatPeach_side" />
+                            <img src={require('../../images/g_boatPeach_01.jpg')} />
+                            <img src={require('../../images/g_boatPeach_02.jpg')} />
                         </a>
                         <div className="item_name">
                             <span>boatPeach</span>
@@ -65,8 +86,8 @@ const Best = () => {
                     </li>
                     <li className="glass_4">
                         <a href="glass_4">
-                            <img src="./images/g_landCrystal_01.jpg" alt="landCrystal" />
-                            <img src="./images/g_landCrystal_02.jpg" alt="landCrystal_side" />
+                            <img src={require('../../images/g_landCrystal_01.jpg')} />
+                            <img src={require('../../images/g_landCrystal_02.jpg')} />
                         </a>
                         <div className="item_name">
                             <span>landCrystal</span>
@@ -78,12 +99,74 @@ const Best = () => {
                             <a href="#">SHOT THIS &#62;</a>
                         </div>
                     </li>
+                    <li className="glass_4">
+                        <a href="glass_4">
+                            <img src={require('../../images/g_quinbyBlack_01.jpg')} />
+                            <img src={require('../../images/g_quinbyBlack_02.jpg')} />
+                        </a>
+                        <div className="item_name">
+                            <span>quinbyBlack</span>
+                        </div>
+                        <div className="item_price">
+                            <span>89,000원</span>
+                        </div>
+                        <div className="shop_this">
+                            <a href="#">SHOT THIS &#62;</a>
+                        </div>
+                    </li>
+                    <li className="glass_4">
+                        <a href="glass_4">
+                            <img src={require('../../images/s_orrBlack_01.jpeg')} />
+                            <img src={require('../../images/s_orrBlack_02.jpeg')} />
+                        </a>
+                        <div className="item_name">
+                            <span>orrBlack</span>
+                        </div>
+                        <div className="item_price">
+                            <span>129,000원</span>
+                        </div>
+                        <div className="shop_this">
+                            <a href="#">SHOT THIS &#62;</a>
+                        </div>
+                    </li>
+                    <li className="glass_4">
+                        <a href="glass_4">
+                            <img src={require('../../images/g_tenaBlack_01.jpg')} />
+                            <img src={require('../../images/g_tenaBlack_02.jpg')} />
+                        </a>
+                        <div className="item_name">
+                            <span>tenaBlack</span>
+                        </div>
+                        <div className="item_price">
+                            <span>89,000원</span>
+                        </div>
+                        <div className="shop_this">
+                            <a href="#">SHOT THIS &#62;</a>
+                        </div>
+                    </li>
+                    <li className="glass_4">
+                        <a href="glass_4">
+                            <img src={require('../../images/s_roanGrayCystal_01.jpg')} />
+                            <img src={require('../../images/s_roanGrayCystal_02.jpg')} />
+                        </a>
+                        <div className="item_name">
+                            <span>roanGrayCystal</span>
+                        </div>
+                        <div className="item_price">
+                            <span>129,000원</span>
+                        </div>
+                        <div className="shop_this">
+                            <a href="#">SHOT THIS &#62;</a>
+                        </div>
+                    </li>
                 </ul>
-                <button>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                    {/* <i className="fa-solid fa-chevron-right"></i> */}
-                </button>
             </div>
+            <button className="btn_pre nonVisible" ref={btn_pre} onClick={clickBackBtn}>
+                <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+            <button className="btn_next" ref={btn_next} onClick={clickNext}>
+                <FontAwesomeIcon icon={faChevronRight} />
+            </button>
         </div>
     );
 };

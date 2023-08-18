@@ -1,5 +1,6 @@
 import '../../styles/members/MyOrderItem.css';
 import ReviewModal from './ReviewModal';
+import OrderModal from './OrderModal';
 import useModal from '../useModal';
 
 const MyOrderItem = ({date,orderNumber,itemName,itemTitle,itemColor,itemQuantity,itemPrice,orderState,review}) => {
@@ -9,7 +10,7 @@ const MyOrderItem = ({date,orderNumber,itemName,itemTitle,itemColor,itemQuantity
     return (
         <tbody className="MyOrderItem">
             <tr>
-                <td>{date}</td>
+                <td>{date.toISOString().split('T')[0]}</td>
                 <td>{orderNumber}</td>
                 <td>
                     <a href="#" className="product">
@@ -23,10 +24,12 @@ const MyOrderItem = ({date,orderNumber,itemName,itemTitle,itemColor,itemQuantity
                 <td>
                     <p>{orderState}</p>
                     {orderState === "배송중" && <p className="delivery"><button onClick={()=> openModal('delivery')}>배송조회</button></p>}
+                    {isModal('delivery') && <OrderModal closeModal={closeModal}/>}
+                    
                 </td>
                 <td>
                     {review === "작성하기" ? <button className="review" onClick={()=> openModal('review')}>작성하기</button> : "작성완료" }
-                    {isModal('review') && <ReviewModal openModal={openModal} isModal={isModal} closeModal={closeModal}/>}
+                    {isModal('review') && <ReviewModal closeModal={closeModal}/>}
                 </td>
                 <td><a href="#">더보기&gt;</a></td>
             </tr>

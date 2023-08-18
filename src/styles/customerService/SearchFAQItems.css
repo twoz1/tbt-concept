@@ -1,0 +1,18 @@
+.freq_ask_1 {
+    margin-top: 0.5rem;
+}
+
+.freq_ask_1 hr {
+    margin-top: 0.5rem;
+}
+
+.freq_ask_1 p {
+    margin: 1rem 0;
+}
+
+.freq_ask_1 button {
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+}

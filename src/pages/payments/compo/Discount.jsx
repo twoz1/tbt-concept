@@ -12,9 +12,12 @@ const Discount = () => {
                     <tr>
                         <th>할인 쿠폰</th>
                         <td>
-                            <input type="text" placeholder="쿠폰을 사용해보세요." />
+                            <select className="checkout_cou">
+                                <option value="default">쿠폰선택</option>
+                                <option value="welcome">회원가입 감사 10% 할인 쿠폰</option>
+                                <option value="summer">s/s기념 10% 할인 쿠폰</option>
+                            </select>
                             <span>원</span>
-                            <a href="./modal/modal_3.html">쿠폰사용조회하기</a>
                         </td>
                     </tr>
                     <tr>

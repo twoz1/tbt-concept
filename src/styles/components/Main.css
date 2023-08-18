@@ -120,6 +120,7 @@ hr {
     display: block;
     width: 100%;
     height: auto;
+    margin-bottom: 50px;
 }
 
 .what_new button {
@@ -203,7 +204,7 @@ hr {
 .best_item ul {
     display: flex;
     gap: 10px;
-    width: 100%;
+    /* width: 100%; */
     justify-content: space-between;
     overflow: hidden;
 }
@@ -212,12 +213,33 @@ hr {
     text-align: center;
     width: 100%;
 }
-
+/* -------------------------------------- */
 .best_item ul li a img {
     width: 100%;
     display: block;
+    margin-bottom: 50px;
 }
-
+.best img {
+    width: 400px;
+}
+.best_item {
+    width: 1240px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+.best_item .best_list {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: left .7s .1s;
+}
+.best_item .best_list img{
+    width: 302px;
+    
+}
+/* -------------------------------------- */
 .best_item ul li a img:nth-child(2) {
     display: none;
 }
@@ -230,12 +252,34 @@ hr {
     display: block;
 }
 
-.best_item button {
+/* .best_item button {
     border: solid 0px;
     font-size: 30px;
     background-color: #fff;
     cursor: pointer;
+}  */
+.best button {
+    border: none;
+    position: absolute;
+    top: 80%;
+    transform: translateY(100%);
+    transition: .3 ease-in-out;
+    z-index: 5;
+    font-size: 30px;
+    background-color: #fff;
+    cursor: pointer;
 } 
+
+.btn_pre {
+    right: 102%;
+}
+.btn_next {
+    left: 102%;
+}
+
+button.nonVisible {
+    display: none;
+}
 
 /* ==============best=============== */
 /* ================================= */

@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-
+import useModal from '../../useModal';
+import Join_Modal01 from '../Join_Modal01';
 const JoinCheckbox = () => {
+
+
+    const { openModal, closeModal, isModal } = useModal();
+
+
     const [parentCheckbox, setParentCheckbox] = useState(false);
     const [childCheckboxes, setChildCheckboxes] = useState({
         checkbox1: false,
@@ -84,7 +90,8 @@ const JoinCheckbox = () => {
                             required
                         />
                         이용약관 동의&#40;필수&#41;
-                        <a href="./modal/join_modal1.html">내용보기</a>
+                        <button onClick={()=>{openModal("joinModal_1")}}>내용보기</button>
+                        {isModal("joinModal_1") && <Join_Modal01 closeModal={closeModal}/>}
                     </li>
 
                     <li>

@@ -1,13 +1,43 @@
 import '../../styles/members/Orderlist.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MyOrderItem from './MyOrderItem';
 
 const Orderlist = ({ order }) => {
     const [btnActive, setBtnActive] = useState("");
+    const [startDate, setStartDate] = useState(new Date().toISOString().split('T')[0]);
+    const [endDate, setEndDate] = useState(new Date().toISOString().split('T')[0]);
+    const [searchDate, setSearchDate] = useState(false);
+
+    const clickSearch = () => {
+        setSearchDate(true);
+    }
+
+        const filterDate = () => {
+            return order.filter((order) => {
+                const orderDate = new Date(order.date).toISOString().split('T')[0];
+                return orderDate >= startDate && orderDate <= endDate;
+            });
+        };
+
     const clickBtn = (e) => {
         setBtnActive(e.target.value);
+        setSearchDate(false);
 
-    }
+        if (e.target.value === "1month") {
+            const oneMonthAgo = new Date();
+            oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+            setStartDate(oneMonthAgo.toISOString().split('T')[0]);
+        } else if(e.target.value === "3months"){
+            const threeMonthAgo = new Date();
+            threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 3);
+            setStartDate(threeMonthAgo.toISOString().split('T')[0]);
+        }else if(e.target.value === "1year"){
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+            setStartDate(oneYearAgo.toISOString().split('T')[0]);
+        }
+    };
+
     return (
         <div className="Orderlist cover">
             <div className="center m_c">
@@ -22,7 +52,7 @@ const Orderlist = ({ order }) => {
                     </ul>
                 </div>
                 <div className="search_bar">
-                    <form action="#">
+                    <div className="btn_wrap">
                         <div className="quick">
                             <button onClick={clickBtn} value="1month" className={btnActive === "1month" ? "on" : ""}>최근 1개월</button>
                             <button onClick={clickBtn} value="3months" className={btnActive === "3months" ? "on" : ""}>최근 3개월</button>
@@ -30,15 +60,15 @@ const Orderlist = ({ order }) => {
                         </div>
                         <div>
                             <label>
-                                <input type="date" />
+                                <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
                             </label>
                             <span> ~ </span>
                             <label>
-                                <input type="date" />
+                                <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                             </label>
                         </div>
-                        <button className="date_submit" type="submit">검색</button>
-                    </form>
+                        <button className="date_submit" type="submit" onClick={clickSearch}>검색</button>
+                    </div>
                 </div>
                 <table className="ordertable">
                     <thead>
@@ -54,7 +84,7 @@ const Orderlist = ({ order }) => {
                             <th></th>
                         </tr>
                     </thead>
-                    {order.map((it) => { return (<MyOrderItem key={it.id}{...it} />) })}
+                    {searchDate && filterDate().map((it) => <MyOrderItem key={it.id}{...it} />)}
                 </table>
             </div>
         </div>
