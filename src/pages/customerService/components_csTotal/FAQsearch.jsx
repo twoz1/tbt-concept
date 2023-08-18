@@ -10,7 +10,6 @@ const FAQsearch = ({ searchFAQ }) => {
 
     const onChangeSearch = (e) => {
         setSearch(e.target.value);
-        console.log ("입력 중..");
     }
 
     const getSearchResult = () => {
@@ -55,9 +54,20 @@ const FAQsearch = ({ searchFAQ }) => {
                         </p>
                     </div>
                 </div>
+
+                <div className='schFAQbtn'>
+                    {getSearchResult().map((freqQues) => (
+                        <SearchFAQItems
+                            key={freqQues.id}
+                            freqQuesCat={freqQues.freqQuesCat}
+                            freqQuesTitle={freqQues.freqQuesTitle}
+                            contents={freqQues.contents}
+                        />
+                    ))}
+                </div>
             </div>
 
-            <div>
+            {/*             <div>
                 {getSearchResult().map((freqQues) => (
                     <SearchFAQItems
                         key={freqQues.id}
@@ -66,7 +76,7 @@ const FAQsearch = ({ searchFAQ }) => {
                         contents={freqQues.contents}
                     />
                 ))}
-            </div>
+            </div> */}
         </div>//최종div
     );
 };

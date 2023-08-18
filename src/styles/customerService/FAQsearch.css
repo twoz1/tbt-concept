@@ -8,7 +8,6 @@
     box-sizing: border-box;
     align-items: center;
     text-align: center;
-    margin-top: 8rem 0;
 }
 
 .cs_schLeft * {
@@ -41,4 +40,19 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
+}
+
+.cs_schLeft,
+.cs_schRight {
+    margin-top: 2rem;
+}
+
+.schFAQbtn {
+    margin-left: 13rem;
+    margin-bottom: 10rem;
+    /* background-color: #eee; */
+    background-color: white;
+    border: 0.5px #ddd solid;
+    border-top: none;
+    width: 600px;
 }
