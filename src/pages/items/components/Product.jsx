@@ -39,7 +39,7 @@
 // };
 
 // export default Product;
-
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const Product = ({ displayedItemInfo}) => {
@@ -55,10 +55,10 @@ const Product = ({ displayedItemInfo}) => {
               .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
               .map((item) => (
                 <li className="photo_2" key={item.name}>
-                  <a href={item.link} className="product_photo">
+                  <Link to = '/glasses/detail/:id' className="product_photo">
                     <img src={item.imageFront} alt="Front View" />
                     <img src={item.imageSide} alt="Side View" />
-                  </a>
+                  </Link>
                   <div className="item_name"><span>{item.name}</span></div>
                   <div className="item_price"><span>{item.price}</span></div>
                   <div className="shop_this"><a href={item.link}>{item.shopThis} &#62;</a></div>
