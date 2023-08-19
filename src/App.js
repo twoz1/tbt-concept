@@ -20,6 +20,7 @@ import { useState } from 'react';
 import { NavLink, Link, Route, Routes } from 'react-router-dom';
 
 
+
 const orderList = [
     {
         id: 0,
@@ -76,7 +77,7 @@ function App() {
                 {/* ----------------고정 풋터의 링크-------- */}
                 {/* ----------------이지 링크투-------- */}
 
-                <Route path='/detail' element={<DetailedPage />}></Route>
+                <Route path='/detail/:id' element={<DetailedPage />}></Route>
 
                 {/* ----------------이지 링크투-------- */}
                 {/* ----------------진휘 링크투-------- */}

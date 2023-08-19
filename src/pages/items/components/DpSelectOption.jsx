@@ -11,11 +11,13 @@ const DpSelectOption =()=>{
                         </div>
                         <div>165,000원</div>
 
-                        <div>
+                        <div className="total">
                             <strong>TOTAL</strong>
-                            <span>165,000원</span>
-                            <span> &#40;1개&#41;</span>
+                            <input type="number" />
+                            <span>165,000원 <em>&#40;1개&#41;</em></span>
+                            
                         </div>
+
                         <div className="choice_button">
                             <a href="">바로 구매</a>
                             <a href="">쇼핑백 담기</a>

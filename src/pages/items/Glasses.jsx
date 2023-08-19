@@ -3,6 +3,7 @@ import '../../styles/items/Glasses.css'
 import Category from './components/Category';
 import Product from './components/Product';
 import PageNation from './components/PageNation';
+
 import { useState } from 'react';
 
 import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg'
@@ -33,15 +34,16 @@ const Glasses = () => {
 
 
     const products = [{
-
+        id : 0,
         name: 'Andy Brown Crystal',
         price: '81,000원',
-        link: './items/DetailedPage',
+        link: './DetailedPageList',
         imageFront: g_andyBrownCrystal_01,
         imageSide: g_andyBrownCrystal_02,
         shopThis: 'SHOP THIS',
     },
     {
+        id : 1,
         name: 'Anton Crystal',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -51,6 +53,7 @@ const Glasses = () => {
 
     },
     {
+        id : 2,
         name: 'Boat Peach',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -60,6 +63,7 @@ const Glasses = () => {
 
     },
     {
+        id:3,
         name: 'Land Crystal',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -69,7 +73,7 @@ const Glasses = () => {
 
     },
     {
-
+        id:4,
         name: 'Quin by Black',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -79,6 +83,7 @@ const Glasses = () => {
 
     },
     {
+        id : 5,
         name: 'Quin by GreyCrystal',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -88,6 +93,7 @@ const Glasses = () => {
 
     },
     {
+        id : 6,
         name: 'sharon Gold Crystal',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -97,6 +103,7 @@ const Glasses = () => {
 
     },
     {
+        id : 7,
         name: 'tena Black',
         price: '81,000원',
         link: './items/DetailedPage',
@@ -106,7 +113,7 @@ const Glasses = () => {
 
     },
     {
-
+        id : 8,
         name: 'Quin by Black',
         price: '81,000원',
         link: './items/DetailedPage',
