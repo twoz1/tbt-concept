@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../styles/items/Collection.css';
 const Collection = () => {
     return (
@@ -5,9 +6,11 @@ const Collection = () => {
             <div className="center m_c">
                 <div className="collection">
                     <div className="title_route">
-                        <h2>
-                            <strong>23&nbsp;S&#47;S&nbsp;COLLECTION</strong>
-                        </h2>
+                        <Link to="/detail">
+                            <h2>
+                                <strong>23&nbsp;S&#47;S&nbsp;COLLECTION</strong>
+                            </h2>
+                        </Link>
                     </div>
                     <ul>
                         <li>

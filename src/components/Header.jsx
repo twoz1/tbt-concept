@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faBagShopping, faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Header.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div className="header">
@@ -18,28 +18,28 @@ const Header = () => {
                 <ul className="h_icon">
                     <li>
                         <Link to="/cart">
-                        <FontAwesomeIcon icon={faBagShopping} className='fa-solid'/>
+                            <FontAwesomeIcon icon={faBagShopping} className="fa-solid" />
                             {/* <i class="fa-solid fa-bag-shopping"></i> */}
                             <span>CART</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/my">
-                            <FontAwesomeIcon icon={faUser} className='fa-solid'/>
+                            <FontAwesomeIcon icon={faUser} className="fa-solid" />
                             {/* <i class="fa-solid fa-user"></i> */}
                             <span>MY</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/login">
-                        <FontAwesomeIcon icon={faRightToBracket} className='fa-solid'/>
+                            <FontAwesomeIcon icon={faRightToBracket} className="fa-solid" />
                             {/* <i class="fa-solid fa-arrow-right-to-bracket"></i> */}
                             <span>LOGIN</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/join">
-                        <FontAwesomeIcon icon={faUserPlus} className='fa-solid'/>
+                            <FontAwesomeIcon icon={faUserPlus} className="fa-solid" />
                             {/* <i class="fa-solid fa-user-plus"></i> */}
                             <span>JOIN</span>
                         </Link>
@@ -57,7 +57,7 @@ const Header = () => {
                     <Link to="/glasses">GLASSES</Link>
                 </li>
                 <li>
-                    <Link to ="/sunglasses">SUNGLASSES</Link>
+                    <Link to="/sunglasses">SUNGLASSES</Link>
                 </li>
                 <li>
                     <Link to="/store">STORE</Link>
