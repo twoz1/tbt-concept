@@ -13,18 +13,10 @@ function usePricing(initialQuantity, initialPrice) {
         return quantityGoods * initialPrice;
     };
 
-
-    const finalPricing = () => {
-        const currentTotal = totalPricing();
-        setFinalPrice(finalPrice => finalPrice + currentTotal);
-        return finalPrice + currentTotal;
-    };
-
     return {
         quantityGoods,
         changeQuantity,
         totalPricing,
-        finalPricing,
     };
 }
 
