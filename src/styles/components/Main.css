@@ -303,6 +303,3 @@ button.nonVisible {
 
 /* ================================= */
 /* ============main영역 끝============ */
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-    margin-bottom: 50px;
-}
