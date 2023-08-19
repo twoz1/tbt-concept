@@ -139,3 +139,8 @@
     text-align: center;
     color: #fff;
 }
+.userName {
+    float: right;
+    color: gray;
+    padding: 20px;
+}
