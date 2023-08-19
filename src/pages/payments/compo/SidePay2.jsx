@@ -1,7 +1,12 @@
-
+import Join_Modal01 from '../../members/Join_Modal01';
+import useModal from '../../useModal';
 import React, { useState } from 'react';
+import Join_Modal02 from '../../members/Join_Modal02';
+import Join_Modal03 from '../../members/Join_Modal03';
 
 const SidePay2 = () => {
+    const { openModal, closeModal, isModal } = useModal();
+
     const [selectAll, setSelectAll] = useState(false);
     const [individualSelect1, setIndividualSelect1] = useState(false);
     const [individualSelect2, setIndividualSelect2] = useState(false);
@@ -44,7 +49,8 @@ const SidePay2 = () => {
                             <th colspan="1">
                                 <input type="checkbox" checked={individualSelect1} onChange={handleIndividualSelect1} />
                                 <span>
-                                    주문 상품정보에 동의&#40;필수&#41;<a href="./modal/modal_1.html">내용보기</a>
+                                    주문 상품정보에 동의&#40;필수&#41;<button className="sidepay1_buubon">내용보기</button>
+                                    {isModal('joinModal_2') && <Join_Modal02 closeModal={{ closeModal }} />}
                                 </span>
                             </th>
                         </tr>
@@ -53,7 +59,8 @@ const SidePay2 = () => {
                                 <input type="checkbox" checked={individualSelect2} onChange={handleIndividualSelect2} />
                                 <span>
                                     결제대행서비스 이용을 위한 <br />
-                                    개인정보 제3자 제공 및 위탁 동의&#40;필수&#41;<a href="./modal/modal_2.html">내용보기</a>
+                                    개인정보 제3자 제공 및 위탁 동의&#40;필수&#41;<button className="sidepay1_buubon">내용보기</button>
+                                    {isModal('joinModal_3') && <Join_Modal03 closeModal={{ closeModal }} />}
                                 </span>
                             </th>
                         </tr>
@@ -65,7 +72,7 @@ const SidePay2 = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button>결제하기</button>
+                <button className="total_button">결제하기</button>
             </form>
         </div>
     );
