@@ -10,22 +10,22 @@ import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 
 const DetailedPage = () => {
-    // const { id } = useParams();
+    const { id } = useParams();
     const productList = useContext(mockItemsContext);
-    // const ProductListSelected = productList.find(product => product.id === parseInt(id));
+    const ProductListSelected = productList.find(product => product.id === parseInt(id));
     console.log(productList);
 
     return (
         <div className="DetailedPage">
             <div className="center m_c">
                 <div className="section">
-                    <DpTopSection productList={productList}/>
+                    <DpTopSection ProductListSelected={ProductListSelected}/>
                     <DpSelectOption  />
                 </div>
 
                 <DpNavigation></DpNavigation>
 
-                <DpProductDetail/>
+                <DpProductDetail ProductListSelected={ProductListSelected}/>
 
                 {/* <!-- ==============리뷰1======================================================= --> */}
 
