@@ -1,8 +1,8 @@
 
-const StoreItem = ({ branchName, storeAdress }) => {
+const StoreItem = ({ branchName, storeAdress, storeSrc, setStoreMap }) => {
     return (
         <li>
-            <strong>TBT concept {branchName}점</strong>
+            <strong onClick={() => setStoreMap(storeSrc)}>TBT concept {branchName}점</strong>
             <p>
                 {storeAdress}
             </p>

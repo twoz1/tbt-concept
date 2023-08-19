@@ -52,6 +52,11 @@
     border: 1px solid #000;
 }
 
+.control select option {
+    -webkit-border-radius: 0;
+
+}
+
 ul.find_result_list {
     border-top: 1px solid;
     border-bottom: 1px solid;
@@ -60,8 +65,8 @@ ul.find_result_list {
 }
 
 ul.find_result_list li {
-    padding: 10px 5px;
-    height: 55px;
+    height: 65px;
+    padding: 5px 5px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -71,6 +76,7 @@ ul.find_result_list li:last-child {
 
 ul.find_result_list li strong {
     font-size: 16px;
+    cursor: pointer;
 }
 
 .control .button {
