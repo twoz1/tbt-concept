@@ -6,6 +6,8 @@ import Discount from './compo/Discount';
 import Pay from './compo/Pay';
 import SidePay1 from './compo/SidePay1';
 import SidePay2 from './compo/SidePay2';
+import Join_Modal02 from '../members/Join_Modal02';
+import Join_Modal03 from '../members/Join_Modal03';
 const Checkout = () => {
     return (
         <div>
@@ -25,6 +27,8 @@ const Checkout = () => {
                     <section className="check_right">
                         <SidePay1></SidePay1>
                         <SidePay2></SidePay2>
+                        {/* <Join_Modal02></Join_Modal02> */}
+                        {/* <Join_Modal03></Join_Modal03> */}
                     </section>
                 </div>
             </div>
