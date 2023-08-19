@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import useModal from '../../useModal';
 import Join_Modal01 from '../Join_Modal01';
+import Join_Modal02 from '../Join_Modal02';
+import Join_Modal03 from '../Join_Modal03';
 const JoinCheckbox = () => {
 
 
@@ -103,7 +105,8 @@ const JoinCheckbox = () => {
                             required
                         />
                         개인정보 수집 및 이용에 대한 동의&#40;필수&#41;
-                        <a href="./modal/join_modal2.html">내용보기</a>
+                        <button onClick={()=>{openModal("joinModal_2")}}>내용보기</button>
+                        {isModal("joinModal_2") && <Join_Modal02 closeModal={closeModal}/>}
                     </li>
 
                     <li>
@@ -112,7 +115,8 @@ const JoinCheckbox = () => {
                             name="checkbox4"
                         />
                         개인정보 수집 및 이용안내&#40;선택&#41;
-                        <a href="./modal/join_modal3.html">내용보기</a>
+                        <button onClick={()=>{openModal("joinModal_3")}}>내용보기</button>
+                        {isModal("joinModal_3") && <Join_Modal03 closeModal={closeModal}/>}
                     </li>
                 </ul>
             </div>

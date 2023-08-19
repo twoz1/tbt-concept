@@ -32,8 +32,8 @@ const Join_Modal01 = ({closeModal}) => {
                             법률, 소비자보호법 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
                         </p>
                     </div>
-                    <div class="close_button">
-                        <button onClick={()=>{closeModal('joinModal_1')}}>닫기</button>
+                    <div className='close_button'>
+                        <button className='close_Join_modal' onClick={()=>{closeModal('joinModal_1')}}>닫기</button>
                     </div>
                 </div>
             </div>

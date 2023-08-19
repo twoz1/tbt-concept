@@ -4,186 +4,199 @@ import '../../styles/items/Glasses.css'
 import Product1 from './components/Product1';
 import PageNation from './components/PageNation';
 import { useState } from 'react';
+import { useParams } from "react-router-dom";
+import { useContext } from 'react';
+import mockItemsContext from './MockItems';
 
-import s_bibiBlack_01 from '../../images/s_bibiBlack_01.jpeg'
-import s_bibiBlack_02 from '../../images/s_bibiBlack_02.jpeg'
 
-import s_evaCrystalVioletTint_01 from '../../images/s_evaCrystalVioletTint_01.jpg'
-import s_evaCrystalVioletTint_02 from '../../images/s_evaCrystalVioletTint_02.jpg'
+// import s_bibiBlack_01 from '../../images/s_bibiBlack_01.jpeg'
+// import s_bibiBlack_02 from '../../images/s_bibiBlack_02.jpeg'
 
-import s_hangangBlack_01 from '../../images/s_hangangBlack_01.jpeg'
-import s_hangangBlack_02 from '../../images/s_hangangBlack_02.jpeg'
+// import s_evaCrystalVioletTint_01 from '../../images/s_evaCrystalVioletTint_01.jpg'
+// import s_evaCrystalVioletTint_02 from '../../images/s_evaCrystalVioletTint_02.jpg'
 
-import s_orrBlack_01 from '../../images/s_orrBlack_01.jpeg'
-import s_orrBlack_02 from '../../images/s_orrBlack_02.jpeg'
+// import s_hangangBlack_01 from '../../images/s_hangangBlack_01.jpeg'
+// import s_hangangBlack_02 from '../../images/s_hangangBlack_02.jpeg'
 
-import s_roanGrayCystal_01 from '../../images/s_roanGrayCystal_01.jpg'
-import s_roanGrayCystal_02 from '../../images/s_roanGrayCystal_02.jpg'
+// import s_orrBlack_01 from '../../images/s_orrBlack_01.jpeg'
+// import s_orrBlack_02 from '../../images/s_orrBlack_02.jpeg'
 
-import s_scottCystalOrangeTint_01 from '../../images/s_scottCystalOrangeTint_01.jpg'
-import s_scottCystalOrangeTint_02 from '../../images/s_scottCystalOrangeTint_02.jpg'
+// import s_roanGrayCystal_01 from '../../images/s_roanGrayCystal_01.jpg'
+// import s_roanGrayCystal_02 from '../../images/s_roanGrayCystal_02.jpg'
 
-import s_tamdaBeige_01 from '../../images/s_tamdaBeige_01.jpg'
-import s_tamdaBeige_02 from '../../images/s_tamdaBeige_02.jpg'
+// import s_scottCystalOrangeTint_01 from '../../images/s_scottCystalOrangeTint_01.jpg'
+// import s_scottCystalOrangeTint_02 from '../../images/s_scottCystalOrangeTint_02.jpg'
 
-import s_depsBlack_01 from '../../images/s_depsBlack_01.jpeg'
-import s_depsBlack_02 from '../../images/s_depsBlack_02.jpeg'
+// import s_tamdaBeige_01 from '../../images/s_tamdaBeige_01.jpg'
+// import s_tamdaBeige_02 from '../../images/s_tamdaBeige_02.jpg'
+
+// import s_depsBlack_01 from '../../images/s_depsBlack_01.jpeg'
+// import s_depsBlack_02 from '../../images/s_depsBlack_02.jpeg'
 
 const Sunglasses = () => {
 
 
-    const products1 = [{
+    // const products1 = [{
 
-        name: 'Bibi Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_bibiBlack_01,
-        imageSide: s_bibiBlack_02,
-        shopThis: 'SHOP THIS',
-    },
-    {
-        name: 'Eva Crystal Violet Tint',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_evaCrystalVioletTint_01,
-        imageSide: s_evaCrystalVioletTint_02,
-        shopThis: 'SHOP THIS',
+    //     name: 'Bibi Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_bibiBlack_01,
+    //     imageSide: s_bibiBlack_02,
+    //     shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Eva Crystal Violet Tint',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_evaCrystalVioletTint_01,
+    //     imageSide: s_evaCrystalVioletTint_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Hangang Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_hangangBlack_01,
-        imageSide: s_hangangBlack_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Hangang Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_hangangBlack_01,
+    //     imageSide: s_hangangBlack_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Orr Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_orrBlack_01,
-        imageSide: s_orrBlack_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Orr Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_orrBlack_01,
+    //     imageSide: s_orrBlack_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
+    // },
+    // {
 
-        name: 'Roan Gray Cystal',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_roanGrayCystal_01,
-        imageSide: s_roanGrayCystal_02,
-        shopThis: 'SHOP THIS',
+    //     name: 'Roan Gray Cystal',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_roanGrayCystal_01,
+    //     imageSide: s_roanGrayCystal_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Scott Cystal Orange Tint',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_scottCystalOrangeTint_01,
-        imageSide: s_scottCystalOrangeTint_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Scott Cystal Orange Tint',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_scottCystalOrangeTint_01,
+    //     imageSide: s_scottCystalOrangeTint_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Tamda Beige',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_tamdaBeige_01,
-        imageSide: s_tamdaBeige_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Tamda Beige',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_tamdaBeige_01,
+    //     imageSide: s_tamdaBeige_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Deps Black',
-        price: '169.000원',
-        link: './items/DetailedPage',
-        imageFront: s_depsBlack_01,
-        imageSide: s_depsBlack_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Deps Black',
+    //     price: '169.000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_depsBlack_01,
+    //     imageSide: s_depsBlack_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
+    // },
+    // {
 
-        name: 'Roan Gray Cystal',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_roanGrayCystal_01,
-        imageSide: s_roanGrayCystal_02,
-        shopThis: 'SHOP THIS',
+    //     name: 'Roan Gray Cystal',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_roanGrayCystal_01,
+    //     imageSide: s_roanGrayCystal_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Scott Cystal Orange Tint',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_scottCystalOrangeTint_01,
-        imageSide: s_scottCystalOrangeTint_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Scott Cystal Orange Tint',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_scottCystalOrangeTint_01,
+    //     imageSide: s_scottCystalOrangeTint_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Tamda Beige',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_tamdaBeige_01,
-        imageSide: s_tamdaBeige_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Tamda Beige',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_tamdaBeige_01,
+    //     imageSide: s_tamdaBeige_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Deps Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_depsBlack_01,
-        imageSide: s_depsBlack_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Deps Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_depsBlack_01,
+    //     imageSide: s_depsBlack_02,
+    //     shopThis: 'SHOP THIS',
 
-    }, {
+    // }, {
 
-        name: 'Bibi Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_bibiBlack_01,
-        imageSide: s_bibiBlack_02,
-        shopThis: 'SHOP THIS',
-    },
-    {
-        name: 'Eva Crystal Violet Tint',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_evaCrystalVioletTint_01,
-        imageSide: s_evaCrystalVioletTint_02,
-        shopThis: 'SHOP THIS',
+    //     name: 'Bibi Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_bibiBlack_01,
+    //     imageSide: s_bibiBlack_02,
+    //     shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Eva Crystal Violet Tint',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_evaCrystalVioletTint_01,
+    //     imageSide: s_evaCrystalVioletTint_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Hangang Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_hangangBlack_01,
-        imageSide: s_hangangBlack_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Hangang Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_hangangBlack_01,
+    //     imageSide: s_hangangBlack_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    {
-        name: 'Orr Black',
-        price: '169,000원',
-        link: './items/DetailedPage',
-        imageFront: s_orrBlack_01,
-        imageSide: s_orrBlack_02,
-        shopThis: 'SHOP THIS',
+    // },
+    // {
+    //     name: 'Orr Black',
+    //     price: '169,000원',
+    //     link: './items/DetailedPage',
+    //     imageFront: s_orrBlack_01,
+    //     imageSide: s_orrBlack_02,
+    //     shopThis: 'SHOP THIS',
 
-    },
-    ]
+    // },
+    // ]
 
 
-    const  [page, setPage] = useState(1);
+    // const  [page, setPage] = useState(1);
+    // const itemsPerPage = 8;
+    // const startIndex = (page - 1) * itemsPerPage;
+    // const displayedItemInfo1 = products1.slice(startIndex, startIndex + itemsPerPage);
+    const { id } = useParams();
+    const eachProductList = useContext(mockItemsContext);
+    const eachProductListSelected = eachProductList.find(product => product.id === parseInt(id));
+    console.log(eachProductList);
+
+    const [page, setPage] = useState(1);
     const itemsPerPage = 8;
-    const startIndex = (page - 1) * itemsPerPage;
-    const displayedItemInfo1 = products1.slice(startIndex, startIndex + itemsPerPage);
+    const startIndex = page + 15;
+    const displayedItemInfo1 = eachProductList.slice(startIndex, startIndex + itemsPerPage);
   
     return (
         <div className='Sunglasses'>
@@ -206,8 +219,8 @@ const Sunglasses = () => {
                     <ul>
                         <li>category
                             <ul>
-                                <li><a href="../sunglass/sunglasses.html">sunglass</a></li>
-                                <li><a href="#"> glass</a></li>
+                                <li><a> glass</a></li>
+                                <li><a >sunglass</a></li>
                             </ul>
                         </li>
 

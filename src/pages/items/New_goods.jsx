@@ -1,4 +1,6 @@
 import '../../styles/items/New_goods.css';
+import NgoodsGlass from './NgoodsGlass';
+import NgoodsSunGlass from './NgoodsSunGlass';
 
 const New_goods = () => {
     return (
@@ -31,25 +33,7 @@ const New_goods = () => {
 
                         <div className="new_glass_img">
                             <ul>
-                                <li>
-                                    <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/sg_andy_crystal_dt_01.jpg" alt="상품사진"/></a>
-                                    <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/sg_andy_crystal_dt_02.jpg" alt="상품사진"/></a>
-                                </li>
-
-                                <li>
-                                    <a href="#"><img src="../new_goods/img/sg_andy_black_dt_01.jpg" alt="상품사진"/></a>
-                                    <a href="#"><img src="../new_goods/img/sg_andy_black_dt_02.jpg" alt="상품사진"/></a>
-                                </li>
-
-                                <li>
-                                    <a href="#"><img src="../new_goods/img/sg_andy_black_crystal_dt_01.jpg" alt="상품사진"/></a>
-                                    <a href="#"><img src="../new_goods/img/sg_andy_black_crystal_dt_02.jpg" alt="상품사진"/></a>
-                                </li>
-
-                                <li>
-                                    <a href="#"><img src="../new_goods/img/sg_andy_flesh_dt_01.jpg" alt="상품사진"/></a>
-                                    <a href="#"><img src="../new_goods/img/sg_andy_flesh_dt_02.jpg" alt="상품사진"/></a>
-                                </li>
+                                <NgoodsGlass />
                             </ul>
                         </div>
                     </div>
@@ -64,25 +48,7 @@ const New_goods = () => {
 
                         <div className="new_glass_img">
                             <ul>
-                                <li>
-                                    <a href="../detailed_page/detaied_page.html"><img src="../new_goods/img/pink_sunglass2.jpg" alt="상품사진"/></a>
-                                    <a href="../detailed_page/detaied_page.html"><img src="../new_goods/img/pink_sunglass22.jpg" alt="상품사진"/></a>
-                                </li>
-
-                                <li>
-                                    <a href="#"><img src="../new_goods/img/beth_cinnamon_browntint_dt_01.jpg" alt="상품사진"/></a>
-                                    <a href="#"><img src="../new_goods/img/beth_cinnamon_browntint_dt_02.jpg" alt="상품사진"/></a>
-                                </li>
-
-                                <li>
-                                    <a href="#"><img src="../new_goods/img/sunglass_2.jpeg" alt="상품사진"/></a>
-                                    <a href="#"><img src="../new_goods/img/sunglass_2_side.jpeg" alt="상품사진"/></a>
-                                </li>
-
-                                <li>
-                                    <a href="#"><img src="../new_goods/img/sunglass_4.jpeg" alt="상품사진"/></a>
-                                    <a href="#"><img src="../new_goods/img/sunglass_4_side.jpeg" alt="상품사진"/></a>
-                                </li>
+                                <NgoodsSunGlass />
                             </ul>
                         </div>
                     </div>
@@ -94,9 +60,9 @@ const New_goods = () => {
 
                         <div className="new_slide_title">
                             <div className="new_slide_img">
-                                <a href=""><img src="../new_goods/img/pos_andy_black_crystal_lb_02.jpg" alt="상품사진"/></a>
-                                <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/pos_andy_flesh_lb_02.jpg" alt="상품사진"/></a>
-                                <a href=""><img src="../new_goods/img/pos_etty_black_lb_06.jpg" alt="상품사진"/></a>
+                                <a href=""><img src="../new_goods/img/pos_andy_black_crystal_lb_02.jpg" alt="상품사진" /></a>
+                                <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/pos_andy_flesh_lb_02.jpg" alt="상품사진" /></a>
+                                <a href=""><img src="../new_goods/img/pos_etty_black_lb_06.jpg" alt="상품사진" /></a>
                             </div>
                         </div>
                     </div>

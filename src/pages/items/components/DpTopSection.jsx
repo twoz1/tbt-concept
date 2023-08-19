@@ -1,14 +1,15 @@
 
 
+import React from 'react'
 
 
+const DpTopSection = ({productList}) => {
 
-const DpTopSection = ({ProductListSelected}) => {
-    const {imageFront,imageSide,imageSide_03,imageSide_04}=ProductListSelected;
-    if (!ProductListSelected) {
-        // ProductListSelected가 없을 때의 처리
-        return <div>Loading...</div>;
-    }
+    const {id,imageFront,imageSide,imageSide_03,imageSide_04}=productList;
+    // if (!ProductListSelected) {
+    //     // ProductListSelected가 없을 때의 처리
+    //     return <div>Loading...</div>;
+    // }
 
     // console.log(id);
 
@@ -27,6 +28,7 @@ const DpTopSection = ({ProductListSelected}) => {
                             <a><img src={imageSide_04}
                                 alt="Eva crystal violet tint 뒷 대각선" /></a>
                         </div>
+                        
                     </div>
     );
 

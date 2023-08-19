@@ -39,10 +39,19 @@
 // };
 
 // export default Product;
-import { Link } from 'react-router-dom';
+
 import React from 'react';
 
-const Product = ({ displayedItemInfo}) => {
+const Product = ({displayedItemInfo}) => {
+  
+    const {imageFront,imageSide,name,price,shopThis}=displayedItemInfo;
+    // if (!displayedItemInfo) {
+    //     // ProductListSelected가 없을 때의 처리
+    //     return <div>Loading...</div>;
+    // }
+
+    // console.log(id);
+
   const itemsPerRow = 4;
   const rows = Math.ceil(displayedItemInfo.length / itemsPerRow);
 
@@ -55,13 +64,13 @@ const Product = ({ displayedItemInfo}) => {
               .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
               .map((item) => (
                 <li className="photo_2" key={item.name}>
-                  <Link to = '/glasses/detail/:id' className="product_photo">
+                  <a className="product_photo">
                     <img src={item.imageFront} alt="Front View" />
                     <img src={item.imageSide} alt="Side View" />
-                  </Link>
+                  </a>
                   <div className="item_name"><span>{item.name}</span></div>
                   <div className="item_price"><span>{item.price}</span></div>
-                  <div className="shop_this"><a href={item.link}>{item.shopThis} &#62;</a></div>
+                  <div className="shop_this"><a>{item.shopThis} &#62;</a></div>
                 </li>
               ))}
           </ul>

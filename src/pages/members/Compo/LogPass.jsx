@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import Main from '../../../components/Main';
 const LogPass = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [emailValid, setEmailValid] = useState(false);
     const special = /[!-*.@]/gi;
@@ -34,10 +36,23 @@ const LogPass = () => {
             setPasswordValid(true);
         }
     };
+    const [button, setButton] = useState(true);
+    function changeButton() {
+        const isButtonEnabled = email.includes('@') && password.length > 8;
+        setButton(isButtonEnabled);
+
+        if (isButtonEnabled) {
+            // 조건을 만족하면 메인 페이지로 이동
+            navigate('/'); // 실제 메인 페이지 경로로 '/main' 대신 변경하세요
+        } else {
+            navigate('/Login');
+        }
+    }
+
     return (
         <div>
             <div className="login_wrap">
-                <form action="#" className="login" method="post" name="login">
+                <form action="#" className="login" name="login">
                     <table className="log_input">
                         <tr>
                             <th colspan="1">아이디</th>
@@ -57,7 +72,7 @@ const LogPass = () => {
                             </td>
                         </tr>
                     </table>
-                    <button>로그인</button>
+                    <button onClick={changeButton}>로그인</button>
                 </form>
                 <div className="remember">
                     <input className="user_remember" type="radio" />

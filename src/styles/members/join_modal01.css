@@ -50,10 +50,9 @@
     border: none;
 }
 
-.close_button a{
+.close_button .close_Join_modal{
+    background-color: transparent;
+    border: 0;
     color: white;
     text-decoration: none;
-}
-.modal{
-    /* display: none; */
 }

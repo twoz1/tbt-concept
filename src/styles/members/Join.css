@@ -123,7 +123,7 @@
 }
 
 
-.check_agreement ul li a {
+.check_agreement ul li button {
     width: 60px;
     height: 25px;
     line-height: 25px;
