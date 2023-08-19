@@ -6,7 +6,7 @@ import PageNation from './components/PageNation';
 import { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
-import mockItemsContext from './DetailedPageList';
+import mockItemsContext from './MockItems';
 
 
 // import s_bibiBlack_01 from '../../images/s_bibiBlack_01.jpeg'

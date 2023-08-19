@@ -191,7 +191,7 @@ import PageNation from './components/PageNation';
 import { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
-import mockItemsContext from './DetailedPageList';
+import mockItemsContext from './MockItems';
 
 
 

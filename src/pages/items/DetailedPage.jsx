@@ -7,7 +7,7 @@ import DpReviewScore from "./components/DpReviewScore";
 import DpProductDetail from "./components/DpProductDetail";
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
-import mockItemsContext from './DetailedPageList';
+import mockItemsContext from './MockItems';
 
 const DetailedPage = () => {
     // const { id } = useParams();
