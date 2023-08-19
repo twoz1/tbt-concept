@@ -62,7 +62,7 @@ const MockItemsArr = [
     {
         id: 1,
         name: 'Anton Crystal',
-        price: 81000,
+        price: 169000,
         link: './items/DetailedPage',
         imageFront: g_antonCrystal_01,
         imageSide: g_antonCrystal_02,

@@ -1,46 +1,52 @@
-import React, { useReducer, useState } from 'react'
+import React, { useState } from 'react'
 import '../../../styles/payments/BasketGoods.css';
+import usePricing from "../../usePricing";
 
 
 const BasketGoods = ({ mockItemsData }) => {
 
+
+    // mockItemsData 객체 분해
+    const { id, name, price, link, imageFront, imageSide } = mockItemsData[0];
+    const { quantityGoods, changeQuantity, totalPricing, finalPricing } = usePricing(1, price);
+
     return (
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" /></th>
-                        <th>상품 정보</th>
-                        <th>수량</th>
-                        <th>상품 가격</th>
-                    </tr>
-                </thead>
+        <tbody>
+            <tr>
+                <th><input type="checkbox" name="goods" /></th>
 
-                <tbody>
-                    <tr>
-                        <th><input type="checkbox" name="goods" /></th>
+                <td className="goods_name">
+                    <div><a href="../detailed_page/detaied_page.html"><img src="../basket/img/sunglass2.jpg" alt="상품사진" /></a></div>
+                    <a href="../detailed_page/detaied_page.html">{name}</a>
+                </td>
 
-                        <td className="goods_name">
-                            <div><a href="../detailed_page/detaied_page.html"><img src="../basket/img/sunglass2.jpg" alt="상품사진" /></a></div>
-                            <a href="../detailed_page/detaied_page.html">EVA crystal&#45;violet tint</a>
-                        </td>
+                {/* css 수정해야 함 */}
+                <td className="goods_quantity">
+                    <input type="number" min={1} max={10} Value={quantityGoods} onChange={changeQuantity} />
+                </td>
+                <td className="goods_price" >{totalPricing()}</td>
+                {/* <td className="goods_price" >{finalPricing()}</td> */}
+            </tr>
 
-                        <td className="goods_quantity">
-                            {/*                             <select name="quantity">
-                                <option value="수량" selected>수량</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select> */}
-                            <input type="number" min={1} max={10} defaultValue={1} />
-                        </td>
-                        <td className="goods_price">165,000원</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div >//최종div
+
+            {/* test용 ======================*/}
+            <tr>
+                <th><input type="checkbox" name="goods" /></th>
+
+                <td className="goods_name">
+                    <div><a href="../detailed_page/detaied_page.html"><img src="../basket/img/sunglass2.jpg" alt="상품사진" /></a></div>
+                    <a href="../detailed_page/detaied_page.html">{name}</a>
+                </td>
+
+                {/* css 수정해야 함 */}
+                <td className="goods_quantity">
+                    <input type="number" min={1} max={10} Value={quantityGoods} onClick={changeQuantity} />
+                </td>
+                <td className="goods_price">{totalPricing()}</td>
+            </tr>
+            {/* test용 ======================*/}
+
+        </tbody>
     );
 }
 
