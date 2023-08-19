@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 const Best = () => {
     const best_list = useRef(),
@@ -40,10 +41,10 @@ const Best = () => {
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
                     <li className="sunglass_3">
-                        <a href="./detailed_page/detailed_page.html">
+                        <Link to="/checkout">
                             <img src={require('../../images/s_evaCrystalVioletTint_01.jpg')} />
                             <img src={require('../../images/s_evaCrystalVioletTint_02.jpg')} />
-                        </a>
+                        </Link>
                         <div className="item_name">
                             <span>eva crystal&#45;violet tint</span>
                         </div>
