@@ -1,24 +1,18 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components_Basket/BasketGoods';
 import BasketPriceBox from './components_Basket/BasketPriceBox';
-import MockItems from '../payments/MockItems';
-
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import  mockItemsContext  from './MockItems';
 
 const Basket = () => {
 
-    console.log(MockItems[0].name);
+    // const { id } = useParams();
 
+    const mockItemsData = useContext(mockItemsContext);
 
-/*     const MockItemsArr = MockItems.map((it) => ({
-        name: it.name,
-        price: it.price,
-        link: it.link,
-        imageFront: it.imageFront,
-        imageSide: it.imageSide,
-        shopThis: it.shopThis
-    })); */
-
-    // console.log(MockItemsArr.name);
+    //useParams 구현 됐을 경우 코드
+    // const selectedItem = mockItemsData.find(item => item.id === parseInt(id));
 
     return (
         <div>
@@ -38,7 +32,7 @@ const Basket = () => {
                             <div className="d_flex">
                                 <figure className="basket_table">
                                     <h3>쇼핑백 상품</h3>
-                                    <BasketGoods />
+                                    <BasketGoods mockItemsData={mockItemsData} />
                                     <div className="btn_bottom">
                                         <button type="button">선택상품삭제</button>
                                         <button type="button">쇼핑계속하기</button>
