@@ -1,17 +1,8 @@
 import React, { useReducer, useState } from 'react'
 import '../../../styles/payments/BasketGoods.css';
 
-const BasketGoods = () => {
 
-    const[countGoods, setCountGoods] = useState(1);
-
-    const basketReducer = (oldCount, action) => {
-
-    }
-    
-    const upCount = () => {
-        setCountGoods(countGoods + 1);
-    }
+const BasketGoods = ({ mockItemsData }) => {
 
     return (
         <div>
@@ -35,7 +26,7 @@ const BasketGoods = () => {
                         </td>
 
                         <td className="goods_quantity">
-{/*                             <select name="quantity">
+                            {/*                             <select name="quantity">
                                 <option value="수량" selected>수량</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -43,7 +34,7 @@ const BasketGoods = () => {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select> */}
-                            <input type="number" min={1} max={10} defaultValue={1} onClick={upCount} />
+                            <input type="number" min={1} max={10} defaultValue={1} />
                         </td>
                         <td className="goods_price">165,000원</td>
                     </tr>
