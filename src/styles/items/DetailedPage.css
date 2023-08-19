@@ -49,7 +49,6 @@ color: orangered;
 }
 
 
-
 .section .choice div:not(:nth-of-type(4)) {
     margin-bottom: 30px;
     border-bottom: 1px solid #eee;
@@ -103,8 +102,13 @@ color: orangered;
 }
 
 .section .choice div:nth-of-type(3) strong {
-    margin-right: 300px;
+    margin-right: 10px;
 }
+.section .choice div:nth-of-type(3) input {
+    width: 100px;
+    margin-right: 220px;
+}
+
 
 
 
