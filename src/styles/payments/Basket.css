@@ -38,3 +38,23 @@ body>* {
     background-color: black;
     color: white;
 }
+
+/* ================= */
+.basket_table table {
+    width: 100%;
+    min-width: 720px;
+    border: solid 2px black;
+    border-right: none;
+    border-left: none;
+    border-collapse: collapse;
+}
+
+.basket_table table tr {
+    border-bottom: 1px solid darkgray;
+}
+
+.basket_table thead {
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
