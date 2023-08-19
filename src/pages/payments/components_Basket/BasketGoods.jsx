@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react'
 import '../../../styles/payments/BasketGoods.css';
 import usePricing from "../../usePricing";
 
+// todoList
+// 1. 체크박스 자식 요소도 선택될 수 있도록 구현
+// 2. 체크된 리스트 삭제 버튼 구현
+
+
 
 const BasketGoods = ({ mockItemsData, selectAll }) => {
+
 
 
     // mockItemsData 객체 분해
