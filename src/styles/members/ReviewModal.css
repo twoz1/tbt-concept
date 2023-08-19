@@ -5,10 +5,10 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index:999;
+    z-index: 999;
 }
 
-.modal {
+.modal_review {
     background-color: #fff;
     padding: 50px;
     position: absolute;

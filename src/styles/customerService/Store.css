@@ -49,7 +49,7 @@
 .control select {
     width: 100%;
     height: 25px;
-    border: 1px solid;
+    border: 1px solid #000;
 }
 
 ul.find_result_list {
@@ -60,7 +60,7 @@ ul.find_result_list {
 }
 
 ul.find_result_list li {
-    padding: 10px 0;
+    padding: 10px 5px;
     height: 55px;
     border-bottom: 1px solid #ccc;
 }

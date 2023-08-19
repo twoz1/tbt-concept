@@ -2,12 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import '../../styles/members/ReviewModal.css';
 
-const ReviewModal = ({closeModal}) => {
+const ReviewModal = ({ closeModal }) => {
 
     const array = [0, 1, 2, 3, 4];
-    const [checkStar, setCheckStar] = useState([true,true,true,true,true]);
+    const [checkStar, setCheckStar] = useState([true, true, true, true, true]);
     const clickStar = (index) => {
-        const starStates = array.map((i) => {return( i <= index )});
+        const starStates = array.map((i) => { return (i <= index) });
         setCheckStar(starStates);
     };
     // 별점값 내보내기
@@ -17,7 +17,7 @@ const ReviewModal = ({closeModal}) => {
     return (
         <p className="ReviewModal">
             <div className="modal_cover">
-                <div className="modal_review modal">
+                <div className="modal_review">
                     <form action="#">
                         <table>
                             <caption>리뷰작성</caption>
@@ -44,7 +44,7 @@ const ReviewModal = ({closeModal}) => {
                             </tr>
                         </table>
                         <div className="review_button">
-                            <button type="reset" onClick={()=> closeModal('review')}>취소</button>
+                            <button type="reset" onClick={() => closeModal('review')}>취소</button>
                             <button type="submit">완료</button>
                         </div>
                     </form>

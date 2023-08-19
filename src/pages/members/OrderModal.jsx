@@ -5,7 +5,7 @@ const OrderModal = ({ closeModal }) => {
     return (
         <div>
             <div className="modal_cover">
-                <div className="modal_order modal">
+                <div className="modal_order">
                     <div><h4>주문자 정보</h4>
                         <table>
                             <tr>
@@ -80,7 +80,7 @@ const OrderModal = ({ closeModal }) => {
                     </div>
 
                     <div className="Modal_btn">
-                        <button>택배 조회</button>
+                        <button onClick={() => window.open("https://www.cjlogistics.com/ko/tool/parcel/tracking", '_blank')}>베송조회</button>
                         <button className="close" onClick={() => closeModal('delivery')}>닫기</button>
                     </div>
                 </div>
