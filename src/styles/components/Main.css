@@ -16,8 +16,6 @@ hr {
 }
 
 .image_slide_1 {
-    /* background: url(../image/sfdlkajsfklasjfdksadf.jpeg) center/cover; */
-    /* background-repeat: no-repeat; */
     width: 100%;
     height: 420px;
     object-fit: cover;
@@ -109,12 +107,43 @@ hr {
     font-size: 16px;
     font-style: normal;
     width: 100%;
-    flex: 5.5;
 }
 
-.what_new_item li:nth-child(even) {
-    flex: 4.5;
+.what_new_item li:nth-child(even) img{
+    width: 240px;
 }
+
+/* ---------------------------------------------------- */
+.what_new_item ul li a img {
+    width: 100%;
+    display: block;
+    margin-bottom: 50px;
+}
+.what_new img {
+    width: 400px;
+}
+.what_new_item {
+    width: 1240px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.what_new_item .what_new_list {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: left .7s .1s;
+}
+.what_new_item .what_new_list img{
+    width: 258px;
+    margin-bottom: 25px;
+    
+}
+button.nonVisible {
+    display: none;
+}
+/* ---------------------------------------------------- */
 
 .what_new_item ul li a img {
     display: block;
@@ -130,15 +159,15 @@ hr {
     cursor: pointer;
 }
 
-.what_new_item li a img:nth-child(2) {
+.what_new_list img:nth-child(2) {
     display: none;
 }
 
-.what_new li a:hover img:nth-child(1) {
+.what_new_list a:hover img {
     display: none;
 }
 
-.what_new li a:hover img:nth-child(2) {
+.what_new_list a:hover img:nth-child(2) {
     display: block;
     text-align: center;
 }
@@ -237,19 +266,20 @@ hr {
 }
 .best_item .best_list img{
     width: 302px;
-    
+    margin-bottom: 50px;
 }
 /* -------------------------------------- */
-.best_item ul li a img:nth-child(2) {
+.best_list img:nth-child(2) {
     display: none;
 }
 
-.best_item ul li:hover a img:nth-child(1) {
+.best_list a:hover img {
     display: none;
 }
 
-.best_item ul li:hover a img:nth-child(2) {
+.best_list a:hover img:nth-child(2) {
     display: block;
+    text-align: center;
 }
 
 /* .best_item button {

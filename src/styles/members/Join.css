@@ -1,4 +1,4 @@
-.Join table,
+.Join .join_table,
 .required_entry,
 .general_agreement,
 .check_agreement {
@@ -19,19 +19,19 @@
 
 /* =================================== */
 
-.Join table {
+.Join .join_table {
 
     min-width: 628px;
     border-bottom: 1px solid black;
     height: 350px;
 }
 
-.Join table #sale_coupon {
+.Join .join_table #sale_coupon {
     text-align: center;
     background-color: orangered;
 }
 
-.Join table div {
+.Join .join_table div {
     width: 100%;
     /* height: 40px; */
 }
@@ -49,28 +49,28 @@
 
 /* ============================= */
 
-.Join table td {
+.Join .join_table td {
     height: 0px;
 }
 
 /* ============================================== */
 
-.Join table tr {
+.Join .join_table tr {
     text-align: left;
 }
 
-.Join table th,
-.Join td {
+.Join .join_table th,
+.Join .join_table td {
     border-top: 1px solid rgb(228, 228, 228);
 }
 
-.Join table th {
+.Join .join_table th {
     padding-left: 20px;
 }
-.Join table tr div{
+.Join .join_table tr div{
     height: 5px;
 }
-.Join table tr td span{
+.Join .join_table tr td span{
     font-size: 3px;
     color: orangered;
     
@@ -110,12 +110,13 @@
 
 /* ==================================== */
 
-.check_agreement {
+.Join .check_agreement {
     margin-top: 50px;
 }
 
 
-.check_agreement ul li {
+
+.Join .check_agreement>ul>li {
     background-color: #eee;
     margin-top: 2px;
     line-height: 40px;
@@ -123,7 +124,7 @@
 }
 
 
-.check_agreement ul li button {
+.Join .check_agreement>ul>li button {
     width: 60px;
     height: 25px;
     line-height: 25px;

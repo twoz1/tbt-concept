@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/customerService/NewmembersService.css';
+import '../../../../styles/customerService/NewmembersService.css';
 
 const NewmembersService = () => {
     return (
@@ -10,17 +10,17 @@ const NewmembersService = () => {
                 <div className="new_serv_details">
                     <details>
                         <summary>MY&hearts;</summary>
-                        <img className='newServIMG' src={require("../../../images/cstotalNewService_01.jpg")} alt="MY사진" />
+                        <img className='newServIMG' src={require("../../../../images/cstotalNewService_01.jpg")} alt="MY사진" />
                     </details>
 
                     <details>
                         <summary>선물하기</summary>
-                        <img className='newServIMG' src={require("../../../images/cstotalNewService_02.jpg")} alt="MY사진" />
+                        <img className='newServIMG' src={require("../../../../images/cstotalNewService_02.jpg")} alt="MY사진" />
                     </details>
 
                     <details>
                         <summary>상품평 쓰기</summary>
-                        <img className='newServIMG' src={require("../../../images/cstotalNewService_03.jpg")} alt="MY사진" />
+                        <img className='newServIMG' src={require("../../../../images/cstotalNewService_03.jpg")} alt="MY사진" />
                     </details>
                 </div>
             </section>

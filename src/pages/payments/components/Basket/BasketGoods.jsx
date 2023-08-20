@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import '../../../styles/payments/BasketGoods.css';
-import usePricing from "../../usePricing";
+import '../../../../styles/payments/BasketGoods.css';
+import usePricing from "../../../customHooks/usePricing";
 
 // todoList
 // 1. 체크박스 자식 요소도 선택될 수 있도록 구현
 // 2. 체크된 리스트 삭제 버튼 구현
 
-
-
 const BasketGoods = ({ mockItemsData, selectAll }) => {
-
-
 
     // mockItemsData 객체 분해
     const { id, name, price, link, imageFront, imageSide } = mockItemsData[0];
@@ -91,7 +87,7 @@ const BasketGoods = ({ mockItemsData, selectAll }) => {
 
 
             {/* test용 ======================*/}
-{/*             <tr>
+            {/*             <tr>
                 <th>
                     <input type="checkbox"
                         name="goods"
@@ -105,8 +101,8 @@ const BasketGoods = ({ mockItemsData, selectAll }) => {
                     <a href="../detailed_page/detaied_page.html">{name}</a>
                 </td> */}
 
-                {/* css 수정해야 함 */}
-{/*                 <td className="goods_quantity">
+            {/* css 수정해야 함 */}
+            {/*                 <td className="goods_quantity">
                     <input type="number" min={1} max={10} Value={quantityGoods} onClick={changeQuantity} />
                 </td>
                 <td className="goods_price">{totalPricing()}</td>

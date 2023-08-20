@@ -1,8 +1,23 @@
 import React from 'react';
-import { useState } from 'react';
-import '../../styles/members/ReviewModal.css';
+import '../../../../styles/members/ReviewModal.css';
+import { useState } from "react";
 
-const ReviewModal = ({ closeModal }) => {
+export function useStar() {
+
+    const array = [0, 1, 2, 3, 4];
+    const [checkStar, setCheckStar] = useState([true, true, true, true, true]);
+    const clickStar = (index) => {
+        const starStates = array.map((i) => { return (i <= index) });
+        setCheckStar(starStates);
+    };
+    // 별점값 내보내기
+    let starScore = checkStar.filter(Boolean).length;
+
+    return { starScore };
+
+}
+
+export const ReviewModal = ({ closeModal }) => {
 
     const array = [0, 1, 2, 3, 4];
     const [checkStar, setCheckStar] = useState([true, true, true, true, true]);
@@ -53,5 +68,3 @@ const ReviewModal = ({ closeModal }) => {
         </p>
     );
 }
-
-export default ReviewModal;

@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import React, { useState } from 'react';
 
 const Item = () => {
@@ -12,14 +13,7 @@ const Item = () => {
     const handleIndividualSelect = () => {
         setIndividualSelect(!individualSelect);
     };
-    // const products1 = [{
 
-    //     name: 'Bibi Black',
-    //     price: '169,000원',
-    //     link: './items/DetailedPage',
-    //     shopThis: 'SHOP THIS',
-    // },
-    // ]
     return (
         <div class="item">
             <h3>주문상품</h3>

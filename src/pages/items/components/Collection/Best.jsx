@@ -2,7 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
+<<<<<<< HEAD
 const Best = () => {
+=======
+import { useContext } from 'react';
+import mockItemsContext from '../../MockItems';
+const Best = () => {
+    const bestItemList = useContext(mockItemsContext);
+>>>>>>> main
     const best_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -40,6 +47,7 @@ const Best = () => {
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
+<<<<<<< HEAD
                     <li className="sunglass_3">
                         <Link to="/checkout">
                             <img src={require('../../images/s_evaCrystalVioletTint_01.jpg')} />
@@ -160,6 +168,25 @@ const Best = () => {
                             <a href="#">SHOT THIS &#62;</a>
                         </div>
                     </li>
+=======
+                    {bestItemList.slice(17, 25).map((item) => (
+                        <Link to={`/detail/${item.id}`} key={item.id}>
+                            <li>
+                                <img src={item.imageFront} alt="상품" />
+                                <img src={item.imageSide} alt="상품" />
+                                <div className="item_name">
+                                    <span>{item.name}</span>
+                                </div>
+                                <div className="item_price">
+                                    <span>{item.price}</span>
+                                </div>
+                                <div className="shop_this">
+                                    <a>{item.shopThis} &#62;</a>
+                                </div>
+                            </li>
+                        </Link>
+                    ))}
+>>>>>>> main
                 </ul>
             </div>
             <button className="btn_pre nonVisible" ref={btn_pre} onClick={clickBackBtn}>

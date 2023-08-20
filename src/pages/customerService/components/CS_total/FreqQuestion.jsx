@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../../styles/customerService/FreqQuestion.css';
-import useModal from '../../useModal';
-import Modal_csPop from '../../customerService/Modal_csPop';
+import '../../../../styles/customerService/FreqQuestion.css';
+import useModal from '../../../customHooks/useModal';
+import Modal_csPop from '../CS_total/Modal_csPop';
 
 const FreqQuestion = () => {
 

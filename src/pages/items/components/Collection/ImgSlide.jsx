@@ -19,18 +19,19 @@ export default function ImgSlide() {
                 modules={[Pagination , Autoplay]}
                 autoplay={{ delay: 3000, disableOnInteraction: false, }}
                 className="mySwiper"
+                loop={true}
             >
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/sfdlkajsfklasjfdksadf.jpeg')} />
+                    <img className='image_slide_1' src={require('../../../../images/imgslideBanner2.jpeg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/glassesBanner.jpg')} />
+                    <img className='image_slide_1' src={require('../../../../images/glassesBanner.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/collection.jpg')} />
+                    <img className='image_slide_1' src={require('../../../../images/imgslideBanner1.jpeg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/result_banner1.jpg')} />
+                    <img className='image_slide_1' src={require('../../../../images/result_banner1.jpg')} />
                 </SwiperSlide>
             </Swiper>
         </>

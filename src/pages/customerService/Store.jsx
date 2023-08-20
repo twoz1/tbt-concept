@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../../styles/customerService/Store.css';
-import StoreItem from './StoreItem';
+import StoreItem from './components/Store/StoreItem';
 
 const storeList = [
     {

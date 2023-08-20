@@ -1,4 +1,4 @@
-import '../../../styles/customerService/QuickMenu.css'
+import '../../../../styles/customerService/QuickMenu.css'
 
 const QuickMenu = () => {
     return (

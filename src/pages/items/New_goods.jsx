@@ -1,8 +1,13 @@
 import '../../styles/items/New_goods.css';
+<<<<<<< HEAD
 import NgoodsGlass from './NgoodsGlass';
 import NgoodsSlide from './NgoodsSlide';
 import NgoodsSunGlass from './NgoodsSunGlass';
 import { Link } from 'react-router-dom';
+=======
+import NgoodsGlass from './components/New_goods/NgoodsGlass';
+import NgoodsSunGlass from './components/New_goods/NgoodsSunGlass';
+>>>>>>> main
 
 const New_goods = () => {
     return (

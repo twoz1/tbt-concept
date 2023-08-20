@@ -1,10 +1,10 @@
-import '../../styles/members/join_modal03.css';
+import '../../../../styles/members/join_modal03.css';
 const Join_Modal03 = ({closeModal}) => {
     return (
         <div className="Join_Modal03">
             <div className="modal_cover">
                 <div className="modal_3">
-                    <h2>개인정보 수집 및 이용안내&#40;선택&#41;</h2>
+                    <h3>개인정보 수집 및 이용안내&#40;선택&#41;</h3>
 
                     <table>
                         <tr id="first_tr">

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import '../../../styles/customerService/InqProdItems.css';
-import ResultCS1on1 from './ResultCS1on1';
-import useModal from '../../useModal';
+import '../../../../styles/customerService/InqProdItems.css';
+import ResultCS1on1 from '../CS_total/ResultCS1on1';
+import useModal from '../../../customHooks/useModal';
 
 const InqProdItems = ({ userEmail, typeInquiry, titleInqProd, contentsInqProd }) => {
 

@@ -1,8 +1,9 @@
-import '../../../styles/customerService/InquiryProduct.css';
-import Modal_cs1on1 from '../Modal_cs1on1';
+// import '../../../styles/customerService/InquiryProduct.css';
+import '../../../../styles/customerService/InquiryProduct.css';
+import Modal_cs1on1 from './Modal_cs1on1';
 import InqProdItems from './InqProdItems';
 import { useRef, useState } from 'react';
-import useModal from '../../useModal';
+import useModal from '../../../customHooks/useModal';
 
 
 //모달을 노출하는 페이지

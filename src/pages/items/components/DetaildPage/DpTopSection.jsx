@@ -3,15 +3,15 @@
 import React from 'react'
 
 
-const DpTopSection = ({productList}) => {
+const DpTopSection = ({ProductListSelected}) => {
 
-    const {id,imageFront,imageSide,imageSide_03,imageSide_04}=productList;
+    const {id,imageFront,imageSide,imageSide_03,imageSide_04}=ProductListSelected;
     // if (!ProductListSelected) {
     //     // ProductListSelected가 없을 때의 처리
     //     return <div>Loading...</div>;
     // }
 
-    // console.log(id);
+    console.log(id);
 
     return (
 

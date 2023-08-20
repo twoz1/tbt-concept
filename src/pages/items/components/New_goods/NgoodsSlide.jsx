@@ -1,6 +1,9 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+<<<<<<< HEAD
 import '../../images/newgoodsBanner_01.jpg'
+=======
+>>>>>>> main
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,11 +13,10 @@ import { Autoplay } from "swiper";
 
 // import required modules
 import { Pagination } from 'swiper';
-import '../../styles/items/NgoodsSlide.css'
+import '../../../../styles/items/NgoodsSlide.css'
 
 const NgoodsSlide = () => {
     return (
-
 
         <>
             <Swiper
@@ -26,6 +28,7 @@ const NgoodsSlide = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
+<<<<<<< HEAD
                     <img className='image_slide_1' src={require('../../images/newgoodsBanner_01.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -36,19 +39,28 @@ const NgoodsSlide = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className='image_slide_1' src={require('../../images/newgoodsBanner_03.jpg')} />
+=======
+                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_04.jpg')} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_02.jpg')} />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_03.jpg')} />
+>>>>>>> main
                 </SwiperSlide>
             </Swiper>
         </>
     )
 }
 
+<<<<<<< HEAD
 
 export default NgoodsSlide;
+=======
+>>>>>>> main
 
-{/* <div className="new_slide_title">
-<div className="new_slide_img">
-    <a href=""><img src="../new_goods/img/pos_andy_black_crystal_lb_02.jpg" alt="상품사진" /></a>
-    <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/pos_andy_flesh_lb_02.jpg" alt="상품사진" /></a>
-    <a href=""><img src="../new_goods/img/pos_etty_black_lb_06.jpg" alt="상품사진" /></a>
-</div>
-</div> */}
+export default NgoodsSlide;

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../styles/customerService/ResultCS1on1.css';
+import '../../../../styles/customerService/ResultCS1on1.css';
 
 const ResultCS1on1 = ({ closeModal, userEmail, typeInquiry, titleInqProd, contentsInqProd }) => {
 

@@ -1,8 +1,8 @@
 import '../../styles/members/Login.css';
-import Title from './Compo/Title'
-import LogPass from './Compo/LogPass'
-import Sns from './Compo/Sns'
-import { useState } from "react";
+import Title from './components/Login/Title';
+import LogPass from './components/Login/LogPass';
+import Sns from './components/Login/Sns';
+import { useState } from 'react';
 const Login = () => {
     return (
         <div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../styles/customerService/Modal_cs1on1.css';
+import '../../../../styles/customerService/Modal_cs1on1.css';
 
 
 

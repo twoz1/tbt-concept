@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import useModal from '../../useModal';
-import Join_Modal01 from '../Join_Modal01';
-import Join_Modal02 from '../Join_Modal02';
-import Join_Modal03 from '../Join_Modal03';
+import useModal from '../../../customHooks/useModal';
+import Join_Modal01 from '../Join/Join_Modal01';
+import Join_Modal02 from '../Join/Join_Modal02';
+import Join_Modal03 from '../Join/Join_Modal03';
 const JoinCheckbox = () => {
 
 
@@ -49,7 +49,7 @@ const JoinCheckbox = () => {
     return (
         <div>
             <div className="general_agreement">
-                <ul>
+                <ul className='general_agreement_ul'>
                     <li>
                         <input
                             type="checkbox"
