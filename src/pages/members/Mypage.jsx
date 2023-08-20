@@ -1,11 +1,11 @@
 import '../../styles/members/Mypage.css';
-import MyOrderList from './MyOrderList';
-import MyCouponList from './MyCouponList';
-import MyWishList from './MyWishList';
+import MyOrderList from './components/Mypage/MyOrderList';
+import MyCouponList from './components/Mypage/MyCouponList';
+import MyWishList from './components/Mypage/MyWishList';
 
 
 
-const Mypage = ({order}) => {
+const Mypage = ({ order }) => {
 
     return (
         <div className="Mypage">
@@ -46,7 +46,7 @@ const Mypage = ({order}) => {
                         </div>
                     </div>
                 </div>
-                <MyOrderList order={order}/>
+                <MyOrderList order={order} />
                 <MyCouponList />
                 <MyWishList />
             </div>

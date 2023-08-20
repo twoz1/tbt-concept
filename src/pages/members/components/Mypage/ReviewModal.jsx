@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/members/ReviewModal.css';
+import '../../../../styles/members/ReviewModal.css';
 import { useState } from "react";
 
 export function useStar() {

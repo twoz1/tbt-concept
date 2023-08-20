@@ -8,29 +8,29 @@ const wishList = [
         wishDate: "2023-01-01",
         wishName: "antonCrystal",
         wishTitle: "sunglass N-01 시리즈 black,white,navy",
-        wishColor : "Black"
+        wishColor: "Black"
     },
     {
         id: 1,
         wishDate: "2023-01-01",
         wishName: "antonCrystal",
         wishTitle: "sunglass N-01 시리즈 black,white,navy",
-        wishColor : "Black"
+        wishColor: "Black"
     }
 ]
 
 const MyWishList = () => {
-    
-    const [wish , setWish] = useState(wishList);
+
+    const [wish, setWish] = useState(wishList);
 
     const onRemove = targetId => {
         const wishConf = window.confirm("관심상품을 해제하시겠습니까?");
-        if(wishConf){
+        if (wishConf) {
             setWish(wish.filter((wish) => wish.id !== targetId));
             alert("관심상품이 해제되었습니다.");
         };
     }
-    
+
     return (
         <div className="MyWishList">
             <div className="wishlist cover">
