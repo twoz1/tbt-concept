@@ -20,7 +20,7 @@ const DetailedPage = ({ starScore }) => {
             <div className="center m_c">
                 <div className="section">
                     <DpTopSection ProductListSelected={ProductListSelected} />
-                    <DpSelectOption />
+                    <DpSelectOption ProductListSelected={ProductListSelected} />
                 </div>
 
                 <DpNavigation></DpNavigation>
