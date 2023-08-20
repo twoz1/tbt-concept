@@ -1,12 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/items/NgoodsGlass.css';
+import { useContext } from 'react';
+import mockItemsContext from './MockItems';
 
 const NgoodsSunGlass = () => {
+
+    let newGoodsSunglassList = useContext(mockItemsContext);
+
     return (
-        <li>
-            <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/sg_andy_crystal_dt_01.jpg" alt="상품사진" /></a>
-            <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/sg_andy_crystal_dt_02.jpg" alt="상품사진" /></a>
-        </li>//최종li
+        <ul className='new_glass_img'>
+            {newGoodsSunglassList.slice(16, 20).map((item) => (
+                <Link to={`/detail/${item.id}`} key={item.id} className='newGoodsIMG'>
+                    <li>
+                        <img src={item.imageFront} alt="상품 사진" />
+                        <img src={item.imageSide} alt="상품 사진" />
+                    </li>
+                </Link>
+            ))}
+        </ul>
     )
 }
 

@@ -1,6 +1,8 @@
 import '../../styles/items/New_goods.css';
 import NgoodsGlass from './NgoodsGlass';
+import NgoodsSlide from './NgoodsSlide';
 import NgoodsSunGlass from './NgoodsSunGlass';
+import { Link } from 'react-router-dom';
 
 const New_goods = () => {
     return (
@@ -28,13 +30,11 @@ const New_goods = () => {
                     <div className="new_glass">
                         <h3 className="new_glass_title"><strong>GLASS</strong></h3>
                         <div className="btn_plus">
-                            <a href="../glasses/glasses.html"><i className="fa-sharp fa-light fa-plus"></i></a>
+                            <Link to='/glasses'><i className="fa-sharp fa-light fa-plus"></i></Link>
                         </div>
 
                         <div className="new_glass_img">
-                            <ul>
-                                <NgoodsGlass />
-                            </ul>
+                            <NgoodsGlass />
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ const New_goods = () => {
                     <div className="new_glass">
                         <h3 className="new_glass_title"><strong>SUNGLASS</strong></h3>
                         <div className="btn_plus">
-                            <a href="../sunglass/sunglasses.html"><i className="fa-sharp fa-light fa-plus"></i></a>
+                            <Link to='/sunglasses'><i className="fa-sharp fa-light fa-plus"></i></Link>
                         </div>
 
                         <div className="new_glass_img">
@@ -57,8 +57,9 @@ const New_goods = () => {
 
                     <div className="new_slide_poster">
                         <p>사진을 누르시면 해당 상품으로 이동됩니다.</p>
+                        <NgoodsSlide />
                     </div>
-                    
+
                 </div>
             </div>
         </div>//최종div

@@ -1,3 +1,31 @@
+.new_glass {
+    margin-bottom: 8rem;
+    min-width: 1050px;
+}
+
+.new_glass_title {
+    display: inline-block;
+    text-align: left;
+    margin-left: 0.7rem;
+}
+
+.btn_plus {
+    float: right;
+    margin-bottom: 1rem;
+    margin-right: 0.3rem;
+    background-color: white;
+    border: none;
+}
+
+.btn_plus:hover a {
+    color: orangered;
+}
+
+.btn_plus a {
+    color: black;
+    font-size: 30px;
+}
+
 /* =====================main - subtitle===================== */
 .new_rec {
     text-align: center;
