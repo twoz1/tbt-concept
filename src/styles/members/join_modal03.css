@@ -70,10 +70,19 @@
 
 
 
-.close_Join_modal2{
+.close_button{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 120px;
+    line-height: 35px;
+    text-align: center;
+    background-color: black;
+    border: none;
+}
+
+.close_button .close_Join_modal3{
     background-color: transparent;
     border: 0;
     color: white;
     text-decoration: none;
- 
 }

@@ -152,7 +152,7 @@ const MockItemsArr = [
     {
         id: 4,
         name: 'Quin by Black',
-        price: 81000,
+        price: 80000,
         link: './items/DetailedPage',
         imageFront: g_quinbyBlack_01,
         imageSide: g_quinbyBlack_02,
@@ -168,7 +168,7 @@ const MockItemsArr = [
     {
         id: 5,
         name: 'Quin by GreyCrystal',
-        price: 81000,
+        price: 80000,
         link: './items/DetailedPage',
         imageFront: g_quinbyGreyCrystal_01,
         imageSide: g_quinbyGreyCrystal_02,
@@ -184,7 +184,7 @@ const MockItemsArr = [
     {
         id: 6,
         name: 'sharon Gold Crystal',
-        price: 81000,
+        price: 80000,
         link: './items/DetailedPage',
         imageFront: g_sharonGoldCrystal_01,
         imageSide: g_sharonGoldCrystal_02,
@@ -200,7 +200,7 @@ const MockItemsArr = [
     {
         id: 7,
         name: 'tena Black',
-        price: 81000,
+        price: 80000,
         link: './items/DetailedPage',
         imageFront: g_tenaBlack_01,
         imageSide: g_tenaBlack_02,

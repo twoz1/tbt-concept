@@ -1,27 +1,54 @@
+<<<<<<< HEAD
 const DpSelectOption = () => {
+=======
+import usePricing from '../../../customHooks/usePricing';
+import { useContext, useState } from 'react';
+
+const DpSelectOption = ({ ProductListSelected }) => {
+
+    const { name, price } = ProductListSelected;
+    const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, price);
+
+    const [isLiked, setIsLiked] = useState(false);
+    const likedItem = () => {
+        setIsLiked(!isLiked);
+
+    }
+
+    const heartIconStyle = {
+        color: isLiked ? 'orangered' : 'black'
+    };
+>>>>>>> main
 
     return (
 
         <div className="choice">
             <div>
-                <span> EVA crystal&#45;violet tint </span>
+                <span> {name} </span>
                 <span>
                     <i className="fa-solid fa-truck"></i>
                     <em>무료배송</em></span>
             </div>
-            <div>165,000원</div>
+            <div>{price}</div>
 
             <div className="total">
                 <strong>TOTAL</strong>
-                <input type="number" />
-                <span>165,000원 <em>&#40;1개&#41;</em></span>
+                <input type="number"
+                    min={1}
+                    max={10}
+                    value={quantityGoods}
+                    onChange={changeQuantity} />
+
+                <span>{totalPricing()}</span>
 
             </div>
 
             <div className="choice_button">
                 <a href="">바로 구매</a>
                 <a href="">쇼핑백 담기</a>
-                <a href="#"><i className="fa-sharp fa-solid fa-heart"></i></a>
+                <button onClick={likedItem} >
+                    <i className="fa-sharp fa-solid fa-heart" style={heartIconStyle} ></i>
+                </button>
             </div>
         </div>
     );

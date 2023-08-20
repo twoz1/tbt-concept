@@ -41,7 +41,7 @@ const Join_Modal02 = ({closeModal}) => {
                     <ul className='text_underLine2'>
                         <li>개인정보의 보유 및 이용 기간: 회원 탈퇴 시&#40;이메일 아이디, 휴대폰 번호, 연계정보, 중복가입확인정보는 탈퇴 후 30일 &#41; 또는 법정 의무 보유기간</li>
                     </ul>
-                    <div >
+                    <div className='close_button' >
                          <button className='close_Join_modal2' onClick={()=>{closeModal('joinModal_2')}}>닫기</button>
                     </div>
                 </div>
