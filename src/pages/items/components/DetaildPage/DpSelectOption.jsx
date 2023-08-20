@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-const DpSelectOption = () => {
-=======
 import usePricing from '../../../customHooks/usePricing';
 import { useContext, useState } from 'react';
 
@@ -18,7 +15,6 @@ const DpSelectOption = ({ ProductListSelected }) => {
     const heartIconStyle = {
         color: isLiked ? 'orangered' : 'black'
     };
->>>>>>> main
 
     return (
 
