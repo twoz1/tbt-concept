@@ -1,5 +1,5 @@
 import '../../styles/members/MyOrderItem.css';
-import ReviewModal from './ReviewModal';
+import { ReviewModal } from './ReviewModal';
 import OrderModal from './OrderModal';
 import useModal from '../useModal';
 

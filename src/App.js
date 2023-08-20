@@ -47,6 +47,9 @@ const orderList = [
         review: "작성하기"
     }
 ]
+
+
+
 function App() {
 
     const [order, setOrder] = useState(orderList);
@@ -81,23 +84,23 @@ function App() {
 
                 {/* ----------------이지 링크투-------- */}
                 {/* ----------------진휘 링크투-------- */}
-                
+
                 <Route path='/checkout' element={<Checkout />}></Route>
-                
-                
+
+
                 {/* ----------------진휘 링크투-------- */}
                 {/* ----------------현주 링크투-------- */}
-                
-                
+
+
                 <Route path='/resultframe' element={<ResultFrame />}></Route>
                 <Route path='/orderlist' element={<Orderlist />}></Route>
-                
+
 
                 {/* ----------------현주 링크투-------- */}
                 {/* ----------------찬미 링크투-------- */}
-                
-                
-                
+
+
+
 
                 {/* ----------------찬미 링크투-------- */}
 

@@ -3,13 +3,13 @@ import "../../styles/items/DetailedPage.css"
 import DpTopSection from "./components/DpTopSection";
 import DpSelectOption from "./components/DpSelectOption";
 import DpNavigation from "./components/DpNavigation";
-import DpReviewScore from "./components/DpReviewScore";
+import DpReview from "./components/DpReview";
 import DpProductDetail from "./components/DpProductDetail";
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 
-const DetailedPage = () => {
+const DetailedPage = ({ starScore }) => {
     const { id } = useParams();
     const productList = useContext(mockItemsContext);
     const ProductListSelected = productList.find(product => product.id === parseInt(id));
@@ -19,13 +19,13 @@ const DetailedPage = () => {
         <div className="DetailedPage">
             <div className="center m_c">
                 <div className="section">
-                    <DpTopSection ProductListSelected={ProductListSelected}/>
-                    <DpSelectOption  />
+                    <DpTopSection ProductListSelected={ProductListSelected} />
+                    <DpSelectOption />
                 </div>
 
                 <DpNavigation></DpNavigation>
 
-                <DpProductDetail ProductListSelected={ProductListSelected}/>
+                <DpProductDetail ProductListSelected={ProductListSelected} />
 
                 {/* <!-- ==============리뷰1======================================================= --> */}
 
@@ -39,83 +39,9 @@ const DetailedPage = () => {
                     </ul>
                 </div>
 
+                <DpReview></DpReview>
 
-                <div className="review_score_percent" id="review">
-
-                    <DpReviewScore></DpReviewScore>
-
-                    <div className="review_right">
-                        <div>
-
-                            <strong>아주 좋아요</strong>
-                            <div className="bar" id="top_bar"></div>
-                            <em>100%</em>
-                        </div>
-
-                        <div>
-                            <strong>마음에 들어요</strong>
-                            <div className="bar"></div>
-                            <em>0%</em>
-                        </div>
-
-                        <div>
-                            <strong>보통이에요</strong>
-                            <div className="bar"></div>
-                            <em>0%</em>
-                        </div>
-
-                        <div>
-                            <strong>그냥 그래요</strong>
-                            <div className="bar"></div>
-                            <em>0%</em>
-                        </div>
-
-                        <div>
-                            <strong>별로에요</strong>
-                            <div className="bar"></div>
-                            <em>0%</em>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className="review_nav">
-                    <span>최신순</span>
-                    <span>평점높은순</span>
-                    <span>평점낮은순</span>
-                    {/* <span>추천순</span> */}
-                </div>
-                <hr />
-                {/* <!-- ===============리뷰2============================================================================= --> */}
                 <div>
-
-                    <div className="customer_review" id="question_answer">
-                        <div className="star_id_date">
-                            <span>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                아주 좋아요
-                            </span>
-                            <span>tb&#176;&#176;&#176;&#176;&#176;&#176;&#176; 2023.06.20</span>
-                        </div>
-
-                        <p>
-                            선글라스 색감이 너무 예뻐요&#33;&#33;
-                            친구들이 잘 어울린다고 칭찬해줘서 기쁘네요. <br /> tbt 컨셉에 예쁜 선글라스랑 안경이 너무 많아서 다 사고 싶어요 ㅠㅠ
-                            tbt 컨셉 최고&#33;&#33;&#33;&#33;
-                        </p>
-
-                        {/* <div className="customer_review_button">
-                            <div>
-                                <a href="">신고</a> &#124;
-                                <a href="">숨김</a>
-                            </div>
-                            <a href="">like <i className="fa-regular fa-thumbs-up"></i></a>
-                        </div> */}
-                    </div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
                     <div className="nav nav3">
                         <ul>
