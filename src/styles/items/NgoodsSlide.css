@@ -24,3 +24,7 @@
 .new_slide_img a:nth-of-type(3) {
     display: none;
 }
+
+.swiper-pagination-bullet {
+    background-color: orangered;
+}
