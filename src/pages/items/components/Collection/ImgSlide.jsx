@@ -22,16 +22,16 @@ export default function ImgSlide() {
                 loop={true}
             >
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/imgslideBanner2.jpeg')} />
+                    <img className='image_slide_1' src={require('../../../../images/imgslideBanner2.jpeg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/glassesBanner.jpg')} />
+                    <img className='image_slide_1' src={require('../../../../images/glassesBanner.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/imgslideBanner1.jpeg')} />
+                    <img className='image_slide_1' src={require('../../../../images/imgslideBanner1.jpeg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/result_banner1.jpg')} />
+                    <img className='image_slide_1' src={require('../../../../images/result_banner1.jpg')} />
                 </SwiperSlide>
             </Swiper>
         </>

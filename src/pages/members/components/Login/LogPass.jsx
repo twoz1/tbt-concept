@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import Main from '../../../components/Main';
+import Main from '../../../../components/Main';
 const LogPass = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');

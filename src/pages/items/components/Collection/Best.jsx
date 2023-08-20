@@ -3,7 +3,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { useContext } from 'react';
-import mockItemsContext from '../items/MockItems';
+import mockItemsContext from '../../MockItems';
 const Best = () => {
     const bestItemList = useContext(mockItemsContext);
     const best_list = useRef(),

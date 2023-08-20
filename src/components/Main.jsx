@@ -1,9 +1,9 @@
 import '../styles/components/Main.css';
-import ImgSlide from '../pages/items/ImgSlide';
-import New from '../pages/items/New';
-import CollectionBanner from '../pages/items/CollectionBanner';
-import Best from '../pages/items/Best';
-import Video from '../pages/items/Video';
+import ImgSlide from '../pages/items/components/Collection/ImgSlide';
+import New from '../pages/items/components/Collection/New';
+import CollectionBanner from '../pages/items/components/Collection/CollectionBanner';
+import Best from '../pages/items/components/Collection/Best';
+import Video from '../pages/items/components/Collection/Video';
 
 const Main = () => {
     return (
