@@ -1,13 +1,13 @@
 import '../../styles/payments/Checkout.css';
-import Title from './compo/Title';
-import Information from './compo/Information';
-import Item from './compo/Item';
-import Discount from './compo/Discount';
-import Pay from './compo/Pay';
-import SidePay1 from './compo/SidePay1';
-import SidePay2 from './compo/SidePay2';
-import Join_Modal02 from '../members/Join_Modal02';
-import Join_Modal03 from '../members/Join_Modal03';
+import Title from './components/Checkout/Title';
+import Information from './components/Checkout/Information';
+import Item from './components/Checkout/Item';
+import Discount from './components/Checkout/Discount';
+import Pay from './components/Checkout/Pay';
+import SidePay1 from './components/Checkout//SidePay1';
+import SidePay2 from './components/Checkout/SidePay2';
+import Join_Modal02 from '../members/components/Join/Join_Modal02';
+import Join_Modal03 from '../members/components/Join/Join_Modal03';
 const Checkout = () => {
     return (
         <div>

@@ -29,7 +29,7 @@ hr {
 }
 /* ==================sidebar================= */
 /* ==================main input================= */
-table input {
+.log_input input {
     border: 1px solid #000;
     margin-left: 10px;
     background-color: #eee;

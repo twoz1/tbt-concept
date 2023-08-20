@@ -1,8 +1,7 @@
-import Join_Modal01 from '../../members/Join_Modal01';
-import useModal from '../../useModal';
+import useModal from '../../../customHooks/useModal';
 import React, { useState } from 'react';
-import Join_Modal02 from '../../members/Join_Modal02';
-import Join_Modal03 from '../../members/Join_Modal03';
+import Join_Modal02 from '../../../members/components/Join/Join_Modal02';
+import Join_Modal03 from '../../../members/components/Join/Join_Modal03';
 
 const SidePay2 = () => {
     const { openModal, closeModal, isModal } = useModal();

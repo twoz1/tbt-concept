@@ -2,7 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
+import { useContext } from 'react';
+import mockItemsContext from '../../MockItems';
 const Best = () => {
+    const bestItemList = useContext(mockItemsContext);
     const best_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -40,126 +43,23 @@ const Best = () => {
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
-                    <li className="sunglass_3">
-                        <Link to="/checkout">
-                            <img src={require('../../images/s_evaCrystalVioletTint_01.jpg')} />
-                            <img src={require('../../images/s_evaCrystalVioletTint_02.jpg')} />
+                    {bestItemList.slice(17, 25).map((item) => (
+                        <Link to={`/detail/${item.id}`} key={item.id}>
+                            <li>
+                                <img src={item.imageFront} alt="상품" />
+                                <img src={item.imageSide} alt="상품" />
+                                <div className="item_name">
+                                    <span>{item.name}</span>
+                                </div>
+                                <div className="item_price">
+                                    <span>{item.price}</span>
+                                </div>
+                                <div className="shop_this">
+                                    <a>{item.shopThis} &#62;</a>
+                                </div>
+                            </li>
                         </Link>
-                        <div className="item_name">
-                            <span>eva crystal&#45;violet tint</span>
-                        </div>
-                        <div className="item_price">
-                            <span>165,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="./detailed_page/detaied_page.html">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="sunglass_4">
-                        <a href="sunglass_4">
-                            <img src={require('../../images/s_hangangBlack_01.jpeg')} />
-                            <img src={require('../../images/s_hangangBlack_02.jpeg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>hangangBlack</span>
-                        </div>
-                        <div className="item_price">
-                            <span>129,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="glass_3">
-                        <a href="./detailed_page/detailed_page_glass.html">
-                            <img src={require('../../images/g_boatPeach_01.jpg')} />
-                            <img src={require('../../images/g_boatPeach_02.jpg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>boatPeach</span>
-                        </div>
-                        <div className="item_price">
-                            <span>89,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="glass_4">
-                        <a href="glass_4">
-                            <img src={require('../../images/g_landCrystal_01.jpg')} />
-                            <img src={require('../../images/g_landCrystal_02.jpg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>landCrystal</span>
-                        </div>
-                        <div className="item_price">
-                            <span>89,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="glass_4">
-                        <a href="glass_4">
-                            <img src={require('../../images/g_quinbyBlack_01.jpg')} />
-                            <img src={require('../../images/g_quinbyBlack_02.jpg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>quinbyBlack</span>
-                        </div>
-                        <div className="item_price">
-                            <span>89,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="glass_4">
-                        <a href="glass_4">
-                            <img src={require('../../images/s_orrBlack_01.jpeg')} />
-                            <img src={require('../../images/s_orrBlack_02.jpeg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>orrBlack</span>
-                        </div>
-                        <div className="item_price">
-                            <span>129,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="glass_4">
-                        <a href="glass_4">
-                            <img src={require('../../images/g_tenaBlack_01.jpg')} />
-                            <img src={require('../../images/g_tenaBlack_02.jpg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>tenaBlack</span>
-                        </div>
-                        <div className="item_price">
-                            <span>89,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
-                    <li className="glass_4">
-                        <a href="glass_4">
-                            <img src={require('../../images/s_roanGrayCystal_01.jpg')} />
-                            <img src={require('../../images/s_roanGrayCystal_02.jpg')} />
-                        </a>
-                        <div className="item_name">
-                            <span>roanGrayCystal</span>
-                        </div>
-                        <div className="item_price">
-                            <span>129,000원</span>
-                        </div>
-                        <div className="shop_this">
-                            <a href="#">SHOT THIS &#62;</a>
-                        </div>
-                    </li>
+                    ))}
                 </ul>
             </div>
             <button className="btn_pre nonVisible" ref={btn_pre} onClick={clickBackBtn}>
