@@ -10,10 +10,41 @@ const Basket = () => {
     //useContext로 mock 데이터 받아오기
     const mockItemsData = useContext(mockItemsContext);
 
-    const [selectAll, setSelectAll] = useState(false); // 부모 체크박스 상태
+    const [parentCheckbox, setParentCheckbox] = useState(false);
+    const [childCheckboxes, setChildCheckboxes] = useState({
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+    });
 
-    const handleSelectAllChange = () => {
-        setSelectAll(prevState => !prevState); // 부모 체크박스 상태 토글
+    const handleParentCheckboxChange = () => {
+        const newParentCheckboxState = !parentCheckbox;
+        setParentCheckbox(newParentCheckboxState);
+
+        const newChildCheckboxes = {
+            checkbox1: newParentCheckboxState,
+            checkbox2: newParentCheckboxState,
+            checkbox3: newParentCheckboxState,
+        };
+
+        setChildCheckboxes(newChildCheckboxes);
+    };
+
+    const handleChildCheckboxChange = (e) => {
+        const checkboxName = e.target.name;
+        const isChecked = e.target.checked;
+
+        setChildCheckboxes({
+            ...childCheckboxes,
+            [checkboxName]: isChecked,
+        });
+
+        if (!isChecked) {
+            setParentCheckbox(false);
+        } else {
+            const allChecked = Object.values(childCheckboxes).every(Boolean);
+            setParentCheckbox(allChecked);
+        }
     };
 
     return (
@@ -39,8 +70,8 @@ const Basket = () => {
                                             <tr>
                                                 <th>
                                                     <input type="checkbox"
-                                                        checked={selectAll}
-                                                        onChange={handleSelectAllChange}
+                                                        checked={parentCheckbox}
+                                                        onChange={handleParentCheckboxChange}
                                                     />
                                                 </th>
                                                 <th>상품 정보</th>
@@ -49,12 +80,7 @@ const Basket = () => {
                                             </tr>
                                         </thead>
 
-                                        <BasketGoods mockItemsData={mockItemsData}
-                                            selectAll={selectAll}
-                                        />
-
-
-
+                                        {mockItemsData.slice(0, 4).map((item) => <BasketGoods key={item.id} {...item} />)}
                                     </table>
 
                                     <div className="btn_bottom">

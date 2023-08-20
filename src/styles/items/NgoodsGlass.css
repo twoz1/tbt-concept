@@ -7,23 +7,23 @@
     flex-direction: row;
 }
 
-.newGoodsIMG {
+.new_glass_img li {
     width: 25%;
     margin: 0 0.3rem;
 }
 
-.newGoodsIMG li img{
+.new_glass_img li img {
     width: 100%;
 }
 
-.newGoodsIMG li img:nth-of-type(2) {
+.new_glass_img img:nth-of-type(2) {
     display: none;
 }
 
-.newGoodsIMG li:hover img:nth-of-type(1) {
+.new_glass_img li:hover img:nth-of-type(1) {
     display: none;
 }
 
-.newGoodsIMG li:hover img:nth-of-type(2) {
+.new_glass_img li:hover img:nth-of-type(2) {
     display: block;
 }

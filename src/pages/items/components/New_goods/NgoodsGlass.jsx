@@ -11,12 +11,12 @@ const NgoodsGlass = () => {
     return (
         <ul className='new_glass_img'>
             {newGoodsGlassList.slice(0, 4).map((item) => (
-                <Link to={`/detail/${item.id}`} key={item.id} className='newGoodsIMG'>
-                    <li>
+                <li>
+                    <Link to={`/detail/${item.id}`} key={item.id}>
                         <img src={item.imageFront} alt="상품 사진" />
                         <img src={item.imageSide} alt="상품 사진" />
-                    </li>
-                </Link>
+                    </Link>
+                </li>
             ))}
         </ul>
     )

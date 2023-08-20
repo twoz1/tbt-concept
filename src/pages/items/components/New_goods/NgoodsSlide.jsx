@@ -1,5 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -24,7 +25,7 @@ const NgoodsSlide = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} />
+                    <Link to=''><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} /></Link>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_04.jpg')} />
