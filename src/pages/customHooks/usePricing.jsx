@@ -13,6 +13,17 @@ function usePricing(initialQuantity, initialPrice) {
         return quantityGoods * initialPrice;
     };
 
+    /*     const totalPrice = quantityGoods * initialPrice;
+
+    const totalPricing = () => {
+        return totalPrice;
+    };
+
+    const finalPricing = () => {
+        const prefixPrice = totalPrice + finalPrice;
+        return prefixPrice;
+    }; */
+
     return {
         quantityGoods,
         changeQuantity,
@@ -21,3 +32,5 @@ function usePricing(initialQuantity, initialPrice) {
 }
 
 export default usePricing;
+
+

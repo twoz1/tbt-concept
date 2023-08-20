@@ -12,8 +12,9 @@
 }
 
 .freq_ask_1 button {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
     border: none;
-    /* background-color:#eee; */
     background-color: white;
     color: black;
     font-size: 12px;

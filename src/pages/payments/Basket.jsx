@@ -1,7 +1,6 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
-import { useParams } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import mockItemsContext from '../items/MockItems';
 
@@ -10,8 +9,11 @@ const Basket = () => {
     //useContext로 mock 데이터 받아오기
     const mockItemsData = useContext(mockItemsContext);
 
+    //체크박스 구현
+    //목데이터에 checkbox를 위한 속성 추가해야 할 것 같음
     const [parentCheckbox, setParentCheckbox] = useState(false);
     const [childCheckboxes, setChildCheckboxes] = useState({
+        checkbox0: false,
         checkbox1: false,
         checkbox2: false,
         checkbox3: false,
@@ -22,6 +24,7 @@ const Basket = () => {
         setParentCheckbox(newParentCheckboxState);
 
         const newChildCheckboxes = {
+            checkbox0: newParentCheckboxState,
             checkbox1: newParentCheckboxState,
             checkbox2: newParentCheckboxState,
             checkbox3: newParentCheckboxState,
@@ -30,10 +33,7 @@ const Basket = () => {
         setChildCheckboxes(newChildCheckboxes);
     };
 
-    const handleChildCheckboxChange = (e) => {
-        const checkboxName = e.target.name;
-        const isChecked = e.target.checked;
-
+    const handleChildCheckboxChange = (checkboxName, isChecked) => {
         setChildCheckboxes({
             ...childCheckboxes,
             [checkboxName]: isChecked,
@@ -80,7 +80,10 @@ const Basket = () => {
                                             </tr>
                                         </thead>
 
-                                        {mockItemsData.slice(0, 4).map((item) => <BasketGoods key={item.id} {...item} />)}
+                                        {mockItemsData.slice(0, 4).map((item) => <BasketGoods key={item.id} {...item}
+                                                                                isChecked={childCheckboxes[`checkbox${item.id}`]}
+                                                                                onChange={(isChecked) => handleChildCheckboxChange(`checkbox${item.id}`, isChecked)}
+                                                                                    />)}
                                     </table>
 
                                     <div className="btn_bottom">

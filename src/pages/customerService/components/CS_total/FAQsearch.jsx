@@ -67,17 +67,6 @@ const FAQsearch = ({ searchFAQ }) => {
                     ))}
                 </div>
             </div>
-
-{/*             <div>
-                {getSearchResult().map((freqQues) => (
-                    <SearchFAQItems
-                        key={freqQues.id}
-                        freqQuesCat={freqQues.freqQuesCat}
-                        freqQuesTitle={freqQues.freqQuesTitle}
-                        contents={freqQues.contents}
-                    />
-                ))}
-            </div> */}
         </div>//최종div
     );
 };

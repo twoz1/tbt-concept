@@ -382,12 +382,12 @@ const FreqQuestion = () => {
                     <p>
                         <button onClick={() => openModal('freqQues09')}>
                             <strong>&#91;교환&#47;반품&#93;</strong>
-                            교환 접수 시&#44; 동일한 사이즈로 접수가 된 것 같은데 확인이 안되나요&#63;
+                            동일한 사이즈로 접수가 된 것 같은데 확인이 안되나요&#63;
                         </button>
                         {isModal('freqQues09') && <div className="modal_cover">
                             <div className="pop_CS">
                                 <div>
-                                    <span>&#91;교환&#47;반품&#93; 교환 접수 시, 동일한 사이즈로 접수가 된 것 같은데 확인이 안되나요&#63;</span>
+                                    <span>&#91;교환&#47;반품&#93; 동일한 사이즈로 접수가 된 것 같은데 확인이 안되나요&#63;</span>
                                     <div className="d-flex">
                                         <p>
                                             교환 접수 시, 동일한 옵션으로 교환 신청이 진행될 경우<br />

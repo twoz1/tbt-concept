@@ -44,13 +44,15 @@
 }
 
 .pop_CS p {
-    height: auto;
+    height: 350px;
     width: 560px;
     font-size: 12px;
     background-color: #eee;
     border-top: 3px black solid;
     padding: 0.8rem;
     margin-bottom: 0;
+    margin-top: 0.5rem;
+    overflow-y: scroll;
 }
 
 .btn_close {
