@@ -82,7 +82,7 @@ import g_tenaBlack_03 from '../../images/g_tenaBlack_03.jpg'
 import g_tenaBlack_04 from '../../images/g_tenaBlack_04.jpg'
 // import { useContext } from 'react'
 
-const MockItemsArr = [
+ export const G_MockItemsArr = [
     {
         id: 0,
         name: 'Andy Brown Crystal',
@@ -152,7 +152,7 @@ const MockItemsArr = [
     {
         id: 4,
         name: 'Quin by Black',
-        price: 80000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_quinbyBlack_01,
         imageSide: g_quinbyBlack_02,
@@ -168,7 +168,7 @@ const MockItemsArr = [
     {
         id: 5,
         name: 'Quin by GreyCrystal',
-        price: 80000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_quinbyGreyCrystal_01,
         imageSide: g_quinbyGreyCrystal_02,
@@ -184,7 +184,7 @@ const MockItemsArr = [
     {
         id: 6,
         name: 'sharon Gold Crystal',
-        price: 80000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_sharonGoldCrystal_01,
         imageSide: g_sharonGoldCrystal_02,
@@ -200,7 +200,7 @@ const MockItemsArr = [
     {
         id: 7,
         name: 'tena Black',
-        price: 80000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_tenaBlack_01,
         imageSide: g_tenaBlack_02,
@@ -217,7 +217,7 @@ const MockItemsArr = [
     {
         id: 8,
         name: 'Quin by Black',
-        price: 81000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_quinbyBlack_01,
         imageSide: g_quinbyBlack_02,
@@ -233,7 +233,7 @@ const MockItemsArr = [
     {
         id: 9,
         name: 'Quin by GreyCrystal',
-        price: 81000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_quinbyGreyCrystal_01,
         imageSide: g_quinbyGreyCrystal_02,
@@ -249,7 +249,7 @@ const MockItemsArr = [
     {
         id: 10,
         name: 'sharon Gold Crystal',
-        price: 81000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_sharonGoldCrystal_01,
         imageSide: g_sharonGoldCrystal_02,
@@ -265,7 +265,7 @@ const MockItemsArr = [
     {
         id: 11,
         name: 'tena Black',
-        price: 81000,
+        price: 99000,
         link: './items/DetailedPage',
         imageFront: g_tenaBlack_01,
         imageSide: g_tenaBlack_02,
@@ -345,8 +345,12 @@ const MockItemsArr = [
         코받침, 리벳, 경첩 부분 나사 컬러는 부자재 소모품으로 제작 시기마다 실버&골드 변경될 수 있습니다
         </p>,
     },
+]
+
+
+ export const S_MockItemsArr = [
     {
-        id: 16,
+        id: 0,
         name: 'Bibi Black',
         price: 169000,
         link: './items/DetailedPage',
@@ -363,7 +367,7 @@ const MockItemsArr = [
 
     },
     {
-        id: 17,
+        id: 1,
         name: 'Eva Crystal Violet Tint',
         price: 169000,
         link: './items/DetailedPage',
@@ -379,7 +383,7 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 18,
+        id: 2,
         name: 'Hangang Black',
         price: 169000,
         link: './items/DetailedPage',
@@ -395,7 +399,7 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 19,
+        id: 3,
         name: 'Orr Black',
         price: 169000,
         link: './items/DetailedPage',
@@ -411,9 +415,9 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 20,
+        id: 4,
         name: 'Roan Gray Cystal',
-        price: 169000,
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_roanGrayCystal_01,
         imageSide: s_roanGrayCystal_02,
@@ -428,9 +432,9 @@ const MockItemsArr = [
 
     },
     {
-        id: 21,
+        id: 5,
         name: 'Scott Cystal Orange Tint',
-        price: 169000,
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_scottCystalOrangeTint_01,
         imageSide: s_scottCystalOrangeTint_02,
@@ -445,9 +449,9 @@ const MockItemsArr = [
 
     },
     {
-        id: 22,
+        id: 6,
         name: 'Tamda Beige',
-        price: 169000,
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_tamdaBeige_01,
         imageSide: s_tamdaBeige_02,
@@ -462,9 +466,9 @@ const MockItemsArr = [
 
     },
     {
-        id: 23,
+        id: 7,
         name: 'Deps Black',
-        price: '169.000원',
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_depsBlack_01,
         imageSide: s_depsBlack_02,
@@ -478,7 +482,7 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 24,
+        id: 8,
         name: 'Bibi Black',
         price: 169000,
         link: './items/DetailedPage',
@@ -495,7 +499,7 @@ const MockItemsArr = [
 
     },
     {
-        id: 25,
+        id: 9,
         name: 'Eva Crystal Violet Tint',
         price: 169000,
         link: './items/DetailedPage',
@@ -511,7 +515,7 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 26,
+        id: 10,
         name: 'Hangang Black',
         price: 169000,
         link: './items/DetailedPage',
@@ -527,7 +531,7 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 27,
+        id: 11,
         name: 'Orr Black',
         price: 169000,
         link: './items/DetailedPage',
@@ -543,9 +547,9 @@ const MockItemsArr = [
         </p>,
     },
     {
-        id: 28,
+        id: 12,
         name: 'Roan Gray Cystal',
-        price: 169000,
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_roanGrayCystal_01,
         imageSide: s_roanGrayCystal_02,
@@ -560,9 +564,9 @@ const MockItemsArr = [
 
     },
     {
-        id: 29,
+        id: 13,
         name: 'Scott Cystal Orange Tint',
-        price: 169000,
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_scottCystalOrangeTint_01,
         imageSide: s_scottCystalOrangeTint_02,
@@ -577,9 +581,9 @@ const MockItemsArr = [
 
     },
     {
-        id: 30,
+        id: 14,
         name: 'Tamda Beige',
-        price: 169000,
+        price: 199000,
         link: './items/DetailedPage',
         imageFront: s_tamdaBeige_01,
         imageSide: s_tamdaBeige_02,
@@ -594,9 +598,9 @@ const MockItemsArr = [
 
     },
     {
-        id: 31,
+        id: 15,
         name: 'Deps Black',
-        price: '169.000원',
+        price: 199.000,
         link: './items/DetailedPage',
         imageFront: s_depsBlack_01,
         imageSide: s_depsBlack_02,
@@ -611,5 +615,5 @@ const MockItemsArr = [
     },
 ]
 
-const mockItemsContext = createContext(MockItemsArr);
+const mockItemsContext = createContext({ sArr: S_MockItemsArr, gArr: G_MockItemsArr });
 export default mockItemsContext;
