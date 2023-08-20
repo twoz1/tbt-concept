@@ -11,19 +11,19 @@ const Collection = () => {
                     </div>
                     <ul>
                         <li>
-                            <img src={require('../../images/ssldfjsfksjdfjaslfksajdflskdjf.jpeg')} />
+                            <img src={require('../../images/collectionImage01.jpeg')} />
                         </li>
                         <li>
-                            <img src={require('../../images/sinitta-leunen-OMFrvnCqmvo-unsplash.jpg')} />
+                            <img src={require('../../images/collectionImage02.jpg')} />
                         </li>
                         <li>
-                            <img src={require('../../images/prince-akachi-icu-D9rYM4w-unsplash.jpg')} />
+                            <img src={require('../../images/collectionImage03.jpg')} />
                         </li>
                         <li>
-                            <img src={require('../../images/salfkjskfsaflsdjfljk.jpeg')} />
+                            <img src={require('../../images/collectionImage04.jpeg')} />
                         </li>
                         <li>
-                            <img src={require('../../images/azamat-zhanisov-fy1njZn94BU-unsplash.jpg')} />
+                            <img src={require('../../images/collectionImage05.jpg')} />
                         </li>
                     </ul>
                 </div>

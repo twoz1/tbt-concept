@@ -58,7 +58,7 @@ const LogPass = () => {
                             <th colspan="1">아이디</th>
                             <td>
                                 <label>
-                                    <input value={email} onChange={handleEmail} placeholder="&#64;까지 정확하게 입력해주세요." required />
+                                    <input   value={email} onChange={handleEmail} placeholder="&#64;까지 정확하게 입력해주세요." required />
                                 </label>
                             </td>
                         </tr>
@@ -67,7 +67,7 @@ const LogPass = () => {
                             <th colspan="1">비밀번호</th>
                             <td>
                                 <label>
-                                    <input type="password" value={password} onChange={handlePassword} maxLength="16" minLength="8" placeholder="영문+숫자 조합 8~16자리." required />
+                                    <input  type="password" value={password} onChange={handlePassword} maxLength="16" minLength="8" placeholder="영문+숫자 조합 8~16자리." required />
                                 </label>
                             </td>
                         </tr>
@@ -75,7 +75,7 @@ const LogPass = () => {
                     <button onClick={changeButton}>로그인</button>
                 </form>
                 <div className="remember">
-                    <input className="user_remember" type="radio" />
+                    <input  className="user_remember" type="radio" />
                     아이디&nbsp;저장
                     <a className="join" href="../join/join.html">
                         회원가입&nbsp;바로가기
