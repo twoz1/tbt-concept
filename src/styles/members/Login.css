@@ -114,6 +114,7 @@ hr {
     display: flex;
     gap: 25px;
     align-items: center;
+    justify-content: center;
 }
 
 .join_opt li{

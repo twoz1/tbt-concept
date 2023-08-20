@@ -1,3 +1,7 @@
+.swiper span {
+    background-color: orangered;
+}
+
 /*=============main 시작=================*/
 /*========================================*/
 
@@ -109,8 +113,11 @@ hr {
     width: 100%;
 }
 
-.what_new_item li:nth-child(even) img{
-    width: 240px;
+.what_new_list li:nth-child(even) img {
+    width: 230px;
+}
+.what_new_list li:nth-child(odd) img {
+    width: 273px;
 }
 
 /* ---------------------------------------------------- */
@@ -133,16 +140,16 @@ hr {
     height: 100%;
     position: absolute;
     left: 0;
-    transition: left .7s .1s;
+    transition: left 0.7s 0.1s;
 }
-.what_new_item .what_new_list img{
+.what_new_item .what_new_list img {
     width: 258px;
     margin-bottom: 25px;
-    
 }
 button.nonVisible {
     display: none;
 }
+
 /* ---------------------------------------------------- */
 
 .what_new_item ul li a img {
@@ -262,9 +269,9 @@ button.nonVisible {
     height: 100%;
     position: absolute;
     left: 0;
-    transition: left .7s .1s;
+    transition: left 0.7s 0.1s;
 }
-.best_item .best_list img{
+.best_item .best_list img {
     width: 302px;
     margin-bottom: 50px;
 }
@@ -293,12 +300,12 @@ button.nonVisible {
     position: absolute;
     top: 80%;
     transform: translateY(100%);
-    transition: .3 ease-in-out;
+    transition: 0.3 ease-in-out;
     z-index: 5;
     font-size: 30px;
     background-color: #fff;
     cursor: pointer;
-} 
+}
 
 .btn_pre {
     right: 102%;

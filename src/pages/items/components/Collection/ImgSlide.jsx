@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -28,7 +29,7 @@ export default function ImgSlide() {
                     <img className='image_slide_1' src={require('../../../../images/glassesBanner.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../../../images/imgslideBanner1.jpeg')} />
+                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className='image_slide_1' src={require('../../../../images/result_banner1.jpg')} />

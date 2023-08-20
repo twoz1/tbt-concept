@@ -21,17 +21,32 @@ const New = () => {
         if (what_new_idx.current <= 0) {
             btn_pre.current.classList.add('nonVisible');
         }
+        toggleItemWidth();
     }
 
     function clickNext(e) {
         what_new_idx.current++;
-        what_new_list.current.style.left = `${-what_new_idx.current * 25}%`;
+        what_new_list.current.style.left = `${-what_new_idx.current * 26}%`;
 
         btn_pre.current.classList.remove('nonVisible');
         if (what_new_idx.current >= 4) {
             btn_next.current.classList.add('nonVisible');
         }
+        toggleItemWidth();
     }
+    function toggleItemWidth() {
+        const evenItems = what_new_list.current.querySelectorAll('.what_new_list li:nth-child(even) img');
+        const oddItems = what_new_list.current.querySelectorAll('.what_new_list li:nth-child(odd) img');
+    
+        evenItems.forEach(item => {
+            item.style.width = '273px'; // odd 아이템의 width로 설정
+        });
+    
+        oddItems.forEach(item => {
+            item.style.width = '230px' // even 아이템의 width로 설정
+        });
+    }
+    
     return (
         <div className="what_new">
             <div className="what_new_title cf">
@@ -50,9 +65,9 @@ const New = () => {
             </button>
             <div className="what_new_item">
                 <ul className="what_new_list" ref={what_new_list}>
-                    {newItemList.slice(0, 9).map((item) => (
-                        <Link to={`/detail/${item.id}`} key={item.id}>
-                            <li>
+                    {newItemList.slice(0, 8).map((item) => (
+                        <li>
+                            <Link to={`/detail/${item.id}`} key={item.id}>
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
                                 <div className="item_name">
@@ -64,8 +79,8 @@ const New = () => {
                                 <div className="shop_this">
                                     <a>{item.shopThis} &#62;</a>
                                 </div>
-                            </li>
-                        </Link>
+                            </Link>
+                        </li>
                     ))}
                 </ul>
             </div>
