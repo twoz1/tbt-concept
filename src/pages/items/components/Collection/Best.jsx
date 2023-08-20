@@ -44,8 +44,8 @@ const Best = () => {
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
                     {bestItemList.slice(17, 25).map((item) => (
-                        <Link to={`/detail/${item.id}`} key={item.id}>
-                            <li>
+                        <li>
+                            <Link to={`/detail/${item.id}`} key={item.id}>
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
                                 <div className="item_name">
@@ -57,8 +57,8 @@ const Best = () => {
                                 <div className="shop_this">
                                     <a>{item.shopThis} &#62;</a>
                                 </div>
-                            </li>
-                        </Link>
+                            </Link>
+                        </li>
                     ))}
                 </ul>
             </div>
