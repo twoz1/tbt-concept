@@ -6,6 +6,7 @@ import PageNation from './components/PageNation';
 import { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import mockItemsContext from './MockItems';
 
 
@@ -42,8 +43,8 @@ const Sunglasses = () => {
                     <ul>
                         <li>category
                             <ul>
-                                <li><a> glass</a></li>
-                                <li><a >sunglass</a></li>
+                                <li><Link to ='/glasses'> glasses</Link></li>
+                                <li><Link to ='/'>sunglasses</Link></li>
                             </ul>
                         </li>
 
