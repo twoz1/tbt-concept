@@ -1,9 +1,5 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-<<<<<<< HEAD
-import '../../images/newgoodsBanner_01.jpg'
-=======
->>>>>>> main
 
 // Import Swiper styles
 import 'swiper/css';
@@ -28,18 +24,6 @@ const NgoodsSlide = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-<<<<<<< HEAD
-                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_01.jpg')} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_04.jpg')} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_02.jpg')} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_03.jpg')} />
-=======
                     <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -50,17 +34,11 @@ const NgoodsSlide = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_03.jpg')} />
->>>>>>> main
                 </SwiperSlide>
             </Swiper>
         </>
     )
 }
 
-<<<<<<< HEAD
-
-export default NgoodsSlide;
-=======
->>>>>>> main
 
 export default NgoodsSlide;

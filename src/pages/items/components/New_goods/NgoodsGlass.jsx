@@ -1,14 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import '../../styles/items/NgoodsGlass.css';
-import { useContext } from 'react';
-import mockItemsContext from './MockItems';
-=======
 import '../../../../styles/items/NgoodsGlass.css';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
->>>>>>> main
 
 const NgoodsGlass = () => {
 
