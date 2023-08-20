@@ -57,15 +57,8 @@ const New_goods = () => {
 
                     <div className="new_slide_poster">
                         <p>사진을 누르시면 해당 상품으로 이동됩니다.</p>
-
-                        <div className="new_slide_title">
-                            <div className="new_slide_img">
-                                <a href=""><img src="../new_goods/img/pos_andy_black_crystal_lb_02.jpg" alt="상품사진" /></a>
-                                <a href="../detailed_page/detailed_page_glass.html"><img src="../new_goods/img/pos_andy_flesh_lb_02.jpg" alt="상품사진" /></a>
-                                <a href=""><img src="../new_goods/img/pos_etty_black_lb_06.jpg" alt="상품사진" /></a>
-                            </div>
-                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>//최종div
