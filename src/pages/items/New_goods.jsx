@@ -1,6 +1,6 @@
 import '../../styles/items/New_goods.css';
-import NgoodsGlass from './NgoodsGlass';
-import NgoodsSunGlass from './NgoodsSunGlass';
+import NgoodsGlass from './components/New_goods/NgoodsGlass';
+import NgoodsSunGlass from './components/New_goods/NgoodsSunGlass';
 
 const New_goods = () => {
     return (

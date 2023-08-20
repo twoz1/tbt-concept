@@ -1,13 +1,13 @@
 import { useState, useRef } from 'react';
 import '../../styles/customerService/CS_total.css';
-import FAQsearch from './components_csTotal/FAQsearch';
-import InquiryProduct from './components_csTotal/InquiryProduct';
-import QuickMenu from './components_csTotal/QuickMenu';
-import NewmembersService from './components_csTotal/NewmembersService';
-import FreqQuestion from './components_csTotal/FreqQuestion';
-import NewsCS from './components_csTotal/NewsCS';
-import SearchFAQItems from './components_csTotal/SearchFAQItems';
-import useModal from '../useModal';
+import FAQsearch from './components/CS_total/FAQsearch';
+import InquiryProduct from './components/CS_total/InquiryProduct';
+import QuickMenu from './components/CS_total/QuickMenu';
+import NewmembersService from './components/CS_total/NewmembersService';
+import FreqQuestion from './components/CS_total/FreqQuestion';
+import NewsCS from './components/CS_total/NewsCS';
+import SearchFAQItems from './components/CS_total/SearchFAQItems';
+import useModal from '../customHooks/useModal';
 
 const mockInqProd = [
     {

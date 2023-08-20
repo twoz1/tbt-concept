@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/items/NgoodsGlass.css';
+import '../../../../styles/items/NgoodsGlass.css';
 import { useContext } from 'react';
-import mockItemsContext from './MockItems';
+import mockItemsContext from '../../MockItems';
 
 const NgoodsGlass = () => {
 

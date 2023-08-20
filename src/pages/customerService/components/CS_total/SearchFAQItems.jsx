@@ -1,6 +1,6 @@
 import React from 'react';
-import useModal from '../../useModal';
-import '../../../styles/customerService/SearchFAQItems.css'
+import useModal from '../../../customHooks/useModal';
+import '../../../../styles/customerService/SearchFAQItems.css'
 
 const SearchFAQItems = ({ id, freqQuesCat, freqQuesTitle, contents }) => {
 

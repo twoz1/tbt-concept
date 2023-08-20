@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../styles/customerService/NewsCS.css';
-import useModal from '../../useModal';
+import '../../../../styles/customerService/NewsCS.css';
+import useModal from '../../../customHooks/useModal';
 
 const NewsCS = () => {
 

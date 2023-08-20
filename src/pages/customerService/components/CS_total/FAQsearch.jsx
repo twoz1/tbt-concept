@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import '../../../styles/customerService/FAQsearch.css';
-import SearchFAQItems from './SearchFAQItems';
-
+import '../../../../styles/customerService/FAQsearch.css';
+import SearchFAQItems from '../CS_total/SearchFAQItems';
 
 const FAQsearch = ({ searchFAQ }) => {
 
@@ -69,7 +68,7 @@ const FAQsearch = ({ searchFAQ }) => {
                 </div>
             </div>
 
-            {/*             <div>
+{/*             <div>
                 {getSearchResult().map((freqQues) => (
                     <SearchFAQItems
                         key={freqQues.id}
