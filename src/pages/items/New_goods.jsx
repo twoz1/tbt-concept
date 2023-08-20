@@ -57,8 +57,6 @@ const New_goods = () => {
 
                     <div className="new_slide_poster">
                         <p>사진을 누르시면 해당 상품으로 이동됩니다.</p>
-
-
                     </div>
                     
                 </div>
