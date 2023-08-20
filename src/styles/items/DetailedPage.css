@@ -1,4 +1,3 @@
-
 body {
     min-width: 1260px;
 }
@@ -36,16 +35,18 @@ body {
     width: 450px;
 }
 
-.section .choice div:first-child{
+.section .choice div:first-child {
     display: flex;
     justify-content: space-between
 }
-.section .choice div:first-child span{
-  margin-right: 10px;
+
+.section .choice div:first-child span {
+    margin-right: 10px;
 }
-.section .choice div:first-child span em{
-font-style: normal;
-color: orangered;
+
+.section .choice div:first-child span em {
+    font-style: normal;
+    color: orangered;
 }
 
 
@@ -56,13 +57,13 @@ color: orangered;
 }
 
 
-.choice_button{
+.choice_button {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.choice_button a{
+.choice_button a {
     margin-top: 20px;
     width: 40%;
     height: 50px;
@@ -74,7 +75,7 @@ color: orangered;
 
 }
 
-.choice_button>button{
+.choice_button>button {
     margin-top: 20px;
     border: 2px solid #aba8a8;
     height: 50px;
@@ -84,7 +85,7 @@ color: orangered;
     box-sizing: border-box;
 }
 
-.choice_button>button>i{
+.choice_button>button>i {
     font-size: 20px;
 }
 
@@ -103,6 +104,7 @@ color: orangered;
 .section .choice div:nth-of-type(3) strong {
     margin-right: 10px;
 }
+
 .section .choice div:nth-of-type(3) input {
     width: 50px;
     margin-right: 220px;
@@ -112,7 +114,7 @@ color: orangered;
 
 
 /* ==================nav===================================================== */
-.nav{
+.nav {
     margin: 60px 0;
 }
 
@@ -157,11 +159,11 @@ color: orangered;
 
 
 /* ====================detail 섹션=============================================== */
-.product_detail{
+.product_detail {
     text-align: center;
 }
 
-.product_detail strong{
+.product_detail strong {
     color: orangered;
 }
 
@@ -197,9 +199,26 @@ color: orangered;
 }
 
 .review_score_percent .review_left #star_icon {
-    font-size: 30px;
+    font-size: 0px;
     color: orangered;
+    position: relative;
+    width: 169px;
 
+}
+
+.review_score_percent .review_left #star_icon div {
+    position: absolute;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+.review_score_percent .review_left #star_icon div:nth-child(1) {
+    color: #ddd;
+}
+
+.review_score_percent .review_left #star_icon div:nth-child(2) {
+    color: orangered;
+    white-space: nowrap;
 }
 
 .review_score_percent .review_right {
@@ -210,6 +229,7 @@ color: orangered;
 }
 
 #star_score {
+    margin-top: 50px;
     font-size: 30px;
 }
 
@@ -219,16 +239,22 @@ color: orangered;
     width: 90px;
 }
 
+.review_right em {
+    margin-left: 7px;
+}
+
 .bar {
     height: 10px;
     border: 1px solid;
     border-radius: 20px;
     width: 300px;
     display: inline-block;
+    overflow: hidden;
 }
 
-#top_bar {
-    background-color: black;
+.bar>div {
+    height: 100%;
+    background-color: #000;
 }
 
 /* ========================================== */
@@ -236,6 +262,15 @@ color: orangered;
 .review_nav {
     display: flex;
     gap: 10px;
+    margin-bottom: 5px;
+}
+
+.review_nav span {
+    cursor: pointer;
+}
+
+.review_nav span.active {
+    font-weight: bold;
 }
 
 .star_id_date {
@@ -248,7 +283,9 @@ color: orangered;
     flex-direction: column;
     height: 150px;
     justify-content: space-around;
-    margin: 20px 20px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
 }
 
 /* ======================================== */
@@ -315,50 +352,51 @@ color: orangered;
     flex: 1;
 }
 
-.customer_q_a_next_page{
+.customer_q_a_next_page {
     text-align: center;
     margin-bottom: 30px;
     border: none;
     background-color: white;
-    margin:3px
+    margin: 3px
 }
-.customer_q_a_next_page a{
-   font-size: 12px;
+
+.customer_q_a_next_page a {
+    font-size: 12px;
 }
+
 /* =======return&delivery================================ */
-.return_delivery{
+.return_delivery {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 30px;
     margin-left: 30px;
     margin-bottom: 60px;
-    
+
 }
 
-.return_delivery_content{
+.return_delivery_content {
     border: 1px solid;
     border-collapse: collapse;
 }
 
 .return_delivery_content tr,
-.return_delivery_content td
-{
+.return_delivery_content td {
     border: 1px solid #eee;
 }
 
 .return_delivery_content td ul {
     padding: 10px;
 }
-.return_delivery_content td ul li{
+
+.return_delivery_content td ul li {
     list-style: circle;
     margin-bottom: 3px;
     margin-left: 30px;
 }
 
-.return_delivery_content th{
+.return_delivery_content th {
     background-color: #eee;
     width: 100px;
     padding: 10px;
 }
-

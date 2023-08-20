@@ -25,11 +25,11 @@ const DpReviewScore = ({ reviewDate, starLength, reviewText, userId, reviewScore
                 <span>
                     {Array.from({ length: starLength }, (i) => (
                         <i key={i} className="fa-solid fa-star"></i>
-                    ))} {reviewScoreText}
+                    ))} {reviewScoreTextView}
                 </span>
                 <span>{userId.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(userId.length - 3))} {reviewDate}</span>
             </div>
-            <p>{reviewScoreTextView}</p>
+            <p>{reviewText}</p>
         </div>
     );
 }
