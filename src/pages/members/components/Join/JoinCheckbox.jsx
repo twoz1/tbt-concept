@@ -49,7 +49,7 @@ const JoinCheckbox = () => {
     return (
         <div>
             <div className="general_agreement">
-                <ul>
+                <ul className='general_agreement_ul'>
                     <li>
                         <input
                             type="checkbox"

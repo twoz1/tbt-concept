@@ -1,4 +1,4 @@
-.modal_cover {
+.modal_cover1 {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -27,12 +27,12 @@
     height: 200px;
 }
 
-.modal_2_t tr:nth-of-type(1) {
+.modal_2_t>tr:nth-of-type(1) {
     border-top: 3px solid;
 }
 
-.modal_2_t tr th,
-.modal_2_t tr td {
+.modal_2_t>tr>th,
+.modal_2_t>tr>td {
     padding: 10px;
     border-bottom: 0px solid;
     border-right: 1px solid #eee;

@@ -12,12 +12,12 @@ const Orderlist = ({ order }) => {
         setSearchDate(true);
     }
 
-        const filterDate = () => {
-            return order.filter((order) => {
-                const orderDate = new Date(order.date).toISOString().split('T')[0];
-                return orderDate >= startDate && orderDate <= endDate;
-            });
-        };
+    const filterDate = () => {
+        return order.filter((order) => {
+            const orderDate = new Date(order.date).toISOString().split('T')[0];
+            return orderDate >= startDate && orderDate <= endDate;
+        });
+    };
 
     const clickBtn = (e) => {
         setBtnActive(e.target.value);
@@ -27,11 +27,11 @@ const Orderlist = ({ order }) => {
             const oneMonthAgo = new Date();
             oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
             setStartDate(oneMonthAgo.toISOString().split('T')[0]);
-        } else if(e.target.value === "3months"){
+        } else if (e.target.value === "3months") {
             const threeMonthAgo = new Date();
             threeMonthAgo.setMonth(threeMonthAgo.getMonth() - 3);
             setStartDate(threeMonthAgo.toISOString().split('T')[0]);
-        }else if(e.target.value === "1year"){
+        } else if (e.target.value === "1year") {
             const oneYearAgo = new Date();
             oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
             setStartDate(oneYearAgo.toISOString().split('T')[0]);

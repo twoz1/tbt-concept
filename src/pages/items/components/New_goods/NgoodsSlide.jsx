@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import '../../images/'
+import '../../images/newgoodsBanner_01.jpg'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -22,25 +22,26 @@ const NgoodsSlide = () => {
                 slidesPerView={1}
                 pagination={{ clickable: true }}
                 modules={[Pagination, Autoplay]}
-                autoplay={{ delay: 3000, disableOnInteraction: false, }}
+                autoplay={{ delay: 2000, disableOnInteraction: false, }}
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/sfdlkajsfklasjfdksadf.jpeg')} />
+                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_01.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/glassesBanner.jpg')} />
+                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_04.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/collection.jpg')} />
+                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_02.jpg')} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../images/result_banner1.jpg')} />
+                    <img className='image_slide_1' src={require('../../images/newgoodsBanner_03.jpg')} />
                 </SwiperSlide>
             </Swiper>
         </>
     )
 }
+
 
 export default NgoodsSlide;
 

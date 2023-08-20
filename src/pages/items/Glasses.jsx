@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,8 +43,8 @@ const Glasses = () => {
                     <ul>
                         <li>category
                             <ul>
-                                <li><a>sunglasses</a></li>
-                                <li><a>glasses</a></li>
+                                <li><Link to = '/sunglasses'>sunglasses</Link></li>
+                                <li><Link to = '/'>glasses</Link></li>
                             </ul>
                         </li>
 

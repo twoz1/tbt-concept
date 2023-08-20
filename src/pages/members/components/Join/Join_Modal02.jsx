@@ -2,9 +2,9 @@ import '../../styles/members/join_modal02.css';
 const Join_Modal02 = ({closeModal}) => {
     return (
         <div className="Join_Modal02">
-            <div class="modal_cover">
-                <div class="modal_2">
-                    <h2>개인정보 수집 및 이용안내&#40;필수&#41;</h2>
+            <div className="modal_cover1">
+                <div className="modal_2">
+                    <h3>개인정보 수집 및 이용안내&#40;필수&#41;</h3>
 
                     <table className='modal_2_t'>
                         <tr>
