@@ -4,7 +4,7 @@ const Join_Modal01 = ({closeModal}) => {
         <div className="Join_Modal01">
             <div className="modal_cover">
                 <div className="modal">
-                    <h2 className="Modal_01_Title">이용약관</h2>
+                    <h3 className="Modal_01_Title">이용약관</h3>
                     <div className="content">
                         <strong>제1장 총칭</strong>
                         <p><br />

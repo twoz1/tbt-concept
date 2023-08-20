@@ -9,7 +9,11 @@ const renderItem = (item) => (
     </Link>
     <div className="item_name"><span>{item.name}</span></div>
     <div className="item_price"><span>{item.price}</span></div>
-    <div className="shop_this"><a>{item.shopThis} &#62;</a></div>
+    <div className="shop_this">
+    <Link to={`/detail/${item.id}`} key={item.id} >
+      <a>{item.shopThis} &#62;</a>
+    </Link>
+      </div>
   </li>
 );
 
