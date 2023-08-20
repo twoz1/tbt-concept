@@ -116,7 +116,7 @@
 
 
 
-.Join .check_agreement>ul>li {
+.Join .check_agreement .each_check_agreement {
     background-color: #eee;
     margin-top: 2px;
     line-height: 40px;
@@ -124,7 +124,7 @@
 }
 
 
-.Join .check_agreement>ul>li button {
+.Join .each_check_agreement .Join_button {
     width: 60px;
     height: 25px;
     line-height: 25px;

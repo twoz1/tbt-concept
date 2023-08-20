@@ -34,13 +34,13 @@
 .modal_2_t>tr>th,
 .modal_2_t>tr>td {
     padding: 10px;
-    border-bottom: 0px solid;
+    border-bottom: 1px solid #eee;
     border-right: 1px solid #eee;
 }
 .third_column {
     border-right: none;
 }
-.text_underLine2 {
+.Join_Modal02 .text_underLine2>li {
     font-weight: bold;
     text-decoration: underline;
 }
@@ -49,14 +49,21 @@
 
 
 
-.close_Join_modal2{
-    color: white;
+.close_button{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 120px;
+    line-height: 35px;
+    text-align: center;
     background-color: black;
+    border: none;
+}
+
+.close_button .close_Join_modal2{
+    background-color: transparent;
     border: 0;
     color: white;
     text-decoration: none;
- 
 }
-
 
  

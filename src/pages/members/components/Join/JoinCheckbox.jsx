@@ -49,7 +49,7 @@ const JoinCheckbox = () => {
     return (
         <div>
             <div className="general_agreement">
-                <ul className='general_agreement_ul'>
+                <ul>
                     <li>
                         <input
                             type="checkbox"
@@ -72,7 +72,7 @@ const JoinCheckbox = () => {
             </div>
             <div className="check_agreement">
                 <ul>
-                    <li>
+                    <li className='each_check_agreement'>
                         <input
                             type="checkbox"
                             name="checkbox1"
@@ -83,7 +83,7 @@ const JoinCheckbox = () => {
                         만 14세 이상입니다.&#40;필수&#41;
                     </li>
 
-                    <li>
+                    <li className='each_check_agreement'>
                         <input
                             type="checkbox"
                             name="checkbox2"
@@ -92,11 +92,11 @@ const JoinCheckbox = () => {
                             required
                         />
                         이용약관 동의&#40;필수&#41;
-                        <button onClick={()=>{openModal("joinModal_1")}}>내용보기</button>
+                        <button className='Join_button' onClick={()=>{openModal("joinModal_1")}}>내용보기</button>
                         {isModal("joinModal_1") && <Join_Modal01 closeModal={closeModal}/>}
                     </li>
 
-                    <li>
+                    <li className='each_check_agreement'>
                         <input
                             type="checkbox"
                             name="checkbox3"
@@ -105,17 +105,17 @@ const JoinCheckbox = () => {
                             required
                         />
                         개인정보 수집 및 이용에 대한 동의&#40;필수&#41;
-                        <button onClick={()=>{openModal("joinModal_2")}}>내용보기</button>
+                        <button className='Join_button' onClick={()=>{openModal("joinModal_2")}}>내용보기</button>
                         {isModal("joinModal_2") && <Join_Modal02 closeModal={closeModal}/>}
                     </li>
 
-                    <li>
+                    <li className='each_check_agreement'>
                         <input
                             type="checkbox"
                             name="checkbox4"
                         />
                         개인정보 수집 및 이용안내&#40;선택&#41;
-                        <button onClick={()=>{openModal("joinModal_3")}}>내용보기</button>
+                        <button className='Join_button' onClick={()=>{openModal("joinModal_3")}}>내용보기</button>
                         {isModal("joinModal_3") && <Join_Modal03 closeModal={closeModal}/>}
                     </li>
                 </ul>
