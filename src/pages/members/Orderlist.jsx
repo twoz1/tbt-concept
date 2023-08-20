@@ -1,6 +1,6 @@
 import '../../styles/members/Orderlist.css';
 import { useEffect, useState } from 'react';
-import MyOrderItem from './MyOrderItem';
+import MyOrderItem from './components/Mypage/MyOrderItem';
 
 const Orderlist = ({ order }) => {
     const [btnActive, setBtnActive] = useState("");

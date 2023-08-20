@@ -1,6 +1,6 @@
 import '../../styles/payments/Basket.css';
-import BasketGoods from './components_Basket/BasketGoods';
-import BasketPriceBox from './components_Basket/BasketPriceBox';
+import BasketGoods from './components/Basket/BasketGoods';
+import BasketPriceBox from './components/Basket/BasketPriceBox';
 import { useParams } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import mockItemsContext from '../items/MockItems';

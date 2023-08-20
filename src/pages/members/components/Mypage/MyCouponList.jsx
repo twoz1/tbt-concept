@@ -36,8 +36,10 @@ const MyCouponList = () => {
               <th scope="col">상태</th>
             </tr>
           </thead>
-          {coupon.map((it) => { return (<MyCouponItem key={it.id}{...it}
-          />) })}
+          {coupon.map((it) => {
+            return (<MyCouponItem key={it.id}{...it}
+            />)
+          })}
         </table>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../styles/payments/BasketPriceBox.css'
+import '../../../../styles/payments/BasketPriceBox.css';
 
 const BasketPriceBox = () => {
     return (

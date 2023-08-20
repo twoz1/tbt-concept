@@ -1,7 +1,7 @@
-import '../../styles/members/MyOrderItem.css';
+import '../../../../styles/members/MyOrderItem.css';
 import { ReviewModal } from './ReviewModal';
 import OrderModal from './OrderModal';
-import useModal from '../useModal';
+import useModal from '../../../customHooks/useModal';
 
 const MyOrderItem = ({ date, orderNumber, itemName, itemTitle, itemColor, itemQuantity, itemPrice, orderState, review }) => {
 

@@ -1,4 +1,4 @@
-import '../../../styles/payments/Modal_basket.css';
+import '../../../../styles/payments/Modal_basket.css';
 
 const Modal_basket = () => {
     return (
@@ -7,8 +7,8 @@ const Modal_basket = () => {
                 <div className="layer_cont">
                     <p>
                         선택하신 상품이
-                        <br/>
-                            쇼핑백에 추가되었습니다.
+                        <br />
+                        쇼핑백에 추가되었습니다.
                     </p>
 
                     {/* ==========쇼핑 계속하기/쇼핑백 확인========== */}
