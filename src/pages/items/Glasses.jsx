@@ -1,7 +1,7 @@
 
 
 import '../../styles/items/Glasses.css'
-import Category from './components/Category';
+// import Category from './components/Category';
 import Product from './components/Product';
 import PageNation from './components/PageNation';
 import { useState } from 'react';

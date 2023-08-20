@@ -1,10 +1,10 @@
 
-import "../../styles/items/DetailedPage.css"
-import DpTopSection from "./components/DpTopSection";
-import DpSelectOption from "./components/DpSelectOption";
-import DpNavigation from "./components/DpNavigation";
-import DpReview from "./components/DpReview";
-import DpProductDetail from "./components/DpProductDetail";
+import "../../styles/items/DetailedPage.css"; 
+import DpTopSection from "../items/components/DetaildPage/DpTopSection";
+import DpSelectOption from "../items/components/DetaildPage/DpSelectOption";
+import DpNavigation from "../items/components/DetaildPage/DpNavigation";
+import DpReviewScore from "../items/components/DetaildPage/DpReviewScore";
+import DpProductDetail from "../items/components/DetaildPage/DpProductDetail";
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
@@ -39,7 +39,7 @@ const DetailedPage = ({ starScore }) => {
                     </ul>
                 </div>
 
-                <DpReview></DpReview>
+                <DpReviewScore></DpReviewScore>
 
                 <div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
