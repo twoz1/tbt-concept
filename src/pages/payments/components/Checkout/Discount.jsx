@@ -33,7 +33,7 @@ const Discount = () => {
     return (
         <div className="discount">
             <h3>할인받기</h3>
-            <table>
+            <table className="discount_table">
                 <tbody>
                     <tr>
                         <th>결제 예정금액</th>
@@ -50,15 +50,6 @@ const Discount = () => {
                                 ))}
                             </select>
                             <span>원</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>T Point</th>
-                        <td>
-                            <input type="text" />
-                            <span>P</span>
-                            <input type="checkbox" />
-                            모두 사용하기
                         </td>
                     </tr>
                 </tbody>

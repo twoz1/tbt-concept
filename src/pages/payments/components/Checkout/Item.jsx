@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../../items/MockItems';
+import ItemInfo from './ItemInfo';
 
-const Item = () => {
+const Item = ({count}) => {
     const { gArr } = useContext(mockItemsContext);
     const itemList = [...gArr];
     const [selectAll, setSelectAll] = useState(false);
@@ -21,7 +22,7 @@ const Item = () => {
         <div className="item">
             <h3>주문상품</h3>
 
-            <table>
+            <table className="item_table">
                 <tbody>
                     <tr>
                         <td>
@@ -34,7 +35,13 @@ const Item = () => {
                         <th>배송비</th>
                     </tr>
                     <tr>
-                        <td>
+                        <ItemInfo
+                            count={count}
+                            item={itemList[4]} // 첫 번째 상품을 전달하거나 원하는 상품을 전달하세요
+                            individualSelect={individualSelect}
+                            handleIndividualSelect={handleIndividualSelect}
+                        />
+                        {/* <td>
                             <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
                         </td>
                         {itemList.slice(0, 1).map((item) => (
@@ -53,9 +60,15 @@ const Item = () => {
                                 <span>{item.price.toLocaleString()}원</span>
                             </td>
                         ))}
-                        <td>무료</td>
+                        <td>무료</td> */}
                     </tr>
-
+                    <tr>
+                    <ItemInfo
+                            item={itemList[3]} // 첫 번째 상품을 전달하거나 원하는 상품을 전달하세요
+                            individualSelect={individualSelect}
+                            handleIndividualSelect={handleIndividualSelect}
+                        />
+                    </tr>
                     <tr>
                         <td colSpan="6">
                             <span>&#42;</span>제주&#47;도서산간 지역의 경우 추가 배송비가 발생할 수 있습니다.

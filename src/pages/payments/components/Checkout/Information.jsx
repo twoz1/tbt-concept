@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 const Information = () => {
-    const [useNewAddress, setUseNewAddress] = useState(false);
+    const [showPlaceholder, setShowPlaceholder] = useState(true);
 
-    const handleUseNewAddressChange = () => {
-        setUseNewAddress(!useNewAddress);
-    };
-
-    const handleDefaultAddressChange = () => {
-        setUseNewAddress(false);
+    const handleRadioChange = (event) => {
+        if (event.target.value === 'new') {
+            setShowPlaceholder(false);
+        } else {
+            setShowPlaceholder(true);
+        }
     };
 
     return (
@@ -20,7 +20,7 @@ const Information = () => {
                 </p>
             </div>
             <div>
-                <table>
+                <table className="information_table">
                     <tbody>
                         <tr>
                             <th>
@@ -28,58 +28,56 @@ const Information = () => {
                             </th>
                             <td className="address">
                                 <label>
-                                    <input type="radio" name="address_radio" required onChange={handleDefaultAddressChange} />
+                                    <input type="radio" name="address_radio" value="default" onChange={handleRadioChange} required />
                                     기본주소
                                 </label>
                                 <label>
-                                    <input type="radio" name="address_radio" required onChange={handleDefaultAddressChange} />
+                                    <input type="radio" name="address_radio" value="recent" onChange={handleRadioChange} required />
                                     최근 배송지
                                 </label>
                                 <label>
-                                    <input type="radio" name="address_radio" required checked={useNewAddress} onChange={handleUseNewAddressChange} />
+                                    <input type="radio" name="address_radio" value="new" onChange={handleRadioChange} required />
                                     새로 입력
                                 </label>
                             </td>
                         </tr>
-                        {useNewAddress && (
-                            <>
-                                <tr>
-                                    <th>
-                                        받으시는 분 <span>&#42;</span>
-                                    </th>
-                                    <td className="receiver">
-                                        <input type="text" name="receiver_name" id="receiver_name_read" placeholder="최*조" required />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        휴대폰 번호 <span>&#42;</span>
-                                    </th>
-                                    <td className="receiver_phone">
-                                        <select name="receiver_phone" id="receiver_phone_read">
-                                            <option value="010">010</option>
-                                            <option value="011">011</option>
-                                            <option value="070">070</option>
-                                        </select>{' '}
-                                        -
-                                        <input type="text" minLength="3" maxLength="4" /> -
-                                        <input type="text" minLength="4" maxLength="4" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        배송 주소 <span>&#42;</span>
-                                    </th>
-                                    <td className="customer_address">
-                                        <input type="text" minLength="7" />
-                                        <p>
-                                            <input type="text" placeholder="상세주소를 입력해주세요" />
-                                            <input type="text" />
-                                        </p>
-                                    </td>
-                                </tr>
-                            </>
-                        )}
+                        <tr>
+                            <th>
+                                받으시는 분 <span>&#42;</span>
+                            </th>
+                            <td className="receiver">
+                                <input type="text" name="receiver_name" id="receiver_name_read" placeholder={showPlaceholder ? '최*조' : ''} required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                휴대폰 번호 <span>&#42;</span>
+                            </th>
+                            <td className="receiver_phone">
+                                <select name="receiver_phone" id="receiver_phone_read">
+                                    <option value="010">010</option>
+                                    <option value="011">011</option>
+                                    <option value="070">070</option>
+                                </select>{' '}
+                                <span className="hyphen">-</span>
+                                <input type="text" minLength="3" maxLength="4" />
+                                <span className="hyphen">-</span>
+                                <input type="text" minLength="4" maxLength="4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                배송 주소 <span>&#42;</span>
+                            </th>
+                            <td className="customer_address">
+                                <input type="text" minLength="7" placeholder={showPlaceholder ? '13630' : ''} />
+                                <p>
+                                    <input type="text" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} />
+                                    &nbsp; - &nbsp;
+                                    <input type="text" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} />
+                                </p>
+                            </td>
+                        </tr>
                         <tr>
                             <th>배송 메시지</th>
                             <td className="message">
