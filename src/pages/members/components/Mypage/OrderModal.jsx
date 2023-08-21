@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../styles/members/MyOrderItem.css';
+import '../../../../styles/members/OrderModal.css';
 
 const OrderModal = ({ closeModal }) => {
     return (
