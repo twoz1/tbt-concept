@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const JoinForm = () => {
 
     const [email, setEmail] = useState('');
+    const [emailMessage, setEmailMessage] = useState('');
     const [emailValid, setEmailValid] = useState(false);
     const special = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 
@@ -21,13 +22,12 @@ const JoinForm = () => {
 
 
     const handleEmail = (e) => {
-        setEmail(e.target.value);
+        const newEmail = e.target.value;
+        setEmail(newEmail);
 
-        if (special.test(email)) {
-            setEmailValid(true);
-        } else {
-            setEmailValid(false);
-        }
+        // 이메일 형식 검사
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        setEmailValid(emailPattern.test(newEmail));
 
     }
     // =======================================================
@@ -79,6 +79,18 @@ const JoinForm = () => {
         setUserName(newUserName);
     }
 
+    const handleBlur = () => {
+        if(!emailValid){
+            setEmailMessage('아이디를 입력해주세요');
+            setEmail('');
+        }
+        if (!pWValid) {
+            setPw('');
+        }
+        if (!secondPwValid) {
+            setSecondPw('');
+        }
+    }
 
     return (
 
@@ -105,6 +117,7 @@ const JoinForm = () => {
                                     }
                                 }
                             }}
+                            onBlur={handleBlur}
                             placeholder="&#64;까지 정확하게 입력해주세요." required />
 
                     </label>
@@ -138,6 +151,7 @@ const JoinForm = () => {
                                     }
                                 }
                             }}
+                            onBlur={handleBlur}
                             required />
                     </label>
                     <div>
@@ -161,6 +175,7 @@ const JoinForm = () => {
                                     }
                                 }
                             }}
+                            onBlur={handleBlur}
                             required />
                     </label>
                     <div>
