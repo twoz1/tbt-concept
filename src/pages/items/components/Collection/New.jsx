@@ -7,7 +7,7 @@ import mockItemsContext from '../../MockItems';
 
 const New = () => {
     const { gArr } = useContext(mockItemsContext);
-    const newList = [...gArr]
+    const newList = [...gArr];
     const what_new_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -37,13 +37,13 @@ const New = () => {
     function toggleItemWidth() {
         const evenItems = what_new_list.current.querySelectorAll('.what_new_list li:nth-child(even) img');
         const oddItems = what_new_list.current.querySelectorAll('.what_new_list li:nth-child(odd) img');
-    
-        evenItems.forEach(item => {
+
+        evenItems.forEach((item) => {
             item.style.width = '273px'; // odd 아이템의 width로 설정
         });
-    
-        oddItems.forEach(item => {
-            item.style.width = '230px' // even 아이템의 width로 설정
+
+        oddItems.forEach((item) => {
+            item.style.width = '230px'; // even 아이템의 width로 설정
         });
     }
     return (

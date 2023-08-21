@@ -8,7 +8,6 @@ import SidePay1 from './components/Checkout//SidePay1';
 import SidePay2 from './components/Checkout/SidePay2';
 import Join_Modal02 from '../members/components/Join/Join_Modal02';
 import Join_Modal03 from '../members/components/Join/Join_Modal03';
-import { useState, useEffect } from 'react';
 // --------------------------------------------------------------
 // --------------------------------------------------------------
 const Checkout = () => {
