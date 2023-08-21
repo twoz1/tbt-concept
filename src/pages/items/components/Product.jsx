@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const renderItem = (item) => (
   <li className="photo_2" key={item.name}>
-    <Link to={`/detail/${item.id}`} key={item.id} className="product_photo">
+    <Link to={`/detail/${item.name}`} key={item.name} className="product_photo">
       <img src={item.imageFront} alt="Front View" />
       <img src={item.imageSide} alt="Side View" />
     </Link>
     <div className="item_name"><span>{item.name}</span></div>
     <div className="item_price"><span>{item.price}</span></div>
     <div className="shop_this">
-    <Link to={`/detail/${item.id}`} key={item.id} >
+    <Link to={`/detail/${item.name}`} key={item.name} >
       <a>{item.shopThis} &#62;</a>
     </Link>
       </div>
