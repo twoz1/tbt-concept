@@ -28,9 +28,7 @@ const Join_Modal03 = ({closeModal}) => {
                         <li>개인정보의 보유 및 이용 기간 &#58; 회원 탈퇴 시 30일 뒤 또는 법정 의무 보유기간</li>
                         <li>선택사항의 동의를 거부하시는 경우에도 회원가입 및 구매결제 등 필수서비스는 이용할 수 있습니다. 단,일부 부가서비스는 제한될 수 있습니다.</li>
                     </ul>
-                    <div className='close_button'>
-                    <button className='close_Join_modal3' onClick={()=>{closeModal('joinModal_3')}}>닫기</button>
-                    </div>
+                    <button className='close_button' onClick={()=>{closeModal('joinModal_3')}}>닫기</button>
                 </div>
             </div>
         </div>

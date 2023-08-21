@@ -23,6 +23,10 @@
     background-color: white;
 }
 
+.Modal_01_Title{
+    margin:20px 0;
+}
+
 .content{
     width: 80%;
     height: 500px;
@@ -48,12 +52,9 @@
     text-align: center;
     background-color: black;
     border: none;
+    color:#fff;
     margin: auto;
-}
-
-.close_button .close_Join_modal{
-    background-color: transparent;
-    border: 0;
-    color: white;
-    text-decoration: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
