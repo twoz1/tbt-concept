@@ -1,6 +1,7 @@
 import { useStar } from '../../../members/components/Mypage/ReviewModal';
 import { useState } from 'react';
 import DpReviewItem from './DpReviewItem';
+import PageNation from '../PageNation';
 
 const reviewList = [
     {
@@ -23,8 +24,21 @@ const reviewList = [
         reviewDate: "2023.06.20",
         starLength: 5,
         reviewText: "라식 수술하면서 선글라스가 필요해서 구매했어요ㅇ.ㅇ 사람들이 저보고 연예인이래요.",
+    },
+    {
+        id: 3,
+        userId: "passion",
+        reviewDate: "2023.06.15",
+        starLength: 3,
+        reviewText: "화면과 색이 좀 다르네요.. 그래도 예뻐요.",
+    },
+    {
+        id: 4,
+        userId: "musician",
+        reviewDate: "2023.06.25",
+        starLength: 4,
+        reviewText: "저랑 찰떡입니당!",
     }
-
 ]
 
 
@@ -59,6 +73,11 @@ const DpReviewScore = () => {
         setReview(rivewGradRow);
         setspanActive("spanGradRow");
     }
+
+    const [page, setPage] = useState(1);
+    const listPerPage = 3;
+    const startIndex = ((page) - 1) * listPerPage;
+
 
     return (
 
@@ -112,7 +131,8 @@ const DpReviewScore = () => {
             </div >
             <hr />
             {/* ----------------리뷰2---------------- */}
-            {review.map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText} />)}
+            {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText} />)}
+            <PageNation setPage={setPage} />
         </div >
     );
 

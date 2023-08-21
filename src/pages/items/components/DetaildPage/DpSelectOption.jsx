@@ -1,5 +1,6 @@
 import usePricing from '../../../customHooks/usePricing';
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const DpSelectOption = ({ ProductListSelected }) => {
 
@@ -25,7 +26,7 @@ const DpSelectOption = ({ ProductListSelected }) => {
                     <i className="fa-solid fa-truck"></i>
                     <em>무료배송</em></span>
             </div>
-            <div>{price}</div>
+            <div>{price.toLocaleString()}원</div>
 
             <div className="total">
                 <strong>TOTAL</strong>
@@ -35,13 +36,13 @@ const DpSelectOption = ({ ProductListSelected }) => {
                     value={quantityGoods}
                     onChange={changeQuantity} />
 
-                <span>{totalPricing()}</span>
+                <span>{totalPricing().toLocaleString()}원</span>
 
             </div>
 
             <div className="choice_button">
-                <a href="">바로 구매</a>
-                <a href="">쇼핑백 담기</a>
+                <Link to ='/checkout'>바로 구매</Link>
+                <Link to='/cart'>쇼핑백 담기</Link>
                 <button onClick={likedItem} >
                     <i className="fa-sharp fa-solid fa-heart" style={heartIconStyle} ></i>
                 </button>

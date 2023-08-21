@@ -1,5 +1,5 @@
 const DpReviewScore = ({ reviewDate, starLength, reviewText, userId, reviewScoreText }) => {
-
+   
     let reviewScoreTextView;
 
     switch (starLength) {
@@ -30,6 +30,7 @@ const DpReviewScore = ({ reviewDate, starLength, reviewText, userId, reviewScore
                 <span>{userId.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(userId.length - 3))} {reviewDate}</span>
             </div>
             <p>{reviewText}</p>
+            
         </div>
     );
 }
