@@ -79,6 +79,10 @@ ul.find_result_list li strong {
     cursor: pointer;
 }
 
+ul.find_result_list li strong:hover {
+    color: orangered;
+}
+
 .control .button {
     margin: 20px 0;
     display: flex;
