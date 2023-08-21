@@ -9,6 +9,33 @@ import SidePay2 from './components/Checkout/SidePay2';
 import Join_Modal02 from '../members/components/Join/Join_Modal02';
 import Join_Modal03 from '../members/components/Join/Join_Modal03';
 const Checkout = () => {
+    const [totalCount, setTotalCount] = useState(89000);
+    const [selectedCoupon, setSelectedCoupon] = useState("default");
+    
+    const couponOptions = [
+        { value: "default", label: "쿠폰선택", discount: 0 },
+        { value: "welcome", label: "회원가입 감사 10% 할인 쿠폰", discount: 0.1 },
+        { value: "summer", label: "s/s기념 10% 할인 쿠폰", discount: 0.1 },
+    ];
+    
+    const handleCouponChange = (event) => {
+        const selectedValue = event.target.value;
+        const selectedCouponInfo = couponOptions.find(coupon => coupon.value === selectedValue);
+        setSelectedCoupon(selectedValue);
+        
+        if (selectedCouponInfo) {
+            const discountedTotal = totalCount - (totalCount * selectedCouponInfo.discount);
+            setTotalCount(discountedTotal);
+        } else {
+            setTotalCount(89000); // Default total count if no coupon is selected
+        }
+    };
+    
+    useEffect(() => {
+        if (selectedCoupon === "default") {
+            setTotalCount(89000);
+        }
+    }, [selectedCoupon]);
     return (
         <div>
             <div className="center m_c">

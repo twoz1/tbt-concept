@@ -67,7 +67,7 @@ const New = () => {
                 <ul className="what_new_list" ref={what_new_list}>
                     {newList.slice(0, 8).map((item) => (
                         <li>
-                            <Link to={`/detail/${item.id}`} key={item.id}>
+                            <Link to={`/detail/${item.name}`} key={item.name}>
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
                                 <div className="item_name">
