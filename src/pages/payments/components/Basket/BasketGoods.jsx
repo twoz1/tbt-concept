@@ -20,12 +20,12 @@ const BasketGoods = ({ id, name, price, link, imageFront, isChecked, onChange })
 
     return (
         <tbody>
-            <tr key={id}>
+            <tr key={name}>
                 <th>
                     <input type="checkbox"
                         name="goods"
                         checked={isChecked}
-                        onChange={(e) => handleChildCheckboxChange(e, id)}
+                        onChange={(e) => handleChildCheckboxChange(e, name)}
                     />
                 </th>
 

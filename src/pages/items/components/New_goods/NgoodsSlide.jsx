@@ -25,16 +25,19 @@ const NgoodsSlide = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <Link to=''><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} /></Link>
+                    <Link to='/detail/1'><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_01.jpg')} /></Link>
                 </SwiperSlide>
+
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_04.jpg')} />
+                    <Link to='/detail/7'><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_04.jpg')} /></Link>
                 </SwiperSlide>
+
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_02.jpg')} />
+                    <Link to='/detail/4'><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_02.jpg')} /></Link>
                 </SwiperSlide>
+
                 <SwiperSlide>
-                    <img className='image_slide_1' src={require('../../../../images/newgoodsBanner_03.jpg')} />
+                    <Link to='/detail/1'><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_03.jpg')} /></Link>
                 </SwiperSlide>
             </Swiper>
         </>

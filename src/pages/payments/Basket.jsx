@@ -81,9 +81,9 @@ const Basket = () => {
                                             </tr>
                                         </thead>
 
-                                        {mockItemsData.slice(0, 4).map((item) => <BasketGoods key={item.id} {...item}
-                                                                                isChecked={childCheckboxes[`checkbox${item.id}`]}
-                                                                                onChange={(isChecked) => handleChildCheckboxChange(`checkbox${item.id}`, isChecked)}
+                                        {mockItemsData.slice(0, 4).map((item) => <BasketGoods key={item.name} {...item}
+                                                                                isChecked={childCheckboxes[`checkbox${item.name}`]}
+                                                                                onChange={(isChecked) => handleChildCheckboxChange(`checkbox${item.name}`, isChecked)}
                                                                                     />)}
                                     </table>
 
