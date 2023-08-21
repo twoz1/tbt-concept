@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useRef, useReducer } from 'react';
+import { useRef, useState } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
 
 const New = () => {
     const { gArr } = useContext(mockItemsContext);
-    const newList =[...gArr]
+    const newList = [...gArr]
     const what_new_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -46,7 +46,6 @@ const New = () => {
             item.style.width = '230px' // even 아이템의 width로 설정
         });
     }
-    
     return (
         <div className="what_new">
             <div className="what_new_title cf">
@@ -74,7 +73,7 @@ const New = () => {
                                     <span>{item.name}</span>
                                 </div>
                                 <div className="item_price">
-                                    <span>{item.price}</span>
+                                    <span>{item.price.toLocaleString()}원</span>
                                 </div>
                                 <div className="shop_this">
                                     <a>{item.shopThis} &#62;</a>
