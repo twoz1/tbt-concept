@@ -4,7 +4,7 @@ import '../../styles/items/Glasses.css'
 import Product1 from './components/Product1';
 import PageNation from './components/PageNation';
 import { useState, useReducer } from 'react';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import mockItemsContext from './MockItems';
@@ -25,11 +25,11 @@ const Sunglasses = () => {
         }
     };
 
-    const { id } = useParams();
+    // const { id } = useParams();
     const {sArr} = useContext(mockItemsContext);
     // const eachProductListSelected = eachProductList.find(product => product.id === parseInt(id));
     const [array, dispatch] = useReducer(arrayReducer, sArr);
-    console.log(sArr);
+    // console.log(sArr);
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 8;
@@ -62,7 +62,7 @@ const Sunglasses = () => {
                         <li>category
                             <ul>
                                 <li><Link to='/glasses'> glasses</Link></li>
-                                <li><Link to='/'>sunglasses</Link></li>
+                                <li><Link to='/sunglasses'>sunglasses</Link></li>
                             </ul>
                         </li>
 

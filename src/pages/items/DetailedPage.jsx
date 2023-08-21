@@ -10,10 +10,10 @@ import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 
 const DetailedPage = ({ starScore }) => {
-    const { id } = useParams();
+    const { name } = useParams();
     const {sArr,gArr} = useContext(mockItemsContext);
     const productList=[...sArr, ...gArr];
-    const ProductListSelected = productList.find(product => product.id === parseInt(id));
+    const ProductListSelected = productList.find(product => product.name === name);
     console.log(productList);
 
     return (

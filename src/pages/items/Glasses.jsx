@@ -4,7 +4,7 @@ import '../../styles/items/Glasses.css'
 import Product from './components/Product';
 import PageNation from './components/PageNation';
 import { useState, useReducer } from 'react';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 import { Link } from 'react-router-dom';
@@ -28,7 +28,7 @@ const Glasses = () => {
     };
 
 
-    const { id } = useParams();
+    // const { id } = useParams();
     const {gArr} = useContext(mockItemsContext);
     const [array, dispatch] = useReducer(arrayReducer, gArr);
     // console.log(eachProductList);
@@ -60,7 +60,7 @@ const Glasses = () => {
                         <li>category
                             <ul>
                                 <li><Link to='/sunglasses'>sunglasses</Link></li>
-                                <li><Link to='/'>glasses</Link></li>
+                                <li><Link to='/glasses'>glasses</Link></li>
                             </ul>
                         </li>
 

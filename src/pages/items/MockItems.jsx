@@ -505,77 +505,9 @@ const G_MockItemsArr = [
         프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
         </p>,
     },
+    
     {
         id: 8,
-        name: 'Bibi Black',
-        price: 169000,
-        isDone : false,
-        link: './items/DetailedPage',
-        imageFront: s_bibiBlack_01,
-        imageSide: s_bibiBlack_02,
-        imageSide_03: s_bibiBlack_03,
-        imageSide_04: s_bibiBlack_04,
-        shopThis: 'SHOP THIS',
-        summary : 
-        <p>
-        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
-        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
-        </p>,
-
-    },
-    {
-        id: 9,
-        name: 'Eva Crystal Violet Tint',
-        price: 169000,
-        isDone : false,
-        link: './items/DetailedPage',
-        imageFront: s_evaCrystalVioletTint_01,
-        imageSide: s_evaCrystalVioletTint_02,
-        imageSide_03: s_evaCrystalVioletTint_03,
-        imageSide_04: s_evaCrystalVioletTint_04,
-        shopThis: 'SHOP THIS',
-        summary : 
-        <p>
-        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
-        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
-        </p>,
-    },
-    {
-        id: 10,
-        name: 'Hangang Black',
-        price: 169000,
-        isDone : false,
-        link: './items/DetailedPage',
-        imageFront: s_hangangBlack_01,
-        imageSide: s_hangangBlack_02,
-        imageSide_03: s_hangangBlack_03,
-        imageSide_04: s_hangangBlack_04,
-        shopThis: 'SHOP THIS',
-        summary : 
-        <p>
-        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
-        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
-        </p>,
-    },
-    {
-        id: 11,
-        name: 'Orr Black',
-        price: 169000,
-        isDone : false,
-        link: './items/DetailedPage',
-        imageFront: s_orrBlack_01,
-        imageSide: s_orrBlack_02,
-        imageSide_03: s_orrBlack_03,
-        imageSide_04: s_orrBlack_04,
-        shopThis: 'SHOP THIS',
-        summary : 
-        <p>
-        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
-        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
-        </p>,
-    },
-    {
-        id: 12,
         name: 'Roan Gray Cystal',
         price: 199000,
         isDone : false,
@@ -593,7 +525,7 @@ const G_MockItemsArr = [
 
     },
     {
-        id: 13,
+        id: 9,
         name: 'Scott Cystal Orange Tint',
         price: 199000,
         isDone : false,
@@ -611,7 +543,7 @@ const G_MockItemsArr = [
 
     },
     {
-        id: 14,
+        id: 10,
         name: 'Tamda Beige',
         price: 199000,
         isDone : false,
@@ -629,15 +561,84 @@ const G_MockItemsArr = [
 
     },
     {
-        id: 15,
+        id: 11,
         name: 'Deps Black',
-        price: 199.000,
+        price: 199000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_depsBlack_01,
         imageSide: s_depsBlack_02,
         imageSide_03: s_depsBlack_03,
         imageSide_04: s_depsBlack_04,
+        shopThis: 'SHOP THIS',
+        summary : 
+        <p>
+        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
+        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
+        </p>,
+    },
+    {
+        id: 12,
+        name: 'Bibi Black',
+        price: 169000,
+        isDone : false,
+        link: './items/DetailedPage',
+        imageFront: s_bibiBlack_01,
+        imageSide: s_bibiBlack_02,
+        imageSide_03: s_bibiBlack_03,
+        imageSide_04: s_bibiBlack_04,
+        shopThis: 'SHOP THIS',
+        summary : 
+        <p>
+        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
+        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
+        </p>,
+
+    },
+    {
+        id: 13,
+        name: 'Eva Crystal Violet Tint',
+        price: 169000,
+        isDone : false,
+        link: './items/DetailedPage',
+        imageFront: s_evaCrystalVioletTint_01,
+        imageSide: s_evaCrystalVioletTint_02,
+        imageSide_03: s_evaCrystalVioletTint_03,
+        imageSide_04: s_evaCrystalVioletTint_04,
+        shopThis: 'SHOP THIS',
+        summary : 
+        <p>
+        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
+        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
+        </p>,
+    },
+    {
+        id: 14,
+        name: 'Hangang Black',
+        price: 169000,
+        isDone : false,
+        link: './items/DetailedPage',
+        imageFront: s_hangangBlack_01,
+        imageSide: s_hangangBlack_02,
+        imageSide_03: s_hangangBlack_03,
+        imageSide_04: s_hangangBlack_04,
+        shopThis: 'SHOP THIS',
+        summary : 
+        <p>
+        <strong> 클리어런스 상품으로 케이스 없이 안경파우치와 클리너만 발송 되며 교환 환불 불가합니다.</strong> <br /><br />
+        프레임 정면 139mm, 렌즈 가로 55mm, 렌즈 높이 25mm, 렌즈 사이 17mm, 프레임 옆면 145mm 무게 20g
+        </p>,
+    },
+    {
+        id: 15,
+        name: 'Orr Black',
+        price: 169000,
+        isDone : false,
+        link: './items/DetailedPage',
+        imageFront: s_orrBlack_01,
+        imageSide: s_orrBlack_02,
+        imageSide_03: s_orrBlack_03,
+        imageSide_04: s_orrBlack_04,
         shopThis: 'SHOP THIS',
         summary : 
         <p>
