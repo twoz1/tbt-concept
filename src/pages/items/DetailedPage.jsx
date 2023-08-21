@@ -5,10 +5,28 @@ import DpSelectOption from "../items/components/DetaildPage/DpSelectOption";
 // import DpNavigation from "../items/components/DetaildPage/DpNavigation";
 import DpReviewScore from "../items/components/DetaildPage/DpReviewScore";
 import DpProductDetail from "../items/components/DetaildPage/DpProductDetail";
+import DpQnABtn from "./components/DetaildPage/DpQnABtn";
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 
+const QnaList = [
+    {
+        id: 0,
+        userId: "tbtconcept",
+        reviewDate: "2023.08.11",
+    },
+    {
+        id: 1,
+        userId: "passion",
+        reviewDate: "2023.08.11",
+    },
+    {
+        id: 2,
+        userId: "KCMKMC",
+        reviewDate: "2023.08.11",
+    },
+]
 const DetailedPage = ({ starScore }) => {
     const { name } = useParams();
     const {sArr,gArr} = useContext(mockItemsContext);
@@ -60,8 +78,9 @@ const DetailedPage = ({ starScore }) => {
                         </ul>
                     </div>
 
-
-                    <div className="q_a_button">
+            <DpQnABtn />
+         
+                    {/* <div className="q_a_button">
                         <a href="">상품문의</a>
                     </div>
 
@@ -73,7 +92,7 @@ const DetailedPage = ({ starScore }) => {
                         <span id="q_a_user_id">nic&#176;&#176;&#176;&#176;&#176;&#176;</span>
                         <span id="q_a_date">2023.05.25</span>
 
-                    </div>
+                    </div> */}
 
                     {/* <div className="customer_q_a_next_page">
                         <a href="">1</a>

@@ -132,7 +132,10 @@ const DpReviewScore = () => {
             <hr />
             {/* ----------------리뷰2---------------- */}
             {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText} />)}
+            <div className='page_nation'>
+
             <PageNation setPage={setPage} />
+            </div>
         </div >
     );
 
