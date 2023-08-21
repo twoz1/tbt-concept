@@ -7,7 +7,8 @@ import mockItemsContext from '../items/MockItems';
 const Basket = () => {
 
     //useContext로 mock 데이터 받아오기
-    const mockItemsData = useContext(mockItemsContext);
+    const {sArr,gArr} = useContext(mockItemsContext);
+    const mockItemsData=[...sArr, ...gArr];
 
     //체크박스 구현
     //목데이터에 checkbox를 위한 속성 추가해야 할 것 같음

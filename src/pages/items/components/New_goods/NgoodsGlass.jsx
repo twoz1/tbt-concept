@@ -6,7 +6,9 @@ import mockItemsContext from '../../MockItems';
 
 const NgoodsGlass = () => {
 
-    let newGoodsGlassList = useContext(mockItemsContext);
+    
+    const {gArr} = useContext(mockItemsContext);
+    const newGoodsGlassList = [...gArr];
 
     return (
         <ul className='new_glass_img'>
