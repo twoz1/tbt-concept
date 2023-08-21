@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const SidePay1 = () => {
-    const [totalCount, settotalCount] = useState(89000);
+    const [totalCount, settotalCount] = useState(81000);
     
     return (
         <div class="side_pay side_pay1">

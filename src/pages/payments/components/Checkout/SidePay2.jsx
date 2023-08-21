@@ -48,8 +48,8 @@ const SidePay2 = () => {
                             <th colspan="1">
                                 <input type="checkbox" checked={individualSelect1} onChange={handleIndividualSelect1} />
                                 <span>
-                                    주문 상품정보에 동의&#40;필수&#41;<button className="sidepay1_buubon">내용보기</button>
-                                    {isModal('joinModal_2') && <Join_Modal02 closeModal={{ closeModal }} />}
+                                    주문 상품정보에 동의&#40;필수&#41;<button className="sidepay1_button" onClick={()=>{openModal("joinModal_2")}}>내용보기</button>
+                                    {isModal('joinModal_2') && <Join_Modal02 closeModal={ closeModal } />}
                                 </span>
                             </th>
                         </tr>
@@ -58,8 +58,8 @@ const SidePay2 = () => {
                                 <input type="checkbox" checked={individualSelect2} onChange={handleIndividualSelect2} />
                                 <span>
                                     결제대행서비스 이용을 위한 <br />
-                                    개인정보 제3자 제공 및 위탁 동의&#40;필수&#41;<button className="sidepay1_buubon">내용보기</button>
-                                    {isModal('joinModal_3') && <Join_Modal03 closeModal={{ closeModal }} />}
+                                    개인정보 제3자 제공 및 위탁 동의&#40;필수&#41;<button className="sidepay1_button" onClick={()=>{openModal("joinModal_3")}}>내용보기</button>
+                                    {isModal('joinModal_3') && <Join_Modal03 closeModal={ closeModal } />}
                                 </span>
                             </th>
                         </tr>

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 const Discount = () => {
-    const [totalCount, setTotalCount] = useState(89000);
+    const [totalCount, setTotalCount] = useState(81000);
     const [selectedCoupon, setSelectedCoupon] = useState("default");
     
     const couponOptions = [
         { value: "default", label: "쿠폰선택", discount: 0 },
-        { value: "welcome", label: "회원가입 감사 10% 할인 쿠폰", discount: 0.1 },
-        { value: "summer", label: "s/s기념 10% 할인 쿠폰", discount: 0.1 },
+        { value: "welcome", label: "회원가입 감사 10% 할인 쿠폰", discount: 0.9 },
+        { value: "summer", label: "s/s기념 10% 할인 쿠폰", discount: 0.9 },
     ];
     
     const handleCouponChange = (event) => {
@@ -16,7 +16,8 @@ const Discount = () => {
         setSelectedCoupon(selectedValue);
         
         if (selectedCouponInfo) {
-            const discountedTotal = totalCount - (totalCount * selectedCouponInfo.discount);
+            // const discountedTotal = totalCount - (totalCount * selectedCouponInfo.discount);
+            const discountedTotal = totalCount  * selectedCouponInfo.discount;
             setTotalCount(discountedTotal);
         } else {
             setTotalCount(89000); // Default total count if no coupon is selected
@@ -25,7 +26,7 @@ const Discount = () => {
     
     useEffect(() => {
         if (selectedCoupon === "default") {
-            setTotalCount(89000);
+            setTotalCount(81000);
         }
     }, [selectedCoupon]);
 

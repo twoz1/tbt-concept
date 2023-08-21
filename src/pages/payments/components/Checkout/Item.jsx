@@ -1,7 +1,10 @@
-import { useContext } from 'react';
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import mockItemsContext from '../../../items/MockItems';
 
 const Item = () => {
+    const { gArr } = useContext(mockItemsContext);
+    const itemList = [...gArr];
     const [selectAll, setSelectAll] = useState(false);
     const [individualSelect, setIndividualSelect] = useState(false); // 상품 개별 선택 상태 추가
 
@@ -15,7 +18,7 @@ const Item = () => {
     };
 
     return (
-        <div class="item">
+        <div className="item">
             <h3>주문상품</h3>
 
             <table>
@@ -30,20 +33,28 @@ const Item = () => {
                         <th>총 상품 금액</th>
                         <th>배송비</th>
                     </tr>
-                    {/* {products1.map((item, index) => (
-                        <tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
+                        </td>
+                        {itemList.slice(0, 1).map((item) => (
+                            <td className='item_img'>
+                                <img src={item.imageFront} alt="상품이미지" />
+                            </td>
+                        ))}
+                        <td>1</td>
+                        {itemList.slice(0, 1).map((item) => (
                             <td>
-                                <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
+                                <span>{item.price.toLocaleString()}원</span>
                             </td>
-                            <td className="item_img">
-                                <img src={require(item.imageFront)} />
+                        ))}
+                        {itemList.slice(0, 1).map((item) => (
+                            <td>
+                                <span>{item.price.toLocaleString()}원</span>
                             </td>
-                            <td>1</td>
-                            <td>{item.price}</td>
-                            <td>89,000</td>
-                            <td>무료</td>
-                        </tr>
-                    ))} */}
+                        ))}
+                        <td>무료</td>
+                    </tr>
 
                     <tr>
                         <td colSpan="6">

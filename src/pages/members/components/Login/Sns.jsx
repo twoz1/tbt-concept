@@ -42,26 +42,26 @@ const Sns = () => {
                             <li className="naver">
                                 {/* <a href="https://www.naver.com/"> */}
                                 <button id="naverIdLogin">
-                                    <img src={require('../../../../images/naver.png')} />
+                                    <img src={require('../../../../images/naver.png')} className='naver'/>
                                 </button>
                                 {/* </a> */}
                             </li>
                             <li className="kakao">
                                 {/* <a href="https://www.kakaocorp.com/page/"> */}
                                 <button onClick={handleLogin}>
-                                    <img src={require('../../../../images/kakao.jpeg')} />
+                                    <img src={require('../../../../images/kakao.jpeg')} className='kakao'/>
                                 </button>
                                 {/* </a> */}
                             </li>
                             <li className="insta">
                                 <a href="https://www.instagram.com/">
-                                    <img src={require('../../../../images/insta.jpeg')} />
+                                    <img src={require('../../../../images/insta.jpeg')} className='insta'/>
                                 </a>
                             </li>
                             <li className="google">
                                 {/* <a href="https://www.google.co.kr/?hl=ko"> */}
                                 <button>
-                                    <img src={require('../../../../images/google.jpeg')} />
+                                    <img src={require('../../../../images/google.jpeg')} className='google'/>
                                 </button>
                                 {/* </a> */}
                             </li>
