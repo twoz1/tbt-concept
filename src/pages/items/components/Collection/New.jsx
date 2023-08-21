@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useReducer } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
 
 const New = () => {
-    const newItemList = useContext(mockItemsContext);
-
+    const { gArr } = useContext(mockItemsContext);
+    const newList =[...gArr]
     const what_new_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -65,7 +65,7 @@ const New = () => {
             </button>
             <div className="what_new_item">
                 <ul className="what_new_list" ref={what_new_list}>
-                    {newItemList.slice(0, 8).map((item) => (
+                    {newList.slice(0, 8).map((item) => (
                         <li>
                             <Link to={`/detail/${item.id}`} key={item.id}>
                                 <img src={item.imageFront} alt="상품" />
