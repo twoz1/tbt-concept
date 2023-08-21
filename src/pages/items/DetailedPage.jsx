@@ -2,7 +2,7 @@
 import "../../styles/items/DetailedPage.css"; 
 import DpTopSection from "../items/components/DetaildPage/DpTopSection";
 import DpSelectOption from "../items/components/DetaildPage/DpSelectOption";
-import DpNavigation from "../items/components/DetaildPage/DpNavigation";
+// import DpNavigation from "../items/components/DetaildPage/DpNavigation";
 import DpReviewScore from "../items/components/DetaildPage/DpReviewScore";
 import DpProductDetail from "../items/components/DetaildPage/DpProductDetail";
 import { useParams } from "react-router-dom";
@@ -24,7 +24,14 @@ const DetailedPage = ({ starScore }) => {
                     <DpSelectOption ProductListSelected={ProductListSelected} />
                 </div>
 
-                <DpNavigation></DpNavigation>
+                <div className="nav nav1">
+                    <ul>
+                        <li><a href="#detail">DETAIL</a></li>
+                        <li><a href="#review">REVIEW</a></li>
+                        <li><a href="#question_answer">Q&amp;A</a></li>
+                        <li><a href="#return_delivery">RETURN&amp;DELIVERY</a></li>
+                    </ul>
+                </div>
 
                 <DpProductDetail ProductListSelected={ProductListSelected} />
 
@@ -41,7 +48,7 @@ const DetailedPage = ({ starScore }) => {
                 </div>
 
                 <DpReviewScore></DpReviewScore>
-
+            
                 <div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
                     <div className="nav nav3">
@@ -52,6 +59,7 @@ const DetailedPage = ({ starScore }) => {
                             <li><a href="#return_delivery">RETURN&amp;DELIVERY</a></li>
                         </ul>
                     </div>
+
 
                     <div className="q_a_button">
                         <a href="">상품문의</a>
