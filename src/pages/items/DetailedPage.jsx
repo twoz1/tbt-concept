@@ -9,25 +9,27 @@ import DpQnABtn from "./components/DetaildPage/DpQnABtn";
 import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
+import useScrollToTop from "../customHooks/useScrollToTop";
 
-const QnaList = [
-    {
-        id: 0,
-        userId: "tbtconcept",
-        reviewDate: "2023.08.11",
-    },
-    {
-        id: 1,
-        userId: "passion",
-        reviewDate: "2023.08.11",
-    },
-    {
-        id: 2,
-        userId: "KCMKMC",
-        reviewDate: "2023.08.11",
-    },
-]
+// const QnaList = [
+//     {
+//         id: 0,
+//         userId: "tbtconcept",
+//         reviewDate: "2023.08.11",
+//     },
+//     {
+//         id: 1,
+//         userId: "passion",
+//         reviewDate: "2023.08.11",
+//     },
+//     {
+//         id: 2,
+//         userId: "KCMKMC",
+//         reviewDate: "2023.08.11",
+//     },
+// ]
 const DetailedPage = ({ starScore }) => {
+    useScrollToTop();
     const { name } = useParams();
     const {sArr,gArr} = useContext(mockItemsContext);
     const productList=[...sArr, ...gArr];

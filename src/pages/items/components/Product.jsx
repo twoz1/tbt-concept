@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import useScrollToTop from '../../customHooks/useScrollToTop';
 
 const renderItem = (item) => (
   <li className="photo_2" key={item.name}>
@@ -7,7 +8,7 @@ const renderItem = (item) => (
       <img src={item.imageFront} alt="Front View" />
       <img src={item.imageSide} alt="Side View" />
     </Link>
-    <div className="item_name"><span>{item.name}</span></div>
+    <div className="item_name"><span><strong>{item.name}</strong></span></div>
     <div className="item_price"><span>{item.price.toLocaleString()}원</span></div>
     <div className="shop_this">
     <Link to={`/detail/${item.name}`} key={item.name} >
@@ -21,6 +22,7 @@ const renderItem = (item) => (
 // ================================================================================
 
 const Product = ({ displayedItemInfo }) => {
+  // useScrollToTop();
   const itemsPerRow = 4;
   const rows = Math.ceil(displayedItemInfo.length / itemsPerRow);
 

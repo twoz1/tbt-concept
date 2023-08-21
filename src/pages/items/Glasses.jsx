@@ -8,13 +8,15 @@ import { useState, useReducer } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 import { Link } from 'react-router-dom';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 
 
 const Glasses = () => {
-
+   
     // ======== 상품 정렬을 위한 reducer 함수 시작 ========
     const arrayReducer = (state, action) => {
+
         switch (action.type) {
             //   case "popular":
             //     return [...state].sort((a, b) => b.clicked - a.clicked);
@@ -79,7 +81,7 @@ const Glasses = () => {
                 </div>
 
                 <Product displayedItemInfo={displayedItemInfo} />
-                <PageNation setPage={setPage} />
+                <PageNation setPage={setPage}  />
 
             </div>
         </div>
