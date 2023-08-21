@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import '../../../../styles/payments/BasketGoods.css';
-import usePricing from "../../../customHooks/usePricing";
+// import usePricing from "../../../customHooks/usePricing";
 import { Link } from 'react-router-dom';
 
-// todoList
-// 1. 체크박스 자식 요소도 선택될 수 있도록 구현
-// 2. 체크된 리스트 삭제 버튼 구현
-
-const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems}) => {
-
-    // usePricing 사용
-    const { quantityGoods, changeQuantity, totalPricing, finalPricing } = usePricing(1, price);
+// quantityGoods, changeQuantity, totalPricing, finalPricing
+const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods,quantity }) => {
 
 
     return (
@@ -21,16 +15,17 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
                         name="goods"
                         checked={checkItems.includes(name)}
                         onChange={() => handleSingleCheck(!checkItems.includes(name), name)}
+                        value={quantity}
                     />
                 </th>
 
                 <td className="goods_name">
                     <div>
-                        <Link to={`/detail/`} >
+                        <Link to={`/detail/${name}`} >
                             <img src={imageFront} alt="상품사진" />
                         </Link>
                     </div>
-                    <Link to={`/detail`}>
+                    <Link to={`/detail/${name}`}>
                         {name}
                     </Link>
                 </td>
@@ -45,12 +40,11 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
                 </td>
 
                 <td className="goods_price" >
-                    {totalPricing().toLocaleString()}
+                    {price}
                 </td>
-
             </tr>
         </tbody>
     );
 }
 
-export default BasketGoods;
+export default React.memo(BasketGoods);

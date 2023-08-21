@@ -1,8 +1,9 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
-import { useContext, useState } from 'react';
+import { useContext, useState, useMemo } from 'react';
 import mockItemsContext from '../items/MockItems';
+import usePricing from "../customHooks/usePricing";
 
 const Basket = () => {
 
@@ -34,6 +35,32 @@ const Basket = () => {
             setCheckItems(checkItems.filter((el) => el !== name))
         }
     }
+
+    // ============================
+    const [quantityGoods, setQuantityGoods] = useState(1);
+    const [totalPrice, setTotalPrice] = useState('');
+    
+
+    //상품 개수 선택
+    const changeQuantity = (e) => {
+        const newQuantity = parseInt(e.target.value);
+        setQuantityGoods(newQuantity);
+    };
+
+    const totalPricing = (price) => {
+        const newtotalPricing = quantityGoods * price;
+        setTotalPrice(newtotalPricing);
+        return newtotalPricing;
+    }
+
+/*     const totalPricing = useMemo(() => {
+        const newtotalPricing = quantityGoods * cartItems[0].price;
+        setTotalPrice(newtotalPricing);
+    }, [quantityGoods, cartItems.price]); */
+
+    console.log(quantityGoods);
+    console.log(totalPrice);
+
 
     return (
         <div>
@@ -72,7 +99,10 @@ const Basket = () => {
                                             handleAllCheck={handleAllCheck}
                                             handleSingleCheck={handleSingleCheck}
                                             checkItems={checkItems}
+                                            changeQuantity={changeQuantity}
+                                            totalPricing={totalPricing}
                                         />)}
+
                                     </table>
 
                                     <div className="btn_bottom">

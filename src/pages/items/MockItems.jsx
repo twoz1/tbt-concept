@@ -189,7 +189,7 @@ const G_MockItemsArr = [
     },
     {
         id: 6,
-        name: 'sharon Gold Crystal',
+        name: 'Sharon Gold Crystal',
         price: 99000,
         isDone : false,
         link: './items/DetailedPage',
@@ -206,7 +206,7 @@ const G_MockItemsArr = [
     },
     {
         id: 7,
-        name: 'tena Black',
+        name: 'Tena Black',
         price: 99000,
         isDone : false,
         link: './items/DetailedPage',
@@ -258,7 +258,7 @@ const G_MockItemsArr = [
     },
     {
         id: 10,
-        name: 'sharon Gold Crystal',
+        name: 'Sharon Gold Crystal',
         price: 99000,
         isDone : false,
         link: './items/DetailedPage',
@@ -275,7 +275,7 @@ const G_MockItemsArr = [
     },
     {
         id: 11,
-        name: 'tena Black',
+        name: 'Tena Black',
         price: 99000,
         isDone : false,
         link: './items/DetailedPage',

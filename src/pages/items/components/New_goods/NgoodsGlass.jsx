@@ -9,8 +9,6 @@ const NgoodsGlass = () => {
     
     const {gArr} = useContext(mockItemsContext);
     const newGoodsGlassList = [...gArr];
-    console.log (`글라스 : ${newGoodsGlassList}`);
-
 
     return (
         <ul className='new_glass_img'>
