@@ -4,7 +4,7 @@ import '../../../../styles/payments/BasketGoods.css';
 import { Link } from 'react-router-dom';
 
 // quantityGoods, changeQuantity, totalPricing, finalPricing
-const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods,quantity }) => {
+const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods, quantity }) => {
 
 
     return (
@@ -34,13 +34,13 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
                 <td className="goods_quantity">
                     <input type="number"
                         min={1} max={10}
-                        Value={quantityGoods}
-                        onChange={changeQuantity}
+                        value={quantityGoods}
+                        onChange={(e) => changeQuantity(e, name)}
                     />
                 </td>
 
                 <td className="goods_price" >
-                    {price}
+                    {totalPricing(price, quantityGoods)}
                 </td>
             </tr>
         </tbody>

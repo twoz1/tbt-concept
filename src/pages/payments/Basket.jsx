@@ -15,6 +15,7 @@ const Basket = () => {
     const [checkItems, setCheckItems] = useState([]);
     const [cartItems, setCartItems] = useState(cartList);
 
+    //체크박스 구현============================
     const handleAllCheck = (checked) => {
         if (checked) {
             // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
@@ -36,30 +37,41 @@ const Basket = () => {
         }
     }
 
-    // ============================
+    // 상품 금액 계산============================
     const [quantityGoods, setQuantityGoods] = useState(1);
-    const [totalPrice, setTotalPrice] = useState('');
+    const [totalPrice, setTotalPrice] = useState(0);
     
 
     //상품 개수 선택
-    const changeQuantity = (e) => {
+    const changeQuantity = (e, itemName) => {
         const newQuantity = parseInt(e.target.value);
         setQuantityGoods(newQuantity);
+
+        // BasketGoods의 quantity도 같이 업데이트되어야 합니다.
+        setCartItems(prevCartItems => {
+            return prevCartItems.map(item => {
+                if (item.name === itemName) {
+                    return { ...item, quantity: newQuantity };
+                }
+                return item;
+            });
+        });
     };
 
-    const totalPricing = (price) => {
-        const newtotalPricing = quantityGoods * price;
-        setTotalPrice(newtotalPricing);
-        return newtotalPricing;
-    }
-
-/*     const totalPricing = useMemo(() => {
-        const newtotalPricing = quantityGoods * cartItems[0].price;
-        setTotalPrice(newtotalPricing);
-    }, [quantityGoods, cartItems.price]); */
+    const totalPricing = (price, quantity) => {
+        const newTotalPricing = quantity * price;
+        return newTotalPricing;
+    };
 
     console.log(quantityGoods);
     console.log(totalPrice);
+
+    // 선택 상품 삭제============================
+    const handleDeleteSelected = () => {
+        const updatedCartItems = cartItems.filter(item => !checkItems.includes(item.name));
+        setCartItems(updatedCartItems);
+        setCheckItems([]); // 체크된 아이템 초기화
+    };
 
 
     return (
@@ -99,14 +111,15 @@ const Basket = () => {
                                             handleAllCheck={handleAllCheck}
                                             handleSingleCheck={handleSingleCheck}
                                             checkItems={checkItems}
-                                            changeQuantity={changeQuantity}
+                                            changeQuantity={(e) => changeQuantity(e, item.name)}
                                             totalPricing={totalPricing}
+                                            quantityGoods={item.quantity}
                                         />)}
 
                                     </table>
 
                                     <div className="btn_bottom">
-                                        <button type="button">선택상품삭제</button>
+                                        <button type="button" onClick={handleDeleteSelected}>선택상품삭제</button>
                                         <button type="button">쇼핑계속하기</button>
                                     </div>
                                 </figure>
