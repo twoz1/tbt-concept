@@ -7,16 +7,11 @@ import { Link } from 'react-router-dom';
 // 1. 체크박스 자식 요소도 선택될 수 있도록 구현
 // 2. 체크된 리스트 삭제 버튼 구현
 
-const BasketGoods = ({ id, name, price, link, imageFront, isChecked, onChange }) => {
+const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems}) => {
 
     // usePricing 사용
     const { quantityGoods, changeQuantity, totalPricing, finalPricing } = usePricing(1, price);
 
-    // 체크박스 구현
-    const handleChildCheckboxChange = (e) => {
-        const isChecked = e.target.checked;
-        onChange(isChecked);
-    };
 
     return (
         <tbody>
@@ -24,18 +19,18 @@ const BasketGoods = ({ id, name, price, link, imageFront, isChecked, onChange })
                 <th>
                     <input type="checkbox"
                         name="goods"
-                        checked={isChecked}
-                        onChange={(e) => handleChildCheckboxChange(e, name)}
+                        checked={checkItems.includes(name)}
+                        onChange={() => handleSingleCheck(!checkItems.includes(name), name)}
                     />
                 </th>
 
                 <td className="goods_name">
                     <div>
-                        <Link to={`/detail/${name}`} >
+                        <Link to={`/detail/`} >
                             <img src={imageFront} alt="상품사진" />
                         </Link>
                     </div>
-                    <Link to={`/detail/${name}`}>
+                    <Link to={`/detail`}>
                         {name}
                     </Link>
                 </td>

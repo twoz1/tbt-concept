@@ -1,17 +1,8 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
-import { useContext, useState, useReducer, startTransition } from 'react';
+import { useContext, useState } from 'react';
 import mockItemsContext from '../items/MockItems';
-
-function reducer(state, action) {
-    switch (action.type) {
-        case 'Delete': {
-            return state.filter((it) => it.name !== action.targetName)
-        }
-        default: return state;
-    };
-}
 
 const Basket = () => {
 
@@ -19,49 +10,30 @@ const Basket = () => {
     const { sArr, gArr } = useContext(mockItemsContext);
     const mockItemsData = [...sArr, ...gArr];
 
-    const [basketItems, dispatch] = useReducer(reducer, mockItemsData);
+    const cartList = mockItemsData.slice(0, 4);
+    const [checkItems, setCheckItems] = useState([]);
+    const [cartItems, setCartItems] = useState(cartList);
 
-    //체크박스 구현
-    //목데이터에 checkbox를 위한 속성 추가해야 할 것 같음
-    // const [parentCheckbox, setParentCheckbox] = useState(false);
-
-    const [parentCheckbox, setParentCheckbox] = useState(false);
-       // BasketGoods 컴포넌트의 체크박스 상태를 관리하는 배열
-       const [childCheckboxStates, setChildCheckboxStates] = useState(
-        mockItemsData.map((item) => ({
-            name: item.name,
-            isChecked: false,
-        }))
-    );
-
-    const handleParentCheckboxChange = () => {
-        const newParentCheckboxState = !parentCheckbox;
-        setParentCheckbox(newParentCheckboxState);
-
-        // BasketGoods 컴포넌트의 체크박스 상태를 변경
-        const newChildCheckboxStates = childCheckboxStates.map((item) => ({
-            name: item.name,
-            isChecked: newParentCheckboxState,
-        }));
-
-        setChildCheckboxStates(newChildCheckboxStates);
-    };
-
-    const handleChildCheckboxChange = (checkboxName, isChecked) => {
-        // BasketGoods 컴포넌트의 체크박스 상태를 업데이트
-        const newChildCheckboxStates = childCheckboxStates.map((item) =>
-            item.name === checkboxName ? { ...item, isChecked } : item
-        );
-
-        setChildCheckboxStates(newChildCheckboxStates);
-
-        if (!isChecked) {
-            setParentCheckbox(false);
+    const handleAllCheck = (checked) => {
+        if (checked) {
+            // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
+            const idArray = [];
+            cartItems.map((el) => idArray.push(el.name));
+            setCheckItems(idArray);
+            // console.log(checkItems);
         } else {
-            const allChecked = newChildCheckboxStates.every((item) => item.isChecked);
-            setParentCheckbox(allChecked);
+            setCheckItems([])
         }
-    };
+    }
+
+    const handleSingleCheck = (checked, name) => {
+        if (checked) {
+            // 단일 선택 해제 시 체크된 아이템을 제외한 배열(필터)
+            setCheckItems([...checkItems, name])
+        } else {
+            setCheckItems(checkItems.filter((el) => el !== name))
+        }
+    }
 
     return (
         <div>
@@ -86,8 +58,8 @@ const Basket = () => {
                                             <tr>
                                                 <th>
                                                     <input type="checkbox"
-                                                        checked={parentCheckbox}
-                                                        onChange={handleParentCheckboxChange}
+                                                        checked={checkItems.length === cartItems.length}
+                                                        onChange={() => handleAllCheck(checkItems.length !== cartItems.length)}
                                                     />
                                                 </th>
                                                 <th>상품 정보</th>
@@ -96,9 +68,10 @@ const Basket = () => {
                                             </tr>
                                         </thead>
 
-                                        {mockItemsData.slice(0, 4).map((item) => <BasketGoods key={item.name} {...item}
-                                             isChecked={childCheckboxStates.find((el) => el.name === item.name)?.isChecked || false}
-                                             onChange={(isChecked) => handleChildCheckboxChange(`checkbox${item.name}`, isChecked)}
+                                        {cartItems.map((item) => <BasketGoods key={item.name} {...item}
+                                            handleAllCheck={handleAllCheck}
+                                            handleSingleCheck={handleSingleCheck}
+                                            checkItems={checkItems}
                                         />)}
                                     </table>
 
@@ -121,4 +94,3 @@ const Basket = () => {
 };
 
 export default Basket;
-
