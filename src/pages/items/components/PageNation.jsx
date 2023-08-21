@@ -4,9 +4,9 @@ import { useState } from 'react';
 
 
 
-    const PageNation = ({ setPage }) => {
-        const [clickedPage, setClickedPage] = useState(1);
-      
+const PageNation = ({ setPage }) => {
+  const [clickedPage, setClickedPage] = useState(1);
+
   return (
     <div className="next_page">
       {[1, 2].map((pageNumber) => (
@@ -21,12 +21,11 @@ import { useState } from 'react';
           {pageNumber}
         </span>
       ))}
-
-</div>
+    </div>
 
   )
 }
 
 
-  
-  export default React.memo(PageNation);
+
+export default React.memo(PageNation);

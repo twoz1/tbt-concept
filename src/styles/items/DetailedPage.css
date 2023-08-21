@@ -305,6 +305,9 @@ body {
     font-size: 12px;
 }
 
+.page_nation {
+    height: 100px;
+}
 /* ============================================================= */
 
 .q_a_button {
@@ -314,7 +317,7 @@ body {
     margin-right: 20px;
 }
 
-.q_a_button a {
+.q_a_button .QnA_Button {
     background-color: black;
     color: white;
     width: 70px;
