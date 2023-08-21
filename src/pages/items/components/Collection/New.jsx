@@ -11,58 +11,45 @@ const New = () => {
     const what_new_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
-        what_new_idx = useRef(0);
+        what_new_idx = useRef(0),
+        liWidth = useRef({ even: 257.5, odd: 217.5 });
+    const slideDistances = [227.5, 267.5];
 
-    function clickBackBtn(e) {
-        what_new_idx.current--;
-        what_new_list.current.style.left = `${-what_new_idx.current * 265}px`;
-
-        btn_next.current.classList.remove('nonVisible');
-        if (what_new_idx.current <= 0) {
-            btn_pre.current.classList.add('nonVisible');
+    function handleClick(e, direction) {
+        if (direction === 'next') {
+            what_new_idx.current++;
+        } else if (direction === 'back') {
+            what_new_idx.current--;
         }
-        toggleItemWidth();
+
+        const totalDistance = calculateTotalDistance(what_new_idx.current);
+        what_new_list.current.style.left = `${-totalDistance}px`;
+
+        btn_pre.current.classList.toggle('nonVisible', what_new_idx.current <= 0);
+        btn_next.current.classList.toggle('nonVisible', what_new_idx.current >= 4);
+
+
+        const tempWidth = liWidth.current.odd;
+        liWidth.current.odd = liWidth.current.even;
+        liWidth.current.even = tempWidth;
+        updateLiWidth();
     }
 
-    function clickNext(e) {
-        what_new_idx.current++;
-        
-        if (what_new_idx.current === 1) {
-            what_new_list.current.style.left = `${-what_new_idx.current * 225}px`;
-        } else {
-            what_new_list.current.style.left = `${-what_new_idx.current * 245}px`;
+    function calculateTotalDistance(idx) {
+        let totalDistance = 0;
+        for (let i = 0; i < idx; i++) {
+            totalDistance += slideDistances[i % slideDistances.length];
         }
-
-        btn_pre.current.classList.remove('nonVisible');
-        if (what_new_idx.current >= 4) {
-            btn_next.current.classList.add('nonVisible');
-        }
-        toggleItemWidth();
+        return totalDistance;
     }
-    function toggleItemWidth() {
-        const evenItems = what_new_list.current.querySelectorAll('.what_new_list li:nth-child(even)');
-        const oddItems = what_new_list.current.querySelectorAll('.what_new_list li:nth-child(odd)');
 
-        evenItems.forEach((item) => {
-            item.style.width = '255px'; // odd 아이템의 width로 설정
+    function updateLiWidth() {
+        const liElements = what_new_list.current.querySelectorAll('li');
+        liElements.forEach((li, index) => {
+            const width = index % 2 === 0 ? liWidth.current.even : liWidth.current.odd;
+            li.style.width = `${width}px`;
         });
-
-        oddItems.forEach((item) => {
-            item.style.width = '215px'; // even 아이템의 width로 설정
-        });
     }
-
-    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-    const [newList2, setNewList2] = useState(newList.slice(0, 8));
-
-    // const handlePrevClick = () => {
-    //     setNewList2(prevList => prevList.slice(0, prevList.length - 1));
-    // };
-
-    // const handleNextClick = () => {
-    //     setNewList2(prevList => prevList.slice(1)); // Remove the first item
-    // };
 
     return (
         <div className="what_new">
@@ -77,25 +64,22 @@ const New = () => {
                     </h2>
                 </Link>
             </div>
-
-            <button className="btn_pre nonVisible" ref={btn_pre} onClick={clickBackBtn}>
+            <button className="btn_pre nonVisible" ref={btn_pre} onClick={(e) => handleClick(e, 'back')}>
                 <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <div className="what_new_item">
-                <ul className="what_new_list">
-                    {newList2.map((item) => (
-                        <li>
-                            <Link to={`/detail/${item.name}`} key={item.name}>
+                <ul className="what_new_list" ref={what_new_list} >
+                    {newList.slice(0, 8).map((item, i) => (
+                        <li style={{ width: `${liWidth.current[i % 2 === 0 ? 'even' : 'odd']}px` }}>
+                            <Link to={`/ detail / ${item.name} `} key={item.name}>
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
-                            </Link>
                                 <div className="item_name">
                                     <span>{item.name}</span>
                                 </div>
                                 <div className="item_price">
                                     <span>{item.price.toLocaleString()}원</span>
                                 </div>
-                            <Link to={`/detail/${item.name}`} key={item.name}>
                                 <div className="shop_this">
                                     <a>{item.shopThis} &#62;</a>
                                 </div>
@@ -104,10 +88,9 @@ const New = () => {
                     ))}
                 </ul>
             </div>
-            <button className="btn_next" ref={btn_next} onClick={clickNext}>
+            <button className="btn_next" ref={btn_next} onClick={(e) => handleClick(e, 'next')}>
                 <FontAwesomeIcon icon={faChevronRight} />
             </button>
-
         </div>
     );
 };

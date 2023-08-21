@@ -25,11 +25,13 @@ hr {
     object-fit: cover;
     overflow: hidden;
 }
+
 .img_button {
     display: flex;
     justify-content: center;
     gap: 30px;
 }
+
 .img_button button {
     margin-top: 20px;
     width: 100px;
@@ -55,9 +57,9 @@ hr {
     background-color: #fff;
     justify-content: space-between;
     width: 100%;
-    height:400px;
+    height: 400px;
     margin: 150px 0;
-    gap:10px;
+    gap: 10px;
 }
 
 .item_name {
@@ -96,38 +98,32 @@ hr {
 }
 
 .what_new_item {
-    width:980px;
-    height:100%;
+    width: 980px;
+    height: 100%;
     position: relative;
     overflow: hidden;
 }
 
 .what_new_item ul {
-    width:1000000%;
-    height:400px;
+    width: 1000000%;
+    height: 400px;
     text-align: center;
     transition: left 0.7s 0.1s;
-    position:absolute;
-    top:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .what_new_item li {
-    height:100%;
+    height: 100%;
     font-size: 16px;
     font-style: normal;
-    float:left;
-    width:255px;
-    margin-right:10px;
+    float: left;
+    margin-right: 10px;
     white-space: nowrap;
+    transition: transform 0.3s ease-in-out;
 }
 
-.what_new_item li:nth-child(even){
-    width:215px;
-}
-.what_new_item li:nth-child(odd){
-    width:255px;
-}
 /* ---------------------------------------------------- */
 .what_new_item ul li a img {
     width: 100%;
@@ -176,13 +172,13 @@ hr {
     background: url(../../images/flsjdfalskdfjkasljfdl.jpeg) center/100% no-repeat;
 }
 
-.collection_m > a {
+.collection_m>a {
     color: #fff;
     font-size: 44px;
     font-weight: bold;
 }
 
-.collection_m > a + a {
+.collection_m>a+a {
     color: #fff;
     font-size: 14px;
     font-weight: bold;
@@ -209,7 +205,7 @@ hr {
     gap: 5px;
 }
 
-.best_title > a {
+.best_title>a {
     font-size: 30px;
 }
 
@@ -234,21 +230,25 @@ hr {
     text-align: center;
     width: 100%;
 }
+
 /* -------------------------------------- */
 .best_item ul li a img {
     width: 100%;
     display: block;
     margin-bottom: 20px;
 }
+
 .best img {
     width: 400px;
 }
+
 .best_item {
     width: 1240px;
     height: 500px;
     overflow: hidden;
     position: relative;
 }
+
 .best_item .best_list {
     display: flex;
     height: 100%;
@@ -256,10 +256,12 @@ hr {
     left: 0;
     transition: left 0.7s 0.1s;
 }
+
 .best_item .best_list img {
     width: 302px;
     margin-bottom: 50px;
 }
+
 /* -------------------------------------- */
 .best_list img:nth-child(2) {
     display: none;
@@ -295,12 +297,13 @@ hr {
 .btn_pre {
     right: 102%;
 }
+
 .btn_next {
     left: 102%;
 }
 
 button.nonVisible {
-    visibility:hidden;
+    visibility: hidden;
 }
 
 /* ==============best=============== */
