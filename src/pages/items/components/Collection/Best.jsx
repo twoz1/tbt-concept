@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useReducer, useRef } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
 const Best = () => {
-    const bestItemList = useContext(mockItemsContext);
+    const { sArr } = useContext(mockItemsContext);
+    const bestList = [...sArr];
     const best_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -43,7 +44,7 @@ const Best = () => {
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
-                    {bestItemList.slice(17, 25).map((item) => (
+                    {bestList.slice(0, 9).map((item) => (
                         <li>
                             <Link to={`/detail/${item.id}`} key={item.id}>
                                 <img src={item.imageFront} alt="상품" />
