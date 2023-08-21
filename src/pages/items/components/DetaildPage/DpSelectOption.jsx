@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const DpSelectOption = ({ ProductListSelected }) => {
 
-    const { name, price } = ProductListSelected;
+    const { name, price, imageFront } = ProductListSelected;
     const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, price);
 
     const [isLiked, setIsLiked] = useState(false);
@@ -16,7 +16,7 @@ const DpSelectOption = ({ ProductListSelected }) => {
     const heartIconStyle = {
         color: isLiked ? 'orangered' : 'gray'
     };
-
+    console.log(imageFront)
     return (
 
         <div className="choice">
@@ -35,13 +35,18 @@ const DpSelectOption = ({ ProductListSelected }) => {
                     max={10}
                     value={quantityGoods}
                     onChange={changeQuantity} />
+                    
 
                 <span>{totalPricing().toLocaleString()}원</span>
-
+            
             </div>
 
             <div className="choice_button">
-                <Link to ='/checkout'>바로 구매</Link>
+                <Link to='/checkout' state={{
+                    quantityGoods: quantityGoods,
+                    price: price,
+                    imageFront:imageFront,
+                }}>바로 구매</Link>
                 <Link to='/cart'>쇼핑백 담기</Link>
                 <button onClick={likedItem} >
                     <i className="fa-sharp fa-solid fa-heart" style={heartIconStyle} ></i>

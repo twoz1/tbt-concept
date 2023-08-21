@@ -3,7 +3,8 @@ import { useContext } from 'react';
 import mockItemsContext from '../../../items/MockItems';
 import ItemInfo from './ItemInfo';
 
-const Item = ({count}) => {
+const Item = ({quantityGoods,price,imageFront}) => {
+    console.log(price)
     const { gArr } = useContext(mockItemsContext);
     const itemList = [...gArr];
     const [selectAll, setSelectAll] = useState(false);
@@ -17,7 +18,7 @@ const Item = ({count}) => {
     const handleIndividualSelect = () => {
         setIndividualSelect(!individualSelect);
     };
-
+    
     return (
         <div className="item">
             <h3>주문상품</h3>
@@ -36,8 +37,9 @@ const Item = ({count}) => {
                     </tr>
                     <tr>
                         <ItemInfo
-                            count={count}
-                            item={itemList[4]} // 첫 번째 상품을 전달하거나 원하는 상품을 전달하세요
+                            quantityGoods={quantityGoods}
+                            price={price}
+                            imageFront={imageFront}
                             individualSelect={individualSelect}
                             handleIndividualSelect={handleIndividualSelect}
                         />
@@ -62,13 +64,7 @@ const Item = ({count}) => {
                         ))}
                         <td>무료</td> */}
                     </tr>
-                    <tr>
-                    <ItemInfo
-                            item={itemList[3]} // 첫 번째 상품을 전달하거나 원하는 상품을 전달하세요
-                            individualSelect={individualSelect}
-                            handleIndividualSelect={handleIndividualSelect}
-                        />
-                    </tr>
+
                     <tr>
                         <td colSpan="6">
                             <span>&#42;</span>제주&#47;도서산간 지역의 경우 추가 배송비가 발생할 수 있습니다.

@@ -7,12 +7,17 @@ import Pay from './components/Checkout/Pay';
 import SidePay1 from './components/Checkout//SidePay1';
 import SidePay2 from './components/Checkout/SidePay2';
 import { useLocation } from 'react-router-dom';
+
 // --------------------------------------------------------------
 
 // --------------------------------------------------------------
 const Checkout = () => {
     const location = useLocation();
-    const count = location.state.count;
+    const quantityGoods = location.state.quantityGoods;
+    const name = location.state.name
+    const price = location.state.price
+    const imageFront = location.state.imageFront
+    console.log(price)
     return (
         <div>
             <div className="center m_c">
@@ -23,8 +28,12 @@ const Checkout = () => {
                             <div className="information">
                                 <Information></Information>
                             </div>
-                            <Item count={count}></Item>
-                            <Discount></Discount>
+                            <Item quantityGoods={quantityGoods}
+                                name={name}
+                                price={price}
+                                imageFront={imageFront } />
+                            <Discount price={price}
+                            quantityGoods={quantityGoods}/>
                             <Pay></Pay>
                         </form>
                     </section>

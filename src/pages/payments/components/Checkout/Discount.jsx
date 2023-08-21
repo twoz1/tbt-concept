@@ -1,34 +1,37 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-const Discount = () => {
-    const [totalCount, setTotalCount] = useState(81000);
+const Discount = ({ price, quantityGoods }) => {
+    const [totalCount, setTotalCount] = useState(price * quantityGoods);
     const [selectedCoupon, setSelectedCoupon] = useState("default");
-    
+
     const couponOptions = [
-        { value: "default", label: "쿠폰선택", discount: 0 },
-        { value: "welcome", label: "회원가입 감사 10% 할인 쿠폰", discount: 0.9 },
-        { value: "summer", label: "s/s기념 10% 할인 쿠폰", discount: 0.9 },
+        { value: 'default', label: '쿠폰선택', discount: 1 },
+        { value: 'welcome', label: '회원가입 감사 10% 할인 쿠폰', discount: 0.9 },
+        { value: 'summer', label: 's/s기념 10% 할인 쿠폰', discount: 0.9 },
     ];
-    
+
     const handleCouponChange = (event) => {
         const selectedValue = event.target.value;
-        const selectedCouponInfo = couponOptions.find(coupon => coupon.value === selectedValue);
         setSelectedCoupon(selectedValue);
-        
+
+        const selectedCouponInfo = couponOptions.find(coupon => coupon.value === selectedValue);
         if (selectedCouponInfo) {
-            // const discountedTotal = totalCount - (totalCount * selectedCouponInfo.discount);
-            const discountedTotal = totalCount  * selectedCouponInfo.discount;
+            const discountedTotal = price * quantityGoods * selectedCouponInfo.discount;
             setTotalCount(discountedTotal);
         } else {
-            setTotalCount(89000); // Default total count if no coupon is selected
+            setTotalCount(price * quantityGoods); // Default total count if no coupon is selected
         }
     };
-    
+
     useEffect(() => {
         if (selectedCoupon === "default") {
-            setTotalCount(81000);
+            setTotalCount(price * quantityGoods);
         }
-    }, [selectedCoupon]);
+    }, [selectedCoupon, price, quantityGoods]);
+
+    const prepr = () => {
+        return totalCount;
+    }
 
     return (
         <div className="discount">
@@ -37,14 +40,14 @@ const Discount = () => {
                 <tbody>
                     <tr>
                         <th>결제 예정금액</th>
-                        <td>{totalCount}</td>
+                        <td>{prepr()}</td>
                     </tr>
                     <tr>
                         <th>할인 쿠폰</th>
                         <td>
                             <select className="checkout_cou" onChange={handleCouponChange} value={selectedCoupon}>
-                                {couponOptions.map(coupon => (
-                                    <option key={coupon.value} value={coupon.value}>
+                                {couponOptions.map((coupon) => (
+                                    <option key={coupon.discount} value={coupon.value}>
                                         {coupon.label}
                                     </option>
                                 ))}
