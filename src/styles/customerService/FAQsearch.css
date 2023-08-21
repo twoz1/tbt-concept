@@ -44,18 +44,19 @@
 
 .cs_schLeft,
 .cs_schRight {
-    margin-top: 3rem;
+    margin-top: 0.4rem;
 }
 
 
 /* 리스트 뜨는 css 수정해야 함 */
 .schFAQbtn {
-    /* position: absolute;
-    top: 15%; */
-    margin-left: 13rem;
+    position: absolute;
+    top: 290px;
+    margin-left: 12.8rem;
     margin-bottom: 10rem;
     background-color: white;
     width: 600px;
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }

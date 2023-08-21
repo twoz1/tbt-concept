@@ -31,11 +31,11 @@ const BasketGoods = ({ id, name, price, link, imageFront, isChecked, onChange })
 
                 <td className="goods_name">
                     <div>
-                        <Link to={`/detail/`} >
+                        <Link to={`/detail/${name}`} >
                             <img src={imageFront} alt="상품사진" />
                         </Link>
                     </div>
-                    <Link to={`/detail`}>
+                    <Link to={`/detail/${name}`}>
                         {name}
                     </Link>
                 </td>

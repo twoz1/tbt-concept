@@ -386,7 +386,7 @@ const G_MockItemsArr = [
     {
         id: 1,
         name: 'Eva Crystal Violet Tint',
-        price: 169000,
+        price: 139000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_evaCrystalVioletTint_01,
@@ -403,7 +403,7 @@ const G_MockItemsArr = [
     {
         id: 2,
         name: 'Hangang Black',
-        price: 169000,
+        price: 55000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_hangangBlack_01,
@@ -420,7 +420,7 @@ const G_MockItemsArr = [
     {
         id: 3,
         name: 'Orr Black',
-        price: 169000,
+        price: 79000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_orrBlack_01,
@@ -437,7 +437,7 @@ const G_MockItemsArr = [
     {
         id: 4,
         name: 'Roan Gray Cystal',
-        price: 199000,
+        price: 249000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_roanGrayCystal_01,
@@ -455,7 +455,7 @@ const G_MockItemsArr = [
     {
         id: 5,
         name: 'Scott Cystal Orange Tint',
-        price: 199000,
+        price: 89000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_scottCystalOrangeTint_01,
@@ -473,7 +473,7 @@ const G_MockItemsArr = [
     {
         id: 6,
         name: 'Tamda Beige',
-        price: 199000,
+        price: 109000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_tamdaBeige_01,
@@ -491,7 +491,7 @@ const G_MockItemsArr = [
     {
         id: 7,
         name: 'Deps Black',
-        price: 199000,
+        price: 279000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_depsBlack_01,
@@ -509,7 +509,7 @@ const G_MockItemsArr = [
     {
         id: 8,
         name: 'Roan Gray Cystal',
-        price: 199000,
+        price: 419000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_roanGrayCystal_01,
@@ -527,7 +527,7 @@ const G_MockItemsArr = [
     {
         id: 9,
         name: 'Scott Cystal Orange Tint',
-        price: 199000,
+        price: 149000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_scottCystalOrangeTint_01,
@@ -563,7 +563,7 @@ const G_MockItemsArr = [
     {
         id: 11,
         name: 'Deps Black',
-        price: 199000,
+        price: 119000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_depsBlack_01,
@@ -580,7 +580,7 @@ const G_MockItemsArr = [
     {
         id: 12,
         name: 'Bibi Black',
-        price: 169000,
+        price: 309000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_bibiBlack_01,
@@ -598,7 +598,7 @@ const G_MockItemsArr = [
     {
         id: 13,
         name: 'Eva Crystal Violet Tint',
-        price: 169000,
+        price: 129000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_evaCrystalVioletTint_01,
@@ -615,7 +615,7 @@ const G_MockItemsArr = [
     {
         id: 14,
         name: 'Hangang Black',
-        price: 169000,
+        price: 209000,
         isDone : false,
         link: './items/DetailedPage',
         imageFront: s_hangangBlack_01,
