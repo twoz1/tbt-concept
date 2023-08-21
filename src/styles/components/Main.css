@@ -49,14 +49,15 @@ hr {
 }
 
 .what_new {
-    border: solid 0px;
+    border: none;
     font-size: 30px;
     display: flex;
     background-color: #fff;
-    justify-content: space-evenly;
-    min-width: 1200px;
+    justify-content: space-between;
     width: 100%;
+    height:400px;
     margin: 150px 0;
+    gap:10px;
 }
 
 .item_name {
@@ -91,64 +92,48 @@ hr {
     align-items: center;
     justify-content: center;
     display: flex;
+    width: 190px;
 }
 
 .what_new_item {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 15px;
+    width:980px;
+    height:100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .what_new_item ul {
-    display: flex;
+    width:1000000%;
+    height:400px;
     text-align: center;
-    gap: 10px;
+    transition: left 0.7s 0.1s;
+    position:absolute;
+    top:0;
+    left:0;
 }
 
 .what_new_item li {
-    text-align: center;
+    height:100%;
     font-size: 16px;
     font-style: normal;
-    width: 100%;
+    float:left;
+    width:255px;
+    margin-right:10px;
+    white-space: nowrap;
 }
 
-.what_new_list li:nth-child(even) img {
-    width: 230px;
+.what_new_item li:nth-child(even){
+    width:215px;
 }
-.what_new_list li:nth-child(odd) img {
-    width: 273px;
+.what_new_item li:nth-child(odd){
+    width:255px;
 }
-
 /* ---------------------------------------------------- */
 .what_new_item ul li a img {
     width: 100%;
     display: block;
-    margin-bottom: 50px;
 }
-.what_new img {
-    width: 400px;
-}
-.what_new_item {
-    width: 1240px;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-}
-.what_new_item .what_new_list {
-    display: flex;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    transition: left 0.7s 0.1s;
-}
-.what_new_item .what_new_list img {
-    width: 258px;
-    margin-bottom: 25px;
-}
-button.nonVisible {
-    display: none;
-}
+
 
 /* ---------------------------------------------------- */
 
@@ -156,7 +141,7 @@ button.nonVisible {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .what_new button {
@@ -253,7 +238,7 @@ button.nonVisible {
 .best_item ul li a img {
     width: 100%;
     display: block;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .best img {
     width: 400px;
@@ -315,7 +300,7 @@ button.nonVisible {
 }
 
 button.nonVisible {
-    display: none;
+    visibility:hidden;
 }
 
 /* ==============best=============== */
