@@ -85,7 +85,7 @@ const JoinForm = () => {
         <table className='join_table'>
             <tr id="sale_coupon">
                 <td colspan="2">
-                    <strong>회원으로 가입하시면 즉시 사용가능한 10&#37; 할인쿠폰을 드립니다.</strong>
+                    <strong>회원으로 가입하시면 즉시 사용가능한 10&#37; 할인쿠폰을 드립니다. </strong>
                     <em>&#40;본인인증 완료한 계정당 1회 사용 가능&#41;</em>
                 </td>
             </tr>

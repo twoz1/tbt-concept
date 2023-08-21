@@ -2,7 +2,7 @@
 .required_entry,
 .general_agreement,
 .check_agreement {
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
@@ -103,9 +103,10 @@
 
 #letter {
     display: block;
-    font-size: 5px;
+    font-size: 12px;
     white-space: nowrap;
-    padding-left: 20px;
+    padding-left: 17px;
+    margin-top:5px;
 }
 
 /* ==================================== */
@@ -119,8 +120,15 @@
 .Join .check_agreement .each_check_agreement {
     background-color: #eee;
     margin-top: 2px;
-    line-height: 40px;
+    height: 40px;
     padding-left: 10px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Join .check_agreement .each_check_agreement input{
+    margin-right:5px;
 }
 
 

@@ -40,6 +40,11 @@
 .third_column {
     border-right: none;
 }
+
+.Join_Modal02 .text_underLine2{
+    margin-top:7px;
+}
+
 .Join_Modal02 .text_underLine2>li {
     font-weight: bold;
     text-decoration: underline;
@@ -57,13 +62,8 @@
     text-align: center;
     background-color: black;
     border: none;
+    color:#fff;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.close_button .close_Join_modal2{
-    background-color: transparent;
-    border: 0;
-    color: white;
-    text-decoration: none;
-}
-
- 
