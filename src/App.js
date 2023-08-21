@@ -17,7 +17,9 @@ import ResultFrame from './pages/customerService/ResultFrame';
 import Orderlist from './pages/members/Orderlist';
 import New_goods from './pages/items/New_goods';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { NavLink, Link, Route, Routes } from 'react-router-dom';
+import mockItemsContext from './pages/items/MockItems';
 
 
 
@@ -54,6 +56,10 @@ function App() {
 
     const [order, setOrder] = useState(orderList);
 
+    const { sArr, gArr } = useContext(mockItemsContext);
+    const mockItemsData = [...sArr, ...gArr];
+    const mockItemsDataArr = [...sArr, ...gArr];
+
     return (
         <div className="App">
             <Header />
@@ -67,7 +73,7 @@ function App() {
                 <Route path='/new' element={<New_goods />}></Route >
                 <Route path='/store' element={<Store />}></Route >
 
-                <Route path='/cart' element={<Basket />}></Route >
+                <Route path='/cart' element={<Basket mockItemsData={mockItemsData} />}></Route>
                 <Route path='/my' element={<Mypage order={order} />}></Route >
                 <Route path='/login' element={<Login />}></Route >
                 <Route path='/join' element={<Join />}></Route >

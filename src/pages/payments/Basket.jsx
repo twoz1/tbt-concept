@@ -1,19 +1,29 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
-import { useContext, useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import mockItemsContext from '../items/MockItems';
-import usePricing from "../customHooks/usePricing";
+// import usePricing from "../customHooks/usePricing";
 
-const Basket = () => {
-
-    //useContext로 mock 데이터 받아오기
-    const { sArr, gArr } = useContext(mockItemsContext);
-    const mockItemsData = [...sArr, ...gArr];
+const Basket = ({ mockItemsData }) => {
 
     const cartList = mockItemsData.slice(0, 4);
     const [checkItems, setCheckItems] = useState([]);
     const [cartItems, setCartItems] = useState(cartList);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        calculateTotalPrice();
+    }, [cartItems]);
+
+    const calculateTotalPrice = () => {
+        let calculatedTotalPrice = 0;
+        for (const item of cartItems) {
+            calculatedTotalPrice += item.price * item.quantity;
+        }
+        setTotalPrice(calculatedTotalPrice);
+    };
+
 
     //체크박스 구현============================
     const handleAllCheck = (checked) => {
@@ -39,32 +49,31 @@ const Basket = () => {
 
     // 상품 금액 계산============================
     const [quantityGoods, setQuantityGoods] = useState(1);
-    const [totalPrice, setTotalPrice] = useState(0);
-    
+    // const [totalPrice, setTotalPrice] = useState(parseInt(cartItems.map(item => item.price)));
+    console.log(`totalprice 초기값 => ${totalPrice}`);
 
     //상품 개수 선택
     const changeQuantity = (e, itemName) => {
         const newQuantity = parseInt(e.target.value);
-        setQuantityGoods(newQuantity);
-
-        // BasketGoods의 quantity도 같이 업데이트되어야 합니다.
         setCartItems(prevCartItems => {
-            return prevCartItems.map(item => {
+            const updatedCartItems = prevCartItems.map(item => {
                 if (item.name === itemName) {
                     return { ...item, quantity: newQuantity };
                 }
                 return item;
             });
+            calculateTotalPrice(); // 상품 수량 변경 시 총 가격 다시 계산
+            return updatedCartItems;
         });
     };
 
-    const totalPricing = (price, quantity) => {
-        const newTotalPricing = quantity * price;
+    const totalPricing = (price, quantityGoods) => {
+        const newTotalPricing = quantityGoods * price;
         return newTotalPricing;
     };
 
-    console.log(quantityGoods);
-    console.log(totalPrice);
+    console.log(`상품 개수 => ${quantityGoods}`);
+    console.log(`상품개수별 가격 => ${totalPrice}`);
 
     // 선택 상품 삭제============================
     const handleDeleteSelected = () => {
@@ -72,6 +81,9 @@ const Basket = () => {
         setCartItems(updatedCartItems);
         setCheckItems([]); // 체크된 아이템 초기화
     };
+
+    console.log("cartItems:", cartItems);
+    console.log("quantityGoods:", quantityGoods);
 
 
     return (
@@ -108,12 +120,20 @@ const Basket = () => {
                                         </thead>
 
                                         {cartItems.map((item) => <BasketGoods key={item.name} {...item}
+                                            // handleAllCheck={handleAllCheck}
+                                            // handleSingleCheck={handleSingleCheck}
+                                            // checkItems={checkItems}
+                                            // changeQuantity={(e) => changeQuantity(e, item.name)}
+                                            // totalPricing={totalPricing}
+                                            // quantityGoods={item.quantity}
+                                            // price={item.price}\
                                             handleAllCheck={handleAllCheck}
                                             handleSingleCheck={handleSingleCheck}
                                             checkItems={checkItems}
                                             changeQuantity={(e) => changeQuantity(e, item.name)}
                                             totalPricing={totalPricing}
                                             quantityGoods={item.quantity}
+                                            price={item.price}
                                         />)}
 
                                     </table>

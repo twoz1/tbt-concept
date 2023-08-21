@@ -4,8 +4,10 @@ import '../../../../styles/payments/BasketGoods.css';
 import { Link } from 'react-router-dom';
 
 // quantityGoods, changeQuantity, totalPricing, finalPricing
-const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods, quantity }) => {
+const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods }) => {
 
+    console.log("price:", price);
+    // console.log("quantity:", quantity);
 
     return (
         <tbody>
@@ -15,7 +17,7 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
                         name="goods"
                         checked={checkItems.includes(name)}
                         onChange={() => handleSingleCheck(!checkItems.includes(name), name)}
-                        value={quantity}
+                        value={quantityGoods}
                     />
                 </th>
 
@@ -47,4 +49,4 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
     );
 }
 
-export default React.memo(BasketGoods);
+export default BasketGoods;
