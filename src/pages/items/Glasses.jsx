@@ -29,9 +29,9 @@ const Glasses = () => {
 
 
     const { id } = useParams();
-    const eachProductList = useContext(mockItemsContext);
-    const [array, dispatch] = useReducer(arrayReducer, eachProductList);
-    console.log(eachProductList);
+    const {gArr} = useContext(mockItemsContext);
+    const [array, dispatch] = useReducer(arrayReducer, gArr);
+    // console.log(eachProductList);
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 8;

@@ -13,7 +13,7 @@ const DpSelectOption = ({ ProductListSelected }) => {
     }
 
     const heartIconStyle = {
-        color: isLiked ? 'orangered' : 'black'
+        color: isLiked ? 'orangered' : 'gray'
     };
 
     return (

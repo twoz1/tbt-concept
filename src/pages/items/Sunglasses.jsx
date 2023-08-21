@@ -26,14 +26,14 @@ const Sunglasses = () => {
     };
 
     const { id } = useParams();
-    const eachProductList = useContext(mockItemsContext);
+    const {sArr} = useContext(mockItemsContext);
     // const eachProductListSelected = eachProductList.find(product => product.id === parseInt(id));
-    const [array, dispatch] = useReducer(arrayReducer, eachProductList);
-    console.log(eachProductList);
+    const [array, dispatch] = useReducer(arrayReducer, sArr);
+    console.log(sArr);
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 8;
-    const startIndex = page + 15;
+    const startIndex = (page - 1) * itemsPerPage;
     const displayedItemInfo1 = array.slice(startIndex, startIndex + itemsPerPage);
 
     const handleSort = (type) => {
