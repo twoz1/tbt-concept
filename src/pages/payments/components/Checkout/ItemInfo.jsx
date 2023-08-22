@@ -1,25 +1,31 @@
 import usePricing from '../../../customHooks/usePricing';
 import React from 'react';
-const ItemInfo = ({  individualSelect, handleIndividualSelect, }) => {
+import { Link } from 'react-router-dom';
 
-  
+const ItemInfo = ({ name, quantity, price, imageFront }) => {
+
     return (
-        <>
-            <td>
-                <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
-            </td>
+        <tr>
             <td className="item_img">
-                <img src="" alt="상품이미지" />
+                <Link to={`/detail/${name}`}>
+                    <img src={imageFront} alt={name} />
+                </Link>
             </td>
-            <td>수량</td>
+
             <td>
-                <span>원</span>
+                <Link to={`/detail/${name}`}>
+                    {name}
+                </Link>
             </td>
+
             <td>
-                <span>원</span>
+                {quantity}
             </td>
-            <td>무료</td>
-        </>
+
+            <td>
+                <span>{price.toLocaleString()}원</span>
+            </td>
+        </tr>
     );
 };
 

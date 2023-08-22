@@ -58,7 +58,6 @@ function App() {
 
     const { sArr, gArr } = useContext(mockItemsContext);
     const mockItemsData = [...sArr, ...gArr];
-    const mockItemsDataArr = [...sArr, ...gArr];
 
     return (
         <div className="App">
@@ -91,7 +90,7 @@ function App() {
                 {/* ----------------이지 링크투-------- */}
                 {/* ----------------진휘 링크투-------- */}
 
-                <Route path='/checkout' element={<Checkout />}></Route>
+                <Route path='/checkout' element={<Checkout mockItemsData={mockItemsData} />}></Route>
 
 
                 {/* ----------------진휘 링크투-------- */}
