@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import '../../styles/customerService/CS_total.css';
 import FAQsearch from './components/CS_total/FAQsearch';
 import InquiryProduct from './components/CS_total/InquiryProduct';
@@ -6,8 +6,8 @@ import QuickMenu from './components/CS_total/QuickMenu';
 import NewmembersService from './components/CS_total/NewmembersService';
 import FreqQuestion from './components/CS_total/FreqQuestion';
 import NewsCS from './components/CS_total/NewsCS';
-import SearchFAQItems from './components/CS_total/SearchFAQItems';
 import useModal from '../customHooks/useModal';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 const mockInqProd = [
     {
@@ -356,11 +356,10 @@ const mockFreqQues = [
 
 const CS_total = () => {
 
+    useScrollToTop();
+
     const [askInqProd, setAskInqProd] = useState(mockInqProd);
     const [searchFAQ, setSearch] = useState(mockFreqQues);
-
-    // custom modal hook을 이용한 모달창 구현
-    const { openModal, closeModal, isModal } = useModal();
 
     return (
         <div>

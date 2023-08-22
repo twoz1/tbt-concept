@@ -29,7 +29,7 @@ const NgoodsSlide = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <Link to='/detail/tena%20Black'><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_04.jpg')} /></Link>
+                    <Link to='/detail/Tena%20Black'><img className='image_slide_1' src={require('../../../../images/newgoodsBanner_04.jpg')} /></Link>
                 </SwiperSlide>
 
                 <SwiperSlide>

@@ -1,74 +1,78 @@
-#pop_basket {
-    display: block;
+.Modal_gotobasket_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+    z-index: 999;
 }
 
-.layer_cont {
+.Modal_gotobasket {
     text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     min-width: 330px;
+    height: 150px;
     background-color: white;
     border: 1px solid black;
     padding: 30px;
 }
 
-.layer_cont>p {
-    margin: 0;
+.Modal_gotobasket p {
+    margin-top: 1rem;
     display: block;
     padding: 20px;
     line-height: 1.4;
     font-size: 16px;
 }
+
 /* =====================쇼핑계속하기/쇼핑백확인===================== */
+
+
 .btn_wrap {
     margin: 0;
     text-align: center;
     font-size: 14px;
     height: 37px;
-    line-height: 37px;
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn_wrap div a {
-    text-decoration: none;
+.btn_black_small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background-color: black;
     color: white;
 }
 
-.btn_wrap div:first-of-type a {
+.btn_white_small {
+    height: 31.8px;
+    background-color: white;
     color: black;
 }
 
-.btn_gray_small,
+.btn_white_small,
 .btn_black_small {
-    width: 90px;
-    margin: 0 4px;
-    display: inline-block;
-    padding: 0 20px;
-}
-
-.btn_gray_small {
-    background-color: white;
     border: 1px solid black;
-}
-
-.btn_black_small {
-    background-color: black;
-    border: 1px solid #000000;
+    margin: 0 4px;
+    width: 120px;
 }
 
 /* =====================(X)버튼===================== */
-.btn_close {
+.btn_closeBasket {
     background-color: white;
     border: none;
     font-size: 18px;
-    text-align: center;
     color: #4e4e4e;
     display: inline-block;
-    overflow: hidden;
-    position: absolute;
-    top: 10px;
-    right: 10px;
     cursor: pointer;
+    position: absolute;
+    top: 8%;
+    right: 5%;
 }

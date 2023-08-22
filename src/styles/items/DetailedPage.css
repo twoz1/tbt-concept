@@ -35,27 +35,27 @@ body {
     width: 450px;
 }
 
-.section .choice div:first-child {
+.choice_1 {
     display: flex;
     justify-content: space-between
 }
 
-.section .choice div:first-child span {
+.choice_1 span {
     margin-right: 10px;
 }
 
-.section .choice div:first-child span em {
+.choice_1 span em {
     font-style: normal;
     color: orangered;
 }
 
-
-.section .choice div:not(:nth-of-type(4)) {
+.choice_1,
+.choice_2,
+.total {
     margin-bottom: 30px;
     border-bottom: 1px solid #eee;
     padding: 25px;
 }
-
 
 .choice_button {
     display: flex;
@@ -63,7 +63,8 @@ body {
     gap: 15px;
 }
 
-.choice_button a {
+.choice_button>a,
+.gotoCart {
     margin-top: 20px;
     width: 40%;
     height: 50px;
@@ -72,10 +73,9 @@ body {
     border: 1px solid #000;
     text-align: center;
     box-sizing: border-box;
-
 }
 
-.choice_button>button {
+.likedItem {
     margin-top: 20px;
     border: 2px solid #aba8a8;
     height: 50px;
@@ -85,16 +85,13 @@ body {
     box-sizing: border-box;
 }
 
-.choice_button>button>i {
+.likedItem>i {
     font-size: 20px;
 }
 
-
-
-.section .choice a:nth-child(2) {
+.gotoCart {
     background-color: black;
     color: white;
-
 }
 
 .section .choice select {
