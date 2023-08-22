@@ -49,10 +49,9 @@ import '../../styles/payments/Checkout.css';
 import Title from './components/Checkout/Title';
 import Information from './components/Checkout/Information';
 import Item from './components/Checkout/Item';
-import Discount from './components/Checkout/Discount';
+
 import Pay from './components/Checkout/Pay';
-import SidePay1 from './components/Checkout//SidePay1';
-import SidePay2 from './components/Checkout/SidePay2';
+
 import Join_Modal02 from '../members/components/Join/Join_Modal02';
 import Join_Modal03 from '../members/components/Join/Join_Modal03';
 // --------------------------------------------------------------
@@ -70,13 +69,12 @@ const Checkout = () => {
                                 <Information></Information>
                             </div>
                             <Item></Item>
-                            <Discount></Discount>
+
                             <Pay></Pay>
                         </form>
                     </section>
                     <section className="check_right">
-                        <SidePay1></SidePay1>
-                        <SidePay2></SidePay2>
+
                     </section>
                 </div>
             </div>
