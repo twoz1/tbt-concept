@@ -48,7 +48,7 @@ const SidePay2 = () => {
                             <tr>
                                 <th colspan="1">
                                     <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
-                                    <span>주문 정보를 확인하였으며&#184; 약관 전체에 동의합니다&#46;</span>
+                                    <span>주문 정보를 확인하였으며&#184;약관 전체에 동의합니다&#46;</span>
                                 </th>
                             </tr>
                             <tr>

@@ -150,7 +150,6 @@ const Discount = () => {
                                     </option>
                                 ))}
                             </select>
-                            <span>원</span>
                         </td>
                     </tr>
 

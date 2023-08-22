@@ -272,9 +272,7 @@ table {
     text-align: justify;
     width: 100%;
    }
-   .side_pay3{
-    width: 100%;
-   }
+
    .total_button {
    width: 100%;
    height: 45px;
@@ -285,26 +283,13 @@ table {
    margin-top: 20px;
    }
 
-.total_button {
-    width: 100%;
-    height: 45px;
-    background-color: #000;
-    color: #fff;
-    border: 0px solid;
-    cursor: pointer;
-    /* margin-top: 20px; */
-}
+   .hyphen{
+       margin: 0 10px;
+   }
 
-.hyphen {
-    margin: 0 10px;
-}
-
-.address label {
-    margin: 0 10px;
-}
-.iteminfo {
-    border: 0px solid;
-}
-.borderStyle {
-    border-bottom: 0px;
-}
+   .borderStyle {
+       border-bottom: 0px;
+   }
+   
+   /* ========================================= */
+   
