@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Discount = ({ price, quantityGoods }) => {
     const [totalCount, setTotalCount] = useState(price * quantityGoods);
-    const [selectedCoupon, setSelectedCoupon] = useState("default");
+    const [selectedCoupon, setSelectedCoupon] = useState('default');
 
     const couponOptions = [
         { value: 'default', label: '쿠폰선택', discount: 1 },
@@ -14,7 +14,7 @@ const Discount = ({ price, quantityGoods }) => {
         const selectedValue = event.target.value;
         setSelectedCoupon(selectedValue);
 
-        const selectedCouponInfo = couponOptions.find(coupon => coupon.value === selectedValue);
+        const selectedCouponInfo = couponOptions.find((coupon) => coupon.value === selectedValue);
         if (selectedCouponInfo) {
             const discountedTotal = price * quantityGoods * selectedCouponInfo.discount;
             setTotalCount(discountedTotal);
@@ -24,18 +24,22 @@ const Discount = ({ price, quantityGoods }) => {
     };
 
     useEffect(() => {
-        if (selectedCoupon === "default") {
+        if (selectedCoupon === 'default') {
             setTotalCount(price * quantityGoods);
         }
     }, [selectedCoupon, price, quantityGoods]);
 
     const prePr = () => {
         return totalCount;
-    }
+    };
     const totalPrice = () => {
         const totalPrice = price * quantityGoods;
-        return totalPrice
-    }
+        return totalPrice;
+    };
+    const disCount = () => {
+        const disCount = totalPrice() * 0.1;
+        return disCount;
+    };
 
     return (
         <div className="discount">
@@ -44,7 +48,7 @@ const Discount = ({ price, quantityGoods }) => {
                 <tbody>
                     <tr>
                         <th>결제 예정금액</th>
-                        <td><span className='totalPrice'>{totalPrice()}</span>{prePr()}</td>
+                        <td>{prePr()}</td>
                     </tr>
                     <tr>
                         <th>할인 쿠폰</th>
@@ -56,7 +60,7 @@ const Discount = ({ price, quantityGoods }) => {
                                     </option>
                                 ))}
                             </select>
-                            <span className='unit'>원</span>
+                            <span className="unit">원</span>
                         </td>
                     </tr>
                 </tbody>
@@ -65,10 +69,32 @@ const Discount = ({ price, quantityGoods }) => {
             <table className="total_table">
                 <tbody>
                     <tr>
-                        <th className='fnPriceTitle'>최종 결제금액</th>
+                        <th className="fnPriceTitle" colSpan={2}>
+                            최종 결제금액
+                        </th>
                     </tr>
                     <tr>
-                        <th className='fnPrice'>{prePr()}<span className='unit'>원</span></th>
+                        <th>상품금액</th>
+                        <th className="fnPrice">
+                            {totalPrice()}
+                            <span className="unit">원</span>
+                        </th>
+                    </tr>
+                    {selectedCoupon !== 'default' && (
+                        <tr>
+                            <th>할인율</th>
+                            <th className="fnPrice">
+                                {disCount()}
+                                <span className="unit">원</span>
+                            </th>
+                        </tr>
+                    )}
+                    <tr>
+                        <th>최종금액</th>
+                        <th className="fnPrice">
+                            {prePr()}
+                            <span className="unit">원</span>
+                        </th>
                     </tr>
                 </tbody>
             </table>

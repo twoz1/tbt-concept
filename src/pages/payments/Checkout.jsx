@@ -4,9 +4,9 @@ import Information from './components/Checkout/Information';
 import Item from './components/Checkout/Item';
 import Discount from './components/Checkout/Discount';
 import Pay from './components/Checkout/Pay';
-import SidePay1 from './components/Checkout//SidePay1';
 import SidePay2 from './components/Checkout/SidePay2';
 import { useLocation } from 'react-router-dom';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 // --------------------------------------------------------------
 
@@ -18,6 +18,7 @@ const Checkout = () => {
     const price = location.state.price;
     const imageFront = location.state.imageFront;
     console.log(price);
+    useScrollToTop();
     return (
         <div>
             <div className="center m_c">

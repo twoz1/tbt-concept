@@ -1,5 +1,7 @@
 import '../../styles/items/Collection.css';
+import useScrollToTop from '../customHooks/useScrollToTop';
 const Collection = () => {
+    useScrollToTop();
     return (
         <div>
             <div className="center m_c">
