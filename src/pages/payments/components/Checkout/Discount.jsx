@@ -132,7 +132,6 @@ const Discount = () => {
     }, [selectedCoupon]);
     return (
         <div className="discount">
-            ``
             <h3>할인받기</h3>
             <table className="discount_table">
                 <tbody>
