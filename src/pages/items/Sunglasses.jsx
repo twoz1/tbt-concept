@@ -8,10 +8,11 @@ import { useState, useReducer } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import mockItemsContext from './MockItems';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 
 const Sunglasses = () => {
-
+useScrollToTop();
     const arrayReducer = (state, action) => {
         switch (action.type) {
             //   case "popular":

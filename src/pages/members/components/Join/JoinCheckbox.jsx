@@ -3,6 +3,7 @@ import useModal from '../../../customHooks/useModal';
 import Join_Modal01 from '../Join/Join_Modal01';
 import Join_Modal02 from '../Join/Join_Modal02';
 import Join_Modal03 from '../Join/Join_Modal03';
+import { useEffect } from 'react';
 const JoinCheckbox = () => {
 
 
@@ -16,6 +17,13 @@ const JoinCheckbox = () => {
         checkbox3: false,
         checkbox4: false,
     });
+
+    useEffect(() => {
+        // 모든 자식 체크박스가 체크되었는지 확인
+        const allChecked = Object.values(childCheckboxes).every(Boolean);
+        setParentCheckbox(allChecked);
+    }, [childCheckboxes]); // childCheckboxes 상태가 변경될 때마다 useEffect가 실행
+
 
     const handleParentCheckboxChange = () => {
         const newParentCheckboxState = !parentCheckbox;
@@ -45,10 +53,14 @@ const JoinCheckbox = () => {
             setParentCheckbox(false);
         } else {
             const allChecked = Object.values(childCheckboxes).every(Boolean);
-            setParentCheckbox(allChecked);
-            
+            setParentCheckbox(allChecked);    
         }
     };
+
+
+  
+
+
 
     return (
         <div>
@@ -62,7 +74,7 @@ const JoinCheckbox = () => {
                             name="agree"
                            
                         />{' '}
-                        전체 동의합니다.&#40;필수&#41;
+                        전체 동의합니다.
                     </li>
                     <li>
                         <span id="letter">

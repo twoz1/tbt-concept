@@ -8,11 +8,12 @@ import { useState, useReducer } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 import { Link } from 'react-router-dom';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 
 
 const Glasses = () => {
-   
+    useScrollToTop();
     // ======== 상품 정렬을 위한 reducer 함수 시작 ========
     const arrayReducer = (state, action) => {
 
