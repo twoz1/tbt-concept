@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// local storage 구현 후에 수정 예정
+
 function usePricing(initialQuantity, initialPrice) {
     const [quantityGoods, setQuantityGoods] = useState(initialQuantity);
     const [finalPrice, setFinalPrice] = useState(0);

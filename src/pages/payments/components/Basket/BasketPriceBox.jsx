@@ -1,7 +1,9 @@
 import React from 'react'
 import '../../../../styles/payments/BasketPriceBox.css';
 
-const BasketPriceBox = () => {
+const BasketPriceBox = ({calculateSelectedTotal}) => {
+
+    const selectedTotal = calculateSelectedTotal();
     return (
         <div>
             <div className="basket_payment">
@@ -12,7 +14,7 @@ const BasketPriceBox = () => {
                     <li>
                         <strong>총 상품 금액</strong>
                         <p>
-                            254,000 원
+                            {selectedTotal.toLocaleString()} 원
                         </p>
                     </li>
 

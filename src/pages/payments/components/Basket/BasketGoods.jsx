@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import '../../../../styles/payments/BasketGoods.css';
-// import usePricing from "../../../customHooks/usePricing";
 import { Link } from 'react-router-dom';
 
-// quantityGoods, changeQuantity, totalPricing, finalPricing
 const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods }) => {
 
     console.log("price:", price);
-    // console.log("quantity:", quantity);
+    console.log("quantity:", quantityGoods);
 
     return (
         <tbody>
