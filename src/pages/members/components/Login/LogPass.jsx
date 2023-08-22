@@ -1,95 +1,131 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import Main from '../../../../components/Main';
-const LogPass = () => {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [emailValid, setEmailValid] = useState(false);
-    const special = /[!-*.@]/gi;
-    // ------------------------------------
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-        if (special.test(email)) {
-            setEmailValid(true);
-        } else {
-            setEmailValid(false);
-        }
+const virtualCredentials = [
+    {
+    email: 'user@naver.com',
+    password: 'password123'
+},
+    {
+    email: 'user1@naver.com',
+    password: 'password123'
+},
+    {
+    email: 'user3@naver.com',
+    password: 'password123'
+},
+];
+
+function Login() {
+    const [credentials, setCredentials] = useState({
+        email: '',
+        password: ''
+    });
+
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [emailMessage, setEmailMessage] = useState('');
+
+
+    const handleCredentialsChange = (event) => {
+        const { name, value } = event.target;
+        setCredentials((prevCredentials) => ({
+            ...prevCredentials,
+            [name]: value
+        }));
     };
 
-    // ------------------------------------------------
-
-    const [password, setPassword] = useState('');
-    const [passwordValid, setPasswordValid] = useState(false);
-    const [error, setError] = useState('');
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-
-        if (password.length <= 7 || password.length > 16) {
-            setError('8자~ 16자로 입력해주세요.');
-            setPasswordValid(false);
-        } else if (!/[a-zA-Z]/.test(password) || !/\d/.test(password) || !special.test(password)) {
-            setError('영문, 숫자, 특수문자를 모두 사용하여 입력하세요.');
-            setPasswordValid(false);
+    const changeButton = (event) => {
+        event.preventDefault();
+    
+        let matchedCredential = false;
+    
+        for (const credential of virtualCredentials) {
+            if (
+                credentials.email === credential.email &&
+                credentials.password === credential.password
+            ) {
+                matchedCredential = true;
+                break; // 일치하는 경우 반복문 종료
+            }
+        }
+    
+        if (matchedCredential) {
+            setLoggedIn(true);
+            setEmailMessage('');
+            window.location.href = '/'; // 로그인 성공 시 페이지 이동
         } else {
-            setError('사용 가능합니다.');
-            setPasswordValid(true);
+            setLoggedIn(false);
+            setEmailMessage('아이디 또는 비밀번호가 일치하지 않습니다.');
         }
     };
-    const [button, setButton] = useState(true);
-    function changeButton() {
-        const isButtonEnabled = email.includes('@') && password.length > 8;
-        setButton(isButtonEnabled);
-
-        if (isButtonEnabled) {
-            // 조건을 만족하면 메인 페이지로 이동
-            navigate('/'); // 실제 메인 페이지 경로로 '/main' 대신 변경하세요
-        } else {
-            navigate('/Login');
-        }
-    }
 
     return (
-        <div>
-            <div className="login_wrap">
-                <form action="#" className="login" name="login">
-                    <table className="log_input">
+        <div className="login_wrap">
+            <form action="#" className="login" name="login">
+                <table className="log_input">
+                    <tbody>
                         <tr>
-                            <th colspan="1">아이디</th>
+                            <th colSpan="1">아이디</th>
                             <td>
                                 <label>
-                                    <input   value={email} onChange={handleEmail} placeholder="&#64;까지 정확하게 입력해주세요." required />
+                                    <input
+                                        name="email"
+                                        value={credentials.email}
+                                        onChange={handleCredentialsChange}
+                                        placeholder="&#64;까지 정확하게 입력해주세요."
+                                        required
+                                    />
                                 </label>
                             </td>
                         </tr>
 
                         <tr>
-                            <th colspan="1">비밀번호</th>
+                            <th colSpan="1">비밀번호</th>
                             <td>
                                 <label>
-                                    <input  type="password" value={password} onChange={handlePassword} maxLength="16" minLength="8" placeholder="영문+숫자 조합 8~16자리." required />
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        value={credentials.password}
+                                        maxLength="16"
+                                        minLength="8"
+                                        placeholder="영문+숫자 조합 8~16자리."
+                                        onChange={handleCredentialsChange}
+                                        required
+                                    />
                                 </label>
                             </td>
                         </tr>
-                    </table>
-                    <button onClick={changeButton}>로그인</button>
-                </form>
-                <div className="remember">
-                    <input  className="user_remember" type="radio" />
-                    아이디&nbsp;저장
-                    <a className="join" href="../join/join.html">
-                        회원가입&nbsp;바로가기
-                    </a>
-                </div>
-                <div className="error_message">
-                    {0 < email.length && email.length < 5 && <span>아이디를 5자 이상으로 입력해주세요.</span>}
-
-                    {email.length >= 5 && !emailValid && <span>아이디는 이메일 형식으로 입력해주세요.</span>}
-
-                    <span>{error}</span>
-                </div>
+                    </tbody>
+                </table>
+                <button
+                    onClick={changeButton}
+                    onKeyDown={(e) => {
+                        if (
+                            credentials.email === virtualCredentials.email &&
+                            credentials.password === virtualCredentials.password
+                        ) {
+                            if (e.key === 'Enter') {
+                                window.location.href = '/';
+                            }
+                        }
+                    }}
+                >
+                    로그인
+                </button>
+            </form>
+            <div className="remember">
+                <input className="user_remember" type="checkbox" />
+                아이디&nbsp;저장
+                <Link to="/join" className="join">
+                    회원가입&nbsp;바로가기
+                </Link>
+            </div>
+            <div className="error_message">
+                <span>{emailMessage}</span>
             </div>
         </div>
     );
-};
-export default LogPass;
+}
+
+export default Login;
