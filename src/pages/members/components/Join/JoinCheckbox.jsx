@@ -14,6 +14,7 @@ const JoinCheckbox = () => {
         checkbox1: false,
         checkbox2: false,
         checkbox3: false,
+        checkbox4: false,
     });
 
     const handleParentCheckboxChange = () => {
@@ -24,9 +25,11 @@ const JoinCheckbox = () => {
             checkbox1: newParentCheckboxState,
             checkbox2: newParentCheckboxState,
             checkbox3: newParentCheckboxState,
+            checkbox4: newParentCheckboxState,
         };
 
         setChildCheckboxes(newChildCheckboxes);
+        
     };
 
     const handleChildCheckboxChange = (e) => {
@@ -43,6 +46,7 @@ const JoinCheckbox = () => {
         } else {
             const allChecked = Object.values(childCheckboxes).every(Boolean);
             setParentCheckbox(allChecked);
+            
         }
     };
 
@@ -56,7 +60,7 @@ const JoinCheckbox = () => {
                             checked={parentCheckbox}
                             onChange={handleParentCheckboxChange}
                             name="agree"
-                            required
+                           
                         />{' '}
                         전체 동의합니다.&#40;필수&#41;
                     </li>
@@ -113,6 +117,8 @@ const JoinCheckbox = () => {
                         <div><input
                             type="checkbox"
                             name="checkbox4"
+                            checked={childCheckboxes.checkbox4}
+                            onChange={handleChildCheckboxChange}
                         />
                         개인정보 수집 및 이용안내&#40;선택&#41;</div>
                         <button className='Join_button' onClick={()=>{openModal("joinModal_3")}}>내용보기</button>

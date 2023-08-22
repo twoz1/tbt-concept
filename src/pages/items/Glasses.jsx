@@ -8,7 +8,6 @@ import { useState, useReducer } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 import { Link } from 'react-router-dom';
-import useScrollToTop from '../customHooks/useScrollToTop';
 
 
 

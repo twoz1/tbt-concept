@@ -11,15 +11,23 @@ body {
     height: 80%;
 }
 
-.sub_photo .sub_photo a {
+.sub_photo li {
     display: inline-block;
+    width: 90px;
+    height: 90px;
+    margin-top: 10px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.sub_photo img {
-    width: 13%;
-    height: 15%;
-    margin-top: 8px;
+.sub_photo li:not(:first-child) {
     margin-left: 3px;
+}
+
+.sub_photo li img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -305,6 +313,7 @@ body {
 .page_nation {
     height: 100px;
 }
+
 /* ============================================================= */
 
 .q_a_button {

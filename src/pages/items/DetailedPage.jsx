@@ -10,24 +10,9 @@ import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 import useScrollToTop from "../customHooks/useScrollToTop";
+import DpQnA from "./components/DetaildPage/DpQnA";
 
-// const QnaList = [
-//     {
-//         id: 0,
-//         userId: "tbtconcept",
-//         reviewDate: "2023.08.11",
-//     },
-//     {
-//         id: 1,
-//         userId: "passion",
-//         reviewDate: "2023.08.11",
-//     },
-//     {
-//         id: 2,
-//         userId: "KCMKMC",
-//         reviewDate: "2023.08.11",
-//     },
-// ]
+
 const DetailedPage = ({ starScore }) => {
     useScrollToTop();
     const { name } = useParams();
@@ -82,24 +67,8 @@ const DetailedPage = ({ starScore }) => {
 
             <DpQnABtn />
          
-                    {/* <div className="q_a_button">
-                        <a href="">상품문의</a>
-                    </div>
+            <DpQnA />
 
-                    <div className="customer_q_a">
-
-                        <span id="q_a_answer_complecation">
-                            <em>답변완료</em></span>
-                        <span id="q_a_inquiy">출고문의</span>
-                        <span id="q_a_user_id">nic&#176;&#176;&#176;&#176;&#176;&#176;</span>
-                        <span id="q_a_date">2023.05.25</span>
-
-                    </div> */}
-
-                    {/* <div className="customer_q_a_next_page">
-                        <a href="">1</a>
-                        <a href="">2</a>
-                    </div> */}
 
                     <div className="nav nav4">
                         <ul>
