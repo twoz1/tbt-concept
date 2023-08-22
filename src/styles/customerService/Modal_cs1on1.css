@@ -26,7 +26,7 @@
     min-width: 1170px;
     max-width: 1240px;
     height: 800px;
-    overflow: scroll;
+    overflow-y: scroll;
     border: 1px solid black;
     justify-content: center;
     align-items: center;
@@ -149,6 +149,10 @@
 
 .tr_inqContent div {
     margin: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.tr_inqContent textarea {
+    resize: none;
 }
 
 /* ===========main - table - 파일 첨부 ========== */

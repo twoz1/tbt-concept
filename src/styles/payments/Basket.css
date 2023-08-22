@@ -37,6 +37,7 @@ body>* {
 .btn_bottom button:nth-of-type(2) {
     background-color: black;
     color: white;
+    margin-left: 1rem;
 }
 
 /* ================= */

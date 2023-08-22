@@ -22,7 +22,7 @@
     min-width: 1170px;
     max-width: 1240px;
     height: 800px;
-    overflow: scroll;
+    overflow-y: scroll;
     border: 1px solid black;
     justify-content: center;
     align-items: center;

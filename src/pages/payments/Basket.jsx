@@ -52,7 +52,7 @@ const Basket = ({ mockItemsData }) => {
     };
 
     const totalPricing = (price, quantityGoods) => {
-        const newTotalPricing = quantityGoods * price;
+        const newTotalPricing = (quantityGoods * price);
         return newTotalPricing;
     };
 
@@ -64,6 +64,9 @@ const Basket = ({ mockItemsData }) => {
     };
 
     // 총 결제 금액 ==============================
+    const [fee, setFee] = useState(0);
+    // console.log (fee);
+
 
     const calculateSelectedTotal = () => {
         let selectedTotal = 0;
@@ -73,8 +76,15 @@ const Basket = ({ mockItemsData }) => {
                 selectedTotal += totalPricing(item.price, item.quantity);
             }
         }
-    
-        return selectedTotal;
+
+        //배달비 계산
+        if (selectedTotal >= 100000) {
+            setFee(3000);
+        } else {
+            setFee(0);
+        }
+
+        return { selectedTotal, fee };
     };
 
     return (
@@ -124,7 +134,7 @@ const Basket = ({ mockItemsData }) => {
 
                                     <div className="btn_bottom">
                                         <button type="button" onClick={handleDeleteSelected}>선택상품삭제</button>
-                                        <button type="button">쇼핑계속하기</button>
+                                        <button onClick={() => { window.location.href = "/"; }} type="button">쇼핑계속하기</button>
                                     </div>
                                 </figure>
 

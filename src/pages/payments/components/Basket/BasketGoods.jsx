@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods }) => {
 
-    console.log("price:", price);
-    console.log("quantity:", quantityGoods);
-
     return (
         <tbody>
             <tr key={name}>
@@ -40,7 +37,7 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
                 </td>
 
                 <td className="goods_price" >
-                    {totalPricing(price, quantityGoods)}
+                    {(totalPricing(price, quantityGoods)).toLocaleString()}원
                 </td>
             </tr>
         </tbody>
