@@ -67,88 +67,109 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
     // const discountPrice = (totalPrice * selectedCoupon.discount) / 100;
 
 
-    return (
-        <div class="side_pay side_pay1">
-            <h3>최종결제금액</h3>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>총 상품금액</th>
-                        <td>{totalPrice.toLocaleString()} 원</td>
-                    </tr>
-                    <tr>
-                        <th>배송비</th>
-                        <td>0 원</td>
-                    </tr>
-                    <tr>
-                        <th>할인금액</th>
-                        <td>{discountPricing().toLocaleString()} 원</td>
-                    </tr>
-                    
-                    <tr>
-                        <th>총 결제금액</th>
-                        <td>{calcPricing().toLocaleString()} 원</td>
-                    </tr>
-                </tbody>
-            </table>
+    // scroll 구현
 
-            <div class="side_pay side_pay2">
-                <form action="#">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th colspan="1">
-                                    <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
-                                    <span>주문 정보를 확인하였으며&#184;약관 전체에 동의합니다&#46;</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th colspan="1">
-                                    <input type="checkbox" checked={individualSelect1} onChange={handleIndividualSelect1} />
-                                    <span>
-                                        주문 상품정보에 동의&#40;필수&#41;
-                                        <button
-                                            className="sidepay1_button"
-                                            onClick={() => {
-                                                openModal('joinModal_2');
-                                            }}
-                                        >
-                                            내용보기
-                                        </button>
-                                        {isModal('joinModal_2') && <Join_Modal02 closeModal={closeModal} />}
-                                    </span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th colspan="1">
-                                    <input type="checkbox" checked={individualSelect2} onChange={handleIndividualSelect2} />
-                                    <span>
-                                        결제대행서비스 이용을 위한 개인정보 <br />제3자 제공 및 위탁 동의&#40;필수&#41;
-                                        <button
-                                            className="sidepay1_button"
-                                            onClick={() => {
-                                                openModal('joinModal_3');
-                                            }}
-                                        >
-                                            내용보기
-                                        </button>
-                                        {isModal('joinModal_3') && <Join_Modal03 closeModal={closeModal} />}
-                                    </span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th colspan="1">
-                                    <input type="checkbox" checked={individualSelect3} onChange={handleIndividualSelect3} />
-                                    <span>개인정보 제3자 제공에 대한 동의&#40;필수&#41;</span>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button className="total_button" disabled={!selectAll} >
-                        결제하기
-                    </button>
-                </form>
+    const [sidePayScoll, setSidePayScoll] = useState(false);
+
+    const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        setSidePayScoll(scrollPosition >= 191);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
+    return (
+        <div className={`side_pay ${sidePayScoll ? 'lock' : ''}`} onClick={scrollToTop}>
+            <div className="side_pay1">
+                <h3>최종결제금액</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>총 상품금액</th>
+                            <td>{totalPrice.toLocaleString()} 원</td>
+                        </tr>
+                        <tr>
+                            <th>배송비</th>
+                            <td>0 원</td>
+                        </tr>
+                        <tr>
+                            <th>할인금액</th>
+                            <td>{discountPricing().toLocaleString()} 원</td>
+                        </tr>
+
+                        <tr>
+                            <th>총 결제금액</th>
+                            <td>{calcPricing().toLocaleString()} 원</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <div class="side_pay side_pay2">
+                {/* <form action="#"> */}
+                <table>
+                    <tbody>
+                        <tr>
+                            <th colspan="1">
+                                <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
+                                <span>주문 정보를 확인하였으며&#184;약관 전체에 동의합니다&#46;</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="1">
+                                <input type="checkbox" checked={individualSelect1} onChange={handleIndividualSelect1} />
+                                <span>
+                                    주문 상품정보에 동의&#40;필수&#41;
+                                    <button
+                                        className="sidepay1_button"
+                                        onClick={() => {
+                                            openModal('joinModal_2');
+                                        }}
+                                    >
+                                        내용보기
+                                    </button>
+                                    {isModal('joinModal_2') && <Join_Modal02 closeModal={closeModal} />}
+                                </span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="1">
+                                <input type="checkbox" checked={individualSelect2} onChange={handleIndividualSelect2} />
+                                <span>
+                                    결제대행서비스 이용을 위한 개인정보 <br />제3자 제공 및 위탁 동의&#40;필수&#41;
+                                    <button
+                                        className="sidepay1_button"
+                                        onClick={() => {
+                                            openModal('joinModal_3');
+                                        }}
+                                    >
+                                        내용보기
+                                    </button>
+                                    {isModal('joinModal_3') && <Join_Modal03 closeModal={closeModal} />}
+                                </span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="1">
+                                <input type="checkbox" checked={individualSelect3} onChange={handleIndividualSelect3} />
+                                <span>개인정보 제3자 제공에 대한 동의&#40;필수&#41;</span>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+                {/* </form> */}
+            </div>
+            <button className="total_button" disabled={!selectAll} >
+                결제하기
+            </button>
         </div>//최종 div
     );
 };

@@ -5,23 +5,18 @@ import { Link } from 'react-router-dom';
 const ItemInfo = ({ name, quantity, price, imageFront }) => {
 
     return (
-        <tr>
+        <tr class="itemComp">
             <td className="item_img">
                 <Link to={`/detail/${name}`}>
                     <img src={imageFront} alt={name} />
                 </Link>
-            </td>
-
-            <td>
                 <Link to={`/detail/${name}`}>
                     {name}
                 </Link>
             </td>
-
             <td>
                 {quantity}
             </td>
-
             <td>
                 <span>{price.toLocaleString()}원</span>
             </td>
