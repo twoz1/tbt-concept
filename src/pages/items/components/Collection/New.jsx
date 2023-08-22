@@ -71,19 +71,21 @@ const New = () => {
                 <ul className="what_new_list" ref={what_new_list} >
                     {newList.slice(0, 8).map((item, i) => (
                         <li style={{ width: `${liWidth.current[i % 2 === 0 ? 'even' : 'odd']}px` }}>
-                            <Link to={`/ detail / ${item.name} `} key={item.name}>
+                            <Link to={`/detail/${item.name}`} key={item.name}>
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
+                            </Link>
                                 <div className="item_name">
                                     <span>{item.name}</span>
                                 </div>
                                 <div className="item_price">
                                     <span>{item.price.toLocaleString()}원</span>
                                 </div>
-                                <div className="shop_this">
-                                    <a>{item.shopThis} &#62;</a>
-                                </div>
-                            </Link>
+                                <Link to={`/detail/${item.name}`} key={item.name}>
+                                    <div className="shop_this">
+                                        <a>{item.shopThis} &#62;</a>
+                                    </div>
+                                </Link>
                         </li>
                     ))}
                 </ul>

@@ -1,7 +1,8 @@
 import '../../styles/customerService/ResultFrame.css';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 const ResultFrame = () => {
-
+    useScrollToTop();
     return (
         <div className="ResultFrame">
             <div className="center m_c">
