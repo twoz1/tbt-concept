@@ -3,22 +3,7 @@ import { useContext } from 'react';
 import mockItemsContext from '../../../items/MockItems';
 import ItemInfo from './ItemInfo';
 
-const Item = ({ quantityGoods, price, imageFront }) => {
-    console.log(quantityGoods);
-    
-    const { gArr } = useContext(mockItemsContext);
-    const itemList = [...gArr];
-    const [selectAll, setSelectAll] = useState(false);
-    const [individualSelect, setIndividualSelect] = useState(false); // 상품 개별 선택 상태 추가
-
-    const handleSelectAll = () => {
-        setSelectAll(!selectAll);
-        setIndividualSelect(!selectAll); // 전체 선택 상태 변경 시 개별 선택 상태도 변경
-    };
-
-    const handleIndividualSelect = () => {
-        setIndividualSelect(!individualSelect);
-    };
+const Item = ({ checkoutList, totalPrice }) => {
 
     return (
         <div className="item">
@@ -27,17 +12,13 @@ const Item = ({ quantityGoods, price, imageFront }) => {
             <table className="item_table">
                 <tbody>
                     <tr>
-                        <td>
-                            <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
-                        </td>
-                        <th>상품정보</th>
+                        <th colSpan={2}>상품정보</th>
                         <th>수량</th>
                         <th>가격</th>
-                        <th>총 상품 금액</th>
-                        <th>배송비</th>
                     </tr>
-                    <tr>
-                        <ItemInfo/>
+                        {checkoutList.map((item) => <ItemInfo key={item.name}{...item}/>)}
+
+
                         {/* <td>
                             <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
                         </td>
@@ -58,7 +39,6 @@ const Item = ({ quantityGoods, price, imageFront }) => {
                             </td>
                         ))}
                         <td>무료</td> */}
-                    </tr>
 
                     <tr>
                         <td colSpan="6">

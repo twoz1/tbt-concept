@@ -1,9 +1,10 @@
-import useModal from '../../../customHooks/useModal';
-import React, { useEffect, useState } from 'react';
-import Join_Modal02 from '../../../members/components/Join/Join_Modal02';
-import Join_Modal03 from '../../../members/components/Join/Join_Modal03';
+import { useState, useEffect } from "react";
+import useModal from './../../../customHooks/useModal';
+import Join_Modal02 from "../../../members/components/Join/Join_Modal02";
+import Join_Modal03 from "../../../members/components/Join/Join_Modal03";
 
-const SidePay2 = () => {
+const SidePay = ({ totalPrice, selectedCoupon }) => {
+
     const { openModal, closeModal, isModal } = useModal();
 
     const [selectAll, setSelectAll] = useState(false);
@@ -39,8 +40,58 @@ const SidePay2 = () => {
     const handleIndividualSelect3 = () => {
         setIndividualSelect3(!individualSelect3);
     };
+
+    //할인율
+    // console.log(handleCouponChange());
+
+    //할인 적용 금액
+    const calcPricing = () => {
+        if (selectedCoupon) {
+            const discountPrice = (totalPrice * selectedCoupon.discount) / 100;
+            return totalPrice - discountPrice;
+        } else {
+            return totalPrice;
+        }
+    };
+
+    //할인 금액
+    const discountPricing = () => {
+        if (selectedCoupon) {
+            const discountPrice = totalPrice - calcPricing();
+            return discountPrice;
+        } else {
+            return 0;
+        }
+    };
+
+    // const discountPrice = (totalPrice * selectedCoupon.discount) / 100;
+
+
     return (
-        <div>
+        <div class="side_pay side_pay1">
+            <h3>최종결제금액</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>총 상품금액</th>
+                        <td>{totalPrice.toLocaleString()} 원</td>
+                    </tr>
+                    <tr>
+                        <th>배송비</th>
+                        <td>0 원</td>
+                    </tr>
+                    <tr>
+                        <th>할인금액</th>
+                        <td>{discountPricing().toLocaleString()} 원</td>
+                    </tr>
+                    
+                    <tr>
+                        <th>총 결제금액</th>
+                        <td>{calcPricing().toLocaleString()} 원</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <div class="side_pay side_pay2">
                 <form action="#">
                     <table>
@@ -98,8 +149,8 @@ const SidePay2 = () => {
                     </button>
                 </form>
             </div>
-        </div>
+        </div>//최종 div
     );
 };
 
-export default SidePay2;
+export default SidePay;
