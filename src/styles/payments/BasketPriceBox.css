@@ -1,6 +1,5 @@
 .basket_payment {
     margin-left: 2rem;
-    margin-top: 1.3rem;
     background-color: #eee;
     width: 25%;
     min-width: 300px;
@@ -10,11 +9,11 @@
 
 .basket_payment h3{
     font-size: 18px;
-    margin: 2rem 0 2rem 0;
+    margin: 1rem 0 1rem 0;
 }
 
 .basket_payment hr {
-    margin: 0 0 2rem 0;
+    margin-bottom: 2rem;
 }
 .basket_payment ul {
     height: 180px;
@@ -39,7 +38,7 @@
     border: none;
     background-color: black;
     color: white;
-    width: 305px;
+    width: 100%;
     height: 50px;
     cursor: pointer;
 }

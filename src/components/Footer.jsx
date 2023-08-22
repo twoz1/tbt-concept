@@ -1,8 +1,29 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Footer.css';
 import { NavLink, Link, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 const Footer = () => {
+
+    const scrollTop = () => {
+        window.scrollTo(0, 0);
+
+    }
+    const [isScrollLocked, setIsScrollLocked] = useState(false);
+
+    const handleScroll = () => {
+        const ScrollFromBottom =
+            document.documentElement.scrollHeight -
+            window.innerHeight -
+            window.scrollY;
+        setIsScrollLocked(ScrollFromBottom <= 50);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
     return (
         <div className="footer">
             <div className="center f_c">
@@ -30,17 +51,10 @@ const Footer = () => {
 
             <div className="quick_menu">
                 <div className="side_bar">
-                    <div className="direct">
-                        <span className="to_top">
-                            <span>
-                                <a href="#">
-                                    <FontAwesomeIcon icon={faChevronUp} class='fa-solid'/>
-                                    {/* <i class="fa-solid fa-chevron-up"></i> */}
-                                </a>
-                            </span>
-                        </span>
-                    </div>
                 </div>
+            </div>
+            <div className={`to_top ${isScrollLocked ? 'lock' : ''}`} onClick={scrollTop}>
+                <i class="fa-solid fa-chevron-up"></i>
             </div>
         </div>
     );

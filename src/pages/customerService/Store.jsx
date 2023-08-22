@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../../styles/customerService/Store.css';
 import StoreItem from './components/Store/StoreItem';
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 const storeList = [
     {
@@ -48,7 +49,7 @@ const storeList = [
 ]
 
 const Store = () => {
-
+    useScrollToTop();
     const [store, setStore] = useState(storeList);
     const [changeCity, setChangeCity] = useState("");
     const [searchInputText, setSearchInputText] = useState("");

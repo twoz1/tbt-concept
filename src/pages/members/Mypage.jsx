@@ -2,11 +2,11 @@ import '../../styles/members/Mypage.css';
 import MyOrderList from './components/Mypage/MyOrderList';
 import MyCouponList from './components/Mypage/MyCouponList';
 import MyWishList from './components/Mypage/MyWishList';
-
+import useScrollToTop from '../customHooks/useScrollToTop';
 
 
 const Mypage = ({ order }) => {
-
+    useScrollToTop();
     return (
         <div className="Mypage">
             <div className="center m_c">

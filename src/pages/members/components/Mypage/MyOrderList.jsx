@@ -1,13 +1,14 @@
 import MyOrderItem from './MyOrderItem';
+import {Link} from 'react-router-dom';
+
 
 const MyOrderList = ({order}) => {
-
     return (
         <div className="MyOrderList">
             <div className="orderlist cover">
                 <div className="order_title">
                     <h3>최근 주문 내역</h3>
-                    <span><a href="../orderlist/orderlist.html">MORE<i className="fa-sharp fa-small fa-plus"></i></a></span>
+                    <span><Link to="/orderlist">MORE<i className="fa-sharp fa-small fa-plus"></i></Link></span>
                 </div>
                 <table>
                     <thead>
