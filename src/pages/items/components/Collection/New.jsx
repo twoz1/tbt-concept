@@ -54,15 +54,13 @@ const New = () => {
     return (
         <div className="what_new">
             <div className="what_new_title cf">
-                <Link to="/new">
-                    <h2>
-                        <strong>
-                            WHAT&#39;S&nbsp;
-                            <br />
-                            NEW
-                        </strong>
-                    </h2>
-                </Link>
+                <h2>
+                    <Link to="/new">
+                        WHAT&#39;s
+                        <br />
+                        NEW
+                    </Link>
+                </h2>
             </div>
             <button className="btn_pre nonVisible" ref={btn_pre} onClick={(e) => handleClick(e, 'back')}>
                 <FontAwesomeIcon icon={faChevronLeft} />
@@ -75,17 +73,17 @@ const New = () => {
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
                             </Link>
-                                <div className="item_name">
-                                    <span>{item.name}</span>
+                            <div className="item_name">
+                                <span>{item.name}</span>
+                            </div>
+                            <div className="item_price">
+                                <span>{item.price.toLocaleString()}원</span>
+                            </div>
+                            <Link to={`/detail/${item.name}`} key={item.name}>
+                                <div className="shop_this">
+                                    <a>{item.shopThis} &#62;</a>
                                 </div>
-                                <div className="item_price">
-                                    <span>{item.price.toLocaleString()}원</span>
-                                </div>
-                                <Link to={`/detail/${item.name}`} key={item.name}>
-                                    <div className="shop_this">
-                                        <a>{item.shopThis} &#62;</a>
-                                    </div>
-                                </Link>
+                            </Link>
                         </li>
                     ))}
                 </ul>
