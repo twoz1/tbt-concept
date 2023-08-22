@@ -202,11 +202,12 @@ const JoinForm = () => {
             </tr>
 
             <tr>
-                <th id="last_input_box">이벤트 정보<span className="point_color">&#42;</span></th>
+                <th id="last_input_box">이벤트 정보&#40;이메일&#41;<span className="point_color"> &#42;</span></th>
                 <td>
-                    <label>
-                        <input type="radio" name="event_info" value="reception" required/> 수신
+                    <label className='event_info_radio'>
+                        <input type="radio" name="event_info" value="reception" required/>  수신
                     </label>
+                 
                     <label>
                         <input type="radio" name="event_info" value=" no_reception" required /> 비수신
                     </label>
