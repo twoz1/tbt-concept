@@ -1,11 +1,7 @@
 import usePricing from '../../../customHooks/usePricing';
 import React from 'react';
-const ItemInfo = ({ item, individualSelect, handleIndividualSelect, quantityGoods, price, imageFront }) => {
-    const totalPrice = () => {
-        const totalPrice = price * quantityGoods;
-        return totalPrice
-    }
-    console.log(totalPrice);
+const ItemInfo = ({  individualSelect, handleIndividualSelect, }) => {
+
   
     return (
         <>
@@ -13,14 +9,14 @@ const ItemInfo = ({ item, individualSelect, handleIndividualSelect, quantityGood
                 <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
             </td>
             <td className="item_img">
-                <img src={imageFront} alt="상품이미지" />
+                <img src="" alt="상품이미지" />
             </td>
-            <td>{quantityGoods}</td>
+            <td>수량</td>
             <td>
-                <span>{totalPrice()}원</span>
+                <span>원</span>
             </td>
             <td>
-                <span>{totalPrice()}원</span>
+                <span>원</span>
             </td>
             <td>무료</td>
         </>

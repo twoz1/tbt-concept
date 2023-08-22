@@ -2,7 +2,7 @@ const Title = () => {
     return (
         <div className="title_route">
             <h2>
-                <strong>NEW</strong>
+                <strong>CHECK OUT</strong>
             </h2>
             <ul>
                 <li>쇼핑백</li>

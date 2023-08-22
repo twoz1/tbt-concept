@@ -41,7 +41,6 @@ const SidePay2 = () => {
     };
     return (
         <div>
-            <h3>주문자동의</h3>
             <div class="side_pay side_pay2">
                 <form action="#">
                     <table>
@@ -73,7 +72,7 @@ const SidePay2 = () => {
                                 <th colspan="1">
                                     <input type="checkbox" checked={individualSelect2} onChange={handleIndividualSelect2} />
                                     <span>
-                                        결제대행서비스 이용을 위한 개인정보 제3자 제공 및 위탁 동의&#40;필수&#41;
+                                        결제대행서비스 이용을 위한 개인정보 <br />제3자 제공 및 위탁 동의&#40;필수&#41;
                                         <button
                                             className="sidepay1_button"
                                             onClick={() => {
@@ -94,7 +93,7 @@ const SidePay2 = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <button className="total_button" disabled={!selectAll}>
+                    <button className="total_button" disabled={!selectAll} >
                         결제하기
                     </button>
                 </form>
