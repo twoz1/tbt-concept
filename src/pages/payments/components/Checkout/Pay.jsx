@@ -4,7 +4,7 @@ const Pay = () => {
     return (
         <div className="pay">
             <h3>결제수단</h3>
-            <table className='pay_tabel'>
+            <table className='pay_table'>
                 <tbody>
                     <tr>
                         <th colSpan="1">

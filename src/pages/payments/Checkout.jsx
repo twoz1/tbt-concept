@@ -14,10 +14,10 @@ import { useLocation } from 'react-router-dom';
 const Checkout = () => {
     const location = useLocation();
     const quantityGoods = location.state.quantityGoods;
-    const name = location.state.name
-    const price = location.state.price
-    const imageFront = location.state.imageFront
-    console.log(price)
+    const name = location.state.name;
+    const price = location.state.price;
+    const imageFront = location.state.imageFront;
+    console.log(price);
     return (
         <div>
             <div className="center m_c">
@@ -28,18 +28,14 @@ const Checkout = () => {
                             <div className="information">
                                 <Information></Information>
                             </div>
-                            <Item quantityGoods={quantityGoods}
-                                name={name}
-                                price={price}
-                                imageFront={imageFront } />
-                            <Discount price={price}
-                            quantityGoods={quantityGoods}/>
+                            <Item quantityGoods={quantityGoods} name={name} price={price} imageFront={imageFront} />
+                            <Discount price={price} quantityGoods={quantityGoods} />
                             <Pay></Pay>
+                            <SidePay2></SidePay2>
                         </form>
                     </section>
                     <section className="check_right">
-                        <SidePay1></SidePay1>
-                        <SidePay2></SidePay2>
+                        {/* <SidePay1></SidePay1> */}
                     </section>
                 </div>
             </div>

@@ -29,8 +29,12 @@ const Discount = ({ price, quantityGoods }) => {
         }
     }, [selectedCoupon, price, quantityGoods]);
 
-    const prepr = () => {
+    const prePr = () => {
         return totalCount;
+    }
+    const totalPrice = () => {
+        const totalPrice = price * quantityGoods;
+        return totalPrice
     }
 
     return (
@@ -40,7 +44,7 @@ const Discount = ({ price, quantityGoods }) => {
                 <tbody>
                     <tr>
                         <th>결제 예정금액</th>
-                        <td>{prepr()}</td>
+                        <td><span className='totalPrice'>{totalPrice()}</span>{prePr()}</td>
                     </tr>
                     <tr>
                         <th>할인 쿠폰</th>
@@ -52,8 +56,19 @@ const Discount = ({ price, quantityGoods }) => {
                                     </option>
                                 ))}
                             </select>
-                            <span>원</span>
+                            <span className='unit'>원</span>
                         </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>최종 결제 금액</h3>
+            <table className="total_table">
+                <tbody>
+                    <tr>
+                        <th className='fnPriceTitle'>최종 결제금액</th>
+                    </tr>
+                    <tr>
+                        <th className='fnPrice'>{prePr()}<span className='unit'>원</span></th>
                     </tr>
                 </tbody>
             </table>

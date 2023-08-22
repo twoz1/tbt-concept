@@ -5,7 +5,7 @@
 }
 
 .check_left {
- width: 75%;
+ width: 100%;
 }
 
 /* h2 {
@@ -56,13 +56,18 @@ table {
  border-collapse: collapse;
 }
 
-.pay_tabel ,
+.pay_table ,
 .item_table,
 .information_table,
 .discount_table {
  width: 100%;
  border-top: 2px solid #000;
  border-bottom: 2px solid #000;
+}
+.total_table {
+    width: 100%;
+    border-bottom: 1px solid #000;
+
 }
 
 .check_left table tr {
@@ -160,12 +165,27 @@ table {
 }
 
 /* 할인받기 */
-.discount td span {
+.unit {
  margin: 0 5px 0 3px;
 }
 .checkout_cou {
     width: 200px;
     text-align: center;
+}
+.totalPrice{
+    margin-right: 16px;
+    text-decoration: line-through;
+    color: gray;
+}
+.fnPriceTitle{
+    background-color: #000;
+    color: white;
+    font-size: 25px;
+    font-weight: normal;
+}
+.fnPrice{
+    font-weight: normal;
+    font-size: 15px;
 }
 
 
@@ -234,9 +254,13 @@ table {
  box-sizing: border-box;
  border: 1px solid black;
  font-size: 12px;
- padding-top: 20px;
- margin-top: 10px;
+ /* padding-top: 20px; */
+ margin-top: 30px;
+ margin-bottom: 50px;
  width: 100%;
+}
+.side_pay2 table {
+    width: 100%;
 }
 
 .side_pay2 tr input[type="checkbox"] {
@@ -267,7 +291,7 @@ background-color: #000;
 color: #fff;
 border: 0px solid;
 cursor: pointer;
-margin-top: 20px;
+/* margin-top: 20px; */
 }
 
 .hyphen{
