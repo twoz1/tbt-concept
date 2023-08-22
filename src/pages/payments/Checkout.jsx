@@ -5,6 +5,7 @@ import Information from './components/Checkout/Information';
 import Item from './components/Checkout/Item';
 
 import Pay from './components/Checkout/Pay';
+import SidePay from './components/Checkout/SidePay';
 import Join_Modal02 from '../members/components/Join/Join_Modal02';
 import Join_Modal03 from '../members/components/Join/Join_Modal03';
 import { useState } from 'react';
@@ -62,13 +63,34 @@ const Checkout = () => {
                             <div className="information">
                                 <Information />
                             </div>
-                            <Item></Item>
+                            <Item checkoutList={checkoutList} />
 
-                            <Pay></Pay>
+                            <div className="discount">
+                                <h3>할인받기</h3>
+                                <table className="discount_table">
+                                    <tbody>
+                                        <tr>
+                                            <th>할인 쿠폰</th>
+                                            <td>
+                                                <select className="checkout_cou" onChange={handleCouponChange}>
+                                                    <option value="쿠폰선택">쿠폰선택</option>
+                                                    {couponOptions.map((coupon) => (
+                                                        <option key={coupon.value} value={coupon.value}>
+                                                            {coupon.label}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <Pay />
                         </form>
                     </section>
                     <section className="check_right">
-
+                        <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
                     </section>
                 </div>
             </div>
