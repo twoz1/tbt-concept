@@ -25,11 +25,13 @@ hr {
     object-fit: cover;
     overflow: hidden;
 }
+
 .img_button {
     display: flex;
     justify-content: center;
     gap: 30px;
 }
+
 .img_button button {
     margin-top: 20px;
     width: 100px;
@@ -49,14 +51,15 @@ hr {
 }
 
 .what_new {
-    border: solid 0px;
+    border: none;
     font-size: 30px;
     display: flex;
     background-color: #fff;
-    justify-content: space-evenly;
-    min-width: 1200px;
+    justify-content: space-between;
     width: 100%;
+    height: 400px;
     margin: 150px 0;
+    gap: 10px;
 }
 
 .item_name {
@@ -91,64 +94,42 @@ hr {
     align-items: center;
     justify-content: center;
     display: flex;
+    width: 190px;
 }
 
 .what_new_item {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 15px;
+    width: 980px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .what_new_item ul {
-    display: flex;
+    width: 1000000%;
+    height: 400px;
     text-align: center;
-    gap: 10px;
+    transition: left 0.7s 0.1s;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .what_new_item li {
-    text-align: center;
+    height: 100%;
     font-size: 16px;
     font-style: normal;
-    width: 100%;
-}
-
-.what_new_list li:nth-child(even) img {
-    width: 230px;
-}
-.what_new_list li:nth-child(odd) img {
-    width: 273px;
+    float: left;
+    margin-right: 10px;
+    white-space: nowrap;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* ---------------------------------------------------- */
 .what_new_item ul li a img {
     width: 100%;
     display: block;
-    margin-bottom: 50px;
 }
-.what_new img {
-    width: 400px;
-}
-.what_new_item {
-    width: 1240px;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-}
-.what_new_item .what_new_list {
-    display: flex;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    transition: left 0.7s 0.1s;
-}
-.what_new_item .what_new_list img {
-    width: 258px;
-    margin-bottom: 25px;
-}
-button.nonVisible {
-    display: none;
-}
+
 
 /* ---------------------------------------------------- */
 
@@ -156,7 +137,7 @@ button.nonVisible {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .what_new button {
@@ -191,13 +172,13 @@ button.nonVisible {
     background: url(../../images/flsjdfalskdfjkasljfdl.jpeg) center/100% no-repeat;
 }
 
-.collection_m > a {
+.collection_m>a {
     color: #fff;
     font-size: 44px;
     font-weight: bold;
 }
 
-.collection_m > a + a {
+.collection_m>a+a {
     color: #fff;
     font-size: 14px;
     font-weight: bold;
@@ -224,7 +205,7 @@ button.nonVisible {
     gap: 5px;
 }
 
-.best_title > a {
+.best_title>a {
     font-size: 30px;
 }
 
@@ -249,21 +230,25 @@ button.nonVisible {
     text-align: center;
     width: 100%;
 }
+
 /* -------------------------------------- */
 .best_item ul li a img {
     width: 100%;
     display: block;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
+
 .best img {
     width: 400px;
 }
+
 .best_item {
     width: 1240px;
     height: 500px;
     overflow: hidden;
     position: relative;
 }
+
 .best_item .best_list {
     display: flex;
     height: 100%;
@@ -271,10 +256,12 @@ button.nonVisible {
     left: 0;
     transition: left 0.7s 0.1s;
 }
+
 .best_item .best_list img {
     width: 302px;
     margin-bottom: 50px;
 }
+
 /* -------------------------------------- */
 .best_list img:nth-child(2) {
     display: none;
@@ -310,12 +297,13 @@ button.nonVisible {
 .btn_pre {
     right: 102%;
 }
+
 .btn_next {
     left: 102%;
 }
 
 button.nonVisible {
-    display: none;
+    visibility: hidden;
 }
 
 /* ==============best=============== */
