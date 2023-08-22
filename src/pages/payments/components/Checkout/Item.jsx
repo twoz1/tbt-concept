@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import mockItemsContext from '../../../items/MockItems';
 import ItemInfo from './ItemInfo';
 
-const Item = ({quantityGoods,price,imageFront}) => {
-    console.log(price)
+const Item = ({ quantityGoods, price, imageFront }) => {
+    console.log(price);
     const { gArr } = useContext(mockItemsContext);
     const itemList = [...gArr];
     const [selectAll, setSelectAll] = useState(false);
@@ -18,7 +18,7 @@ const Item = ({quantityGoods,price,imageFront}) => {
     const handleIndividualSelect = () => {
         setIndividualSelect(!individualSelect);
     };
-    
+
     return (
         <div className="item">
             <h3>주문상품</h3>
@@ -36,13 +36,7 @@ const Item = ({quantityGoods,price,imageFront}) => {
                         <th>배송비</th>
                     </tr>
                     <tr>
-                        <ItemInfo
-                            quantityGoods={quantityGoods}
-                            price={price}
-                            imageFront={imageFront}
-                            individualSelect={individualSelect}
-                            handleIndividualSelect={handleIndividualSelect}
-                        />
+                        <ItemInfo quantityGoods={quantityGoods} price={price} imageFront={imageFront} individualSelect={individualSelect} handleIndividualSelect={handleIndividualSelect} />
                         {/* <td>
                             <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
                         </td>

@@ -243,7 +243,8 @@ hr {
 }
 
 .best_item {
-    width: 1240px;
+    margin: 0 auto;
+    width: 95%;
     height: 500px;
     overflow: hidden;
     position: relative;
@@ -258,7 +259,7 @@ hr {
 }
 
 .best_item .best_list img {
-    width: 302px;
+    width: 285px;
     margin-bottom: 50px;
 }
 
@@ -295,11 +296,11 @@ hr {
 }
 
 .btn_pre {
-    right: 102%;
+    right: 98%;
 }
 
 .btn_next {
-    left: 102%;
+    left: 98%;
 }
 
 button.nonVisible {

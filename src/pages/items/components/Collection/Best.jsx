@@ -34,13 +34,11 @@ const Best = () => {
     return (
         <div className="best">
             <div className="best_title">
-                <a href="/new_goods/new_goods.html">
                     <div className="title_route">
                         <h2>
                             <strong>best</strong>
                         </h2>
                     </div>
-                </a>
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>

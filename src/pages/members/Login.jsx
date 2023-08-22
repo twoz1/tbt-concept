@@ -2,8 +2,9 @@ import '../../styles/members/Login.css';
 import Title from './components/Login/Title';
 import LogPass from './components/Login/LogPass';
 import Sns from './components/Login/Sns';
-import { useState } from 'react';
+import useScrollToTop from '../customHooks/useScrollToTop';
 const Login = () => {
+    useScrollToTop();
     return (
         <div>
             <div className="center m_c">
