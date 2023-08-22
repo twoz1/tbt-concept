@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../../items/MockItems';
+import ItemInfo from './ItemInfo';
 
-const Item = () => {
+const Item = ({quantityGoods,price,imageFront}) => {
+    console.log(price)
     const { gArr } = useContext(mockItemsContext);
     const itemList = [...gArr];
     const [selectAll, setSelectAll] = useState(false);
@@ -16,12 +18,12 @@ const Item = () => {
     const handleIndividualSelect = () => {
         setIndividualSelect(!individualSelect);
     };
-
+    
     return (
         <div className="item">
             <h3>주문상품</h3>
 
-            <table>
+            <table className="item_table">
                 <tbody>
                     <tr>
                         <td>
@@ -34,7 +36,14 @@ const Item = () => {
                         <th>배송비</th>
                     </tr>
                     <tr>
-                        <td>
+                        <ItemInfo
+                            quantityGoods={quantityGoods}
+                            price={price}
+                            imageFront={imageFront}
+                            individualSelect={individualSelect}
+                            handleIndividualSelect={handleIndividualSelect}
+                        />
+                        {/* <td>
                             <input type="checkbox" checked={individualSelect} onChange={handleIndividualSelect} />
                         </td>
                         {itemList.slice(0, 1).map((item) => (
@@ -53,7 +62,7 @@ const Item = () => {
                                 <span>{item.price.toLocaleString()}원</span>
                             </td>
                         ))}
-                        <td>무료</td>
+                        <td>무료</td> */}
                     </tr>
 
                     <tr>

@@ -5,7 +5,7 @@
 }
 
 .check_left {
- width: 75%;
+ width: 100%;
 }
 
 /* h2 {
@@ -56,10 +56,18 @@ table {
  border-collapse: collapse;
 }
 
-.check_left table {
+.pay_table ,
+.item_table,
+.information_table,
+.discount_table {
  width: 100%;
  border-top: 2px solid #000;
  border-bottom: 2px solid #000;
+}
+.total_table {
+    width: 100%;
+    border-bottom: 1px solid #000;
+
 }
 
 .check_left table tr {
@@ -157,12 +165,27 @@ table {
 }
 
 /* 할인받기 */
-.discount td span {
+.unit {
  margin: 0 5px 0 3px;
 }
 .checkout_cou {
     width: 200px;
     text-align: center;
+}
+.totalPrice{
+    margin-right: 16px;
+    text-decoration: line-through;
+    color: gray;
+}
+.fnPriceTitle{
+    background-color: #000;
+    color: white;
+    font-size: 25px;
+    font-weight: normal;
+}
+.fnPrice{
+    font-weight: normal;
+    font-size: 15px;
 }
 
 
@@ -195,9 +218,10 @@ table {
 /* 오른쪽 quick_menu 영역*/
 
 .check_right {
- width: 25%;
+ width: 300px;
  height: auto;
-
+ position: fixed;
+ left: 68%;
  padding: 0 10px;
 }
 
@@ -230,9 +254,13 @@ table {
  box-sizing: border-box;
  border: 1px solid black;
  font-size: 12px;
- padding-top: 20px;
- margin-top: 10px;
+ /* padding-top: 20px; */
+ margin-top: 30px;
+ margin-bottom: 50px;
  width: 100%;
+}
+.side_pay2 table {
+    width: 100%;
 }
 
 .side_pay2 tr input[type="checkbox"] {
@@ -263,80 +291,20 @@ background-color: #000;
 color: #fff;
 border: 0px solid;
 cursor: pointer;
-margin-top: 20px;
+/* margin-top: 20px; */
 }
 
-.modal_cover1 {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: #0009;
+.hyphen{
+    margin: 0 10px;
 }
 
-.modal_2 {
-    width: 30%;
-    height: 500px;
-    border: 1px solid;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 990px;
-    background-color: white;
+.address label{
+    margin: 0 10px;
 }
-.modal_2_t {
-    border-collapse: collapse;
-    height: 200px;
+.iteminfo {
+    border: 0px solid;
 }
-
-.modal_2_t>tr:nth-of-type(1) {
-    border-top: 3px solid;
+.borderStyle {
+    border-bottom: 0px;
 }
-
-.modal_2_t>tr>th,
-.modal_2_t>tr>td {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    border-right: 1px solid #eee;
-}
-.third_column {
-    border-right: none;
-}
-
-.Join_Modal02 .text_underLine2{
-    margin-top:7px;
-}
-
-.Join_Modal02 .text_underLine2>li {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-/* ========================================= */
-
-
-
-.close_button{
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 120px;
-    line-height: 35px;
-    text-align: center;
-    background-color: black;
-    border: none;
-    color:#fff;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-
 

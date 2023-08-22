@@ -6,11 +6,18 @@ import Discount from './components/Checkout/Discount';
 import Pay from './components/Checkout/Pay';
 import SidePay1 from './components/Checkout//SidePay1';
 import SidePay2 from './components/Checkout/SidePay2';
-import Join_Modal02 from '../members/components/Join/Join_Modal02';
-import Join_Modal03 from '../members/components/Join/Join_Modal03';
+import { useLocation } from 'react-router-dom';
+
 // --------------------------------------------------------------
+
 // --------------------------------------------------------------
 const Checkout = () => {
+    const location = useLocation();
+    const quantityGoods = location.state.quantityGoods;
+    const name = location.state.name;
+    const price = location.state.price;
+    const imageFront = location.state.imageFront;
+    console.log(price);
     return (
         <div>
             <div className="center m_c">
@@ -21,16 +28,14 @@ const Checkout = () => {
                             <div className="information">
                                 <Information></Information>
                             </div>
-                            <Item></Item>
-                            <Discount></Discount>
+                            <Item quantityGoods={quantityGoods} name={name} price={price} imageFront={imageFront} />
+                            <Discount price={price} quantityGoods={quantityGoods} />
                             <Pay></Pay>
+                            <SidePay2></SidePay2>
                         </form>
                     </section>
                     <section className="check_right">
-                        <SidePay1></SidePay1>
-                        <SidePay2></SidePay2>
-                        {/* <Join_Modal02></Join_Modal02> */}
-                        {/* <Join_Modal03></Join_Modal03> */}
+                        {/* <SidePay1></SidePay1> */}
                     </section>
                 </div>
             </div>
