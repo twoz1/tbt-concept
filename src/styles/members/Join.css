@@ -76,8 +76,15 @@
     
 }
 
+.Join .join_table tr td p{
+    font-size: 3px;
+    color: gray;
+    
+}
+
+
 .input_box {
-    width: 300px;
+    width: 350px;
     height: 29px;
     text-align: left;
     background-color: #eee;
@@ -87,6 +94,11 @@
 
 #last_input_box {
     height: 30px;
+}
+
+
+.event_info_radio{
+    margin-right: 10px;
 }
 
 /* ================================ */
