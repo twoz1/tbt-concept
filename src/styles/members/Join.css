@@ -136,8 +136,10 @@
     padding-left: 10px;
     display:flex;
     justify-content: space-between;
+
     align-items: center;
 }
+
 
 .Join .check_agreement .each_check_agreement input{
     margin-right:5px;
@@ -152,7 +154,9 @@
     margin: calc((35px - 25px)/2) 20px;
     background-color: #eee;
     border: 1px solid gray;
-    float: right;
+    position: absolute;
+    right: 60px;
+   
 }
 
 
