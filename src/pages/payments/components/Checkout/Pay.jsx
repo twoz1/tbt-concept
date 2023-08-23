@@ -4,11 +4,11 @@ const Pay = () => {
     return (
         <div className="pay">
             <h3>결제수단</h3>
-            <table className='pay_table'>
+            <table className='pay_table checkout_table'>
                 <tbody>
                     <tr>
                         <th colSpan="1">
-                            <input type="radio"  checked/>
+                            <input type="radio" checked />
                             <span>일반결제</span>
                         </th>
                     </tr>
@@ -46,7 +46,7 @@ const Pay = () => {
                         </th>
                     </tr>
                     <tr>
-                        <th>
+                        <td>
                             <p>
                                 &#45;할부 최소 금액은 5만원이며 30만원 이상 결제 시에 카드사에 따라 공인인증 사용이 요구될 수 있습니다&#46;
                                 <br />
@@ -54,7 +54,7 @@ const Pay = () => {
                                 <br />
                                 &#45;수협&#184;광주&#184;전북JB&#184;MG 새마을&#184;우체국&#184;저축은행&#184;산업&#184;제주&#184;신협&#184;현대증권카드는 사용할 수 없습니다.
                             </p>
-                        </th>
+                        </td>
                     </tr>
                 </tbody>
             </table>

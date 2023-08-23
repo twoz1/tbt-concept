@@ -5,11 +5,11 @@ const Title = () => {
                 <strong>CHECK OUT</strong>
             </h2>
             <ul>
-                <li>쇼핑백</li>
+                <li>Home</li>
                 <li>&nbsp;&gt;&nbsp;</li>
-                <li>주문결제</li>
+                <li>SHOPPING BAG</li>
                 <li>&nbsp;&gt;&nbsp;</li>
-                <li>주문왼료</li>
+                <li>check out</li>
             </ul>
         </div>
     );

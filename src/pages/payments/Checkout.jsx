@@ -53,6 +53,7 @@ const Checkout = () => {
     const totalPrice = (checkoutList[0].price * checkoutList[0].quantity)
         + (checkoutList[1].price * checkoutList[1].quantity);
 
+
     return (
         <div>
             <div className="center m_c">
@@ -60,14 +61,12 @@ const Checkout = () => {
                     <section className="check_left">
                         <Title />
                         <form action="#">
-                            <div className="information">
-                                <Information />
-                            </div>
+                            <Information />
                             <Item checkoutList={checkoutList} />
 
                             <div className="discount">
                                 <h3>할인받기</h3>
-                                <table className="discount_table">
+                                <table className="discount_table checkout_table">
                                     <tbody>
                                         <tr>
                                             <th>할인 쿠폰</th>

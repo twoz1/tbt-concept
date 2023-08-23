@@ -1,295 +1,269 @@
-/*------- 왼쪽 결제 정보입력(체크아웃)영역 -------*/
-
 .check_box {
     display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
 }
+
+/* check_left */
 
 .check_left {
-    width: 75%;
+    width: calc(100% - 300px - 20px);
 }
 
-/* h2 {
- font-size: 44px;
- text-align: center;
- text-transform: capitalize;
-} */
-
-.check_left h3 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 30px 0 10px 0;
+.check_left form>div {
+    margin-bottom: 70px;
 }
 
-.check_left > p {
-    color: gray;
-    font-size: 12px;
-    letter-spacing: 20px;
-    white-space: nowrap;
-    text-align: center;
-    margin-top: 20px;
-}
+/* checkout_table -- table의 공통 속성 */
 
-.ch_sec {
-    margin: 0;
-    color: black;
-    font-weight: bold;
-}
-
-.check_left .checkout {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.direct_pay_bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-}
-
-.checkout p > span {
-    color: orangered;
-}
-
-table {
-    border-collapse: collapse;
-}
-
-.pay_table,
-.item_table,
-.information_table,
-.discount_table {
+.checkout_table {
     width: 100%;
     border-top: 2px solid #000;
     border-bottom: 2px solid #000;
 }
-.total_table {
-    width: 100%;
-    border-bottom: 1px solid #000;
+
+.checkout_table tbody tr:not(:last-child) {
+    border-bottom: 1px solid #ddd;
 }
 
-.check_left table tr {
-    border-bottom: 1px solid #aaa;
+.check_left table tbody tr>th,
+.check_left div div:not(:nth-child(3)) table tbody tr>td{
+    padding: 20px 10px;
 }
 
-.check_left table tr:last-child {
-    border: none;
+.checkout_table input {
+    padding: 0 5px;
+    box-sizing: border-box;
 }
 
-.check_left table th,
-.check_left table td {
-    padding: 0 20px;
-    height: 70px;
-}
-
-.check_left input,
-.check_left select {
-    background-color: #eee;
-    padding: 2px 10px;
-    border: 1px solid #000;
-    outline: none;
-    margin: 0;
-}
-
-/* 배송지 정보 */
-.input_new {
-    background-color: white;
-}
-.information th > span {
-    color: orangered;
-}
-
-.receiver input {
-    width: 300px;
-    height: 20px;
-}
-
-.receiver_phone > select {
+.checkout_table input:not([type="radio"]),
+.checkout_table select {
     height: 25px;
+    border: 1px solid #000;
 }
 
-.receiver_phone input {
-    width: 60px;
-    height: 20px;
+/* Information */
+.information .checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }
 
-.customer_address input {
-    width: 250px;
-    height: 20px;
+.information .checkout>p {
+    margin: 0 5px 5px 0;
 }
 
-.customer_address p {
-    margin-top: 5px;
-}
-
-.customer_address p > input {
-    width: 400px;
-    height: 20px;
-}
-
-.customer_address p > input + input {
-    width: 200px;
-    height: 20px;
-}
-
-.message input {
-    width: 300px;
-    height: 20px;
-}
-
-/* 주문상품 */
-.item {
-    text-align: center;
-}
-.item_name,
-.item_price {
-    font-size: 14px;
-}
-.item_name {
-    margin-top: 5px;
-}
-
-.item_img img {
-    margin: auto;
-    width: 150px;
-    display: block;
-}
-
-.item tr:nth-last-of-type(1) span {
+.information .checkout>p span.color,
+.information tbody tr th>span {
     color: orangered;
 }
 
-.item tr:last-child td {
-    height: 30px;
-    vertical-align: top;
+.information_table input,
+.information_table select {
+    background-color: #eee;
 }
 
-/* 할인받기 */
-.unit {
-    margin: 0 5px 0 3px;
+.information_table .address label:not(:first-child) {
+    margin-left: 15px;
 }
-.checkout_cou {
-    width: 200px;
+
+.information #receiver_phone_read {
+    width: 80px;
+}
+
+.information .customer_address p input:first-child {
+    width: 50%;
+}
+
+.information .message>input {
+    width: 78%;
+}
+
+.information th {
+    width: 180px;
+}
+
+.information .customer_address>input:nth-child(1) {
+    margin-bottom: 5px;
+}
+
+/* item */
+.item_table tbody tr th:not(:first-child) {
+    width: 150px;
+}
+
+.item_table tbody tr td{
+    padding:10px;
+}
+
+.item_table tbody .itemComp td:not(:first-child) {
     text-align: center;
 }
-.totalPrice {
-    margin-right: 16px;
-    text-decoration: line-through;
-    color: gray;
-}
-.fnPriceTitle {
-    background-color: #000;
-    color: white;
-    font-size: 25px;
-    font-weight: normal;
-}
-.fnPrice {
-    font-weight: normal;
-    font-size: 15px;
+
+.item_table tbody .itemComp .item_img {
+    display: flex;
+    align-items: center;
 }
 
-/* 결제수단 */
-
-.pay tr:not(:last-child) th {
-    text-align: left;
-    padding-left: 70px;
+.item_table tbody .itemComp .item_img a {
+    display: inline-block;
+    margin-left: 30px;
 }
 
-.pay tr:nth-last-of-type(2) th {
-    background-color: #eee;
-    text-align: left;
+.item_table tbody .itemComp .item_img a img {
+    width: 120px;
 }
 
-.pay tr:nth-last-of-type(1) th {
-    text-align: justify;
-    color: gray;
+.item_table tbody tr:last-child>td {
+    padding: 5px 10px 15px 10px;
     font-size: 12px;
+}
+
+.item_table tbody tr:last-child>td span {
+    color: orangered;
+}
+
+/* pay */
+
+.pay {
+    text-align: left;
+}
+
+.pay_table tbody>tr:nth-child(n+3) {
     background-color: #eee;
 }
 
-.pay tbody tr th a {
-    margin-right: 100px;
+.pay_table tbody>tr>th {
+    padding-left: 10%;
 }
 
-/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-/* 오른쪽 quick_menu 영역*/
+.pay_table tbody>tr>td {
+    padding: 5px 4%;
+}
 
+.pay_table tbody>tr>th input+span {
+    margin-left: 3px;
+}
+
+.pay_table tbody>tr>th>a:not(:first-child) {
+    margin-left: 50px;
+}
+
+.pay_table tbody>tr>th>select {
+    width: 120px;
+}
+
+.pay_table tbody>tr>th>select:nth-child(2) {
+    margin-left: 7px;
+}
+
+.pay_table tbody>tr>td>p {
+    font-size: 12px;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* check_right */
 .check_right {
     width: 300px;
-    height: auto;
-    position: fixed;
-    left: 68%;
-    padding: 0 10px;
 }
 
-.check_right h3 {
-    font-size: 24px;
-    text-align: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #000;
+.check_right .side_pay {
+    position: sticky;
+    top: 191px;
 }
 
-.side_pay table {
-    margin: auto;
-}
-
-.side_pay1 {
+/* .side_pay1 */
+.check_right .side_pay1 {
     background-color: #eee;
 }
 
-.side_pay1 tr {
+.check_right .side_pay1>h3 {
+    line-height: 75px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.check_right .side_pay1 table,
+.check_right .side_pay1 table tbody,
+.check_right .side_pay1 table tbody tr {
+    width: 100%;
+}
+
+.check_right .side_pay1 table tbody tr th,
+.check_right .side_pay1 table tbody tr td {
+    width: 50%;
+}
+
+.check_right .side_pay1 table tbody tr {
+    text-align: center;
     height: 40px;
 }
 
-.side_pay1 tr td,
-.side_pay1 tbody th {
-    text-align: center;
-    width: 150px;
+.check_right .side_pay1 table tbody tr:last-child {
+    height: 50px;
+    background-color: #ccc;
+    font-size: 16px;
+    font-weight: bold;
 }
 
+/* side_pay2 */
+
 .side_pay2 {
+    width: 100%;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
     box-sizing: border-box;
-    border: 1px solid black;
+    padding: 15px;
     font-size: 12px;
-    padding-top: 20px;
-    margin-top: 10px;
-    width: 100%;
-   }
-   .side_pay2 tr input[type="checkbox"] {
-    margin: 0 3px;
-    vertical-align: top;
-   }
-   .side_pay2 tr button {
-    border: 0px solid;
-    color: gray;
-   }
-   .side_pay2 th span {
-    width: 75%;
-    display: inline-block;
     text-align: left;
-   }
-   .side_pay2 table th {
+    margin-top: 2.5px;
+
+}
+
+.side_pay2 .side_pay_table > tbody > tr > th {
+    padding: 2px;
+}
+
+.side_pay2 tr input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+}
+
+.side_pay2 tr input[type="checkbox"]+span {
+    margin-left: 3px;
     text-align: justify;
+    word-break: break-all;
+}
+
+.side_pay2 tr input[type="checkbox"]+span>button {
+    font-size: 12px;
+    padding: 2px 3px;
+    border: 1px solid #000;
+    margin-left: 5px;
+}
+
+.side_pay2 tr input[type="checkbox"]+span>button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* 모달 정상 노출을 위한 z-index */
+
+.modal_cover,
+.modal_cover1 {
+    z-index: 99;
+}
+
+.side_pay>button {
     width: 100%;
-   }
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+}
 
-   .total_button {
-   width: 100%;
-   height: 45px;
-   background-color: #000;
-   color: #fff;
-   border: 0px solid;
-   cursor: pointer;
-   margin-top: 20px;
-   }
-
-   .hyphen{
-       margin: 0 10px;
-   }
-
-   .borderStyle {
-       border-bottom: 0px;
-   }
-   
-   /* ========================================= */
-   
+.side_pay>button:hover {
+    background-color: orangered;
+}
