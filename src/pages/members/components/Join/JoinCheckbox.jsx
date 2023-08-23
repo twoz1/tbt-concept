@@ -103,7 +103,7 @@ const JoinCheckbox = () => {
                             required
                         />
                         이용약관 동의&#40;필수&#41;</div>
-                        <button className='Join_button' onClick={()=>{openModal("joinModal_1")}}>내용보기</button>
+                        <button type='button' className='Join_button' onClick={()=>{openModal("joinModal_1")}}>내용보기</button>
                         {isModal("joinModal_1") && <Join_Modal01 closeModal={closeModal}/>}
                     </li>
 
@@ -116,7 +116,7 @@ const JoinCheckbox = () => {
                             required
                         />
                         개인정보 수집 및 이용에 대한 동의&#40;필수&#41;</div>
-                        <button className='Join_button' onClick={()=>{openModal("joinModal_2")}}>내용보기</button>
+                        <button type='button' className='Join_button' onClick={()=>{openModal("joinModal_2")}}>내용보기</button>
                         {isModal("joinModal_2") && <Join_Modal02 closeModal={closeModal}/>}
                     </li>
 
@@ -128,8 +128,11 @@ const JoinCheckbox = () => {
                             onChange={handleChildCheckboxChange}
                         />
                         개인정보 수집 및 이용안내&#40;선택&#41;</div>
-                        <button className='Join_button' onClick={()=>{openModal("joinModal_3")}}>내용보기</button>
-                        {isModal("joinModal_3") && <Join_Modal03 closeModal={closeModal}/>}
+                        <button type='button' className='Join_button' onClick={()=>{openModal("joinModal_3")}}>내용보기</button>
+                        {isModal("joinModal_3") && <Join_Modal03 closeModal={closeModal}
+                        
+                        
+                        />}
                     </li>
                 </ul>
             </div>
