@@ -91,6 +91,13 @@
     font-size: 28px;
     text-align: center;
 }
+.h_icon li button .fa-solid {
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+    font-size: 28px;
+    text-align: center;
+}
 
 /*메뉴gnb*/
 .gnb {
