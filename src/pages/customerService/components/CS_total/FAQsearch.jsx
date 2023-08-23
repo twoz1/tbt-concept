@@ -55,7 +55,6 @@ const FAQsearch = ({ searchFAQ }) => {
                 </div>
 
 
-                {/* css 수정해야됨 */}
                 <div className='schFAQbtn'>
                     {getSearchResult().map((freqQues) => (
                         <SearchFAQItems
