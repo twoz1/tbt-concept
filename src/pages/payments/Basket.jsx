@@ -65,7 +65,6 @@ const Basket = ({ mockItemsData }) => {
 
     // 총 결제 금액 ==============================
     const [fee, setFee] = useState(0);
-    console.log ("fee Test1 =>" + fee);
 
 
     //선택 상품 총합 계산 (개수 반영)
@@ -78,9 +77,8 @@ const Basket = ({ mockItemsData }) => {
             }
         }
 
-        console.log("selectedTotal => " + selectedTotal);
         //배달비 계산
-        if (selectedTotal >= 100000) {
+        if (selectedTotal >= 200000 || selectedTotal < 1) {
             setFee(0);
         } else {
             setFee(3000);
@@ -88,8 +86,6 @@ const Basket = ({ mockItemsData }) => {
 
         return { selectedTotal, fee };
     };
-
-    console.log ("fee Test2 =>" + fee);
 
     return (
         <div>
