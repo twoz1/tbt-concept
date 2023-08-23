@@ -88,7 +88,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
     };
 
     return (
-        <div className={`side_pay ${sidePayScoll ? 'lock' : ''}`} onClick={scrollToTop}>
+        <div className={`side_pay ${sidePayScoll ? 'lock' : ''}`} onChange={scrollToTop}>
             <div className="side_pay1">
                 <h3>최종결제금액</h3>
                 <table>
