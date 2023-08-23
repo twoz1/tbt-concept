@@ -45,8 +45,8 @@ const orderList = [
         itemColor: "Black",
         itemQuantity: 1,
         itemPrice: 100000,
-        orderState: "배송중",
-        review: "작성하기"
+        orderState: "배송완료",
+        review: "작성완료"
     }
 ]
 
@@ -98,7 +98,7 @@ function App() {
 
 
                 <Route path='/resultframe' element={<ResultFrame />}></Route>
-                <Route path='/orderlist' element={<Orderlist />}></Route>
+                <Route path='/orderlist' element={<Orderlist order={order} />}></Route>
 
 
                 {/* ----------------현주 링크투-------- */}
