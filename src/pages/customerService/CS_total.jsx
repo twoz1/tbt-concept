@@ -12,32 +12,32 @@ import useScrollToTop from '../customHooks/useScrollToTop';
 const mockInqProd = [
     {
         id: 0,
-        userEmail: "aaa@naver.com",
+        userEmail: "ttiyaeJaeminy@gmail.com",
         typeInquiry: "반품문의",
         alertReply1: "010-1234-4567",
         alertReply2: true,
-        titleInqProd: "반품하고 싶은데 반품 신청 어디서 하나요?",
-        contentsInqProd: "반품하고 싶은데 아무리 찾아도 반품을 어디서 하는지 모르겠네요.. 혹시 반품 신청 어디서 하나요??",
+        titleInqProd: "반품하고 싶은데 도대체 어딨어요?",
+        contentsInqProd: "엄마 몰래 사서 빨리 반품해야 되는데 도대체 어디서 반품하나요? ㅠㅠㅠ",
         uploadFile: "../../../images/g_antonCrystal_02.jpg"
     },
     {
         id: 1,
-        userEmail: "aaa@naver.com",
-        typeInquiry: "반품문의",
+        userEmail: "powerYuelman@naver.com",
+        typeInquiry: "교환문의",
         alertReply1: "010-1234-4567",
         alertReply2: true,
-        titleInqProd: "반품하고 싶은데 반품 신청 어디서 하나요?",
+        titleInqProd: "열정 가지고 샀는데 교환해야 될 것 같아요",
         contentsInqProd: "반품하고 싶은데 아무리 찾아도 반품을 어디서 하는지 모르겠네요.. 혹시 반품 신청 어디서 하나요??",
         uploadFile: "../../../images/g_antonCrystal_02.jpg"
     },
     {
         id: 2,
-        userEmail: "aaa@naver.com",
-        typeInquiry: "반품문의",
+        userEmail: "hazedensays@gmail.net",
+        typeInquiry: "AS문의",
         alertReply1: "010-1234-4567",
         alertReply2: true,
-        titleInqProd: "반품하고 싶은데 반품 신청 어디서 하나요?",
-        contentsInqProd: "반품하고 싶은데 아무리 찾아도 반품을 어디서 하는지 모르겠네요.. 혹시 반품 신청 어디서 하나요??",
+        titleInqProd: "바지가 너무 길어요",
+        contentsInqProd: "바지가 너무 길어서 그런데 AS 되나요? 바지를 길게 만들면 어쩌자는거야!!!!!!!",
         uploadFile: "../../../images/g_antonCrystal_02.jpg"
     }
 ];
