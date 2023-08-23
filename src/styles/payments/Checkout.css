@@ -26,8 +26,8 @@
     border-bottom: 1px solid #ddd;
 }
 
-.checkout_table tbody tr>th,
-.checkout_table tbody tr>td {
+.check_left table tbody tr>th,
+.check_left div div:not(:nth-child(3)) table tbody tr>td{
     padding: 20px 10px;
 }
 
@@ -92,6 +92,10 @@
     width: 150px;
 }
 
+.item_table tbody tr td{
+    padding:10px;
+}
+
 .item_table tbody .itemComp td:not(:first-child) {
     text-align: center;
 }
@@ -134,7 +138,7 @@
 }
 
 .pay_table tbody>tr>td {
-    padding: 10px 4%;
+    padding: 5px 4%;
 }
 
 .pay_table tbody>tr>th input+span {
@@ -217,7 +221,7 @@
 
 }
 
-.side_pay2 tr th {
+.side_pay2 .side_pay_table > tbody > tr > th {
     padding: 2px;
 }
 

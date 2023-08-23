@@ -113,9 +113,9 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                     </tbody>
                 </table>
             </div>
-            <div class="side_pay side_pay2">
+            <div className="side_pay2">
                 {/* <form action="#"> */}
-                <table>
+                <table className="side_pay_table">
                     <tbody>
                         <tr>
                             <th colspan="1">
