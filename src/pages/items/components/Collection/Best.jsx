@@ -34,11 +34,11 @@ const Best = () => {
     return (
         <div className="best">
             <div className="best_title">
-                    <div className="title_route">
-                        <h2>
-                            <strong>best</strong>
-                        </h2>
-                    </div>
+                <div className="title_route">
+                    <h2>
+                        <strong>best</strong>
+                    </h2>
+                </div>
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
@@ -47,12 +47,14 @@ const Best = () => {
                             <Link to={`/detail/${item.name}`} key={item.name}>
                                 <img src={item.imageFront} alt="상품" />
                                 <img src={item.imageSide} alt="상품" />
-                                <div className="item_name">
-                                    <span>{item.name}</span>
-                                </div>
-                                <div className="item_price">
-                                    <span>{item.price.toLocaleString()}원</span>
-                                </div>
+                            </Link>
+                            <div className="item_name">
+                                <span>{item.name}</span>
+                            </div>
+                            <div className="item_price">
+                                <span>{item.price.toLocaleString()}원</span>
+                            </div>
+                            <Link to={`/detail/${item.name}`} key={item.name}>
                                 <div className="shop_this">
                                     <a>{item.shopThis} &#62;</a>
                                 </div>
