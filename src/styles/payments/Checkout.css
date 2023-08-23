@@ -168,10 +168,15 @@
 }
 
 .check_right .side_pay {
-    position: sticky;
+    position: fixed;
     top: 191px;
+    transition: top 0.3s;
 }
 
+.check_right .side_pay.lock {
+    position: fixed;
+    top: 0;
+}
 /* .side_pay1 */
 .check_right .side_pay1 {
     background-color: #eee;

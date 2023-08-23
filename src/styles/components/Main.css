@@ -121,7 +121,7 @@ hr {
     float: left;
     margin-right: 10px;
     white-space: nowrap;
-    transition: transform 0.3s ease-in-out;
+    transition: width 0.7s ease-in-out;
 }
 
 /* ---------------------------------------------------- */

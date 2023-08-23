@@ -35,9 +35,9 @@ const New = () => {
         updateLiWidth();
     }
 
-    function calculateTotalDistance(idx) {
+    function calculateTotalDistance(index) {
         let totalDistance = 0;
-        for (let i = 0; i < idx; i++) {
+        for (let i = 0; i < index; i++) {
             totalDistance += slideDistances[i % slideDistances.length];
         }
         return totalDistance;
