@@ -80,7 +80,7 @@ const JoinForm = () => {
     }
 
     const handleBlur = () => {
-        if(!emailValid){
+        if (!emailValid) {
             setEmailMessage('아이디를 입력해주세요');
             setEmail('');
         }
@@ -211,21 +211,21 @@ const JoinForm = () => {
                 <th id="last_input_box">이벤트 정보&#40;이메일&#41;<span className="point_color"> &#42;</span></th>
                 <td>
                     <label className='event_info_radio'>
-                        <input type="radio" name="event_info" value="reception" 
-                        onChange={handleEventInfo}
-                        required/>  수신
+                        <input type="radio" name="event_info" value="reception"
+                            onChange={handleEventInfo}
+                            required />  수신
                     </label>
-                 
+
                     <label>
-                        <input type="radio" name="event_info" value="no_reception" 
-                         onChange={handleEventInfo}
-                        required /> 비수신
+                        <input type="radio" name="event_info" value="no_reception"
+                            onChange={handleEventInfo}
+                            required /> 비수신
 
                     </label>
                     <div>
-                    {(eventInfo === "reception" || eventInfo === "no_reception") &&  (
-    <p>회원정보 및 구매 정보, 주요 정책 안내는 수신 여부와 관계 없이 발송됩니다.</p>
-)}
+                        {(eventInfo === "reception" || eventInfo === "no_reception") && (
+                            <p>회원정보 및 구매 정보, 주요 정책 안내는 수신 여부와 관계 없이 발송됩니다.</p>
+                        )}
                     </div>
                 </td>
             </tr>

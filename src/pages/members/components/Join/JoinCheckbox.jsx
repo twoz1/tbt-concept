@@ -57,11 +57,6 @@ const JoinCheckbox = () => {
         }
     };
 
-
-  
-
-
-
     return (
         <div>
             <div className="general_agreement">
