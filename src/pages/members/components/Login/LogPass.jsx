@@ -52,7 +52,7 @@ function Login() {
         if (matchedCredential) {
             setLoggedIn(true);
             setEmailMessage('');
-            window.location.href = '/'; // 로그인 성공 시 페이지 이동
+            window.location.href = '/'  ; // 로그인 성공 시 페이지 이동
         } else {
             setLoggedIn(false);
             setEmailMessage('아이디 또는 비밀번호가 일치하지 않습니다.');

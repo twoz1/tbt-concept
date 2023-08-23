@@ -54,7 +54,7 @@ hr {
     display: flex;
     justify-content: center;
     gap: 3px;
-    margin: 10px 0 30px -135px;
+    margin: 10px 0 30px -15px;
 }
 .remember a {
     margin-left: 30px;
