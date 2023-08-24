@@ -12,7 +12,10 @@ import { useState } from 'react';
       {[1, 2].map((pageNumber) => (
         <span
           key={pageNumber}
-
+          style={{
+            color : clickedPage === pageNumber ? 'orangered' : 'black',
+            fontWeight: clickedPage === pageNumber ? 'bold' : 'normal',
+          }}
           onClick={() => {
             setPage(pageNumber);
             setClickedPage(pageNumber);
