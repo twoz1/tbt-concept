@@ -12,7 +12,7 @@
 			<tr>
 				<th>상품ID</th>
 				<td>
-					<input type="text" name="product_id" id="product_id" readonly/>
+					<input type="text" name="product_id" id="product_id"/>
 					<!-- JS를 통하여 value 값 불러오는 기능 추후 구현 -->
 				</td>
 			</tr>
