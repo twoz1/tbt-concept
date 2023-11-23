@@ -18,7 +18,7 @@ import com.tbtConcept.tbt.service.ProductService;
 public class ProductController {
 	
 	ProductService prodService;
-	String realPath =
+	String realPath = "";
 	
 	@GetMapping("/productInsert")
 	public void getProductInsert() {
@@ -30,7 +30,9 @@ public class ProductController {
 			Model model, RedirectAttributes rttr ) {
 		String uri ="redirect:productList";
 		
-		if(prodService.save(entity))
+		//if(prodService.save(entity)) {
+			
+		//}
 		
 		return uri;
 	}
