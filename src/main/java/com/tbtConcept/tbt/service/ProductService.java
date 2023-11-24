@@ -7,10 +7,10 @@ import com.tbtConcept.tbt.entity.Product;
 public interface ProductService {
 	List<Product> selectList();
 	
-	Product selectDetail(String id);
+	Product selectDetail(int id);
 	
-	String save(Product entity);
+	int save(Product entity);
 	
-	String delete(String id);
+	int delete(int id);
 	
 }
