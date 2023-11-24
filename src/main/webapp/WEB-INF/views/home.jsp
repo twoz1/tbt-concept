@@ -8,5 +8,6 @@
 </head>
 <body>
 &nbsp;<a href="/master/product/productInsert">productInsert</a>&nbsp; 
+&nbsp;<a href="/master/product/productList">productList</a>&nbsp; 
 </body>
 </html>

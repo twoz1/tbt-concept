@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public Product selectDetail(String id) {
+	public Product selectDetail(int id) {
 		Optional<Product> result = repository.findById(id);
 		
 		if(result.isPresent()) {
@@ -32,13 +32,13 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public String save(Product entity) {
+	public int save(Product entity) {
 		repository.save(entity);
 		return entity.getProduct_id();
 	}
 	
 	@Override
-	public String delete(String id) {
+	public int delete(int id) {
 		repository.deleteById(id);
 		return id;
 	}
