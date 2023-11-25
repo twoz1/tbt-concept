@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.master_list {
+    width: calc(100% - 60px);
+}
+
+.master_list table {
+    width: 100%;
+}
+
+.master_list table th {
+    height: 30px;
+}
+
+.master_list table td{
+	padding: 3px;
+}
+
+.master_list table img{
+	width:50px;
+}
+
+.product_list table th:not(:nth-child(3)){
+	width:12%;
+}

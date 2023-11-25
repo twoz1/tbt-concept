@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+body {
+    font-size: 14px;
+}
+
+/* Header Start */
+
+header {
+    width: 200px;
+    height: 100vh;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header .master_logo {
+    margin: 20px 0;
+}
+
+header .master_gnb {
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
+    text-align: center;
+}
+
+header .master_gnb li a {
+    display: block;
+    color: #fff;
+}
+
+header .master_gnb>li>a {
+    padding: 10px 0;
+    border-top: 1px solid #2b2b2b;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+header .master_gnb>li>a {
+    font-weight: bold;
+}
+
+header .master_gnb li:hover>a {
+    color: orangered;
+}
+
+header .master_gnb li ul {
+    width: 100%;
+    display: none;
+}
+
+header .master_gnb li ul li a {
+    padding: 7px 0;
+}
+
+/* 메인 일부 설정 */
+
+#master_wrap main {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    padding: 30px;
+}
+
+#master_wrap main table {
+    border-collapse: collapse;
+    text-align:center;
+}
+
+#master_wrap main table th,
+#master_wrap main table td {
+    border: 1px solid #eee;
+}
+
+#master_wrap main table th {
+    background-color: #ddd;
+}
+
+main .m_button {
+    display: inline-block;
+    border: 1px solid #aaa;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #eee;
+}
+
+main .m_button:hover {
+    background-color: #ddd;
+}
+
+.master_title {
+    font-size: 30px;
+    margin: 20px 0;
+}

@@ -92,7 +92,7 @@ public class ProductController {
 	// =====================================================
 	@GetMapping("/productList")
 	public void getProductList(Model model) {
-		model.addAttribute("productList", prodService.selectList());
+		model.addAttribute("productList", prodService.findAllDesc());
 	}
 
 	// =====================================================
@@ -113,7 +113,7 @@ public class ProductController {
 	public String getProductUpdate(Model model, HttpSession session, Product entity) throws IOException {
 
 		model.addAttribute("productDetail", entity);
-		String uri = "master/product/productDetail";
+		String uri = "master/product/productList";
 
 		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\webapp\\resources\\images\\product\\";
 		String file1, file2;
