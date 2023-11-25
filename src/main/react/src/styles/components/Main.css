@@ -1,0 +1,332 @@
+.swiper span {
+    background-color: orangered;
+}
+
+/*=============main 시작=================*/
+/*========================================*/
+
+.m_c {
+    height: auto;
+}
+
+.what_new,
+.collection,
+.best {
+    margin: 100px 0;
+}
+
+hr {
+    font-size: 3px;
+}
+
+.image_slide_1 {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.img_button {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.img_button button {
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.254);
+    color: white;
+    border: 0px solid;
+    cursor: pointer;
+}
+
+/*===========image_slide============ */
+/*================================== */
+.cf::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.what_new {
+    border: none;
+    font-size: 30px;
+    display: flex;
+    background-color: #fff;
+    justify-content: space-between;
+    width: 100%;
+    height: 380px;
+    margin: 150px 0;
+    gap: 10px;
+}
+
+.item_name {
+    margin-top: 15px;
+}
+
+.item_name,
+.item_price {
+    font-size: 14px;
+}
+
+.shop_this {
+    margin-top: 15px;
+}
+
+.shop_this a {
+    background-color: orangered;
+    color: white;
+    display: block;
+    width: 100px;
+    margin: auto;
+    line-height: 23px;
+}
+
+.what_new em {
+    font-style: normal;
+}
+
+.what_new_title {
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 190px;
+}
+
+.what_new_item {
+    width: 980px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.what_new_item ul {
+    width: 1000000%;
+    height: 100%;
+    text-align: center;
+    transition: left 0.7s 0.1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.what_new_item li {
+    height: 100%;
+    font-size: 16px;
+    font-style: normal;
+    float: left;
+    margin-right: 10px;
+    white-space: nowrap;
+    transition: width 0.7s linear;
+}
+
+/* ---------------------------------------------------- */
+.what_new_item ul li a img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ---------------------------------------------------- */
+
+.what_new_item ul li a img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.what_new button {
+    border: solid 0px;
+    font-size: 30px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-top: -40px;
+}
+
+.what_new_list img:nth-child(2) {
+    display: none;
+}
+
+.what_new_list a:hover img {
+    display: none;
+}
+
+.what_new_list a:hover img:nth-child(2) {
+    display: block;
+    text-align: center;
+}
+
+/* ============what`snew============ */
+/* ================================= */
+
+.collection_m {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    align-items: center;
+    background: url(../../images/flsjdfalskdfjkasljfdl.jpeg) center/100% no-repeat;
+}
+
+.collection_m>a {
+    color: #fff;
+    font-size: 44px;
+    font-weight: bold;
+}
+
+.collection_m>a+a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100px;
+    background-color: #000;
+    padding: 5px;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* ===========collection============ */
+/* ================================= */
+/* .best {
+    height: 400px;
+} */
+
+.best em {
+    font-style: normal;
+    font-size: 16px;
+}
+
+.best_item {
+    display: flex;
+    gap: 5px;
+}
+
+.best_title>a {
+    font-size: 30px;
+}
+
+.best_title h2 {
+    margin-bottom: 50px;
+}
+
+.best_title {
+    text-align: center;
+}
+
+/* ===================== */
+.best_item ul {
+    display: flex;
+    gap: 10px;
+    /* width: 100%; */
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.best_item li {
+    text-align: center;
+    width: 100%;
+}
+
+/* -------------------------------------- */
+.best_item ul li a img {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.best img {
+    width: 400px;
+}
+
+.best_item {
+    margin: 0 auto;
+    width: 95%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.best_item .best_list {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: left 0.7s 0.1s;
+}
+
+.best_item .best_list img {
+    width: 285px;
+    margin-bottom: 50px;
+}
+
+/* -------------------------------------- */
+.best_list img:nth-child(2) {
+    display: none;
+}
+
+.best_list a:hover img {
+    display: none;
+}
+
+.best_list a:hover img:nth-child(2) {
+    display: block;
+    text-align: center;
+}
+
+/* .best_item button {
+    border: solid 0px;
+    font-size: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}  */
+.best button {
+    border: none;
+    position: absolute;
+    top: 80%;
+    transform: translateY(100%);
+    transition: 0.3 ease-in-out;
+    z-index: 5;
+    font-size: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.btn_pre {
+    right: 98%;
+}
+
+.btn_next {
+    left: 98%;
+}
+
+button.nonVisible {
+    visibility: hidden;
+}
+
+/* ==============best=============== */
+/* ================================= */
+
+.video {
+    margin-top: 200px;
+    height: 800px;
+    width: 100%;
+    background-color: #000;
+}
+
+.play {
+    width: 100%;
+    height: 800px;
+}
+
+.play video {
+    width: 100%;
+    height: 800px;
+}
+
+/* ================================= */
+/* ============main영역 끝============ */

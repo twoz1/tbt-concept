@@ -1,0 +1,21 @@
+.freq_ask_1 {
+    margin-top: 0.5rem;
+}
+
+.freq_ask_1 hr {
+    margin-top: 0.5rem;
+}
+
+.freq_ask_1 p {
+    margin-bottom: 0.7rem;
+    text-align: left;
+}
+
+.freq_ask_1 button {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}

@@ -1,0 +1,57 @@
+.cs1on1_ask {
+    margin-top: 8rem;
+}
+
+.cs1on1_ask h3 {
+    display: inline-block;
+}
+
+.cs1on1_ask hr {
+    margin: 0.5rem 0;
+}
+
+.btn_cs1on1 {
+    float: right;
+}
+
+.btn_cs1on1 {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.openCS1on1 {
+    color: orangered;
+    margin-top: 1rem;
+}
+
+.tableInqProd {
+    width: 90%;
+    min-width: 900px;
+    text-align: left;
+}
+
+.tHeadInqProd {
+    width: 100%;
+    font-size: 19px;
+}
+
+.tHeadInqProd th {
+    padding-bottom: 1rem;
+}
+
+.tHeadInqProd th:nth-child(1) {
+    width: 10%;
+}
+
+.tHeadInqProd th:nth-child(2) {
+    width: 20%;
+}
+
+.tHeadInqProd th:nth-child(3) {
+    width: 70%;
+}
+
+.noInqProd td {
+    color: #a3a3a3;
+    padding-left: 0.2rem;
+}
