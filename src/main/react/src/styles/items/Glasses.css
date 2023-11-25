@@ -1,0 +1,151 @@
+/* ======================메인<배너======================================== */
+
+#banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    position: relative;
+    min-width: 1000px;
+}
+
+#banner img {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ======================메인<카테고리================================ */
+#category>ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#category>ul>li {
+    line-height: 30px;
+    padding: 0 10px;
+    position: relative;
+    width: 100px;
+    cursor: pointer;
+}
+
+#category ul ul {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+#category ul ul li {
+    padding: 0 10px;
+    font-size: 0.9em;
+}
+
+#category>ul>li:hover ul {
+    display: block;
+    background-color: white;
+}
+
+
+#category ul>li:hover {
+    background-color: black;
+    color: white;
+}
+
+#category ul li ul li:hover {
+    background-color: white;
+}
+
+#category ul li ul li:hover a {
+    color: orangered;
+
+}
+
+
+/* ======================메인<선글라스 사진============================= */
+.photo_line {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.photo_layout ul {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    gap: 1px;
+}
+
+
+.photo_layout ul li {
+    width: 25%;
+}
+
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.photo_layout ul .product_photo:hover {
+    display: block;
+    transform: scale(1.04);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    cursor: crosshair;
+}
+
+.photo_layout ul li div:nth-child(2){
+    margin-top: 10px;
+}
+
+.Sunglasses img:nth-child(2),
+.Glasses img:nth-child(2) {
+    display: none;
+}
+
+.photo_2 a:hover img {
+    display: none;
+}
+
+.photo_2 a:hover img:nth-child(2) {
+    display: block;
+}
+
+
+/* ==================메인<선글라스 사진 속 텍스트========================================== */
+
+.item_name,
+.item_price {
+    font-size: 14px;
+}
+
+.shop_this {
+    margin-top: 20px;
+}
+
+.shop_this a {
+    background-color: orangered;
+    color: white;
+    display: block;
+    width: 100px;
+    margin: auto;
+    line-height: 23px;
+}
+
+
+/* =================메인< 바닥 페이지================================ */
+.next_page {
+
+    font-size: 2vh;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.next_page span {
+    font-size: 15px;
+    margin: 70px 10px 70px;
+    display: inline-block;
+    cursor: grab;
+}

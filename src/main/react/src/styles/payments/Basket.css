@@ -1,0 +1,62 @@
+body>* {
+    margin: 0;
+    padding: 0;
+}
+
+.d_flex {
+    display: flex;
+}
+
+/* =====================main - table===================== */
+.basket_box {
+    width: 100%;
+    min-width: 1220px;
+}
+
+.basket_table h3 {
+    font-size: 22px;
+    margin-bottom: 0.3rem;
+}
+
+.basket_box figure {
+    width: 70%;
+    min-width: 820px;
+    height: auto;
+    margin-bottom: 5rem;
+}
+
+.btn_bottom button {
+    border: none;
+    height: 35px;
+    width: 120px;
+    margin: 2rem 0 8rem 0;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn_bottom button:nth-of-type(2) {
+    background-color: black;
+    color: white;
+    margin-left: 1rem;
+}
+
+/* ================= */
+.basket_table table {
+    width: 100%;
+    min-width: 720px;
+    border: solid 2px black;
+    border-right: none;
+    border-left: none;
+    border-collapse: collapse;
+}
+
+.basket_table table tr {
+    border-bottom: 1px solid darkgray;
+}
+
+.basket_table thead {
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
