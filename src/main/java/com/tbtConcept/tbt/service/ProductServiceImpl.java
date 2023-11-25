@@ -3,6 +3,8 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.entity.Product;
@@ -14,6 +16,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 	private final ProductRepository repository;
+	
+	@Transactional
+	@Override
+	public List<Product> findAllDesc() {
+		return repository.findAllDesc();
+	}
 	
 	@Override
 	public List<Product> selectList() {

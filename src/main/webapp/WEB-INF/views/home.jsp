@@ -7,7 +7,6 @@
 <title>Home</title>
 </head>
 <body>
-&nbsp;<a href="/master/product/productInsert">productInsert</a>&nbsp; 
-&nbsp;<a href="/master/product/productList">productList</a>&nbsp; 
+&nbsp;<a href="/master/masterIndex">마스터페이지</a>&nbsp; 
 </body>
 </html>
