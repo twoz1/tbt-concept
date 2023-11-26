@@ -2,9 +2,8 @@ package com.tbtConcept.tbt.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +19,8 @@ import lombok.NoArgsConstructor;
 public class Cart {
 	
 	@Id
+	private int cart_id;
+	
 	@Column(nullable=false)
 	private String user_id;
 	
@@ -27,6 +28,5 @@ public class Cart {
 	private int product_id;
 	
 	private int cart_quan;
-	
 	
 }

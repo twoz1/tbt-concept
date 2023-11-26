@@ -14,10 +14,10 @@ public interface CartService {
 
 	Cart selectDetail(String user_id);
 
-	int save(Cart entity);
+	String save(Cart entity);
 
 	// => delete 구현에 대해서 생각해보기
 	// 1. user별 장바구니 삭제
 	// 2. user별 장바구니 안에 있는 아이템을 각각 삭제
-	int delete(String user_id);
+	String delete(String user_id);
 }
