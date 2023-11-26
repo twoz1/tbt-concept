@@ -11,11 +11,10 @@ public interface CartService {
 	List<Cart> findAllDesc();
 
 	List<Cart> selectList();
-	
-	/*
-	 * @Transactional List<Cart> searchList(String user_id);
-	 */
-	
+
+	@Transactional
+	List<Cart> searchByCartLike(String user_id);
+
 	Cart selectDetail(int cart_id);
 
 	int save(Cart entity);
@@ -24,5 +23,5 @@ public interface CartService {
 	// 1. user별 장바구니 삭제
 	// 2. user별 장바구니 안에 있는 아이템을 각각 삭제
 	int delete(int cart_id);
-	
+
 }
