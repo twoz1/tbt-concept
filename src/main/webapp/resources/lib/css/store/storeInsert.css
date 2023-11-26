@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+#master_wrap .store_insert tr:last-child td{
+	border:none;
+	padding: 10px 0;
+}
+
+.store_insert p{
+	margin-top:5px;
+	font-size:12px;
+}

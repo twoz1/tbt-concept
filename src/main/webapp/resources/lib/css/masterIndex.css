@@ -16,12 +16,19 @@ a {
     color: #000;
 }
 
-button {
+#master_wrap button {
 	cursor:pointer;
+	padding: 3px 5px;
 }
 
 body {
     font-size: 14px;
+}
+
+span.required{
+	font-size:12px;
+	margin-left:3px;
+	color:orangered;
 }
 
 /* Header Start */
@@ -36,12 +43,23 @@ header {
 }
 
 header .master_logo {
-    margin: 20px 0;
+	width:160px;
+    margin: 40px 20px;
+}
+
+header .master_logo > a{
+	display:block;
+	text-indent: -9999em;
+}
+
+header .master_logo img{
+	display:block;
+	width:100%;
+	height:auto;
 }
 
 header .master_gnb {
     width: 90%;
-    margin-top: 30px;
     margin-left: 5%;
     text-align: center;
 }

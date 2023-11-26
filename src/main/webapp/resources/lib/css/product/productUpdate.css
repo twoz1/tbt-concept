@@ -1,8 +1,20 @@
 @charset "UTF-8";
 
+#master_wrap .product_update tr:last-child td{
+	border:none;
+	padding: 10px 0;
+}
+
 .product_update img{
 	display:block;
-	width:150px;
+	width:100px;
+	height:100px;
 	margin-bottom:10px;
 	border:1px solid #000;
+}
+
+.product_update textarea{
+	width:300px;
+	height:180px;
+	resize:none;
 }
