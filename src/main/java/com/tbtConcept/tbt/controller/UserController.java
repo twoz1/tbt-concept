@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @AllArgsConstructor
 @RequestMapping(value = "/master/user")
 @Controller
@@ -20,4 +21,8 @@ public class UserController {
 		
 	}	
 
+	@GetMapping(value="/userJoin")
+	public void getUserJoin() {
+		
+	} 
 }
