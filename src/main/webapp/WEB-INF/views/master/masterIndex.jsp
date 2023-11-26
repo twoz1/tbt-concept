@@ -10,8 +10,7 @@
 	<div id="master_wrap">
 		<%@ include file="masterHeader.jsp" %>
 		<main id="master_main">
-			<a href="/master/product/productInsert">productInsert</a>
-			<a href="/master/product/productList">productList</a>
+			<h2>마스터페이지 입니다.</h2>
 		</main>
 	</div>
 </body>

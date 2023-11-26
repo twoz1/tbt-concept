@@ -74,7 +74,7 @@
 					</table>
 				</form>
 				<div class="nav_box">
-					<a class="m_button" href="productList">상품목록</a>
+					<a class="m_button" href="product/productList">상품목록</a>
 				</div>
 			</div>
 		</main>
