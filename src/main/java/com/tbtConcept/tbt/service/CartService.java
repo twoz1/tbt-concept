@@ -12,8 +12,9 @@ public interface CartService {
 
 	List<Cart> selectList();
 	
-	@Transactional
-	List<Cart> searchList(String user_id);
+	/*
+	 * @Transactional List<Cart> searchList(String user_id);
+	 */
 	
 	Cart selectDetail(int cart_id);
 

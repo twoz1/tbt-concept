@@ -25,10 +25,10 @@ public class CartServiceImpl implements CartService {
 		return repository.findAll();
 	}
 
-	@Override
-	public List<Cart> searchList(String user_id) {
-		return repository.findCartsByUserIdContaining(user_id);
-	}
+	/*
+	 * @Override public List<Cart> searchList(String user_id) { return
+	 * repository.findCartsByUserIdContaining(user_id); }
+	 */
 
 	@Override
 	public Cart selectDetail(int cart_id) {

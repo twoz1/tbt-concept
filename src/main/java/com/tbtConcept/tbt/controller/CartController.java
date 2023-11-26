@@ -61,9 +61,10 @@ public class CartController {
 
 	// =====================================================
 
-	@PostMapping("/cartList")
-	public List<Cart> getSearchCartList(Model model, @RequestParam String user_id) {
-		return cartService.searchList(user_id);
-	}
+	/*
+	 * @PostMapping("/cartList") public List<Cart> getSearchCartList(Model
+	 * model, @RequestParam String user_id) { return
+	 * cartService.searchList(user_id); }
+	 */
 
 }
