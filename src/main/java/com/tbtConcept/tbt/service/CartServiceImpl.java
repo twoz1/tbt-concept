@@ -26,8 +26,13 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart selectDetail(String user_id) {
-		Optional<Cart> result = repository.findById(user_id);
+	public List<Cart> searchList(String user_id) {
+		return repository.findCartsByUserIdContaining(user_id);
+	}
+
+	@Override
+	public Cart selectDetail(int cart_id) {
+		Optional<Cart> result = repository.findById(cart_id);
 
 		if (result.isPresent()) {
 			return result.get();
@@ -37,15 +42,15 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public String save(Cart entity) {
+	public int save(Cart entity) {
 		repository.save(entity);
-		return entity.getUser_id();
+		return entity.getCart_id();
 	}
 
 	@Override
-	public String delete(String user_id) {
-		repository.deleteById(user_id);
-		return user_id;
+	public int delete(int cart_id) {
+		repository.deleteById(cart_id);
+		return cart_id;
 	}
 
 }

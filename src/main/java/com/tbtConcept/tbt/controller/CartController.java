@@ -1,10 +1,13 @@
 package com.tbtConcept.tbt.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tbtConcept.tbt.entity.Cart;
@@ -18,33 +21,49 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping(value = "/master/cart")
 @Controller
 public class CartController {
-	
+
 	CartService cartService;
-	
+
 	// =====================================================
 	@GetMapping("/cartInsert")
 	public void getCartInsert() {
-		
+
 	}
-	
+
 	@PostMapping("/cartInsert")
-	public String  postCartInsert(Cart entity, Model model, RedirectAttributes rttr) {
-		
+	public String postCartInsert(Cart entity, Model model, RedirectAttributes rttr) {
+
 		// 팝업창에 따라서 구현해야될 것 같음
 		// 장바구니로 이동하시겠습니까?
 		// Y -> 장바구니로 / N -> 현재 상태로 유지 (product_detail)
 		String uri = "redirect:cartList";
 
-		return "";
+		try {
+			if (cartService.save(entity) > 0) {
+				model.addAttribute("message", "장바구니등록 성공");
+				System.out.println("** cart insert 성공");
+			} else {
+				model.addAttribute("message", "장바구니등록 실패");
+				uri = "master/cart/cartInsert";
+			}
+		} catch (Exception e) {
+			System.out.println("** Cart insert Exception => " + e.toString());
+		}
+
+		return uri;
 	}
-	
+
 	// =====================================================
 	@GetMapping("/cartList")
 	public void getCartList(Model model) {
 		model.addAttribute("cartList", cartService.findAllDesc());
 	}
-	
+
 	// =====================================================
-	
-	
+
+	@PostMapping("/cartList")
+	public List<Cart> getSearchCartList(Model model, @RequestParam String user_id) {
+		return cartService.searchList(user_id);
+	}
+
 }
