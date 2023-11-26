@@ -19,12 +19,8 @@
             		<td>${requestScope.orderDetail.order_id}</td>
             	</tr>
             	<tr>
-            		<th>회원 이메일 : </th>
+            		<th>회원 ID : </th>
             		<td>${requestScope.orderDetail.user_id}</td>
-            	</tr>
-            	<tr>
-            		<th>쿠폰리스트 아이디 :</th>
-            		<td>${requestScope.orderDetail.list_id}</td>
             	</tr>
             	<tr>
             		<th>주문일자 : </th>
@@ -48,7 +44,7 @@
             	</tr>
             	<tr>
             		<th>받는사람 핸드폰 번호 :</th>
-            		<td>${requestScope.orderDetail.reciver_phoneNum}</td>
+            		<td>${requestScope.orderDetail.reciver_phone_num}</td>
             	</tr>
             	<tr>
             		<th>배송 메세지 : </th>
@@ -60,23 +56,27 @@
             	</tr>
             	<tr>
             		<th>쿠폰 : </th>
-            		<td>${requestScope.orderDetail.total_eachQuan}</td>
+            		<td>${requestScope.orderDetail.order_coupon}</td>
             	</tr>
             	<tr>
             		<th>주문 상품 종류수량 :</th>
-            		<td>${requestScope.orderDetail.totalPrice}</td>
+            		<td>${requestScope.orderDetail.each_quan}</td>
             	</tr>
             	<tr>
             		<th>총결제금액 : </th>
+            		<td>${requestScope.orderDetail.total_price}</td>
+            	</tr>
+            	<tr>
+            		<th>입금상태 : </th>
             		<td>${requestScope.orderDetail.state}</td>
             	</tr>
             	<tr>
             		<th>배송상태 : </th>
-            		<td></td>
+            		<td>${requestScope.orderDetail.del_state}</td>
             	</tr>
             	<tr>
             		<th>송장번호 : </th>
-            		<td></td>
+            		<td>${requestScope.orderDetail.del_num}</td>
             	</tr>
             </table>
          </div>
