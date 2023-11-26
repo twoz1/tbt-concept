@@ -112,8 +112,8 @@
 					</table>
 				</form>
 				<div class="nav_box">
-					<a class="m_button" href="product/productDetail?product_id=${requestScope.productDetail.product_id}">상품상세</a>
-					<a class="m_button" href="product/productList">상품목록</a>
+					<a class="m_button" href="productDetail?product_id=${requestScope.productDetail.product_id}">상품상세</a>
+					<a class="m_button" href="productList">상품목록</a>
 				</div>
 			</div>
 		</main>
