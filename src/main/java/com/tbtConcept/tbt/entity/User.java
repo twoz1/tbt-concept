@@ -29,7 +29,7 @@ public class User {
 	private String user_pw;
 	
 	@Column(nullable=false)
-	private int user_phoneNum;
+	private int user_phone_num;
 	
 	@Column(nullable=false)
 	private int user_birth;
