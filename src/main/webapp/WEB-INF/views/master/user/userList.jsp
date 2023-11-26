@@ -26,7 +26,6 @@
 						<th>이벤트 정보 수신 여부</th>
 						<th>주소</th>
 						<th></th>
-						<th></th>
 					</tr>
 					
 					<c:if test="${not empty requestScope.userList}">
@@ -46,7 +45,7 @@
 								</td>
 								
 
-								<td><a href="userDetail?user_id=${u.user_id}">상세보기</a></td>
+								<!-- <td><a href="userDetail?user_id=${u.user_id}">상세보기</a></td> -->
 								<td><button onclick="axProductDelete(${u.user_id})" id="${u.user_id}">삭제</button></td>
 							</tr>
 						</c:forEach>

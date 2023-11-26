@@ -25,6 +25,19 @@ public class UserController {
 	UserService userService;
 	 PasswordEncoder passwordEncoder;
 
+	 @GetMapping("/idDupCheck")
+	   public String idDupCheck(User entity, Model model) {
+	      // 1) newID 확인
+	      if ( userService.selectOne(entity.getUser_id()) != null) {
+	         // => 존재 : 사용불가
+	         model.addAttribute("idUse", "F");
+	      }else {
+	         // => 없으면: 사용가능
+	         model.addAttribute("idUse", "T");
+	      }
+	      return "master/user/idDupCheck";
+	  }
+	   
 	@GetMapping(value ="/userList")
 	public void getUserList(Model model) {
 		model.addAttribute("userList", userService.selectList());

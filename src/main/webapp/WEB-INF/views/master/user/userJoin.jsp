@@ -6,6 +6,40 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 가입 | tbt_concept</title>
+
+<script>
+
+"use strict"
+function idDupCheck() {
+	   // 1) 입력값의 무결성 확인
+	   if( iCheck == false){
+	  		iCheck=idCheck();
+	   }else {
+	   // 2) 서버로 id 회인요청 -> 결과는 새창으로
+	   		let url = "idDupCheck?user_id=" + document.getElementById('user_id').value;
+	   		window.open(url, '_blank', 'width=400,height=300,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
+	   }
+	   
+}
+let iCheck = false;
+
+function idCheck() {
+	  let id=document.getElementById('user_id').value;
+	  if (id.length<4 || id.length>30) { 
+	     document.getElementById('iMessage').innerHTML='id 는 4~10 글자 입니다.' ;
+	     return false;
+
+	  // => 영문과 숫자로만 입력했는지 : id 에서 영문과 숫자를 모두 '' 로 변경했을때 length 가 0 이면 OK    
+	  }else if ( id.replace(/[a-z.0-9]/gi,'').length > 0 ) {
+	      document.getElementById('iMessage').innerHTML='id 는 영문과 숫자만 입력하세요.' ;
+	      return false;
+	  }else {
+	     document.getElementById('iMessage').innerHTML='' ;
+	     return true;
+	   };//if
+	} //idCheck
+
+</script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -17,7 +51,10 @@
 				 <table>
 					<tr>
 					 <th>회원 이메일</th>
-					 <td><input type="text" name="user_id" id="user_id"></td>
+					 <td><input type="text" name="user_id" id="user_id">
+					 <button type="button" id="idDup" onclick="idDupCheck()">ID중복확인</button>
+					 <br><span id="iMessage" class="eMessage"></span></td>
+					 </td>
 					</tr>
 					
 					<tr>
@@ -40,11 +77,11 @@
 					 <td><input type="text" name="user_birth" id="user_birth"></td>
 					</tr>
 					
-					<tr>
+					<!-- <tr>
 					 <th>등급</th>
 					 <td><input type="text" name="user_rank" id="user_rank"></td>
-					</tr>
-										
+					</tr> -->
+									
 					<tr>
 					 <th>이벤트 정보 수신 여부</th>
 					 <td>
