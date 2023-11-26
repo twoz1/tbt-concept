@@ -43,8 +43,7 @@ public class ProductController {
 	// =====================================================
 
 	@PostMapping("/productInsert")
-	public String postProductInsert(Product entity, Model model, RedirectAttributes rttr,
-			MultipartHttpServletRequest mtfReuqest) throws IOException {
+	public String postProductInsert(Product entity, Model model, RedirectAttributes rttr) throws IOException {
 		String uri = "redirect:productList";
 
 		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\webapp\\resources\\images\\product\\";
@@ -73,6 +72,8 @@ public class ProductController {
 					entity.setProduct_img4(file2);
 			}
 		}
+		
+		// entity.setProduct_detail(entity.getProduct_detail().replaceAll("\r\n","<br>"));
 
 		try {
 			if (prodService.save(entity) > 0) {
@@ -98,6 +99,7 @@ public class ProductController {
 	// =====================================================
 	@GetMapping("/productDetail")
 	public String getProductDetail(Model model, Product entity, HttpServletRequest request) {
+
 		model.addAttribute("productDetail", prodService.selectDetail(entity.getProduct_id()));
 
 		if ("U".equals(request.getParameter("jCode"))) {
@@ -157,7 +159,7 @@ public class ProductController {
 					entity.setProduct_img4(fileList2.get(i));
 			}
 		}
-		
+				
 		try {
 			if (prodService.save(entity) > 0) {
 				model.addAttribute("message", "상품수정 성공");

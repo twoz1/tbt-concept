@@ -1,8 +1,8 @@
 "use strict";
 
 function axProductDelete(id) {
-	let url = "/master/product/productdelete/"+id;
-	
+	let url = "/master/product/productdelete/" + id;
+
 
 	if (confirm("삭제하시겠습니까?")) {
 		axios.delete(url
@@ -20,3 +20,21 @@ function axProductDelete(id) {
 		alert("취소되었습니다.");
 	}
 }
+
+function previewImage(event, targetId) {
+	const reader = new FileReader();
+	reader.onload = function() {
+		const imgElement = document.getElementById(targetId);
+		imgElement.src = reader.result;
+	}
+	reader.readAsDataURL(event.target.files[0]);
+}
+
+function resetImg() {
+
+    document.getElementById('img1').src = "/"+document.getElementById('product_img1').value;
+    document.getElementById('img2').src = "/"+document.getElementById('product_img2').value;
+    document.getElementById('img3').src = "/"+document.getElementById('product_img3').value;
+    document.getElementById('img4').src = "/"+document.getElementById('product_img4').value;
+}
+

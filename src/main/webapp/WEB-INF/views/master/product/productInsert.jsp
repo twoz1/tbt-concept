@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 등록 | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/product/productInsert.css" />
 </head>
 <body>
 	<div id="master_wrap">
@@ -16,7 +17,7 @@
 					enctype="multipart/form-data" id="productInsert">
 					<table>
 						<tr>
-							<th>상품분류코드</th>
+							<th>상품분류코드<span class="required">&#42;</span></th>
 							<td><select name="code" id="code" required>
 									<option value="">선택</option>
 									<option value="S">sunglass</option>
@@ -25,44 +26,44 @@
 						</tr>
 
 						<tr>
-							<th>상품이름</th>
+							<th>상품이름<span class="required">&#42;</span></th>
 							<td><input type="text" name="product_name" id="product_name"
 								required /></td>
 						</tr>
 
 						<tr>
-							<th>상품가격</th>
+							<th>상품가격<span class="required">&#42;</span></th>
 							<td><input type="text" name="product_price" id="product_price" required /></td>
 						</tr>
 
 						<tr>
-							<th>상품재고</th>
+							<th>상품재고<span class="required">&#42;</span></th>
 							<td><input type="text" name="product_stock" id="product_stock" required /></td>
 						</tr>
 
 						<tr>
-							<th>상품설명</th>
-							<td><input type="text" name="product_detail" id="product_detail" required /></td>
+							<th>상품설명<span class="required">&#42;</span></th>
+							<td><textarea name="product_detail" id="product_detail" required ></textarea></td>
 						</tr>
 
 						<tr>
-							<th>상품이미지1</th>
-							<td><input type="file" name="product_img1f" id="product_img1f" required /></td>
+							<th>상품이미지1<span class="required">&#42;</span></th>
+							<td><input class="product_img" type="file" name="product_img1f" id="product_img1f" required /></td>
 						</tr>
 
 						<tr>
-							<th>상품이미지2</th>
-							<td><input type="file" name="product_img2f" id="product_img2f" required /></td>
+							<th>상품이미지2<span class="required">&#42;</span></th>
+							<td><input class="product_img" type="file" name="product_img2f" id="product_img2f" required /></td>
 						</tr>
 
 						<tr>
-							<th>상품이미지3</th>
-							<td><input type="file" name="product_img3f" id="product_img3f" required /></td>
+							<th>상품이미지3<span class="required">&#42;</span></th>
+							<td><input class="product_img" type="file" name="product_img3f" id="product_img3f" required /></td>
 						</tr>
 
 						<tr>
-							<th>상품이미지4</th>
-							<td><input type="file" name="product_img4f" id="product_img4f" required /></td>
+							<th>상품이미지4<span class="required">&#42;</span></th>
+							<td><input class="product_img" type="file" name="product_img4f" id="product_img4f" required /></td>
 						</tr>
 
 						<tr>
@@ -73,6 +74,7 @@
 						</tr>
 					</table>
 				</form>
+				<hr/>
 				<div class="nav_box">
 					<a class="m_button" href="productList">상품목록</a>
 				</div>

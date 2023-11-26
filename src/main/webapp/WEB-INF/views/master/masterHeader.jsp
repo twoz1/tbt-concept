@@ -12,7 +12,8 @@
 <body>
 	<header>
 		<h1 class="master_logo">
-			<a href=""> <img src="" alt="">
+			<a href="/master/masterIndex">
+				<img src="/resources/images/logo_white.png" alt="logo">
 			</a>
 		</h1>
 		<ul class="master_gnb">
@@ -50,6 +51,7 @@
 			<li><a href="#">지점관리</a>
 				<ul>
 					<li><a href="/master/store/storeList">지점목록</a></li>
+					<li><a href="/master/store/storeInsert">지점등록</a></li>
 				</ul>
 			</li>
 		</ul>
