@@ -16,7 +16,7 @@
 		<main id="master_main">
 			<div class="product_list master_list">
 				<h2 class="master_title">상품 리스트</h2>
-				<a class="m_button l_button" href="productInsert">상품등록</a>
+				<a class="m_button l_button" href="product/productInsert">상품등록</a>
 				<table>
 					<tr>
 						<th>상품ID</th>

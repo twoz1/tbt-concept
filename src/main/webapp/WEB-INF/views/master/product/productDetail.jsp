@@ -17,7 +17,7 @@ img {
 <div id="master_wrap">
 		<%@ include file="../masterHeader.jsp" %>
 		<main id="master_main">
-			<div class="product_detail">
+			<div class="product_detail master_detail">
 				<h2 class="master_title">상품 상세</h2>
 				<table>
 					<tr>
@@ -73,8 +73,8 @@ img {
 					</tr>
 				</table>
 				<div class="nav_box">
-					<a class="m_button" href="productDetail?jCode=U&product_id=${requestScope.productDetail.product_id}">상품수정</a>
-					<a class="m_button" href="productList">상품목록</a>
+					<a class="m_button" href="product/productDetail?jCode=U&product_id=${requestScope.productDetail.product_id}">상품수정</a>
+					<a class="m_button" href="product/productList">상품목록</a>
 				</div>
 			</div>
 		</main>

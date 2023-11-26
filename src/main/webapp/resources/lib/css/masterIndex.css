@@ -76,6 +76,7 @@ header .master_gnb li ul li a {
     width: calc(100% - 200px);
     margin-left: 200px;
     padding: 30px;
+    box-sizing:border-box;
 }
 
 #master_wrap main table {
