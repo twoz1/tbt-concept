@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.product_update img{
+	display:block;
+	width:150px;
+	margin-bottom:10px;
+	border:1px solid #000;
+}

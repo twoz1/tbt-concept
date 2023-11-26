@@ -7,18 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 수정 | tbt_concept</title>
-<style>
-	img {
-		width:50px;
-		height:50px;
-	}
-</style>
+<link rel="stylesheet" href="/resources/lib/css/product/productUpdate.css" />
 </head>
 <body>
 <div id="master_wrap">
 		<%@ include file="../masterHeader.jsp" %>
 		<main id="master_main">
-			<div class="product_update">
+			<div class="product_update master_save">
 				<h2 class="master_title">상품 수정</h2>
 				<form action="productUpdate" method="Post" enctype="multipart/form-data" id="productUpdate">
 					<table>
@@ -99,7 +94,7 @@
 							<td>
 								<img alt="상품이미지4" src="/${requestScope.productDetail.product_img4}">
 								<input type="file" name="product_img4f" id="product_img4f"/>
-								<input type="hidden" name="product_img4" value="${requestScope.productDetail.product_img4f}"/>
+								<input type="hidden" name="product_img4" value="${requestScope.productDetail.product_img4}"/>
 							</td>
 						</tr>
 						

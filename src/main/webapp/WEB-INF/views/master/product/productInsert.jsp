@@ -10,7 +10,7 @@
 	<div id="master_wrap">
 		<%@ include file="../masterHeader.jsp"%>
 		<main id="master_main">
-			<div class="product_insert">
+			<div class="product_insert master_save">
 				<h2 class="master_title">상품 등록</h2>
 				<form action="productInsert" method="Post"
 					enctype="multipart/form-data" id="productInsert">
@@ -37,7 +37,7 @@
 
 						<tr>
 							<th>상품재고</th>
-							<td><input type="text" name="product_stock"id="product_stock" required /></td>
+							<td><input type="text" name="product_stock" id="product_stock" required /></td>
 						</tr>
 
 						<tr>

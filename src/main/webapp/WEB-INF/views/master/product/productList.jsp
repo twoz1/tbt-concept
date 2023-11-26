@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 리스트 | tbt_concept</title>
-<link rel="stylesheet" href="/resources/lib/css/product/productList.css">
+<link rel="stylesheet" href="/resources/lib/css/product/productList.css" />
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/product/axProducts.js"></script>
 </head>

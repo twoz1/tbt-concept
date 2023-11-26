@@ -6,18 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 상세 | tbt_concept</title>
-<style>
-img {
-	width: 50px;
-	height: 50px;
-}
-</style>
+<link rel="stylesheet" href="/resources/lib/css/product/productDetail.css" />
 </head>
 <body>
 <div id="master_wrap">
 		<%@ include file="../masterHeader.jsp" %>
 		<main id="master_main">
-			<div class="product_detail master_detail">
+			<div class="product_detail master_save">
 				<h2 class="master_title">상품 상세</h2>
 				<table>
 					<tr>
