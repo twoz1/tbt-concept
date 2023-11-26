@@ -30,7 +30,6 @@ public class OrderListController {
 	@GetMapping("/orderDetail")
 	public String getOrderDetail (Model model, OrderList entity, HttpServletRequest request) {
 		model.addAttribute("orderDetail", orderService.selectDetail(entity.getOrder_id()));
-		
 		if ("U".equals(request.getParameter("jCode"))) {
 			return "master/order/orderUpdate";
 		} else {

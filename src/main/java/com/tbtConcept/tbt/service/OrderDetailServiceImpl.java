@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.repository.OrderDetailRepository;
+import com.tbtConcept.tbt.repository.OrderListRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,7 +14,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OrderDetailServiceImpl implements OrderDetailService {
 	private final OrderDetailRepository repository;
-
+	
+	
+	@Override
+	public List<OrderDetail> selectList() {
+		return repository.findAll();
+	}
+	
+	@Override
+	public OrderDetail selectDetail(String id) {
+		return repository.findById(id).get();
+	}
 
 	@Override
 	public String save(OrderDetail entity) {

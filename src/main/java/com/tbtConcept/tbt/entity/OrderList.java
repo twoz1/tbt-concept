@@ -26,7 +26,6 @@ public class OrderList {
 	private String order_id;
 	
 	private String user_id;
-	private int coupon_list_id;
 	
 	@Column(nullable=false)
 	private LocalDateTime order_date;
@@ -44,23 +43,25 @@ public class OrderList {
 	private String order_receiver_detail;
 	
 	@Column(nullable=false)
-	private int order_receiver_phoneNum;
+	private int order_receiver_phone_num;
 	
 	private String order_message;
 	
 	@Column(nullable=false)
 	private String order_pay;
 	
-	@Column(nullable=false)
-	private int order_total_eachQuan;
+	private String order_coupon;
 	
 	@Column(nullable=false)
-	private int order_totalPrice;
+	private int order_total_each_quan;
+	
+	@Column(nullable=false)
+	private int order_total_price;
 	
 	private String order_state;
-	private String order_delState;
+	private String order_del_state;
 	
 	@Column(nullable=false)
-	private String order_delNum;
+	private String order_del_num;
 
 }
