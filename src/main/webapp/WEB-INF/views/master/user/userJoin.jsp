@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 가입 | tbt_concept</title>
 </head>
 <body>
 	<div id="master_wrap">
@@ -27,12 +27,12 @@
 					
 					<tr>
 					 <th>비밀번호</th>
-					 <td><input type="text" name="user_pw" id="user_pw"></td>
+					 <td><input type="password" name="user_pw" id="user_pw"></td>
 					</tr>
 					
 					<tr>
 					 <th>휴대폰 번호</th>
-					 <td><input type="text" name="user_phoneNum" id="user_phoneNum"></td>
+					 <td><input type="text" name="user_phone_num" id="user_phone_num"></td>
 					</tr>
 					
 					<tr>
@@ -44,10 +44,15 @@
 					 <th>등급</th>
 					 <td><input type="text" name="user_rank" id="user_rank"></td>
 					</tr>
-					
+										
 					<tr>
 					 <th>이벤트 정보 수신 여부</th>
-					 <td><input type="text" name="user_event_check" id="user_event_check"></td>
+					 <td>
+						 <select name="user_event_check" id="user_event_check" >
+						 	<option value="Y">Y</option>
+						 	<option value="N">N</option>
+						 </select>
+					 </td>
 					</tr>
 					
 					<tr>
@@ -74,7 +79,7 @@
 				 </table>
 				</form>
 				<div class="nav_box">
-					<a class="m_button" href="home">Home</a>
+					<a class="m_button" href="masterIndex">Master Index</a>
 				</div>
 			</div>
 		</main>
