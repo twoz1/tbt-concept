@@ -149,6 +149,10 @@ main .m_button:hover {
 
 /* save, detail 공통 설정 */
 
+.master_save table{
+	min-width:450px;
+}
+
 #master_wrap .master_save table th,
 #master_wrap .master_save table td {
     padding : 7px 10px;

@@ -7,22 +7,26 @@ import java.util.Locale;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-@Controller
-public class HomeController {
+@RestController
+class restController{
 	
-
-	// test
 	@GetMapping("/test")
 	public String test() {
 		log.info("** React Connect Test 중~");
 		return "test";
 	}
+	
+}
 
+
+@Controller
+public class HomeController {
+	
 	@GetMapping("/home")
 	public void home(Locale locale, Model model) {
 		Date date = new Date();
@@ -31,8 +35,4 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 	} //home
 	
-	@GetMapping("/master/masterIndex")
-	public void masterIndex() {
-		
-	}
 }
