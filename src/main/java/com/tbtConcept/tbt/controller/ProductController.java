@@ -46,7 +46,8 @@ public class ProductController {
 	public String postProductInsert(Product entity, Model model, RedirectAttributes rttr) throws IOException {
 		String uri = "redirect:productList";
 
-		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\webapp\\resources\\images\\product\\";
+		//String realPath = "C:\\tbt_concept\\tbt\\src\\main\\webapp\\resources\\images\\product\\";
+		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\front\\src\\images\\";
 		String file1, file2;
 
 		List<MultipartFile> fileList = new ArrayList<MultipartFile>();
@@ -61,7 +62,7 @@ public class ProductController {
 				file1 = realPath + fileList.get(i).getOriginalFilename();
 				fileList.get(i).transferTo(new File(file1));
 
-				file2 = "resources/images/product/" + fileList.get(i).getOriginalFilename();
+				file2 = fileList.get(i).getOriginalFilename();
 				if (i == 0)
 					entity.setProduct_img1(file2);
 				else if (i == 1)
@@ -117,7 +118,8 @@ public class ProductController {
 		model.addAttribute("productDetail", entity);
 		String uri = "master/product/productDetail";
 
-		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\webapp\\resources\\images\\product\\";
+		// String realPath = "C:\\tbt_concept\\tbt\\src\\main\\webapp\\resources\\images\\product\\";
+		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\front\\src\\images\\";
 		String file1, file2;
 		
 		
@@ -139,7 +141,7 @@ public class ProductController {
 				file1 = realPath + fileList.get(i).getOriginalFilename();
 				fileList.get(i).transferTo(new File(file1));
 
-				file2 = "resources/images/product/" + fileList.get(i).getOriginalFilename();
+				file2 = fileList.get(i).getOriginalFilename();
 				if (i == 0)
 					entity.setProduct_img1(file2);
 				else if (i == 1)

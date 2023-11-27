@@ -49,22 +49,22 @@
 			
 					<tr>
 						<th>상품이미지1</th>
-						<td><img src="/${requestScope.productDetail.product_img1}" alt="상품이미지1" /></td>
+						<td><img src="${requestScope.productDetail.product_img1}" alt="상품이미지1" /></td>
 					</tr>
 			
 					<tr>
 						<th>상품이미지2</th>
-						<td><img src="/${requestScope.productDetail.product_img2}" alt="상품이미지2" /></td>
+						<td><img src="${requestScope.productDetail.product_img2}" alt="상품이미지2" /></td>
 					</tr>
 			
 					<tr>
 						<th>상품이미지3</th>
-						<td><img src="/${requestScope.productDetail.product_img3}" alt="상품이미지3" /></td>
+						<td><img src="${requestScope.productDetail.product_img3}" alt="상품이미지3" /></td>
 					</tr>
 			
 					<tr>
 						<th>상품이미지4</th>
-						<td><img src="/${requestScope.productDetail.product_img4}" alt="상품이미지4" /></td>
+						<td><img src="${requestScope.productDetail.product_img4}" alt="상품이미지4" /></td>
 					</tr>
 				</table>
 				<br/><hr/>

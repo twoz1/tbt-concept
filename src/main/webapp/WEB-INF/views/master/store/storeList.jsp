@@ -33,8 +33,8 @@
 								<td>${s.store_tel}</td>
 								<td>${s.store_address}</td>
 								<td>${s.store_address_detail}</td>
-								<td>상세보기</td>
-								<td><button  onclick="axStoreDelete('${s.store_id}')" id="${s.store_id}">삭제</button></td>
+								<td><a href="storeDetail?store_id=${s.store_id}">상세보기</a></td>
+								<td><button onclick="storeDelete('${s.store_id}')" id="${s.store_id}">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>

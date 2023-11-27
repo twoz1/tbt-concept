@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>관리자페이지 | tbt_concept</title>
 <link rel="stylesheet" href="/resources/lib/css/masterIndex.css">
 <script src="/resources/lib/js/jquery-3.2.1.min.js"></script>
 <script src="/resources/lib/js/masterJs.js"></script>
-</head>
-<body>
 	<header>
 		<h1 class="master_logo">
-			<a href="/master/masterIndex">
+			<a href="/">
 				<img src="/resources/images/logo_white.png" alt="logo">
 			</a>
 		</h1>
@@ -56,5 +49,3 @@
 			</li>
 		</ul>
 	</header>
-</body>
-</html>
