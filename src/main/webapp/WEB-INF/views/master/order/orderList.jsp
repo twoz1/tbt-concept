@@ -13,6 +13,7 @@
       <main id="master_main">
          <div class="order_list master_list">
             <h2 class="master_title">주문 리스트</h2>
+            <a class="m_button l_button" href="orderInsert">주문등록</a>
             <table>
             	<tr>
             		<th>주문번호</th>
@@ -20,20 +21,15 @@
             		<th>주문일자</th>
             		<th>받는사람</th>
             		<th>주소</th>
-            		<th>핸드폰 번호</th>
-            		<th>배송 메세지</th>
-            		<th>결제방법</th>
-            		<th>쿠폰</th>
-            		<th>상품 종류수</th>
             		<th>총결제금액</th>
             		<th>입금상태</th>
             		<th>배송상태</th>
-            		<th>송장번호</th>
+            		<th>상세보기</th>
             	</tr>
             	<c:if test="${not empty requsetScope.orderList}">
             		<c:forEach var="o" items="${requsetScope.orderList}">
             			<tr>
-            				<td><a href="orderDetail?o.order_id=${o.order_id}">${o.order_id}</a></td>
+            				<td><a href="orderListDetail?o.order_id=${o.order_id}">${o.order_id}</a></td>
             				<td>${o.user_id}</td>
             				<td>${o.order_date}</td>
             				<td>${o.order_receiver}</td>
@@ -42,17 +38,11 @@
             					${o.order_receiver_city}
             					${o.order_receiver_detail}
             				</td>
-            				<!-- <td>${o.order_receiver_city}</td>
-            				<td>${o.order_receiver_detail}</td> -->
-            				<td>${o.order_receiver_phone_num}</td>
-            				<td>${o.order_message}</td>
-            				<td>${o.order_pay}</td>
-            				<td>${o.order_order_coupon}</td>
-            				<td>${o.order_total_each_quan}</td>
             				<td>${o.order_total_price}</td>
             				<td>${o.order_state}</td>
             				<td>${o.order_del_state}</td>
-            				<td>${o.order_del_num}</td>
+            				<td><a href="orderListDetail?o.order_id=${o.order_id}">상세보기</a></td>
+            				
             			</tr>
             		</c:forEach>
             	</c:if>
