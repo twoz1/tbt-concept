@@ -8,7 +8,8 @@ function axProductDelete(id) {
 		axios.delete(url
 		).then(response => {
 			alert("삭제되었습니다.");
-			console.log(response.data);
+			location.reload();
+			
 		}).catch(err => {
 			if (err.response && err.response.status === 502) {
 				alert("[삭제 오류]" + err.response.data);

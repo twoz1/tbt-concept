@@ -1,5 +1,5 @@
 
-import "../../styles/items/DetailedPage.css"; 
+import "../../styles/items/DetailedPage.css";
 import DpTopSection from "../items/components/DetaildPage/DpTopSection";
 import DpSelectOption from "../items/components/DetaildPage/DpSelectOption";
 // import DpNavigation from "../items/components/DetaildPage/DpNavigation";
@@ -16,8 +16,8 @@ import DpQnA from "./components/DetaildPage/DpQnA";
 const DetailedPage = ({ starScore }) => {
     useScrollToTop();
     const { name } = useParams();
-    const {sArr,gArr} = useContext(mockItemsContext);
-    const productList=[...sArr, ...gArr];
+    const { sArr, gArr } = useContext(mockItemsContext);
+    const productList = [...sArr, ...gArr];
     const ProductListSelected = productList.find(product => product.name === name);
     console.log(productList);
 
@@ -53,7 +53,7 @@ const DetailedPage = ({ starScore }) => {
                 </div>
 
                 <DpReviewScore></DpReviewScore>
-            
+
                 <div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
                     <div className="nav nav3">
@@ -65,9 +65,9 @@ const DetailedPage = ({ starScore }) => {
                         </ul>
                     </div>
 
-            <DpQnABtn />
-         
-            <DpQnA />
+                    <DpQnABtn />
+
+                    <DpQnA />
 
 
                     <div className="nav nav4">

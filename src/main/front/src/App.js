@@ -77,7 +77,7 @@ function App() {
 
     return (
         <div className="App">
-            <a href="http://localhost:8080/home">관리자Home</a>
+            <a href="http://localhost:8080/home">관리자Home ${data}</a>
             <Header />
 
             <Routes>
