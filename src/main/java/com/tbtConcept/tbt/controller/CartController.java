@@ -65,7 +65,7 @@ public class CartController {
 		String uri = "master/cart/cartList";
 
 		List<Cart> searchList = cartService.searchByCartLike(user_id);
-		model.addAttribute("searchList", searchList);
+		model.addAttribute("cartList", searchList);
 		return uri;
 	}
 }
