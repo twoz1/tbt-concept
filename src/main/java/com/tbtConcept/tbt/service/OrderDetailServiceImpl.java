@@ -1,10 +1,12 @@
 package com.tbtConcept.tbt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.entity.OrderDetail;
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.repository.OrderDetailRepository;
 import com.tbtConcept.tbt.repository.OrderListRepository;
 
@@ -23,7 +25,13 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	
 	@Override
 	public OrderDetail selectDetail(String id) {
-		return repository.findById(id).get();
+	Optional<OrderDetail> result = repository.findById(id);
+		
+		if(result.isPresent()) {
+			return result.get();
+		} else {
+			return null;
+		}
 	}
 
 	@Override

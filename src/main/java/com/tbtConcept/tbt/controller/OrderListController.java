@@ -3,6 +3,7 @@ package com.tbtConcept.tbt.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
+import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.service.OrderListService;
 
 import lombok.AllArgsConstructor;
@@ -24,9 +26,8 @@ import lombok.extern.log4j.Log4j2;
 
 @AllArgsConstructor
 @RequestMapping(value = "/master/order")
-@Controller
 @Log4j2
-
+@Controller
 public class OrderListController {
 	
 	OrderListService orderService;
@@ -38,33 +39,34 @@ public class OrderListController {
 	
 	// ========================================================================
 	
-	@GetMapping("/orderDetail")
-	public String getOrderDetail (Model model, OrderList entity, HttpServletRequest request) {
-		model.addAttribute("orderDetail", orderService.selectDetail(entity.getOrder_id()));
+	@GetMapping("/orderListDetail")
+	public String getOrderListDetail (Model model, OrderList entity, HttpServletRequest request) {
+		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
+		
 		if ("U".equals(request.getParameter("jCode"))) {
-			return "master/order/orderUpdate";
+			return "master/order/orderListUpdate";
 		} else {
-			return "master/order/orderDetail";
+			return "master/order/orderListDetail";
 		}
 	}
 	
 	// ========================================================================
 	
-	@GetMapping("/orederListInsert")
+	@GetMapping("/orderListInsert")
 	public void getOrderListInsert() {
 
 	}
 	
-	@PostMapping("/orederListInsert")
-	public String postOrderListInsert(OrderList entity, Model model, RedirectAttributes rttr)
-									throws IOException{
+	@PostMapping("/orderListInsert")
+	public String postOrderListInsert(OrderList entity, Model model, RedirectAttributes rttr){
 		String uri = "redirect:orderList";
+		
 		
 		
 		try {
 			if (orderService.save(entity) != null) {
 				model.addAttribute("message", "상품등록 성공");
-				System.out.println("** product insert 성공");
+				System.out.println("** orderList insert 성공");
 			} else {
 				model.addAttribute("message", "상품등록 실패");
 				uri = "master/order/orderInsert";
@@ -76,9 +78,31 @@ public class OrderListController {
 
 	}
 	
+	
+	// ========================================================================
+	  @PostMapping(value="/orderListUpdate")
+	   public String posrMemberUpdate(HttpSession session,
+		         OrderList entity, Model model) {
+
+		      model.addAttribute("orderListDetail", entity);
+		      String uri="master/order/orderListDetail";
+
+		      try {
+		         log.info("** updat 성공 id => " + orderService.save(entity));
+		         session.setAttribute("loginName", entity.getOrder_id());
+		         model.addAttribute("message", "~~ 회원정보 수정 성공 ~~");
+		      } catch (Exception e) {
+		         log.info("** update Exception => "+e.toString());
+		         model.addAttribute("message", "~~ 회원정보 수정 실패 !! 다시 하세요 ~~");
+		         uri="master/user/userUpdate";
+		      }
+
+		      return uri;
+		   } 
+	
 	// ========================================================================
 	
-	@DeleteMapping("orderdelete/{order_id}")
+	@DeleteMapping("orderlistdelete/{order_id}")
 	public ResponseEntity<?> axProductDelete(@PathVariable("order_id") String id, OrderList entity) {
 		entity.setOrder_id(id);
 		if (orderService.delete(id) != null) {

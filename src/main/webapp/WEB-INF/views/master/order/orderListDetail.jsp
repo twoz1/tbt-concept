@@ -11,70 +11,72 @@
 <div id="master_wrap">
       <%@ include file="../masterHeader.jsp" %>
       <main id="master_main">
-         <div class="order_detail master_list">
+         <div class="order_Listdetail master_list">
             <h2 class="master_title">주문 상세</h2>
             <table>
             	<tr>
             		<th>주문번호 : </th>
-            		<td>${requestScope.orderDetail.order_id}</td>
+            		<td>${requestScope.orderListDetail.order_id}</td>
             	</tr>
             	<tr>
             		<th>회원 ID : </th>
-            		<td>${requestScope.orderDetail.user_id}</td>
+            		<td>${requestScope.orderListDetail.user_id}</td>
             	</tr>
             	<tr>
             		<th>주문일자 : </th>
-            		<td>${requestScope.orderDetail.date}</td>
+            		<td>${requestScope.orderListDetail.order_date}</td>
             	</tr>
             	<tr>
             		<th>받는사람 : </th>
-            		<td>${requestScope.orderDetail.reciver}</td>
+            		<td>${requestScope.orderListDetail.order_receiver}</td>
             	</tr>
             	<tr>
             		<th>주소 : </th>
             		<td>
-            			${requestScope.orderDetail.reciver_avc}
-            			${requestScope.orderDetail.reciver_city}
-            			${requestScope.orderDetail.reciver_detail}
+            			${requestScope.orderListDetail.order_receiver_avc}
+            			${requestScope.orderListDetail.order_receiver_city}
+            			${requestScope.orderListDetail.order_receiver_detail}
             		</td>
             	</tr>
             	<tr>
             		<th>받는사람 핸드폰 번호 :</th>
-            		<td>${requestScope.orderDetail.reciver_phone_num}</td>
+            		<td>${requestScope.orderListDetail.order_receiver_phone_num}</td>
             	</tr>
             	<tr>
             		<th>배송 메세지 : </th>
-            		<td>${requestScope.orderDetail.message}</td>
+            		<td>${requestScope.orderListDetail.order_message}</td>
             	</tr>
             	<tr>
             		<th>결제방법 : </th>
-            		<td>${requestScope.orderDetail.pay}</td>
+            		<td>${requestScope.orderListDetail.order_pay}</td>
             	</tr>
             	<tr>
             		<th>쿠폰 : </th>
-            		<td>${requestScope.orderDetail.order_coupon}</td>
+            		<td>${requestScope.orderListDetail.order_coupon}</td>
             	</tr>
             	<tr>
             		<th>주문 상품 종류수량 :</th>
-            		<td>${requestScope.orderDetail.each_quan}</td>
+            		<td>${requestScope.orderListDetail.order_total_each_quan}</td>
             	</tr>
             	<tr>
             		<th>총결제금액 : </th>
-            		<td>${requestScope.orderDetail.total_price}</td>
+            		<td>${requestScope.orderListDetail.order_total_price}</td>
             	</tr>
             	<tr>
             		<th>입금상태 : </th>
-            		<td>${requestScope.orderDetail.state}</td>
+            		<td>${requestScope.orderListDetail.order_state}</td>
             	</tr>
             	<tr>
             		<th>배송상태 : </th>
-            		<td>${requestScope.orderDetail.del_state}</td>
+            		<td>${requestScope.orderListDetail.order_del_state}</td>
             	</tr>
             	<tr>
             		<th>송장번호 : </th>
-            		<td>${requestScope.orderDetail.del_num}</td>
+            		<td>${requestScope.orderListDetail.order_del_num}</td>
             	</tr>
             </table>
+            
+            <a class="m_button" href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정</a>
          </div>
       </main>
    </div>
