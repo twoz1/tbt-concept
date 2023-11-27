@@ -23,10 +23,11 @@ public class Store {
 	
 	@Column(nullable=false)
 	private String store_address;
+	private String store_address_detail;
 	
+	@Column(nullable = false)
 	private String store_tel;
-	
-	private double store_x;
-	private double store_y;
+	private Double store_x;
+	private Double store_y;
 	
 }

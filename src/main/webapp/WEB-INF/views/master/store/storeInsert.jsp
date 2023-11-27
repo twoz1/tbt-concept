@@ -25,18 +25,23 @@
 								<p>"점"을 빼고 지점명만 기재해주세요. ex) 서울점 -> 서울</p>
 							</td>
 						</tr>
-
-						<tr>
-							<th>지점주소<span class="required">&#42;</span></th>
-							<td><input type="text" name="store_address" id="store_address" required readonly/></td>
-						</tr>
-
+						
 						<tr>
 							<th>지점연락처<span class="required">&#42;</span></th>
 							<td>
 								<input type="text" name="store_tel" id="store_tel" required />
 								<p>-를 포함하여 입력해주세요. ex) 02-000-000</p>
 							</td>
+						</tr>
+
+						<tr>
+							<th>지점주소<span class="required">&#42;</span></th>
+							<td><input type="text" name="store_address" id="store_address" required readonly/></td>
+						</tr>
+						
+						<tr>
+							<th>상세주소</th>
+							<td><input type="text" name="store_address_detail" id="store_address_detail" /></td>
 						</tr>
 
 						<tr>

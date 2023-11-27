@@ -24,7 +24,6 @@ import axios from 'axios';
 
 
 
-
 const orderList = [
     {
         id: 0,
@@ -62,7 +61,7 @@ function App() {
     const mockItemsData = [...sArr, ...gArr];
     const [data, setData] = useState('');
 
-
+    // => 실행과 동시에 처음 한번 서버요청
     useEffect(() => {
         axios
             .get('/test')
@@ -78,8 +77,7 @@ function App() {
 
     return (
         <div className="App">
-            from Server Data : {data}
-
+            <a href="http://localhost:8080/home">관리자Home</a>
             <Header />
 
             <Routes>
