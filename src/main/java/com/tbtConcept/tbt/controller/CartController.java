@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tbtConcept.tbt.entity.Cart;
@@ -54,17 +53,19 @@ public class CartController {
 	}
 
 	// =====================================================
+
 	@GetMapping("/cartList")
 	public void getCartList(Model model) {
 		model.addAttribute("cartList", cartService.findAllDesc());
 	}
 
 	// =====================================================
+	@GetMapping("/searchCartList")
+	public String search(String user_id, Model model) {
+		String uri = "master/cart/cartList";
 
-	/*
-	 * @PostMapping("/cartList") public List<Cart> getSearchCartList(Model
-	 * model, @RequestParam String user_id) { return
-	 * cartService.searchList(user_id); }
-	 */
-
+		List<Cart> searchList = cartService.searchByCartLike(user_id);
+		model.addAttribute("cartList", searchList);
+		return uri;
+	}
 }
