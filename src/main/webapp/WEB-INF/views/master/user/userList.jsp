@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>회원 목록 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/resources/lib/js/product/axProducts.js"></script>
+<script src="/resources/lib/js/user/axUser.js"></script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -24,8 +24,8 @@
 						<th>생년월일</th>
 						<th>등급</th>
 						<th>이벤트 정보 수신 여부</th>
-						<th>주소</th>
-						<th></th>
+						<!-- <th>주소</th> -->
+						<th>탈퇴</th>
 					</tr>
 					
 					<c:if test="${not empty requestScope.userList}">
@@ -39,14 +39,14 @@
 								<td>${u.user_birth}</td>
 								<td>${u.user_rank}</td>
 								<td>${u.user_event_check}</td>
-								<td>${u.address_avc}
+							    <!--<td>${u.address_avc}
 									${u.address_city}
 									${u.address_detail}
 								</td>
-								
+								 -->	
 
 								<!-- <td><a href="userDetail?user_id=${u.user_id}">상세보기</a></td> -->
-								<td><button onclick="axProductDelete(${u.user_id})" id="${u.user_id}">삭제</button></td>
+								<td><button onclick="axUserDelete('${u.user_id}')" id="${u.user_id}">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>
@@ -54,7 +54,6 @@
 				
 				<div class="nav_box">
 					<a class="m_button" href="userJoin">회원가입</a>
-					<a class="m_button" href="userUpdate">회원수정</a>
 					<a class="m_button" href="masterIndex">Master Index</a>
 				</div>
 			</div>

@@ -91,22 +91,7 @@ function idCheck() {
 						 </select>
 					 </td>
 					</tr>
-					
-					<tr>
-					 <th>우편번호</th>
-					 <td><input type="text" name="address_avc" id="address_avc"></td>
-					</tr>
-					
-					<tr>
-					 <th>도로명 주소</th>
-					 <td><input type="text" name="address_city" id="address_city"></td>
-					</tr>
-					
-					<tr>
-					 <th>상세주소</th>
-					 <td><input type="text" name="address_detail" id="address_detail"></td>
-					</tr>
-					
+					 
 					<tr>
 						<td colspan="2">
 							<button type="reset">취소</button>

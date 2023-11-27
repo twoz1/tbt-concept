@@ -31,8 +31,7 @@ public class User {
 	@Column(nullable=false)
 	private String user_pw;
 	
-	@Column(nullable=false)
-	private int user_phone_num;
+	private String user_phone_num;
 	
 	@Column(nullable=false)
 	private int user_birth;
@@ -41,15 +40,12 @@ public class User {
 	private String user_rank;
 	
 	@Column(nullable=false)
-	private char user_event_check;
+	private String user_event_check;
 	
-	@Column(nullable=false)
-	private int address_avc;
+	private String address_avc;
 	
-	@Column(nullable=false)
 	private String address_city;
 	
-	@Column(nullable=false)
 	private String address_detail;
 	
 }
