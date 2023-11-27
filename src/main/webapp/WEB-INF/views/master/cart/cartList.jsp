@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>장바구니 리스트 | tbt_concept</title>
-<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/cart/cart.js"></script>
 </head>
 <body>
@@ -18,18 +18,15 @@
 				<a class="m_button l_button" href="cartInsert">장바구니 등록</a>
 
 				<div>
-					<select name="searchType" id="searchType" onchange="keywordClear()">
-						<option value="search_all"
-							${entity.cri.searchType=='search_all' ? 'selected' : ''}>전체</option>
-						<option value="search_userId"
-							${entity.cri.searchType=='search_userId' ? 'selected' : ''}>고객ID</option>
-						<option value="search_prodId"
-							${entity.cri.searchType=='search_prodId' ? 'selected' : ''}>상품ID</option>
-					</select>
-
-					<form action="searchCartList" method="get">
-						<input type="text" name="user_id" id="user_id" placeholder="검색어를 입력하세요."/>
-						<button id="searchBtn" onclick="searchDB()">Search</button>
+					<form action="searchCartListA" method="get">
+						<select name="searchType" id="searchType" onchange="keywordClear()">
+							<option value="all">전체</option>
+							<option value="userId">고객ID</option>
+							<option value="prodId">상품ID</option>
+						</select>
+						
+						<input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." />
+						<button id="searchBtn">Search</button>
 					</form>
 				</div>
 

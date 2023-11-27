@@ -13,7 +13,13 @@ public interface CartService {
 	List<Cart> selectList();
 
 	@Transactional
-	List<Cart> searchByCartLike(String user_id);
+	List<Cart> searchByCartLikeU(String keyword);
+	
+	@Transactional
+	List<Cart> searchByCartLikeP(String keyword);
+	
+	@Transactional
+	List<Cart> searchByCartLikeA(String keyword);
 
 	Cart selectDetail(int cart_id);
 

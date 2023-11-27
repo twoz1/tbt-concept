@@ -26,8 +26,18 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
-	public List<Cart> searchByCartLike(String user_id) {
-		return repository.searchByCartLike(user_id);
+	public List<Cart> searchByCartLikeU(String keyword) {
+		return repository.searchByCartLikeU(keyword);
+	}
+	
+	@Override
+	public List<Cart> searchByCartLikeP(String keyword) {
+		return repository.searchByCartLikeP(keyword);
+	}
+	
+	@Override
+	public List<Cart> searchByCartLikeA(String keyword) {
+		return repository.searchByCartLikeA(keyword);
 	}
 
 	@Override
