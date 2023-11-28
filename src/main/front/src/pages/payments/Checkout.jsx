@@ -8,10 +8,11 @@ import Pay from './components/Checkout/Pay';
 import SidePay from './components/Checkout/SidePay';
 import Join_Modal02 from '../members/components/Join/Join_Modal02';
 import Join_Modal03 from '../members/components/Join/Join_Modal03';
-import { useState } from 'react';
 
 import g_antonCrystal_01 from '../../images/g_antonCrystal_01.jpg';
 import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 //임의의 상품 목록
 const checkoutList = [
@@ -31,11 +32,15 @@ const checkoutList = [
     }
 ]
 
+
+
 //임의의 쿠폰 목록
 const couponOptions = [
     { value: 'welcome', label: '회원가입 감사 10% 할인 쿠폰', discount: 10 },
     { value: 'summer', label: 's/s기념 10% 할인 쿠폰', discount: 10 },
 ];
+
+
 
 const Checkout = () => {
 
@@ -60,7 +65,7 @@ const Checkout = () => {
                 <div className="check_box">
                     <section className="check_left">
                         <Title />
-                        <form action="orderListInsert" method='Post' id='orderInsert'>
+                        <form action="oListInsert" method='Post' id='oListInsert'>
                             <Information />
                             <Item checkoutList={checkoutList} />
 
@@ -86,10 +91,10 @@ const Checkout = () => {
                                 </table>
                             </div>
                             <Pay />
+                        <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
                         </form>
                     </section>
                     <section className="check_right">
-                        <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
                     </section>
                 </div>
             </div>

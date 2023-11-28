@@ -23,6 +23,11 @@ const Item = ({ checkoutList, totalPrice }) => {
                             <span>&#42;</span> 제주&#47;도서산간 지역의 경우 추가 배송비가 발생할 수 있습니다.
                         </td>
                     </tr>
+                    <tr>
+                        <td colSpan="6">
+                             <input type="text" name="order_total_each_quan" id="order_total_each_quan" value="5" required/>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

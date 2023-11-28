@@ -11,7 +11,7 @@ import axios from 'axios';
 const Main = () => {
 
     const [data, setData] = useState([]);
-    useEffect(() => {
+    useEffect(() => { 
         const fetchData = async () => {
             try {
                 const response = await axios.get('/order/oListDesc');
@@ -23,7 +23,7 @@ const Main = () => {
 
         fetchData();
     }, []);
-
+    console.log("-", data);
 
     useScrollToTop();
     
@@ -31,7 +31,7 @@ const Main = () => {
         <div>
             <ImgSlide></ImgSlide>
             <div className="center">
-                <New/>
+                <New data={data}/>
                 <CollectionBanner/>
                 <Best/>
             </div>

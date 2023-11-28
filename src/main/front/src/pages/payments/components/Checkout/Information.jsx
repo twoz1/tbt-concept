@@ -1,41 +1,49 @@
 import React, { useState } from 'react';
 
-    // 페이지 로드 시 자동으로 호출되는 함수
-    // window.onload = function() {
-    //     generateOrderNumber();
-    // };
+// 페이지 로드 시 자동으로 호출되는 함수
+window.onload = function () {
+    setTimeout(function() {
+      generateOrderNumber();
+    }, 0);
+  };
+function generateOrderNumber() {
+    // "ORD"로 시작하는 주문번호 생성
+    let orderChar = "T";
 
-    // function generateOrderNumber() {
-    //     // "ORD"로 시작하는 주문번호 생성
-    //     let orderChar = "T";
+    // 현재 날짜 및 시간 정보를 사용하여 일련번호 생성
+    let now = new Date();
+    let timestamp =
+        now.getFullYear().toString() +
+        padZero(now.getMonth() + 1) +
+        padZero(now.getDate()) +
+        padZero(now.getHours()) +
+        padZero(now.getMinutes()) +
+        padZero(now.getSeconds());
 
-    //     // 현재 날짜 및 시간 정보를 사용하여 일련번호 생성
-    //     let now = new Date();
-    //     let timestamp =
-    //         now.getFullYear().toString() +
-    //         padZero(now.getMonth() + 1) +
-    //         padZero(now.getDate()) +
-    //         padZero(now.getHours()) +
-    //         padZero(now.getMinutes()) +
-    //         padZero(now.getSeconds());
+    // 무작위 값(0부터 999 사이의 정수) 생성 및 추가
+    let randomValue = padZero(Math.floor(Math.random() * 1000));
+    timestamp += randomValue;
 
-    //     // 무작위 값(0부터 999 사이의 정수) 생성 및 추가
-    //     let randomValue = padZero(Math.floor(Math.random() * 1000));
-    //     timestamp += randomValue;
+    // 일련번호를 조합하여 주문번호 생성
+    let order_id_value = orderChar + timestamp;
 
-    //     // 일련번호를 조합하여 주문번호 생성
-    //     let order_id_value = orderChar + timestamp;
+    // 생성된 주문번호를 주문번호 입력란에 설정
+    let order_id_input = document.getElementById("order_id");
+    let order_date_input = document.getElementById("order_date");
 
-    //     // 생성된 주문번호를 주문번호 입력란에 설정
-    //     document.getElementById("order_id").value = order_id_value;
-    //     document.getElementById("order_date").value = timestamp.substr(0, 8);
-    //     console.log("***" + timestamp.length);
-    // }
+    if (order_id_input && order_date_input) {
+        order_id_input.value = order_id_value;
+        order_date_input.value = timestamp.substring(0, 8);
+        console.log("***" + timestamp.length);
+    } else {
+        console.error("Element with id 'order_id' or 'order_date' not found.");
+    }
+}
 
-    // // 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
-    // function padZero(number) {
-    //     return number < 10 ? "0" + number : number;
-    // }
+// 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
+function padZero(number) {
+    return number < 10 ? "0" + number : number;
+}
 
 const Information = () => {
     const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -61,19 +69,19 @@ const Information = () => {
                     <tr className='orderinput_hidden'>
 	               		<th>주문번호</th>
 	               		<td>
-	               			<input type="text" name="order_id" id="order_id"required readonly />
+	               			<input type="text" name="order_id" id="order_id" required  />
 						</td>
 	               	</tr>
 	               	<tr className='orderinput_hidden'>
 	               		<th>회원 아이디</th>
 	               		<td>
-	               			<input type="text" name="user_id" id="user_id"required />
+	               			<input type="text" name="user_id" id="user_id"required  value="xxxx123"/>
 						</td>
 	               	</tr>
                     <tr className='orderinput_hidden'>
 	               		<th>주문일자</th>
 	               		<td>
-	               			<input type="text"  name="order_date" id="order_date"required />
+	               			<input type="text"  name="order_date" id="order_date" required  />
 						</td>
 	               	</tr>
                         
@@ -101,7 +109,7 @@ const Information = () => {
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
-                                <input type="text" name="order_receiver" id="order_receiver" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="order_receiver" id="order_receiver" value="최고조" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                             </td>
                         </tr>
                         <tr>
@@ -115,9 +123,9 @@ const Information = () => {
                                     <option value="070">070</option>
                                 </select>
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} value="8888" required />
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} value="9999" required />
                             </td>
                         </tr>
                         <tr>
@@ -125,11 +133,11 @@ const Information = () => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" value="13630" placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 <p>
-                                    <input type="text" name="order_receiver_city" id="order_receiver_city" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_city" id="order_receiver_city" value="경기도 성남시"placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
-                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail"  placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail" value="광천빌딩 5층" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 </p>
                             </td>
                         </tr>
