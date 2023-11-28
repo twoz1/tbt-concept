@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,14 +40,16 @@ public class QnA1on1 {
 	private String qna_reply_check;
 	
 	@Column(nullable=false)
-	private String title;
+	private String qna_title;
 	
 	@Column(nullable=false)
 	private String qna_content;
 	
 	private String qna_upload_file;
+	
+	@Transient
+	private MultipartFile qna_upload_filef;
+	
 	private String qna_answer;
-	
-	
-	
+
 }
