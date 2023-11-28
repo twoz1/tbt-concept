@@ -197,7 +197,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
                         <div className="btn_submit">
                             <button onClick={() => closeModal('inqProdCS1on1')}>취소</button>
-                            <button>등록</button>
+                            <button onClick=()>등록</button>
                         </div>
                     </form>
                 </div>
