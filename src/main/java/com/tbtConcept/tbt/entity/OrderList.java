@@ -28,7 +28,7 @@ public class OrderList {
 	private String user_id;
 	
 	@Column(nullable=false)
-	private LocalDateTime order_date;
+	private String order_date;
 	
 	@Column(nullable=false)
 	private String order_receiver;
