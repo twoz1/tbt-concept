@@ -56,7 +56,7 @@
 						</tr>
 			
 						<tr>
-							<th>상품설명<span class="required">&#42;</span></th>
+							<th>상품설명</th>
 							<td>
 								<textarea name="product_detail" id="product_detail">${requestScope.productDetail.product_detail}</textarea>
 							</td>
