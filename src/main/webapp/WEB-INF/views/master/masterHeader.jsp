@@ -35,7 +35,7 @@
 
 			<li><a href="#">CS관리</a>
 				<ul>
-					<li><a href="">1:1문의</a></li>
+					<li><a href="/master/cs/qna1on1List">1:1문의</a></li>
 					<li><a href="">자주찾는질문</a></li>
 					<li><a href="">NEWS</a></li>
 				</ul>

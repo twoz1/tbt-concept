@@ -35,12 +35,12 @@ public class ProductController {
 
 	ProductService prodService;
 
+	// =====================================================
+	
 	@GetMapping("/productInsert")
 	public void getProductInsert() {
 
 	}
-
-	// =====================================================
 
 	@PostMapping("/productInsert")
 	public String postProductInsert(Product entity, Model model, RedirectAttributes rttr) throws IOException {

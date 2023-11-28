@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../../../../styles/customerService/Modal_cs1on1.css';
-
+import axios from "axios";
 
 
 //모달창 컴포넌트
@@ -38,6 +38,25 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
         }
     };
 
+	// QnA1on1 insert ===================================================
+
+	function insertQnA1on1() {
+		
+		let url = "/master/qna1on1List";
+		
+		axios.post(url, {
+			headers: {"Content- Type" : "multipart / form - data"}
+		}).then(response => {
+			//location.reload();
+		}).catch(err => {
+			if (err.response.status == "502") {
+				alert("[입력 오류] 다시 시도하세요.");
+			} else {
+				alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+			}
+		});
+	}
+
     return (
         <div>
             {/* =====================팝업창 코드 - 1:1 문의========================= */}
@@ -55,7 +74,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
                     </div>
 
                     {/* ==========1:1 문의 입력 정보창=========== */}
-                    <form className="subtitle_1on1" action="#">
+                    <form id="subtitle_1on1" className="subtitle_1on1" action="#">
                         <figure>
                             <figcaption><strong>1&#58;1 문의</strong></figcaption>
 
@@ -197,7 +216,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
                         <div className="btn_submit">
                             <button onClick={() => closeModal('inqProdCS1on1')}>취소</button>
-                            <button onClick=()>등록</button>
+                            <button onClick={() => insertQnA1on1()}>등록</button>
                         </div>
                     </form>
                 </div>
