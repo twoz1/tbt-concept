@@ -61,7 +61,7 @@ public class OrderListController {
 	public String postOrderListInsert(OrderList entity, Model model, RedirectAttributes rttr){
 		String uri = "redirect:orderList";
 		
-		
+		System.out.println("********"+ entity);
 		
 		try {
 			if (orderService.save(entity) != null) {

@@ -7,14 +7,17 @@
 <meta charset="UTF-8">
 <title>주문 상세보기 | tbt_concept</title>
 <script>
- function typeChange() {
-    let orderNumber = "입금완료"; 
+	function typeChange() {
+		let order_stateChange = "입금완료";
 
-    if (document.getElementById("order_state").innerText.trim() === "입금대기") {
-        document.getElementById("order_state").innerHTML = orderNumber;
-    }
-} 
-
+		if (document.getElementById("order_state").innerText.trim() === "입금대기") {
+			document.getElementById("order_state").innerHTML = order_stateChange;
+		}
+	}
+	
+	function goList() {
+		
+	}
 </script>
 </head>
 <body>
@@ -85,7 +88,6 @@
 				</table>
 				<a class="m_button"
 					href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정</a>
-				<button type="button" onclick="typeChange()">입금완료</button>
 			</div>
 		</main>
 	</div>

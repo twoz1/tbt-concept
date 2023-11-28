@@ -27,10 +27,12 @@
             padZero(now.getSeconds());
 
         // 일련번호를 조합하여 주문번호 생성
-        let orderNumber = prefix + timestamp;
+        let order_id_value = prefix + timestamp;
 
         // 생성된 주문번호를 주문번호 입력란에 설정
-        document.getElementById("order_id").value = orderNumber;
+        document.getElementById("order_id").value = order_id_value;
+        document.getElementById("order_date").value = timestamp.substr(0,8);
+        console.log("***" + timestamp.length);
     }
 
     // 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
@@ -62,7 +64,7 @@
 	               	<tr>
 	               		<th>주문일자</th>
 	               		<td>
-	               			<input type="date" name="order_date" id="order_date"required />
+	               			<input type="text"  name="order_date" id="order_date"required />
 						</td>
 	               	</tr>
 	               	<tr>
@@ -160,8 +162,8 @@
 	            </table>
             </form>
             <div class="nav_box">
-					<a class="m_button" href="masterIndex">Master Index</a>
-				</div>
+				<a class="m_button" href="masterIndex">Master Index</a>
+			</div>
          </div>
       </main>
    </div>
