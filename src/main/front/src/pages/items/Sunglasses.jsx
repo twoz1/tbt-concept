@@ -5,14 +5,31 @@ import Product1 from './components/Product1';
 import PageNation from './components/PageNation';
 import { useState, useReducer } from 'react';
 // import { useParams } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import mockItemsContext from './MockItems';
 import useScrollToTop from '../customHooks/useScrollToTop';
+import axios from 'axios';
 
 
 const Sunglasses = () => {
-useScrollToTop();
+
+    const [data,setData] = useState("");
+
+    useEffect(() => {
+        axios
+            .get('/pListDesc')
+            .then((response) => {
+                setData(response.data);
+
+                console.log(`** product db 연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** product db 연결 실패 => ${err.message}`);
+            });
+    }, []);
+
+
+    useScrollToTop();
     const arrayReducer = (state, action) => {
         switch (action.type) {
             //   case "popular":
@@ -27,7 +44,7 @@ useScrollToTop();
     };
 
     // const { id } = useParams();
-    const {sArr} = useContext(mockItemsContext);
+    const { sArr } = useContext(mockItemsContext);
     // const eachProductListSelected = eachProductList.find(product => product.id === parseInt(id));
     const [array, dispatch] = useReducer(arrayReducer, sArr);
     // console.log(sArr);
@@ -79,7 +96,7 @@ useScrollToTop();
                     </ul>
                 </div>
 
-                <Product1 displayedItemInfo1={displayedItemInfo1} />
+                <Product1 data={data} displayedItemInfo1={displayedItemInfo1} />
                 <PageNation setPage={setPage} />
 
             </div>

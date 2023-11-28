@@ -19,16 +19,16 @@ const renderItem = (item) => (
 
 // =============================================================================
 
-const Product1 = ({ displayedItemInfo1 }) => {
+const Product1 = ({ data  }) => {
   const itemsPerRow = 4;
-  const rows = Math.ceil(displayedItemInfo1.length / itemsPerRow);
+  const rows = Math.ceil(data.length / itemsPerRow);
 
   return (
     <div className="photo_line">
       {[...Array(rows)].map((_, rowIndex) => (
         <div className="photo_layout cf" key={rowIndex}>
           <ul>
-            {displayedItemInfo1
+            {data
               .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
               .map(renderItem)}
           </ul>
