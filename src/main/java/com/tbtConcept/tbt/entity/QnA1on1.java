@@ -15,7 +15,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="product")
+@Table(name="qna1on1")
 @Data
 @Builder
 @AllArgsConstructor
