@@ -29,15 +29,14 @@
 function typeChange() {
     // 주문 상태 필드의 값을 "입금완료"로 변경
     let orderStateElement = document.getElementById("order_state");
-    if (orderStateElement.value === "입금대기") {
-        orderStateElement.value = "입금완료";
+    if (orderStateElement.textContent === "입금대기") {
+        orderStateElement.textContent = "입금완료";
 
         // 주문 상태를 변경한 뒤 해당 값을 화면에 업데이트
         let orderStateDisplayElement = document.getElementById("orderStateDisplay");
         orderStateDisplayElement.textContent = "입금완료";
     }
 }
-
 </script>
 </head>
 <body>
