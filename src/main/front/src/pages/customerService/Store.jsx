@@ -76,7 +76,7 @@ const Store = () => {
     const [searchState, setSearchState] = useState(false);
     const [searchStore, setSearchStore] = useState([]);
 
-    const [storeMap, setStoreMap] = useState(storeList[0].storeSrc);
+    //const [storeMap, setStoreMap] = useState(storeList[0].storeSrc);
 
     const choiceCity = (e) => {
         setChangeCity(e.target.value);
@@ -128,7 +128,6 @@ const Store = () => {
             <div className="center m_c">
                 <div id="map">
                     <iframe title="map"
-                        src={storeMap}
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                     <div className="control">
@@ -155,7 +154,7 @@ const Store = () => {
 
                         <span>검색결과 &#40;{searchStore.length}&#41;건</span>
                         <ul className="find_result_list">
-                            {searchState && searchStore.map((it) => { return (<StoreItem key={it.id} {...it} setStoreMap={setStoreMap} />) })}
+                            {searchState && searchStore.map((it) => { return (<StoreItem key={it.id} {...it} />) })}
                         </ul>
                         <div className="button">
                             <button onClick={resetSearch}>초기화</button>
