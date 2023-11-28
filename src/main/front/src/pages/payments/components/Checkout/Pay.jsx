@@ -21,15 +21,16 @@ const Pay = () => {
                     </tr>
                     <tr>
                         <th>
-                            <select name="pay_select" id="pay_select_read">
+                            <select name="order_pay" id="order_pay" required> 
                                 <option value="default">카드선택</option>
                                 <option value="신한">신한카드</option>
                                 <option value="농협">농협카드</option>
                                 <option value="국민">국민카드</option>
                                 <option value="삼성">삼성카드</option>
                             </select>
-                            <select name="pay_month_select" id="pay_month_select_read">
+                            <select name="order_pay" id="order_pay">
                                 <option value="default">할부선택</option>
+                                <option value="0">선택안함</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 등록 | tbt_concept</title>
+<title>주문 등록 | tbt_concept</title>
 <!-- 주문번호 생성 및 폼에 설정하는 JavaScript 코드 -->
 <script>
     // 페이지 로드 시 자동으로 호출되는 함수
@@ -14,7 +14,7 @@
 
     function generateOrderNumber() {
         // "ORD"로 시작하는 주문번호 생성
-        let prefix = "T";
+        let orderChar = "T";
 
         // 현재 날짜 및 시간 정보를 사용하여 일련번호 생성
         let now = new Date();
@@ -26,12 +26,16 @@
             padZero(now.getMinutes()) +
             padZero(now.getSeconds());
 
+        // 무작위 값(0부터 999 사이의 정수) 생성 및 추가
+        let randomValue = padZero(Math.floor(Math.random() * 1000));
+        timestamp += randomValue;
+
         // 일련번호를 조합하여 주문번호 생성
-        let order_id_value = prefix + timestamp;
+        let order_id_value = orderChar + timestamp;
 
         // 생성된 주문번호를 주문번호 입력란에 설정
         document.getElementById("order_id").value = order_id_value;
-        document.getElementById("order_date").value = timestamp.substr(0,8);
+        document.getElementById("order_date").value = timestamp.substr(0, 8);
         console.log("***" + timestamp.length);
     }
 
@@ -46,7 +50,7 @@
       <%@ include file="../masterHeader.jsp" %>
       <main id="master_main">
          <div class="order_list master_list">
-            <h2 class="master_title">주문 리스트</h2>
+            <h2 class="master_title">주문 생성</h2>
             <form action="orderListInsert" method="Post" id="orderInsert">
 	            <table>
 	               	<tr>
@@ -113,7 +117,24 @@
 								<option value="신한">신한</option>
 								<option value="농협">농협</option>
 								<option value="국민">국민</option>
-						</select></td>
+						</select>
+						 <select name="order_pay" id="order_pay">
+                                <option value="default">할부선택</option>
+                                <option value="0">선택안함</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+						</td>
 	               	</tr>
 	               	<tr>
 	               		<th>쿠폰 </th>

@@ -43,6 +43,10 @@
 }
 
 /* Information */
+.orderinput_hidden{
+    display: none;
+}
+
 .information .checkout {
     display: flex;
     justify-content: space-between;

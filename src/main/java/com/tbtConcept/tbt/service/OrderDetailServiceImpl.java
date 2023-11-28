@@ -3,9 +3,12 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.entity.OrderDetail;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.repository.OrderDetailRepository;
 import com.tbtConcept.tbt.repository.OrderListRepository;
@@ -16,6 +19,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OrderDetailServiceImpl implements OrderDetailService {
 	private final OrderDetailRepository repository;
+	
+	
+	@Transactional
+	@Override
+	public List<OrderDetail> findAllDesc() {
+		return repository.findAllDesc();
+	}
 	
 	
 	@Override

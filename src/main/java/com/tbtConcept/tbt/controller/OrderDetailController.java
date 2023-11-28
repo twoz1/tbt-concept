@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
-import com.tbtConcept.tbt.service.OrderListService;
+import com.tbtConcept.tbt.service.OrderDetailService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,43 +25,43 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping(value = "/master/order")
 @Log4j2
 @Controller
-public class OrderListController {
-	
-	OrderListService orderService;
-	
-	@GetMapping("/orderList")
-	public void getOrderList(Model model) {
-		model.addAttribute("orderList", orderService.findAllDesc());
+public class OrderDetailController {
+
+	OrderDetailService orderDetailService;
+
+	@GetMapping("/orderDetailList")
+	public void getOrderDetailList(Model model) {
+		model.addAttribute("orderList", orderDetailService.findAllDesc());
 	}
-	
+
 	// ========================================================================
-	
-	@GetMapping("/orderListDetail")
-	public String getOrderListDetail (Model model, OrderList entity, HttpServletRequest request) {
-		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
-		
+
+	@GetMapping("/orderDetailDetail")
+	public String getOrderDetailDetail (Model model, OrderDetail entity, HttpServletRequest request) {
+		model.addAttribute("orderListDetail", orderDetailService.selectDetail(entity.getOrder_id()));
+
 		if ("U".equals(request.getParameter("jCode"))) {
-			return "master/order/orderListUpdate";
+			return "master/order/orderDetailListUpdate";
 		} else {
-			return "master/order/orderListDetail";
+			return "master/order/orderDetailListDetail";
 		}
 	}
-	
+
 	// ========================================================================
-	
-	@GetMapping("/orderListInsert")
-	public void getOrderListInsert() {
+
+	@GetMapping("/orderDetailInsert")
+	public void getOrderDetailInsert() {
 
 	}
-	
-	@PostMapping("/orderListInsert")
-	public String postOrderListInsert(OrderList entity, Model model, RedirectAttributes rttr){
+
+	@PostMapping("/orderDetailInsert")
+	public String postOrderDetailInsert(OrderDetail entity, Model model, RedirectAttributes rttr){
 		String uri = "redirect:orderList";
-		
-		System.out.println("********"+ entity);
-		
+
+		// System.out.println("********"+ entity);
+
 		try {
-			if (orderService.save(entity) != null) {
+			if (orderDetailService.save(entity) != null) {
 				model.addAttribute("message", "상품등록 성공");
 				System.out.println("** orderList insert 성공");
 			} else {
@@ -73,35 +74,35 @@ public class OrderListController {
 		return uri;
 
 	}
-	
-	
+
 	// ========================================================================
-	  @PostMapping(value="/orderListUpdate")
-	   public String posrMemberUpdate(HttpSession session,
-		         OrderList entity, Model model) {
 
-		      model.addAttribute("orderListDetail", entity);
-		      String uri="master/order/orderListDetail";
+	@PostMapping(value="/orderDetailUpdate")
+	public String posrOrderDetailUpdate(HttpSession session,
+			OrderDetail entity, Model model) {
 
-		      try {
-		         log.info("** updat 성공 id => " + orderService.save(entity));
-		         session.setAttribute("loginName", entity.getOrder_id());
-		         model.addAttribute("message", "~~ 회원정보 수정 성공 ~~");
-		      } catch (Exception e) {
-		         log.info("** update Exception => "+e.toString());
-		         model.addAttribute("message", "~~ 회원정보 수정 실패 !! 다시 하세요 ~~");
-		         uri="master/user/userUpdate";
-		      }
+		model.addAttribute("orderListDetail", entity);
+		String uri="master/order/orderListDetail";
 
-		      return uri;
-		   } 
-	
+		try {
+			log.info("** updat 성공 id => " + orderDetailService.save(entity));
+			session.setAttribute("loginName", entity.getOrder_id());
+			model.addAttribute("message", "~~ 회원정보 수정 성공 ~~");
+		} catch (Exception e) {
+			log.info("** update Exception => "+e.toString());
+			model.addAttribute("message", "~~ 회원정보 수정 실패 !! 다시 하세요 ~~");
+			uri="master/user/userUpdate";
+		}
+
+		return uri;
+	} 
+
 	// ========================================================================
-	
-	@DeleteMapping("orderlistdelete/{order_id}")
+
+	@DeleteMapping("orderDetaildelete/{order_detail_id}")
 	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") String id, OrderList entity) {
 		entity.setOrder_id(id);
-		if (orderService.delete(id) != null) {
+		if (orderDetailService.delete(id) != null) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");
 			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
@@ -111,5 +112,4 @@ public class OrderListController {
 			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
 		}
 	}
-	
 }

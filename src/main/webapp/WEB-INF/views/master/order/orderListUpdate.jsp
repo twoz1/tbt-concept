@@ -45,9 +45,11 @@ function typeChange() {
 						</tr>
 						<tr>
 							<th>주문일자</th>
-							<td><input type="date" name="order_date" id="order_date"
+							<td><input type="hidden" name="order_date" id="order_date"
 								required readonly
-								value="${requestScope.orderListDetail.order_date}" /></td>
+								value="${requestScope.orderListDetail.order_date}" />
+							${requestScope.orderListDetail.order_date}	
+							</td>
 						</tr>
 						<tr>
 							<th>받는사람</th>
@@ -83,13 +85,11 @@ function typeChange() {
 						</tr>
 						<tr>
 							<th>배송메시지</th>
-							<td><select name="order_message" id="order_message"
-								value="${requestScope.orderListDetail.order_message}">
-									<option value="">선택</option>
-									<option value="1">문앞</option>
-									<option value="2">조심히</option>
-									<option value="3">경비실에 맡김</option>
-							</select></td>
+							<td>
+							<input type="text" name="order_message"
+								id="order_message" required
+								value="${requestScope.orderListDetail.order_message}" readonly/>
+							</td>
 						</tr>
 						<tr>
 							<th>결제방법</th>
