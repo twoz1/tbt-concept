@@ -36,14 +36,11 @@ public class OrderListRController {
 		System.out.println("********"+ entity);
 		
 		try {
-			if (orderService.save(entity) != null) {
-				model.addAttribute("message", "상품등록 성공");
-				System.out.println("** orderList insert 성공");
-				return "성공";
-			} else {
-				model.addAttribute("message", "상품등록 실패");
-				return "실패";
-			}
+			orderService.save(entity); 
+			model.addAttribute("message", "상품등록 성공");
+			System.out.println("** orderList insert 성공");
+			return "성공";
+		
 		} catch (Exception e) {
 			System.out.println("** OrderList insert Exception => " + e.toString());
 			return "실패";

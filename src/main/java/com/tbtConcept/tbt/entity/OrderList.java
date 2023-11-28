@@ -59,7 +59,6 @@ public class OrderList {
 	private String order_state;
 	private String order_del_state;
 	
-	@Column(nullable=false)
 	private String order_del_num;
 
 }

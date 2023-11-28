@@ -89,9 +89,11 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
 
     function insertOrderList() {
         let url = "/order/oListInsert";
+        let formData = new FormData(document.getElementById('oListInsert'));
         
-            axios.post(url, {
-            }).then(response => {
+            axios.post(
+                url, formData
+            ).then(response => {
                 alert("입력 성공" + response.data);
     
             }).catch(err => {
