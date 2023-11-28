@@ -3,11 +3,16 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.User;
 
 public interface OrderListService {
 	
+	@Transactional
+	List<OrderList> findAllDesc();
 	
 	List<OrderList> selectList();
 	

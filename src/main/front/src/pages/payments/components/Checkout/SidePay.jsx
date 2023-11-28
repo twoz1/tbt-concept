@@ -91,7 +91,11 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                     <tbody>
                         <tr>
                             <th>총 상품금액</th>
-                            <td>{totalPrice.toLocaleString()} 원</td>
+                            <td>
+                                <input type="hidden" name="order_total_price" id="order_total_price" required 
+                                value={totalPrice.toLocaleString()}/>
+                                {totalPrice.toLocaleString()} 원
+                            </td>
                         </tr>
                         <tr>
                             <th>배송비</th>
@@ -104,7 +108,11 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
 
                         <tr>
                             <th>총 결제금액</th>
-                            <td>{calcPricing().toLocaleString()} 원</td>
+                            <td>
+                                <input type="hidden" name="order_total_price" id="order_total_price" required 
+                                value={totalPrice.toLocaleString()}/>
+                                {calcPricing().toLocaleString()} 원
+                            </td>
                         </tr>
                     </tbody>
                 </table>

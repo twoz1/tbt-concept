@@ -60,7 +60,7 @@ const Checkout = () => {
                 <div className="check_box">
                     <section className="check_left">
                         <Title />
-                        <form action="#">
+                        <form action="orderListInsert" method='Post' id='orderInsert'>
                             <Information />
                             <Item checkoutList={checkoutList} />
 
@@ -71,7 +71,7 @@ const Checkout = () => {
                                         <tr>
                                             <th>할인 쿠폰</th>
                                             <td>
-                                                <select className="checkout_cou" onChange={handleCouponChange}>
+                                                <select className="checkout_cou" name="order_coupon" id="order_coupon" onChange={handleCouponChange}>
                                                     <option value="쿠폰선택">쿠폰선택</option>
                                                     {couponOptions.map((coupon) => (
                                                         <option key={coupon.value} value={coupon.value}>

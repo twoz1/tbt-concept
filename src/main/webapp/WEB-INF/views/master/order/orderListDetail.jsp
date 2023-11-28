@@ -6,19 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>주문 상세보기 | tbt_concept</title>
-<script>
-	function typeChange() {
-		let order_stateChange = "입금완료";
-
-		if (document.getElementById("order_state").innerText.trim() === "입금대기") {
-			document.getElementById("order_state").innerHTML = order_stateChange;
-		}
-	}
-	
-	function goList() {
-		
-	}
-</script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -88,6 +75,37 @@
 				</table>
 				<a class="m_button"
 					href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정</a>
+					
+				<table>
+				<c:if test="${not empty requestScope.orderDetail}">
+					<c:forEach var="od" items="${requestScope.orderDetail}">
+						<tr>
+							<th>주문번호 :</th>
+							<td>${od.order_id}</td>
+						</tr>
+						<tr>
+							<th>주문 상세 번호 : </th>
+							<td>${od.order_datail_id}</td>  
+						</tr>
+						<tr>
+							<th>상품 번호 : </th>
+							<td>${od.product_id}</td>  
+						</tr>
+						<tr>
+							<th>수량 : </th>
+							<td>${od.order_quan}</td>  
+						</tr>
+						<tr>
+							<th>가격 : </th>
+							<td>${od.order_price}</td>  
+						</tr>
+						<tr>
+							<th>리뷰상태 : </th>
+							<td>${od.review_state}</td>  
+						</tr>
+					</c:forEach>
+				</c:if>
+				</table>
 			</div>
 		</main>
 	</div>
