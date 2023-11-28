@@ -17,10 +17,10 @@ public class QnA1on1Controller {
 	
 	QnA1on1Service qna1on1Service;
 
-	@GetMapping("/qna1on1Insert")
-	public void getQna1on1Insert() {
-		
-	}
+//	@GetMapping("/qna1on1Insert")
+//	public void getQna1on1Insert() {
+//		
+//	}
 	
 //	@PostMapping("/qna1on1Insert")
 //	public S
