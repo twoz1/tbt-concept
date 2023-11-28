@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @AllArgsConstructor
-@RequestMapping(value = "/master/product")
+@RequestMapping(value = "/master/qna1on1")
 @Controller
 public class QnA1on1Controller {
 	

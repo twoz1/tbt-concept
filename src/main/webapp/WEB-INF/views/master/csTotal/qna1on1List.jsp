@@ -12,8 +12,7 @@
 		<%@ include file="../masterHeader.jsp"%>
 		<main id="master_main">
 			<div class="qna1on1_list master_list">
-				<h2 class="master_title">상품 리스트</h2>
-				<a class="m_button l_button" href="productInsert">상품등록</a>
+				<h2 class="master_title">QnA 리스트</h2>
 
 				<c:if test="${not empty requestScope.message}">${requestScope.message}</c:if>
 
