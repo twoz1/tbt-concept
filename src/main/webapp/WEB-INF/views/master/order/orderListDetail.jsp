@@ -6,6 +6,39 @@
 <head>
 <meta charset="UTF-8">
 <title>주문 상세보기 | tbt_concept</title>
+<script >
+/* function typeChange() {
+
+    let order_dateComplete = "입금완료";
+
+    if(document.getElementById("order_date").value == "입금대기"){
+	    document.getElementById("order_date").value = order_dateComplete;
+    }
+    
+    
+} */
+/* function typeChange() {
+    let orderStateElement = document.getElementById("order_state");
+
+    // 만약 주문 상태가 "입금대기"일 때 "입금완료"로 변경
+    if (orderStateElement.value === "입금대기") {
+        orderStateElement.value = "입금완료";
+    }
+} */
+
+function typeChange() {
+    // 주문 상태 필드의 값을 "입금완료"로 변경
+    let orderStateElement = document.getElementById("order_state");
+    if (orderStateElement.value === "입금대기") {
+        orderStateElement.value = "입금완료";
+
+        // 주문 상태를 변경한 뒤 해당 값을 화면에 업데이트
+        let orderStateDisplayElement = document.getElementById("orderStateDisplay");
+        orderStateDisplayElement.textContent = "입금완료";
+    }
+}
+
+</script>
 </head>
 <body>
 <div id="master_wrap">
@@ -64,7 +97,7 @@
             	</tr>
             	<tr>
             		<th>입금상태 : </th>
-            		<td>${requestScope.orderListDetail.order_state}</td>
+            		<td id="orderStateDisplay">${requestScope.orderListDetail.order_state}</td>
             	</tr>
             	<tr>
             		<th>배송상태 : </th>
@@ -77,6 +110,7 @@
             </table>
             
             <a class="m_button" href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정</a>
+            <button type="button" onclick="typeChange()">입금완료</button>
          </div>
       </main>
    </div>

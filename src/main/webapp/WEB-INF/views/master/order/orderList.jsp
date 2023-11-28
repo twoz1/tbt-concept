@@ -49,9 +49,6 @@
             		</c:forEach>
             	</c:if>
             </table>
-            <div class="nav_box">
-				<a class="m_button" href="masterIndex">Master Index</a>
-			</div>
          </div>
       </main>
    </div>
