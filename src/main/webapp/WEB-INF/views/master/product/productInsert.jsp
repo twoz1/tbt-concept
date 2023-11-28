@@ -43,7 +43,7 @@
 
 						<tr>
 							<th>상품설명<span class="required">&#42;</span></th>
-							<td><textarea name="product_detail" id="product_detail" required ></textarea></td>
+							<td><textarea name="product_detail" id="product_detail" ></textarea></td>
 						</tr>
 
 						<tr>

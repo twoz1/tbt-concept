@@ -1,8 +1,5 @@
-package com.tbtConcept.tbt.controller;
+package com.tbtConcept.tbt.restController;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,31 +7,29 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.Store;
 import com.tbtConcept.tbt.service.StoreService;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-@RequestMapping(value="/master/store")
-@Controller
-public class StoreController {
+@RequestMapping(value="/store")
+@RestController
+public class StoreRController {
 	
 	StoreService storeService;
 	
 	@GetMapping("/storeList")
-	public void getStoreList(Model model) {
-		model.addAttribute("storeList", storeService.selectList());
+	public List<Store> getStoreList(Model model) {
+		return storeService.selectList();
 	}
 	
 	// ==============================================================

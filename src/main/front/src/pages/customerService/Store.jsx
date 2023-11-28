@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '../../styles/customerService/Store.css';
 import StoreItem from './components/Store/StoreItem';
 import useScrollToTop from '../customHooks/useScrollToTop';
+import axios from 'axios';
 
 const storeList = [
     {
@@ -50,14 +51,32 @@ const storeList = [
 
 const Store = () => {
     useScrollToTop();
-    const [store, setStore] = useState(storeList);
+
+    // const [store, setStore] = useState(storeList);
+    const [storeList, setStoreList] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/store/storeList');
+                setStoreList(response.data);
+
+            } catch (err) {
+                alert(`** store list db 연동 => ${err.message}`);
+            }
+        };
+
+        fetchData();
+    }, []);
+    console.log(storeList);
+
     const [changeCity, setChangeCity] = useState("");
     const [searchInputText, setSearchInputText] = useState("");
 
     const [searchState, setSearchState] = useState(false);
     const [searchStore, setSearchStore] = useState([]);
 
-    const [storeMap, setStoreMap] = useState(storeList[0].storeSrc);
+    //const [storeMap, setStoreMap] = useState(storeList[0].storeSrc);
 
     const choiceCity = (e) => {
         setChangeCity(e.target.value);
@@ -76,7 +95,7 @@ const Store = () => {
         if (searchInputText.trim() === "") {
             setSearchStore([]);
         } else {
-            const filterStore = store.filter((item) => item.branchName.includes(searchInputText));
+            const filterStore = storeList.filter((item) => item.branchName.includes(searchInputText));
             setSearchStore(filterStore);
         };
 
@@ -88,7 +107,7 @@ const Store = () => {
         const searchDong = document.getElementById("find_adress_dong").value;
 
         if (searchDong) {
-            const filterStore2 = store.filter((item) => item.storeAdress.includes(searchDong));
+            const filterStore2 = storeList.filter((item) => item.storeAdress.includes(searchDong));
             setSearchStore(filterStore2);
             console.log(searchDong);
         }
@@ -109,7 +128,6 @@ const Store = () => {
             <div className="center m_c">
                 <div id="map">
                     <iframe title="map"
-                        src={storeMap}
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                     <div className="control">
@@ -136,7 +154,7 @@ const Store = () => {
 
                         <span>검색결과 &#40;{searchStore.length}&#41;건</span>
                         <ul className="find_result_list">
-                            {searchState && searchStore.map((it) => { return (<StoreItem key={it.id} {...it} setStoreMap={setStoreMap} />) })}
+                            {searchState && searchStore.map((it) => { return (<StoreItem key={it.id} {...it} />) })}
                         </ul>
                         <div className="button">
                             <button onClick={resetSearch}>초기화</button>
