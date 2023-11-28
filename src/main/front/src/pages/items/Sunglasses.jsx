@@ -5,50 +5,60 @@ import Product1 from './components/Product1';
 import PageNation from './components/PageNation';
 import { useState, useReducer } from 'react';
 // import { useParams } from "react-router-dom";
-import { useContext , useEffect} from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import mockItemsContext from './MockItems';
+//import mockItemsContext from './MockItems';
 import useScrollToTop from '../customHooks/useScrollToTop';
 import axios from 'axios';
 
 
 const Sunglasses = () => {
 
-    const [data,setData] = useState("");
-
-    useEffect(() => {
-        axios
-            .get('/pListDesc')
-            .then((response) => {
-                setData(response.data);
-
-                console.log(`** product db 연결 성공 => ${response.data}`);
-            }).catch((err) => {
-                alert(`** product db 연결 실패 => ${err.message}`);
-            });
-    }, []);
-
-
     useScrollToTop();
     const arrayReducer = (state, action) => {
         switch (action.type) {
-            //   case "popular":
-            //     return [...state].sort((a, b) => b.clicked - a.clicked);
             case "low":
-                return [...state].sort((a, b) => a.price - b.price);
+                return state ? [...state].sort((a, b) => a.price - b.price) : [];
             case "high":
-                return [...state].sort((a, b) => b.price - a.price);
-            //   case "new":
-            //     return iteminfo;
+                return state ? [...state].sort((a, b) => b.price - a.price) : [];
+            case "set":
+                return action.payload;
+            default:
+                return state || [];
         }
     };
 
     // const { id } = useParams();
-    const { sArr } = useContext(mockItemsContext);
+    //const { sArr } = useContext(mockItemsContext);
     // const eachProductListSelected = eachProductList.find(product => product.id === parseInt(id));
-    const [array, dispatch] = useReducer(arrayReducer, sArr);
-    // console.log(sArr);
+    
+    //const [data, setData] = useState([]);
+   
 
+    const [data, setData] = useState([]);
+    const [array, dispatch] = useReducer(arrayReducer, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/product/pSListDesc');
+                setData(response.data);
+                
+            } catch (err) {
+                alert(`** product db 연결 실패 => ${err.message}`);
+            }
+        };
+
+        fetchData();
+    }, []);
+    console.log("-", data);
+    useEffect(() => {
+        // 데이터가 업데이트될 때마다 useReducer의 초기 상태를 설정
+        dispatch({ type: 'set', payload: data });
+    }, [data]);
+
+
+    //const [array, dispatch] = useReducer(arrayReducer, data);
     const [page, setPage] = useState(1);
     const itemsPerPage = 8;
     const startIndex = (page - 1) * itemsPerPage;
@@ -57,6 +67,9 @@ const Sunglasses = () => {
     const handleSort = (type) => {
         dispatch({ type });
     };
+
+    console.log("->", array);
+
 
     return (
         <div className='Sunglasses'>
@@ -96,7 +109,7 @@ const Sunglasses = () => {
                     </ul>
                 </div>
 
-                <Product1 data={data} displayedItemInfo1={displayedItemInfo1} />
+                <Product1 displayedItemInfo1={displayedItemInfo1} />
                 <PageNation setPage={setPage} />
 
             </div>

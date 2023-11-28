@@ -29,6 +29,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
+	public List<Product> selectSDesc(){
+		return repository.selectSDesc();
+	};
+	
+	@Override
 	public Product selectDetail(int id) {
 		Optional<Product> result = repository.findById(id);
 		

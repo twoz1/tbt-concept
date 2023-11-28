@@ -40,5 +40,10 @@ public class ProductRController {
 		return prodService.findAllDesc();
 	}
 	
+	@GetMapping("/pSListDesc")
+	public List<Product> getProductList(Model model) {
+		return prodService.selectSDesc();
+	}
+	
 
 }

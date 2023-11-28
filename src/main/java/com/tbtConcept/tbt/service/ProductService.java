@@ -13,6 +13,8 @@ public interface ProductService {
 	
 	List<Product> selectList();
 	
+	List<Product> selectSDesc();
+	
 	Product selectDetail(int id);
 	
 	int save(Product entity);
