@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 // import useScrollToTop from '../../customHooks/useScrollToTop';
 
 const renderItem = (item) => (
-  <li className="photo_2" key={item.name}>
-    <Link to={`/detail/${item.name}`} key={item.name} className="product_photo">
-      <img src={item.imageFront} alt="Front View" />
-      <img src={item.imageSide} alt="Side View" />
+  <li className="photo_2" key={item.product_id}>
+    <Link to={`/detail/${item.product_name}`} key={item.product_name} className="product_photo">
+      <img src={item.product_img1} alt="Front View" />
+      <img src={item.product_img2} alt="Side View" />
     </Link>
-    <div className="item_name"><span>{item.name}</span></div>
-    <div className="item_price"><span>{item.price.toLocaleString()}원</span></div>
+    <div className="item_name"><span>{item.product_name}</span></div>
+    <div className="item_price"><span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}</span></div>
     <div className="shop_this">
-    <Link to={`/detail/${item.name}`} key={item.name} >
-      <a>{item.shopThis} &#62;</a>
-    </Link>
-      </div>
+      <Link to={`/detail/${item.product_name}`} key={item.product_name} >
+        {/* <a>{item.shopThis} &#62;</a> */}
+      </Link>
+    </div>
   </li>
 );
 
@@ -33,7 +33,7 @@ const Product = ({ displayedItemInfo }) => {
           <ul>
             {displayedItemInfo
               .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
-              .map(renderItem)}
+              .map(item => renderItem({ item }))}
           </ul>
         </div>
       ))}

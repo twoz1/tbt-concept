@@ -3,12 +3,13 @@ import '../../styles/items/Glasses.css'
 // import Category from './components/Category';
 import Product from './components/Product';
 import PageNation from './components/PageNation';
-import { useState, useReducer } from 'react';
+import { useState, useReducer ,useEffect} from 'react';
 // import { useParams } from "react-router-dom";
 import { useContext } from 'react';
 import mockItemsContext from './MockItems';
 import { Link } from 'react-router-dom';
 import useScrollToTop from '../customHooks/useScrollToTop';
+import axios from 'axios';
 
 
 
@@ -16,24 +17,46 @@ const Glasses = () => {
     useScrollToTop();
     // ======== 상품 정렬을 위한 reducer 함수 시작 ========
     const arrayReducer = (state, action) => {
-
         switch (action.type) {
-            //   case "popular":
-            //     return [...state].sort((a, b) => b.clicked - a.clicked);
             case "low":
-                return [...state].sort((a, b) => a.price - b.price);
+                return state ? [...state].sort((a, b) => a.price - b.price) : [];
             case "high":
-                return [...state].sort((a, b) => b.price - a.price);
-            //   case "new":
-            //     return iteminfo;
+                return state ? [...state].sort((a, b) => b.price - a.price) : [];
+            case "set":
+                return action.payload;
+            default:
+                return state || [];
         }
     };
-
     
     // const { id } = useParams();
-    const {gArr} = useContext(mockItemsContext);
-    const [array, dispatch] = useReducer(arrayReducer, gArr);
+    //const {gArr} = useContext(mockItemsContext);
+    //const [array, dispatch] = useReducer(arrayReducer, gArr);
     // console.log(eachProductList);
+
+    const [data, setData] = useState([]);
+    const [array, dispatch] = useReducer(arrayReducer, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/product/pListDesc');
+                setData(response.data);
+                
+            } catch (err) {
+                alert(`** product db 연결 실패 => ${err.message}`);
+            }
+        };
+
+        fetchData();
+    }, []);
+    console.log("-", data);
+    useEffect(() => {
+        // 데이터가 업데이트될 때마다 useReducer의 초기 상태를 설정
+        dispatch({ type: 'set', payload: data });
+    }, [data]);
+
+
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 8;
