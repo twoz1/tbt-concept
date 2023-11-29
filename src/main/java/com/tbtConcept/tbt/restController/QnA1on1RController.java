@@ -49,6 +49,7 @@ public class QnA1on1RController {
 			entity.setQna_upload_file(file2);
 		}
 		
+		
 		try {
 			if (qna1on1Service.save(entity) > 0) {
 				model.addAttribute("message", "1:1문의 등록 성공");
@@ -87,6 +88,8 @@ public class QnA1on1RController {
 
 			file2 = uploadfilef.getOriginalFilename();
 			entity.setQna_upload_file(file2);
+		} else {
+			entity.setQna_upload_file(entity.getQna_upload_file());
 		}
 
 		try {
@@ -99,7 +102,7 @@ public class QnA1on1RController {
 				return "실패";
 			}
 		} catch (Exception e) {
-			System.out.println("** QnA1on1 insert Exception => " + e.toString());
+			System.out.println("** QnA1on1 update Exception => " + e.toString());
 			return "실패";
 		}
 	}
