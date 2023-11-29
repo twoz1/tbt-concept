@@ -14,4 +14,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
 	@Query("SELECT p FROM Product p where code ='S' order by p.product_id desc")
 	List<Product> selectSDesc();
+	
+	@Query("SELECT p FROM Product p where code ='G' order by p.product_id desc")
+	List<Product> selectGDesc();
 }

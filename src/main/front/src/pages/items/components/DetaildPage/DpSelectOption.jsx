@@ -8,8 +8,9 @@ const DpSelectOption = ({ ProductListSelected }) => {
 
     const { openModal, closeModal, isModal } = useModal();
 
-    const { name, price, imageFront } = ProductListSelected;
-    const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, price);
+    const { product_name, product_price, product_img1 } = ProductListSelected;
+    
+    const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, product_price);
 
     const [isLiked, setIsLiked] = useState(false);
     const likedItem = () => {
@@ -20,17 +21,21 @@ const DpSelectOption = ({ ProductListSelected }) => {
     const heartIconStyle = {
         color: isLiked ? 'orangered' : 'gray'
     };
-    console.log(imageFront)
+    console.log(product_img1)
     return (
 
         <div className="choice">
             <div className='choice_1'>
-                <span> {name} </span>
+                <span> {product_name} </span>
                 <span>
                     <i className="fa-solid fa-truck"></i>
                     <em>무료배송</em></span>
             </div>
-            <div className='choice_2'>{price.toLocaleString()}원</div>
+            <div className='choice_2'>
+               {typeof product_price === 'number' && (
+              <span>{product_price.toLocaleString()}원</span>
+               )}
+             </div> 
 
             <div className="total">
                 <strong>TOTAL</strong>
@@ -42,14 +47,13 @@ const DpSelectOption = ({ ProductListSelected }) => {
 
 
                 <span>{totalPricing().toLocaleString()}원</span>
-
             </div>
 
             <div className="choice_button">
                 <Link to='/checkout' state={{
                     quantityGoods: quantityGoods,
-                    price: price,
-                    imageFront: imageFront,
+                    price: product_price,
+                    imageFront: product_img1,
                 }}>바로 구매</Link>
                 <button className='gotoCart' onClick={() => openModal('gotoCartModal')}>쇼핑백 담기</button>
                 {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}

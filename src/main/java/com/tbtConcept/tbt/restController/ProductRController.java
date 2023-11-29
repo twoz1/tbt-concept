@@ -41,9 +41,21 @@ public class ProductRController {
 	}
 	
 	@GetMapping("/pSListDesc")
-	public List<Product> getProductList(Model model) {
+	public List<Product> getProductSList(Model model) {
 		return prodService.selectSDesc();
 	}
 	
-
+	@GetMapping("/pGListDesc")
+	public List<Product> getProductGList(Model model) {
+		return prodService.selectGDesc();
+	}
+	
+	@GetMapping("/pDetail/{product_id}")
+	public Product getProductDetail(@PathVariable("product_id") int id, Model model){
+		Product pr = prodService.selectDetail(id);
+		System.out.println("getProductDetail ->" +pr);
+		return pr;
+		
+	}
+	
 }

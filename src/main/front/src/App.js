@@ -102,7 +102,7 @@ function App() {
                 {/* ----------------고정 풋터의 링크-------- */}
                 {/* ----------------이지 링크투-------- */}
 
-                <Route path='/detail/:product_name' element={<DetailedPage />}></Route>
+                <Route path='/detail/:product_id' element={<DetailedPage />}></Route>
 
                 {/* ----------------이지 링크투-------- */}
                 {/* ----------------진휘 링크투-------- */}

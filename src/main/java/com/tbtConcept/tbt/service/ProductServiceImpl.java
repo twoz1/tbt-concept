@@ -23,14 +23,22 @@ public class ProductServiceImpl implements ProductService {
 		return repository.findAllDesc();
 	}
 	
+	
 	@Override
 	public List<Product> selectList() {
 		return repository.findAll();
 	}
 	
+	@Transactional
 	@Override
 	public List<Product> selectSDesc(){
 		return repository.selectSDesc();
+	};
+	
+	@Transactional
+	@Override
+	public List<Product> selectGDesc(){
+		return repository.selectGDesc();
 	};
 	
 	@Override

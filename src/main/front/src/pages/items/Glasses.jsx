@@ -19,9 +19,9 @@ const Glasses = () => {
     const arrayReducer = (state, action) => {
         switch (action.type) {
             case "low":
-                return state ? [...state].sort((a, b) => a.price - b.price) : [];
+                return state ? [...state].sort((a, b) => a.product_price - b.product_price) : [];
             case "high":
-                return state ? [...state].sort((a, b) => b.price - a.price) : [];
+                return state ? [...state].sort((a, b) => b.product_price - a.product_price) : [];
             case "set":
                 return action.payload;
             default:
@@ -40,7 +40,7 @@ const Glasses = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/product/pListDesc');
+                const response = await axios.get('/product/pGListDesc');
                 setData(response.data);
                 
             } catch (err) {
@@ -50,6 +50,7 @@ const Glasses = () => {
 
         fetchData();
     }, []);
+    
     console.log("-", data);
     useEffect(() => {
         // 데이터가 업데이트될 때마다 useReducer의 초기 상태를 설정
@@ -67,6 +68,8 @@ const Glasses = () => {
         dispatch({ type });
     };
 
+    console.log("->", array);
+    
     return (
         <div className='Glasses'>
             <div className="center m_c">
