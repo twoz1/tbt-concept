@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const renderItem = ({ item }) => (
   <li className="photo_2" key={item.product_id}>
     <Link to={`/detail/${item.product_id}`} key={item.product_id} className="product_photo">
-      <img src={item.product_img1} alt="Front View" />
-      <img src={item.product_img2} alt="Side View" />
+    <img src={require(`../../../images/${item.product_img1}`)} alt="Front View" />
+    <img src={require(`../../../images/${item.product_img2}`)} alt="Side View" />
     </Link>
     <div className="item_name"><span>{item.product_name}</span></div>
     <div className="item_price"><span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span></div>

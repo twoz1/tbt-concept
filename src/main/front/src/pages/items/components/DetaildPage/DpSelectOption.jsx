@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import useModal from '../../../customHooks/useModal';
 import Modal_gotobasket from './Modal_gotobasket';
 
-const DpSelectOption = ({ ProductListSelected }) => {
+const DpSelectOption = ({  product_name, product_price, product_img1  }) => {
 
     const { openModal, closeModal, isModal } = useModal();
 
-    const { product_name, product_price, product_img1 } = ProductListSelected;
+    //const { product_name, product_price, product_img1 } = ProductListSelected;
     
     const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, product_price);
 
