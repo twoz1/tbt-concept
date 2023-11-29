@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect  } from "react";
 import useModal from './../../../customHooks/useModal';
 import Join_Modal02 from "../../../members/components/Join/Join_Modal02";
 import Join_Modal03 from "../../../members/components/Join/Join_Modal03";
@@ -7,9 +7,10 @@ import axios from 'axios';
 
 
 
-const SidePay = ({ totalPrice, selectedCoupon }) => {
+const SidePay = ({ totalPrice, selectedCoupon, history }) => {
 
     const { openModal, closeModal, isModal } = useModal();
+    
 
     const [selectAll, setSelectAll] = useState(false);
     const [individualSelect1, setIndividualSelect1] = useState(false);
@@ -90,11 +91,11 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
     function insertOrderList() {
         let url = "/order/oListInsert";
         let formData = new FormData(document.getElementById('oListInsert'));
-        
+
             axios.post(
                 url, formData
             ).then(response => {
-                alert("입력 성공" + response.data);
+                alert("주문완료" + response.data);
     
             }).catch(err => {
                 if (err.response.status == "502") {
@@ -127,7 +128,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                         </tr>
                         <tr>
                             <th>할인금액</th>
-                            {/* <td>{discountPricing().toLocaleString()} 원</td> */}
+                            <td>{discountPricing().toLocaleString()} 원</td>
                         </tr>
 
                         <tr>
@@ -158,6 +159,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                                 <span>
                                     주문 상품정보에 동의&#40;필수&#41;
                                     <button
+                                        type="button"
                                         className="sidepay1_button"
                                         onClick={() => {
                                             openModal('joinModal_2');
@@ -175,6 +177,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                                 <span>
                                     결제대행서비스 이용을 위한 개인정보 <br />제3자 제공 및 위탁 동의&#40;필수&#41;
                                     <button
+                                        type="button"
                                         className="sidepay1_button"
                                         onClick={() => {
                                             openModal('joinModal_3');

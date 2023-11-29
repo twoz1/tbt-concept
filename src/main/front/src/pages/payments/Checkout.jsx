@@ -91,11 +91,12 @@ const Checkout = () => {
                                 </table>
                             </div>
                             <Pay />
-                        <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
+                            <section className="check_right">
+                                <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
+                            </section>
                         </form>
                     </section>
-                    <section className="check_right">
-                    </section>
+                   
                 </div>
             </div>
         </div>
