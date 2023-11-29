@@ -1,4 +1,3 @@
-
 import '../../styles/payments/Checkout.css';
 import Title from './components/Checkout/Title';
 import Information from './components/Checkout/Information';
@@ -31,8 +30,6 @@ const checkoutList = [
         imageFront: g_antonCrystal_01,
     }
 ]
-
-
 
 //임의의 쿠폰 목록
 const couponOptions = [
@@ -96,7 +93,6 @@ const Checkout = () => {
                             </section>
                         </form>
                     </section>
-                   
                 </div>
             </div>
         </div>

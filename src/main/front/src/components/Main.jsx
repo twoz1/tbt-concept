@@ -6,32 +6,41 @@ import Best from '../pages/items/components/Collection/Best';
 import Video from '../pages/items/components/Collection/Video';
 import useScrollToTop from '../pages/customHooks/useScrollToTop';
 import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 const Main = () => {
 
-    const [data, setData] = useState([]);
+    useScrollToTop();
+
+    const [productDetail, setProductDetail] = useState("");
+    const { product_id } = useParams();
+
     useEffect(() => { 
         const fetchData = async () => {
             try {
-                const response = await axios.get('/order/oListDesc');
-                setData(response.data);
+                const response = await axios.get('/product/pListDesc');
+                setProductDetail(response.data);
+                console.log("너 있냐?", response.data);
             } catch (err) {
                 alert(`** product db 연결 실패 => ${err.message}`);
+                console.log("error");
             }
         };
 
         fetchData();
     }, []);
-    console.log("-", data);
+    console.log("-->", productDetail);
 
-    useScrollToTop();
+    const ProductListSelected = productDetail;
+    console.log("---", ProductListSelected);
+
     
     return (
         <div>
             <ImgSlide></ImgSlide>
             <div className="center">
-                <New data={data}/>
+                <New ProductListSelected={ProductListSelected}/>
                 <CollectionBanner/>
                 <Best/>
             </div>

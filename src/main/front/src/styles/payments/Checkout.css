@@ -1,6 +1,7 @@
+
 .check_box {
-    /* display: flex; */
-    /* justify-content: space-between; */
+    display: flex; 
+    justify-content: space-between;
     padding-bottom: 50px;
     width: 100%;
 }
@@ -71,7 +72,9 @@
 .information_table .address label:not(:first-child) {
     margin-left: 15px;
 }
-
+.address button {
+    margin-left: 10px;
+}
 .information #receiver_phone_read {
     width: 80px;
 }
@@ -168,17 +171,18 @@
 
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 /* check_right */
-.check_right {
-    width: 200px;
+.check_right{
     float: right;
+
 }
+
 
 .check_right .side_pay {
     position: fixed;
     top: 210px;
-    right: 18%;
     transition: top 0.3s;
     width: 16%;
+    min-width: 300px;
 }
 
 .check_right .side_pay.lock {

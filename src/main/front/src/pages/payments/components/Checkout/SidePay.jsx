@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const SidePay = ({ totalPrice, selectedCoupon, history }) => {
+const SidePay = ({ totalPrice, selectedCoupon }) => {
 
     const { openModal, closeModal, isModal } = useModal();
     
@@ -16,7 +16,6 @@ const SidePay = ({ totalPrice, selectedCoupon, history }) => {
     const [individualSelect1, setIndividualSelect1] = useState(false);
     const [individualSelect2, setIndividualSelect2] = useState(false);
     const [individualSelect3, setIndividualSelect3] = useState(false);
-    const [showWarning, setShowWarning] = useState(false);
 
     useEffect(() => {
         // 각 체크박스 상태를 확인하고 모두 선택되었을 때만 selectAll 상태를 true로 설정
@@ -88,15 +87,17 @@ const SidePay = ({ totalPrice, selectedCoupon, history }) => {
         };
     }, []);
 
+   
+
     function insertOrderList() {
         let url = "/order/oListInsert";
         let formData = new FormData(document.getElementById('oListInsert'));
 
-            axios.post(
-                url, formData
-            ).then(response => {
+            axios.post(url, formData)
+            .then(response => {
                 alert("주문완료" + response.data);
-    
+                console.log("주문 완료 후 로그");
+                navigateTo("/mypage");
             }).catch(err => {
                 if (err.response.status == "502") {
                     alert("[입력 오류] 다시 시도하세요.");
@@ -105,6 +106,10 @@ const SidePay = ({ totalPrice, selectedCoupon, history }) => {
                 }
             });
     
+    }
+    function navigateTo(url) {
+        console.log("이동하고자 하는 URL:", url); 
+        window.location.href = url; // 또는 history.pushState({}, null, url); 사용
     }
 
     return (
@@ -199,7 +204,7 @@ const SidePay = ({ totalPrice, selectedCoupon, history }) => {
                 </table>
                 {/* </form> */}
             </div>
-            <button type="submit" className="total_button" disabled={!selectAll} onClick={()=>insertOrderList()} >
+            <button type="submit" className="total_button" disabled={!selectAll} onClick={()=>insertOrderList()}  >
                 결제하기
             </button>
         </div>//최종 div

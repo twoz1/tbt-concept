@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import useModal from "../../../customHooks/useModal";
+import CheckOut_Modal from "../../../members/components/checkout/ChcekOut_Modal";
 
 // 페이지 로드 시 자동으로 호출되는 함수
 window.onload = function () {
@@ -46,6 +48,8 @@ function padZero(number) {
 
 const Information = () => {
     const [showPlaceholder, setShowPlaceholder] = useState(true);
+    const { openModal, closeModal, isModal } = useModal();
+
 
     const handleRadioChange = (event) => {
         if (event.target.value === 'new') {
@@ -106,13 +110,21 @@ const Information = () => {
                                     기본주소
                                 </label>
                                 <label>
-                                    <input type="radio" name="address_radio" value="recent" onChange={handleRadioChange} required />
-                                    최근 배송지
-                                </label>
-                                <label>
                                     <input type="radio" name="address_radio" value="new" onChange={handleRadioChange} required />
                                     새로 입력
                                 </label>
+                                <button
+                                        type="button"
+                                        onClick={() => {
+                                            openModal('checkoutModal');
+                                        }}
+                                        >
+                                        주소록
+                                </button>
+                                {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} />}
+                            </td>
+                            <td>
+
                             </td>
                         </tr>
                         <tr>
@@ -120,7 +132,7 @@ const Information = () => {
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
-                                <input type="text" name="order_receiver" id="order_receiver" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="order_receiver" id="order_receiver" value="김박이" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                             </td>
                         </tr>
                         <tr>
@@ -134,9 +146,9 @@ const Information = () => {
                                     <option value="070">070</option>
                                 </select>
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num" value="5000" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num" value="5000" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
                             </td>
                         </tr>
                         <tr>
@@ -144,11 +156,11 @@ const Information = () => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5"  placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" value="13630"placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 <p>
-                                    <input type="text" name="order_receiver_city" id="order_receiver_city" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_city" id="order_receiver_city" value="경기도 성남시 분당구 돌마로 46 " placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
-                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail"  placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail" value="광천빌딩 5층" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 </p>
                             </td>
                         </tr>

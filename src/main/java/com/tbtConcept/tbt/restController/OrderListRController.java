@@ -45,7 +45,7 @@ public class OrderListRController {
 		
 		try {
 			orderService.save(entity); 
-			model.addAttribute("message", "상품등록 성공");
+			model.addAttribute("message", "주문등록 성공");
 			System.out.println("** orderList insert 성공");
 			return "성공";
 		

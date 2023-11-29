@@ -74,7 +74,9 @@
 
 
 
-.close_button{
+.close_button,
+.checkout_close_button,
+.checkout_submit_button{
     margin-top: 25px;
     margin-bottom: 25px;
     width: 120px;
@@ -86,4 +88,18 @@
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+.checkout_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.checkout_submit_button{
+    background-color: white;
+    border: 1px solid;
+    color: black;
 }
