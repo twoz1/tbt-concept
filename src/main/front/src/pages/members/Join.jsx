@@ -103,13 +103,23 @@ const Join = () => {
 
     // ------------------------------------------------------------------------
 
+    function idDupCheck() {
+        if (emailValid == true) {
+
+            let url = window.location.protocol + '//' + window.location.host + '/join/joinCheck?id=' + document.getElementById("user_id").value;
+            const newWindow = window.open('', '_blank', 'width=400,height=250,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
+
+        }
+
+    }
+
     const clickJoin = () => {
         axios
             .post('/user/uJoin')
             .then((response) => {
                 console.log(response.data);
                 if (response.data > 0) {
-                    window.location.href = '/';
+                    window.location.href = window.location.protocol + '//' + window.location.host + '/';
                 } else {
                     alert("회원가입에 실패했습니다.");
                 }
@@ -153,6 +163,7 @@ const Join = () => {
                             <td>
                                 <label>
                                     <input className="input_box"
+                                        id="user_id"
                                         name="user_id"
                                         value={email}
                                         onChange={handleEmail}
@@ -166,6 +177,7 @@ const Join = () => {
                                         }}
                                         onBlur={handleBlur}
                                         placeholder="&#64;까지 정확하게 입력해주세요." required />
+                                    <button id="idDup" onClick={idDupCheck}>ID중복확인</button>
                                     <input type="hidden" name="user_birth" value={new Date().toLocaleString()} />
                                 </label>
                                 <div>
