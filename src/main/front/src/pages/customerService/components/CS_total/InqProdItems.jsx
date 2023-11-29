@@ -4,7 +4,9 @@ import '../../../../styles/customerService/InqProdItems.css';
 import ResultCS1on1 from '../CS_total/ResultCS1on1';
 import useModal from '../../../customHooks/useModal';
 
-const InqProdItems = ({ userEmail, typeInquiry, titleInqProd, contentsInqProd }) => {
+const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qna_reply_check, qna_title, qna_content, qna_upload_file, qna_answer }) => {
+
+    console.log("**** qna_content => " + qna_content);
 
     // custom modal hook을 이용한 모달창 구현
     const {openModal, closeModal, isModal} = useModal();
@@ -12,14 +14,21 @@ const InqProdItems = ({ userEmail, typeInquiry, titleInqProd, contentsInqProd })
     return (
         <tbody className='tBodyInqProdItems'>
             <tr>
-                <td>{typeInquiry}</td>
-                <td>{userEmail}</td>
-                <td className='curPointer' onClick={() => openModal('titleInqProd')}>{titleInqProd}</td>
+                <td>{qna_type}</td>
+                <td>{user_id}</td>
+                <td className='curPointer' onClick={() => openModal('titleInqProd')}>{qna_title}</td>
                 {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
-                                            userEmail={userEmail}
-                                            typeInquiry={typeInquiry}
-                                            titleInqProd={titleInqProd}
-                                            contentsInqProd={contentsInqProd}/>}
+                                            qna_id={qna_id}
+                                            product_id={product_id}
+                                            user_id={user_id}
+                                            qna_type={qna_type}
+                                            qna_phone_num={qna_phone_num}
+                                            qna_reply_check={qna_reply_check}
+                                            qna_title={qna_title}
+                                            qna_content={qna_content}
+                                            qna_upload_file={qna_upload_file}
+                                            qna_answer={qna_answer}
+                                            />}
             </tr>
         </tbody>
     )

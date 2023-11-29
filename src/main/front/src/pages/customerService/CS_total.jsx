@@ -358,7 +358,6 @@ const CS_total = () => {
 
     useScrollToTop();
 
-    const [askInqProd, setAskInqProd] = useState(mockInqProd);
     const [searchFAQ, setSearch] = useState(mockFreqQues);
 
     return (
@@ -382,7 +381,7 @@ const CS_total = () => {
 
                     {/* =====================CS 목록 - 상품문의======================= */}
                     <div>
-                        <InquiryProduct askInqProd={askInqProd} />
+                        <InquiryProduct />
 
                         {/* =====================CS 목록 - 자주 찾는 질문======================= */}
                         <FreqQuestion />

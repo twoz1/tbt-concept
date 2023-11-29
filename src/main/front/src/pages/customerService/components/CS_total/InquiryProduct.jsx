@@ -2,18 +2,41 @@
 import '../../../../styles/customerService/InquiryProduct.css';
 import Modal_cs1on1 from './Modal_cs1on1';
 import InqProdItems from './InqProdItems';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useModal from '../../../customHooks/useModal';
+import axios from 'axios';
 
 
 //모달을 노출하는 페이지
-const InquiryProduct = ({ askInqProd }) => {
-
-    //객체의 길이를 알기 위한 useRef
-    const mockInqProdCount = useRef(askInqProd);
+const InquiryProduct = () => {
 
     // custom modal hook을 이용한 모달창 구현
     const {openModal, closeModal, isModal} = useModal();
+    
+    // QnA1on1 List 출력
+    const [qna1on1List, setQna1on1List] = useState([]);
+    let url = "/qna1on1/qList";
+
+    //객체의 길이를 알기 위한 useRef
+    //const qna1on1ListCount = useRef(qna1on1List);
+    
+
+    useEffect(() => {
+        axios.post(url 
+            ).then(response => {
+                setQna1on1List(response.data);
+                alert("QnA1on1List 출력 성공" + response.data);
+            }).catch(err => {
+                if (err.response.status == "502") {
+                    alert("[입력 오류] 다시 시도하세요.");
+                } else {
+                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                }
+            });
+    }, []);
+
+
+    console.log(qna1on1List);
 
 
     return (
@@ -34,7 +57,7 @@ const InquiryProduct = ({ askInqProd }) => {
                             <th>제목</th>
                         </thead>
 
-                        {mockInqProdCount.current.length == 0 ? <tr className='noInqProd'><td colspan="2">작성한 게시물이 없습니다.</td></tr> : askInqProd.map((InqProd) => { return (<InqProdItems key={InqProd.id}{...InqProd} />); })}
+                        {qna1on1List.length == 0 ? <tr className='noInqProd'><td colspan="2">작성한 게시물이 없습니다.</td></tr> : qna1on1List.map((qna1on1) => { return (<InqProdItems key={qna1on1.qna_id}{...qna1on1} />); })}
                     </table>
                 </div>
             </section>

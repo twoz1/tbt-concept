@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../../styles/customerService/ResultCS1on1.css';
 
-const ResultCS1on1 = ({ closeModal, userEmail, typeInquiry, titleInqProd, contentsInqProd }) => {
+const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_phone_num, qna_reply_check, qna_title, qna_content, qna_upload_file, qna_answer }) => {
 
     return (
         <div>
@@ -30,7 +30,7 @@ const ResultCS1on1 = ({ closeModal, userEmail, typeInquiry, titleInqProd, conten
                                             회원정보
                                         </th>
                                         <td>
-                                            <span>{userEmail}</span>
+                                            <span>{user_id}</span>
                                         </td>
                                     </tr>
 
@@ -39,7 +39,7 @@ const ResultCS1on1 = ({ closeModal, userEmail, typeInquiry, titleInqProd, conten
                                             문의유형
                                         </th>
                                         <td>
-                                            <div>{typeInquiry}</div>
+                                            <div>{qna_type}</div>
                                         </td>
                                     </tr>
 
@@ -48,7 +48,7 @@ const ResultCS1on1 = ({ closeModal, userEmail, typeInquiry, titleInqProd, conten
                                             제목
                                         </th>
                                         <td>
-                                            <div>{titleInqProd}</div>
+                                            <div>{qna_title}</div>
                                         </td>
                                     </tr>
 
@@ -57,7 +57,7 @@ const ResultCS1on1 = ({ closeModal, userEmail, typeInquiry, titleInqProd, conten
                                             문의 내용
                                         </th>
                                         <td>
-                                            <div>{contentsInqProd}</div>
+                                            <div>{qna_content}</div>
                                         </td>
                                     </tr>
                                 </tbody>

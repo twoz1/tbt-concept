@@ -42,6 +42,9 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
 	function insertQnA1on1() {
 
+    	// QnA1on1 List 출력
+    	//const [qna1on1List, setQna1on1List] = useState();
+
 		let formData = new FormData(document.getElementById("subtitle_1on1"));
 
 		let url = "/qna1on1/qna1on1Insert";
@@ -49,8 +52,8 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 		axios.post(url, formData, {
 			headers:{"Content-Type": "multipart/form-data"}
 		}).then(response => {
+			//setQna1on1List(response.data);
 			alert("입력 성공" + response.data);
-
 		}).catch(err => {
 			if (err.response.status == "502") {
 				alert("[입력 오류] 다시 시도하세요.");
@@ -159,8 +162,11 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 													&#8903; 답변이 등록되면 휴대폰 SMS로 알려드립니다.
                                                 </span>
 
-												<label name="qna_reply_check">
+												<label>
 													<input type="radio" name="qna_reply_check" id="answerYes" value="yes" checked required />예
+                                                </label>
+
+												<label>
 													<input type="radio" name="qna_reply_check" id="answerNo" value="no" required />아니오
                                                 </label>
 											</div>

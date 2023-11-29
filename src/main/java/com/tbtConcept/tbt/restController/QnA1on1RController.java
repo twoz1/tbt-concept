@@ -66,10 +66,11 @@ public class QnA1on1RController {
 
 	// List =====================================================
 	
-	@PostMapping("/qna1on1List")
+	@PostMapping("/qList")
 	public List<QnA1on1> postQList(Model model) {
 		return qna1on1Service.selectList();
 	}
+	
 	
 	// Detail =====================================================
 	/*
