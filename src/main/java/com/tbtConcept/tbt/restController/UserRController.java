@@ -1,4 +1,4 @@
-package com.tbtConcept.tbt.controller;
+package com.tbtConcept.tbt.restController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -6,13 +6,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.service.UserService;
@@ -21,18 +21,49 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @AllArgsConstructor
-@RequestMapping(value = "/master/user")
-@Controller
+@RequestMapping(value = "/user")
+@RestController
 @Log4j2
-public class UserController {
+public class UserRController {
 	UserService userService;
+	PasswordEncoder passwordEncoder;
 
-	@GetMapping(value = "/userList")
+	@GetMapping("/idDupCheck")
+	public String idDupCheck(User entity, Model model) {
+		// 1) newID 확인
+		if (userService.selectOne(entity.getUser_id()) != null) {
+			// => 존재 : 사용불가
+			model.addAttribute("idUse", "F");
+		} else {
+			// => 없으면: 사용가능
+			model.addAttribute("idUse", "T");
+		}
+		return "master/user/idDupCheck";
+	}
+
+	@GetMapping(value = "/uList")
 	public void getUserList(Model model) {
 		model.addAttribute("userList", userService.selectList());
 	}
 
-	@GetMapping(value = "/userDetail")
+	@PostMapping(value = "/uJoin")
+	public int postUserJoin(HttpServletRequest request, Model model, User entity) {
+		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
+		System.out.println(entity);
+		try {
+			log.info("** 회원가입 성공 id => " + userService.save(entity));
+			model.addAttribute("message", "회원가입 성공");
+			
+			return 1;
+		} catch (Exception e) {
+			log.info("** insert Exception => " + e.toString());
+			model.addAttribute("message", "회원가입 실패");
+			
+			return 0;
+		}
+	}
+
+	@GetMapping(value = "/uDetail")
 	public String getUserdetail(HttpServletRequest request, Model model, User entity) {
 		model.addAttribute("userDetail", userService.selectOne(entity.getUser_id()));
 
@@ -42,7 +73,7 @@ public class UserController {
 			return "master/user/userDetail";
 	}
 
-	@PostMapping(value = "/userUpdate")
+	@PostMapping(value = "/uUpdate")
 	public String posrMemberUpdate(HttpSession session, User entity, Model model) {
 
 		model.addAttribute("userDetail", entity);
@@ -61,7 +92,7 @@ public class UserController {
 		return uri;
 	}
 
-	@DeleteMapping("userdelete/{user_id}")
+	@DeleteMapping("udelete/{user_id}")
 	public ResponseEntity<?> axUserDelete(@PathVariable("user_id") String id, User entity) {
 		entity.setUser_id(id);
 		if (userService.delete(id) != null) {
