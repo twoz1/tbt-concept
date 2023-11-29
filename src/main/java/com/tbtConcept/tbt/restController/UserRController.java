@@ -51,13 +51,13 @@ public class UserRController {
 		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
 		System.out.println(entity);
 		try {
-			log.info("** 회원가입 성공 id => " + userService.save(entity));
-			model.addAttribute("message", "회원가입 성공");
-			
-			return 1;
+			if(userService.save(entity) != null) {
+				return 1;
+			}else {
+				return 0;
+			}
 		} catch (Exception e) {
-			log.info("** insert Exception => " + e.toString());
-			model.addAttribute("message", "회원가입 실패");
+			log.info("** Join insert Exception => " + e.toString());
 			
 			return 0;
 		}
