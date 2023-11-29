@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect  } from "react";
 import useModal from './../../../customHooks/useModal';
 import Join_Modal02 from "../../../members/components/Join/Join_Modal02";
 import Join_Modal03 from "../../../members/components/Join/Join_Modal03";
+import axios from 'axios';
 
-const SidePay = ({ totalPrice, selectedCoupon }) => {
+
+
+
+const SidePay = ({ totalPrice, selectedCoupon, history }) => {
 
     const { openModal, closeModal, isModal } = useModal();
+    
 
     const [selectAll, setSelectAll] = useState(false);
     const [individualSelect1, setIndividualSelect1] = useState(false);
@@ -83,6 +88,25 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
         };
     }, []);
 
+    function insertOrderList() {
+        let url = "/order/oListInsert";
+        let formData = new FormData(document.getElementById('oListInsert'));
+
+            axios.post(
+                url, formData
+            ).then(response => {
+                alert("주문완료" + response.data);
+    
+            }).catch(err => {
+                if (err.response.status == "502") {
+                    alert("[입력 오류] 다시 시도하세요.");
+                } else {
+                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                }
+            });
+    
+    }
+
     return (
         <div className={`side_pay ${sidePayScoll ? 'lock' : ''}`}>
             <div className="side_pay1">
@@ -92,9 +116,10 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                         <tr>
                             <th>총 상품금액</th>
                             <td>
-                                <input type="hidden" name="order_total_price" id="order_total_price" required 
-                                value={totalPrice.toLocaleString()}/>
-                                {totalPrice.toLocaleString()} 원
+                                <input type="text" name="order_total_price" id="order_total_price" required 
+                                value="305000"//{totalPrice.toLocaleString()}
+                                />
+                                {/* {totalPrice.toLocaleString()} 원 */}
                             </td>
                         </tr>
                         <tr>
@@ -109,9 +134,10 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                         <tr>
                             <th>총 결제금액</th>
                             <td>
-                                <input type="hidden" name="order_total_price" id="order_total_price" required 
-                                value={totalPrice.toLocaleString()}/>
-                                {calcPricing().toLocaleString()} 원
+                                <input type="text" name="order_total_price" id="order_total_price" required 
+                                value="305000"//{totalPrice.toLocaleString()}
+                                />
+                                {/* {totalPrice.toLocaleString()} 원 */}
                             </td>
                         </tr>
                     </tbody>
@@ -133,6 +159,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                                 <span>
                                     주문 상품정보에 동의&#40;필수&#41;
                                     <button
+                                        type="button"
                                         className="sidepay1_button"
                                         onClick={() => {
                                             openModal('joinModal_2');
@@ -150,6 +177,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                                 <span>
                                     결제대행서비스 이용을 위한 개인정보 <br />제3자 제공 및 위탁 동의&#40;필수&#41;
                                     <button
+                                        type="button"
                                         className="sidepay1_button"
                                         onClick={() => {
                                             openModal('joinModal_3');
@@ -171,7 +199,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                 </table>
                 {/* </form> */}
             </div>
-            <button className="total_button" disabled={!selectAll} >
+            <button type="submit" className="total_button" disabled={!selectAll} onClick={()=>insertOrderList()} >
                 결제하기
             </button>
         </div>//최종 div

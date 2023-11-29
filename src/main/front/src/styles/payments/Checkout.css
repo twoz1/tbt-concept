@@ -1,7 +1,8 @@
 .check_box {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
     padding-bottom: 50px;
+    width: 100%;
 }
 
 /* check_left */
@@ -168,13 +169,16 @@
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 /* check_right */
 .check_right {
-    width: 300px;
+    width: 200px;
+    float: right;
 }
 
 .check_right .side_pay {
     position: fixed;
-    top: 191px;
+    top: 210px;
+    right: 18%;
     transition: top 0.3s;
+    width: 16%;
 }
 
 .check_right .side_pay.lock {

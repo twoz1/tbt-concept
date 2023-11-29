@@ -22,6 +22,28 @@ function typeChange() {
     	document.getElementById("order_del_state").value = order_delStateChange;
     }
 }
+
+/* function generateInvoiceNumber() {
+    // 여기에 송장번호 생성 로직 추가 (서버에서 생성되는 송장번호)
+    let invoiceNumber = Math.floor(Math.random() * 10000000000000);
+    return invoiceNumber;
+}
+
+function fillInvoiceNumber() {
+    let invoiceNumber = generateInvoiceNumber();
+    document.getElementById("order_del_num").value = invoiceNumber;
+} */
+function createDelNumber() {
+    // 여기에 송장번호 생성 로직 추가 (서버에서 생성되는 송장번호)
+    let invoiceNumber = Math.floor(Math.random() * 10000000000000);
+    return invoiceNumber;
+}
+
+function changeDelNumber() {
+    let invoiceNumber = createDelNumber();
+    document.getElementById("order_del_num").value = invoiceNumber;
+}
+
 </script>
 </head>
 <body>
@@ -154,6 +176,7 @@ function typeChange() {
 							<button type="button" onclick="typeChange()">입금완료</button>
 							<!-- <button type="button" onclick="typeChange()">배송중</button> -->
 							<button type="button" onclick="typeChange()">배송완료</button>
+							<button type="button" onclick="changeDelNumber()">송장번호 입력</button>
 							</td>
 						</tr>
 					</table>

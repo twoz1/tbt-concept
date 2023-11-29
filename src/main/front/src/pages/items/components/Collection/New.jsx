@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useReducer, useRef, useState } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
 
-const New = () => {
+const New = ({data}) => {
     const { gArr } = useContext(mockItemsContext);
     const newList = [...gArr];
     const what_new_list = useRef(),
@@ -52,6 +52,7 @@ const New = () => {
     }
 
     return (
+        
         <div className="what_new">
             <div className="what_new_title cf">
                 <h2>

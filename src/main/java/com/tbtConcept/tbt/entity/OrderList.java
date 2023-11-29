@@ -41,7 +41,7 @@ public class OrderList {
 	private String order_receiver_detail;
 	
 	@Column(nullable=false)
-	private int order_receiver_phone_num;
+	private String order_receiver_phone_num;
 	
 	private String order_message;
 	
@@ -59,7 +59,6 @@ public class OrderList {
 	private String order_state;
 	private String order_del_state;
 	
-	@Column(nullable=false)
 	private String order_del_num;
 
 }
