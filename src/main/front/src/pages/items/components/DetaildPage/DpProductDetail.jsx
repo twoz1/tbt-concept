@@ -1,11 +1,11 @@
 import React from 'react'
 
-const DpProductDetail = ({ProductListSelected}) => {
-  const {product_img1,product_img2,product_img3,product_img4,summary}=ProductListSelected;
+const DpProductDetail = ({ product_img1,product_img2,product_img3,product_img4 }) => {
+ // const {product_img1,product_img2,product_img3,product_img4,summary}=ProductListSelected;
   return (
     <div>
     <div className="product_detail">
-    {summary}
+    {/* {summary} */}
 </div>
 <div className="detail" id="detail">
     <img src={product_img1} alt="Eva crystal violet tint 정면" />

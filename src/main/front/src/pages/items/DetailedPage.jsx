@@ -36,21 +36,27 @@ const DetailedPage = ({ starScore }) => {
         };
 
         fetchData();
-    }, []);
+    },  []);
 
     console.log("-->", productDetail);
 
     //const { sArr, gArr } = useContext(mockItemsContext);
 
-    const ProductListSelected = productDetail;
-    console.log("---", ProductListSelected);
+    //const ProductListSelected = productDetail;
+    //console.log("---", ProductListSelected);
 
     return (
         <div className="DetailedPage">
             <div className="center m_c">
                 <div className="section">
-                    <DpTopSection ProductListSelected={ProductListSelected} />
-                    <DpSelectOption ProductListSelected={ProductListSelected} />
+                    {/* <DpTopSection key={productDetail.product_id}{...productDetail} /> */}
+
+
+                    <DpTopSection key={productDetail.product_id}{...productDetail} />
+                    <DpSelectOption key={productDetail.product_id}{...productDetail} />
+
+
+                 
                 </div>
 
                 <div className="nav nav1">
@@ -62,7 +68,7 @@ const DetailedPage = ({ starScore }) => {
                     </ul>
                 </div>
 
-                <DpProductDetail ProductListSelected={ProductListSelected} />
+                <DpProductDetail key={productDetail.product_id}{...productDetail} />
 
                 {/* <!-- ==============리뷰1======================================================= --> */}
 

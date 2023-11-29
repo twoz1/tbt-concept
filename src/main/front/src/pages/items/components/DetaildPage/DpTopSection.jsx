@@ -35,8 +35,8 @@
 
 import React, { useState } from 'react';
 
-const DpTopSection = ({ ProductListSelected }) => {
-  const { product_img1, product_img2, product_img3, product_img4 } = ProductListSelected;
+const DpTopSection = ({  product_img1, product_img2, product_img3, product_img4  }) => {
+ // const { product_img1, product_img2, product_img3, product_img4 } = ProductListSelected;
 
   const [mainImage, setMainImage] = useState(product_img1);
 
@@ -46,21 +46,22 @@ const DpTopSection = ({ ProductListSelected }) => {
 
   return (
     <div className="main_photo">
-      <img src={mainImage} alt="Eva crystal violet tint 정면" />
+      <img src={mainImage} alt="product_img1" />
+
 
       <div className="sub_photo">
         <ul>
           <li onClick={() => handleSubImageClick(product_img1)}>
-            <img src={product_img1} alt="Eva crystal violet tint 정면" />
+            <img src={ `../../../../images/${product_img1}`} alt="product_img1" />
           </li>
           <li onClick={() => handleSubImageClick(product_img2)}>
-            <img src={product_img2} alt="Eva crystal violet tint 앞 대각선" />
+            <img src={`../../../../images/${product_img2}`} alt="product_img2" />
           </li>
           <li onClick={() => handleSubImageClick(product_img3)}>
-            <img src={product_img3} alt="Eva crystal violet tint 측면" />
+            <img src={`../../../../images/${product_img3}`} alt="product_img3" />
           </li>
           <li onClick={() => handleSubImageClick(product_img4)}>
-            <img src={product_img4} alt="Eva crystal violet tint 뒷 대각선" />
+            <img src={`../../../../images/${product_img4}`} alt="product_img4" />
           </li>
         </ul>
       </div>
