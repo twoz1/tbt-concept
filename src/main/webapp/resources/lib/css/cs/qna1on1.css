@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+#master_wrap .qna1on1_update tr:last-child td{
+	border:none;
+	padding: 10px 0;
+}
+
+.qna1on1_update textarea{
+	width:300px;
+	height:180px;
+	resize:none;
+}

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA 수정 | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/cs/qna1on1.css" />
 <script src="/resources/lib/js/cs/axCS.js"></script>
 </head>
 <body>
@@ -52,6 +53,14 @@
 						</tr>
 
 						<tr>
+							<th>문자수신여부</th>
+							<td>${requestScope.qna1on1Detail.qna_reply_check}<input
+								type="hidden" name="qna_reply_check" id="qna_reply_check"
+								value="${requestScope.qna1on1Detail.qna_reply_check}" />
+							</td>
+						</tr>
+
+						<tr>
 							<th>상품ID</th>
 							<td>${requestScope.qna1on1Detail.product_id}
 								<input type="hidden" name="product_id" id="product_id" value="${requestScope.qna1on1Detail.product_id}" />
@@ -75,7 +84,7 @@
 						<tr>
 							<th>답변</th>
 							<td>
-								<textarea name="qna_answer" id="qna_answer" value="${requestScope.qna1on1Detail.qna_answer}">
+								<textarea name="qna_answer" id="qna_answer">
 									${requestScope.qna1on1Detail.qna_answer}
 								</textarea>
 							</td>

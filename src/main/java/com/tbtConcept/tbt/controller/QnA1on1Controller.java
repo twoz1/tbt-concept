@@ -43,7 +43,7 @@ public class QnA1on1Controller {
 	@PostMapping("/qna1on1Update")
 	public void postQnA1on1Update(Model model, QnA1on1 entity, HttpServletRequest request) {
 		model.addAttribute("qna1on1Detail", entity);
-		
+		System.out.println("**** qna1on1 update => " + entity);
 		try {
 			if (qna1on1Service.save(entity) > 0) {
 				model.addAttribute("message", "QnA수정 성공");
