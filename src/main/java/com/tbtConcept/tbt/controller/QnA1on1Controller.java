@@ -1,5 +1,7 @@
 package com.tbtConcept.tbt.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -7,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.QnA1on1;
 import com.tbtConcept.tbt.service.QnA1on1Service;
 
@@ -29,11 +33,42 @@ public class QnA1on1Controller {
 		model.addAttribute("qna1on1List", qna1on1Service.selectList());
 	}
 	
+	// Detail =====================================================
+	@GetMapping("/qna1on1Update")
+	public void getQnA1on1Update(Model model, QnA1on1 entity, HttpServletRequest request) {
+		model.addAttribute("qna1on1Detail", qna1on1Service.selectDetail(entity.getQna_id()));
+		
+	}
+	
+	@PostMapping("/qna1on1Update")
+	public void postQnA1on1Update(Model model, QnA1on1 entity, HttpServletRequest request) {
+		model.addAttribute("qna1on1Detail", entity);
+		
+		try {
+			if (qna1on1Service.save(entity) > 0) {
+				model.addAttribute("message", "QnA수정 성공");
+				System.out.println("** QnA1on1 update 성공");
+			} else {
+				model.addAttribute("message", "QnA수정 실패");
+			}
+		} catch (Exception e) {
+			System.out.println("** QnA1on1 update Exception => " + e.toString());
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	// Delete =====================================================
 	@DeleteMapping("qna1on1delete/{qna_id}")
 	public ResponseEntity<?> axProductDelete(@PathVariable("qna_id") int id, QnA1on1 entity) {
 		entity.setQna_id(id);
+		
 		if (qna1on1Service.delete(id) > 0) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");

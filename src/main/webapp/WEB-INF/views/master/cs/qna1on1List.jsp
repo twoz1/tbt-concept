@@ -33,14 +33,13 @@
 					<c:if test="${not empty requestScope.qna1on1List}">
 						<c:forEach var="q" items="${requestScope.qna1on1List}">
 							<tr>
-								<td><a href="qna1on1Detail?qna_id=${q.qna_id}">${q.qna_id}</a></td>
+								<td><a href="qna1on1Update?qna_id=${q.qna_id}">${q.qna_id}</a></td>
 								<td>${q.qna_type}</td>
 								<td>${q.product_id}</td>
 								<td>${q.user_id}</td>
-								<td><a href="qna1on1Detail?qna_id=${q.qna_id}">${q.qna_title}</a></td>
+								<td><a href="qna1on1Update?qna_id=${q.qna_id}">${q.qna_title}</a></td>
 								<td>${q.qna_answer}</td>
-								<td><a href="qna1on1Detail?qna_id=${q.qna_id}">상세보기</a></td>
-								<%-- <td><a href="qna1on1Detail?qna_id=${q.qna_id}">삭제</a></td> --%>
+								<td><a href="qna1on1Update?qna_id=${q.qna_id}">상세보기</a></td>
 								<td><button onclick="axQnA1on1Delete(${q.qna_id})" id="${q.qna_id}">삭제</button></td>
 							</tr>
 						</c:forEach>

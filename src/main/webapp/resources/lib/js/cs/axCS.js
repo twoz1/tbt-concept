@@ -1,5 +1,12 @@
 "use strict";
 
+/*================== QnA1on1 Update ==================*/
+function qna1on1Update() {
+	alert("수정되었습니다.");
+}
+
+
+/*================== QnA1on1 Delete ==================*/
 function axQnA1on1Delete(id) {
 	let url = "/master/cs/qna1on1delete/" + id;
 
@@ -20,3 +27,5 @@ function axQnA1on1Delete(id) {
 		alert("취소되었습니다.");
 	}
 }
+
+

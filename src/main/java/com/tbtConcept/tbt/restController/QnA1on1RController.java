@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +26,7 @@ public class QnA1on1RController {
 	
 	QnA1on1Service qna1on1Service;
 	
-	// =====================================================
+	// Insert =====================================================
 	@GetMapping("/qna1on1Insert")
 	public void getqna1on1Insert() {
 
@@ -62,12 +64,22 @@ public class QnA1on1RController {
 		
 	}
 
-	// =====================================================
+	// List =====================================================
 	
 	@PostMapping("/qna1on1List")
 	public List<QnA1on1> postQList(Model model) {
 		return qna1on1Service.selectList();
 	}
+	
+	// Detail =====================================================
+	/*
+	 * @GetMapping("/qDetail") public String getQDetail(Model model, QnA1on1 entity,
+	 * HttpServletRequest request) { model.addAttribute("qna1on1Detail",
+	 * qna1on1Service.selectDetail(entity.getQna_id()));
+	 * 
+	 * if ("U".equals(request.getParameter("jCode"))) { return
+	 * "master/cs/qna1on1Update"; } else { return "master/cs/qna1on1Detail"; } }
+	 */
 
 	
 }

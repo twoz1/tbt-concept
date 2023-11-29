@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,64 +13,70 @@
 		<main id="master_main">
 			<div class="qna1on1_detail master_save">
 				<h2 class="master_title">QnA 상세</h2>
-				<table>
-					<tr>
-						<th>상품ID</th>
-						<td>${requestScope.productDetail.product_id}</td>
-					</tr>
 
+				<c:if test="${not empty requestScope.qna1on1Detail}">
+					<table>
+						<tr>
+							<th>문의번호</th>
+							<td>${requestScope.qna1on1Detail.qna_id}</td>
+						</tr>
 
-					<tr>
-						<th>상품이름</th>
-						<td>${requestScope.productDetail.product_name}</td>
-					</tr>
+						<tr>
+							<th>문의유형</th>
+							<td>${requestScope.qna1on1Detail.qna_type}</td>
+						</tr>
 
-					<tr>
-						<th>상품가격</th>
-						<td>${requestScope.productDetail.product_price}</td>
-					</tr>
+						<tr>
+							<th>제목</th>
+							<td>${requestScope.qna1on1Detail.qna_title}</td>
+						</tr>
 
-					<tr>
-						<th>상품재고</th>
-						<td>${requestScope.productDetail.product_stock}</td>
-					</tr>
+						<tr>
+							<th>고객ID</th>
+							<td>${requestScope.qna1on1Detail.user_id}</td>
+						</tr>
 
-					<tr>
-						<th>상품설명</th>
-						<td>${requestScope.productDetail.product_detail.replaceAll('\\n','<br>')}</td>
-					</tr>
+						<tr>
+							<th>고객phoneNum</th>
+							<td>${requestScope.qna1on1Detail.qna_phone_num}</td>
+						</tr>
 
-					<tr>
-						<th>상품이미지1</th>
-						<td><img src="${requestScope.productDetail.product_img1}"
-							alt="상품이미지1" /></td>
-					</tr>
+						<tr>
+							<th>상품ID</th>
+							<td>${requestScope.qna1on1Detail.product_id}</td>
+						</tr>
 
-					<tr>
-						<th>상품이미지2</th>
-						<td><img src="${requestScope.productDetail.product_img2}"
-							alt="상품이미지2" /></td>
-					</tr>
+						<tr>
+							<th>내용</th>
+							<td>${requestScope.qna1on1Detail.qna_content}</td>
+						</tr>
 
-					<tr>
-						<th>상품이미지3</th>
-						<td><img src="${requestScope.productDetail.product_img3}"
-							alt="상품이미지3" /></td>
-					</tr>
+						<tr>
+							<th>사진</th>
+							<td>${requestScope.qna1on1Detail.qna_upload_filef}</td>
+						</tr>
 
+						<tr>
+							<th>답변</th>
+							<td>
+								<textarea name="qna_answer" id="qna_answer">${requestScope.qna1on1Detail.qna_answer}</textarea>
+							</td>
+						</tr>
+					</table>
+
+					<br/><hr/>
+					
+					<div class="nav_box">
+						<a class="m_button" href="qna1on1Detail?jCode=U&qna_id=${requestScope.qna1on1Detail.qna_id}">답변수정</a>
+						<a class="m_button" href="qna1on1List">QnA목록</a>
+					</div>
+				</c:if>
+
+				<c:if test="${empty requestScope.qna1on1Detail}">
 					<tr>
-						<th>상품이미지4</th>
-						<td><img src="${requestScope.productDetail.product_img4}"
-							alt="상품이미지4" /></td>
+						<td colspan="2">출력할 데이터 없음</td>
 					</tr>
-				</table>
-				<br />
-				<hr />
-				<div class="nav_box">
-					<a class="m_button"
-						href="productDetail?jCode=U&product_id=${requestScope.productDetail.product_id}">상품수정</a>
-					<a class="m_button" href="productList">상품목록</a>
-				</div>
+				</c:if>
 			</div>
 		</main>
 	</div>
