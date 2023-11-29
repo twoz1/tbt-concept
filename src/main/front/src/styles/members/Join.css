@@ -8,8 +8,9 @@
 
 /* ============================ */
 .required_entry {
+    margin-bottom: 3px;
     text-align: right;
-    font-size: 8px;
+    font-size: 12px;
 }
 
 .point_color {
@@ -23,7 +24,7 @@
 
     min-width: 628px;
     border-bottom: 1px solid black;
-    height: 350px;
+    /* height: 350px; */
 }
 
 .Join .join_table #sale_coupon {
@@ -57,6 +58,11 @@
 
 .Join .join_table tr {
     text-align: left;
+    height: 40px;
+}
+
+.Join .join_table tr:not(:nth-child(1)) {
+    height: 70px;
 }
 
 .Join .join_table th,
@@ -67,19 +73,21 @@
 .Join .join_table th {
     padding-left: 20px;
 }
-.Join .join_table tr div{
+
+/* .Join .join_table tr div {
     height: 5px;
-}
-.Join .join_table tr td span{
-    font-size: 3px;
+} */
+
+.Join .join_table tr td span {
+    font-size: 12px;
     color: orangered;
-    
+
 }
 
-.Join .join_table tr td p{
-    font-size: 3px;
+.Join .join_table tr td p {
+    font-size: 12px;
     color: gray;
-    
+
 }
 
 
@@ -97,7 +105,7 @@
 }
 
 
-.event_info_radio{
+.event_info_radio {
     margin-right: 10px;
 }
 
@@ -118,7 +126,7 @@
     font-size: 12px;
     white-space: nowrap;
     padding-left: 17px;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 /* ==================================== */
@@ -134,15 +142,15 @@
     margin-top: 2px;
     height: 40px;
     padding-left: 10px;
-    display:flex;
+    display: flex;
     justify-content: space-between;
 
     align-items: center;
 }
 
 
-.Join .check_agreement .each_check_agreement input{
-    margin-right:5px;
+.Join .check_agreement .each_check_agreement input {
+    margin-right: 5px;
 }
 
 
@@ -156,7 +164,7 @@
     border: 1px solid gray;
     position: absolute;
     right: 60px;
-   
+
 }
 
 
