@@ -1,4 +1,3 @@
-// import '../../../styles/customerService/InquiryProduct.css';
 import '../../../../styles/customerService/InquiryProduct.css';
 import Modal_cs1on1 from './Modal_cs1on1';
 import InqProdItems from './InqProdItems';
@@ -10,22 +9,18 @@ import axios from 'axios';
 //모달을 노출하는 페이지
 const InquiryProduct = () => {
 
-    // custom modal hook을 이용한 모달창 구현
+    // custom modal hook을 이용한 모달창 구현 ===============================
     const {openModal, closeModal, isModal} = useModal();
     
-    // QnA1on1 List 출력
+    // QnA1on1 List 출력 ===================================================
     const [qna1on1List, setQna1on1List] = useState([]);
-    let url = "/qna1on1/qList";
-
-    //객체의 길이를 알기 위한 useRef
-    //const qna1on1ListCount = useRef(qna1on1List);
-    
 
     useEffect(() => {
-        axios.post(url 
-            ).then(response => {
+        let url = "/qna1on1/qList";
+
+        axios.post(url).then(response => {
                 setQna1on1List(response.data);
-                alert("QnA1on1List 출력 성공" + response.data);
+                //alert("QnA1on1List 출력 성공" + response.data);
             }).catch(err => {
                 if (err.response.status == "502") {
                     alert("[입력 오류] 다시 시도하세요.");
@@ -34,10 +29,6 @@ const InquiryProduct = () => {
                 }
             });
     }, []);
-
-
-    console.log(qna1on1List);
-
 
     return (
         <div>
