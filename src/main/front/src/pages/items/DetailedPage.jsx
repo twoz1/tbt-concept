@@ -7,19 +7,43 @@ import DpReviewScore from "../items/components/DetaildPage/DpReviewScore";
 import DpProductDetail from "../items/components/DetaildPage/DpProductDetail";
 import DpQnABtn from "./components/DetaildPage/DpQnABtn";
 import { useParams } from "react-router-dom";
-import { useContext } from 'react';
-import mockItemsContext from './MockItems';
+import { useContext, useEffect, useState } from 'react';
+//import mockItemsContext from './MockItems';
 import useScrollToTop from "../customHooks/useScrollToTop";
 import DpQnA from "./components/DetaildPage/DpQnA";
+import axios from 'axios';
 
 
 const DetailedPage = ({ starScore }) => {
+
+    const [productDetail, setProductDetail] = useState("");
+    const { product_id } = useParams();
+
     useScrollToTop();
-    const { name } = useParams();
-    const { sArr, gArr } = useContext(mockItemsContext);
-    const productList = [...sArr, ...gArr];
-    const ProductListSelected = productList.find(product => product.name === name);
-    console.log(productList);
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/product/pDetail/' + product_id);
+                setProductDetail(response.data);
+                console.log("너 있냐?", response.data);
+
+            } catch (err) {
+                alert(`** product db 연결 실패 => ${err.message}`);
+                console.log("error");
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    console.log("-->", productDetail);
+
+    //const { sArr, gArr } = useContext(mockItemsContext);
+
+    const ProductListSelected = productDetail;
+    console.log("---", ProductListSelected);
 
     return (
         <div className="DetailedPage">

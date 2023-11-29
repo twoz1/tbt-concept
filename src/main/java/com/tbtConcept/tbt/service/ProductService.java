@@ -11,9 +11,14 @@ public interface ProductService {
 	@Transactional
 	List<Product> findAllDesc();
 	
+	
 	List<Product> selectList();
 	
+	@Transactional
 	List<Product> selectSDesc();
+	
+	@Transactional
+	List<Product> selectGDesc();
 	
 	Product selectDetail(int id);
 	

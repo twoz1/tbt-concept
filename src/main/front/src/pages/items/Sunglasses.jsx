@@ -18,7 +18,7 @@ const Sunglasses = () => {
     const arrayReducer = (state, action) => {
         switch (action.type) {
             case "low":
-                return state ? [...state].sort((a, b) => a.price - b.price) : [];
+                return state ? [...state].sort((a, b) => a.product_price - b.price) : [];
             case "high":
                 return state ? [...state].sort((a, b) => b.price - a.price) : [];
             case "set":
@@ -51,6 +51,7 @@ const Sunglasses = () => {
 
         fetchData();
     }, []);
+    
     console.log("-", data);
     useEffect(() => {
         // 데이터가 업데이트될 때마다 useReducer의 초기 상태를 설정

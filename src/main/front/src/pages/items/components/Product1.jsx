@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const renderItem = ({ item }) => (
   <li className="photo_2" key={item.product_id}>
-    <Link to={`/detail/${item.product_name}`} key={item.product_name} className="product_photo">
+    <Link to={`/detail/${item.product_id}`} key={item.product_id} className="product_photo">
       <img src={item.product_img1} alt="Front View" />
       <img src={item.product_img2} alt="Side View" />
     </Link>
     <div className="item_name"><span>{item.product_name}</span></div>
-    <div className="item_price"><span>{item.product_price.toLocaleString()}원</span></div>
+    <div className="item_price"><span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span></div>
     <div className="shop_this">
-      <Link to={`/detail/${item.product_name}`} key={item.product_name} >
-        {/* <a>{item.shopThis} &#62;</a> */}
+      <Link to={`/detail/${item.product_id}`} key={item.product_id} >
+         <span>SHOP THIS &#62;</span> 
       </Link>
     </div>
   </li>
