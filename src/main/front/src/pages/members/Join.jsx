@@ -1,6 +1,7 @@
 import "../../styles/members/Join.css";
 import JoinCheckbox from "./components/Join/JoinCheckbox";
 import React, { useState } from 'react';
+import axios from "axios";
 
 const Join = () => {
 
@@ -100,6 +101,25 @@ const Join = () => {
         setEventInfo(e.target.value);
     };
 
+    // ------------------------------------------------------------------------
+
+    const clickJoin = () => {
+        axios
+            .post('/user/uJoin')
+            .then((response) => {
+                console.log(response.data);
+                if (response.data > 0) {
+                    window.location.href = '/';
+                } else {
+                    alert("회원가입에 실패했습니다.");
+                }
+
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
+    }
+
 
     return (
         <div className="Join">
@@ -168,7 +188,6 @@ const Join = () => {
                                 <label>
                                     <input className="input_box" type="password"
                                         name="user_pw"
-                                        value={pW}
                                         onChange={handlePw}
                                         placeholder="영문&#43;숫자&#43;특수문자 조합 8&#126;16자리"
                                         onKeyDown={(e) => {
@@ -193,7 +212,6 @@ const Join = () => {
                             <td>
                                 <label>
                                     <input className="input_box" type="password"
-                                        value={secondPw}
                                         onChange={handleSecondPw}
                                         onKeyDown={(e) => {
                                             if (!secondPwValid) {
@@ -259,7 +277,7 @@ const Join = () => {
 
                     <div className="join_button">
                         <button type="reset">초기화</button>
-                        <button>가입하기</button>
+                        <button onClick={clickJoin}>가입하기</button>
                     </div>
 
                     {/* ================================================================================================================================================ */}

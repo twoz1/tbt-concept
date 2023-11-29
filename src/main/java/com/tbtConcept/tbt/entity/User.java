@@ -34,7 +34,7 @@ public class User {
 	private String user_phone_num;
 	
 	@Column(nullable=false)
-	private int user_birth;
+	private String user_birth;
 	
 	@ColumnDefault("white")
 	private String user_rank;

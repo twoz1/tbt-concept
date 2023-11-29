@@ -54,6 +54,7 @@
 				
 				<div class="nav_box">
 					<a class="m_button" href="userJoin">회원가입</a>
+				</div>
 			</div>
 		</main>
 	</div>
