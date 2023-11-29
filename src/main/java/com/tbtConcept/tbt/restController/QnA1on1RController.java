@@ -46,15 +46,16 @@ public class QnA1on1RController {
 			uploadfilef.transferTo(new File(file1));
 			
 			file2 = uploadfilef.getOriginalFilename();
+			entity.setQna_upload_file(file2);
 		}
 		
 		try {
 			if (qna1on1Service.save(entity) > 0) {
-				model.addAttribute("message", "1:1문의 등록성공");
+				model.addAttribute("message", "1:1문의 등록 성공");
 				System.out.println("** QnA1on1 insert 성공");
 				return "성공";
 			} else {
-				model.addAttribute("message", "장바구니등록 실패");
+				model.addAttribute("message", "1:1문의 등록 실패");
 				return "실패";
 			}
 		} catch (Exception e) {
@@ -65,13 +66,45 @@ public class QnA1on1RController {
 	}
 
 	// List =====================================================
-	
 	@PostMapping("/qList")
 	public List<QnA1on1> postQList(Model model) {
 		return qna1on1Service.selectList();
 	}
 	
+	// Update =====================================================
+	@PostMapping("/qUpdate")
+	public String postqUpdate(QnA1on1 entity, Model model, RedirectAttributes rttr) throws IOException {
+		System.out.println("postqUpdate 확인 => " + entity);
+
+		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\front\\src\\images\\cs\\";
+		String file1, file2;
+
+		MultipartFile uploadfilef = entity.getQna_upload_filef();
+
+		if (uploadfilef != null && !uploadfilef.isEmpty()) {
+			file1 = realPath + uploadfilef.getOriginalFilename();
+			uploadfilef.transferTo(new File(file1));
+
+			file2 = uploadfilef.getOriginalFilename();
+			entity.setQna_upload_file(file2);
+		}
+
+		try {
+			if (qna1on1Service.save(entity) > 0) {
+				model.addAttribute("message", "1:1문의 수정 성공");
+				System.out.println("** QnA1on1 Update 성공");
+				return "성공";
+			} else {
+				model.addAttribute("message", "1:1문의 수정 실패");
+				return "실패";
+			}
+		} catch (Exception e) {
+			System.out.println("** QnA1on1 insert Exception => " + e.toString());
+			return "실패";
+		}
+	}
 	
+
 	// Detail =====================================================
 	/*
 	 * @GetMapping("/qDetail") public String getQDetail(Model model, QnA1on1 entity,
