@@ -30,8 +30,46 @@ const Join = () => {
 
         // 이메일 형식 검사
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        setEmailValid(emailPattern.test(newEmail));
 
+        if (0 < newEmail.length && newEmail.length < 5) {
+            setEmailMessage("아이디를 5자 이상으로 입력해주세요.");
+            setEmailValid(false);
+        } else if (newEmail.length >= 5 && !emailPattern.test(newEmail)) {
+            setEmailMessage("아이디는 이메일 형식으로 입력해주세요.");
+            setEmailValid(false);
+        } else if (emailPattern.test(newEmail)) {
+            setEmailMessage("");
+            return true;
+        }
+
+        return false;
+
+    }
+
+    const idDupCheck = () => {
+        axios
+            .get('/user/idDupCheck?id=' + email)
+            .then((response) => {
+                let result;
+                if (response.data == "미존재") {
+                    result = true;
+                } else if (response.data == "존재") {
+                    result = false;
+                }
+
+                if (result) {
+                    setEmailMessage("사용 가능합니다.");
+                    setEmailValid(true);
+
+                } else {
+                    setEmailMessage("이미 사용중인 아이디입니다.");
+                    setEmailValid(false);
+                }
+
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
     }
     // =======================================================
 
@@ -103,15 +141,7 @@ const Join = () => {
 
     // ------------------------------------------------------------------------
 
-    function idDupCheck() {
-        if (emailValid == true) {
 
-            let url = window.location.protocol + '//' + window.location.host + '/join/joinCheck?id=' + document.getElementById("user_id").value;
-            const newWindow = window.open('', '_blank', 'width=400,height=250,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
-
-        }
-
-    }
 
     const clickJoin = () => {
         axios
@@ -181,14 +211,7 @@ const Join = () => {
                                     <input type="hidden" name="user_birth" value={new Date().toLocaleString()} />
                                 </label>
                                 <div>
-                                    {0 < email.length && email.length < 5 && (
-                                        <span>아이디를 5자 이상으로 입력해주세요.</span>
-                                    )}
-
-                                    {email.length >= 5 && !emailValid && (
-                                        <span>아이디는 이메일 형식으로 입력해주세요.</span>
-                                    )}
-                                    {emailValid && (<span>사용 가능한 아이디입니다.</span>)}
+                                    <span>{emailMessage}</span>
                                 </div>
                             </td>
 
