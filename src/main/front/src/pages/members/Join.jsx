@@ -8,6 +8,7 @@ const Join = () => {
     const [email, setEmail] = useState('');
     const [emailMessage, setEmailMessage] = useState('');
     const [emailValid, setEmailValid] = useState(false);
+    const [emailDupValid, setDupEmailValid] = useState(false);
     const special = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 
     const [pW, setPw] = useState('');
@@ -26,6 +27,9 @@ const Join = () => {
 
     const handleEmail = (e) => {
         const newEmail = e.target.value;
+        if (newEmail != email) {
+            setDupEmailValid(false);
+        }
         setEmail(newEmail);
 
         // 이메일 형식 검사
@@ -39,7 +43,11 @@ const Join = () => {
             setEmailValid(false);
         } else if (emailPattern.test(newEmail)) {
             setEmailMessage("");
-            return true;
+            setEmailValid(true);
+        }
+
+        if (emailValid == '') {
+            setEmailMessage('아이디를 입력해주세요');
         }
 
         return false;
@@ -91,6 +99,10 @@ const Join = () => {
             setPwValid(true);
         }
         setPw(newPw);
+
+        if (pW == '') {
+            setPwMessage('비밀번호를 입력해주세요');
+        }
     }
 
     // ============================================================
@@ -105,6 +117,10 @@ const Join = () => {
             setSecondPwValid(true);
         }
         setSecondPw(newSecondPw);
+
+        if (secondPw == '') {
+            setPwMessage('비밀번호를 입력해주세요');
+        }
     };
     // ===================================================
 
@@ -120,18 +136,7 @@ const Join = () => {
         setUserName(newUserName);
     }
 
-    const handleBlur = () => {
-        if (!emailValid) {
-            setEmailMessage('아이디를 입력해주세요');
-            setEmail('');
-        }
-        if (!pWValid) {
-            setPw('');
-        }
-        if (!secondPwValid) {
-            setSecondPw('');
-        }
-    }
+
 
     const [eventInfo, setEventInfo] = useState(""); // 선택된 이벤트 정보를 추적
 
@@ -144,20 +149,22 @@ const Join = () => {
 
 
     const clickJoin = () => {
-        axios
-            .post('/user/uJoin')
-            .then((response) => {
-                console.log(response.data);
-                if (response.data > 0) {
-                    window.location.href = window.location.protocol + '//' + window.location.host + '/';
-                } else {
-                    alert("회원가입에 실패했습니다.");
-                }
+        if (emailValid) {
+            axios
+                .post('/user/uJoin')
+                .then((response) => {
+                    console.log(response.data);
+                    if (response.data > 0) {
+                        window.location.href = window.location.protocol + '//' + window.location.host + '/';
+                    } else {
+                        alert("회원가입에 실패했습니다.");
+                    }
 
-                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
-            }).catch((err) => {
-                alert(`** checkdata 서버연결 실패 => ${err.message}`);
-            });
+                    console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+                }).catch((err) => {
+                    alert(`** checkdata 서버연결 실패 => ${err.message}`);
+                });
+        }
     }
 
 
@@ -205,7 +212,6 @@ const Join = () => {
                                                 }
                                             }
                                         }}
-                                        onBlur={handleBlur}
                                         placeholder="&#64;까지 정확하게 입력해주세요." required />
                                     <button id="idDup" onClick={idDupCheck}>ID중복확인</button>
                                     <input type="hidden" name="user_birth" value={new Date().toLocaleString()} />
@@ -233,7 +239,6 @@ const Join = () => {
                                                 }
                                             }
                                         }}
-                                        onBlur={handleBlur}
                                         required />
                                 </label>
                                 <div>
@@ -256,7 +261,6 @@ const Join = () => {
                                                 }
                                             }
                                         }}
-                                        onBlur={handleBlur}
                                         required />
                                 </label>
                                 <div>
