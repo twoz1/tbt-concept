@@ -1,11 +1,10 @@
 import '../../../../styles/customerService/InquiryProduct.css';
 import Modal_cs1on1 from './Modal_cs1on1';
 import InqProdItems from './InqProdItems';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import useModal from '../../../customHooks/useModal';
 import axios from 'axios';
-import App from './../../../../App';
-
+import Pagination from './../../../customHooks/Pagination';
 
 //모달을 노출하는 페이지
 const InquiryProduct = () => {
@@ -15,6 +14,8 @@ const InquiryProduct = () => {
     
     // QnA1on1 List 출력 ===================================================
     const [qna1on1List, setQna1on1List] = useState([]);
+
+    console.log(qna1on1List);
 
     useEffect(() => {
         let url = "/qna1on1/qList";
@@ -30,6 +31,21 @@ const InquiryProduct = () => {
                 }
             });
     }, []);
+
+    // pagination 구현
+    const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
+    const listPerPage = 5;  // 페이지 당 게시글 개수
+    const totalPages = Math.ceil(qna1on1List.length / listPerPage);    // 전체 페이지 번호
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+      };
+    
+    const getPaginatedData = () => {
+        const startIndex = (currentPage - 1) * listPerPage;
+        const endIndex = startIndex + listPerPage;
+        return qna1on1List.slice(startIndex, endIndex);
+    };
 
     return (
         <div>
@@ -47,13 +63,23 @@ const InquiryProduct = () => {
                             <th>문의 유형</th>
                             <th>작성자</th>
                             <th>제목</th>
+                            <th>답글</th>
                             <th></th>
                         </thead>
 
-                        {qna1on1List.length == 0 ? <tr className='noInqProd'><td colspan="2">작성한 게시물이 없습니다.</td></tr> : qna1on1List.map((qna1on1) => { return (<InqProdItems key={qna1on1.qna_id}{...qna1on1} />); })}
+                        {getPaginatedData().length === 0 ? (
+                            <tr className='noInqProd'>
+                                <td colSpan="4">작성한 게시물이 없습니다.</td>
+                            </tr>
+                        ) : getPaginatedData().map((qna1on1) => {
+                            return (<InqProdItems key={qna1on1.qna_id} {...qna1on1} />);
+                        })}
                     </table>
+                    
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
                 </div>
             </section>
+
         </div>//최종div
     )
 }; //InquiryProduct

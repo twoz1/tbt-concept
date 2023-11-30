@@ -53,6 +53,7 @@ const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qn
                                             qna_upload_file={qna_upload_file}
                                             qna_answer={qna_answer}
                                             />}
+                {qna_answer !== null ? <td className='qnaAnswer_td'>Y</td> : <td>N</td>}
                 <td><button onClick={() => {deleteInqProd(qna_id)}}>삭제</button></td>
             </tr>
         </tbody>

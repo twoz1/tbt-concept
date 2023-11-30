@@ -9,3 +9,7 @@
 .curPointer {
     cursor: pointer;
 }
+
+.qnaAnswer_td {
+    color: orangered;
+}
