@@ -29,16 +29,13 @@ public class UserRController {
 	PasswordEncoder passwordEncoder;
 
 	@GetMapping("/idDupCheck")
-	public String idDupCheck(User entity, Model model) {
-		// 1) newID 확인
-		if (userService.selectOne(entity.getUser_id()) != null) {
-			// => 존재 : 사용불가
-			model.addAttribute("idUse", "F");
+	public String idDupCheck(HttpServletRequest request, Model model) {
+		String id = request.getParameter("id");
+		if (userService.selectOne(id) != null) {
+			return "존재";
 		} else {
-			// => 없으면: 사용가능
-			model.addAttribute("idUse", "T");
+			return "미존재";
 		}
-		return "master/user/idDupCheck";
 	}
 
 	@GetMapping(value = "/uList")
