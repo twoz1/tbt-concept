@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemInfo from './ItemInfo';
+import axios from 'axios';
+
 
 const Item = ({ checkoutList}) => {
 
@@ -37,6 +39,29 @@ const Item = ({ checkoutList}) => {
     useEffect(() => {
         generateOrderNumber();
     }, []);
+
+    function insertOrderList() {
+        let url = "/order/oDetailListInsert";
+        let formData = new FormData(document.getElementById('oListInsert'));
+
+            axios.post(url, formData)
+            .then(response => {
+                alert("주문완료" + response.data);
+                console.log("주문 완료 ");
+                navigateTo("/resultframe");
+            }).catch(err => {
+                if (err.response.status == "502") {
+                    alert("[입력 오류] 다시 시도하세요.");
+                } else {
+                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                }
+            });
+    
+    }
+    function navigateTo(url) {
+        console.log("이동하고자 하는 URL:", url); 
+        window.location.href = url; // 또는 history.pushState({}, null, url); 사용
+    }
 
     return (
         <div className="item">

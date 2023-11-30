@@ -98,9 +98,7 @@ const Checkout = () => {
                         <Title />
                         <form action="oListInsert" id='oListInsert'>
                         <Information />
-                        <form action="oListInsert" id='oListInsert'>
                             <Item checkoutList={checkoutList} />
-                        </form>
                             <div className="discount">
                                 <h3>할인받기</h3>
                                 <table className="discount_table checkout_table">
