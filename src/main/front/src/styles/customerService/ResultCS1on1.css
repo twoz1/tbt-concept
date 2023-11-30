@@ -116,7 +116,11 @@
     margin: 1.5rem 1.5rem 1.5rem 0;
 }
 
-.content_qna_update {
+.content_qna_update div {
+    width: 80%;
+}
+
+.content_qna_update textarea {
 	width: 80%;
 	height:180px;
     margin: 2rem 0;
@@ -143,15 +147,28 @@
     display: none;
 }
 
+.img_qna_uploadf {
+    width: 80%;
+}
+
+.inputTitle {
+    z-index: 999;
+}
+
 /* ===========main - table - button ========== */
 .btn_submit {
     display: flex;
+}
+
+.btn_submit,
+.btn_UpdateSubmit {
     justify-content: center;
     align-items: center;
     margin: 4rem 0;
 }
 
-.btn_submit button {
+.btn_submit button,
+.btn_UpdateSubmit button {
     border: none;
     margin: 0 0.8rem;
     width: 120px;
@@ -159,13 +176,19 @@
     cursor: pointer;
 }
 
-.btn_submit button:nth-of-type(1) {
+.btn_submit button:nth-of-type(1),
+.btn_UpdateSubmit button:nth-of-type(1) {
     background-color: white;
     border: 1px solid darkgray;
 }
 
-.btn_submit button:nth-of-type(2) {
+.btn_submit button:nth-of-type(2),
+.btn_UpdateSubmit button:nth-of-type(2) {
     background-color: rgb(52, 29, 29);
     border: 1px solid black;
     color: white;
+}
+
+.btn_UpdateSubmit {
+    display: none;
 }

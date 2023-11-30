@@ -56,14 +56,7 @@ public class QnA1on1Controller {
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// Delete =====================================================
 	@DeleteMapping("qna1on1delete/{qna_id}")
 	public ResponseEntity<?> axProductDelete(@PathVariable("qna_id") int id, QnA1on1 entity) {

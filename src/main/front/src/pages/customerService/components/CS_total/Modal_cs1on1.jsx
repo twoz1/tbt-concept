@@ -39,17 +39,18 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 	};
 
 	// QnA1on1 insert ===================================================
-
 	function insertQnA1on1() {
 
-		let formData = new FormData(document.querySelector("subtitle_1on1"));
+		let formData = new FormData(document.getElementById("subtitleID_1on1"));
 
 		let url = "/qna1on1/qna1on1Insert";
 
 		axios.post(url, formData, {
 			headers:{"Content-Type": "multipart/form-data"}
 		}).then(response => {
-			//alert("입력 성공" + response.data);
+			console.log("insertQnA1on1 등록 완료");
+			alert("등록되었습니다");
+			navigateInsertTo("/cs");
 		}).catch(err => {
 			if (err.response.status == "502") {
 				alert("[입력 오류] 다시 시도하세요.");
@@ -58,6 +59,10 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 			}
 		});
 	}
+
+	function navigateInsertTo(url) {
+        window.location.href = url;
+    }
 
 	return (
 		<div>
@@ -76,7 +81,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 					</div>
 
 					{/* ==========1:1 문의 입력 정보창=========== */}
-					<form className="subtitle_1on1" action="/qna1on1/qna1on1Insert" method="Post" enctype="multipart/form-data">
+					<form id='subtitleID_1on1' className="subtitle_1on1" enctype="multipart/form-data">
 						<figure>
 							<figcaption><strong>1&#58;1 문의</strong></figcaption>
 

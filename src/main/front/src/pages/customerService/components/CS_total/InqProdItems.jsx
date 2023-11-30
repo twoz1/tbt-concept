@@ -1,15 +1,39 @@
 import React from 'react';
-import { useState } from 'react';
 import '../../../../styles/customerService/InqProdItems.css';
 import ResultCS1on1 from '../CS_total/ResultCS1on1';
 import useModal from '../../../customHooks/useModal';
+import axios from 'axios';
 
 const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qna_reply_check, qna_title, qna_content, qna_upload_file, qna_answer }) => {
 
-    console.log("**** qna_content => " + qna_content);
-
     // custom modal hook을 이용한 모달창 구현
     const {openModal, closeModal, isModal} = useModal();
+
+    function deleteInqProd(qna_id) {
+        let url = "/qna1on1/qDelete/" + qna_id;
+
+        if (window.confirm("삭제하시겠습니까?")) {
+            axios.delete(url)
+                .then(response => {
+                    console.log("deleteInqProd 삭제 완료");
+                    alert("삭제되었습니다.");
+                    navigateDeleteTo("/cs");
+                })
+                .catch(err => {
+                    if (err.response && err.response.status === 502) {
+                        alert("[삭제 오류]" + err.response.data);
+                    } else {
+                        alert("[시스템 오류]" + err.message);
+                    }
+                });
+        } else {
+            alert("취소되었습니다.");
+        }
+    }
+
+    function navigateDeleteTo(url) {
+        window.location.href = url;
+    }
 
     return (
         <tbody className='tBodyInqProdItems'>
@@ -29,6 +53,7 @@ const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qn
                                             qna_upload_file={qna_upload_file}
                                             qna_answer={qna_answer}
                                             />}
+                <td><button onClick={() => {deleteInqProd(qna_id)}}>삭제</button></td>
             </tr>
         </tbody>
     )

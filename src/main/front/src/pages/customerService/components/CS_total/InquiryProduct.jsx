@@ -4,6 +4,7 @@ import InqProdItems from './InqProdItems';
 import { useEffect, useRef, useState } from 'react';
 import useModal from '../../../customHooks/useModal';
 import axios from 'axios';
+import App from './../../../../App';
 
 
 //모달을 노출하는 페이지
@@ -46,6 +47,7 @@ const InquiryProduct = () => {
                             <th>문의 유형</th>
                             <th>작성자</th>
                             <th>제목</th>
+                            <th></th>
                         </thead>
 
                         {qna1on1List.length == 0 ? <tr className='noInqProd'><td colspan="2">작성한 게시물이 없습니다.</td></tr> : qna1on1List.map((qna1on1) => { return (<InqProdItems key={qna1on1.qna_id}{...qna1on1} />); })}

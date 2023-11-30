@@ -84,9 +84,7 @@
 						<tr>
 							<th>답변</th>
 							<td>
-								<textarea name="qna_answer" id="qna_answer">
-									${requestScope.qna1on1Detail.qna_answer}
-								</textarea>
+								<textarea name="qna_answer" id="qna_answer">${requestScope.qna1on1Detail.qna_answer}</textarea>
 							</td>
 						</tr>
 
