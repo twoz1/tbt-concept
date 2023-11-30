@@ -5,9 +5,34 @@ import { useReducer, useRef, useState } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
 
-const New = ({data}) => {
-    const { gArr } = useContext(mockItemsContext);
-    const newList = [...gArr];
+const renderItem = ({ item }) => (
+    <li className="photo_2" key={item.product_id}>
+      <Link to={`/detail/${item.product_id}`} key={item.product_id} className="product_photo">
+      <img src={require(`../../../../images/${item.product_img1}`)} alt="Front View" />
+      <img src={require(`../../../../images/${item.product_img2}`)} alt="Side View" />
+      </Link>
+      <div className="item_name"><span>{item.product_name}</span></div>
+      <div className="item_price"><span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span></div>
+      <div className="shop_this">
+        <Link to={`/detail/${item.product_id}`} key={item.product_id} >
+           <span>SHOP THIS &#62;</span> 
+        </Link>
+      </div>
+    </li>
+  );
+
+const New = ({displayedItemInfo1}) => {
+
+    const itemsPerRow = 8;
+    const rows = Math.ceil(displayedItemInfo1.length / itemsPerRow);
+
+    for (let d of displayedItemInfo1) {
+        console.log("New list" + d.product_id);
+      }
+      console.log("New list" + displayedItemInfo1);
+
+    // const { gArr } = useContext(mockItemsContext);
+    // const newList = [...gArr];
     const what_new_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -68,7 +93,7 @@ const New = ({data}) => {
             </button>
             <div className="what_new_item">
                 <ul className="what_new_list" ref={what_new_list} >
-                    {newList.slice(0, 8).map((item, i) => (
+                    {/* {newList.slice(0, 8).map((item, i) => (
                         <li style={{ width: `${liWidth.current[i % 2 === 0 ? 'even' : 'odd']}px` }}>
                             <Link to={`/detail/${item.name}`} key={item.name}>
                                 <img src={item.imageFront} alt="상품" />
@@ -86,7 +111,17 @@ const New = ({data}) => {
                                 </div>
                             </Link>
                         </li>
-                    ))}
+                    ))} */}
+
+                    {[...Array(rows)].map((_, rowIndex) => (
+                            <div className="photo_layout cf" key={rowIndex}>
+                            <ul>
+                                {displayedItemInfo1
+                                .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
+                                .map(item => renderItem({ item }))}
+                            </ul>
+                            </div>
+                        ))}
                 </ul>
             </div>
             <button className="btn_next" ref={btn_next} onClick={(e) => handleClick(e, 'next')}>

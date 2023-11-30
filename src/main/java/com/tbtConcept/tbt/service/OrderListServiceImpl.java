@@ -33,10 +33,10 @@ public class OrderListServiceImpl implements OrderListService {
 	@Override
 	public OrderList selectDetail(String id) {
 		Optional<OrderList> result = repository.findById(id);
+		
 		if ( result.isPresent() ) {
 			return result.get();
-		}
-		else {
+		}else {
 			return null;
 		}
 	}
@@ -44,7 +44,6 @@ public class OrderListServiceImpl implements OrderListService {
 	@Override
 	public String save(OrderList entity) {
 		repository.save(entity);
-
 		return entity.getOrder_id();
 	}
 

@@ -115,6 +115,7 @@ hr {
 }
 
 .what_new_item li {
+    width: 25%;
     height: 100%;
     font-size: 16px;
     font-style: normal;
