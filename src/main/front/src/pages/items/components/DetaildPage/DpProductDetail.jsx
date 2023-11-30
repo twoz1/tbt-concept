@@ -8,10 +8,10 @@ const DpProductDetail = ({ product_img1,product_img2,product_img3,product_img4 }
     {/* {summary} */}
 </div>
 <div className="detail" id="detail">
-    <img src={product_img1} alt="Eva crystal violet tint 정면" />
-    <img src={product_img2} alt="Eva crystal violet tint 앞 대각선" />
-    <img src={product_img3} alt="Eva crystal violet tint 측면" />
-    <img src={product_img4} alt="Eva crystal violet tint 뒷 대각선" />
+<img src={require( `../../../../images/${product_img1}`)} alt="product_img1" />
+<img src={require( `../../../../images/${product_img2}`)} alt="product_img1" />
+<img src={require( `../../../../images/${product_img3}`)} alt="product_img1" />
+<img src={require( `../../../../images/${product_img4}`)} alt="product_img1" />
 </div>
     </div>
 
