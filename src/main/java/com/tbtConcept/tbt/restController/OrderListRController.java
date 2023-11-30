@@ -39,7 +39,7 @@ public class OrderListRController {
 
 	}
 	
-	@PostMapping("/oListInsert")
+	@PostMapping("/resultframe")
 	public String postorderListInsert(OrderList entity, Model model, RedirectAttributes rttr){
 		System.out.println("********"+ entity);
 		
