@@ -5,44 +5,74 @@ import CollectionBanner from '../pages/items/components/Collection/CollectionBan
 import Best from '../pages/items/components/Collection/Best';
 import Video from '../pages/items/components/Collection/Video';
 import useScrollToTop from '../pages/customHooks/useScrollToTop';
-import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useReducer } from 'react';
 import axios from 'axios';
 
 const Main = () => {
 
     useScrollToTop();
+    const arrayReducer = (state, action) => {
+        switch (action.type) {
+            case "low":
+                return state ? [...state].sort((a, b) => a.product_price - b.price) : [];
+            case "high":
+                return state ? [...state].sort((a, b) => b.price - a.price) : [];
+            case "set":
+                return action.payload;
+            default:
+                return state || [];
+        }
+    };
 
-    const [productDetail, setProductDetail] = useState("");
-    const { product_id } = useParams();
+    const [data, setData] = useState([]);
+    const [array, dispatch] = useReducer(arrayReducer, []);
 
-    useEffect(() => { 
+    useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/product/pListDesc');
-                setProductDetail(response.data);
-                console.log("너 있냐?", response.data);
+                const response = await axios.get('/product/pSListDesc');
+                setData(response.data);
+                
             } catch (err) {
                 alert(`** product db 연결 실패 => ${err.message}`);
-                console.log("error");
             }
         };
 
         fetchData();
     }, []);
-    console.log("-->", productDetail);
 
-    const ProductListSelected = productDetail;
-    console.log("---", ProductListSelected);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/product/pGListDesc');
+                setData(response.data);
+                
+            } catch (err) {
+                alert(`** product db 연결 실패 => ${err.message}`);
+            }
+        };
 
-    
+        fetchData();
+    }, []);
+    console.log("-->", data);
+    useEffect(() => {
+        // 데이터가 업데이트될 때마다 useReducer의 초기 상태를 설정
+        dispatch({ type: 'set', payload: data });
+    }, [data]);
+
+    const [page] = useState(1);
+    const itemsPerPage = 8;
+    const startIndex = (page - 1) * itemsPerPage;
+    const displayedItemInfo1 = array.slice(startIndex, startIndex + itemsPerPage);
+    const displayedItemInfo = array.slice(startIndex, startIndex + itemsPerPage);
+
     return (
         <div>
             <ImgSlide></ImgSlide>
             <div className="center">
-                <New ProductListSelected={ProductListSelected}/>
+                <New displayedItemInfo1={displayedItemInfo1}/>
                 <CollectionBanner/>
-                <Best/>
+                <Best displayedItemInfo={displayedItemInfo}/>
             </div>
             <Video/>
         </div>

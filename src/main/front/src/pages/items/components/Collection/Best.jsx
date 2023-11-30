@@ -4,9 +4,35 @@ import { Link } from 'react-router-dom';
 import { useReducer, useRef } from 'react';
 import { useContext } from 'react';
 import mockItemsContext from '../../MockItems';
-const Best = () => {
-    const { sArr } = useContext(mockItemsContext);
-    const bestList = [...sArr];
+
+const renderItem = ({ item }) => (
+    <li className="photo_2" key={item.product_id}>
+      <Link to={`/detail/${item.product_id}`} key={item.product_id} className="product_photo">
+      <img src={require(`../../../../images/${item.product_img1}`)} alt="Front View" />
+      <img src={require(`../../../../images/${item.product_img2}`)} alt="Side View" />
+      </Link>
+      <div className="item_name"><span>{item.product_name}</span></div>
+      <div className="item_price"><span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span></div>
+      <div className="shop_this">
+        <Link to={`/detail/${item.product_id}`} key={item.product_id} >
+           <span>SHOP THIS &#62;</span> 
+        </Link>
+      </div>
+    </li>
+  );
+
+const Best = ({displayedItemInfo}) => {
+
+    const itemsPerRow = 8;
+    const rows = Math.ceil(displayedItemInfo.length / itemsPerRow);
+
+    for (let d of displayedItemInfo) {
+        console.log("Best list" + d.product_id);
+      }
+      console.log("Best list" + displayedItemInfo);
+
+    // const { sArr } = useContext(mockItemsContext);
+    // const bestList = [...sArr];
     const best_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -42,7 +68,7 @@ const Best = () => {
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
-                    {bestList.slice(0, 9).map((item) => (
+                    {/* {bestList.slice(0, 9).map((item) => (
                         <li>
                             <Link to={`/detail/${item.name}`} key={item.name}>
                                 <img src={item.imageFront} alt="상품" />
@@ -60,7 +86,17 @@ const Best = () => {
                                 </div>
                             </Link>
                         </li>
-                    ))}
+                    ))} */}
+
+                        {[...Array(rows)].map((_, rowIndex) => (
+                            <div className="photo_layout cf" key={rowIndex}>
+                            <ul>
+                                {displayedItemInfo
+                                .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
+                                .map(item => renderItem({ item }))}
+                            </ul>
+                            </div>
+                        ))}
                 </ul>
             </div>
             <button className="btn_pre nonVisible" ref={btn_pre} onClick={clickBackBtn}>

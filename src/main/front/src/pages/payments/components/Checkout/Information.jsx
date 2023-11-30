@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useModal from "../../../customHooks/useModal";
 import CheckOut_Modal from "../../../members/components/checkout/ChcekOut_Modal";
 
-// 페이지 로드 시 자동으로 호출되는 함수
-window.onload = function () {
-    setTimeout(function() {
-      generateOrderNumber();
-    }, 0);
-  };
+
+// 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
+function padZero(number) {
+    return number < 10 ? "0" + number : number;
+}
 function generateOrderNumber() {
-  
 
     // 현재 날짜 및 시간 정보를 사용하여 일련번호 생성
     let now = new Date();
@@ -41,15 +39,16 @@ function generateOrderNumber() {
     }
 }
 
-// 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
-function padZero(number) {
-    return number < 10 ? "0" + number : number;
-}
 
 const Information = () => {
+    
+    // 페이지 로드 시 자동으로 호출되는 함수
+    useEffect (() => {
+        generateOrderNumber();
+    },[]);
+
     const [showPlaceholder, setShowPlaceholder] = useState(true);
     const { openModal, closeModal, isModal } = useModal();
-
 
     const handleRadioChange = (event) => {
         if (event.target.value === 'new') {
@@ -69,36 +68,36 @@ const Information = () => {
             <div>
                 <table className="information_table checkout_table">
                     <tbody>
-                    <tr className='orderinput_hidden'>
-	               		<th>주문번호</th>
-	               		<td>
-	               			<input type="text" name="order_id" id="order_id" required  />
-						</td>
-	               	</tr>
-	               	<tr className='orderinput_hidden'>
-	               		<th>회원 아이디</th>
-	               		<td>
-	               			<input type="text" name="user_id" id="user_id"required  value="qqqq123"/>
-						</td>
-	               	</tr>
-                    <tr className='orderinput_hidden'>
-	               		<th>주문일자</th>
-	               		<td>
-	               			<input type="text"  name="order_date" id="order_date" required  />
-						</td>
-	               	</tr>
-	               	<tr className='orderinput_hidden'>
-	               		<th>입금상태</th>
-	               		<td>
-                           <input type="text" name="order_state" id="order_state" readonly  value="입금대기"/>
-						</td>
-	               	</tr>
-                    <tr className='orderinput_hidden'>
-	               		<th>배송상태</th>
-	               		<td>
-                           <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기"/>
-						</td>
-	               	</tr>
+                        <tr className='orderinput_hidden'>
+                            <th>주문번호</th>
+                            <td>
+                                <input type="text" name="order_id" id="order_id" required  />
+                            </td>
+                        </tr>
+                        <tr className='orderinput_hidden'>
+                            <th>회원 아이디</th>
+                            <td>
+                                <input type="text" name="user_id" id="user_id"required  value="qqqq123"/>
+                            </td>
+                        </tr>
+                        <tr className='orderinput_hidden'>
+                            <th>주문일자</th>
+                            <td>
+                                <input type="text"  name="order_date" id="order_date" required  />
+                            </td>
+                        </tr>
+                        <tr className='orderinput_hidden'>
+                            <th>입금상태</th>
+                            <td>
+                            <input type="text" name="order_state" id="order_state" readonly  value="입금대기"/>
+                            </td>
+                        </tr>
+                        <tr className='orderinput_hidden'>
+                            <th>배송상태</th>
+                            <td>
+                            <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기"/>
+                            </td>
+                        </tr>
                         
                         <tr>
                             <th>
@@ -132,7 +131,7 @@ const Information = () => {
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
-                                <input type="text" name="order_receiver" id="order_receiver" value="김박이" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="order_receiver" id="order_receiver"  placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                             </td>
                         </tr>
                         <tr>
@@ -146,9 +145,9 @@ const Information = () => {
                                     <option value="070">070</option>
                                 </select>
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num" value="5000" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num" value="5000" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
                             </td>
                         </tr>
                         <tr>
@@ -156,11 +155,11 @@ const Information = () => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" value="13630"placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" maxLength="7" placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 <p>
-                                    <input type="text" name="order_receiver_city" id="order_receiver_city" value="경기도 성남시 분당구 돌마로 46 " placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_city" id="order_receiver_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
-                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail" value="광천빌딩 5층" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 </p>
                             </td>
                         </tr>

@@ -23,7 +23,7 @@ public class OrderDetail {
 	private String order_detail_id;
 	
 	private String order_id;
-	private String product_id;
+	private int product_id;
 	
 	@Column(nullable=false)
 	private int order_quan;

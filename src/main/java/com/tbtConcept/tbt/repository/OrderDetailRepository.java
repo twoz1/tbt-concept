@@ -9,6 +9,6 @@ import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, String> {
-	@Query("SELECT x FROM OrderDetail x order by x.order_id desc")
+	@Query("SELECT d FROM OrderDetail d order by d.order_detail_id desc")
 	List<OrderDetail> findAllDesc();
 }
