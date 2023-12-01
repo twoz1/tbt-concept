@@ -73,7 +73,8 @@ const InquiryProduct = () => {
                             </tr>
                         ) : getPaginatedData().map((qna1on1) => {
                             return (<InqProdItems key={qna1on1.qna_id} {...qna1on1} />);
-                        })}
+                        })
+                        }
                     </table>
                     
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>

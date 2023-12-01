@@ -3,11 +3,16 @@
 }
 
 .tBodyInqProdItems td{
-    padding-left: 0.1rem;
+    padding-left: 0.2rem;
 }
 
-.curPointer {
+.tBodyInqProdItems tr td:nth-child(3) #curPointer {
+    width:480px;
+    display:inline-block;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .qnaAnswer_td {
