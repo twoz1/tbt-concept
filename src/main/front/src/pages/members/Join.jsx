@@ -1,9 +1,12 @@
 import "../../styles/members/Join.css";
+import useScrollToTop from '../customHooks/useScrollToTop';
 import JoinCheckbox from "./components/Join/JoinCheckbox";
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
 const Join = () => {
+
+    useScrollToTop();
 
     const [email, setEmail] = useState('');
     const [emailMessage, setEmailMessage] = useState('');

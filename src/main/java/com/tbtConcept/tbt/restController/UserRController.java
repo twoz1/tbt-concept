@@ -42,8 +42,6 @@ public class UserRController {
 	@PostMapping(value = "/uJoin")
 	public int postUserJoin(HttpServletRequest request, Model model, @RequestBody User entity) {
 		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
-		System.out.println(" 회원가입 entity 정보" +entity);
-		System.out.println(" 회원가입 getPw 정보" +entity.getUser_pw());
 		try {
 			if(userService.selectOne(entity.getUser_id()) == null && userService.save(entity) != null) {
 				return 1;
