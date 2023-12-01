@@ -7,8 +7,8 @@ const Login = () => {
     useScrollToTop();
 
     const [credentials, setCredentials] = useState({
-        email: '',
-        password: ''
+        user_id: '',
+        user_pw: ''
     });
 
     const [loggedIn, setLoggedIn] = useState(false);

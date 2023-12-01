@@ -35,8 +35,23 @@ public class UserRController {
 	}
 
 	@PostMapping(value = "/uJoin")
-	public int postUserJoin(HttpServletRequest request, Model model, @RequestBody User entity) {
+	public int postUserJoin(Model model, @RequestBody User entity) {
 		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
+		try {
+			if(userService.selectOne(entity.getUser_id()) == null && userService.save(entity) != null) {
+				return 1;
+			}else {
+				return 0;
+			}
+		} catch (Exception e) {
+			log.info("** Join insert Exception => " + e.toString());
+			
+			return 0;
+		}
+	}
+	
+	@PostMapping(value = "/uLogin")
+	public int postUserLogin(Model model, @RequestBody User entity) {
 		try {
 			if(userService.selectOne(entity.getUser_id()) == null && userService.save(entity) != null) {
 				return 1;
