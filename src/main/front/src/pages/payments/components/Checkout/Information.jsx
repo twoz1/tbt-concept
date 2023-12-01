@@ -40,14 +40,14 @@ function generateOrderNumber() {
 }
 
 
-function execDaumPostcode() {
-    new daum.Postcode( {
-      oncomplete: function( data ) {
-        document.getElementById( 'order_receiver_avc' ).value = data.zonecode;
-        document.getElementById( 'order_receiver_city' ).value = data.address;
-      }
-    } ).open();
-  }
+// function execDaumPostcode() {
+//     new daum.Postcode( {
+//       oncomplete: function( data ) {
+//         document.getElementById( 'order_receiver_avc' ).value = data.zonecode;
+//         document.getElementById( 'order_receiver_city' ).value = data.address;
+//       }
+//     } ).open();
+//   }
 
 const Information = () => {
     
@@ -162,7 +162,7 @@ const Information = () => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                <button type='button' onClick={()=>execDaumPostcode()} >
+                                <button type='button' >
                                     우편번호 찾기
                                 </button>
                                 <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" maxLength="7" placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
