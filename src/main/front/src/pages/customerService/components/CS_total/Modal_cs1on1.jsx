@@ -141,7 +141,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
                                             <span className="spanRed">&#42;</span>
 										</th>
 										<td>
-											<select required>
+											{/* <select name="qna_phone_num" required>
 												<option value="선택">선택</option>
 												<option value="010">010</option>
 												<option value="011">011</option>
@@ -149,11 +149,12 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 												<option value="017">017</option>
 												<option value="018">018</option>
 												<option value="070">070</option>
-											</select>
-                                            &nbsp;&ndash;&nbsp;<input type="text"
+											</select> */}
+                                            {/* &nbsp;&ndash;&nbsp; */}
+											<input type="text"
 												name="qna_phone_num"
 												value={userPhoneNum}
-												maxLength={8}
+												maxLength={11}
 												placeholder='"-"를 제외하고 입력'
 												required
 												onChange={phoneNumCheck} />
@@ -174,7 +175,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
 											<div className='validCheck'>
 												{0 < userPhoneNum.length && userPhoneNum.length < 8 && (
-													<span>"-" 제외하고 8자 입력해주세요.</span>
+													<span>"-" 제외하고 11자 입력해주세요.</span>
 												)}
 
 												{userPhoneNum.length == 8 && !phoneNumValid && (
