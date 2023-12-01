@@ -38,10 +38,6 @@ public class OrderListRController {
 	
     // ==============================================================================================
 	
-	@GetMapping("/oListInsert")
-	public void getorderListInsert() {
-
-	}
 	
 	@PostMapping("/oListInsert")
 	public String postorderListInsert(OrderList entity,OrderDetail dentity, Model model, RedirectAttributes rttr){

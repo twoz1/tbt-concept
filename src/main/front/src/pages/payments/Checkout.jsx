@@ -62,7 +62,7 @@ const Checkout = () => {
                 <div className="check_box">
                     <section className="check_left">
                         <Title />
-                        <form action="oListInsert" id='oListInsert'>
+                        <form action="oListInsert"  id='oListInsert'>
                         <Information />
                             <Item checkoutList={checkoutList} />
                             <div className="discount">
