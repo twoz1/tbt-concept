@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../../../../styles/payments/BasketPriceBox.css';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const BasketPriceBox = ( { calculateSelectedTotal } ) => {
     const { selectedTotal, fee } = calculateSelectedTotal(); // selectedTotal와 fee를 함께 가져옴
 
     return (
-        <div className="basket_payment">
+        <div className= "basket_payment" >
             <h3>주문 금액</h3>
             <hr />
 

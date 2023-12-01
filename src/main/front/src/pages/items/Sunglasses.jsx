@@ -61,6 +61,7 @@ const Sunglasses = () => {
     const totalPages = Math.ceil(data.length / itemsPerPage);    // 전체 페이지 번호
 
     const handlePageChange = (page) => {
+        
         setCurrentPage(page);
     };
 

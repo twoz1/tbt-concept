@@ -36,7 +36,7 @@ public class Address {
 	private String address_detail;
 	
 	@Column(nullable=false)
-	private String user_phone_num;
+	private String address_phone_num;
 	
 	
 }
