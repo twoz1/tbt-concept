@@ -24,4 +24,7 @@ public class AddressController {
 	public void getUserList(Model model) {
 		model.addAttribute("addressList", addressService.selectList());
 	}
+	
+	
+	
 }
