@@ -15,8 +15,8 @@ const Login = () => {
     const [emailMessage, setEmailMessage] = useState('');
 
 
-    const handleCredentialsChange = (event) => {
-        const { name, value } = event.target;
+    const handleCredentialsChange = (e) => {
+        const { name, value } = e.target;
         setCredentials((prevCredentials) => ({
             ...prevCredentials,
             [name]: value
@@ -60,7 +60,7 @@ const Login = () => {
                                             <td>
                                                 <label>
                                                     <input
-                                                        name="user_id"
+                                                        name="email"
                                                         value={credentials.email}
                                                         onChange={handleCredentialsChange}
                                                         placeholder="&#64;까지 정확하게 입력해주세요."
@@ -76,7 +76,7 @@ const Login = () => {
                                                 <label>
                                                     <input
                                                         type="password"
-                                                        name="user_pw"
+                                                        name="password"
                                                         value={credentials.password}
                                                         maxLength="16"
                                                         minLength="8"
