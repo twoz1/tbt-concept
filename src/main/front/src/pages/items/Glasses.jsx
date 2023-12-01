@@ -29,10 +29,6 @@ const Glasses = () => {
         }
     };
     
-    // const { id } = useParams();
-    //const {gArr} = useContext(mockItemsContext);
-    //const [array, dispatch] = useReducer(arrayReducer, gArr);
-    // console.log(eachProductList);
 
     const [data, setData] = useState([]);
     const [array, dispatch] = useReducer(arrayReducer, []);

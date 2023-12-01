@@ -111,7 +111,7 @@ const Sunglasses = () => {
                 </div>
 
                 <Product1 displayedItemInfo1={displayedItemInfo1} />
-                <PageNation setPage={setPage} />
+                <PageNation setPage={setPage} data={data}  />
 
             </div>
         </div>
