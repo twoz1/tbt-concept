@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.OrderListService;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +28,8 @@ import lombok.extern.log4j.Log4j2;
 public class OrderListRController {
 	
 	OrderListService orderService;
+	OrderDetailService orderdService;
+	
 	
 	@GetMapping("oListDesc")
 	public List<OrderList> getOListDesc(Model model){
@@ -43,8 +46,10 @@ public class OrderListRController {
 	@PostMapping("/oListInsert")
 	public String postorderListInsert(OrderList entity,OrderDetail dentity, Model model, RedirectAttributes rttr){
 		System.out.println("********"+ entity);
+		System.out.println("********"+ dentity);
 		
 		try {
+			orderdService.save(dentity);
 			orderService.save(entity); 
 			model.addAttribute("message", "주문등록 성공");
 			System.out.println("** orderList insert 성공");
