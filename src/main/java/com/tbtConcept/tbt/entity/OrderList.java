@@ -23,6 +23,7 @@ public class OrderList {
 	@Id
 	private String order_id;
 	
+	@Column(nullable=false)
 	private String user_id;
 	
 	@Column(nullable=false)
@@ -32,7 +33,7 @@ public class OrderList {
 	private String order_receiver;
 	
 	@Column(nullable=false)
-	private int order_receiver_avc;
+	private String order_receiver_avc;
 	
 	@Column(nullable=false)
 	private String order_receiver_city;
@@ -48,8 +49,6 @@ public class OrderList {
 	@Column(nullable=false)
 	private String order_pay;
 	
-	private String order_coupon;
-	
 	@Column(nullable=false)
 	private int order_total_each_quan;
 	
@@ -60,5 +59,6 @@ public class OrderList {
 	private String order_del_state;
 	
 	private String order_del_num;
+	private String order_coupon;
 
 }

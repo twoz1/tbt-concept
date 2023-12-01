@@ -95,8 +95,8 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
 
             axios.post(url, formData)
             .then(response => {
-                alert("주문완료" + response.data);
-                console.log("주문 ");
+                alert("주문" + response.data);
+                console.log("주문 완료");
                 navigateTo("/resultframe");
             }).catch(err => {
                 if (err.response.status == "502") {

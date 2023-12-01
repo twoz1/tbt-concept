@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.service.OrderListService;
 
@@ -40,7 +41,7 @@ public class OrderListRController {
 	}
 	
 	@PostMapping("/oListInsert")
-	public String postorderListInsert(OrderList entity, Model model, RedirectAttributes rttr){
+	public String postorderListInsert(OrderList entity,OrderDetail dentity, Model model, RedirectAttributes rttr){
 		System.out.println("********"+ entity);
 		
 		try {

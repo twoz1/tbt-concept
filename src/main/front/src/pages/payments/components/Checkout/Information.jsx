@@ -77,7 +77,7 @@ const Information = () => {
                         <tr className='orderinput_hidden'>
                             <th>회원 아이디</th>
                             <td>
-                                <input type="text" name="user_id" id="user_id"required  value="qqqq123"/>
+                                <input type="text" name="user_id" id="user_id"required  value="q123"/>
                             </td>
                         </tr>
                         <tr className='orderinput_hidden'>
@@ -112,7 +112,7 @@ const Information = () => {
                                     <input type="radio" name="address_radio" value="new" onChange={handleRadioChange} required />
                                     새로 입력
                                 </label>
-                                <button
+                                <button 
                                         type="button"
                                         onClick={() => {
                                             openModal('checkoutModal');
@@ -122,9 +122,7 @@ const Information = () => {
                                 </button>
                                 {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} />}
                             </td>
-                            <td>
-
-                            </td>
+                         
                         </tr>
                         <tr>
                             <th>
