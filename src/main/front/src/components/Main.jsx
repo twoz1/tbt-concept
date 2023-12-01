@@ -12,7 +12,6 @@ const Main = () => {
 
     useScrollToTop();
     const [data, setData] = useState([]);
-    //const [array, dispatch] = useReducer(arrayReducer, []);
 
     useEffect(() => {
         const fetchData = async () => {
