@@ -2,8 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useReducer, useRef, useState } from 'react';
-import { useContext } from 'react';
-import mockItemsContext from '../../MockItems';
 
 const renderItem = ({ item }) => (
     <li className="photo_2" key={item.product_id}>
@@ -21,18 +19,17 @@ const renderItem = ({ item }) => (
     </li>
   );
 
-const New = ({displayedItemInfo1}) => {
+const New = ({sdata}) => {
 
     const itemsPerRow = 8;
-    const rows = Math.ceil(displayedItemInfo1.length / itemsPerRow);
+    const rows = Math.ceil(sdata.length / itemsPerRow);
 
-    for (let d of displayedItemInfo1) {
+    for (let d of sdata) {
         console.log("New list" + d.product_id);
       }
-      console.log("New list" + displayedItemInfo1);
+      console.log("New list" + sdata);
 
-    // const { gArr } = useContext(mockItemsContext);
-    // const newList = [...gArr];
+    
     const what_new_list = useRef(),
         btn_pre = useRef(),
         btn_next = useRef(),
@@ -93,30 +90,10 @@ const New = ({displayedItemInfo1}) => {
             </button>
             <div className="what_new_item">
                 <ul className="what_new_list" ref={what_new_list} >
-                    {/* {newList.slice(0, 8).map((item, i) => (
-                        <li style={{ width: `${liWidth.current[i % 2 === 0 ? 'even' : 'odd']}px` }}>
-                            <Link to={`/detail/${item.name}`} key={item.name}>
-                                <img src={item.imageFront} alt="상품" />
-                                <img src={item.imageSide} alt="상품" />
-                            </Link>
-                            <div className="item_name">
-                                <span>{item.name}</span>
-                            </div>
-                            <div className="item_price">
-                                <span>{item.price.toLocaleString()}원</span>
-                            </div>
-                            <Link to={`/detail/${item.name}`} key={item.name}>
-                                <div className="shop_this">
-                                    <a>{item.shopThis} &#62;</a>
-                                </div>
-                            </Link>
-                        </li>
-                    ))} */}
-
                     {[...Array(rows)].map((_, rowIndex) => (
                             <div className="photo_layout cf" key={rowIndex}>
                             <ul>
-                                {displayedItemInfo1
+                                {sdata
                                 .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
                                 .map(item => renderItem({ item }))}
                             </ul>

@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 
 @AllArgsConstructor
 @Log4j2
-@RequestMapping(value = "/order")
+@RequestMapping(value = "/orderDetail")
 @RestController
 public class OrderDetailRController {
 
@@ -36,23 +36,23 @@ public class OrderDetailRController {
 
 	// ====================================================================
 
-	@GetMapping("/oDetailListInsert")
+	@GetMapping("/oListInsert")
 	public void getorderListInsert() {
 
 	}
 
-	@PostMapping("/oDetailListInsert")
+	@PostMapping("/oListInsert")
 	public String postorderListInsert(OrderDetail entity, Model model, RedirectAttributes rttr){
 		System.out.println("********"+ entity);
 
 		try {
 			orderDetailService.save(entity); 
 			model.addAttribute("message", "주문등록 성공");
-			System.out.println("** orderList insert 성공");
+			System.out.println("** orderDetail insert 성공");
 			return "";
 
 		} catch (Exception e) {
-			System.out.println("** OrderList insert Exception => " + e.toString());
+			System.out.println("** orderDetail insert Exception => " + e.toString());
 			return "실패";
 		}
 	}

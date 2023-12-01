@@ -2,8 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useReducer, useRef } from 'react';
-import { useContext } from 'react';
-import mockItemsContext from '../../MockItems';
 
 const renderItem = ({ item }) => (
     <li className="photo_2" key={item.product_id}>
@@ -21,15 +19,15 @@ const renderItem = ({ item }) => (
     </li>
   );
 
-const Best = ({displayedItemInfo}) => {
+const Best = ({gdata}) => {
 
     const itemsPerRow = 8;
-    const rows = Math.ceil(displayedItemInfo.length / itemsPerRow);
+    const rows = Math.ceil(gdata.length / itemsPerRow);
 
-    for (let d of displayedItemInfo) {
+    for (let d of gdata) {
         console.log("Best list" + d.product_id);
       }
-      console.log("Best list" + displayedItemInfo);
+      console.log("Best list" + gdata);
 
     // const { sArr } = useContext(mockItemsContext);
     // const bestList = [...sArr];
@@ -68,30 +66,10 @@ const Best = ({displayedItemInfo}) => {
             </div>
             <div className="best_item">
                 <ul className="best_list" ref={best_list}>
-                    {/* {bestList.slice(0, 9).map((item) => (
-                        <li>
-                            <Link to={`/detail/${item.name}`} key={item.name}>
-                                <img src={item.imageFront} alt="상품" />
-                                <img src={item.imageSide} alt="상품" />
-                            </Link>
-                            <div className="item_name">
-                                <span>{item.name}</span>
-                            </div>
-                            <div className="item_price">
-                                <span>{item.price.toLocaleString()}원</span>
-                            </div>
-                            <Link to={`/detail/${item.name}`} key={item.name}>
-                                <div className="shop_this">
-                                    <a>{item.shopThis} &#62;</a>
-                                </div>
-                            </Link>
-                        </li>
-                    ))} */}
-
                         {[...Array(rows)].map((_, rowIndex) => (
                             <div className="photo_layout cf" key={rowIndex}>
                             <ul>
-                                {displayedItemInfo
+                                {gdata
                                 .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
                                 .map(item => renderItem({ item }))}
                             </ul>

@@ -171,7 +171,7 @@
 	               	<tr>
 	               		<th>송장번호</th>
 	               		<td>
-	               			<input type="text" name="order_del_num" id="order_del_num" required />
+	               			<input type="text" name="order_del_num" id="order_del_num"  />
 						</td>
 	               	</tr>
 	               	<tr>

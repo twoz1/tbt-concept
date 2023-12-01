@@ -37,40 +37,6 @@ const couponOptions = [
     { value: 'summer', label: 's/s기념 10% 할인 쿠폰', discount: 10 },
 ];
 
-function padZero(number) {
-    return number < 10 ? "0" + number : number;
-}
-function generateOrderNumber() {
-
-    // 현재 날짜 및 시간 정보를 사용하여 일련번호 생성
-    let now = new Date();
-    let timestamp =
-        now.getFullYear().toString() +
-        padZero(now.getMonth() + 1) +
-        padZero(now.getDate()) +
-        padZero(now.getHours()) +
-        padZero(now.getMinutes()) +
-        padZero(now.getSeconds());
-
-    // 무작위 값(0부터 999 사이의 정수) 생성 및 추가
-    let randomValue = padZero(Math.floor(Math.random() * 1000));
-    timestamp += randomValue;
-
-    // 일련번호를 조합하여 주문번호 생성
-    let order_id_value = timestamp;
-
-    // 생성된 주문번호를 주문번호 입력란에 설정
-    let order_id_input = document.getElementById("order_id");
-    let order_date_input = document.getElementById("order_date");
-
-    if (order_id_input && order_date_input) {
-        order_id_input.value = order_id_value;
-        order_date_input.value = timestamp.substring(0, 8);
-        console.log("***" + timestamp.length);
-    } else {
-        console.error("Element with id 'order_id' or 'order_date' not found.");
-    }
-}
 
 const Checkout = () => {
 
@@ -98,9 +64,7 @@ const Checkout = () => {
                         <Title />
                         <form action="oListInsert" id='oListInsert'>
                         <Information />
-                        <form action="oListInsert" id='oListInsert'>
                             <Item checkoutList={checkoutList} />
-                        </form>
                             <div className="discount">
                                 <h3>할인받기</h3>
                                 <table className="discount_table checkout_table">

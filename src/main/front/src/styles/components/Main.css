@@ -105,7 +105,7 @@ hr {
 }
 
 .what_new_item ul {
-    width: 1000000%;
+    width: 141.9%;
     height: 100%;
     text-align: center;
     transition: left 0.7s 0.1s;
@@ -113,6 +113,7 @@ hr {
     top: 0;
     left: 0;
 }
+
 
 .what_new_item li {
     width: 25%;

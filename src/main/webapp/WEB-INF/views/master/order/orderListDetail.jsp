@@ -74,33 +74,26 @@
 					</tr>
 				</table>
 				<a class="m_button"
-					href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정</a>
+					href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정
+				</a>
 					
 				<table>
-				<c:if test="${not empty requestScope.orderDetail}">
-					<c:forEach var="od" items="${requestScope.orderDetail}">
+				<tr>
+            		<th>주문번호</th>
+            		<th>개별주문번호</th>
+            		<th>상품ID</th>
+            		<th>수량</th>
+            		<th>가격</th>
+            		<th>리뷰상태</th>
+            	</tr>
+				<c:if test="${not empty requestScope.orderDetailList}">
+					<c:forEach var="od" items="${requestScope.orderDetailList}">
 						<tr>
-							<th>주문번호 :</th>
 							<td>${od.order_id}</td>
-						</tr>
-						<tr>
-							<th>주문 상세 번호 : </th>
 							<td>${od.order_datail_id}</td>  
-						</tr>
-						<tr>
-							<th>상품 번호 : </th>
 							<td>${od.product_id}</td>  
-						</tr>
-						<tr>
-							<th>수량 : </th>
 							<td>${od.order_quan}</td>  
-						</tr>
-						<tr>
-							<th>가격 : </th>
 							<td>${od.order_price}</td>  
-						</tr>
-						<tr>
-							<th>리뷰상태 : </th>
 							<td>${od.review_state}</td>  
 						</tr>
 					</c:forEach>

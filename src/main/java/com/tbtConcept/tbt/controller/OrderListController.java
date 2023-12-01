@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.OrderListService;
 
 import lombok.AllArgsConstructor;
@@ -27,17 +29,20 @@ import lombok.extern.log4j.Log4j2;
 public class OrderListController {
 	
 	OrderListService orderService;
+	OrderDetailService dorderService;
 	
 	@GetMapping("/orderList")
 	public void getOrderList(Model model) {
 		model.addAttribute("orderList", orderService.findAllDesc());
+		
 	}
 	
 	// ========================================================================
 	
 	@GetMapping("/orderListDetail")
-	public String getOrderListDetail (Model model, OrderList entity, HttpServletRequest request) {
+	public String getOrderListDetail (Model model, OrderList entity, OrderDetail dentity, HttpServletRequest request) {
 		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
+		model.addAttribute("orderDetailList", dorderService.findAllDesc());
 		
 		if ("U".equals(request.getParameter("jCode"))) {
 			return "master/order/orderListUpdate";
