@@ -10,30 +10,25 @@ import { Link } from 'react-router-dom';
 //import mockItemsContext from './MockItems';
 import useScrollToTop from '../customHooks/useScrollToTop';
 import axios from 'axios';
+import Pagination from '../customHooks/Pagination';
 
 
 const Sunglasses = () => {
 
     useScrollToTop();
+
     const arrayReducer = (state, action) => {
         switch (action.type) {
             case "low":
-                return state ? [...state].sort((a, b) => a.product_price - b.price) : [];
+                return state ? [...state].sort((a, b) => a.product_price - b.product_price) : [];
             case "high":
-                return state ? [...state].sort((a, b) => b.price - a.price) : [];
+                return state ? [...state].sort((a, b) => b.product_price - a.product_price) : [];
             case "set":
                 return action.payload;
             default:
                 return state || [];
         }
     };
-
-    // const { id } = useParams();
-    //const { sArr } = useContext(mockItemsContext);
-    // const eachProductListSelected = eachProductList.find(product => product.id === parseInt(id));
-    
-    //const [data, setData] = useState([]);
-   
 
     const [data, setData] = useState([]);
     const [array, dispatch] = useReducer(arrayReducer, []);
@@ -43,7 +38,7 @@ const Sunglasses = () => {
             try {
                 const response = await axios.get('/product/pSListDesc');
                 setData(response.data);
-                
+
             } catch (err) {
                 alert(`** product db 연결 실패 => ${err.message}`);
             }
@@ -51,7 +46,7 @@ const Sunglasses = () => {
 
         fetchData();
     }, []);
-    
+
     console.log("-", data);
     useEffect(() => {
         // 데이터가 업데이트될 때마다 useReducer의 초기 상태를 설정
@@ -59,11 +54,20 @@ const Sunglasses = () => {
     }, [data]);
 
 
-    //const [array, dispatch] = useReducer(arrayReducer, data);
-    const [page, setPage] = useState(1);
-    const itemsPerPage = 8;
-    const startIndex = (page - 1) * itemsPerPage;
-    const displayedItemInfo1 = array.slice(startIndex, startIndex + itemsPerPage);
+
+
+    const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
+    const itemsPerPage = 8;  // 페이지 당 게시글 개수
+    const totalPages = Math.ceil(data.length / itemsPerPage);    // 전체 페이지 번호
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const displayedItemInfo1 = array.slice(startIndex, endIndex);
+
 
     const handleSort = (type) => {
         dispatch({ type });
@@ -111,7 +115,8 @@ const Sunglasses = () => {
                 </div>
 
                 <Product1 displayedItemInfo1={displayedItemInfo1} />
-                <PageNation setPage={setPage} data={data}  />
+
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
 
             </div>
         </div>

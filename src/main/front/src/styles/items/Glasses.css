@@ -82,6 +82,14 @@
     width: 25%;
 }
 
+.photo_layout ul li .product_photo {
+    display: block;
+    width: 100%;
+    height: 305px;
+    overflow: hidden;
+}
+
+
 
 img {
     width: 100%;
@@ -95,7 +103,7 @@ img {
     cursor: crosshair;
 }
 
-.photo_layout ul li div:nth-child(2){
+.photo_layout ul li div:nth-child(2) {
     margin-top: 10px;
 }
 
@@ -140,7 +148,7 @@ img {
     font-size: 2vh;
     margin: auto;
     text-align: center;
-    
+
 }
 
 .next_page span {

@@ -17,7 +17,6 @@ import axios from 'axios';
 const DetailedPage = ({ starScore }) => {
 
     const [productDetail, setProductDetail] = useState("");
-    const [loading, setLoading] = useState(true);
     const { product_id } = useParams();
 
     useScrollToTop();
@@ -33,23 +32,13 @@ const DetailedPage = ({ starScore }) => {
             } catch (err) {
                 alert(`** product db 연결 실패 => ${err.message}`);
                 console.log("error");
-            }finally {
-                setLoading(false); // 데이터 로딩 완료 후 상태 변경
             }
         };
 
         fetchData();
-    },  [product_id]);
+    },  []);
 
     console.log("-->", productDetail);
-
-    if (loading) {
-        // 데이터 로딩 중일 때의 처리
-        return <div>Loading...</div>;
-    }
-
-    // 데이터 로딩 완료 후 상세페이지 렌더링
-
 
     //const { sArr, gArr } = useContext(mockItemsContext);
 
@@ -64,7 +53,7 @@ const DetailedPage = ({ starScore }) => {
 
 
                     <DpTopSection key={productDetail.product_id}{...productDetail} />
-                     <DpSelectOption key={productDetail.product_id}{...productDetail} />
+                    <DpSelectOption key={productDetail.product_id}{...productDetail} />
 
 
                  
@@ -79,7 +68,7 @@ const DetailedPage = ({ starScore }) => {
                     </ul>
                 </div>
 
-                <DpProductDetail key={productDetail.product_id}{...productDetail} /> 
+                <DpProductDetail key={productDetail.product_id}{...productDetail} />
 
                 {/* <!-- ==============리뷰1======================================================= --> */}
 
