@@ -40,6 +40,15 @@ function generateOrderNumber() {
 }
 
 
+function execDaumPostcode() {
+    new daum.Postcode( {
+      oncomplete: function( data ) {
+        document.getElementById( 'order_receiver_avc' ).value = data.zonecode;
+        document.getElementById( 'order_receiver_city' ).value = data.address;
+      }
+    } ).open();
+  }
+
 const Information = () => {
     
     // 페이지 로드 시 자동으로 호출되는 함수
@@ -153,6 +162,9 @@ const Information = () => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
+                                <button type='button' onClick={()=>execDaumPostcode()} >
+                                    우편번호 찾기
+                                </button>
                                 <input type="text" name="order_receiver_avc" id="order_receiver_avc" minLength="5" maxLength="7" placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 <p>
                                     <input type="text" name="order_receiver_city" id="order_receiver_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
