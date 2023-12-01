@@ -89,7 +89,7 @@ function App() {
                 <Route path='/new' element={<New_goods />}></Route >
                 <Route path='/store' element={<Store />}></Route >
 
-                <Route path='/cart' element={<Basket mockItemsData={mockItemsData} />}></Route>
+                <Route path='/cart/:product_id' element={<Basket mockItemsData={mockItemsData} />}></Route>
                 <Route path='/my' element={<Mypage order={order} />}></Route >
                 <Route path='/login' element={<Login />}></Route >
                 <Route path='/join' element={<Join />}></Route >
