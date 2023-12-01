@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 	   // ** selectList
 	   @Override
 	   public List<User> selectList() {
-	      return repository.findAll();
+	      return repository.findAllDesc();
 	   }
 	   
 	   // ** selectOne
@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService {
 	   
 	    @Override
 	    public String save(User entity) {
-	        repository.save(entity); // 저장 또는 수정
-	        return entity.getUser_id();   // 저장후 Key return
-	    }
+			repository.save(entity);
+			return entity.getUser_id();
+		}
 	    
 	   // ** delete
 	   @Override

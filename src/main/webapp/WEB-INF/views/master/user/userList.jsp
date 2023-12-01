@@ -17,15 +17,15 @@
 				<h2 class="master_title">회원 리스트</h2>
 				<table>
 					<tr>
-						<th>회원 이메일</th>
+						<th>회원ID</th>
 						<th>이름</th>
-						<th>비밀번호</th>
 						<th>휴대폰 번호</th>
-						<th>생년월일</th>
+						<th>가입일</th>
 						<th>등급</th>
 						<th>이벤트 정보 수신 여부</th>
 						<!-- <th>주소</th> -->
-						<th>탈퇴</th>
+						<th></th>
+						<th></th>
 					</tr>
 					
 					<c:if test="${not empty requestScope.userList}">
@@ -34,7 +34,6 @@
 								<td><a href="userDetail?user_id=${u.user_id}">${u.user_id}</a></td>
 
 								<td>${u.user_name}</td>
-								<td>${u.user_pw}</td>
 								<td>${u.user_phone_num}</td>
 								<td>${u.user_birth}</td>
 								<td>${u.user_rank}</td>
@@ -45,16 +44,12 @@
 								</td>
 								 -->	
 
-								<!-- <td><a href="userDetail?user_id=${u.user_id}">상세보기</a></td> -->
-								<td><button onclick="axUserDelete('${u.user_id}')" id="${u.user_id}">삭제</button></td>
+								<td><a href="userDetail?user_id=${u.user_id}">상세보기</a></td>
+								<td><button onclick="axUserDelete('${u.user_id}')" id="${u.user_id}">탈퇴</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>
 				</table>
-				
-				<div class="nav_box">
-					<a class="m_button" href="userJoin">회원가입</a>
-				</div>
 			</div>
 		</main>
 	</div>

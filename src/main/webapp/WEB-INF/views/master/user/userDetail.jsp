@@ -15,7 +15,7 @@
 
             <table>
                <tr>
-					<th>회원 이메일</th>               
+					<th>회원ID</th>               
                		<td>${requestScope.userDetail.user_id}</td>
                </tr>
                <tr>
@@ -31,7 +31,7 @@
                		<td></td>
                </tr>
                <tr>
-					<th>생년월일</th>               
+					<th>가입일</th>               
                		<td>${requestScope.userDetail.user_birth}</td>
                </tr>
                <tr>

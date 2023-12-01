@@ -1,6 +1,6 @@
 import "../../styles/members/Join.css";
 import JoinCheckbox from "./components/Join/JoinCheckbox";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
 const Join = () => {
@@ -8,7 +8,7 @@ const Join = () => {
     const [email, setEmail] = useState('');
     const [emailMessage, setEmailMessage] = useState('');
     const [emailValid, setEmailValid] = useState(false);
-    const [emailDupValid, setDupEmailValid] = useState(false);
+    const [emailDupValid, setEmailDupValid] = useState(false);
     const special = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 
     const [pW, setPw] = useState('');
@@ -23,15 +23,16 @@ const Join = () => {
     const [userNameMessage, setUserNameMessage] = useState('');
     const [userNameValid, setUserNameValid] = useState(false);
 
+    const [eventCheck, setEventCheck] = useState('');
 
 
     const handleEmail = (e) => {
+
         const newEmail = e.target.value;
-        if (newEmail != email) {
-            setDupEmailValid(false);
+        if (email != newEmail) {
+            setEmailDupValid(false);
         }
         setEmail(newEmail);
-
         // 이메일 형식 검사
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -41,49 +42,45 @@ const Join = () => {
         } else if (newEmail.length >= 5 && !emailPattern.test(newEmail)) {
             setEmailMessage("아이디는 이메일 형식으로 입력해주세요.");
             setEmailValid(false);
-        } else if (emailPattern.test(newEmail)) {
-            setEmailMessage("");
+        } else {
             setEmailValid(true);
+            setEmailMessage('ID중복확인을 해주세요.');
         }
 
-        if (emailValid == '') {
+        if (newEmail == '') {
+            setEmailValid(false);
+            setEmailDupValid(false);
             setEmailMessage('아이디를 입력해주세요');
         }
-
-        return false;
 
     }
 
     const idDupCheck = () => {
-        axios
-            .get('/user/idDupCheck?id=' + email)
-            .then((response) => {
-                let result;
-                if (response.data == "미존재") {
-                    result = true;
-                } else if (response.data == "존재") {
-                    result = false;
-                }
+        if (emailValid) {
+            axios
+                .get('/user/idDupCheck?id=' + email)
+                .then((response) => {
+                    console.log(response.data);
+                    if (response.data == "미존재") {
+                        setEmailMessage("사용 가능합니다.");
+                        setEmailDupValid(true);
+                    } else if (response.data == "존재") {
+                        setEmailMessage("이미 사용중인 아이디입니다.");
+                        setEmailDupValid(false);
+                    }
 
-                if (result) {
-                    setEmailMessage("사용 가능합니다.");
-                    setEmailValid(true);
-
-                } else {
-                    setEmailMessage("이미 사용중인 아이디입니다.");
-                    setEmailValid(false);
-                }
-
-                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
-            }).catch((err) => {
-                alert(`** checkdata 서버연결 실패 => ${err.message}`);
-            });
+                    console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+                }).catch((err) => {
+                    alert(`** checkdata 서버연결 실패 => ${err.message}`);
+                });
+        }
     }
+
+    console.log("유효성검사 => " + emailValid + ", 중복검사 => " + emailDupValid)
     // =======================================================
 
-    // const [pW, setPw] = useState('');
     const handlePw = (e) => {
-        // console.log('첫번쩨');
+
         const newPw = e.target.value.slice(0, 16);
 
         if (newPw.length <= 7 || newPw.length > 16) {
@@ -98,17 +95,20 @@ const Join = () => {
             setPwMessage('사용 가능합니다.');
             setPwValid(true);
         }
-        setPw(newPw);
 
-        if (pW == '') {
+        if (newPw == '') {
             setPwMessage('비밀번호를 입력해주세요');
         }
+
+        setPw(newPw);
     }
 
     // ============================================================
 
     const handleSecondPw = (e) => {
+
         const newSecondPw = e.target.value;
+
         if (newSecondPw != pW) {
             setSecondPwMessage('비밀번호 정보가 일치하지 않습니다.');
             setSecondPwValid(false);
@@ -116,16 +116,19 @@ const Join = () => {
             setSecondPwMessage('');
             setSecondPwValid(true);
         }
-        setSecondPw(newSecondPw);
 
-        if (secondPw == '') {
-            setPwMessage('비밀번호를 입력해주세요');
+        if (newSecondPw == '') {
+            setSecondPwMessage('비밀번호를 입력해주세요');
         }
-    };
+
+        setSecondPw(newSecondPw);
+    }
     // ===================================================
 
     const handleUserName = (e) => {
+
         const newUserName = e.target.value.slice(0, 10);
+
         if (newUserName.trim() === '') {
             setUserNameMessage('이름을 입력하세요.');
             setUserNameValid(false);
@@ -133,29 +136,38 @@ const Join = () => {
             setUserNameMessage('');
             setUserNameValid(true);
         }
+
         setUserName(newUserName);
     }
 
-
-
-    const [eventInfo, setEventInfo] = useState(""); // 선택된 이벤트 정보를 추적
-
-    const handleEventInfo = (e) => {
-        setEventInfo(e.target.value);
-    };
-
     // ------------------------------------------------------------------------
 
+    const [check, setCheck] = useState(false);
+    useEffect(() => {
+        if (emailValid && emailDupValid && pWValid && secondPwValid && userNameValid) {
+            setCheck(true);
+        } else {
+            setCheck(false);
+        }
+        console.log("전부 검사 " + check);
+    }, [emailValid, emailDupValid, pWValid, secondPwValid, userNameValid]);
 
+    const clickJoin = (e) => {
+        e.preventDefault();
 
-    const clickJoin = () => {
-        if (emailValid) {
+        if (check) {
             axios
-                .post('/user/uJoin')
+                .post('/user/uJoin', {
+                    user_id: email,
+                    user_name: userName,
+                    user_pw: pW,
+                    user_birth: document.getElementById('user_birth').value,
+                    user_event_check: eventCheck,
+                })
                 .then((response) => {
                     console.log(response.data);
                     if (response.data > 0) {
-                        window.location.href = window.location.protocol + '//' + window.location.host + '/';
+                        alert("회원가입 성공");
                     } else {
                         alert("회원가입에 실패했습니다.");
                     }
@@ -164,9 +176,13 @@ const Join = () => {
                 }).catch((err) => {
                     alert(`** checkdata 서버연결 실패 => ${err.message}`);
                 });
+        } else {
+            alert("입력 내용을 확인해주세요.");
         }
-    }
 
+
+
+    }
 
     return (
         <div className="Join">
@@ -181,7 +197,7 @@ const Join = () => {
                     </ul>
                 </div>
 
-                <form action="/user/uJoin" method="post">
+                <form action="/user/uJoin" method="post" onSubmit={e => { clickJoin(e) }}>
                     <div className="required_entry">
                         <p>필수 입력항목<span className="point_color">&#42;</span></p>
                     </div>
@@ -203,7 +219,7 @@ const Join = () => {
                                         id="user_id"
                                         name="user_id"
                                         value={email}
-                                        onChange={handleEmail}
+                                        onChange={e => handleEmail(e)}
                                         onKeyDown={(e) => {
                                             if (!emailValid) {
                                                 if (e.key === 'Tab') {
@@ -213,8 +229,8 @@ const Join = () => {
                                             }
                                         }}
                                         placeholder="&#64;까지 정확하게 입력해주세요." required />
-                                    <button id="idDup" onClick={idDupCheck}>ID중복확인</button>
-                                    <input type="hidden" name="user_birth" value={new Date().toLocaleString()} />
+                                    <button type="button" id="idDup" onClick={() => idDupCheck()}>ID중복확인</button>
+                                    <input type="hidden" id="user_birth" name="user_birth" value={new Date().toLocaleString()} />
                                 </label>
                                 <div>
                                     <span>{emailMessage}</span>
@@ -229,7 +245,7 @@ const Join = () => {
                                 <label>
                                     <input className="input_box" type="password"
                                         name="user_pw"
-                                        onChange={handlePw}
+                                        onChange={e => handlePw(e)}
                                         placeholder="영문&#43;숫자&#43;특수문자 조합 8&#126;16자리"
                                         onKeyDown={(e) => {
                                             if (!pWValid) {
@@ -252,7 +268,7 @@ const Join = () => {
                             <td>
                                 <label>
                                     <input className="input_box" type="password"
-                                        onChange={handleSecondPw}
+                                        onChange={e => handleSecondPw(e)}
                                         onKeyDown={(e) => {
                                             if (!secondPwValid) {
                                                 if (e.key === 'Tab') {
@@ -276,7 +292,7 @@ const Join = () => {
                                     <input className="input_box" type="text"
                                         name="user_name"
                                         value={userName}
-                                        onChange={handleUserName}
+                                        onChange={e => handleUserName(e)}
                                         placeholder="예&#41;홍길동"
                                         required />
                                 </label>
@@ -291,20 +307,16 @@ const Join = () => {
                             <td>
                                 <label className='event_info_radio'>
                                     <input type="radio" name="user_event_check" value="Y"
-                                        onChange={handleEventInfo}
-                                        required />  수신
+                                        onBlur={e => { setEventCheck(e.target.value) }} required />  수신
                                 </label>
 
                                 <label>
                                     <input type="radio" name="user_event_check" value="N"
-                                        onChange={handleEventInfo}
-                                        required /> 비수신
+                                        onBlur={e => { setEventCheck(e.target.value) }} required /> 비수신
 
                                 </label>
                                 <div>
-                                    {(eventInfo === "reception" || eventInfo === "no_reception") && (
-                                        <p>회원정보 및 구매 정보, 주요 정책 안내는 수신 여부와 관계 없이 발송됩니다.</p>
-                                    )}
+                                    <p>회원정보 및 구매 정보, 주요 정책 안내는 수신 여부와 관계 없이 발송됩니다.</p>
                                 </div>
                             </td>
                         </tr>
@@ -316,13 +328,13 @@ const Join = () => {
 
                     <div className="join_button">
                         <button type="reset">초기화</button>
-                        <button onClick={clickJoin}>가입하기</button>
+                        <button>가입하기</button>
                     </div>
 
                     {/* ================================================================================================================================================ */}
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 export default Join;

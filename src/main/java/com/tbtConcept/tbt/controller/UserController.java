@@ -43,18 +43,20 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/userUpdate")
-	public String posrMemberUpdate(HttpSession session, User entity, Model model) {
+	public String postUserUpdate(HttpSession session, User entity, Model model) {
 
 		model.addAttribute("userDetail", entity);
 		String uri = "master/user/userDetail";
 
 		try {
-			log.info("** updat 성공 id => " + userService.save(entity));
-			session.setAttribute("loginName", entity.getUser_event_check());
-			model.addAttribute("message", "~~ 회원정보 수정 성공 ~~");
+			if(userService.save(entity)!= null) {
+				session.setAttribute("loginName", entity.getUser_name());
+				model.addAttribute("message", "~~ 회원정보 수정 성공 ~~");
+			}else {
+				model.addAttribute("message", "~~ 회원정보 수정 실패 !! 다시 하세요 ~~");
+			}
 		} catch (Exception e) {
 			log.info("** update Exception => " + e.toString());
-			model.addAttribute("message", "~~ 회원정보 수정 실패 !! 다시 하세요 ~~");
 			uri = "master/user/userUpdate";
 		}
 
