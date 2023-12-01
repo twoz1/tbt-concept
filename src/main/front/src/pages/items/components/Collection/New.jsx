@@ -19,15 +19,15 @@ const renderItem = ({ item }) => (
     </li>
   );
 
-const New = ({sdata}) => {
+const New = ({data}) => {
 
-    const itemsPerRow = 8;
-    const rows = Math.ceil(sdata.length / itemsPerRow);
+    const itemsPerRow = 100;
+    const rows = Math.ceil(data.length / itemsPerRow);
 
-    for (let d of sdata) {
+    for (let d of data) {
         console.log("New list" + d.product_id);
       }
-      console.log("New list" + sdata);
+      console.log("New list" + data);
 
     
     const what_new_list = useRef(),
@@ -93,7 +93,7 @@ const New = ({sdata}) => {
                     {[...Array(rows)].map((_, rowIndex) => (
                             <div className="photo_layout cf" key={rowIndex}>
                             <ul>
-                                {sdata
+                                {data
                                 .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
                                 .map(item => renderItem({ item }))}
                             </ul>

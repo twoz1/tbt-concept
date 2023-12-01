@@ -19,15 +19,15 @@ const renderItem = ({ item }) => (
     </li>
   );
 
-const Best = ({gdata}) => {
+const Best = ({data}) => {
 
     const itemsPerRow = 8;
-    const rows = Math.ceil(gdata.length / itemsPerRow);
+    const rows = Math.ceil(data.length / itemsPerRow);
 
-    for (let d of gdata) {
+    for (let d of data) {
         console.log("Best list" + d.product_id);
       }
-      console.log("Best list" + gdata);
+      console.log("Best list" + data);
 
     // const { sArr } = useContext(mockItemsContext);
     // const bestList = [...sArr];
@@ -69,7 +69,7 @@ const Best = ({gdata}) => {
                         {[...Array(rows)].map((_, rowIndex) => (
                             <div className="photo_layout cf" key={rowIndex}>
                             <ul>
-                                {gdata
+                                {data
                                 .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
                                 .map(item => renderItem({ item }))}
                             </ul>

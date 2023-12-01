@@ -90,7 +90,7 @@
 					<c:forEach var="od" items="${requestScope.orderDetailList}">
 						<tr>
 							<td>${od.order_id}</td>
-							<td>${od.order_datail_id}</td>  
+							<td>${od.order_detail_id}</td>  
 							<td>${od.product_id}</td>  
 							<td>${od.order_quan}</td>  
 							<td>${od.order_price}</td>  

@@ -1,6 +1,5 @@
 package com.tbtConcept.tbt.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
@@ -31,23 +30,11 @@ public class OrderDetailController {
 
 	@GetMapping("/orderDetailList")
 	public void getOrderDetailList(Model model) {
-		model.addAttribute("orderList", orderDetailService.findAllDesc());
+		model.addAttribute("orderDetailList", orderDetailService.findAllDesc());
 	}
 
 	// ========================================================================
 
-	@GetMapping("/orderDetailDetail")
-	public String getOrderDetailDetail (Model model, OrderDetail entity, HttpServletRequest request) {
-		model.addAttribute("orderListDetail", orderDetailService.selectDetail(entity.getOrder_id()));
-
-		if ("U".equals(request.getParameter("jCode"))) {
-			return "master/order/orderDetailListUpdate";
-		} else {
-			return "master/order/orderDetailListDetail";
-		}
-	}
-
-	// ========================================================================
 
 	@GetMapping("/orderDetailInsert")
 	public void getOrderDetailInsert() {
@@ -58,8 +45,8 @@ public class OrderDetailController {
 	public String postOrderDetailInsert(OrderDetail entity, Model model, RedirectAttributes rttr){
 		String uri = "redirect:orderList";
 
-		// System.out.println("********"+ entity);
 
+		
 		try {
 			if (orderDetailService.save(entity) != null) {
 				model.addAttribute("message", "상품등록 성공");

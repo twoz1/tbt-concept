@@ -40,6 +40,12 @@ const Item = ({ checkoutList}) => {
 	               			<input type="text"  name="order_price" id="order_price" required  />
 					    </td>
 	               	</tr>
+                    <tr className='orderinput_hidden'>
+	               		<th>리뷰상태</th>
+	               		<td>
+	               			<input type="text"  name="review_state" id="review_state" value="작성하기" required  />
+					    </td>
+	               	</tr>
                     <tr>
                         <th>상품정보</th>
                         <th>수량</th>
