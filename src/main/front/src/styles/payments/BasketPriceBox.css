@@ -1,4 +1,6 @@
 .basket_payment {
+    position: sticky;
+    top: 210px;
     margin-left: 2rem;
     background-color: #eee;
     width: 25%;
