@@ -1,34 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useReducer, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-const renderItem = ({ item }) => (
-    <li className="photo_2" key={item.product_id}>
-      <Link to={`/detail/${item.product_id}`} key={item.product_id} className="product_photo">
-      <img src={require(`../../../../images/${item.product_img1}`)} alt="Front View" />
-      <img src={require(`../../../../images/${item.product_img2}`)} alt="Side View" />
-      </Link>
-      <div className="item_name"><span>{item.product_name}</span></div>
-      <div className="item_price"><span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span></div>
-      <div className="shop_this">
-        <Link to={`/detail/${item.product_id}`} key={item.product_id} >
-           <span>SHOP THIS &#62;</span> 
-        </Link>
-      </div>
-    </li>
-  );
 
-const New = ({data}) => {
-
-    const itemsPerRow = 100;
-    const rows = Math.ceil(data.length / itemsPerRow);
-
-    for (let d of data) {
-        console.log("New list" + d.product_id);
-      }
-      console.log("New list" + data);
-
+const New = ({ data }) => {
     
     const what_new_list = useRef(),
         btn_pre = useRef(),
@@ -74,7 +50,6 @@ const New = ({data}) => {
     }
 
     return (
-        
         <div className="what_new">
             <div className="what_new_title cf">
                 <h2>
@@ -90,15 +65,25 @@ const New = ({data}) => {
             </button>
             <div className="what_new_item">
                 <ul className="what_new_list" ref={what_new_list} >
-                    {[...Array(rows)].map((_, rowIndex) => (
-                            <div className="photo_layout cf" key={rowIndex}>
-                            <ul>
-                                {data
-                                .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
-                                .map(item => renderItem({ item }))}
-                            </ul>
+                    {data.slice(3, 11).map((item, i) => (
+                        <li style={{ width: `${liWidth.current[i % 2 === 0 ? 'even' : 'odd']}px` }}>
+                            <Link to={`/detail/${item.product_id}`} key={item.product_id}>
+                                <img src={require(`../../../../images/${item.product_img1}`)} alt="상품" />
+                                <img src={require(`../../../../images/${item.product_img2}`)} alt="상품" />
+                            </Link>
+                            <div className="item_name">
+                                <span>{item.product_name}</span>
                             </div>
-                        ))}
+                            <div className="item_price">
+                                <span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span>
+                            </div>
+                            <Link to={`/detail/${item.product_id}`} key={item.product_id}>
+                                <div className="shop_this">
+                                    <a>SHOP THIS &#62;</a>
+                                </div>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
             <button className="btn_next" ref={btn_next} onClick={(e) => handleClick(e, 'next')}>
