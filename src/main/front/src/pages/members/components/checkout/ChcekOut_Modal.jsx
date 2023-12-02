@@ -15,7 +15,7 @@ const CheckOut_Modal = ({closeModal}) => {
                             <th>연락처</th>
                         </tr>
                         <tr>
-                    
+                        
                         </tr>
                     </table>
                     <div className='checkout_modal'>
