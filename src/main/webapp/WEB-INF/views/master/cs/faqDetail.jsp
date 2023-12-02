@@ -28,11 +28,7 @@
 					<tr>
 						<th>문의 유형</th>
 						<td>
-							<c:if test="${requestScope.faqDetail.faq_type == 'a'}">[교환/반품]</c:if>
-							<c:if test="${requestScope.faqDetail.faq_type == 'b'}">[취소]</c:if>
-							<c:if test="${requestScope.faqDetail.faq_type == 'c'}">[배송]</c:if>
-							<c:if test="${requestScope.faqDetail.faq_type == 'd'}">[상품평]</c:if>
-							<c:if test="${requestScope.faqDetail.faq_type == 'e'}">[증빙서류발급]</c:if>
+							${requestScope.faqDetail.faq_type}
 						</td>
 					</tr>
 

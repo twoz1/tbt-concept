@@ -35,11 +35,7 @@
 								<td>${f.faq_id}</td>
 								<td><a href="faqDetail?faq_id=${f.faq_id}" class="f_titleW" id="hiddenContentsF">${f.faq_title}</a></td>
 								<td>
-									<c:if test="${f.faq_type == 'a'}">교환/반품</c:if>
-									<c:if test="${f.faq_type == 'b'}">취소</c:if>
-									<c:if test="${f.faq_type == 'c'}">배송</c:if>
-									<c:if test="${f.faq_type == 'd'}">상품평</c:if>
-									<c:if test="${f.faq_type == 'e'}">증빙서류발급</c:if>
+									${f.faq_type}
 								</td>
 								<td><a href="faqDetail?faq_id=${f.faq_id}" class="f_contentW" id="hiddenContents">${f.faq_content}</a></td>
 								<td>

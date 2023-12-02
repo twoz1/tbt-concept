@@ -10,13 +10,13 @@ const FreqQuestion = () => {
     const { openModal, closeModal, isModal } = useModal();
 
     // FAQ DB 요청
-    const [faqList, setFaq1List] = useState([]);
+    const [faqList, setFaqList] = useState([]);
 
     useEffect(() => {
         let url = "/faq/fList";
 
         axios.get(url).then(response => {
-                setFaq1List(response.data);
+                setFaqList(response.data);
                 console.log("FAQ 출력 성공" + response.data);
             }).catch(err => {
                 if (err.response.status == "502") {
@@ -26,8 +26,6 @@ const FreqQuestion = () => {
                 }
             });
     }, []);
-
-    console.log(faqList);
 
     return (
         <div>
@@ -39,13 +37,13 @@ const FreqQuestion = () => {
                     <div key={f.faq_id}>
                         <p>
                             <button onClick={() => openModal(`fModal${f.faq_id}`)}>
-                                <strong>&#91;{f.faq_type}&#93;</strong>
+                                <strong>{f.faq_type}</strong>
                                 {f.faq_title}&#63;
                             </button>
                             {isModal(`fModal${f.faq_id}`) && <div className="modal_cover">
                                 <div className="pop_CS">
                                     <div>
-                                        <span>&#91;{f.faq_type}&#93; {f.faq_title}&#63;</span>
+                                        <span>{f.faq_type}</span>
                                         <div className="d-flex">
                                             <p>{f.faq_content}</p>
                                         </div>

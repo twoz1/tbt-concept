@@ -2,30 +2,41 @@ import React from 'react';
 import useModal from '../../../customHooks/useModal';
 import '../../../../styles/customerService/SearchFAQItems.css'
 
-const SearchFAQItems = ({ id, freqQuesCat, freqQuesTitle, contents }) => {
+const SearchFAQItems = ({ faq_id, faq_type, faq_title, faq_content }) => {
 
     // custom modal hook을 이용한 모달창 구현
     const { openModal, closeModal, isModal } = useModal();
+
+    console.log("SearchFAQItems => " + faq_id + faq_title + faq_type);
 
     return (
         <div>
             <section id="freq_ask_id" className="freq_ask_1">
                 <div>
                     <p>
-                        <button onClick={() => openModal('freqQues01')}>
-                            <strong>{freqQuesCat}</strong>
-                            {freqQuesTitle}
+                        <button onClick={() => openModal(`fbModal${faq_id}`)}>
+                            <strong>{faq_type}</strong>
+                            {faq_title}
                         </button>
 
-                        {isModal('freqQues01') && <div className="modal_cover">
+                        {isModal(`fbModal${faq_id}`) && <div className="modal_cover">
+
                             <div className="pop_CS">
-                                {contents}
+                                <div>
+                                    <span>{faq_type}</span>
+                                    {faq_title}
+                                    <div className="d-flex">
+                                        <p>{faq_content}</p>
+                                    </div>
+                                </div>
 
                                 <div className="btn_close">
-                                    <button onClick={() => closeModal('freqQues01')}>닫기</button>
+                                    <button onClick={() => closeModal(`fbModal${faq_id}`)}>닫기</button>
                                 </div>
                             </div>
-                        </div>}
+
+                        </div>
+                        }
                     </p>
                 </div>
             </section>
