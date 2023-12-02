@@ -2,7 +2,7 @@ import '../../../../styles/members/ChcekOut_OrderAVC.css';
 import React, { useEffect, useState } from "react";
 import DaumPostcode from "react-daum-postcode";
 
-const ChcekOut_OrderAVC = ({ closeModal, props }) => {
+const ChcekOut_OrderAVC = ({ closeModal, props, setcompany, company  }) => {
     const [addressInfo, setAddressInfo] = useState({
         fullAddress: "",
         zonecode: "",
@@ -51,3 +51,4 @@ const ChcekOut_OrderAVC = ({ closeModal, props }) => {
 };
 
 export default ChcekOut_OrderAVC;
+
