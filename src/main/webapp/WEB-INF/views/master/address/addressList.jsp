@@ -37,8 +37,8 @@
 					<!-- <th>삭제</th> -->
 				</tr>
 				
-					<c:if test="${not empty requestScope.addressList}">
-						<c:forEach var="a" items="${requestScope.addressList}">
+					<c:if test="${not empty requestScope.orderDetailList}">
+						<c:forEach var="a" items="${requestScope.orderDetailList}">
 							<tr>
 								<td><a href="userList?user_id=${a.user_id}">${a.user_id}</a></td>
 								
