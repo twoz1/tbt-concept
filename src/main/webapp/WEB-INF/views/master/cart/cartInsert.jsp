@@ -10,7 +10,7 @@
 	<div id="master_wrap">
 		<%@ include file="../masterHeader.jsp"%>
 		<main id="master_main">
-			<div class="user_list master_list">
+			<div class="cart_list master_list">
 				<h2 class="master_title">장바구니 등록</h2>
 
 				<form action="cartInsert" method="Post">

@@ -25,7 +25,7 @@ public class CartController {
 
 	CartService cartService;
 
-	// =====================================================
+	// Insert =====================================================
 	@GetMapping("/cartInsert")
 	public void getCartInsert() {
 
@@ -34,9 +34,6 @@ public class CartController {
 	@PostMapping("/cartInsert")
 	public String postCartInsert(Cart entity, Model model, RedirectAttributes rttr) {
 
-		// 팝업창에 따라서 구현해야될 것 같음
-		// 장바구니로 이동하시겠습니까?
-		// Y -> 장바구니로 / N -> 현재 상태로 유지 (product_detail)
 		String uri = "redirect:cartList";
 
 		try {
@@ -54,7 +51,7 @@ public class CartController {
 		return uri;
 	}
 
-	// =====================================================
+	// List =====================================================
 
 	@GetMapping("/cartList")
 	public void getCartList(Model model) {

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>QnA 수정 | tbt_concept</title>
-<link rel="stylesheet" href="/resources/lib/css/cs/qna1on1.css" />
+<link rel="stylesheet" href="/resources/lib/css/cs/qna1on1Update.css" />
 <script src="/resources/lib/js/cs/axCS.js"></script>
 </head>
 <body>
