@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useModal from "../../../customHooks/useModal";
 import CheckOut_Modal from "../../../members/components/checkout/ChcekOut_Modal";
+import ChcekOut_OrderAVC from "../../../members/components/checkout/ChcekOut_OrderAVC";
 import DaumPostcode from 'react-daum-postcode';
 
 // 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
@@ -162,7 +163,14 @@ const Information = (props) => {
                                 placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
                                 required 
                                 />
-                              
+                                <button type='button'
+                                        onClick={() => {
+                                            openModal('ChcekOut_OrderAVC');
+                                        }}
+                                >
+                                    우편번호 찾기
+                                </button>
+                                {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />}
                                 <p>
                                     <input type="text" name="order_receiver_city" id="order_receiver_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
