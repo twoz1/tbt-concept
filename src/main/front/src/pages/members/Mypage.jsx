@@ -3,10 +3,15 @@ import MyOrderList from './components/Mypage/MyOrderList';
 import MyCouponList from './components/Mypage/MyCouponList';
 import MyWishList from './components/Mypage/MyWishList';
 import useScrollToTop from '../customHooks/useScrollToTop';
+import { useSelector } from 'react-redux';
 
 
 const Mypage = ({ order }) => {
     useScrollToTop();
+
+    //const loginUser = useSelector((state) => (state));
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+    console.log(loginUser);
     return (
         <div className="Mypage">
             <div className="center m_c">

@@ -1,7 +1,11 @@
 package com.tbtConcept.tbt.restController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +39,7 @@ public class UserRController {
 	}
 
 	@PostMapping(value = "/uJoin")
-	public int postUserJoin(HttpServletRequest request, Model model, @RequestBody User entity) {
+	public int postUserJoin(Model model, @RequestBody User entity) {
 		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
 		try {
 			if(userService.selectOne(entity.getUser_id()) == null && userService.save(entity) != null) {
@@ -47,6 +51,66 @@ public class UserRController {
 			log.info("** Join insert Exception => " + e.toString());
 			
 			return 0;
+		}
+	}
+	
+	@PostMapping(value = "/uLogin")
+	public User postUserLogin(@RequestBody User entity) {
+		
+		try {
+			String pw = entity.getUser_pw();
+	        User user = userService.selectOne(entity.getUser_id());
+			
+			
+			if(user != null && passwordEncoder.matches(pw, user.getUser_pw())) {
+				
+				return user;
+				
+			}else {
+				
+				return null;
+			}
+			
+		} catch (Exception e) {
+			log.info("** Login Exception => " + e.toString());
+			
+			return null;
+		}
+		
+
+	}
+	
+	
+	@PostMapping(value = "/uUser")
+	public boolean postUserLogin(HttpSession session, @RequestBody User entity) {
+		try {
+			System.out.println("넘어온 데이터"+entity);
+			String pw = entity.getUser_pw();
+			
+			entity = userService.selectOne(entity.getUser_id());
+			System.out.println("아이디에 맞는 데이터"+entity);
+			
+			
+			
+			if( entity != null && 
+				passwordEncoder.matches(pw, entity.getUser_pw())) {
+				
+				session.setAttribute("loginUser", entity.getUser_id());
+				session.setAttribute("loginName", entity.getUser_name());
+				
+				return true;
+				
+			}else {
+				
+				return false;
+				
+			}
+			
+			
+		} catch (Exception e) {
+			log.info("** Login Exception => " + e.toString());
+			
+			return false;
 		}
 	}
 

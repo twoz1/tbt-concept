@@ -2,42 +2,61 @@ import '../../styles/members/Login.css';
 import Sns from './components/Login/Sns';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import useScrollToTop from '../customHooks/useScrollToTop';
+import navigateTo from '../config/navigateTo';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../config/Configstore';
+
 const Login = () => {
     useScrollToTop();
 
     const [credentials, setCredentials] = useState({
-        email: '',
-        password: ''
+        user_id: '',
+        user_pw: ''
     });
 
-    const [loggedIn, setLoggedIn] = useState(false);
     const [emailMessage, setEmailMessage] = useState('');
 
+    const dispatch = useDispatch();
 
     const handleCredentialsChange = (e) => {
         const { name, value } = e.target;
+        setEmailMessage('');
         setCredentials((prevCredentials) => ({
             ...prevCredentials,
             [name]: value
         }));
     };
 
-    const changeButton = (event) => {
-        event.preventDefault();
+    const changeButton = (e) => {
+        e.preventDefault();
 
-        let matchedCredential = false;
+        axios
+            .post('/user/uLogin', {
+                user_id: credentials.user_id,
+                user_pw: credentials.user_pw,
+            })
+            .then((response) => {
 
+                if (response.data) {
+                    setEmailMessage('');
 
-        if (matchedCredential) {
-            setLoggedIn(true);
-            setEmailMessage('');
-            window.location.href = '/'; // 로그인 성공 시 페이지 이동
-        } else {
-            setLoggedIn(false);
-            setEmailMessage('아이디 또는 비밀번호가 일치하지 않습니다.');
-        }
+                    //dispatch(setUser(response.data));
+                    sessionStorage.setItem("loginUser", JSON.stringify(response.data));
+                    navigateTo("/");
+                } else {
+                    setEmailMessage("아이디와 비밀번호가 일치하지 않습니다.");
+                }
+
+            }).catch((err) => {
+                alert(`서버와의 통신에서 오류가 발생했습니다. => ${err.message}`);
+            });
+
     };
+
+
+
     return (
         <div>
             <div className="center m_c">
@@ -52,7 +71,7 @@ const Login = () => {
                     <hr />
                     <div className="member_log">
                         <div className="login_wrap">
-                            <form action="#" className="login" name="login">
+                            <form action="#" className="login" onSubmit={e => changeButton(e)}>
                                 <table className="log_input">
                                     <tbody>
                                         <tr>
@@ -60,8 +79,8 @@ const Login = () => {
                                             <td>
                                                 <label>
                                                     <input
-                                                        name="email"
-                                                        value={credentials.email}
+                                                        name="user_id"
+                                                        value={credentials.user_id}
                                                         onChange={handleCredentialsChange}
                                                         placeholder="&#64;까지 정확하게 입력해주세요."
                                                         required
@@ -76,8 +95,8 @@ const Login = () => {
                                                 <label>
                                                     <input
                                                         type="password"
-                                                        name="password"
-                                                        value={credentials.password}
+                                                        name="user_pw"
+                                                        value={credentials.user_pw}
                                                         maxLength="16"
                                                         minLength="8"
                                                         placeholder="영문+숫자 조합 8~16자리."
@@ -89,14 +108,7 @@ const Login = () => {
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button
-                                    onClick={changeButton}
-                                    onKeyDown={(e) => {
-
-                                    }}
-                                >
-                                    로그인
-                                </button>
+                                <button>로그인</button>
                             </form>
                             <div className="remember">
                                 <input className="user_remember" type="checkbox" />

@@ -84,6 +84,14 @@
 
 }
 
+#idDup {
+    margin-left: 5px;
+}
+
+#idDup:hover {
+    color: orangered;
+}
+
 .Join .join_table tr td p {
     font-size: 12px;
     color: gray;
