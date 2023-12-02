@@ -30,7 +30,4 @@ public class News {
 	@Column(nullable=false)
 	private String news_content;
 	
-	@Column(nullable=false)
-	private String faq_type;
-
 }

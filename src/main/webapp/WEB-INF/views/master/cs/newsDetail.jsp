@@ -26,7 +26,7 @@
 					<tr>
 						<th>내용</th>
 						<td>
-							${requestScope.newsDetail.faq_content}
+							${requestScope.newsDetail.news_content}
 						</td>
 					</tr>
 				</table>

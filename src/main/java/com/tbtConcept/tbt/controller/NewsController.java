@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tbtConcept.tbt.entity.Faq;
 import com.tbtConcept.tbt.entity.News;
 import com.tbtConcept.tbt.service.NewsService;
 
