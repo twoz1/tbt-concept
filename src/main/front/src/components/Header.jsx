@@ -2,14 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faBagShopping, faRightToBracket, faUserPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Header.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const Header = () => {
     const [loggedIn, setLoggedIn] = useState(false); // 로그인 상태를 저장하는 변수
 
-    // 로그인 혹은 로그아웃 버튼 클릭 시 상태 변환 함수
-    const handleLoginToggle = () => {
-        setLoggedIn(prevState => !prevState);
-    };
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+    useEffect(() => {
+        if (loginUser == null) {
+            setLoggedIn(false);
+        } else {
+            setLoggedIn(true);
+        }
+    }, [loginUser]);
+
     return (
         <div className="header">
             <div className="center h_c">
@@ -37,10 +42,10 @@ const Header = () => {
                             <span>MY</span>
                         </Link>
                     </li>
-                     {/* 아래의 조건부 렌더링으로 로그인/로그아웃 버튼을 변경합니다 */}
+                    {/* 아래의 조건부 렌더링으로 로그인/로그아웃 버튼을 변경합니다 */}
                     {loggedIn ? (
                         <li>
-                            <button onClick={handleLoginToggle}>
+                            <button>
                                 <FontAwesomeIcon icon={faSignOutAlt} className="fa-solid" />
                                 <span>LOGOUT</span>
                             </button>
