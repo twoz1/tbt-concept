@@ -38,7 +38,7 @@ const couponOptions = [
 ];
 
 
-const Checkout = () => {
+const Checkout = ({data,quantityGoods}) => {
 
     const [selectedCoupon, setSelectedCoupon] = useState(null);
 
@@ -64,7 +64,11 @@ const Checkout = () => {
                         <Title />
                         <form action="oListInsert"  id='oListInsert'>
                         <Information />
-                            <Item checkoutList={checkoutList} />
+                            <Item checkoutList={checkoutList}
+                            data={data}
+                            state={{
+                                quantityGoods: quantityGoods,
+                            }} />
                             <div className="discount">
                                 <h3>할인받기</h3>
                                 <table className="discount_table checkout_table">

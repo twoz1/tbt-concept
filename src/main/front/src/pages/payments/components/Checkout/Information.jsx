@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useModal from "../../../customHooks/useModal";
 import CheckOut_Modal from "../../../members/components/checkout/ChcekOut_Modal";
 import ChcekOut_OrderAVC from "../../../members/components/checkout/ChcekOut_OrderAVC";
+import DaumPostcode from 'react-daum-postcode';
 
 // 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
 function padZero(number) {
@@ -40,29 +41,10 @@ function generateOrderNumber() {
 }
 
 
-
-
-
 const Information = (props) => {
-    const [enroll_company, setEnroll_company] = useState({
-        address:'',
-    });
-    
-    const [popup, setPopup] = useState(false);
-    
-    const handleInput = (e) => {
-        setEnroll_company({
-            ...enroll_company,
-            [e.target.name]:e.target.value,
-        })
-    }
-    
-    const handleComplete = (data) => {
-        setPopup(!popup);
-    }
-    
-    
-    // ====================================================================================
+
+
+
 
 
     // 페이지 로드 시 자동으로 호출되는 함수
@@ -121,6 +103,15 @@ const Information = (props) => {
                             <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기"/>
                             </td>
                         </tr>
+                        <tr className='orderinput_hidden'>
+                            <td>
+                            <input type="text" name="address_name" id="address_name" />
+                            <input type="text" name="address_avc" id="address_avc" />
+                            <input type="text" name="address_city" id="address_city" />
+                            <input type="text" name="address_detail" id="address_detail" />
+                            <input type="text" name="address_phone_num" id="address_phone_num"/>
+                            </td>
+                        </tr>
                         
                         <tr>
                             <th>
@@ -176,19 +167,21 @@ const Information = (props) => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                {/* <input type="text" name="order_receiver_avc" id="order_receiver_avc" 
+                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" 
                                 minLength="5" maxLength="7" 
                                 placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
                                 required 
-                                value={addressInfo.zonecode}
-                                /> */}
-                           
-                                <input className="user_enroll_text" placeholder="주소"  type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
-                                <button onClick={handleComplete}>우편번호 찾기</button>
-                                {popup && <ChcekOut_OrderAVC company={enroll_company} setcompany={setEnroll_company}></ChcekOut_OrderAVC>}
+                                />
+                                <button type='button'
+                                        onClick={() => {
+                                            openModal('ChcekOut_OrderAVC');
+                                        }}
+                                >
+                                    우편번호 찾기
+                                </button>
                                 {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />}
                                 <p>
-                                    <input type="text" name="order_receiver_city" id="order_receiver_city" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="order_receiver_city" id="order_receiver_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
                                     <input type="text" name="order_receiver_detail" id="order_receiver_detail" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 </p>

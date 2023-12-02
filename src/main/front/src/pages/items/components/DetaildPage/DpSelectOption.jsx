@@ -1,10 +1,28 @@
 import usePricing from '../../../customHooks/usePricing';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useModal from '../../../customHooks/useModal';
 import Modal_gotobasket from './Modal_gotobasket';
+import axios from 'axios';
 
 const DpSelectOption = ({  product_name, product_price, product_img1  }) => {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('/product/pListDesc');
+                setData(response.data);
+                
+            } catch (err) {
+                alert(`** product db 연결 실패 => ${err.message}`);
+            }
+        };
+
+        fetchData();
+    }, []);
+
 
     const { openModal, closeModal, isModal } = useModal();
 
@@ -50,10 +68,10 @@ const DpSelectOption = ({  product_name, product_price, product_img1  }) => {
             </div>
 
             <div className="choice_button">
-                <Link to='/checkout' state={{
+                <Link to='/checkout' 
+                data={data}
+                state={{
                     quantityGoods: quantityGoods,
-                    price: product_price,
-                    imageFront: product_img1,
                 }}>바로 구매</Link>
                 <button className='gotoCart' onClick={() => openModal('gotoCartModal')}>쇼핑백 담기</button>
                 {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ItemInfo from './ItemInfo';
+import { Link } from 'react-router-dom';
 
 
-const Item = ({ checkoutList}) => {
+const Item = ({ checkoutList, data, quantityGoods}) => {
 
 
     return (
@@ -52,7 +53,24 @@ const Item = ({ checkoutList}) => {
                         <th>가격</th>
                     </tr>
 
-                    {checkoutList.map((item) => <ItemInfo key={item.name}{...item} />)}
+                    {/* {checkoutList.map((item) => <ItemInfo key={item.name}{...item} />)} */}
+                    {data && data.map((item) => (
+                    <tr key={item.product_id} className="itemComp">
+                            <td className="item_img">
+                            <Link to={`/detail/${item.product_id}`} key={item.product_id}>
+                                <img src={require(`../../../../images/${item.product_img1}`)} alt="상품" />
+                            </Link>
+                                <Link to={`/detail/${item.product_name}`}>
+                                    {item.product_name}
+                                </Link>
+                            </td>
+                            <td>
+                                {quantityGoods}
+                            </td>
+                            <td>
+                            <span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span>
+                            </td>
+                        </tr>))}
 
                     <tr>
                         <td colSpan="6">
