@@ -18,10 +18,12 @@ import Orderlist from './pages/members/Orderlist';
 import New_goods from './pages/items/New_goods';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
-import { NavLink, Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import mockItemsContext from './pages/items/MockItems';
 import axios from 'axios';
-
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { userReducer } from './pages/config/Configstore';
 
 
 const orderList = [
@@ -51,6 +53,13 @@ const orderList = [
     }
 ]
 
+const configstore = configureStore({
+    reducer: {
+        user: userReducer,
+
+    },
+
+});
 
 
 function App() {
@@ -76,61 +85,63 @@ function App() {
 
 
     return (
-        <div className="App">
-            <a href="http://localhost:8080/home">관리자Home ${data}</a>
-            <Header />
+        <Provider store={configstore}>
+            <div className="App">
+                <a href="http://localhost:8080/home">관리자Home ${data}</a>
+                <Header />
 
-            <Routes>
-                {/* ----------------고정 헤더의 링크-------- */}
-                <Route path='/' element={<Main />}></Route >
-                <Route path='/sunglasses' element={<Sunglasses />}></Route >
-                <Route path='/glasses' element={<Glasses />}></Route >
-                <Route path='/collection' element={<Collection />}></Route >
-                <Route path='/new' element={<New_goods />}></Route >
-                <Route path='/store' element={<Store />}></Route >
+                <Routes>
+                    {/* ----------------고정 헤더의 링크-------- */}
+                    <Route path='/' element={<Main />}></Route >
+                    <Route path='/sunglasses' element={<Sunglasses />}></Route >
+                    <Route path='/glasses' element={<Glasses />}></Route >
+                    <Route path='/collection' element={<Collection />}></Route >
+                    <Route path='/new' element={<New_goods />}></Route >
+                    <Route path='/store' element={<Store />}></Route >
 
-                <Route path='/cart/:product_id' element={<Basket mockItemsData={mockItemsData} />}></Route>
-                <Route path='/my' element={<Mypage order={order} />}></Route >
-                <Route path='/login' element={<Login />}></Route >
-                <Route path='/join' element={<Join />}></Route >
+                    <Route path='/cart/:product_id' element={<Basket mockItemsData={mockItemsData} />}></Route>
+                    <Route path='/my' element={<Mypage order={order} />}></Route >
+                    <Route path='/login' element={<Login />}></Route >
+                    <Route path='/join' element={<Join />}></Route >
 
-                {/* ----------------고정 헤더의 링크-------- */}
-                {/* ----------------고정 풋터의 링크-------- */}
+                    {/* ----------------고정 헤더의 링크-------- */}
+                    {/* ----------------고정 풋터의 링크-------- */}
 
-                <Route path='/cs' element={<CS_total />}></Route >
+                    <Route path='/cs' element={<CS_total />}></Route >
 
-                {/* ----------------고정 풋터의 링크-------- */}
-                {/* ----------------이지 링크투-------- */}
+                    {/* ----------------고정 풋터의 링크-------- */}
+                    {/* ----------------이지 링크투-------- */}
 
-                <Route path='/detail/:product_id' element={<DetailedPage />}></Route>
+                    <Route path='/detail/:product_id' element={<DetailedPage />}></Route>
 
-                {/* ----------------이지 링크투-------- */}
-                {/* ----------------진휘 링크투-------- */}
+                    {/* ----------------이지 링크투-------- */}
+                    {/* ----------------진휘 링크투-------- */}
 
-                <Route path='/checkout' element={<Checkout mockItemsData={mockItemsData} />}></Route>
-
-
-                {/* ----------------진휘 링크투-------- */}
-                {/* ----------------현주 링크투-------- */}
+                    <Route path='/checkout' element={<Checkout mockItemsData={mockItemsData} />}></Route>
 
 
-                <Route path='/resultframe' element={<ResultFrame />}></Route>
-                <Route path='/orderlist' element={<Orderlist order={order} />}></Route>
+                    {/* ----------------진휘 링크투-------- */}
+                    {/* ----------------현주 링크투-------- */}
 
 
-                {/* ----------------현주 링크투-------- */}
-                {/* ----------------찬미 링크투-------- */}
+                    <Route path='/resultframe' element={<ResultFrame />}></Route>
+                    <Route path='/orderlist' element={<Orderlist order={order} />}></Route>
 
 
-
-                {/* ----------------찬미 링크투-------- */}
+                    {/* ----------------현주 링크투-------- */}
+                    {/* ----------------찬미 링크투-------- */}
 
 
 
-            </Routes>
+                    {/* ----------------찬미 링크투-------- */}
 
-            <Footer />
-        </div>
+
+
+                </Routes>
+
+                <Footer />
+            </div>
+        </Provider>
     );
 }
 

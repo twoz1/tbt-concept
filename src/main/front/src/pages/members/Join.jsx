@@ -3,6 +3,7 @@ import useScrollToTop from '../customHooks/useScrollToTop';
 import JoinCheckbox from "./components/Join/JoinCheckbox";
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import navigateTo from "../config/navigateTo";
 
 const Join = () => {
 
@@ -170,7 +171,8 @@ const Join = () => {
                 .then((response) => {
                     console.log(response.data);
                     if (response.data > 0) {
-                        alert("회원가입 성공");
+                        alert("회원가입이 완료되었습니다.");
+                        navigateTo("/login");
                     } else {
                         alert("회원가입에 실패했습니다.");
                     }
@@ -217,24 +219,22 @@ const Join = () => {
                         <tr>
                             <th>이메일 아이디 <span className="point_color">&#42;</span></th>
                             <td>
-                                <label>
-                                    <input className="input_box"
-                                        id="user_id"
-                                        name="user_id"
-                                        value={email}
-                                        onChange={e => handleEmail(e)}
-                                        onKeyDown={(e) => {
-                                            if (!emailValid) {
-                                                if (e.key === 'Tab') {
-                                                    e.preventDefault();
-                                                    setEmail('');
-                                                }
+                                <input className="input_box"
+                                    id="user_id"
+                                    name="user_id"
+                                    value={email}
+                                    onChange={e => handleEmail(e)}
+                                    onKeyDown={(e) => {
+                                        if (!emailValid) {
+                                            if (e.key === 'Tab') {
+                                                e.preventDefault();
+                                                setEmail('');
                                             }
-                                        }}
-                                        placeholder="&#64;까지 정확하게 입력해주세요." required />
-                                    <button type="button" id="idDup" onClick={() => idDupCheck()}>ID중복확인</button>
-                                    <input type="hidden" id="user_birth" name="user_birth" value={new Date().toLocaleString()} />
-                                </label>
+                                        }
+                                    }}
+                                    placeholder="&#64;까지 정확하게 입력해주세요." required />
+                                <button type="button" id="idDup" onClick={() => idDupCheck()}>ID중복확인</button>
+                                <input type="hidden" id="user_birth" name="user_birth" value={new Date().toLocaleString()} />
                                 <div>
                                     <span>{emailMessage}</span>
                                 </div>
@@ -245,21 +245,19 @@ const Join = () => {
                         <tr>
                             <th>비밀번호 <span className="point_color">&#42;</span></th>
                             <td>
-                                <label>
-                                    <input className="input_box" type="password"
-                                        name="user_pw"
-                                        onChange={e => handlePw(e)}
-                                        placeholder="영문&#43;숫자&#43;특수문자 조합 8&#126;16자리"
-                                        onKeyDown={(e) => {
-                                            if (!pWValid) {
-                                                if (e.key === 'Tab') {
-                                                    e.preventDefault();
-                                                    setPw('');
-                                                }
+                                <input className="input_box" type="password"
+                                    name="user_pw"
+                                    onChange={e => handlePw(e)}
+                                    placeholder="영문&#43;숫자&#43;특수문자 조합 8&#126;16자리"
+                                    onKeyDown={(e) => {
+                                        if (!pWValid) {
+                                            if (e.key === 'Tab') {
+                                                e.preventDefault();
+                                                setPw('');
                                             }
-                                        }}
-                                        required />
-                                </label>
+                                        }
+                                    }}
+                                    required />
                                 <div>
                                     <span>{pwMessage}</span>
                                 </div>
@@ -269,19 +267,17 @@ const Join = () => {
                         <tr>
                             <th>비밀번호 확인 <span className="point_color">&#42;</span></th>
                             <td>
-                                <label>
-                                    <input className="input_box" type="password"
-                                        onChange={e => handleSecondPw(e)}
-                                        onKeyDown={(e) => {
-                                            if (!secondPwValid) {
-                                                if (e.key === 'Tab') {
-                                                    e.preventDefault();
-                                                    setSecondPw('');
-                                                }
+                                <input className="input_box" type="password"
+                                    onChange={e => handleSecondPw(e)}
+                                    onKeyDown={(e) => {
+                                        if (!secondPwValid) {
+                                            if (e.key === 'Tab') {
+                                                e.preventDefault();
+                                                setSecondPw('');
                                             }
-                                        }}
-                                        required />
-                                </label>
+                                        }
+                                    }}
+                                    required />
                                 <div>
                                     <span>{secondPwMessage}</span>
                                 </div>
@@ -291,14 +287,12 @@ const Join = () => {
                         <tr>
                             <th>이름 <span className="point_color">&#42;</span></th>
                             <td>
-                                <label>
-                                    <input className="input_box" type="text"
-                                        name="user_name"
-                                        value={userName}
-                                        onChange={e => handleUserName(e)}
-                                        placeholder="예&#41;홍길동"
-                                        required />
-                                </label>
+                                <input className="input_box" type="text"
+                                    name="user_name"
+                                    value={userName}
+                                    onChange={e => handleUserName(e)}
+                                    placeholder="예&#41;홍길동"
+                                    required />
                                 <div>
                                     <span>{userNameMessage}</span>
                                 </div>
