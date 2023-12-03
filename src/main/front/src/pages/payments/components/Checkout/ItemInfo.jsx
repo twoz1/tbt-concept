@@ -2,13 +2,12 @@ import usePricing from '../../../customHooks/usePricing';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ItemInfo = ({ name, quantity, price, imageFront }) => {
-
+const ItemInfo = ({ name, quantity, price, product_img1,}) => {
     return (
         <tr class="itemComp">
             <td className="item_img">
                 <Link to={`/detail/${name}`}>
-                    <img src={imageFront} alt={name} />
+                    <img src={product_img1} alt={name} />
                 </Link>
                 <Link to={`/detail/${name}`}>
                     {name}

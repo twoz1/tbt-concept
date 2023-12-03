@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import ItemInfo from './ItemInfo';
-import { Link } from 'react-router-dom';
+import s_bibiBeige_01 from '../../../../images/s_bibiBeige_01.jpg';
+import { Link, } from 'react-router-dom';
 
 
-const Item = ({ checkoutList, data, quantityGoods}) => {
 
+
+const Item = ({ updatedCheckoutList,product_img1,}) => {
+
+
+
+    updatedCheckoutList.forEach((item) => {
+        console.log("^^^^^^^^^^^",item.product_img1);
+    });
 
     return (
         <div className="item">
@@ -53,24 +61,56 @@ const Item = ({ checkoutList, data, quantityGoods}) => {
                         <th>가격</th>
                     </tr>
 
-                    {/* {checkoutList.map((item) => <ItemInfo key={item.name}{...item} />)} */}
-                    {data && data.map((item) => (
-                    <tr key={item.product_id} className="itemComp">
+                    <tr class="itemComp">
+                    {updatedCheckoutList.map((item) => (
+                        <td className="item_img" key={item.product_id}>
+                            <td>
+
+                        <Link to={`/detail/${item.product_id}`} key={item.product_id}>
+                            {/* <img src={require(`../../../../images/${item.product_img1}`)} alt="product_img1" /> */}
+                            <img src={item.product_img1}  />
+                        {console.log("객체",updatedCheckoutList)}
+                        {console.log("상품아이디",item.product_id)}
+                        {console.log("상품 이미지",item.product_img1)}
+                        {console.log("상품이름",item.product_name)}
+                        {console.log("상품 수량",item.quantityGoods)}
+                        {console.log("상품 가격",item.product_price)}
+                        </Link>
+                        <Link to={`/detail/${item.product_id}`} key={item.product_id}>
+                            <span>{item.product_name}</span>
+                        </Link>
+                            </td>
+                        
+                        <td>
+                            {item.quantityGoods}
+                        </td>
+                        <td>
+                            <span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span>
+
+                        </td>
+                        </td>
+                        ))}
+                    </tr>
+                    {/* {updatedCheckoutList.map((item) => (<ItemInfo key={item.id}{...item} />))}  */}
+                    {/* { data.slice(0,1).map((item) => (
+                        <tr key={item.product_id} className="itemComp">
                             <td className="item_img">
                             <Link to={`/detail/${item.product_id}`} key={item.product_id}>
                                 <img src={require(`../../../../images/${item.product_img1}`)} alt="상품" />
                             </Link>
-                                <Link to={`/detail/${item.product_name}`}>
-                                    {item.product_name}
-                                </Link>
+                            <Link to={`/detail/${item.product_id}`} key={item.product_id}>
+                                <span>{item.product_name}</span>
+                            </Link>
                             </td>
                             <td>
-                                {quantityGoods}
-                            </td>
+                                <span> {item.quantityGoods} </span>
+                                {/* {quantityGoods} */}
+                            {/* </td>
                             <td>
-                            <span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span>
+                                <span>{item.product_price ? item.product_price.toLocaleString() : '가격 정보 없음'}원</span>
                             </td>
-                        </tr>))}
+                        </tr>))}  */}
+                        
 
                     <tr>
                         <td colSpan="6">
