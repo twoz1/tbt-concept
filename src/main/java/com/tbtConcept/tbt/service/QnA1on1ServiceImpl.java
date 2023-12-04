@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.QnA1on1;
 import com.tbtConcept.tbt.repository.QnA1on1Repository;
 
@@ -43,4 +42,9 @@ public class QnA1on1ServiceImpl implements QnA1on1Service {
 		repository.deleteById(qna_id);
 		return qna_id;
 	}
+	
+	/*
+	 * @Override public Page<QnA1on1> pagination(int page, int size) { // TODO
+	 * Auto-generated method stub return null; }
+	 */
 }

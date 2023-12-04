@@ -8,20 +8,27 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.tbtConcept.tbt.entity.Cart;
+import com.tbtConcept.tbt.entity.CartId;
 
 @Repository
-public interface CartRepository extends JpaRepository<Cart, Integer> {
+public interface CartRepository extends JpaRepository<Cart, CartId> {
 
-	@Query("SELECT c FROM Cart c order by cart_id desc") // where절 추가하기 (user_id가 동일한 것)
-	List<Cart> findAllDesc();
+//	@Query("SELECT c FROM Cart c order by cart_id desc") // where절 추가하기 (user_id가 동일한 것)
+//	List<Cart> findAllDesc();
+//	
+//	@Query("SELECT c FROM Cart c WHERE c.user_id LIKE %:keyword%")
+//	List<Cart> searchByCartLikeU(@Param("keyword") String keyword);
+//	
+//	@Query("SELECT c FROM Cart c WHERE c.product_id LIKE %:keyword%")
+//	List<Cart> searchByCartLikeP(@Param("keyword") String keyword);
+//	
+//	@Query("SELECT c FROM Cart c WHERE c.user_id LIKE %:keyword% OR c.product_id LIKE %:keyword% OR c.cart_id LIKE %:keyword%")
+//	List<Cart> searchByCartLikeA(@Param("keyword") String keyword);
 	
-	@Query("SELECT c FROM Cart c WHERE c.user_id LIKE %:keyword%")
-	List<Cart> searchByCartLikeU(@Param("keyword") String keyword);
 	
-	@Query("SELECT c FROM Cart c WHERE c.product_id LIKE %:keyword%")
-	List<Cart> searchByCartLikeP(@Param("keyword") String keyword);
-	
-	@Query("SELECT c FROM Cart c WHERE c.user_id LIKE %:keyword% OR c.product_id LIKE %:keyword% OR c.cart_id LIKE %:keyword%")
-	List<Cart> searchByCartLikeA(@Param("keyword") String keyword);
+	@Query("select c from Cart c where c.user_id=:user_id")
+	List<Cart> perCartUser(@Param("user_id") String user_id);
 
+	@Query("update Cart c SET c.cart_quan = c.cart_quan + :cart_quan where c.user_id = :user_id and c.product_id = :product_id")
+	void updateCount(@Param("user_id") String user_id, @Param("product_id") int product_id, @Param("cart_quan") int cart_quan);
 }
