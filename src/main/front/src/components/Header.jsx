@@ -15,6 +15,13 @@ const Header = () => {
         }
     }, [loginUser]);
 
+
+    const logout = () => {
+
+        setLoggedIn(false);
+        sessionStorage.setItem("loginUser", null);
+    }
+
     return (
         <div className="header">
             <div className="center h_c">
@@ -45,7 +52,7 @@ const Header = () => {
                     {/* 아래의 조건부 렌더링으로 로그인/로그아웃 버튼을 변경합니다 */}
                     {loggedIn ? (
                         <li>
-                            <button>
+                            <button onClick={logout}>
                                 <FontAwesomeIcon icon={faSignOutAlt} className="fa-solid" />
                                 <span>LOGOUT</span>
                             </button>

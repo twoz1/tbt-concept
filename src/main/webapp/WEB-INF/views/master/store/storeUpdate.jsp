@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>지점 수정 | tbt_concept</title>
 <link rel="stylesheet" href="/resources/lib/css/store/storeInsert.css" />
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=690f7f693e4178058705e8916a0f3dc7&libraries=services"></script>
 <script src="/resources/lib/js/store/store.js"></script>
 </head>
 <body>
@@ -45,12 +46,12 @@
 
 						<tr>
 							<th>좌표 X</th>
-							<td><input type="text" name="store_x" id="store_x" value="${requestScope.storeDetail.store_x}"/></td>
+							<td><input type="text" name="store_x" id="store_x" value="${requestScope.storeDetail.store_x}" readonly/></td>
 						</tr>
 
 						<tr>
 							<th>좌표 Y</th>
-							<td><input type="text" name="store_y" id="store_y" value="${requestScope.storeDetail.store_y}"/></td>
+							<td><input type="text" name="store_y" id="store_y" value="${requestScope.storeDetail.store_y}" readonly/></td>
 						</tr>
 
 						<tr>
