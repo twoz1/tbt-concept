@@ -3,27 +3,11 @@ import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useModal from '../../../customHooks/useModal';
 import Modal_gotobasket from './Modal_gotobasket';
-import axios from 'axios';
-
-const DpSelectOption = ({  product_name, product_price, product_img1  }) => {
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('/product/pListDesc');
-                setData(response.data);
-                
-            } catch (err) {
-                alert(`** product db 연결 실패 => ${err.message}`);
-            }
-        };
-
-        fetchData();
-    }, []);
 
 
+const DpSelectOption = ({  product_name, product_price, product_img1, product_id }) => {
+
+    
     const { openModal, closeModal, isModal } = useModal();
 
     //const { product_name, product_price, product_img1 } = ProductListSelected;
@@ -39,7 +23,7 @@ const DpSelectOption = ({  product_name, product_price, product_img1  }) => {
     const heartIconStyle = {
         color: isLiked ? 'orangered' : 'gray'
     };
-    console.log(product_img1)
+    console.log(product_img1);
     return (
 
         <div className="choice">
@@ -68,11 +52,18 @@ const DpSelectOption = ({  product_name, product_price, product_img1  }) => {
             </div>
 
             <div className="choice_button">
-                <Link to='/checkout' 
-                data={data}
+                <Link to={`/checkout`} 
                 state={{
+                    product_id: product_id,
                     quantityGoods: quantityGoods,
-                }}>바로 구매</Link>
+                    product_name: product_name,
+                    product_img1: product_img1,
+                    product_price: product_price,
+                }} >바로 구매</Link>
+
+                
+
+                
                 <button className='gotoCart' onClick={() => openModal('gotoCartModal')}>쇼핑백 담기</button>
                 {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}
                 <button className="likedItem" onClick={likedItem} >

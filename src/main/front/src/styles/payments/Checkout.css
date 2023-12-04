@@ -111,11 +111,12 @@
 .item_table tbody .itemComp .item_img {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 .item_table tbody .itemComp .item_img a {
     display: inline-block;
-    margin-left: 30px;
+    /* margin-left: 30px; */
 }
 
 .item_table tbody .itemComp .item_img a img {
