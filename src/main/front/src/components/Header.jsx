@@ -3,6 +3,7 @@ import { faSearch, faUser, faBagShopping, faRightToBracket, faUserPlus, faSignOu
 import '../styles/components/Header.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import navigateTo from '../pages/config/navigateTo';
 const Header = () => {
     const [loggedIn, setLoggedIn] = useState(false); // 로그인 상태를 저장하는 변수
 
@@ -20,6 +21,8 @@ const Header = () => {
 
         setLoggedIn(false);
         sessionStorage.setItem("loginUser", null);
+        navigateTo("/");
+
     }
 
     return (

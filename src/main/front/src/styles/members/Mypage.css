@@ -28,10 +28,11 @@ h3 {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 1px solid #000;
+    background-color: #000;
     display: inline-block;
     position: relative;
     vertical-align: middle;
+    margin-right: 10px;
 }
 
 .member_left .round span {
@@ -40,6 +41,25 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.member_left .round span.WHITE {
+    color: white;
+}
+
+.member_left .round span.SILVER {
+    color: silver;
+}
+
+.member_left .round span.GOLD {
+    color: #d2b823
+}
+
+.member_left .round span.DIAMOND {
+    color: #e3f6ff;
+    font-size: 18px;
 }
 
 .member_left p {
@@ -97,12 +117,13 @@ h3 {
 /*회원정보 끝*/
 
 /*_list 시작*/
-.cover > table{
+.cover>table {
     width: 100%;
     border: solid #000;
     border-width: 2px 0;
     text-align: center;
 }
+
 /* 관심상품 */
 
 .wishlist i {

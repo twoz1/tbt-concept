@@ -13,8 +13,8 @@
 			<li><a href="#">회원관리</a>
 				<ul>
 					<li><a href="/master/user/userList">회원목록</a></li>
+					<li><a href="/master/coupon/couponList">쿠폰관리</a></li>
 					<li><a href="">리뷰관리</a></li>
-					<li><a href="">등급관리</a></li>
 					<li><a href="/master/address/addressList">주소관리</a></li>
 				</ul>
 			</li>

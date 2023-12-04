@@ -204,7 +204,7 @@ const Join = () => {
 
                 <form action="/user/uJoin" method="post" onSubmit={e => { clickJoin(e) }}>
                     <div className="required_entry">
-                        <p>필수 입력항목<span className="point_color">&#42;</span></p>
+                        <p>필수 입력항목 <span className="point_color">&#42;</span></p>
                     </div>
 
                     {/* =============================================================================================================================================== */}
