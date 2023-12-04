@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>News 상세 | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/cs/newsDetail.css" />
 </head>
 <body>
 <div id="master_wrap">

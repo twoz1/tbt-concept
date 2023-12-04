@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.qna1on1_list{
+	min-width:530px;
+}
+
+.qna1on1_list table {
+	width:100%;
+}
+
+.qna1on1_list table th:nth-child(1) {
+	width:5%;
+}
+
+.qna1on1_list table th:nth-child(2) {
+	width:5%;
+}
+
+.qna1on1_list table th:nth-child(3) {
+	width:10%;
+}
+
+.qna1on1_list table th:nth-child(4) {
+	width:15%;
+}
+
+.qna1on1_list table th:nth-child(5) {
+	width:30%;
+}
+
+.qna1on1_list table th:nth-child(6) {
+	width:5%;
+}
+
+.qna1on1_list table th:nth-child(7) {
+	width:10%;
+}
+
+.qna1on1_list table th:nth-child(8) {
+	width:10%;
+}
+
+.qna1on1_list #hiddenContentsQ {
+	width:700px;
+    display:inline-block;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -8,6 +8,7 @@
 <title>QnA 리스트 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/cs/axCS.js"></script>
+<link rel="stylesheet" href="/resources/lib/css/cs/qna1on1List.css" />
 </head>
 <body>
 	<div id="master_wrap">
@@ -37,7 +38,7 @@
 								<td>${q.qna_type}</td>
 								<td>${q.product_id}</td>
 								<td>${q.user_id}</td>
-								<td><a href="qna1on1Update?qna_id=${q.qna_id}">${q.qna_title}</a></td>
+								<td><a href="qna1on1Update?qna_id=${q.qna_id}" id="hiddenContentsQ">${q.qna_title}</a></td>
 								<td>${not empty q.qna_answer ? 'Y' : 'N'}</td>
 								<td><a href="qna1on1Update?qna_id=${q.qna_id}">상세보기</a></td>
 								<td><button onclick="axQnA1on1Delete(${q.qna_id})" id="${q.qna_id}">삭제</button></td>

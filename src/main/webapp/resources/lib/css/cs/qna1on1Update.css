@@ -5,6 +5,10 @@
 	padding: 10px 0;
 }
 
+.qna1on1_update {
+	width:700px;
+}
+
 .qna1on1_update img{
 	display:block;
 	width:100px;
@@ -14,7 +18,7 @@
 }
 
 .qna1on1_update textarea{
-	width:300px;
+	width:600px;
 	height:180px;
 	resize:none;
 }

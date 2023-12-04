@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
-#master_wrap .faq_insert tr:last-child td{
+#master_wrap .faq_update tr:last-child td{
 	border:none;
 	padding: 10px 0;
 }
 
-.faq_insert {
+.faq_update {
 	width:700px;
 }
 
-.faq_insert textarea{
+.faq_update textarea{
 	width:600px;
 	height:180px;
 	resize:none;

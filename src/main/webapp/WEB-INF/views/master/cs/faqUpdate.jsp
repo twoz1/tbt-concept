@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ 수정 | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/cs/faqUpdate.css" />
 </head>
 <body>
 <div id="master_wrap">
@@ -56,7 +57,7 @@
 						<tr>
 							<td colspan="2">
 								<button type="reset">초기화</button>
-								<button type="submit">등록</button>
+								<button type="submit">수정</button>
 							</td>
 						</tr>
 					</table>

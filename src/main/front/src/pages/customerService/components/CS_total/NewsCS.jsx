@@ -43,7 +43,7 @@ const NewsCS = () => {
                         {isModal(`nModal${n.news_id}`) && <div className="modal_cover">
                             <div className="pop_CS">
                                 <div>
-                                    <span>&#91;안내&#93; 사이트 점검으로 인한 서비스 일시중지</span>
+                                    <span>&#91;안내&#93; {n.news_title}</span>
                                     <div className="d-flex">
                                         <p>{n.news_content}</p>
                                     </div>

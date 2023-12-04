@@ -37,7 +37,7 @@
 								<td>
 									${f.faq_type}
 								</td>
-								<td><a href="faqDetail?faq_id=${f.faq_id}" class="f_contentW" id="hiddenContents">${f.faq_content}</a></td>
+								<td><a href="faqDetail?faq_id=${f.faq_id}" class="f_contentW" id="hiddenContentsF">${f.faq_content}</a></td>
 								<td>
 									<a href="faqDetail?faq_id=${f.faq_id}">상세보기</a>
 								</td>
