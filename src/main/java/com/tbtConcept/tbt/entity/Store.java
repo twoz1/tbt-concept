@@ -27,7 +27,7 @@ public class Store {
 	
 	@Column(nullable = false)
 	private String store_tel;
-	private Double store_x;
-	private Double store_y;
+	private String store_x;
+	private String store_y;
 	
 }
