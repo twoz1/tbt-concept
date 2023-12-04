@@ -10,28 +10,10 @@ import g_antonCrystal_01 from '../../images/g_antonCrystal_01.jpg';
 import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 
 
 //임의의 상품 목록
-const checkoutList = [
-    {
-        id: 0,
-        product_id : 5,
-        product_name: 'Andy Brown Crystal',
-        product_price: 162000,
-        quantityGoods: 2,
-        product_img1: g_andyBrownCrystal_01
-    },
-    {
-        id: 1,
-        product_id : 6,
-        product_name: 'Anton Crystal',
-        product_price: 81000,
-        quantityGoods: 1,
-        product_img1: g_antonCrystal_01,
-    }
-]
+const checkoutList = []
 
 //임의의 쿠폰 목록
 const couponOptions = [
@@ -44,7 +26,7 @@ const couponOptions = [
 const Checkout = ({}) => {
     
     const location = useLocation();
-    const { quantityGoods, product_name, product_img1, product_price, product_id} = location.state;
+    const { quantityGoods, product_name, product_img1, product_price, product_id,} = location.state;
 
     const newProduct = {
         id: checkoutList.length, // 아이디는 현재 배열 길이로 설정하거나 다른 방식으로 유니크한 값 생성
@@ -57,21 +39,6 @@ const Checkout = ({}) => {
     
     const updatedCheckoutList = [...checkoutList, newProduct];
 
-    const [data, setData] = useState([]);
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('/product/pListDesc');
-                setData(response.data);
-                
-            } catch (err) {
-                alert(`** product db 연결 실패 => ${err.message}`);
-            }
-        };
-    
-        fetchData();
-    }, []);
 
     const [selectedCoupon, setSelectedCoupon] = useState(null);
     
@@ -85,8 +52,18 @@ const Checkout = ({}) => {
 
     
     //총 상품금액 (DB연결 후 재구현 예정)
-    const totalPrice = (checkoutList[0].price * checkoutList[0].quantity)
-    + (checkoutList[1].price * checkoutList[1].quantity);
+    const calculateTotalPrice = (items) => {
+        let totalPrice = 0;
+      
+        for (let i = 0; i < items.length; i++) {
+          totalPrice += items[i].product_price * items[i].quantityGoods;
+        }
+        return totalPrice;
+      };
+    const totalPrice = calculateTotalPrice(updatedCheckoutList);
+
+    // const totalPrice = (checkoutList[0].price * checkoutList[0].quantity)
+    // + (checkoutList[1].price * checkoutList[1].quantity);
     // const totalPrice2 = (newProduct[0].price * newProduct[0].quantity)
     //     + (newProduct[1].price * newProduct[1].quantity);
     
@@ -118,7 +95,6 @@ const Checkout = ({}) => {
                                                 </select>
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
                             </div>

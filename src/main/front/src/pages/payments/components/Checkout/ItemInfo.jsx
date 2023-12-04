@@ -17,7 +17,7 @@ const ItemInfo = ({ name, quantity, price, product_img1,}) => {
                 {quantity}
             </td>
             <td>
-                <span>{price.toLocaleString()}원</span>
+                <span>{price}원</span>
             </td>
         </tr>
     );
