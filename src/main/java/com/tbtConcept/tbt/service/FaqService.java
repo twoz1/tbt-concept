@@ -13,4 +13,5 @@ public interface FaqService {
 	int save(Faq entity);
 	
 	int delete(int faq_id);
+	
 }

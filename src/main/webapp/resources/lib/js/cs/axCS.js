@@ -15,7 +15,7 @@ function axQnA1on1Delete(id) {
 		).then(response => {
 			alert("삭제되었습니다.");
 			location.reload();
-			
+
 		}).catch(err => {
 			if (err.response && err.response.status === 502) {
 				alert("[QnA1on1 삭제 오류]" + err.response.data);
@@ -37,7 +37,7 @@ function axFaqDelete(id) {
 		).then(response => {
 			alert("삭제되었습니다.");
 			location.reload();
-			
+
 		}).catch(err => {
 			if (err.response && err.response.status === 502) {
 				alert("[FAQ 삭제 오류]" + err.response.data);
@@ -59,7 +59,7 @@ function axNewsDelete(id) {
 		).then(response => {
 			alert("삭제되었습니다.");
 			location.reload();
-			
+
 		}).catch(err => {
 			if (err.response && err.response.status === 502) {
 				alert("[FAQ 삭제 오류]" + err.response.data);
@@ -71,4 +71,13 @@ function axNewsDelete(id) {
 		alert("취소되었습니다.");
 	}
 }
+
+/*================== Pagination ==================*/
+
+
+
+
+
+
+
 

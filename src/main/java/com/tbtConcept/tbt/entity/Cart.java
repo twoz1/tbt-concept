@@ -1,10 +1,10 @@
 package com.tbtConcept.tbt.entity;
 
-import javax.persistence.Column;
+import java.io.Serializable;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,18 +18,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cart {
+@IdClass(CartId.class)
+public class Cart implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cart_id;
-	
-	@Column(nullable=false)
 	private String user_id;
 	
-	@Column(nullable=false)
+	@Id
 	private int product_id;
 	
 	private int cart_quan;
-	
+
 }
