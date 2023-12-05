@@ -31,6 +31,7 @@
             <table>
               	<tr>
 					<th>회원 ID</th>
+					<th>회원 ID</th>
 					<th>받는 사람</th>
 					<th>휴대폰 번호</th>
 					<th>주소</th>
@@ -40,6 +41,7 @@
 					<c:if test="${not empty requestScope.addressList}">
 						<c:forEach var="a" items="${requestScope.addressList}">
 							<tr>
+								<td>${a.duplicate_user_id}</td>
 								<td>${a.user_id}</td>
 								<td>${a.address_name}</td>
 								<td>${a.address_phone_num}</td>
