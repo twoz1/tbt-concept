@@ -44,7 +44,7 @@ public class OrderListController {
 		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
 		model.addAttribute("orderDetailList", dorderService.findAllDesc());
 		
-		if ("U".equals(request.getParameter("jCode"))) {
+		if ("O".equals(request.getParameter("jCode"))) {
 			return "master/order/orderListUpdate";
 		} else {
 			return "master/order/orderListDetail";
@@ -91,11 +91,11 @@ public class OrderListController {
 		      try {
 		         log.info("** updat 성공 id => " + orderService.save(entity));
 		         session.setAttribute("loginName", entity.getOrder_id());
-		         model.addAttribute("message", "~~ 회원정보 수정 성공 ~~");
+		         model.addAttribute("message", "~~ 주문정보 수정 성공 ~~");
 		      } catch (Exception e) {
 		         log.info("** update Exception => "+e.toString());
-		         model.addAttribute("message", "~~ 회원정보 수정 실패 !! 다시 하세요 ~~");
-		         uri="master/user/userUpdate";
+		         model.addAttribute("message", "~~ 주문정보 수정 실패 !! 다시 하세요 ~~");
+		         uri="master/order/orderListUpdate";
 		      }
 
 		      return uri;

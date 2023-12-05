@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>주문 상테 업데이트 | tbt_concept</title>
 <script>
 function typeChange() {
     let order_stateChange = "입금완료";
@@ -51,7 +52,7 @@ function changeDelNumber() {
 		<%@ include file="../masterHeader.jsp"%>
 		<main id="master_main">
 			<div class="user_list master_list">
-				<h2 class="master_title">회원 리스트</h2>
+				<h2 class="master_title">주문 상테 업데이트</h2>
 				<form action="orderListUpdate" method="Post">
 					<table>
 						<tr>
@@ -70,8 +71,7 @@ function changeDelNumber() {
 							<td><input type="hidden" name="order_date" id="order_date"
 								required readonly
 								value="${requestScope.orderListDetail.order_date}" />
-							${requestScope.orderListDetail.order_date}	
-							</td>
+								${requestScope.orderListDetail.order_date}</td>
 						</tr>
 						<tr>
 							<th>받는사람</th>
@@ -107,10 +107,9 @@ function changeDelNumber() {
 						</tr>
 						<tr>
 							<th>배송메시지</th>
-							<td>
-							<input type="text" name="order_message"
+							<td><input type="text" name="order_message"
 								id="order_message" required
-								value="${requestScope.orderListDetail.order_message}" readonly/>
+								value="${requestScope.orderListDetail.order_message}" readonly />
 							</td>
 						</tr>
 						<tr>
@@ -140,11 +139,9 @@ function changeDelNumber() {
 						</tr>
 						<tr>
 							<th>입금상태</th>
-							<td>
-							<input type="text" name="order_state"
-								id="order_state" required readonly
-								value="${requestScope.orderListDetail.order_state}" />
-							<%-- <select name="order_state" id="order_state" required
+							<td><input type="text" name="order_state" id="order_state"
+								required readonly
+								value="${requestScope.orderListDetail.order_state}" /> <%-- <select name="order_state" id="order_state" required
 								value="${requestScope.orderListDetail.order_state}">
 									<option value="입금대기">입금대기</option>
 									<option value="입금완료">임급완료</option>
@@ -152,11 +149,9 @@ function changeDelNumber() {
 						</tr>
 						<tr>
 							<th>배송상태</th>
-							<td>
-							<input type="text" name="order_del_state"
+							<td><input type="text" name="order_del_state"
 								id="order_del_state" required readonly
-								value="${requestScope.orderListDetail.order_del_state}" />
-							<%-- <select name="order_del_state" id="order_del_state"
+								value="${requestScope.orderListDetail.order_del_state}" /> <%-- <select name="order_del_state" id="order_del_state"
 								required value="${requestScope.orderListDetail.order_del_state}">
 									<option value="배송대기">배송대기</option>
 									<option value="배송중">배송중</option>
@@ -173,12 +168,51 @@ function changeDelNumber() {
 							<td colspan="2">
 								<button type="reset">초기화</button>
 								<button type="submit">등록</button>
-							<button type="button" onclick="typeChange()">입금완료</button>
-							<!-- <button type="button" onclick="typeChange()">배송중</button> -->
-							<button type="button" onclick="typeChange()">배송완료</button>
-							<button type="button" onclick="changeDelNumber()">송장번호 입력</button>
+								<button type="button" onclick="typeChange()">입금완료</button> <!-- <button type="button" onclick="typeChange()">배송중</button> -->
+								<button type="button" onclick="typeChange()">배송완료</button>
+								<button type="button" onclick="changeDelNumber()">송장번호
+									입력</button>
 							</td>
 						</tr>
+					</table>
+					<table>
+						<tr>
+							<th>주문번호</th>
+							<th>개별주문번호</th>
+							<th>상품ID</th>
+							<th>수량</th>
+							<th>가격</th>
+							<th>리뷰상태</th>
+						</tr>
+						<c:if test="${not empty requestScope.orderDetailList}">
+							<c:forEach var="od" items="${requestScope.orderDetailList}">
+								<tr>
+									<td>
+										${od.order_id}
+									</td>
+									<td>
+										${od.order_detail_id}
+										<input type="text" name="order_detail_id" id="order_detail_id" value="${od.order_detail_id}" required />
+									</td>
+									<td>
+										${od.product_id}
+										<input type="text" name="product_id" id="product_id" value="${od.product_id}" required />
+									</td>
+									<td>
+										${od.order_quan}
+										<input type="text" name="order_quan" id="order_quan" value="${od.order_quan}" required />
+									</td>
+									<td>
+										${od.order_price}
+										<input type="text" name="order_price" id="order_price" value="${od.order_price}" required />
+									</td>
+									<td>
+										${od.review_state}
+										<input type="text" name="review_state" id="review_state" value="${od.review_state}" required />
+									</td>
+								</tr>
+							</c:forEach>
+						</c:if>
 					</table>
 				</form>
 			</div>
