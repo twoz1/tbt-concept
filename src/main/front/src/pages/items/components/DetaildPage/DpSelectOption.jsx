@@ -94,9 +94,6 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
                         product_price: product_price,
                     }} >바로 구매</Link>
 
-                    
-
-                    
                     <button className='gotoCart'>쇼핑백 담기</button>
                     {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}
                     <button type="button" className="likedItem" onClick={likedItem} >

@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
+import com.tbtConcept.tbt.entity.Product;
 
 public interface CartService {
 //	@Transactional
@@ -22,8 +24,7 @@ public interface CartService {
 //	@Transactional
 //	List<Cart> searchByCartLikeA(String keyword);
 
-	@Transactional
-	List<Cart> perCartUser(String user_id);
+	List<CartProdDTO> perCartUser(String user_id);
 
 	Cart selectDetail(CartId cart_id);
 

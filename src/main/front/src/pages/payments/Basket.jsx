@@ -1,15 +1,39 @@
 import '../../styles/payments/Basket.css';
 import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
-import { useState, useMemo, useEffect } from 'react';
-import mockItemsContext from '../items/MockItems';
-// import usePricing from "../customHooks/usePricing";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const Basket = ({ mockItemsData }) => {
+const Basket = () => {
 
-    const cartList = mockItemsData.slice(0, 4);
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+    
+    // 장바구니에 담긴 DB 요청 (cart, product Join)
+    const [cartUserList, setCartUserList] = useState([]);
+
+    useEffect(() => {
+        let url = "/rCart/cpJList/" + loginUser.user_id;
+            
+        axios.get(url).then(response => {
+            setCartUserList(response.data);
+            console.log("고객당 Cart 출력 성공" + response.data);
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[Cart 입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[Cart 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
+    }, []);
+
+
+    const cartList = cartUserList;
+    console.log(cartList);
+
     const [checkItems, setCheckItems] = useState([]);
     const [cartItems, setCartItems] = useState(cartList);
+    
+    console.log(cartItems);
 
     //체크박스 구현============================
     const handleAllCheck = (checked) => {

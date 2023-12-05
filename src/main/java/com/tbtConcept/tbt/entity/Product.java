@@ -57,4 +57,8 @@ public class Product {
 	@Transient
 	private MultipartFile product_img4f;
 
+	public int getId() {
+		return product_id;
+	}
+
 }
