@@ -12,8 +12,8 @@ const CouponDownload = ({ coupon_id, coupon_name, coupon_disc, loginUser }) => {
             .post('/coupon/cInsert', {
                 coupon_id: coupon_id,
                 user_id: loginUser.user_id,
-                coupon_start: new Date().toLocaleSt
-                coupon_end: new Date().setFullYear(new Date().getFullYearring(), () + 1),
+                coupon_start: new Date().toLocaleString(),
+                coupon_end: new Date().setFullYear(new Date().getFullYearring() + 1),
             })
             .then((response) => {
                 console.log(response.data);
