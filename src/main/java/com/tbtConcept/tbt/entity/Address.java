@@ -22,26 +22,29 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int duplicate_user_id;
-	
-	@Column(nullable=false)
-	private String user_id;
-	
-	@Column(nullable=false)
-	private String address_name;
-	
-	@Column(nullable=false)
-	private String address_avc;
-	
-	@Column(nullable=false)
-	private String address_city;
-	
-	private String address_detail;
-	
-	@Column(nullable=false)
-	private String address_phone_num;
-	
-	
+
+   @Id
+   private int duplicate_user_id;
+   
+   @Column(nullable=false)
+   private String user_id;
+   
+   @Column(nullable=false)
+   private String address_name;
+   
+   @Column(nullable=false)
+   private String address_avc;
+   
+   @Column(nullable=false)
+   private String address_city;
+   
+   private String address_detail;
+   
+   @Column(nullable=false)
+   private String address_phone_num;
+   
+   private String order_message;
+   
+   
 }
+

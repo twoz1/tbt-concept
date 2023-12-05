@@ -42,6 +42,7 @@ function generateOrderNumber() {
 }
 
 
+
 const Information = (props) => {
 
 
@@ -123,16 +124,7 @@ const Information = (props) => {
                             <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기"/>
                             </td>
                         </tr>
-                        <tr className='orderinput_hidden'>
-                            <td>
-                            <input type="text" name="address_name" id="address_name" />
-                            <input type="text" name="address_avc" id="address_avc" />
-                            <input type="text" name="address_city" id="address_city" />
-                            <input type="text" name="address_detail" id="address_detail" />
-                            <input type="text" name="address_phone_num" id="address_phone_num"/>
-                            </td>
-                        </tr>
-                        
+
                         <tr>
                             <th>
                                 배송지 선택 <span>&#42;</span>
@@ -149,12 +141,12 @@ const Information = (props) => {
                                 <button 
                                         type="button"
                                         onClick={() => {
-                                            openModal('checkoutModal');
+                                            // openModal('checkoutModal');
                                         }}
                                         >
                                         주소록
                                 </button>
-                                {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} addressList={addressList} />}
+                                {/* {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} addressList={addressList} />} */}
                                 
                             </td>
                          
@@ -164,7 +156,7 @@ const Information = (props) => {
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
-                                <input type="text" name="order_receiver" id="order_receiver"  placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="address_name" id="address_name"  placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                             </td>
                         </tr>
                         <tr>
@@ -172,15 +164,15 @@ const Information = (props) => {
                                 휴대폰 번호 <span>&#42;</span>
                             </th>
                             <td className="receiver_phone">
-                                <select name="order_receiver_phone_num" id="order_receiver_phone_num" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}>
+                                <select name="address_phone_num" id="address_phone_num" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}>
                                     <option value="010">010</option>
                                     <option value="011">011</option>
                                     <option value="070">070</option>
                                 </select>
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="3" name="order_receiver_phone_num" id="order_receiver_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="4" name="order_receiver_phone_num" id="order_receiver_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="4" name="address_phone_num" id="address_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
                             </td>
                         </tr>
                         <tr>
@@ -188,7 +180,7 @@ const Information = (props) => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                <input type="text" name="order_receiver_avc" id="order_receiver_avc" 
+                                <input type="text" name="address_avc" id="address_avc" 
                                 minLength="5" maxLength="7" 
                                 placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
                                 required 
@@ -202,21 +194,16 @@ const Information = (props) => {
                                 </button>
                                 {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />}
                                 <p>
-                                    <input type="text" name="order_receiver_city" id="order_receiver_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="address_city" id="address_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
-                                    <input type="text" name="order_receiver_detail" id="order_receiver_detail" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="address_detail" id="address_detail" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <th>배송 메시지</th>
                             <td className="message">
-                                <select name="order_message" id="order_message" >
-                                        <option value="">선택</option>
-                                        <option value="문앞">문앞</option>
-                                        <option value="조심히">조심히</option>
-                                        <option value="경비실">경비실에 맡김</option>
-                                </select>
+                                <input type="text" name="order_message" id="order_message" />
                             </td>
                         </tr>
                     </tbody>

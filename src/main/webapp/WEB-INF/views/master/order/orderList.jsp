@@ -17,37 +17,37 @@
             <h2 class="master_title">주문 리스트</h2>
             <a class="m_button l_button" href="/master/order/orderListInsert">주문등록</a>
             <table>
-            	<tr>
-            		<th>주문번호</th>
-            		<th>회원 ID</th>
-            		<th>주문일자</th>
-            		<th>받는사람</th>
-            		<th>주소</th>
-            		<th>총결제금액</th>
-            		<th>입금상태</th>
-            		<th>배송상태</th>
-            		<th>상세보기</th>
-            	</tr>
-            	<c:if test="${not empty requestScope.orderList}">
-            		<c:forEach var="o" items="${requestScope.orderList}">
-            			<tr>
-            				<td><a href="orderListDetail?order_id=${o.order_id}">${o.order_id}</a></td>
-            				<td>${o.user_id}</td>
-            				<td>${o.order_date}</td>
-            				<td>${o.order_receiver}</td>
-            				<td>
-            					${o.order_receiver_avc}
-            					${o.order_receiver_city}
-            					${o.order_receiver_detail}
-            				</td>
-            				<td>${o.order_total_price}</td>
-            				<td>${o.order_state}</td>
-            				<td>${o.order_del_state}</td>
-            				<td><a href="orderListDetail?order_id=${o.order_id}">상세보기</a></td>
-            				<td><button onclick="axOrderDelete('${o.order_id}')" id="${o.order_id}">삭제</button></td>
-            			</tr>
-            		</c:forEach>
-            	</c:if>
+               <tr>
+                  <th>주문번호</th>
+                  <th>회원 ID</th>
+                  <th>주문일자</th>
+                  <th>받는사람</th>
+                  <th>주소</th>
+                  <th>총결제금액</th>
+                  <th>입금상태</th>
+                  <th>배송상태</th>
+                  <th>상세보기</th>
+               </tr>
+               <c:if test="${not empty requestScope.orderList}">
+                  <c:forEach var="o" items="${requestScope.orderList}">
+                     <tr>
+                        <td><a href="orderListDetail?order_id=${o.order_id}">${o.order_id}</a></td>
+                        <td>${o.user_id}</td>
+                        <td>${o.order_date}</td>
+                        <td>${o.address_name}</td>
+                        <td>
+                           ${o.address_avc}
+                           ${o.address_city}
+                           ${o.address_detail}
+                        </td>
+                        <td>${o.order_total_price}</td>
+                        <td>${o.order_state}</td>
+                        <td>${o.order_del_state}</td>
+                        <td><a href="orderListDetail?order_id=${o.order_id}">상세보기</a></td>
+                        <td><button onclick="axOrderDelete('${o.order_id}')" id="${o.order_id}">삭제</button></td>
+                     </tr>
+                  </c:forEach>
+               </c:if>
             </table>
          </div>
       </main>
