@@ -9,27 +9,43 @@ const Sns = () => {
     };
     // --------------------------------------------- KAKAO
 
+
+
+
     // --------------------------------------------- GOOGLE
-    useEffect(() => {
-        let naverLogin = new window.naver.LoginWithNaverId({
-            clientId: 'Ow51S9QIj9Op03c56Ssu',
-            callbackUrl: `http://localhost:3000`,
-            loginButton: { color: 'green', type: 1, height: '50' },
-        });
-        naverLogin.init();
-        naverLogin.logout();
-        try {
-            naverLogin.getLoginStatus((status) => {
-                if (status) {
-                    console.log(naverLogin.user);
-                }
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    }, []);
+
+    // useEffect(() => {
+    //     let naverLogin = new window.naver.LoginWithNaverId({
+    //         clientId: 'Ow51S9QIj9Op03c56Ssu',
+    //         callbackUrl: `http://localhost:3000`,
+    //         loginButton: { color: 'green', type: 1, height: '50' },
+    //     });
+    //     naverLogin.init();
+    //     naverLogin.logout();
+    //     try {
+    //         naverLogin.getLoginStatus((status) => {
+    //             if (status) {
+    //                 console.log(naverLogin.user);
+    //             }
+    //         });
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }, []);
+
+  
+    const handle = {
+            clickNaverLogin: () => {
+                const clientId = 'Ow51S9QIj9Op03c56Ssu'; // 앱 키 중 Client ID
+                const redirectUri = 'http://localhost:3000'; // 등록한 Callback URL
+    
+                window.location.href = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}`;
+            },
+        };
 
     // --------------------------------------------- NAVER
+
+
     return (
         <div>
             <div className="new_join_wrap">
@@ -41,7 +57,7 @@ const Sns = () => {
                         <ul>
                             <li className="naver">
                                 {/* <a href="https://www.naver.com/"> */}
-                                <button id="naverIdLogin">
+                                <button id="naverIdLogin" onClick={handle.clickNaverLogin}>
                                     <img src={require('../../../../images/naver.png')} className='naver'/>
                                 </button>
                                 {/* </a> */}

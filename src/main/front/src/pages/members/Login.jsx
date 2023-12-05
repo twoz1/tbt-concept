@@ -8,6 +8,7 @@ import navigateTo from '../config/navigateTo';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../config/Configstore';
 
+
 const Login = () => {
     useScrollToTop();
 
@@ -54,8 +55,6 @@ const Login = () => {
             });
 
     };
-
-
 
     return (
         <div>

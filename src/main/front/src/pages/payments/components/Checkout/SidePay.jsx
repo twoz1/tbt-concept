@@ -2,6 +2,7 @@ import { useState, useEffect  } from "react";
 import useModal from './../../../customHooks/useModal';
 import Join_Modal02 from "../../../members/components/Join/Join_Modal02";
 import Join_Modal03 from "../../../members/components/Join/Join_Modal03";
+import navigateTo from "../../../config/navigateTo";
 import axios from 'axios';
 
 
@@ -107,10 +108,10 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
             });
     
     }
-    function navigateTo(url) {
-        console.log("이동하고자 하는 URL:", url); 
-        window.location.href = url; // 또는 history.pushState({}, null, url); 사용
-    }
+    // function navigateTo(url) {
+    //     console.log("이동하고자 하는 URL:", url); 
+    //     window.location.href = url; // 또는 history.pushState({}, null, url); 사용
+    // }
 
     return (
         <div className={`side_pay ${sidePayScoll ? 'lock' : ''}`}>
