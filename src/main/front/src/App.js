@@ -18,12 +18,13 @@ import Orderlist from './pages/members/Orderlist';
 import New_goods from './pages/items/New_goods';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Router } from 'react-router-dom';
 import mockItemsContext from './pages/items/MockItems';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { addressReducer } from './pages/config/Configstore';
+import CheckOut_Modal from './pages/members/components/checkout/ChcekOut_Modal';
 
 
 const orderList = [
@@ -61,7 +62,6 @@ const configstore = configureStore({
 
 });
 
-
 function App() {
 
     const [order, setOrder] = useState(orderList);
@@ -85,11 +85,14 @@ function App() {
 
 
     return (
-        <Provider store={configstore}>
-            <div className="App">
+
+        <div className="App">
+            <Provider store={configstore}>
+                <Routes>
+                    <Route path='/addressOpen' element={<CheckOut_Modal />}></Route>
+                </Routes>
                 <a href="http://localhost:8080/home">관리자Home ${data}</a>
                 <Header />
-
                 <Routes>
                     {/* ----------------고정 헤더의 링크-------- */}
                     <Route path='/' element={<Main />}></Route >
@@ -111,6 +114,11 @@ function App() {
 
                     {/* ----------------고정 풋터의 링크-------- */}
                     {/* ----------------이지 링크투-------- */}
+
+
+                    <Route exact path="/addressOpen" render={() => (
+                        <CheckOut_Modal />
+                    )} />
 
                     <Route path='/detail/:product_id' element={<DetailedPage />}></Route>
 
@@ -140,8 +148,11 @@ function App() {
                 </Routes>
 
                 <Footer />
-            </div>
-        </Provider>
+
+            </Provider>
+
+
+        </div>
     );
 }
 

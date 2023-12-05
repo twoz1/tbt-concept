@@ -45,14 +45,17 @@ function generateOrderNumber() {
 
 const Information = (props) => {
 
-
+    const handleAddressBookClick = () => {
+        // 주소록 버튼 클릭 시 새 창 열기
+        window.open('/addressOpen', '_blank','width=1040, height=357');
+    };
 
 
 
     // 페이지 로드 시 자동으로 호출되는 함수
-    useEffect (() => {
+    useEffect(() => {
         generateOrderNumber();
-    },[]);
+    }, []);
 
     const [showPlaceholder, setShowPlaceholder] = useState(true);
     const { openModal, closeModal, isModal } = useModal();
@@ -65,22 +68,22 @@ const Information = (props) => {
         }
     };
 
-    const[addressList,setAddressList]=useState([]);
+    // const [addressList, setAddressList] = useState([]);
 
-        // => 실행과 동시에 처음 한번 서버요청
-        useEffect(() => {
-            axios
-                .get('/address/aList')
-                .then((response) => {
-                    setAddressList(response.data);
-    
-                    console.log(`** checkdata 서버연결 성공 => ${response.data}`);
-                }).catch((err) => {
-                    alert(`** checkdata 서버연결 실패 => ${err.message}`);
-                });
-        }, []);
+    // // => 실행과 동시에 처음 한번 서버요청
+    // useEffect(() => {
+    //     axios
+    //         .get('/address/aList')
+    //         .then((response) => {
+    //             setAddressList(response.data);
 
-        console.log("addressList", addressList);
+    //             console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+    //         }).catch((err) => {
+    //             alert(`** checkdata 서버연결 실패 => ${err.message}`);
+    //         });
+    // }, []);
+
+    // console.log("addressList", addressList);
 
 
     return (
@@ -97,31 +100,31 @@ const Information = (props) => {
                         <tr className='orderinput_hidden'>
                             <th>주문번호</th>
                             <td>
-                                <input type="text" name="order_id" id="order_id" required  />
+                                <input type="text" name="order_id" id="order_id" required />
                             </td>
                         </tr>
                         <tr className='orderinput_hidden'>
                             <th>회원 아이디</th>
                             <td>
-                                <input type="text" name="user_id" id="user_id"required  value="q123"/>
+                                <input type="text" name="user_id" id="user_id" required value="q123" />
                             </td>
                         </tr>
                         <tr className='orderinput_hidden'>
                             <th>주문일자</th>
                             <td>
-                                <input type="text"  name="order_date" id="order_date" required  />
+                                <input type="text" name="order_date" id="order_date" required />
                             </td>
                         </tr>
                         <tr className='orderinput_hidden'>
                             <th>입금상태</th>
                             <td>
-                            <input type="text" name="order_state" id="order_state" readonly  value="입금대기"/>
+                                <input type="text" name="order_state" id="order_state" readonly value="입금대기" />
                             </td>
                         </tr>
                         <tr className='orderinput_hidden'>
                             <th>배송상태</th>
                             <td>
-                            <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기"/>
+                                <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기" />
                             </td>
                         </tr>
 
@@ -138,25 +141,20 @@ const Information = (props) => {
                                     <input type="radio" name="address_radio" value="new" onChange={handleRadioChange} required />
                                     새로 입력
                                 </label>
-                                <button 
-                                        type="button"
-                                        onClick={() => {
-                                            // openModal('checkoutModal');
-                                        }}
-                                        >
-                                        주소록
+                                <button type="button" onClick={ handleAddressBookClick}>
+                                    주소록
                                 </button>
                                 {/* {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} addressList={addressList} />} */}
-                                
+
                             </td>
-                         
+
                         </tr>
                         <tr>
                             <th>
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
-                                <input type="text" name="address_name" id="address_name"  placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="address_name" id="address_name" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                             </td>
                         </tr>
                         <tr>
@@ -170,9 +168,9 @@ const Information = (props) => {
                                     <option value="070">070</option>
                                 </select>
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 <span className="hyphen"> - </span>
-                                <input type="text" minLength="4" name="address_phone_num" id="address_phone_num"  maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}  required />
+                                <input type="text" minLength="4" name="address_phone_num" id="address_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                             </td>
                         </tr>
                         <tr>
@@ -180,21 +178,21 @@ const Information = (props) => {
                                 배송 주소 <span>&#42;</span>
                             </th>
                             <td className="customer_address">
-                                <input type="text" name="address_avc" id="address_avc" 
-                                minLength="5" maxLength="7" 
-                                placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
-                                required 
+                                <input type="text" name="address_avc" id="address_avc"
+                                    minLength="5" maxLength="7"
+                                    placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
+                                    required
                                 />
                                 <button type='button'
-                                        onClick={() => {
-                                            openModal('ChcekOut_OrderAVC');
-                                        }}
+                                    onClick={() => {
+                                        openModal('ChcekOut_OrderAVC');
+                                    }}
                                 >
                                     우편번호 찾기
                                 </button>
                                 {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />}
                                 <p>
-                                    <input type="text" name="address_city" id="address_city"  placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                    <input type="text" name="address_city" id="address_city" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
                                     <input type="text" name="address_detail" id="address_detail" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                 </p>

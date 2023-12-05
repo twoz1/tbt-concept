@@ -1,8 +1,26 @@
 import React from 'react';
 import '../../../../styles/members/join_modal03.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const CheckOut_Modal = ({ closeModal, addressList }) => {
+const CheckOut_Modal = () => {
 
+    const [addressList, setAddressList] = useState([]);
+
+    // => 실행과 동시에 처음 한번 서버요청
+    useEffect(() => {
+        axios
+            .get('/address/aList')
+            .then((response) => {
+                setAddressList(response.data);
+
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
+    }, []);
+
+    console.log("addressList", addressList);
     return (
         <div className="Join_Modal03">
             <div className="modal_cover">
@@ -35,7 +53,7 @@ const CheckOut_Modal = ({ closeModal, addressList }) => {
                             </tbody>
                         </table>
                         <div className='checkout_modal'>
-                            <button className='checkout_close_button' onClick={() => { closeModal('checkoutModal') }}>닫기</button>
+                        <button className='checkout_close_button' onClick={() => window.close()}>닫기</button>
                             <button className='checkout_submit_button' type='button'>등록</button>
                         </div>
                     </form>
