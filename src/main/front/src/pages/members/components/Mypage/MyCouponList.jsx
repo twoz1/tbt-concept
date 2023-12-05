@@ -8,7 +8,7 @@ const MyCouponList = ({ loginUser }) => {
 
   useEffect(() => {
     axios
-      .get('/coupon/cUserList?user_id=' + loginUser.user_id)
+      .get('/coupon/cUserList', { user_id: loginUser.user_id })
       .then(response => {
         setCoupon(response.data);
 
@@ -18,6 +18,8 @@ const MyCouponList = ({ loginUser }) => {
       });
 
   }, []);
+
+  console.log("유저아이디 : " + loginUser.user_id);
 
 
   return (

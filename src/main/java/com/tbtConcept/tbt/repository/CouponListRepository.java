@@ -15,7 +15,7 @@ public interface CouponListRepository extends JpaRepository<CouponList, CouponLi
 	
 	
 	@Query(value = "SELECT c.coupon_id, c.coupon_name, c.coupon_disc, cl.user_id, cl.coupon_start, cl.coupon_end FROM coupon_list cl INNER JOIN coupon c ON c.coupon_id = cl.coupon_id WHERE cl.user_id = :user_id", nativeQuery = true)
-	List<?> couponJoinList(@Param("user_id") String userId);
+	List<Object> couponJoinList(@Param("user_id") String userId);
 	
 	@Query("SELECT cl FROM CouponList cl WHERE cl.user_id=:user_id")
 	List<CouponList> couponListInUser(String user_id);

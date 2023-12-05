@@ -39,8 +39,9 @@ public class CouponRController {
 	}
 	
 	@GetMapping("/cUserList")
-	public List<?> getUserCouponList(Model model, @Param("user_id") String id) {
+	public List<Object> getUserCouponList(Model model, @Param("user_id") String id) {
 		
+		System.out.println(id);
 		return couListService.couponJoinList(id);
 		
 	}

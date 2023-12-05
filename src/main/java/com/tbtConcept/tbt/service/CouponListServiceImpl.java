@@ -27,7 +27,7 @@ public class CouponListServiceImpl implements CouponListService {
 	
 	@Transactional
 	@Override
-	public List<?> couponJoinList(String user_id){
+	public List<Object> couponJoinList(String user_id){
 		return repository.couponJoinList(user_id);
 	};
 	
