@@ -16,4 +16,5 @@ public interface CouponService {
 	int save(Coupon entity);
 
 	int delete(int Coupon_id);
+	
 }

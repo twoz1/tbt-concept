@@ -1,27 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyCouponItem from './MyCouponItem';
+import axios from 'axios';
 
-const couponList = [
-  {
-    id: 0,
-    startDate: "2023-01-01",
-    couponTitle: "회원가입 감사 10% 할인 쿠폰",
-    endDate: "2023-01-31",
-    couponState: "사용가능"
-  },
-  {
-    id: 0,
-    startDate: "2023-01-01",
-    couponTitle: "s/s기념 10% 할인 쿠폰",
-    endDate: "2023-01-31",
-    couponState: "사용가능"
-  },
+const MyCouponList = ({ loginUser }) => {
 
-]
+  const [coupon, setCoupon] = useState([]);
 
-const MyCouponList = () => {
+  useEffect(() => {
+    axios
+      .get('/coupon/cUserList?user_id=' + loginUser.user_id)
+      .then(response => {
+        setCoupon(response.data);
 
-  const [coupon, setCoupon] = useState(couponList);
+        console.log(response.data);
+      }).catch((err) => {
+        alert(`** checkdata 서버연결 실패 => ${err.message}`);
+      });
+
+  }, []);
+
 
   return (
     <div className="MycouponList">

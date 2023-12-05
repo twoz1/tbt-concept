@@ -23,7 +23,7 @@ import mockItemsContext from './pages/items/MockItems';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { userReducer } from './pages/config/Configstore';
+import { addressReducer } from './pages/config/Configstore';
 
 
 const orderList = [
@@ -55,7 +55,7 @@ const orderList = [
 
 const configstore = configureStore({
     reducer: {
-        user: userReducer,
+        address: addressReducer,
 
     },
 

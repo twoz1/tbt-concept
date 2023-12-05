@@ -19,16 +19,22 @@ public class CouponListServiceImpl implements CouponListService {
 	
 	private final CouponListRepository repository;
 
-	
+	@Transactional
 	@Override
 	public List<CouponList> selectList() {
-		return repository.findAll();
+		return repository.selectList();
 	}
 	
 	@Transactional
 	@Override
-	public List<CouponList> userCouponList(String user_id){
-		return repository.userCouponList(user_id);
+	public List<?> couponJoinList(String user_id){
+		return repository.couponJoinList(user_id);
+	};
+	
+	@Transactional
+	@Override
+	public List<CouponList> couponListInUser(String user_id){
+		return repository.couponListInUser(user_id);
 	};
 	
 	@Override

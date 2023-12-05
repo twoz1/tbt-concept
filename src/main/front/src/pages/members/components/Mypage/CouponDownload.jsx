@@ -8,12 +8,17 @@ const CouponDownload = ({ coupon_id, coupon_name, coupon_disc, loginUser }) => {
 
         console.log("쿠폰" + coupon_id + "로그인유저" + loginUser.user_id);
 
+        let start_date = new Date();
+        let end_date = new Date();
+
+        end_date.setFullYear(new Date().getFullYear() + 1);
+
         axios
             .post('/coupon/cInsert', {
                 coupon_id: coupon_id,
                 user_id: loginUser.user_id,
-                coupon_start: new Date().toLocaleString(),
-                coupon_end: new Date().setFullYear(new Date().getFullYearring() + 1),
+                coupon_start: start_date.toLocaleString(),
+                coupon_end: end_date.toLocaleString(),
             })
             .then((response) => {
                 console.log(response.data);

@@ -11,7 +11,9 @@ public interface CouponListService {
 	
 	List<CouponList> selectList();
 		
-	List<CouponList> userCouponList(String user_id);
+	List<?> couponJoinList(String user_id);
+	
+	List<CouponList> couponListInUser(String user_id);
 
 	CouponList selectDetail(CouponListId id);
 

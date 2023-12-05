@@ -22,8 +22,7 @@
 						<th>회원ID</th>
 						<th>쿠폰발급일</th>
 						<th>쿠폰만료일</th>
-						<th></th>
-						<th></th>
+						<th>사용여부</th>
 					</tr>
 					
 					<c:if test="${not empty requestScope.couponDownList}">
@@ -33,8 +32,7 @@
 								<td>${c.user_id}</td>
 								<td>${c.coupon_start}</td>
 								<td>${c.coupon_end}</td>
-								<td>상세보기</td>
-								<td><button>삭제</button></td>
+								<td></td>
 							</tr>
 						</c:forEach>
 					</c:if>
