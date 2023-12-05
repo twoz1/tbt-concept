@@ -6,7 +6,7 @@ import Modal_gotobasket from './Modal_gotobasket';
 import axios from 'axios';
 
 
-const DpSelectOption = ({  product_name, product_price, product_img1, product_id }) => {
+const DpSelectOption = ({  product_name, product_price, product_img1, product_id, code }) => {
 
     const { openModal, closeModal, isModal } = useModal();
    
@@ -22,6 +22,8 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
     const heartIconStyle = {
         color: isLiked ? 'orangered' : 'gray'
     };
+
+    console.log("%%%%%%%%%%%",code);
 
     function insertItemToCart(e) {
 
@@ -92,6 +94,7 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
                         product_name: product_name,
                         product_img1: product_img1,
                         product_price: product_price,
+                        code : code,
                     }} >바로 구매</Link>
 
                     <button className='gotoCart'>쇼핑백 담기</button>

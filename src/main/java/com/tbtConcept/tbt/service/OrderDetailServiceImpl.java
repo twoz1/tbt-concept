@@ -21,10 +21,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	private final OrderDetailRepository repository;
 	
 	
-	@Transactional
+	// @Transactional
 	@Override
-	public List<OrderDetail> findAllDesc() {
-		return repository.findAllDesc();
+	public List<OrderDetail> findByIdDetails(String id) {
+		return repository.findByIdDetails(id);
 	}
 	
 	

@@ -10,7 +10,7 @@ import com.tbtConcept.tbt.entity.OrderList;
 public interface OrderDetailService {
 	
 	@Transactional
-	List<OrderDetail> findAllDesc();
+	List<OrderDetail> findByIdDetails(String id);
 	
 	List<OrderDetail> selectList();
 	

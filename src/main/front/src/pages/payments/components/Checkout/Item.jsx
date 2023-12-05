@@ -43,13 +43,11 @@ const Item = ({ updatedCheckoutList,}) => {
         generateOrderNumber();
     },[]);
 
-    
-    
-
     updatedCheckoutList.forEach((item) => {
         console.log("^^^^^^^^^^^",item.product_img1.substring(0,1));
         console.log("^^^^^^^^^^^",item.product_name.substring(0,1));
     });
+
 
 
     return (
@@ -107,7 +105,7 @@ const Item = ({ updatedCheckoutList,}) => {
                                 <span>{item.product_price * item.quantityGoods}원</span>
                             </td>
                             <td>
-                                <input type="text" name="order_total_each_quan" id="order_total_each_quan" value="99" required/>
+                                <input type="text" name="order_total_each_quan" id="order_total_each_quan" value={item.code === 'G' || item.code === 'S' ? 1 : 2} required/>
                                 <input type="text"  name="product_id" id="product_id" value={item.product_id} required  />
                                 <input type="text" name="order_quan" id="order_quan" value={item.quantityGoods} required/>
                                 <input type="text" name="order_quan" id="order_quan" value={item.quantityGoods} required/>
