@@ -74,7 +74,7 @@
 					</tr>
 				</table>
 				<a class="m_button"
-					href="orderListDetail?jCode=U&order_id=${requestScope.orderListDetail.order_id}">주문수정
+					href="orderListDetail?jCode=O&order_id=${requestScope.orderListDetail.order_id}">주문수정
 				</a>
 					
 				<table>

@@ -44,9 +44,6 @@ public class OrderDetailController {
 	@PostMapping("/orderDetailInsert")
 	public String postOrderDetailInsert(OrderDetail entity, Model model, RedirectAttributes rttr){
 		String uri = "redirect:orderList";
-
-
-		
 		try {
 			if (orderDetailService.save(entity) != null) {
 				model.addAttribute("message", "상품등록 성공");
