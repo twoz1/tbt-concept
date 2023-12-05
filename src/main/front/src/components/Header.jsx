@@ -25,6 +25,13 @@ const Header = () => {
 
     }
 
+    const handleRestrictedAccess = (e, path) => {
+        if (!loggedIn) {
+            e.preventDefault();
+            alert("로그인이 필요한 페이지입니다.");
+        }
+    }
+
     return (
         <div className="header">
             <div className="center h_c">
@@ -39,14 +46,14 @@ const Header = () => {
                 </form>
                 <ul className="h_icon">
                     <li>
-                        <Link to="/cart">
+                        <Link to="/cart" onClick={(e) => handleRestrictedAccess(e, "/cart")}>
                             <FontAwesomeIcon icon={faBagShopping} className="fa-solid" />
                             {/* <i class="fa-solid fa-bag-shopping"></i> */}
                             <span>CART</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/my">
+                        <Link to="/my" onClick={(e) => handleRestrictedAccess(e, "/my")}>
                             <FontAwesomeIcon icon={faUser} className="fa-solid" />
                             {/* <i class="fa-solid fa-user"></i> */}
                             <span>MY</span>
