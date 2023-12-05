@@ -1,13 +1,13 @@
 import React from 'react';
 
-const MyCouponItem = ({ c, couponTitle, endDate, couponState }) => {
+const MyCouponItem = ({ couponName, couponDisc, couponStart, couponEnd }) => {
     return (
         <tbody className="MyCouponItem">
             <tr>
-                {/* <td>{endDate}</td>
-                <td>{couponTitle}</td>
-                <td>{startDate}</td>
-                <td>{couponState}</td> */}
+                <td>{couponStart}</td>
+                <td>{couponName} 쿠폰</td>
+                <td>{couponDisc}%</td>
+                <td>{couponEnd}</td>
             </tr>
         </tbody>
     )

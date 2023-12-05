@@ -1,18 +1,13 @@
 package com.tbtConcept.tbt.restController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tbtConcept.tbt.entity.Coupon;
@@ -39,7 +34,7 @@ public class CouponRController {
 	}
 	
 	@GetMapping("/cUserList")
-	public List<Object> getUserCouponList(Model model, @Param("user_id") String id) {
+	public List<Object> getUserCouponList(Model model, @RequestParam("user_id") String id) {
 		
 		System.out.println(id);
 		return couListService.couponJoinList(id);

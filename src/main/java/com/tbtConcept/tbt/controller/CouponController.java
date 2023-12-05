@@ -105,6 +105,7 @@ public class CouponController {
 	public ResponseEntity<?> axcouponDelete(@PathVariable("coupon_id") int id, Coupon entity) {
 
 		if (couponService.delete(id) > 0) {
+			couListService.deleteByCouponId(id);
 			System.out.println("삭제 성공");
 			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
 		} else {

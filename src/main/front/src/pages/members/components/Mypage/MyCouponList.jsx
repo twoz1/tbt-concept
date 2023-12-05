@@ -8,19 +8,14 @@ const MyCouponList = ({ loginUser }) => {
 
   useEffect(() => {
     axios
-      .get('/coupon/cUserList', { user_id: loginUser.user_id })
+      .get('/coupon/cUserList', { params: { user_id: loginUser.user_id } })
       .then(response => {
         setCoupon(response.data);
-
-        console.log(response.data);
       }).catch((err) => {
         alert(`** checkdata 서버연결 실패 => ${err.message}`);
       });
 
   }, []);
-
-  console.log("유저아이디 : " + loginUser.user_id);
-
 
   return (
     <div className="MycouponList">
@@ -31,12 +26,17 @@ const MyCouponList = ({ loginUser }) => {
             <tr>
               <th scope="col">발급일자</th>
               <th scope="col">쿠폰명</th>
+              <th scope="col">할인율</th>
               <th scope="col">유효기간</th>
-              <th scope="col">상태</th>
             </tr>
           </thead>
-          {coupon.map((it) => {
-            return (<MyCouponItem key={it.id}{...it}
+          {coupon.map((c) => {
+
+            return (<MyCouponItem key={c[0]}
+              couponName={c[1]}
+              couponDisc={c[2]}
+              couponStart={c[4]}
+              couponEnd={c[5]}
             />)
           })}
         </table>
