@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CouponDownload from './components/Mypage/CouponDownload';
+import navigateTo from '../config/navigateTo';
 
 
 const Mypage = ({ order }) => {
@@ -14,27 +15,36 @@ const Mypage = ({ order }) => {
 
     //const loginUser = useSelector((state) => (state));
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+    const [pageState, setPageState] = useState(false);
     console.log(loginUser);
 
     const [couponList, setCouponList] = useState([]);
 
     useEffect(() => {
+
+        if (loginUser == null) {
+            alert("로그인 후 이용해주세요.");
+            navigateTo("/");
+        } else {
+            setPageState(true);
+        }
+
+
         axios
             .get('/coupon/cList')
             .then((response) => {
-                if (response.data != null) {
+                if (response.data !== null) {
                     setCouponList(response.data);
                 }
                 console.log(`** checkdata 서버연결 성공 => ${response.data}`);
             }).catch((err) => {
                 alert(`** checkdata 서버연결 실패 => ${err.message}`);
             });
+
+        console.log(couponList);
     }, []);
 
-    console.log(couponList);
-
-
-    return (
+    return (pageState && (
         <div className="Mypage">
             <div className="center m_c">
                 <div className="title_route">
@@ -66,11 +76,11 @@ const Mypage = ({ order }) => {
                     </div>
                 </div>
                 <MyOrderList order={order} />
-                <MyCouponList />
+                <MyCouponList loginUser={loginUser} />
                 <MyWishList />
             </div>
         </div >
-    );
+    ));
 }
 
 export default Mypage;

@@ -1,25 +1,26 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const userSlice = createSlice({
-    name: 'user',
+const addressSlice = createSlice({
+    name: 'address',
     initialState: {
-        user: null,
+        // 사용할 객체 정보
+        address_id: null,
     },
     reducers: {
-        setUser: (state, action) => {
-            state.user = action.payload;
+        setAddress: (state, action) => {
+            state.address = action.payload;
         },
     },
 });
 
-export const { setUser } = userSlice.actions;
-export const userReducer = userSlice.reducer;
+export const { setAddress } = addressSlice.actions;
+export const addressReducer = addressSlice.reducer;
 
 
 
 const Configstore = configureStore({
     reducer: {
-        user: userReducer,
+        address: addressReducer,
     },
 });
 

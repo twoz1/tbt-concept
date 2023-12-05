@@ -1,7 +1,13 @@
 package com.tbtConcept.tbt.restController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +37,15 @@ public class CouponRController {
 	public List<Coupon> getPListDesc(Model model) {
 		return couponService.selectList();
 	}
+	
+	@GetMapping("/cUserList")
+	public List<Object> getUserCouponList(Model model, @Param("user_id") String id) {
+		
+		System.out.println(id);
+		return couListService.couponJoinList(id);
+		
+	}
+	
 	
 	@PostMapping(value = "/cInsert")
 	public String userCouponInsert(Model model, @RequestBody CouponList entity) {
