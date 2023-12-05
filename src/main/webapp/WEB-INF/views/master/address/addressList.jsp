@@ -52,11 +52,11 @@
 						</c:forEach>
 					</c:if>
 					
-					   <c:if test="${empty requestScope.addressList}">
+					  <%--  <c:if test="${empty requestScope.addressList}">
                         <tr>
                         <td colspan="7">출력할 Data 가 1건도 없습니다.</td>
       </tr>
-   </c:if>
+   </c:if> --%>
             </table>
          </div>
       </main>

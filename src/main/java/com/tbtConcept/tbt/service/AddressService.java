@@ -5,13 +5,12 @@ import java.util.List;
 import com.tbtConcept.tbt.entity.Address;
 
 public interface AddressService {
-	
-	List<Address> selectList();
-	
-	Address selectOne(String id);
-	
-	String save(Address entity);
-	
-	String delete(String id);
-	
+
+    List<Address> selectList();
+
+    Address selectOne(int id);  // 메소드 시그니처 수정
+
+    String save(Address entity);
+
+    String delete(int id);  // 메소드 시그니처 수정
 }

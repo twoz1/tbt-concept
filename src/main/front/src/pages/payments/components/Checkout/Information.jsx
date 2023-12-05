@@ -3,6 +3,7 @@ import useModal from "../../../customHooks/useModal";
 import CheckOut_Modal from "../../../members/components/checkout/ChcekOut_Modal";
 import ChcekOut_OrderAVC from "../../../members/components/checkout/ChcekOut_OrderAVC";
 import DaumPostcode from 'react-daum-postcode';
+import axios from 'axios';
 
 // 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
 function padZero(number) {
@@ -62,6 +63,25 @@ const Information = (props) => {
             setShowPlaceholder(true);
         }
     };
+
+    const[addressList,setAddressList]=useState([]);
+
+        // => 실행과 동시에 처음 한번 서버요청
+        useEffect(() => {
+            axios
+                .get('/address/aList')
+                .then((response) => {
+                    setAddressList(response.data);
+    
+                    console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+                }).catch((err) => {
+                    alert(`** checkdata 서버연결 실패 => ${err.message}`);
+                });
+        }, []);
+
+        console.log("addressList", addressList);
+
+
     return (
         <div className="information">
             <div className="checkout">
@@ -134,7 +154,8 @@ const Information = (props) => {
                                         >
                                         주소록
                                 </button>
-                                {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} />}
+                                {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} addressList={addressList} />}
+                                
                             </td>
                          
                         </tr>
