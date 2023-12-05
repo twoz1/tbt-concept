@@ -28,10 +28,12 @@ const Basket = () => {
 
 
     const cartList = cartUserList;
-
     console.log(cartList);
+
     const [checkItems, setCheckItems] = useState([]);
     const [cartItems, setCartItems] = useState(cartList);
+    
+    console.log(cartItems);
 
     //체크박스 구현============================
     const handleAllCheck = (checked) => {
