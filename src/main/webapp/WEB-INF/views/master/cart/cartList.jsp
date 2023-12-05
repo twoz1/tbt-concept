@@ -18,6 +18,7 @@
 				<a class="m_button l_button" href="cartInsert">장바구니 등록</a>
 
 				<div>
+					<!-- 검색창 구현 -->
 					<form action="searchCartListA" method="get">
 						<select name="searchType" id="searchType" onchange="keywordClear()">
 							<option value="all">전체</option>
@@ -32,19 +33,19 @@
 
 				<table>
 					<tr>
-						<th>장바구니ID</th>
 						<th>고객ID</th>
 						<th>상품ID</th>
 						<th>선택수량</th>
+						<th></th>
 					</tr>
 
 					<c:if test="${not empty requestScope.cartList}">
 						<c:forEach var="c" items="${requestScope.cartList}">
 							<tr>
-								<td>${c.cart_id}</td>
 								<td>${c.user_id}</td>
 								<td>${c.product_id}</td>
 								<td>${c.cart_quan}</td>
+								<td><button onclick="axCartDelete(${cart_id})" id="${cart_id}">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>

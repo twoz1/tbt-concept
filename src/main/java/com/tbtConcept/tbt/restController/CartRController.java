@@ -1,9 +1,11 @@
 package com.tbtConcept.tbt.restController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.service.CartService;
@@ -25,16 +28,16 @@ import lombok.AllArgsConstructor;
 @RequestMapping(value = "/rCart")
 @RestController
 public class CartRController {
-	
+
 	CartService cartService;
 	ProductService prodService;
-	
+
 	// Insert =====================================================
 	@GetMapping("/cInsert")
 	public void getCInsert() {
 
 	}
-	
+
 	@PostMapping("/cInsert")
 	public String postCInsert(@RequestBody Cart entity, Model model, RedirectAttributes rttr) {
 
@@ -52,24 +55,39 @@ public class CartRController {
 			return "실패";
 		}
 	}
+
+//	@PostMapping("/cpJoinInsert")
+//	public ResponseEntity<?> postShowDetailCart(@PathVariable String user_id) {
+//		List<Cart> carts = cartService.perCartUser(user_id);
+//		List<Product> products = prodService.selectList();
+//
+//		Map<Integer, Product> productMap = new HashMap<>();
+//		for (Product product : products) {
+//			productMap.put(product.getId(), product);
+//		}
+//
+//		List<Map<String, Object>> result = new ArrayList<>();
+//		for (Cart cart : carts) {
+//			Map<String, Object> cartInfo = new HashMap<>();
+//
+//			Product product = productMap.get(cart.getProduct_id());
+//
+//			// 결과에 상품 정보 추가
+//			cartInfo.put("cart", cart);
+//			cartInfo.put("product", product);
+//
+//			// 결과 목록에 추가
+//			result.add(cartInfo);
+//		}
+//
+//		// 최종 결과 반환
+//		return ResponseEntity.ok(result);
+//
+//	}
 	
-	
-	@PostMapping("/cpJoinInsert")
-	public ResponseEntity<?> postShowDetailCart(@PathVariable String user_id) {
-		List<Cart> carts = cartService.perCartUser(user_id);
-		List<Product> products = prodService.selectList();
-		
-		Map<String, Object> response = new HashMap<>();
-		
-		response.put("carts", carts);
-		response.put("products", products);
-		
-		System.out.println(response);
-		
-		return ResponseEntity.ok(response);
-	
+	@GetMapping("/cpJList/{loginUser}")
+	public List<CartProdDTO> postShowDetailCart(@PathVariable("loginUser") String user_id, Model model) {
+		return cartService.perCartUser(user_id);
 	}
-	
-	
-	
+
 }

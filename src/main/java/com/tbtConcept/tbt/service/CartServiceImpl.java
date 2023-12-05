@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.repository.CartRepository;
@@ -20,6 +21,7 @@ public class CartServiceImpl implements CartService {
 //	public List<Cart> findAllDesc() {
 //		return repository.findAllDesc();
 //	}
+
 
 	@Override
 	public List<Cart> selectList() {
@@ -41,8 +43,13 @@ public class CartServiceImpl implements CartService {
 //		return repository.searchByCartLikeA(keyword);
 //	}
 
+//	@Override
+//	public List<Cart> perCartUser(String user_id) {
+//		return repository.perCartUser(user_id);
+//	}
+	
 	@Override
-	public List<Cart> perCartUser(String user_id) {
+	public List<CartProdDTO> perCartUser(String user_id) {
 		return repository.perCartUser(user_id);
 	}
 
@@ -55,7 +62,7 @@ public class CartServiceImpl implements CartService {
 		} else {
 			return null;
 		}
-	}
+	} 
 
 	@Override
 	public int save(Cart entity) {
