@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import '../../../../styles/customerService/FAQsearch.css';
 import SearchFAQItems from '../CS_total/SearchFAQItems';
+import { useState } from 'react';
 
-const FAQsearch = ({ searchFAQ }) => {
+
+const FAQsearch = ({ faqBarList }) => {
 
     //FAQ 검색구현을 위한 useState
     const [search, setSearch] = useState('');
@@ -12,14 +13,16 @@ const FAQsearch = ({ searchFAQ }) => {
     }
 
     const getSearchResult = () => {
+        console.log("getSearchResult 함수 실행");
+        console.log("검색결과 => " + search);
+
         return (
-            search === '' ? [] : searchFAQ.filter((freqQues) =>
-            (freqQues.freqQuesTitle.toLowerCase().includes(search.toLowerCase())
-                || freqQues.freqQuesCat.toLowerCase().includes(search.toLowerCase())
+            search === '' ? [] : faqBarList.filter((f) =>
+            (f.faq_title.toLowerCase().includes(search.toLowerCase())
+                || f.faq_type.toLowerCase().includes(search.toLowerCase())
             ))
         );
     }
-
 
     return (
         <div>
@@ -38,9 +41,9 @@ const FAQsearch = ({ searchFAQ }) => {
                         />
                     </label>
 
-                    <button type="submit" name="button">
+                    {/* <button type="submit" name="button" onClick={getSearchResult}>
                         <i className="fa-solid fa-magnifying-glass"></i>
-                    </button>
+                    </button> */}
                 </div>
 
                 <div className="cs_schRight">
@@ -56,12 +59,12 @@ const FAQsearch = ({ searchFAQ }) => {
 
 
                 <div className='schFAQbtn'>
-                    {getSearchResult().map((freqQues) => (
+                    {getSearchResult().map((f) => (
                         <SearchFAQItems
-                            key={freqQues.id}
-                            freqQuesCat={freqQues.freqQuesCat}
-                            freqQuesTitle={freqQues.freqQuesTitle}
-                            contents={freqQues.contents}
+                            faq_id={f.faq_id}
+                            faq_type={f.faq_type}
+                            faq_title={f.faq_title}
+                            faq_content={f.faq_content}
                         />
                     ))}
                 </div>

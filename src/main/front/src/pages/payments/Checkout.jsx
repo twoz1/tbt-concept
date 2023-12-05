@@ -5,31 +5,15 @@ import Item from './components/Checkout/Item';
 
 import Pay from './components/Checkout/Pay';
 import SidePay from './components/Checkout/SidePay';
-import Join_Modal02 from '../members/components/Join/Join_Modal02';
-import Join_Modal03 from '../members/components/Join/Join_Modal03';
 
 import g_antonCrystal_01 from '../../images/g_antonCrystal_01.jpg';
 import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+
 
 //임의의 상품 목록
-const checkoutList = [
-    {
-        id: 0,
-        name: 'Andy Brown Crystal',
-        price: 162000,
-        quantity: 2,
-        imageFront: g_andyBrownCrystal_01
-    },
-    {
-        id: 1,
-        name: 'Anton Crystal',
-        price: 81000,
-        quantity: 1,
-        imageFront: g_antonCrystal_01,
-    }
-]
+const checkoutList = []
 
 //임의의 쿠폰 목록
 const couponOptions = [
@@ -38,23 +22,52 @@ const couponOptions = [
 ];
 
 
-const Checkout = ({data,quantityGoods}) => {
+
+const Checkout = ({}) => {
+    
+    const location = useLocation();
+    const { quantityGoods, product_name, product_img1, product_price, product_id,} = location.state;
+
+    const newProduct = {
+        id: checkoutList.length, // 아이디는 현재 배열 길이로 설정하거나 다른 방식으로 유니크한 값 생성
+        product_id: product_id, 
+        product_name: product_name,
+        product_price: product_price,
+        quantityGoods: quantityGoods,
+        product_img1: product_img1,
+      };
+    
+    const updatedCheckoutList = [...checkoutList, newProduct];
+
 
     const [selectedCoupon, setSelectedCoupon] = useState(null);
-
+    
     const handleCouponChange = (event) => {
         const selectedValue = event.target.value;
         const selectedCouponInfo = couponOptions.find((coupon) => coupon.value === selectedValue);
 
         setSelectedCoupon(selectedCouponInfo);
     };
-    console.log(selectedCoupon);
+    // console.log(selectedCoupon);
 
+    
     //총 상품금액 (DB연결 후 재구현 예정)
-    const totalPrice = (checkoutList[0].price * checkoutList[0].quantity)
-        + (checkoutList[1].price * checkoutList[1].quantity);
+    const calculateTotalPrice = (items) => {
+        let totalPrice = 0;
+      
+        for (let i = 0; i < items.length; i++) {
+          totalPrice += items[i].product_price * items[i].quantityGoods;
+        }
+        return totalPrice;
+      };
+    const totalPrice = calculateTotalPrice(updatedCheckoutList);
 
-
+    // const totalPrice = (checkoutList[0].price * checkoutList[0].quantity)
+    // + (checkoutList[1].price * checkoutList[1].quantity);
+    // const totalPrice2 = (newProduct[0].price * newProduct[0].quantity)
+    //     + (newProduct[1].price * newProduct[1].quantity);
+    
+    console.log("^^^^^^^^^^^^^^^^^^", product_img1);
     return (
         
         <div>
@@ -64,11 +77,7 @@ const Checkout = ({data,quantityGoods}) => {
                         <Title />
                         <form action="oListInsert"  id='oListInsert'>
                         <Information />
-                            <Item checkoutList={checkoutList}
-                            data={data}
-                            state={{
-                                quantityGoods: quantityGoods,
-                            }} />
+                            <Item updatedCheckoutList={updatedCheckoutList}/>
                             <div className="discount">
                                 <h3>할인받기</h3>
                                 <table className="discount_table checkout_table">
@@ -86,7 +95,6 @@ const Checkout = ({data,quantityGoods}) => {
                                                 </select>
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 </table>
                             </div>

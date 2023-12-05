@@ -9,6 +9,7 @@
 <title>News 리스트 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/cs/axCS.js"></script>
+<link rel="stylesheet" href="/resources/lib/css/cs/newsList.css" />
 </head>
 <body>
 <div id="master_wrap">

@@ -29,11 +29,11 @@
 							<td>
 								<select name="faq_type" id="faq_type" required>
 									<option value="">선택</option>
-									<option value="a">교환/반품</option>
-									<option value="b">취소</option>
-									<option value="c">배송</option>
-									<option value="d">상품평</option>
-									<option value="e">증빙서류발급</option>
+									<option value="교환/반품">교환/반품</option>
+									<option value="취소">취소</option>
+									<option value="배송">배송</option>
+									<option value="상품평">상품평</option>
+									<option value="증빙서류발급">증빙서류발급</option>
 								</select>
 							</td>
 						</tr>

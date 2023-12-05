@@ -3,8 +3,50 @@ import NgoodsGlass from './components/New_goods/NgoodsGlass';
 import NgoodsSunGlass from './components/New_goods/NgoodsSunGlass';
 import NgoodsSlide from './components/New_goods/NgoodsSlide';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const New_goods = () => {
+
+    // NewGoods Glass/Sunclass DB 요청
+    const [pNewGList, setPNewGList] = useState([]);
+    const [pNewSList, setPNewSList] = useState([]);
+
+    useEffect(() => {
+        let url = "/product/pGListDesc";
+
+        axios.get(url).then(response => {
+            setPNewGList(response.data);
+            console.log("NewGList 출력 성공" + response.data);
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[NewGList 입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[NewGList 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        let url = "/product/pSListDesc";
+
+        axios.get(url).then(response => {
+            setPNewSList(response.data);
+            console.log("NewSList 출력 성공" + response.data);
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[NewSList 입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[NewSList 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
+    }, []);
+
+    console.log("**pNewGList");
+    console.log(pNewGList);
+
+
+
     return (
         <div>
             <div className="center m_c">
@@ -34,7 +76,7 @@ const New_goods = () => {
                         </div>
 
                         <div className="new_glass_img">
-                            <NgoodsGlass />
+                            <NgoodsGlass pNewGList={pNewGList}/>
                         </div>
                     </div>
 
@@ -48,7 +90,7 @@ const New_goods = () => {
 
                         <div className="new_glass_img">
                             <ul>
-                                <NgoodsSunGlass />
+                                <NgoodsSunGlass pNewSList={pNewSList} />
                             </ul>
                         </div>
                     </div>
@@ -57,7 +99,7 @@ const New_goods = () => {
 
                     <div className="new_slide_poster">
                         <p>사진을 누르시면 해당 상품으로 이동됩니다.</p>
-                        <NgoodsSlide />
+                        <NgoodsSlide pNewGList={pNewGList} pNewSList={pNewSList} />
                     </div>
 
                 </div>

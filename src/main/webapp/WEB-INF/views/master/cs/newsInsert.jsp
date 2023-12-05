@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>News | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/cs/newsInsert.css" />
 </head>
 <body>
 <div id="master_wrap">

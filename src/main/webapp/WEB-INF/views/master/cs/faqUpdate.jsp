@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FAQ 수정 | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/cs/faqUpdate.css" />
 </head>
 <body>
 <div id="master_wrap">
@@ -37,11 +38,11 @@
 							<td>
 								<select name="faq_type" id="faq_type">
 									<option value="">선택</option>
-									<option value="a" ${requestScope.faqDetail.faq_type == 'a' ? "selected" : "" }>교환/반품</option>
-									<option value="b" ${requestScope.faqDetail.faq_type == 'b' ? "selected" : "" }>취소</option>
-									<option value="c" ${requestScope.faqDetail.faq_type == 'c' ? "selected" : "" }>배송</option>
-									<option value="d" ${requestScope.faqDetail.faq_type == 'd' ? "selected" : "" }>상품평</option>
-									<option value="e" ${requestScope.faqDetail.faq_type == 'e' ? "selected" : "" }>증빙서류발급</option>
+									<option value="교환/반품" ${requestScope.faqDetail.faq_type == '교환/반품' ? "selected" : "" }>교환/반품</option>
+									<option value="취소" ${requestScope.faqDetail.faq_type == '취소' ? "selected" : "" }>취소</option>
+									<option value="배송" ${requestScope.faqDetail.faq_type == '배송' ? "selected" : "" }>배송</option>
+									<option value="상품평" ${requestScope.faqDetail.faq_type == '상품평' ? "selected" : "" }>상품평</option>
+									<option value="증빙서류발급" ${requestScope.faqDetail.faq_type == '증빙서류발급' ? "selected" : "" }>증빙서류발급</option>
 								</select>
 							</td>
 						</tr>
@@ -56,7 +57,7 @@
 						<tr>
 							<td colspan="2">
 								<button type="reset">초기화</button>
-								<button type="submit">등록</button>
+								<button type="submit">수정</button>
 							</td>
 						</tr>
 					</table>
