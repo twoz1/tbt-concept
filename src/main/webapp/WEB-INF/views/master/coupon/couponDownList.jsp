@@ -30,7 +30,7 @@
 						<c:forEach var="c" items="${requestScope.couponDownList}">
 							<tr>
 								<td>${c.coupon_id}</td>
-								<td>${c.uesr_id}</td>
+								<td>${c.user_id}</td>
 								<td>${c.coupon_start}</td>
 								<td>${c.coupon_end}</td>
 								<td>상세보기</td>

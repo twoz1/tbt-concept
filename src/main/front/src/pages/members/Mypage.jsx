@@ -34,9 +34,6 @@ const Mypage = ({ order }) => {
     console.log(couponList);
 
 
-
-
-
     return (
         <div className="Mypage">
             <div className="center m_c">

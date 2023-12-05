@@ -33,7 +33,7 @@ public class CouponRController {
 	}
 	
 	@PostMapping(value = "/cInsert")
-	public int userCouponInsert(Model model, @RequestBody CouponList entity) {
+	public String userCouponInsert(Model model, @RequestBody CouponList entity) {
 		try {
 			
 			System.out.println(entity);
@@ -41,14 +41,14 @@ public class CouponRController {
 			CouponListId id = new CouponListId(entity.getCoupon_id(), entity.getUser_id());
 			
 			if(couListService.selectDetail(id) == null && couListService.save(entity) > 0) {
-				return 1;
+				return "발급완료";
 			}else {
-				return 0;
+				return "기발급쿠폰";
 			}
 		} catch (Exception e) {
 			log.info("** User CouponDownload Exception => " + e.toString());
 			
-			return 0;
+			return "에러";
 		}
 	}
 	
