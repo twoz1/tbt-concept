@@ -108,7 +108,6 @@ const Item = ({ updatedCheckoutList,}) => {
                                 <input type="text" name="order_total_each_quan" id="order_total_each_quan" value={item.code === 'G' || item.code === 'S' ? 1 : 2} required/>
                                 <input type="text"  name="product_id" id="product_id" value={item.product_id} required  />
                                 <input type="text" name="order_quan" id="order_quan" value={item.quantityGoods} required/>
-                                <input type="text" name="order_quan" id="order_quan" value={item.quantityGoods} required/>
                                 <input type="text"  name="order_price" id="order_price" value={item.product_price * item.quantityGoods} required  />
                             </td>
                         </React.Fragment>
