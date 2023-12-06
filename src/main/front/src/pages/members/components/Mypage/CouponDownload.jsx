@@ -24,6 +24,7 @@ const CouponDownload = ({ coupon_id, coupon_name, coupon_disc, loginUser }) => {
                 console.log(response.data);
                 if (response.data == "발급완료") {
                     alert("쿠폰 발급이 완료되었습니다.");
+
                 } else if (response.data = "기발급쿠폰") {
                     alert("이미 발급받았던 쿠폰입니다.");
                 } else {

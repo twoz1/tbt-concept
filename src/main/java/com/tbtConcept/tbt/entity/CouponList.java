@@ -1,15 +1,13 @@
 package com.tbtConcept.tbt.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +28,7 @@ public class CouponList implements Serializable {
 	@Id
 	private String user_id;
 	
-	private String coupon_start;
-	private String coupon_end;
+	private LocalDateTime coupon_start;
+	private LocalDateTime coupon_end;
 	
 }

@@ -46,7 +46,7 @@ function generateOrderNumber() {
 const Information = (props) => {
 
     const handleAddressBookClick = () => {
-        window.open('/addressOpen', '_blank','width=1040, height=800');
+        window.open('/addressOpen', '_blank', 'width=1040, height=800');
     };
 
 
@@ -140,7 +140,7 @@ const Information = (props) => {
                                     <input type="radio" name="address_radio" value="new" onChange={handleRadioChange} required />
                                     새로 입력
                                 </label>
-                                <button type="button" onClick={ handleAddressBookClick}>
+                                <button type="button" onClick={handleAddressBookClick}>
                                     주소록
                                 </button>
 
