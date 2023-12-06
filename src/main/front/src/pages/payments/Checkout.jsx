@@ -26,7 +26,7 @@ const couponOptions = [
 const Checkout = ({}) => {
     
     const location = useLocation();
-    const { quantityGoods, product_name, product_img1, product_price, product_id,} = location.state;
+    const { quantityGoods, product_name, product_img1, product_price, product_id, code} = location.state;
 
     const newProduct = {
         id: checkoutList.length, // 아이디는 현재 배열 길이로 설정하거나 다른 방식으로 유니크한 값 생성
@@ -35,6 +35,7 @@ const Checkout = ({}) => {
         product_price: product_price,
         quantityGoods: quantityGoods,
         product_img1: product_img1,
+        code : code,
       };
     
     const updatedCheckoutList = [...checkoutList, newProduct];
@@ -67,7 +68,7 @@ const Checkout = ({}) => {
     // const totalPrice2 = (newProduct[0].price * newProduct[0].quantity)
     //     + (newProduct[1].price * newProduct[1].quantity);
     
-    console.log("^^^^^^^^^^^^^^^^^^", product_img1);
+    console.log("^^^^^^^^^^^^^^^^^^", code);
     return (
         
         <div>

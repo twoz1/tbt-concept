@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tbtConcept.tbt.entity.OrderDetail;
-import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.service.OrderDetailService;
-import com.tbtConcept.tbt.service.OrderListService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -30,8 +29,8 @@ public class OrderDetailRController {
 	OrderDetailService orderDetailService;
 
 	@GetMapping("oDetailListDesc")
-	public List<OrderDetail> getOListDesc(Model model){
-		return orderDetailService.findAllDesc();
+	public List<OrderDetail> getOListDesc(@RequestParam("id") String id){
+		return orderDetailService.findByIdDetails(id);
 	}
 
 	// ====================================================================

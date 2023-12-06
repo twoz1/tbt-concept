@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.entity.CouponList;
@@ -13,25 +14,23 @@ import com.tbtConcept.tbt.repository.CouponListRepository;
 
 import lombok.RequiredArgsConstructor;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class CouponListServiceImpl implements CouponListService {
 	
 	private final CouponListRepository repository;
 
-	@Transactional
 	@Override
 	public List<CouponList> selectList() {
 		return repository.selectList();
 	}
 	
-	@Transactional
 	@Override
 	public List<Object> couponJoinList(String user_id){
 		return repository.couponJoinList(user_id);
 	};
 	
-	@Transactional
 	@Override
 	public List<CouponList> couponListInUser(String user_id){
 		return repository.couponListInUser(user_id);
@@ -59,6 +58,11 @@ public class CouponListServiceImpl implements CouponListService {
 		repository.deleteById(id);
 		
 		return 1;
+	}
+	
+	@Override
+	public void deleteByCouponId(int coupon_id) {
+		repository.deleteByCouponId(coupon_id);
 	}
 
 }

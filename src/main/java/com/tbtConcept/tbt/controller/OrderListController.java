@@ -42,8 +42,8 @@ public class OrderListController {
 	@GetMapping("/orderListDetail")
 	public String getOrderListDetail (Model model, OrderList entity, OrderDetail dentity, HttpServletRequest request) {
 		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
-		model.addAttribute("orderDetailList", dorderService.findAllDesc());
-		
+		model.addAttribute("orderDetailList", dorderService.findByIdDetails(dentity.getOrder_id()));
+		System.out.println("*********orderListDetail" + entity);
 		if ("O".equals(request.getParameter("jCode"))) {
 			return "master/order/orderListUpdate";
 		} else {

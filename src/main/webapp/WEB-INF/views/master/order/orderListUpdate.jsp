@@ -77,32 +77,32 @@ function changeDelNumber() {
                      <th>받는사람</th>
                      <td><input type="text" name="address_name"
                         id="address_name" required readonly
-                        value="${requestScope.orderListDetail.order_receiver}" /></td>
+                        value="${requestScope.orderListDetail.address_name}" /></td>
                   </tr>
                   <tr>
                      <th>우편번호</th>
                      <td><input type="text" name="address_avc"
                         id="address_avc" readonly required
-                        value="${requestScope.orderListDetail.order_receiver_avc}" /></td>
+                        value="${requestScope.orderListDetail.address_avc}" /></td>
                   </tr>
                   <tr>
                      <th>주소 1</th>
                      <td><input type="text" name="address_city"
                         id="address_city" readonly required
-                        value="${requestScope.orderListDetail.order_receiver_city}" /></td>
+                        value="${requestScope.orderListDetail.address_city}" /></td>
                   </tr>
                   <tr>
                      <th>주소 2</th>
                      <td><input type="text" name="address_detail"
                         id="address_detail" readonly required
-                        value="${requestScope.orderListDetail.order_receiver_detail}" />
+                        value="${requestScope.orderListDetail.address_detail}" />
                      </td>
                   </tr>
                   <tr>
                      <th>전화번호</th>
                      <td><input type="text" name="address_phone_num"
                         id="address_phone_num" required
-                        value="${requestScope.orderListDetail.order_receiver_phone_num}" />
+                        value="${requestScope.orderListDetail.address_phone_num}" />
                      </td>
                   </tr>
                   <tr>
@@ -192,23 +192,23 @@ function changeDelNumber() {
                            </td>
                            <td>
                               ${od.order_detail_id}
-                              <input type="text" name="order_detail_id" id="order_detail_id" value="${od.order_detail_id}" required />
+                              <input type="hidden" name="order_detail_id" id="order_detail_id" value="${od.order_detail_id}" required />
                            </td>
                            <td>
                               ${od.product_id}
-                              <input type="text" name="product_id" id="product_id" value="${od.product_id}" required />
+                              <input type="hidden" name="product_id" id="product_id" value="${od.product_id}" required />
                            </td>
                            <td>
                               ${od.order_quan}
-                              <input type="text" name="order_quan" id="order_quan" value="${od.order_quan}" required />
+                              <input type="hidden" name="order_quan" id="order_quan" value="${od.order_quan}" required />
                            </td>
                            <td>
                               ${od.order_price}
-                              <input type="text" name="order_price" id="order_price" value="${od.order_price}" required />
+                              <input type="hidden" name="order_price" id="order_price" value="${od.order_price}" required />
                            </td>
                            <td>
                               ${od.review_state}
-                              <input type="text" name="review_state" id="review_state" value="${od.review_state}" required />
+                              <input type="hidden" name="review_state" id="review_state" value="${od.review_state}" required />
                            </td>
                         </tr>
                      </c:forEach>
