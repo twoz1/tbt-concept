@@ -46,8 +46,7 @@ function generateOrderNumber() {
 const Information = (props) => {
 
     const handleAddressBookClick = () => {
-        // 주소록 버튼 클릭 시 새 창 열기
-        window.open('/addressOpen', '_blank','width=1040, height=357');
+        window.open('/addressOpen', '_blank','width=1040, height=800');
     };
 
 
@@ -144,7 +143,6 @@ const Information = (props) => {
                                 <button type="button" onClick={ handleAddressBookClick}>
                                     주소록
                                 </button>
-                                {/* {isModal('checkoutModal') && <CheckOut_Modal closeModal={closeModal} addressList={addressList} />} */}
 
                             </td>
 

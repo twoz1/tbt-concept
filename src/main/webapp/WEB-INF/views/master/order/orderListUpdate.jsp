@@ -77,32 +77,32 @@ function changeDelNumber() {
                      <th>받는사람</th>
                      <td><input type="text" name="address_name"
                         id="address_name" required readonly
-                        value="${requestScope.orderListDetail.order_receiver}" /></td>
+                        value="${requestScope.orderListDetail.address_name}" /></td>
                   </tr>
                   <tr>
                      <th>우편번호</th>
                      <td><input type="text" name="address_avc"
                         id="address_avc" readonly required
-                        value="${requestScope.orderListDetail.order_receiver_avc}" /></td>
+                        value="${requestScope.orderListDetail.address_avc}" /></td>
                   </tr>
                   <tr>
                      <th>주소 1</th>
                      <td><input type="text" name="address_city"
                         id="address_city" readonly required
-                        value="${requestScope.orderListDetail.order_receiver_city}" /></td>
+                        value="${requestScope.orderListDetail.address_city}" /></td>
                   </tr>
                   <tr>
                      <th>주소 2</th>
                      <td><input type="text" name="address_detail"
                         id="address_detail" readonly required
-                        value="${requestScope.orderListDetail.order_receiver_detail}" />
+                        value="${requestScope.orderListDetail.address_detail}" />
                      </td>
                   </tr>
                   <tr>
                      <th>전화번호</th>
                      <td><input type="text" name="address_phone_num"
                         id="address_phone_num" required
-                        value="${requestScope.orderListDetail.order_receiver_phone_num}" />
+                        value="${requestScope.orderListDetail.address_phone_num}" />
                      </td>
                   </tr>
                   <tr>
