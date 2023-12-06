@@ -192,23 +192,23 @@ function changeDelNumber() {
                            </td>
                            <td>
                               ${od.order_detail_id}
-                              <input type="text" name="order_detail_id" id="order_detail_id" value="${od.order_detail_id}" required />
+                              <input type="hidden" name="order_detail_id" id="order_detail_id" value="${od.order_detail_id}" required />
                            </td>
                            <td>
                               ${od.product_id}
-                              <input type="text" name="product_id" id="product_id" value="${od.product_id}" required />
+                              <input type="hidden" name="product_id" id="product_id" value="${od.product_id}" required />
                            </td>
                            <td>
                               ${od.order_quan}
-                              <input type="text" name="order_quan" id="order_quan" value="${od.order_quan}" required />
+                              <input type="hidden" name="order_quan" id="order_quan" value="${od.order_quan}" required />
                            </td>
                            <td>
                               ${od.order_price}
-                              <input type="text" name="order_price" id="order_price" value="${od.order_price}" required />
+                              <input type="hidden" name="order_price" id="order_price" value="${od.order_price}" required />
                            </td>
                            <td>
                               ${od.review_state}
-                              <input type="text" name="review_state" id="review_state" value="${od.review_state}" required />
+                              <input type="hidden" name="review_state" id="review_state" value="${od.review_state}" required />
                            </td>
                         </tr>
                      </c:forEach>

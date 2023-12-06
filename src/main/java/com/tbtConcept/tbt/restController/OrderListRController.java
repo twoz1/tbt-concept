@@ -50,7 +50,7 @@ public class OrderListRController {
 		try {
 			orderdService.save(dentity);
 			orderService.save(entity);
-			addressService.save(aentity);
+			// addressService.save(aentity);
 			model.addAttribute("message", "주문등록 성공");
 			System.out.println("** orderList insert 성공");
 			return "완료";

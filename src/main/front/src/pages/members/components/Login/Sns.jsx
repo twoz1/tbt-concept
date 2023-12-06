@@ -1,13 +1,22 @@
 import { useEffect } from 'react';
 const Sns = () => {
-    const Rest_api_key = 'REST API KEY'; //REST API KEY
-    const redirect_uri = 'http://localhost:3000/auth'; //Redirect URI
+    const Rest_api_key = 'eaa193bc4b12c52ab159d0c57e094b2d'; //REST API KEY
+    const redirect_uri = 'http://localhost:3000/oauth/callback/kakao'; //Redirect URI
     // oauth 요청 URL
     const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
     const handleLogin = () => {
         window.location.href = kakaoURL;
     };
-    // --------------------------------------------- KAKAO
+
+    // const KAKAO_REST_API_KEY = 'eaa193bc4b12c52ab159d0c57e094b2d';
+    // const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/callback/kakao'; 
+    // const KakaoLoginAPI = `https://kauth.kakao.com/oauth/authorize?
+    //     lient_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
+
+    // const openKakaoLogin = () => {
+    //     window.open(KakaoLoginAPI, "_self");
+    //   };
+    // // --------------------------------------------- KAKAO
 
 
 
