@@ -29,7 +29,7 @@
 			<li><a href="#">주문관리</a>
 				<ul>
 					<li><a href="/master/order/orderList">주문목록</a></li>
-					<li><a href="/master/cart/cpJoinList">장바구니목록</a></li>
+					<li><a href="/master/cart/cartList">장바구니목록</a></li>
 				</ul>
 			</li>
 

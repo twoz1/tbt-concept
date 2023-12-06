@@ -30,6 +30,8 @@ public interface CartService {
 
 	int save(Cart entity);
 
-	void delete(CartId cart_id);
+	CartId delete(CartId cart_id);
+	
+	int cartUpdateCount(String user_id, int product_id, int cart_quan);
 
 }

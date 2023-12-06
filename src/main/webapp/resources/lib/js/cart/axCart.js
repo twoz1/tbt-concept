@@ -31,3 +31,4 @@ function keywordClear() {
 	if (document.getElementById('searchType').value == 'search_all')
 		document.getElementById('keyword').value = '';
 }
+

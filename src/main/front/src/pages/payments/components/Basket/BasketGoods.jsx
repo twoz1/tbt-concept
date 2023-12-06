@@ -2,28 +2,28 @@ import React, { useState, useEffect } from 'react'
 import '../../../../styles/payments/BasketGoods.css';
 import { Link } from 'react-router-dom';
 
-const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, checkItems, changeQuantity, totalPricing, quantityGoods }) => {
+const BasketGoods = ({ cart_quan, product_id, product_name, product_price,  product_stock, user_id, product_img1, changeQuantity, totalPricing, quantityGoods, checkItems, handleSingleCheck }) => {
 
     return (
         <tbody>
-            <tr key={name}>
+            <tr key={product_id}>
                 <th>
                     <input type="checkbox"
                         name="goods"
-                        checked={checkItems.includes(name)}
-                        onChange={() => handleSingleCheck(!checkItems.includes(name), name)}
-                        value={quantityGoods}
+                        checked={checkItems.includes(product_id)}
+                        onChange={() => handleSingleCheck(!checkItems.includes(product_id), product_id)}
+                        value={cart_quan}
                     />
                 </th>
 
                 <td className="goods_name">
                     <div>
-                        <Link to={`/detail/${name}`} >
-                            <img src={imageFront} alt="상품사진" />
+                        <Link to={`/detail/${product_id}`} >
+                            <img src={require(`../../../../images/${product_img1}`)} alt="상품사진" />
                         </Link>
                     </div>
-                    <Link to={`/detail/${name}`}>
-                        {name}
+                    <Link to={`/detail/${product_id}`}>
+                        {product_name}
                     </Link>
                 </td>
 
@@ -31,13 +31,13 @@ const BasketGoods = ({ id, name, price, link, imageFront, handleSingleCheck, che
                 <td className="goods_quantity">
                     <input type="number"
                         min={1} max={10}
-                        value={quantityGoods}
-                        onChange={(e) => changeQuantity(e, name)}
+                        value={cart_quan}
+                        onChange={(e) => changeQuantity(e, product_id)}
                     />
                 </td>
 
                 <td className="goods_price" >
-                    {(totalPricing(price, quantityGoods)).toLocaleString()}원
+                    {(totalPricing(product_price, quantityGoods)).toLocaleString()}원
                 </td>
             </tr>
         </tbody>
