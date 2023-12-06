@@ -2,6 +2,7 @@ package com.tbtConcept.tbt.restController;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+import com.tbtConcept.tbt.domain.CartDeleteDTO;
 import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
@@ -54,24 +57,20 @@ public class CartRController {
 			return "실패";
 		}
 	}
-	
+
 	@GetMapping("/cpJList/{loginUser}")
 	public List<CartProdDTO> getShowDetailCart(@PathVariable("loginUser") String user_id, Model model) {
 		return cartService.perCartUser(user_id);
 	}
-	
+
 	// Delete =====================================================
-	@DeleteMapping("/qDelete/{user_id}")
-	public ResponseEntity<?> axPDelete(@PathVariable("user_id") String user_id, @RequestParam("product_id") int[] product_id, Cart entity) {
-		
-		String encodedUserId = URLEncoder.encode(user_id, StandardCharsets.UTF_8);
-		
-		System.out.println(product_id);
-		
-		if (product_id != null) {
-			for (int p : product_id) {
-				cartService.delete(new CartId(encodedUserId, p));
-	        }
+	@GetMapping("/qDelete")
+	public ResponseEntity<?> axPDelete(CartDeleteDTO cDto, Cart entity) {
+		System.out.println("** product_id => " + Arrays.toString(cDto.getProduct_id()));
+		if (cDto.getProduct_id().length > 0) {
+			for (int p : cDto.getProduct_id()) {
+				cartService.delete(new CartId(cDto.getUser_id(), p));
+			}
 			System.out.println("삭제 성공");
 			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
 		} else {
@@ -79,8 +78,5 @@ public class CartRController {
 			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
 		}
 	}
-	
-	
-	
 
 }

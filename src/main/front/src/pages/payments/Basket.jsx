@@ -3,6 +3,7 @@ import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import qs from 'qs';
 
 const Basket = () => {
 
@@ -35,7 +36,6 @@ const Basket = () => {
             const idArray = [];
             cartUserList.map((el) => idArray.push(el.product_id));
             setCheckItems(idArray);
-            // console.log(checkItems);
         } else {
             setCheckItems([])
         }
@@ -75,10 +75,13 @@ const Basket = () => {
 
     // 선택 상품 삭제============================
     const handleDeleteSelected = () => {
+        const checkItemsQS = qs.stringify({product_id:checkItems}, { arrayFormat: 'repeat' });
+        console.log(checkItemsQS);
+
         // 장바구니 삭제 DB 요청
         if(checkItems !== null){
-            axios.delete("/rCart/qDelete/" + loginUser.user_id, {params:{product_id:checkItems}
-            }).then(response => {
+            axios.get("/rCart/qDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
+            ).then(response => {
                 const updatedCartItems = cartUserList.filter(item => !checkItems.includes(item.product_id));
                 setCartUserList(updatedCartItems);
                 setCheckItems([]); // 체크된 아이템 초기화
@@ -88,8 +91,6 @@ const Basket = () => {
             });
         }
     };
-
-
 
     // 총 결제 금액 ==============================
     const [fee, setFee] = useState(0);
