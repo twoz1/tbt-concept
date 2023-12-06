@@ -28,10 +28,10 @@ public class OrderDetailController {
 
 	OrderDetailService orderDetailService;
 
-	@GetMapping("/orderDetailList")
-	public void getOrderDetailList(Model model) {
-		model.addAttribute("orderDetailList", orderDetailService.findAllDesc());
-	}
+//	@GetMapping("/orderDetailList")
+//	public void getOrderDetailList(Model model) {
+//		model.addAttribute("orderDetailList", orderDetailService.findByIdDetails(dentity.getOrder_detail_id()));
+//	}
 
 	// ========================================================================
 
