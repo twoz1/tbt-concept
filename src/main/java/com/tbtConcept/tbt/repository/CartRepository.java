@@ -40,5 +40,12 @@ public interface CartRepository extends JpaRepository<Cart, CartId> {
 	@Transactional
 	@Query(nativeQuery = true, value = "insert into cart VALUES (:user_id, :product_id, :cart_quan)"
 			+ " ON DUPLICATE KEY UPDATE cart_quan = cart_quan+:cart_quan")
-	int cartUpdateCount(@Param("user_id") String user_id, @Param("product_id") int product_id, @Param("cart_quan") int cart_quan);
+	int cartUpdateCount1(@Param("user_id") String user_id, @Param("product_id") int product_id, @Param("cart_quan") int cart_quan);
+	
+	@Modifying
+	@Transactional
+	@Query(nativeQuery = true, value = "insert into cart VALUES (:user_id, :product_id, :cart_quan)"
+			+ " ON DUPLICATE KEY UPDATE cart_quan = :cart_quan")
+	int cartUpdateCount2(@Param("user_id") String user_id, @Param("product_id") int product_id, @Param("cart_quan") int cart_quan);
+
 }

@@ -17,7 +17,6 @@ const Basket = () => {
             
         axios.get(url).then(response => {
             setCartUserList(response.data);
-            console.log("고객당 Cart 출력 성공" + response.data);
         }).catch(err => {
             if (err.response.status == "502") {
                 alert("[Cart 입력 오류] 다시 시도하세요.");
@@ -54,11 +53,11 @@ const Basket = () => {
     const [quantityGoods, setQuantityGoods] = useState(1);
 
     //상품 개수 선택
-    const changeQuantity = (e, itempId) => {
+    const changeQuantity = (e, product_id) => {
         const newQuantity = parseInt(e.target.value);
         setQuantityGoods(newQuantity);
         const newCart = cartUserList.map((item) => {
-            if (item.product_id === itempId) {
+            if (item.product_id === product_id) {
                 return { ...item, cart_quan: newQuantity };
             } else {
                 return { ...item };
@@ -80,7 +79,7 @@ const Basket = () => {
 
         // 장바구니 삭제 DB 요청
         if(checkItems !== null){
-            axios.get("/rCart/qDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
+            axios.get("/rCart/cDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
             ).then(response => {
                 const updatedCartItems = cartUserList.filter(item => !checkItems.includes(item.product_id));
                 setCartUserList(updatedCartItems);
@@ -149,15 +148,17 @@ const Basket = () => {
                                             </tr>
                                         </thead>
 
-                                        {cartUserList.map((item) => <BasketGoods key={item.product_id} {...item}
-                                            handleAllCheck={handleAllCheck}
-                                            handleSingleCheck={handleSingleCheck}
-                                            checkItems={checkItems}
-                                            changeQuantity={(e) => changeQuantity(e, item.product_id)}
-                                            totalPricing={totalPricing}
-                                            quantityGoods={item.cart_quan}
-                                            price={item.product_price}
-                                        />)}
+                                        <tbody>
+                                            {cartUserList.map((item) => <BasketGoods key={item.product_id} {...item}
+                                                handleAllCheck={handleAllCheck}
+                                                handleSingleCheck={handleSingleCheck}
+                                                checkItems={checkItems}
+                                                changeQuantity={(e) => changeQuantity(e, item.product_id)}
+                                                totalPricing={totalPricing}
+                                                cart_quan={item.cart_quan}
+                                                price={item.product_price}
+                                            />)}
+                                        </tbody>
 
                                     </table>
 
@@ -167,7 +168,7 @@ const Basket = () => {
                                     </div>
                                 </figure>
 
-                                <BasketPriceBox calculateSelectedTotal={calculateSelectedTotal} fee={fee} />
+                                <BasketPriceBox checkItems={checkItems} calculateSelectedTotal={calculateSelectedTotal} cfee={fee} />
                             </div>
 
 

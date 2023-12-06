@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>장바구니 리스트 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/resources/lib/js/cart/cart.js"></script>
+<script src="/resources/lib/js/cart/axCart.js"></script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -45,7 +45,7 @@
 								<td>${c.user_id}</td>
 								<td>${c.product_id}</td>
 								<td>${c.cart_quan}</td>
-								<td><button onclick="axCartDelete(${cart_id})" id="${cart_id}">삭제</button></td>
+								<td><button onclick="axCartDelete('${user_id}',${product_id})">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>

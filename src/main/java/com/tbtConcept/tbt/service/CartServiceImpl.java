@@ -77,8 +77,13 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
-	public int cartUpdateCount(String user_id, int product_id, int cart_quan) {
-		return repository.cartUpdateCount(user_id, product_id, cart_quan);
+	public int cartUpdateCount1(String user_id, int product_id, int cart_quan) {
+		return repository.cartUpdateCount1(user_id, product_id, cart_quan);
+	}
+	
+	@Override
+	public int cartUpdateCount2(String user_id, int product_id, int cart_quan) {
+		return repository.cartUpdateCount2(user_id, product_id, cart_quan);
 	}
 
 }

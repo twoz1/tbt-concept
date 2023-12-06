@@ -32,6 +32,8 @@ public interface CartService {
 
 	CartId delete(CartId cart_id);
 	
-	int cartUpdateCount(String user_id, int product_id, int cart_quan);
+	int cartUpdateCount1(String user_id, int product_id, int cart_quan);
+	
+	int cartUpdateCount2(String user_id, int product_id, int cart_quan);
 
 }
