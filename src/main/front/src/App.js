@@ -24,7 +24,8 @@ import axios from 'axios';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { addressReducer } from './pages/config/Configstore';
-import CheckOut_Modal from './pages/members/components/checkout/ChcekOut_Modal';
+import CheckOut_Modal from './pages/payments/components/Checkout/ChcekOut_Modal';
+import Information from './pages/payments/components/Checkout/Information';
 
 
 const orderList = [
@@ -125,7 +126,8 @@ function App() {
                     {/* ----------------이지 링크투-------- */}
                     {/* ----------------진휘 링크투-------- */}
 
-                    <Route path='/checkout' element={<Checkout mockItemsData={mockItemsData} />}></Route>
+                    <Route path='/checkout/' element={<Checkout mockItemsData={mockItemsData} />}></Route>
+                    {/* <Route path='/addressOpen/:user_id'  element={<checkout/>}></Route> */}
 
 
                     {/* ----------------진휘 링크투-------- */}

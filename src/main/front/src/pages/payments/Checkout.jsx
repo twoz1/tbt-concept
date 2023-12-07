@@ -10,7 +10,8 @@ import g_antonCrystal_01 from '../../images/g_antonCrystal_01.jpg';
 import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import navigateTo from '../config/navigateTo';
+import { useParams } from "react-router-dom";
 
 //임의의 상품 목록
 const checkoutList = []
@@ -23,7 +24,32 @@ const couponOptions = [
 
 
 
+
 const Checkout = ({}) => {
+
+    const [selectedAddress, setSelectedAddress] = useState(null);
+    
+const { user_id } = useParams();
+    useEffect(() => {
+        // 여기서 user_id를 사용할 수 있음
+        console.log('User ID in Information:', user_id);
+    }, [user_id]);
+
+
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+    const [pageState, setPageState] = useState(false);
+    console.log(loginUser);
+
+
+    useEffect(() => {
+
+        if (loginUser == null) {
+            alert("로그인 후 이용해주세요.");
+            navigateTo("/");
+        } else {
+            setPageState(true);
+        }
+    }, []);
     
     const location = useLocation();
     const { quantityGoods, product_name, product_img1, product_price, product_id, code} = location.state;
@@ -69,7 +95,7 @@ const Checkout = ({}) => {
     //     + (newProduct[1].price * newProduct[1].quantity);
     
     console.log("^^^^^^^^^^^^^^^^^^", code);
-    return (
+    return ( pageState && (
         
         <div>
             <div className="center m_c">
@@ -108,6 +134,6 @@ const Checkout = ({}) => {
                 </div>
             </div>
         </div>
-    );
+    ));
 };
 export default Checkout;

@@ -70,4 +70,3 @@ const ChcekOut_address = ({ closeModal, index, address_name, address_city, addre
 };
 
 export default ChcekOut_address;
-

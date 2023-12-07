@@ -51,4 +51,3 @@ const ChcekOut_OrderAVC = ({ closeModal, props, setcompany, company  }) => {
 };
 
 export default ChcekOut_OrderAVC;
-

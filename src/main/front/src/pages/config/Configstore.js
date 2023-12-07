@@ -4,7 +4,11 @@ const addressSlice = createSlice({
     name: 'address',
     initialState: {
         // 사용할 객체 정보
-        address_id: null,
+        // address_name : "",
+        // address_avc : "",
+        // address_city : "",
+        // address_detail : "",
+        // address_phone_num :""
     },
     reducers: {
         setAddress: (state, action) => {
@@ -20,7 +24,7 @@ export const addressReducer = addressSlice.reducer;
 
 const Configstore = configureStore({
     reducer: {
-        address: addressReducer,
+        addressReducer,
     },
 });
 

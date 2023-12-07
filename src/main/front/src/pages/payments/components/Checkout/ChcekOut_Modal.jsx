@@ -106,4 +106,3 @@ const CheckOut_Modal = ({ closeModal }) => {
 };
 
 export default CheckOut_Modal;
-

@@ -54,7 +54,7 @@ public class AddressRController {
    @PostMapping("/aListInsert")
    public String postorderListInsert( @RequestBody Address entity, Model model, RedirectAttributes rttr){
 
-	   System.out.println("확인!!!!!!!!!!!!!!!!!!!!" + entity);
+      System.out.println("확인!!!!!!!!!!!!!!!!!!!!" + entity);
       try {
          addressService.save(entity);
          model.addAttribute("message", "주소등록 성공");
