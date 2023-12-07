@@ -57,7 +57,7 @@ const Information = ({ }) => {
     useEffect(() => {
         console.log(addressValueList);
 
-        if (addressValueList != null) {
+        if (addressValueList.address != null) {
             document.getElementById("address_avc").value = addressValueList.address.address_avc;
             document.getElementById("address_name").value = addressValueList.address.address_name;
             document.getElementById("address_city").value = addressValueList.address.address_city;
