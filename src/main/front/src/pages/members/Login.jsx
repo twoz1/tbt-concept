@@ -43,7 +43,7 @@ const Login = () => {
                 if (response.data) {
                     setEmailMessage('');
 
-                    //dispatch(setUser(response.data));
+                    // dispatch(setUser(response.data));
                     sessionStorage.setItem("loginUser", JSON.stringify(response.data));
                     navigateTo("/");
                 } else {

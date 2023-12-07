@@ -5,26 +5,35 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.CouponList;
 import com.tbtConcept.tbt.entity.CouponListId;
 import com.tbtConcept.tbt.repository.CouponListRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Transactional
 @Service
 @RequiredArgsConstructor
 public class CouponListServiceImpl implements CouponListService {
 	
 	private final CouponListRepository repository;
-
+	
 	@Override
-	public List<CouponList> selectList() {
-		return repository.selectList();
-	}
+    public PageResultDTO<CouponList> selectList(PageRequestDTO requestDTO) {
+    	
+    	Pageable pageable = requestDTO.getPageable(Sort.by("coupon_start").descending());
+		
+		Page<CouponList> result = repository.findAll(pageable);
+		
+		return new PageResultDTO<CouponList>(result);
+    	
+    }
 	
 	@Override
 	public List<Object> couponJoinList(String user_id){
@@ -53,6 +62,7 @@ public class CouponListServiceImpl implements CouponListService {
 		return 1;
 	}
 	
+	
 	@Override
 	public int delete(CouponListId id) {
 		repository.deleteById(id);
@@ -64,5 +74,5 @@ public class CouponListServiceImpl implements CouponListService {
 	public void deleteByCouponId(int coupon_id) {
 		repository.deleteByCouponId(coupon_id);
 	}
-
+	
 }

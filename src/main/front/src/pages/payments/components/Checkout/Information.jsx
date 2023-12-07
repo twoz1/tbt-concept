@@ -49,7 +49,13 @@ function generateOrderNumber() {
 
 
 
+<<<<<<< HEAD
 const Information = ({ }) => {
+=======
+    const handleAddressBookClick = () => {
+        window.open('/addressOpen', '_blank', 'width=1040, height=800');
+    };
+>>>>>>> hyeonju
 
 
     const addressValueList = useSelector(state => state.address);

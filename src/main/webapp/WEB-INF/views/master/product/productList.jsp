@@ -17,6 +17,19 @@
 			<div class="product_list master_list">
 				<h2 class="master_title">상품 리스트</h2>
 				<a class="m_button l_button" href="productInsert">상품등록</a>
+				<div class="searchBox">
+					<!-- 검색창 구현 -->
+					<form action="searchList" method="get">
+						<select name="searchType" id="searchType" onchange="keywordClear()">
+							<option value="all">전체</option>
+							<option value="name">모델명</option>
+							<option value="prodId">상품ID</option>
+						</select>
+						
+						<input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." />
+						<button id="searchBtn">Search</button>
+					</form>
+				</div>
 				<table>
 					<tr>
 						<th>상품ID</th>

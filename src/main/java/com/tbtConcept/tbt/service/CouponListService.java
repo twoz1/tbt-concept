@@ -2,8 +2,9 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
-import org.springframework.data.repository.query.Param;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.CouponList;
 import com.tbtConcept.tbt.entity.CouponListId;
 
@@ -11,7 +12,7 @@ import com.tbtConcept.tbt.entity.CouponListId;
 public interface CouponListService {
 	
 	
-	List<CouponList> selectList();
+	PageResultDTO<CouponList> selectList(PageRequestDTO requestDTO);
 		
 	List<Object> couponJoinList(String user_id);
 	
@@ -24,4 +25,5 @@ public interface CouponListService {
 	int delete(CouponListId Coupon_id);
 	
 	void deleteByCouponId(int coupon_id);
+	
 }

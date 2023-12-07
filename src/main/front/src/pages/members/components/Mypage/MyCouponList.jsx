@@ -15,7 +15,7 @@ const MyCouponList = ({ loginUser }) => {
         alert(`** checkdata 서버연결 실패 => ${err.message}`);
       });
 
-  }, [coupon]);
+  }, []);
 
   return (
     <div className="MycouponList">

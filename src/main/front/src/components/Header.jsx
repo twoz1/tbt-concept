@@ -29,6 +29,7 @@ const Header = () => {
         if (!loggedIn) {
             e.preventDefault();
             alert("로그인이 필요한 페이지입니다.");
+            navigateTo("/login");
         }
     }
 
@@ -46,7 +47,7 @@ const Header = () => {
                 </form>
                 <ul className="h_icon">
                     <li>
-                        <Link to="/cart" onClick={(e) => handleRestrictedAccess(e, "/cart")}>
+                        <Link to="/cart">
                             <FontAwesomeIcon icon={faBagShopping} className="fa-solid" />
                             {/* <i class="fa-solid fa-bag-shopping"></i> */}
                             <span>CART</span>
