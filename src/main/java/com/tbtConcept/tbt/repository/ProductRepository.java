@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.tbtConcept.tbt.entity.Product;
 
@@ -17,4 +18,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
 	@Query("SELECT p FROM Product p where code ='G' order by p.product_id desc")
 	List<Product> selectGDesc();
+	
+	@Query("SELECT p FROM Product p WHERE p.product_name LIKE %:mSearBarKeyword% order by p.product_id desc")
+	List<Product> searchByProductLikeA(@Param("mSearBarKeyword") String mSearBarKeyword);
+
 }

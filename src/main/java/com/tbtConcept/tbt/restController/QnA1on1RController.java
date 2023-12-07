@@ -72,16 +72,6 @@ public class QnA1on1RController {
 	}
 
 	// List =====================================================
-//	@PostMapping("/qList/{user_id}")
-//	public List<QnA1on1> postQList(Model model, @PathVariable("user_id") String user_id, QnA1on1 entity) {
-//		if (user_id.equals(entity.getUser_id())) {
-//			return qna1on1Service.selectList();			
-//		} else {
-//			return List<QnA1on1>;
-//		}
-//		
-//	}
-
 	@PostMapping("/qList/{user_id}")
 	public List<QnA1on1> postQList(@PathVariable("user_id") String user_id) {
 		return qna1on1Service.selectListByUserId(user_id);

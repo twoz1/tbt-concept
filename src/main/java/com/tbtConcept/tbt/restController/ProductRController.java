@@ -39,23 +39,29 @@ public class ProductRController {
 	public List<Product> getPListDesc(Model model) {
 		return prodService.findAllDesc();
 	}
-	
+
 	@GetMapping("/pSListDesc")
 	public List<Product> getProductSList(Model model) {
 		return prodService.selectSDesc();
 	}
-	
+
 	@GetMapping("/pGListDesc")
 	public List<Product> getProductGList(Model model) {
 		return prodService.selectGDesc();
 	}
-	
+
 	@GetMapping("/pDetail/{product_id}")
-	public Product getProductDetail(@PathVariable("product_id") int id, Model model){
+	public Product getProductDetail(@PathVariable("product_id") int id, Model model) {
 		Product pr = prodService.selectDetail(id);
-		System.out.println("getProductDetail ->" +pr);
+		System.out.println("getProductDetail ->" + pr);
 		return pr;
-		
 	}
-	
+
+	@PostMapping("/searchProds/{mSearBarKeyword}")
+	public List<Product> searchProductListA(@PathVariable("mSearBarKeyword") String mSearBarKeyword) {
+		List<Product> searchList = prodService.searchByProductLikeA(mSearBarKeyword);
+
+		return searchList;
+	}
+
 }
