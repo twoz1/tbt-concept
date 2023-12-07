@@ -26,6 +26,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { addressReducer } from './pages/config/Configstore';
 import CheckOut_Modal from './pages/payments/components/Checkout/ChcekOut_Modal';
 import Information from './pages/payments/components/Checkout/Information';
+import Update from './pages/members/Update';
 
 
 const orderList = [
@@ -116,10 +117,10 @@ function App() {
                     {/* ----------------고정 풋터의 링크-------- */}
                     {/* ----------------이지 링크투-------- */}
 
-
                     <Route exact path="/addressOpen" render={() => (
                         <CheckOut_Modal />
                     )} />
+                    <Route path='/my/update' element={<Update />}></Route >
 
                     <Route path='/detail/:product_id' element={<DetailedPage />}></Route>
 

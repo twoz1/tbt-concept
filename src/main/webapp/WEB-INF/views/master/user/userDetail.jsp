@@ -26,10 +26,7 @@
 					<th>비밀번호</th>               
                		<td>${requestScope.userDetail.user_pw}</td>
                </tr>
-               <tr>
-					<th>휴대폰 번호</th>               
-               		<td></td>
-               </tr>
+             
                <tr>
 					<th>가입일</th>               
                		<td>${requestScope.userDetail.user_birth}</td>
@@ -42,19 +39,7 @@
 					<th>이벤트 정보 수신 여부</th>               
                		<td>${requestScope.userDetail.user_event_check}</td>
                </tr>
-               <tr>
-					<th>우편번호</th>               
-               		<td></td>
-               </tr>
-               <tr>
-					<th>도로명 주소</th>               
-               		<td></td>
-               </tr>
-               <tr>
-					<th>상세주소</th>               
-               		<td></td>
-               </tr>
-
+             
             </table>
             
             <a class="m_button" href="userDetail?jCode=U&user_id=${requestScope.userDetail.user_id}">회원수정</a>

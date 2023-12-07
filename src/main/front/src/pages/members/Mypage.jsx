@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CouponDownload from './components/Mypage/CouponDownload';
 import navigateTo from '../config/navigateTo';
+import { Link } from 'react-router-dom';
 
 
 const Mypage = ({ order }) => {
@@ -65,6 +66,9 @@ const Mypage = ({ order }) => {
                             <p>
                                 <span><strong>{loginUser.user_name}</strong> 회원님 안녕하세요!</span>
                                 <span>정보수정 만들곳 ~임시~</span>
+                                <Link to="update">
+                                    정보수정
+                                </Link>
                             </p>
                         </div>
                         <div className="member_right">

@@ -31,7 +31,7 @@ public class User {
 	@Column(nullable=false)
 	private String user_pw;
 	
-	private String user_phone_num;
+
 	
 	@Column(nullable=false)
 	private String user_birth;
@@ -42,10 +42,6 @@ public class User {
 	@Column(nullable=false)
 	private String user_event_check;
 	
-	private String address_avc;
-	
-	private String address_city;
-	
-	private String address_detail;
+
 	
 }
