@@ -20,15 +20,18 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(CouponListId.class)
-public class CouponList implements Serializable {
+@IdClass(UserCouponId.class)
+public class UserCoupon implements Serializable {
 	
 	@Id
 	private int coupon_id;	
 	@Id
 	private String user_id;
 	
-	private LocalDateTime coupon_start;
-	private LocalDateTime coupon_end;
+	@Column(name = "coupon_start")
+	private String couponStart;
+	
+	@Column(name = "coupon_end")
+	private String couponEnd;
 	
 }

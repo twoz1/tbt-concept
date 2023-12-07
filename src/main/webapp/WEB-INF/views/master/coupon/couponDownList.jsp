@@ -38,6 +38,7 @@
 					</c:if>
 				</table>
 			</div>
+			
 		</main>
 	</div>
 </body>

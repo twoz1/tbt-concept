@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CouponListId implements Serializable{
+public class UserCouponId implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
