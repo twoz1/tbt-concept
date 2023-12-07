@@ -18,8 +18,9 @@ const AddressForm = () => {
     const [ShowCheckOut_modal, setShowCheckOut_modal] = useState(false);
 
     const prevPageClick = () => {
-        setShowCheckOut_modal(true);
+        setShowCheckOut_modal(true); 
     };
+    
 
     const [showPlaceholder, setShowPlaceholder] = useState(true);
     const { openModal, closeModal, isModal } = useModal();
@@ -46,7 +47,7 @@ const AddressForm = () => {
                 address_avc: document.getElementById("address_avc1").value,
                 address_name: document.getElementById("address_name1").value,
                 address_city: document.getElementById("address_city1").value,
-                address_detail: document.getElementById("address_detail").value,
+                address_detail: document.getElementById("address_detail1").value,
                 address_phone_num: num,
                 order_message: document.getElementById("order_message1").value
             }).then(response => {
@@ -77,14 +78,18 @@ const AddressForm = () => {
 
         <div>
             {ShowCheckOut_modal ? (
-                <CheckOut_Modal />
-            ) : (<React.Fragment>
+                <CheckOut_Modal/>
+            ) : (
+            <React.Fragment>
                 <table>
-                    <tr>
+
+                    <tr  className='orderinput_hidden'>
                         <th >
-                            받으시는 분 <span>&#42;</span>
+                            회원 ID <span>&#42;</span>
                             <input type="text" id="user_id" value={loginUser.user_id} required />
                         </th>
+                    </tr>   
+                    <tr>
 
                         <th>
                             받으시는 분 <span>&#42;</span>
@@ -119,12 +124,12 @@ const AddressForm = () => {
                                 placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
                                 required
                             />
-                            <button type='button'
+                            <button className='addressAvcbtn' type='button'
                                 onClick={() => {
-                                    openModal('ChcekOut_OrderAVC');
-                                }}
+                                    openModal('ChcekOut_OrderAVC'); 
+                                }}  
                             >
-                                우편번호 찾기
+                                &nbsp;&nbsp; 우편번호 찾기
                             </button>
                             {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />}
                             <p>
@@ -143,6 +148,7 @@ const AddressForm = () => {
                 </table>
                 <div className='checkout_modal'>
                     <button className='checkout_close_button' type='button' onClick={() => prevPageClick()}>닫기</button>
+
                     <button className='checkout_submit_button' type='button' onClick={() => insertAddressList()} >등록</button>
                 </div>
             </React.Fragment>

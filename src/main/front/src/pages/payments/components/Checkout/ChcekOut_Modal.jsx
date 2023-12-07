@@ -8,20 +8,19 @@ import { useSelector } from 'react-redux';
 import ChcekOut_address from './ChcekOut_address';
 
 
+
 const CheckOut_Modal = ({ closeModal }) => {
 
 
     // const addressValue = useSelector(state => state.address.);
+
+   
 
     const [addressList, setAddressList] = useState([]);
     const [showNewAddressForm, setShowNewAddressForm] = useState(false);
 
     const NewAddressClick = () => {
         setShowNewAddressForm(true);
-    };
-
-    const handleAddressBookClick = () => {
-        window.close();
     };
 
     // => 실행과 동시에 처음 한번 서버요청
@@ -61,6 +60,7 @@ const CheckOut_Modal = ({ closeModal }) => {
             <div className="modal_cover">
                 <div className="modal_3">
                     <h3>주소 선택</h3>
+
                     <div>
                         <button onClick={NewAddressClick}>
                             배송지 신규 입력
@@ -84,15 +84,13 @@ const CheckOut_Modal = ({ closeModal }) => {
 
                                 <tbody>
                                     {addressList.map((address, index) => (
-                                        <ChcekOut_address key={index} {...address} closeModal={closeModal} />
+                                        <ChcekOut_address key={index} {...address} closeModal={closeModal} setAddressList={setAddressList} />
                                     ))}
                                 </tbody>
 
                             </table>
                             <div className='checkout_modal'>
-                                <button className='checkout_close_button' type='button' onClick={()=>{closeModal('address')}}>닫기</button>
-                                
-
+                                <button className='checkout_close_button' type='button' onClick={() => { closeModal('address') }}>닫기</button>
                                 {/* <Link to={`/checkout/${addressList.address_name}`} key={addressList.address_name}> 
                                 <button className='checkout_submit_button' type='button' onClick={() =>handleAddressBookClick()}>등록</button>
                                 </Link>   */}
