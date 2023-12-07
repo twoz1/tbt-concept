@@ -23,22 +23,15 @@ const Update = () => {
 
     useScrollToTop();
 
-    const [email, setEmail] = useState('');
     const [emailMessage, setEmailMessage] = useState('');
     const [emailValid, setEmailValid] = useState(false);
     const [emailDupValid, setEmailDupValid] = useState(false);
-    const special = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 
     const [pW, setPw] = useState('');
-    const [pwMessage, setPwMessage] = useState('');
     const [pWValid, setPwValid] = useState(false);
 
-    const [secondPw, setSecondPw] = useState('');
-    const [secondPwMessage, setSecondPwMessage] = useState('');
     const [secondPwValid, setSecondPwValid] = useState(false);
 
-    const [userName, setUserName] = useState('');
-    const [userNameMessage, setUserNameMessage] = useState('');
     const [userNameValid, setUserNameValid] = useState(false);
 
     const [eventCheck, setEventCheck] = useState('');
@@ -62,11 +55,11 @@ const Update = () => {
         if (check) {
             axios
                 .post('/user/uUpdate', {
-                    user_id: email,
-                    user_name: userName,
-                    user_pw: pW,
+                    user_id: document.getElementById('user_id').value,
+                    user_name: document.getElementById('user_name').value,
+                    user_pw: document.getElementById('user_pw').value,
                     user_birth: document.getElementById('user_birth').value,
-                    user_event_check: eventCheck,
+                    user_event_check: document.getElementById('user_event_check').value,
                 })
                 .then((response) => {
                     console.log(response.data);
@@ -123,7 +116,7 @@ const Update = () => {
                                     name="user_id"
                                     value={loginUser.user_id}
                                     readOnly/>
-                            <input type="text" id="user_birth" name="user_birth" value={loginUser.user_} />
+                            <input type="text" id="user_birth" name="user_birth" value={loginUser.user_birth} />
                             </td>
 
                         </tr>
@@ -131,8 +124,8 @@ const Update = () => {
                             <th>사용자 이름 <span className="point_color">&#42;</span></th>
                             <td>
                                 <input className="input_box"
-                                    id="user_id"
-                                    name="user_id"
+                                    id="user_name"
+                                    name="user_name"
                                     
                                     placeholder={loginUser.user_name}/>
                                 <input type="hidden" id="user_birth" name="user_birth" value={new Date().toLocaleString()} />
