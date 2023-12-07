@@ -14,6 +14,5 @@ public class CartId implements Serializable {
 	
 	private String user_id;
 	private int product_id;
-	private int cart_quan;
 
 }

@@ -3,6 +3,7 @@ import BasketGoods from './components/Basket/BasketGoods';
 import BasketPriceBox from './components/Basket/BasketPriceBox';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import qs from 'qs';
 
 const Basket = () => {
 
@@ -16,7 +17,6 @@ const Basket = () => {
             
         axios.get(url).then(response => {
             setCartUserList(response.data);
-            console.log("고객당 Cart 출력 성공" + response.data);
         }).catch(err => {
             if (err.response.status == "502") {
                 alert("[Cart 입력 오류] 다시 시도하세요.");
@@ -26,34 +26,26 @@ const Basket = () => {
         });
     }, []);
 
-
-    const cartList = cartUserList;
-    console.log(cartList);
-
     const [checkItems, setCheckItems] = useState([]);
-    const [cartItems, setCartItems] = useState(cartList);
     
-    console.log(cartItems);
-
     //체크박스 구현============================
     const handleAllCheck = (checked) => {
         if (checked) {
             // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
             const idArray = [];
-            cartItems.map((el) => idArray.push(el.name));
+            cartUserList.map((el) => idArray.push(el.product_id));
             setCheckItems(idArray);
-            // console.log(checkItems);
         } else {
             setCheckItems([])
         }
     }
 
-    const handleSingleCheck = (checked, name) => {
+    const handleSingleCheck = (checked, product_id) => {
         if (checked) {
             // 단일 선택 해제 시 체크된 아이템을 제외한 배열(필터)
-            setCheckItems([...checkItems, name])
+            setCheckItems([...checkItems, product_id])
         } else {
-            setCheckItems(checkItems.filter((el) => el !== name))
+            setCheckItems(checkItems.filter((el) => el !== product_id))
         }
     }
 
@@ -61,30 +53,42 @@ const Basket = () => {
     const [quantityGoods, setQuantityGoods] = useState(1);
 
     //상품 개수 선택
-    const changeQuantity = (e, itemName) => {
+    const changeQuantity = (e, product_id) => {
         const newQuantity = parseInt(e.target.value);
         setQuantityGoods(newQuantity);
-        const newCart = cartItems.map((item) => {
-            if (item.name === itemName) {
-                return { ...item, quantity: newQuantity };
+        const newCart = cartUserList.map((item) => {
+            if (item.product_id === product_id) {
+                return { ...item, cart_quan: newQuantity };
             } else {
                 return { ...item };
             }
         });
 
-        setCartItems(newCart);
+        setCartUserList(newCart);
     };
 
-    const totalPricing = (price, quantityGoods) => {
-        const newTotalPricing = (quantityGoods * price);
+    const totalPricing = (product_price, quantityGoods) => {
+        const newTotalPricing = (quantityGoods * product_price);
         return newTotalPricing;
     };
 
     // 선택 상품 삭제============================
     const handleDeleteSelected = () => {
-        const updatedCartItems = cartItems.filter(item => !checkItems.includes(item.name));
-        setCartItems(updatedCartItems);
-        setCheckItems([]); // 체크된 아이템 초기화
+        const checkItemsQS = qs.stringify({product_id:checkItems}, { arrayFormat: 'repeat' });
+        console.log(checkItemsQS);
+
+        // 장바구니 삭제 DB 요청
+        if(checkItems !== null){
+            axios.get("/rCart/cDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
+            ).then(response => {
+                const updatedCartItems = cartUserList.filter(item => !checkItems.includes(item.product_id));
+                setCartUserList(updatedCartItems);
+                setCheckItems([]); // 체크된 아이템 초기화
+                alert("상품이 삭제되었습니다.");
+            }).catch(err => {
+                alert("상품이 삭제가 안되었습니다.");
+            });
+        }
     };
 
     // 총 결제 금액 ==============================
@@ -95,9 +99,9 @@ const Basket = () => {
     const calculateSelectedTotal = () => {
         let selectedTotal = 0;
     
-        for (const item of cartItems) {
-            if (checkItems.includes(item.name)) {
-                selectedTotal += totalPricing(item.price, item.quantity);
+        for (const item of cartUserList) {
+            if (checkItems.includes(item.product_id)) {
+                selectedTotal += totalPricing(item.product_price, item.cart_quan);
             }
         }
 
@@ -134,8 +138,8 @@ const Basket = () => {
                                             <tr>
                                                 <th>
                                                     <input type="checkbox"
-                                                        checked={checkItems.length === cartItems.length}
-                                                        onChange={() => handleAllCheck(checkItems.length !== cartItems.length)}
+                                                        checked={checkItems.length === cartUserList.length}
+                                                        onChange={() => handleAllCheck(checkItems.length !== cartUserList.length)}
                                                     />
                                                 </th>
                                                 <th>상품 정보</th>
@@ -144,15 +148,17 @@ const Basket = () => {
                                             </tr>
                                         </thead>
 
-                                        {cartItems.map((item) => <BasketGoods key={item.name} {...item}
-                                            handleAllCheck={handleAllCheck}
-                                            handleSingleCheck={handleSingleCheck}
-                                            checkItems={checkItems}
-                                            changeQuantity={(e) => changeQuantity(e, item.name)}
-                                            totalPricing={totalPricing}
-                                            quantityGoods={item.quantity}
-                                            price={item.price}
-                                        />)}
+                                        <tbody>
+                                            {cartUserList.map((item) => <BasketGoods key={item.product_id} {...item}
+                                                handleAllCheck={handleAllCheck}
+                                                handleSingleCheck={handleSingleCheck}
+                                                checkItems={checkItems}
+                                                changeQuantity={(e) => changeQuantity(e, item.product_id)}
+                                                totalPricing={totalPricing}
+                                                cart_quan={item.cart_quan}
+                                                price={item.product_price}
+                                            />)}
+                                        </tbody>
 
                                     </table>
 
@@ -162,7 +168,7 @@ const Basket = () => {
                                     </div>
                                 </figure>
 
-                                <BasketPriceBox calculateSelectedTotal={calculateSelectedTotal} fee={fee} />
+                                <BasketPriceBox checkItems={checkItems} calculateSelectedTotal={calculateSelectedTotal} cfee={fee} />
                             </div>
 
 

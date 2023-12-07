@@ -52,3 +52,10 @@
     width: 28%;
     text-align: center;
 }
+
+.changeCquan {
+    background-color: #eee;
+    padding: 3px 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}

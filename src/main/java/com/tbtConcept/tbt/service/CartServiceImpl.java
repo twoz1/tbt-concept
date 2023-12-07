@@ -71,8 +71,19 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void delete(CartId cart_id) {
+	public CartId delete(CartId cart_id) {
 		repository.deleteById(cart_id);
+		return cart_id;
+	}
+	
+	@Override
+	public int cartUpdateCount1(String user_id, int product_id, int cart_quan) {
+		return repository.cartUpdateCount1(user_id, product_id, cart_quan);
+	}
+	
+	@Override
+	public int cartUpdateCount2(String user_id, int product_id, int cart_quan) {
+		return repository.cartUpdateCount2(user_id, product_id, cart_quan);
 	}
 
 }

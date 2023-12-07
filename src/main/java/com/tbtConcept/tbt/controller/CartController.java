@@ -5,12 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
+import com.tbtConcept.tbt.entity.CartId;
+import com.tbtConcept.tbt.entity.News;
 import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.service.CartService;
 import com.tbtConcept.tbt.service.ProductService;
@@ -28,50 +35,13 @@ public class CartController {
 	ProductService prodService;
 
 	// List =====================================================
-
-//	@GetMapping("/cartList")
-//	public void getCartList(Model model) {
-//		model.addAttribute("cartList", cartService.selectList());
-//	}
-	
-//	@GetMapping("/cpJoinList")
-//	public ResponseEntity<?> postShowDetailCart() {
-//		Map<String, List> cartMap = new HashMap<>();
-//		
-//		List<Cart> carts = cartService.selectList();
-//		List<Product> products = null;
-//
-//		for (Cart cart : carts) {
-//			products.add(prodService.selectDetail(cart.getProduct_id()));
-//		}
-//		
-//		cartMap.put("cart", carts);
-//		cartMap.put("product", products);
-//		
-//		return ResponseEntity.ok(cartMap);
-//
-//	}
-	
-	@GetMapping("/cpJoinList")
-	public ResponseEntity<?> postShowDetailCart() {
-	    Map<String, List<?>> cartMap = new HashMap<>();
-
-	    List<Cart> carts = cartService.selectList();
-	    List<Product> products = new ArrayList<>();
-
-	    for (Cart cart : carts) {
-	        products.add(prodService.selectDetail(cart.getProduct_id()));
-	    }
-
-	    cartMap.put("cart", carts);
-	    cartMap.put("product", products);
-
-	    return ResponseEntity.ok(cartMap);
+	@GetMapping("/cartList")
+	public List<Cart> getShowDetailCart(Model model) {
+		return cartService.selectList();
 	}
 
+	// search =====================================================
 
-	// =====================================================
-	
 //	// => cartList search
 //	@GetMapping("/searchCartListA")
 //	public String searchCartListA(Model model, @RequestParam("searchType") String searchType,
@@ -93,7 +63,27 @@ public class CartController {
 //		return uri;
 //	}
 
-
-
-
+	
+	// Delete =====================================================
+	@DeleteMapping("/cartDelete/{user_id}/{product_id}")
+	public ResponseEntity<?> axCartDelete(@PathVariable("user_id") String user_id, @PathVariable("product_id") int product_id) {
+		
+		System.out.println(user_id + product_id);
+		
+		if (cartService.delete(new CartId(user_id, product_id)) != null) {
+			log.info("cartDelete HttpStatus.OK =>" + HttpStatus.OK);
+			System.out.println("Cart 삭제 성공");
+			return new ResponseEntity<String>("[Cart 삭제 성공]", HttpStatus.OK);
+		} else {
+			log.info("cartDelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
+			System.out.println("Cart 삭제 실패");
+			return new ResponseEntity<String>("[Cart 삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+		}
+	}
+	
+	
+	
+	
+	
+	
 }

@@ -2,9 +2,8 @@ package com.tbtConcept.tbt.restController;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +12,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tbtConcept.tbt.controller.QnA1on1Controller;
 import com.tbtConcept.tbt.entity.QnA1on1;
 import com.tbtConcept.tbt.service.QnA1on1Service;
 
@@ -30,33 +29,32 @@ import lombok.extern.log4j.Log4j2;
 @RestController
 @Log4j2
 public class QnA1on1RController {
-	
+
 	QnA1on1Service qna1on1Service;
-	
+
 	// Insert =====================================================
 	@GetMapping("/qna1on1Insert")
 	public void getqna1on1Insert() {
 
 	}
-	
+
 	@PostMapping("/qna1on1Insert")
 	public String postqna1on1Insert(QnA1on1 entity, Model model, RedirectAttributes rttr) throws IOException {
 		System.out.println("postqna1on1Insert 확인 => " + entity);
-		
+
 		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\front\\src\\images\\cs\\";
 		String file1, file2;
-		
+
 		MultipartFile uploadfilef = entity.getQna_upload_filef();
-		
+
 		if (uploadfilef != null && !uploadfilef.isEmpty()) {
 			file1 = realPath + uploadfilef.getOriginalFilename();
 			uploadfilef.transferTo(new File(file1));
-			
+
 			file2 = uploadfilef.getOriginalFilename();
 			entity.setQna_upload_file(file2);
 		}
-		
-		
+
 		try {
 			if (qna1on1Service.save(entity) > 0) {
 				model.addAttribute("message", "1:1문의 등록 성공");
@@ -70,15 +68,25 @@ public class QnA1on1RController {
 			System.out.println("** QnA1on1 insert Exception => " + e.toString());
 			return "실패";
 		}
-		
+
 	}
 
 	// List =====================================================
-	@PostMapping("/qList")
-	public List<QnA1on1> postQList(Model model) {
-		return qna1on1Service.selectList();
+//	@PostMapping("/qList/{user_id}")
+//	public List<QnA1on1> postQList(Model model, @PathVariable("user_id") String user_id, QnA1on1 entity) {
+//		if (user_id.equals(entity.getUser_id())) {
+//			return qna1on1Service.selectList();			
+//		} else {
+//			return List<QnA1on1>;
+//		}
+//		
+//	}
+
+	@PostMapping("/qList/{user_id}")
+	public List<QnA1on1> postQList(@PathVariable("user_id") String user_id) {
+		return qna1on1Service.selectListByUserId(user_id);
 	}
-	
+
 	// Update =====================================================
 	@PostMapping("/qUpdate")
 	public String postqUpdate(QnA1on1 entity, Model model, RedirectAttributes rttr) throws IOException {
@@ -113,13 +121,12 @@ public class QnA1on1RController {
 			return "실패";
 		}
 	}
-	
 
 	// Delete =====================================================
 	@DeleteMapping("/qDelete/{qna_id}")
 	public ResponseEntity<?> axPDelete(@PathVariable("qna_id") int id, QnA1on1 entity) {
 		entity.setQna_id(id);
-		
+
 		if (qna1on1Service.delete(id) > 0) {
 			log.info("axPDelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");
@@ -131,5 +138,4 @@ public class QnA1on1RController {
 		}
 	}
 
-	
 }

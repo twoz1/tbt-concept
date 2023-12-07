@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @AllArgsConstructor
-@RequestMapping(value = "/master/cs/")
+@RequestMapping(value = "/master/cs")
 @Controller
 public class NewsController {
 	NewsService newsService;
@@ -97,7 +97,7 @@ public class NewsController {
 	}
 
 	// Delete =====================================================
-	@DeleteMapping("newsDelete/{news_id}")
+	@DeleteMapping("/newsDelete/{news_id}")
 	public ResponseEntity<?> axNewsDelete(@PathVariable("news_id") int id, News entity) {
 		entity.setNews_id(id);
 

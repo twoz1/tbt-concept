@@ -1,8 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import '../../../../styles/payments/BasketPriceBox.css';
 import { Link } from 'react-router-dom';
+import navigateTo from '../../../config/navigateTo';
+import axios from 'axios';
+import Checkout from './../../Checkout';
 
-const BasketPriceBox = ( { calculateSelectedTotal } ) => {
+const BasketPriceBox = ( { calculateSelectedTotal, cfee, checkItems } ) => {
+    console.log("checkItems => " + checkItems);
 
     const { selectedTotal, fee } = calculateSelectedTotal(); // selectedTotal와 fee를 함께 가져옴
 
@@ -27,7 +31,9 @@ const BasketPriceBox = ( { calculateSelectedTotal } ) => {
                 </li>
             </ul>
 
-            <button type="button" onClick={() => { window.location.href = "/checkout"; }}>선택상품 주문하기</button>
+            {/* <button type="button" onClick={() => { window.location.href = "/checkout"; }}>선택상품 주문하기</button> */}
+
+            <Link to={`checkout`} state={checkItems}>선택상품 주문하기</Link>
         </div>
     )
 }

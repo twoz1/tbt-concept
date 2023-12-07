@@ -8,6 +8,7 @@ import Pagination from './../../../customHooks/Pagination';
 
 //모달을 노출하는 페이지
 const InquiryProduct = () => {
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
     // custom modal hook을 이용한 모달창 구현 ===============================
     const {openModal, closeModal, isModal} = useModal();
@@ -15,10 +16,8 @@ const InquiryProduct = () => {
     // QnA1on1 List 출력 ===================================================
     const [qna1on1List, setQna1on1List] = useState([]);
 
-    console.log(qna1on1List);
-
     useEffect(() => {
-        let url = "/qna1on1/qList";
+        let url = "/qna1on1/qList/" + loginUser.user_id;
 
         axios.post(url).then(response => {
                 setQna1on1List(response.data);
