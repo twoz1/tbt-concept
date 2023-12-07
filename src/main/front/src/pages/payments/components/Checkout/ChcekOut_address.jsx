@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 import Configstore from '../../../../pages/config/Configstore';
 import { setAddress } from '../../../../pages/config/Configstore';
 
-
-const ChcekOut_address = ({ closeModal, index, address_name, address_city, address_avc, address_detail, address_phone_num, order_message, duplicate_user_id, setAddressList }) => {
+const ChcekOut_address = ({ closeModal, index, address_name, address_city, address_avc, address_detail, address_phone_num, order_message, duplicate_user_id ,setAddressList}) => {
     const dispatch = useDispatch();
 
     const DeleteAddress = (duplicate_user_id) => {
@@ -34,7 +33,7 @@ const ChcekOut_address = ({ closeModal, index, address_name, address_city, addre
             address_city: address_city,
             address_detail: address_detail,
             address_phone_num: address_phone_num,
-            order_message: order_message
+            order_message:order_message
         }));
 
         closeModal('address');

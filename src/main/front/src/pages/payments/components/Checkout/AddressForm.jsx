@@ -6,24 +6,19 @@ import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
 import navigateTo from "../../../config/navigateTo";
+//import { useNavigate } from 'react-router-dom';
+
 
 
 
 const AddressForm = () => {
 
-
-    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
-    const [pageState, setPageState] = useState(false);
-
-    const [ShowCheckOut_modal, setShowCheckOut_modal] = useState(false);
-
-    const prevPageClick = () => {
-        setShowCheckOut_modal(true); 
-    };
     
-
+    const loginUser = JSON.parse(sessionStorage.getItem('loginUser'));
+    const [pageState, setPageState] = useState(false);
     const [showPlaceholder, setShowPlaceholder] = useState(true);
-    const { openModal, closeModal, isModal } = useModal();
+    const { openModal, isModal,closeModal } = useModal();
+    const [showCheckOutModal, setShowCheckOutModal] = useState(false); // 추가
 
     const handleRadioChange = (event) => {
         if (event.target.value === 'new') {
@@ -33,34 +28,43 @@ const AddressForm = () => {
         }
     };
 
+   // const navigate = useNavigate();
 
     function insertAddressList() {
-        const confirmResult = window.confirm("주소를 등록하시겠습니까?");
+        const confirmResult = window.confirm('주소를 등록하시겠습니까?');
 
         if (confirmResult) {
-            let url = "/address/aListInsert";
+            let url = '/address/aListInsert';
 
-            let num = document.getElementById("address_phone_num1").value + "-" + document.getElementById("address_phone_num2").value + "-" + document.getElementById("address_phone_num3").value
+            let num =
+                document.getElementById('address_phone_num1').value +
+                '-' +
+                document.getElementById('address_phone_num2').value +
+                '-' +
+                document.getElementById('address_phone_num3').value;
 
-            axios.post(url, {
-                user_id: loginUser.user_id,
-                address_avc: document.getElementById("address_avc1").value,
-                address_name: document.getElementById("address_name1").value,
-                address_city: document.getElementById("address_city1").value,
-                address_detail: document.getElementById("address_detail1").value,
-                address_phone_num: num,
-                order_message: document.getElementById("order_message1").value
-            }).then(response => {
-                if (response.data == "완료") {
-                    // 주소 추가 성공 시에 수행할 작업을 여기에 추가하세요.
-                    alert("주소가 등록되었습니다.");
-                }
-                prevPageClick();
-                // 이전 페이지로 이동 또는 다른 작업을 수행할 수 있습니다.
-            }).catch(err => {
-                alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
-                console.error("폼 엘리먼트를 찾을 수 없습니다.");
-            });
+            axios
+                .post(url, {
+                    user_id: loginUser.user_id,
+                    address_avc: document.getElementById('address_avc1').value,
+                    address_name: document.getElementById('address_name1').value,
+                    address_city: document.getElementById('address_city1').value,
+                    address_detail: document.getElementById('address_detail1').value,
+                    address_phone_num: num,
+                    order_message: document.getElementById('order_message1').value,
+                })
+                .then((response) => {
+                    if (response.data === '완료') {
+                        // 주소 추가 성공 시에 수행할 작업을 여기에 추가하세요.
+                        alert('주소가 등록되었습니다.');
+                        setShowCheckOutModal(true);
+                    }
+                    // 이전 페이지로 이동 또는 다른 작업을 수행할 수 있습니다.
+                })
+                .catch((err) => {
+                    alert('[시스템 오류] 잠시 후에 다시 시도하세요.' + err.message);
+                    //console.error("폼 엘리먼트를 찾을 수 없습니다.");
+                });
         }
     }
 
@@ -77,10 +81,7 @@ const AddressForm = () => {
     return (pageState && (
 
         <div>
-            {ShowCheckOut_modal ? (
-                <CheckOut_Modal/>
-            ) : (
-            <React.Fragment>
+          
                 <table>
 
                     <tr  className='orderinput_hidden'>
@@ -147,12 +148,9 @@ const AddressForm = () => {
                     </tr>
                 </table>
                 <div className='checkout_modal'>
-                    <button className='checkout_close_button' type='button' onClick={() => prevPageClick()}>닫기</button>
-
-                    <button className='checkout_submit_button' type='button' onClick={() => insertAddressList()} >등록</button>
+                <button className='checkout_submit_button' type='button' onClick={() => { insertAddressList()}} >등록</button>
                 </div>
-            </React.Fragment>
-            )};
+                {showCheckOutModal && <CheckOut_Modal closeModal={() => setShowCheckOutModal(false)} />}
         </div>
     ));
 };
