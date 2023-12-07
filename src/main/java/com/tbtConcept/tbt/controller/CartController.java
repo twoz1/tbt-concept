@@ -67,7 +67,9 @@ public class CartController {
 	// Delete =====================================================
 	@DeleteMapping("/cartDelete/{user_id}/{product_id}")
 	public ResponseEntity<?> axCartDelete(@PathVariable("user_id") String user_id, @PathVariable("product_id") int product_id) {
-
+		
+		System.out.println(user_id + product_id);
+		
 		if (cartService.delete(new CartId(user_id, product_id)) != null) {
 			log.info("cartDelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("Cart 삭제 성공");

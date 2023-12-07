@@ -45,7 +45,7 @@
 								<td>${c.user_id}</td>
 								<td>${c.product_id}</td>
 								<td>${c.cart_quan}</td>
-								<td><button onclick="axCartDelete('${user_id}',${product_id})">삭제</button></td>
+								<td><button onclick="axCartDelete('${c.user_id}',${c.product_id})">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>
