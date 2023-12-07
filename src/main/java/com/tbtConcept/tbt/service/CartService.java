@@ -2,12 +2,9 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
-import com.tbtConcept.tbt.entity.Product;
 
 public interface CartService {
 //	@Transactional

@@ -21,19 +21,19 @@ const renderItem = (item) => (
 
 // ================================================================================
 
-const SearchBItemsList = ({ displayedItemInfo }) => {
+const SearchBItemsList = ({ searchProdsLists }) => {
 
   useScrollToTop();
   
   const itemsPerRow = 4;
-  const rows = Math.ceil(displayedItemInfo.length / itemsPerRow);
+  const rows = Math.ceil(searchProdsLists.length / itemsPerRow);
 
   return (
     <div className="photo_line">
       {[...Array(rows)].map((_, rowIndex) => (
         <div className="photo_layout cf" key={rowIndex}>
           <ul>
-            {displayedItemInfo
+            {searchProdsLists
               .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
               .map(item => renderItem(item))}
           </ul>
