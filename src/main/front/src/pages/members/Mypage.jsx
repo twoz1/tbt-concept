@@ -45,6 +45,32 @@ const Mypage = ({ order }) => {
         console.log(couponList);
     }, []);
 
+    function axUserDelete() {
+
+        let url = "/user/uDelete/" + loginUser.user_id;
+    
+
+        if (window.confirm("탈퇴하시겠습니까?")) {
+            axios.delete(
+                url
+            ).then(response => {
+                alert("탈퇴되었습니다.");
+                sessionStorage.removeItem("loginUser");
+                window.location.reload();
+                console.log(response.data);
+                navigateTo("/")
+            }).catch(err => {
+                if (err.response && err.response.status === 502) {
+                    alert("[삭제 오류]" + err.response.data);
+                } else {
+                    alert("[시스템 오류]" + err.message);
+                }
+            });
+        } else {
+            alert("취소되었습니다.");
+        }
+    }
+
     return (pageState && (
         <div className="Mypage">
             <div className="center m_c">
@@ -65,9 +91,8 @@ const Mypage = ({ order }) => {
                             </div>
                             <p>
                                 <span><strong>{loginUser.user_name}</strong> 회원님 안녕하세요!</span>
-                                <span>정보수정 만들곳 ~임시~</span>
                                 <Link to="update">
-                                    정보수정
+                                    <span className='update_span'>정보수정</span>
                                 </Link>
                             </p>
                         </div>
@@ -75,7 +100,9 @@ const Mypage = ({ order }) => {
                             {couponList.map((it) => {
                                 return (<CouponDownload key={it.coupon_id} {...it} loginUser={loginUser} />)
                             })}
-
+                            <button type='button' onClick={axUserDelete}>
+                                회원탈퇴
+                            </button>
                         </div>
                     </div>
                 </div>
