@@ -43,10 +43,10 @@ const Item = ({ updatedCheckoutList,}) => {
         generateOrderNumber();
     },[]);
 
-    updatedCheckoutList.forEach((item) => {
-        console.log("^^^^^^^^^^^",item.product_img1.substring(0,1));
-        console.log("^^^^^^^^^^^",item.product_name.substring(0,1));
-    });
+    // updatedCheckoutList.forEach((item) => {
+    //     console.log("^^^^^^^^^^^",item.product_img1.substring(0,1));
+    //     console.log("^^^^^^^^^^^",item.product_name.substring(0,1));
+    // });
 
 
 

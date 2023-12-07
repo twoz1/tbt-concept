@@ -5,11 +5,13 @@ import navigateTo from '../../../config/navigateTo';
 import axios from 'axios';
 import Checkout from './../../Checkout';
 
-const BasketPriceBox = ( { calculateSelectedTotal, cfee, checkItems } ) => {
-    console.log("checkItems => " + checkItems);
+const BasketPriceBox = ( { checkItems, cartUserList, calculateSelectedTotal } ) => {
 
     const { selectedTotal, fee } = calculateSelectedTotal(); // selectedTotal와 fee를 함께 가져옴
 
+    // checkItems(체크된 product_id만 들어있음)에 포함된 product_id의 정보 가져오기
+    const checkItemsInfo = cartUserList.filter(item => checkItems.includes(item.product_id));
+    console.log("checkItemsInfo => ", checkItemsInfo);
     return (
         <div className= "basket_payment" >
             <h3>주문 금액</h3>
@@ -31,9 +33,9 @@ const BasketPriceBox = ( { calculateSelectedTotal, cfee, checkItems } ) => {
                 </li>
             </ul>
 
-            {/* <button type="button" onClick={() => { window.location.href = "/checkout"; }}>선택상품 주문하기</button> */}
-
-            <Link to={`checkout`} state={checkItems}>선택상품 주문하기</Link>
+            <Link className='orderCheckItems' to={`/checkout`} state={{newProduct: checkItemsInfo}} >
+                선택상품 주문하기
+            </Link>
         </div>
     )
 }

@@ -8,6 +8,8 @@ import qs from 'qs';
 const Basket = () => {
 
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
+    
     
     // 장바구니에 담긴 DB 요청 (cart, product Join)
     const [cartUserList, setCartUserList] = useState([]);
@@ -168,7 +170,10 @@ const Basket = () => {
                                     </div>
                                 </figure>
 
-                                <BasketPriceBox checkItems={checkItems} calculateSelectedTotal={calculateSelectedTotal} cfee={fee} />
+                                <BasketPriceBox checkItems={checkItems} cartUserList={cartUserList} calculateSelectedTotal={calculateSelectedTotal}/>
+
+
+
                             </div>
 
 
