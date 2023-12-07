@@ -115,6 +115,10 @@ h3 {
     font-size: 16px;
 }
 
+.update_span{
+    text-decoration: underline;
+}
+
 /*회원정보 끝*/
 
 /*_list 시작*/
