@@ -4,6 +4,8 @@ import '../styles/components/Header.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import navigateTo from '../pages/config/navigateTo';
+import axios from 'axios';
+
 const Header = () => {
     const [loggedIn, setLoggedIn] = useState(false); // 로그인 상태를 저장하는 변수
 
@@ -33,21 +35,43 @@ const Header = () => {
         }
     }
 
+    // 검색창 구현
+    const searchProdsBar = (e) => {
+        e.preventDefault();
+
+        const mSearBarKeyword = document.getElementById('mSearBarKeyword').value;
+        let url = "/product/searchProds/" + encodeURIComponent(mSearBarKeyword);
+
+        axios.post(url
+        ).then((response) => {
+            navigateTo("/searchBItems");
+        }).catch((err) => {
+            alert(`searchProdsBar 서버연결 실패 => ${err.message}`);
+        })
+    }
+
     return (
         <div className="header">
             <div className="center h_c">
                 <h1 className="logo">
                     <Link to="/">TBTconcept</Link>
                 </h1>
-                <form className="head_search" action="#" method="get">
-                    <input name="query" type="text" value="" />
+
+                {/* 검색창 구현 */}
+                <form className="head_search" action="/product/searchProds" method="post" onSubmit={e => { searchProdsBar(e) }}>
+                    <input
+                        type="text"
+                        name="mSearBarKeyword"
+                        id="mSearBarKeyword"
+                    />
                     <button type="submit">
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
                 </form>
+
                 <ul className="h_icon">
                     <li>
-                        <Link to="/cart">
+                        <Link to="/cart" onClick={(e) => handleRestrictedAccess(e, "/cart")}>
                             <FontAwesomeIcon icon={faBagShopping} className="fa-solid" />
                             {/* <i class="fa-solid fa-bag-shopping"></i> */}
                             <span>CART</span>

@@ -27,6 +27,7 @@ import { addressReducer } from './pages/config/Configstore';
 import CheckOut_Modal from './pages/payments/components/Checkout/ChcekOut_Modal';
 import Information from './pages/payments/components/Checkout/Information';
 import Update from './pages/members/Update';
+import SearchBItems from './pages/items/SearchBItems';
 
 
 const orderList = [
@@ -100,6 +101,7 @@ function App() {
                     <Route path='/' element={<Main />}></Route >
                     <Route path='/sunglasses' element={<Sunglasses />}></Route >
                     <Route path='/glasses' element={<Glasses />}></Route >
+                    <Route path='/searchBItems' element={<SearchBItems />}></Route >
                     <Route path='/collection' element={<Collection />}></Route >
                     <Route path='/new' element={<New_goods />}></Route >
                     <Route path='/store' element={<Store />}></Route >

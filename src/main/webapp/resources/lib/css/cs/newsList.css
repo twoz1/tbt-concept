@@ -1,35 +1,31 @@
 @charset "UTF-8";
 
-.news_list{
-	min-width:530px;
-}
-
 .news_list table th:nth-child(1) {
-	width:10%;
+	min-width:80px;
 }
 
 .news_list table th:nth-child(2) {
-	width:25%;
+	min-width:200px;
 }
 
 .news_list table th:nth-child(3) {
-	width:45%;
+	min-width:400px;
 }
 
 .news_list table th:nth-child(4) {
-	width:10%;
+	min-width:70px;
 }
 
 .news_list table th:nth-child(5) {
-	width:10%;
+	min-width:60px;
 }
 
 .news_list .n_titleW {
-	width:300px
+	width:150px
 }
 
 .news_list .n_contentW {
-	width:700px
+	width:350px
 }
 
 .news_list #hiddenContentsN {

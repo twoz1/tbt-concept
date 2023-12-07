@@ -15,20 +15,20 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
+	
 	private final ProductRepository repository;
-	
-	@Transactional
-	@Override
-	public List<Product> findAllDesc() {
-		return repository.findAllDesc();
-	}
-	
 	
 	@Override
 	public List<Product> selectList() {
 		return repository.findAll();
 	}
 	
+	@Transactional
+	@Override
+	public List<Product> findAllDesc() {
+		return repository.findAllDesc();
+	}
+
 	@Transactional
 	@Override
 	public List<Product> selectSDesc(){
@@ -40,6 +40,11 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> selectGDesc(){
 		return repository.selectGDesc();
 	};
+	
+	@Override
+	public List<Product> searchByProductLikeA(String mSearBarKeyword) {
+		return repository.searchByProductLikeA(mSearBarKeyword);
+	}
 	
 	@Override
 	public Product selectDetail(int id) {
