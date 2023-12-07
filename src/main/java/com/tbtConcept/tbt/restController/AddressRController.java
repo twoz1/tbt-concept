@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tbtConcept.tbt.entity.Address;
-import com.tbtConcept.tbt.entity.OrderDetail;
-import com.tbtConcept.tbt.entity.OrderList;
-import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.service.AddressService;
 
 import lombok.AllArgsConstructor;
@@ -54,8 +52,9 @@ public class AddressRController {
    
    
    @PostMapping("/aListInsert")
-   public String postorderListInsert( Address entity, Model model, RedirectAttributes rttr){
+   public String postorderListInsert( @RequestBody Address entity, Model model, RedirectAttributes rttr){
 
+	   System.out.println("확인!!!!!!!!!!!!!!!!!!!!" + entity);
       try {
          addressService.save(entity);
          model.addAttribute("message", "주소등록 성공");

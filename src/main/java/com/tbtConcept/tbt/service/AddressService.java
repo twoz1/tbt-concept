@@ -3,6 +3,7 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 
 import com.tbtConcept.tbt.entity.Address;
+import com.tbtConcept.tbt.entity.Product;
 
 public interface AddressService {
 
@@ -13,4 +14,6 @@ public interface AddressService {
     String save(Address entity);
 
     String delete(int id);  // 메소드 시그니처 수정
+    
+ 
 }

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import useModal from "../../../customHooks/useModal";
-import CheckOut_Modal from "../../../members/components/checkout/ChcekOut_Modal";
-import ChcekOut_OrderAVC from "../../../members/components/checkout/ChcekOut_OrderAVC";
+import CheckOut_Modal from "./ChcekOut_Modal";
+import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import Configstore from '../../../../pages/config/Configstore';
+import { useSelector } from 'react-redux';
+
+
 
 // 숫자가 한 자리일 경우 앞에 0을 추가하는 함수
 function padZero(number) {
@@ -43,13 +48,39 @@ function generateOrderNumber() {
 
 
 
-const Information = (props) => {
 
-    const handleAddressBookClick = () => {
-        window.open('/addressOpen', '_blank','width=1040, height=800');
-    };
+const Information = ({ }) => {
 
 
+    const addressValueList = useSelector(state => state.address);
+
+    useEffect(() => {
+        console.log(addressValueList);
+
+        if (addressValueList != null) {
+            document.getElementById("address_avc").value = addressValueList.address.address_avc;
+            document.getElementById("address_name").value = addressValueList.address.address_name;
+            document.getElementById("address_city").value = addressValueList.address.address_city;
+            document.getElementById("address_detail").value = addressValueList.address.address_detail;
+            document.getElementById("address_phone_num").value = addressValueList.address.address_phone_num;
+            document.getElementById("order_message").value = addressValueList.address.order_message;
+        } else {
+            document.getElementById("address_avc").value = "";
+            document.getElementById("address_name").value = "";
+            document.getElementById("address_city").value = "";
+            document.getElementById("address_detail").value = "";
+            document.getElementById("address_phone_num").value = "";
+            document.getElementById("order_message").value = "";
+        }
+
+
+    }, [addressValueList]);
+
+
+
+    // const location = useLocation();
+    // const { address_name, address_phone_num, address_avc, address_city, address_detail, order_message } = location.state;
+    // console.log('너 들어왔니?',address_name);
 
     // 페이지 로드 시 자동으로 호출되는 함수
     useEffect(() => {
@@ -129,30 +160,12 @@ const Information = (props) => {
 
                         <tr>
                             <th>
-                                배송지 선택 <span>&#42;</span>
-                            </th>
-                            <td className="address">
-                                <label>
-                                    <input type="radio" name="address_radio" value="default" onChange={handleRadioChange} required />
-                                    기본주소
-                                </label>
-                                <label>
-                                    <input type="radio" name="address_radio" value="new" onChange={handleRadioChange} required />
-                                    새로 입력
-                                </label>
-                                <button type="button" onClick={ handleAddressBookClick}>
-                                    주소록
-                                </button>
-
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <th>
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
-                                <input type="text" name="address_name" id="address_name" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                                <input type="text" name="address_name" id="address_name" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required /> &nbsp;&nbsp;
+                                <span type="button" onClick={() => openModal('address')}>주소록</span>
+                                {isModal('address') && <CheckOut_Modal closeModal={closeModal} />}
                             </td>
                         </tr>
                         <tr>
@@ -160,15 +173,8 @@ const Information = (props) => {
                                 휴대폰 번호 <span>&#42;</span>
                             </th>
                             <td className="receiver_phone">
-                                <select name="address_phone_num" id="address_phone_num" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}>
-                                    <option value="010">010</option>
-                                    <option value="011">011</option>
-                                    <option value="070">070</option>
-                                </select>
-                                <span className="hyphen"> - </span>
                                 <input type="text" minLength="3" name="address_phone_num" id="address_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
-                                <span className="hyphen"> - </span>
-                                <input type="text" minLength="4" name="address_phone_num" id="address_phone_num" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+
                             </td>
                         </tr>
                         <tr>
@@ -181,14 +187,6 @@ const Information = (props) => {
                                     placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
                                     required
                                 />
-                                <button type='button'
-                                    onClick={() => {
-                                        openModal('ChcekOut_OrderAVC');
-                                    }}
-                                >
-                                    우편번호 찾기
-                                </button>
-                                {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />}
                                 <p>
                                     <input type="text" name="address_city" id="address_city" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                                     &nbsp; - &nbsp;
