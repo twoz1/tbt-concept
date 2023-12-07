@@ -9,24 +9,24 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.tbtConcept.tbt.entity.CouponList;
-import com.tbtConcept.tbt.entity.CouponListId;
+import com.tbtConcept.tbt.entity.UserCoupon;
+import com.tbtConcept.tbt.entity.UserCouponId;
 
 
 
-public interface CouponListRepository extends JpaRepository<CouponList, CouponListId> {
+public interface UserCouponRepository extends JpaRepository<UserCoupon, UserCouponId> {
 	
 	@Query(value = "SELECT c.coupon_id, c.coupon_name, c.coupon_disc, cl.user_id, cl.coupon_start, cl.coupon_end FROM coupon_list cl JOIN coupon c ON c.coupon_id = cl.coupon_id WHERE cl.user_id = :user_id", nativeQuery = true)
 	List<Object> couponJoinList(@Param("user_id") String userId);
 	
-	@Query("SELECT cl FROM CouponList cl WHERE cl.user_id=:user_id")
-	List<CouponList> couponListInUser(String user_id);
+	@Query("SELECT cl FROM UserCoupon cl WHERE cl.user_id=:user_id")
+	List<UserCoupon> UserCouponInUser(String user_id);
 	
-	@Query("SELECT c FROM CouponList c order by coupon_start desc")
-	List<CouponList> selectList();
+	@Query("SELECT c FROM UserCoupon c order by coupon_start desc")
+	List<UserCoupon> selectList();
 	
 	@Transactional
 	@Modifying
-	@Query("DELETE FROM CouponList c WHERE c.coupon_id = :coupon_id")
+	@Query("DELETE FROM UserCoupon c WHERE c.coupon_id = :coupon_id")
 	void deleteByCouponId(@Param("coupon_id") int coupon_id);
 }

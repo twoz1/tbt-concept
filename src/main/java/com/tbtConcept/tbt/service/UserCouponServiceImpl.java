@@ -12,26 +12,26 @@ import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
-import com.tbtConcept.tbt.entity.CouponList;
-import com.tbtConcept.tbt.entity.CouponListId;
-import com.tbtConcept.tbt.repository.CouponListRepository;
+import com.tbtConcept.tbt.entity.UserCoupon;
+import com.tbtConcept.tbt.entity.UserCouponId;
+import com.tbtConcept.tbt.repository.UserCouponRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CouponListServiceImpl implements CouponListService {
+public class UserCouponServiceImpl implements UserCouponService {
 	
-	private final CouponListRepository repository;
+	private final UserCouponRepository repository;
 	
 	@Override
-    public PageResultDTO<CouponList> selectList(PageRequestDTO requestDTO) {
+    public PageResultDTO<UserCoupon> selectList(PageRequestDTO requestDTO) {
     	
-    	Pageable pageable = requestDTO.getPageable(Sort.by("coupon_start").descending());
+    	Pageable pageable = requestDTO.getPageable(Sort.by("couponStart").descending());
 		
-		Page<CouponList> result = repository.findAll(pageable);
+		Page<UserCoupon> result = repository.findAll(pageable);
 		
-		return new PageResultDTO<CouponList>(result);
+		return new PageResultDTO<UserCoupon>(result);
     	
     }
 	
@@ -41,13 +41,13 @@ public class CouponListServiceImpl implements CouponListService {
 	};
 	
 	@Override
-	public List<CouponList> couponListInUser(String user_id){
-		return repository.couponListInUser(user_id);
+	public List<UserCoupon> couponListInUser(String user_id){
+		return repository.UserCouponInUser(user_id);
 	};
 	
 	@Override
-	public CouponList selectDetail(CouponListId id) {
-		Optional<CouponList> result = repository.findById(id);
+	public UserCoupon selectDetail(UserCouponId id) {
+		Optional<UserCoupon> result = repository.findById(id);
 		
 		if(result.isPresent()) {
 			return result.get();
@@ -57,14 +57,14 @@ public class CouponListServiceImpl implements CouponListService {
 	}
 	
 	@Override
-	public int save(CouponList entity) {
+	public int save(UserCoupon entity) {
 		repository.save(entity);
 		return 1;
 	}
 	
 	
 	@Override
-	public int delete(CouponListId id) {
+	public int delete(UserCouponId id) {
 		repository.deleteById(id);
 		
 		return 1;
