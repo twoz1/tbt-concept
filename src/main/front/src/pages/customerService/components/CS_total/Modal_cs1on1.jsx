@@ -6,21 +6,23 @@ import axios from "axios";
 //모달창 컴포넌트
 const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
+	const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
 	// 1:1 문의 유효성 검사
 	// 회원정보===================================================
-	const [userEmail, setUserEmail] = useState('');
-	const [emailValid, setEmailValid] = useState(false);
-	const emailRegEx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+	// const [userEmail, setUserEmail] = useState('');
+	// const [emailValid, setEmailValid] = useState(false);
+	// const emailRegEx = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 
-	const emailCheck = (e) => {
-		setUserEmail(e.target.value);
+	// const emailCheck = (e) => {
+	// 	setUserEmail(e.target.value);
 
-		if (emailRegEx.test(userEmail)) {
-			setEmailValid(true);
-		} else {
-			setEmailValid(false);
-		}
-	};
+	// 	if (emailRegEx.test(userEmail)) {
+	// 		setEmailValid(true);
+	// 	} else {
+	// 		setEmailValid(false);
+	// 	}
+	// };
 
 	// 답변알림===================================================
 
@@ -95,12 +97,10 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 										<td>
 											<input type="email"
 												name="user_id"
-												value={userEmail}
-												placeholder='이메일형태로 입력해주세요.'
-												required
-												onChange={emailCheck} />
+												value={loginUser.user_id}
+											/>
 
-											<div className='validCheck'>
+											{/* <div className='validCheck'>
 												{0 < userEmail.length && userEmail.length < 5 && (
 													<span>이메일을 5자 이상으로 입력해주세요.</span>
 												)}
@@ -108,7 +108,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 												{userEmail.length >= 5 && !emailValid && (
 													<span>회원정보는 이메일 형식으로 입력해주세요.</span>
 												)}
-											</div>
+											</div> */}
 										</td>
 									</tr>
 

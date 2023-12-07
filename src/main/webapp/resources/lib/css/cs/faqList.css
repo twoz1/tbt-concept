@@ -1,15 +1,11 @@
 @charset "UTF-8";
 
-.faq_list{
-	min-width:530px;
-}
-
 .faq_list table th:nth-child(1) {
 	width:5%;
 }
 
 .faq_list table th:nth-child(2) {
-	width:20%;
+	width:25%;
 }
 
 .faq_list table th:nth-child(3) {
@@ -17,7 +13,7 @@
 }
 
 .faq_list table th:nth-child(4) {
-	width:35%;
+	width:40%;
 }
 
 .faq_list table th:nth-child(5) {
@@ -29,11 +25,11 @@
 }
 
 .faq_list .f_titleW {
-	width:150px
+	width:100px
 }
 
 .faq_list .f_contentW {
-	width:400px
+	width:100px
 }
 
 .faq_list #hiddenContentsF {

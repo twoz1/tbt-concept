@@ -10,8 +10,20 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const CS_total = () => {
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
+    const [loginState, setLoginState] = useState(false);
+
+    useEffect(() => {
+        if (loginUser != null) {
+            setLoginState(true);
+        } else {
+            setLoginState(false);
+        }
+    }, [loginState])
 
     useScrollToTop();
+
 
     // FAQ DB 요청
     const [faqBarList, setFaqBarList] = useState([]);
@@ -52,7 +64,7 @@ const CS_total = () => {
 
                     {/* =====================CS 목록 - 상품문의======================= */}
                     <div>
-                        <InquiryProduct />
+                        {loginState && <InquiryProduct />}
 
                         {/* =====================CS 목록 - 자주 찾는 질문======================= */}
                         <FreqQuestion />
