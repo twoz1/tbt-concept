@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Coupon;
 import com.tbtConcept.tbt.entity.UserCoupon;
-import com.tbtConcept.tbt.service.UserCouponService;
 import com.tbtConcept.tbt.service.CouponService;
+import com.tbtConcept.tbt.service.UserCouponService;
 
 import lombok.AllArgsConstructor;
 
@@ -36,12 +37,15 @@ public class CouponController {
 	}
 	
 	@GetMapping("/couponDownList")
-	public void getUserCList(Model model) {
-		PageRequestDTO requestDTO = PageRequestDTO.builder().page(1).size(5).build();
+	public void getUserCList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(5).build();
 		
         PageResultDTO<UserCoupon> resultDTO = couListService.selectList(requestDTO);
 		
 		model.addAttribute("couponDownList", resultDTO.getEntityList());
+		model.addAttribute("resultDTO", resultDTO);
+		
+		System.out.println(resultDTO.getEntityList());
 	}
 	
 	// ==============================================================
