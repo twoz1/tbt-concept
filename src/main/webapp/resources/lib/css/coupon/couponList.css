@@ -1,2 +1,18 @@
 @charset "UTF-8";
 
+.couponU_list table,
+.pageNation{
+	min-width:650px;
+}
+
+.couponU_list table td{
+	height:30px;
+}
+
+.couponU_list table td:first-child{
+	width:50px;
+}
+
+.couponU_list table td:last-child{
+	width:70px;
+}
