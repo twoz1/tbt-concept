@@ -30,15 +30,47 @@
 							<tr>
 								<td>${c.coupon_id}</td>
 								<td>${c.user_id}</td>
-								<td>${c.coupon_start}</td>
-								<td>${c.coupon_end}</td>
+								<td>${c.couponStart}</td>
+								<td>${c.couponEnd}</td>
 								<td></td>
 							</tr>
 						</c:forEach>
 					</c:if>
 				</table>
+				 
+				 <div class="pageNation">
+					 <c:choose>
+						<c:when test="${resultDTO.prev && resultDTO.start>1}">
+							
+						  	<a href="couponDownList">처음</a>&nbsp;&nbsp;&nbsp;
+		  					<a href="couponDownList?page=${resultDTO.page-1}">&LT;</a>&nbsp;&nbsp;
+						</c:when>
+						<c:otherwise>
+						  	<font color="Gray">처음&nbsp;&nbsp;&nbsp;&LT;&nbsp;&nbsp;</font>
+						</c:otherwise>
+					</c:choose> 	 
+					 
+					<c:forEach var="i" items="${resultDTO.pageList}">
+						<c:if test="${i==resultDTO.page}">
+							<font color="OrangeRed"><b>${i}</b></font>&nbsp;
+						</c:if>
+						<c:if test="${i!=resultDTO.page}">
+							<a href="couponDownList?page=${i}">${i}</a>&nbsp;
+						</c:if>
+					</c:forEach>
+					 
+					<c:choose>
+						<c:when test="${resultDTO.next && resultDTO.end>0}">
+							&nbsp;<a href="couponDownList?page=${resultDTO.page+1}">&GT;</a>
+							&nbsp;&nbsp;&nbsp;<a href="couponDownList?page=${resultDTO.totalPage}">마지막</a>
+						</c:when>
+						<c:otherwise>
+							<font color="Gray">&nbsp;&GT;&nbsp;&nbsp;&nbsp;마지막</font>
+						</c:otherwise>
+					</c:choose>
+				 </div>
+				 
 			</div>
-			
 		</main>
 	</div>
 </body>

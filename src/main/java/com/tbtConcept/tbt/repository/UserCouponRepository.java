@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -29,4 +32,6 @@ public interface UserCouponRepository extends JpaRepository<UserCoupon, UserCoup
 	@Modifying
 	@Query("DELETE FROM UserCoupon c WHERE c.coupon_id = :coupon_id")
 	void deleteByCouponId(@Param("coupon_id") int coupon_id);
+	
+	Page<UserCoupon> findAll(Specification<UserCoupon> spec, Pageable pageable);
 }
