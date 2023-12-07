@@ -39,7 +39,7 @@ function axCartDelete(user_id, product_id) {
 	console.log(user_id + product_id);
 
 	if (!user_id || !product_id) {
-		alert("유효한 사용자 ID 및 제품 ID가 필요합니다.");
+		alert("유효한 user_id 및 product_id가 필요합니다.");
 		return;
 	}
 
