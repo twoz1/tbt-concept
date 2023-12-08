@@ -50,6 +50,13 @@ const DetailedPage = ({ starScore }) => {
 
     // 데이터 로딩 완료 후 상세페이지 렌더링
 
+    // -----------------------------------------------------------------
+
+
+
+
+    
+
     return (
         <div className="DetailedPage">
             <div className="center m_c">
