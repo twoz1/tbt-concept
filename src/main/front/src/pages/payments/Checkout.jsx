@@ -50,7 +50,7 @@ const { user_id } = useParams();
     }, []);
     
     const location = useLocation();
-    const { checkItemsInfo, quantityGoods, product_name, product_img1, product_price, product_id, code} = location.state;
+    const {  quantityGoods, product_name, product_img1, product_price, product_id, code, checkItemsInfo, selectedTotal, fee} = location.state;
 
     const newProduct = {
         id: checkoutList.length, // 아이디는 현재 배열 길이로 설정하거나 다른 방식으로 유니크한 값 생성
@@ -60,11 +60,10 @@ const { user_id } = useParams();
         quantityGoods: quantityGoods,
         product_img1: product_img1,
         code : code,
-        checkItemsInfo: checkItemsInfo,
       };
     
-    const updatedCheckoutList = [...checkItemsInfo, newProduct];
-
+    const updatedCheckoutList = [newProduct];
+    
 
     const [selectedCoupon, setSelectedCoupon] = useState(null);
     
@@ -80,10 +79,14 @@ const { user_id } = useParams();
     //총 상품금액 (DB연결 후 재구현 예정)
     const calculateTotalPrice = (items) => {
         let totalPrice = 0;
-      
-        for (let i = 0; i < items.length; i++) {
-          totalPrice += items[i].product_price * items[i].quantityGoods;
+        if(checkItemsInfo == undefined) {
+            for (let i = 0; i < items.length; i++) {
+              totalPrice += items[i].product_price * items[i].quantityGoods;
+            }
+        } else {
+            totalPrice += selectedTotal;
         }
+      
         return totalPrice;
       };
     const totalPrice = calculateTotalPrice(updatedCheckoutList);
@@ -93,7 +96,9 @@ const { user_id } = useParams();
     // const totalPrice2 = (newProduct[0].price * newProduct[0].quantity)
     //     + (newProduct[1].price * newProduct[1].quantity);
     
-    console.log("^^^^^^^^^^^^^^^^^^", code);
+    console.log("^^^^^^^^^^^^^^^^^^", selectedTotal);
+    console.log("^^^^^^^^^^^^^^^^^^", fee);
+
     return ( pageState && (
         
         <div>
@@ -102,8 +107,9 @@ const { user_id } = useParams();
                     <section className="check_left">
                         <Title />
                         <form action="oListInsert"  id='oListInsert'>
-                        <Information />
-                            <Item updatedCheckoutList={updatedCheckoutList}/>
+                        <Information user_id={loginUser.user_id} />
+                            <Item updatedCheckoutList={updatedCheckoutList}
+                            checkItemsInfo ={checkItemsInfo}/>
                             <div className="discount">
                                 <h3>할인받기</h3>
                                 <table className="discount_table checkout_table">
@@ -126,7 +132,7 @@ const { user_id } = useParams();
                             </div>
                             <Pay />
                             <section className="check_right">
-                                <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
+                                <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} fee={fee} />
                             </section>
                         </form>
                     </section>

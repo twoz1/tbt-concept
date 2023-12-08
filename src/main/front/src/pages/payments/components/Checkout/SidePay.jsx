@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-const SidePay = ({ totalPrice, selectedCoupon }) => {
+const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
 
     const { openModal, closeModal, isModal } = useModal();
     
@@ -53,7 +53,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
     const calcPricing = () => {
         if (selectedCoupon) {
             const discountPrice = (totalPrice * selectedCoupon.discount) / 100;
-            return totalPrice - discountPrice;
+            return totalPrice - discountPrice + fee;
         } else {
             return totalPrice;
         }
@@ -127,7 +127,7 @@ const SidePay = ({ totalPrice, selectedCoupon }) => {
                         </tr>
                         <tr>
                             <th>배송비</th>
-                            <td>0 원</td>
+                            <td>{fee} 원</td>
                         </tr>
                         <tr>
                             <th>할인금액</th>

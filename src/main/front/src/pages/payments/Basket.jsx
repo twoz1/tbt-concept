@@ -81,7 +81,7 @@ const Basket = () => {
 
         // 장바구니 삭제 DB 요청
         if(checkItems !== null){
-            axios.get("/rCart/cDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
+            axios.delete("/rCart/cDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
             ).then(response => {
                 const updatedCartItems = cartUserList.filter(item => !checkItems.includes(item.product_id));
                 setCartUserList(updatedCartItems);

@@ -49,7 +49,7 @@ function generateOrderNumber() {
 
 
 
-const Information = ({ }) => {
+const Information = ({ user_id}) => {
 
 
     const addressValueList = useSelector(state => state.address);
@@ -136,7 +136,7 @@ const Information = ({ }) => {
                         <tr className='orderinput_hidden'>
                             <th>회원 아이디</th>
                             <td>
-                                <input type="text" name="user_id" id="user_id" required value="q123" />
+                                <input type="text" name="user_id" id="user_id" required value={user_id} />
                             </td>
                         </tr>
                         <tr className='orderinput_hidden'>
