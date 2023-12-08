@@ -156,3 +156,11 @@ img {
     display: inline-block;
     cursor: grab;
 }
+
+.searchNull{
+    font-size:20px;
+    letter-spacing: 4px;
+    text-align: center;
+    height: 25.9vh;
+    color: #6b6b6b;
+}
