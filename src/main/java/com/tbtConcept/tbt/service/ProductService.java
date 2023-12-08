@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.data.repository.query.Param;
-
 import com.tbtConcept.tbt.entity.Product;
 
 public interface ProductService {

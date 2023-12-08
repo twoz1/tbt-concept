@@ -44,6 +44,11 @@ const Header = () => {
 
         axios.post(url
         ).then((response) => {
+            if (response.data > 0) {
+                localStorage.setItem('searchProdsList', JSON.stringify(response.data));
+            } else {
+                localStorage.setItem('searchProdsList', JSON.stringify(null));
+            }
             navigateTo("/searchBItems");
         }).catch((err) => {
             alert(`searchProdsBar 서버연결 실패 => ${err.message}`);

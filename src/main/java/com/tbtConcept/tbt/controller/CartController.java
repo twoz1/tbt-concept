@@ -1,9 +1,6 @@
 package com.tbtConcept.tbt.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
-import com.tbtConcept.tbt.entity.News;
-import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.service.CartService;
-import com.tbtConcept.tbt.service.ProductService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -32,7 +25,6 @@ import lombok.extern.log4j.Log4j2;
 public class CartController {
 
 	CartService cartService;
-	ProductService prodService;
 
 	// List =====================================================
 	@GetMapping("/cartList")
