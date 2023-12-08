@@ -45,7 +45,6 @@ public class CouponController {
 		model.addAttribute("couponDownList", resultDTO.getEntityList());
 		model.addAttribute("resultDTO", resultDTO);
 		
-		System.out.println(resultDTO.getEntityList());
 	}
 	
 	// ==============================================================
