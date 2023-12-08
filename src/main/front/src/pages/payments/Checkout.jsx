@@ -6,8 +6,6 @@ import Item from './components/Checkout/Item';
 import Pay from './components/Checkout/Pay';
 import SidePay from './components/Checkout/SidePay';
 
-import g_antonCrystal_01 from '../../images/g_antonCrystal_01.jpg';
-import g_andyBrownCrystal_01 from '../../images/g_andyBrownCrystal_01.jpg';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import navigateTo from '../config/navigateTo';
@@ -52,7 +50,7 @@ const { user_id } = useParams();
     }, []);
     
     const location = useLocation();
-    const { quantityGoods, product_name, product_img1, product_price, product_id, code} = location.state;
+    const { checkItemsInfo, quantityGoods, product_name, product_img1, product_price, product_id, code} = location.state;
 
     const newProduct = {
         id: checkoutList.length, // 아이디는 현재 배열 길이로 설정하거나 다른 방식으로 유니크한 값 생성
@@ -62,9 +60,10 @@ const { user_id } = useParams();
         quantityGoods: quantityGoods,
         product_img1: product_img1,
         code : code,
+        checkItemsInfo: checkItemsInfo,
       };
     
-    const updatedCheckoutList = [...checkoutList, newProduct];
+    const updatedCheckoutList = [...checkItemsInfo, newProduct];
 
 
     const [selectedCoupon, setSelectedCoupon] = useState(null);

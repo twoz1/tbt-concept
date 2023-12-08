@@ -86,6 +86,7 @@ const Item = ({ updatedCheckoutList,}) => {
                             <td className="item_img" key={item.product_id}>
                             <Link to={`/detail/${item.product_id}`} key={item.product_id}>
                                 <img src={require(`../../../../images/${item.product_img1}`)} alt="product_img1" />
+                                {/* <img src={`../../../../images/${item.product_img1}`} alt="product_img1" /> */}
                             {console.log("객체",updatedCheckoutList)}
                             {console.log("상품아이디",item.product_id)}
                             {console.log("상품 이미지",item.product_img1)}
