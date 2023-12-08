@@ -80,10 +80,11 @@ const Item = ({ updatedCheckoutList,checkItemsInfo}) => {
                         <th>수량</th>
                         <th>가격</th>
                     </tr>
-
-                    <tr class="itemComp">
+{/* 
+                    <tr class="itemComp"> */}
                     {(checkItemsInfo == undefined) ? (
                     updatedCheckoutList.map((item) => (
+                        <tr className="itemComp" key={item.product_id}>
                         <React.Fragment >
                             <td className="item_img" key={item.product_id}>
                             <Link to={`/detail/${item.product_id}`} key={item.product_id}>
@@ -115,10 +116,12 @@ const Item = ({ updatedCheckoutList,checkItemsInfo}) => {
                                 <input type="text"  name="order_price" id="order_price" value={item.product_price * item.quantityGoods} required  />
                             </td>
                         </React.Fragment>
+                        </tr>
                         ))
                         ): (
                             checkItemsInfo.map((item) => (
-                            <React.Fragment>
+                                <tr className="itemComp" key={item.product_id}>
+                            <React.Fragment key={item.product_id}>
                                 <td className="item_img" key={item.product_id}>
                                 <Link to={`/detail/${item.product_id}`} key={item.product_id}>
                                     <img src={require(`../../../../images/${item.product_img1}`)} alt="product_img1" />
@@ -149,8 +152,9 @@ const Item = ({ updatedCheckoutList,checkItemsInfo}) => {
                                     <input type="text"  name="order_price" id="order_price" value={item.product_price * item.cart_quan} required  />
                                 </td>
                             </React.Fragment>
+                            </tr>
                         )))}
-                    </tr>
+                    {/* </tr> */}
                     <tr>
                         <td colSpan="6">
                             <span>&#42;</span> 제주&#47;도서산간 지역의 경우 추가 배송비가 발생할 수 있습니다.
