@@ -10,12 +10,14 @@ const MyCouponList = ({ loginUser }) => {
     axios
       .get('/coupon/cUserList', { params: { user_id: loginUser.user_id } })
       .then(response => {
-        setCoupon(response.data);
+        if (response.data != null) {
+          setCoupon(response.data);
+        }
       }).catch((err) => {
         alert(`** checkdata 서버연결 실패 => ${err.message}`);
       });
 
-  }, [coupon]);
+  }, []);
 
   return (
     <div className="MycouponList">

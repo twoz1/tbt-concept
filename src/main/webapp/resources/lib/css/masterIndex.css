@@ -140,7 +140,7 @@ main .m_button:hover {
 }
 
 .master_list table th {
-    height: 30px;
+    height: 37px;
 }
 
 .master_list table img{
@@ -160,4 +160,20 @@ main .m_button:hover {
 
 #master_wrap .master_save table {
 	text-align:left;
+}
+
+.pageNation{
+	text-align:center;
+	margin-top:30px;
+}
+
+.firstB, 
+.ltB,
+.gtB,
+.lastB{
+	margin: 0 3px;
+}
+
+.pageNation strong{
+	color:orangered;
 }
