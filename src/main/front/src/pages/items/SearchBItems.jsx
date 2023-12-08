@@ -9,17 +9,12 @@ const SearchBItems = () => {
     useScrollToTop();
 
     // 검색창 결과 출력을 위한 localStorage
-    const searchProdsList = JSON.parse(localStorage.getItem('searchProdsList'));
-
-    const [resultSearchP, setResultSearchP] = useState([]);
-
-    useEffect(() => {
-        setResultSearchP(searchProdsList);
-    }, [resultSearchP]);
+    const [resultSearchP, setResultSearchP] = useState(JSON.parse(localStorage.getItem('searchProdsList')));
+    console.log(resultSearchP);
 
     const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
     const itemsPerPage = 8;  // 페이지 당 게시글 개수
-    const totalPages = Math.ceil(resultSearchP.length / itemsPerPage);    // 전체 페이지 번호
+    const totalPages = Math.ceil(resultSearchP.length / itemsPerPage); // 전체 페이지 번호
 
     const handlePageChange = (page) => {
         setCurrentPage(page);

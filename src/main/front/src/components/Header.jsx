@@ -41,13 +41,15 @@ const Header = () => {
 
         const mSearBarKeyword = document.getElementById('mSearBarKeyword').value;
         let url = "/product/searchProds/" + encodeURIComponent(mSearBarKeyword);
-
+        console.log(mSearBarKeyword);
         axios.post(url
         ).then((response) => {
-            if (response.data > 0) {
+            if (response.data != null) {
                 localStorage.setItem('searchProdsList', JSON.stringify(response.data));
+                //mSearBarKeyword = "";
+                console.log(response.data);
             } else {
-                localStorage.setItem('searchProdsList', JSON.stringify(null));
+                localStorage.setItem('searchProdsList', JSON.stringify([]));
             }
             navigateTo("/searchBItems");
         }).catch((err) => {

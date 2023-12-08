@@ -46,6 +46,7 @@ public class ProductRController {
 	@PostMapping("/searchProds/{mSearBarKeyword}")
 	public List<Product> searchProductListA(@PathVariable("mSearBarKeyword") String mSearBarKeyword) {
 		List<Product> searchList = prodService.searchByProductLikeA(mSearBarKeyword);
+		System.out.println(searchList);
 		return searchList;
 	}
 
