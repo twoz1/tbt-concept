@@ -33,7 +33,8 @@ const BasketPriceBox = ( { checkItems, cartUserList, calculateSelectedTotal } ) 
                 </li>
             </ul>
 
-            <Link className='orderCheckItems' to={`/checkout`} state={{checkItemsInfo: checkItemsInfo}} >
+            <Link className='orderCheckItems' to={`/checkout`} state={{checkItemsInfo: checkItemsInfo,
+                                                                        selectedTotal: selectedTotal,fee: fee }} >
                 선택상품 주문하기
             </Link>
         </div>
