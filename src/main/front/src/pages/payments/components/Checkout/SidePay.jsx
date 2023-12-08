@@ -48,15 +48,22 @@ const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
 
     //할인율
     // console.log(handleCouponChange());
+    let feePrice;
+    if(totalPrice<200000){
+        feePrice = 3000;
+    }else{
+        feePrice = 0;
+    }
 
     //할인 적용 금액
     const calcPricing = () => {
         if (selectedCoupon) {
             const discountPrice = (totalPrice * selectedCoupon.discount) / 100;
-            return totalPrice - discountPrice + fee;
+            return totalPrice - discountPrice;
         } else {
             return totalPrice;
         }
+
     };
 
     //할인 금액
@@ -127,7 +134,7 @@ const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
                         </tr>
                         <tr>
                             <th>배송비</th>
-                            <td>{fee} 원</td>
+                            <td> {feePrice.toLocaleString()} 원</td>
                         </tr>
                         <tr>
                             <th>할인금액</th>
@@ -138,9 +145,9 @@ const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
                             <th>총 결제금액</th>
                             <td>
                             <input type="text" name="order_total_price" id="order_total_price" required 
-                                value={calcPricing()}
+                                value={calcPricing()+feePrice}
                                 />
-                                {calcPricing().toLocaleString()} 원
+                                {(calcPricing()+feePrice).toLocaleString()} 원 
                             </td>
                         </tr>
                     </tbody>

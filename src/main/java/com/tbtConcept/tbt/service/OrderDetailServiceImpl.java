@@ -23,8 +23,8 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	
 	// @Transactional
 	@Override
-	public List<OrderDetail> findByIdDetails(String id) {
-		return repository.findByIdDetails(id);
+	public List<OrderDetail> findByIdDetails(String order_id) {
+		return repository.findByIdDetails(order_id);
 	}
 	
 	
@@ -34,7 +34,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	}
 	
 	@Override
-	public OrderDetail selectDetail(String id) {
+	public OrderDetail selectDetail(int id) {
 	Optional<OrderDetail> result = repository.findById(id);
 		
 		if(result.isPresent()) {
@@ -45,12 +45,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	}
 
 	@Override
-	public String save(OrderDetail entity) {
+	public int save(OrderDetail entity) {
 		repository.save(entity);
 		return entity.getOrder_detail_id();
 	}
 	@Override
-	public String delete(String id) {
+	public int delete(int id) {
 		repository.deleteById(id);
 		return id;
 	}

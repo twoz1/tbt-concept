@@ -10,15 +10,15 @@ import com.tbtConcept.tbt.entity.OrderList;
 public interface OrderDetailService {
 	
 	@Transactional
-	List<OrderDetail> findByIdDetails(String id);
+	List<OrderDetail> findByIdDetails(String order_id);
 	
 	List<OrderDetail> selectList();
 	
-	OrderDetail selectDetail(String id);
+	OrderDetail selectDetail(int id);
 	
-	String save(OrderDetail entity);
+	int save(OrderDetail entity);
 	
-	String delete(String id);
+	int delete(int id);
 	
 	
 	

@@ -45,9 +45,9 @@
 }
 
 /* Information */
-.orderinput_hidden{
+/* .orderinput_hidden{
     display: none;
-} 
+}  */
 
 .information .checkout {
     display: flex;

@@ -45,7 +45,7 @@ public class OrderDetailController {
 	public String postOrderDetailInsert(OrderDetail entity, Model model, RedirectAttributes rttr){
 		String uri = "redirect:orderList";
 		try {
-			if (orderDetailService.save(entity) != null) {
+			if (orderDetailService.save(entity) > 0) {
 				model.addAttribute("message", "상품등록 성공");
 				System.out.println("** orderList insert 성공");
 			} else {
@@ -84,9 +84,9 @@ public class OrderDetailController {
 	// ========================================================================
 
 	@DeleteMapping("orderDetaildelete/{order_detail_id}")
-	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") String id, OrderList entity) {
-		entity.setOrder_id(id);
-		if (orderDetailService.delete(id) != null) {
+	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") int id, OrderDetail entity) {
+		entity.setOrder_detail_id(id);
+		if (orderDetailService.delete(id) > 0 ) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");
 			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);

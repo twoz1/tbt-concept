@@ -2,6 +2,8 @@ package com.tbtConcept.tbt.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,8 +21,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderDetail {
 	
-	@Id
-	private String order_detail_id;
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int order_detail_id;
 	
 	private String order_id;
 	private int product_id;

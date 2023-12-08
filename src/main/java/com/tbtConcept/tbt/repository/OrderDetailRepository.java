@@ -9,9 +9,9 @@ import org.springframework.data.repository.query.Param;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 
-public interface OrderDetailRepository extends JpaRepository<OrderDetail, String> {
+public interface OrderDetailRepository extends JpaRepository<OrderDetail, Integer> {
 	@Query(nativeQuery = true, 
 			value =  "SELECT * FROM order_detail  where order_id = :id order by order_detail_id desc")
-	List<OrderDetail> findByIdDetails(@Param("id") String id);
+	List<OrderDetail> findByIdDetails(@Param("id") String order_id);
 	
 }
