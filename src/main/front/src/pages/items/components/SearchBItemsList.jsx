@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useScrollToTop from '../../customHooks/useScrollToTop';
+import { useState } from 'react';
+import Pagination from '../../customHooks/Pagination';
 
 const renderItem = (item) => (
   <li className="photo_2" key={item.product_id}>
@@ -21,25 +23,51 @@ const renderItem = (item) => (
 
 // ================================================================================
 
-const SearchBItemsList = ({ searchProdsLists }) => {
+const SearchBItemsList = () => {
 
   useScrollToTop();
-  
+
+  // 검색창 결과 출력을 위한 localStorage
+  const [resultSearchP, setResultSearchP] = useState(JSON.parse(localStorage.getItem('searchProdsList')));
+  console.log(resultSearchP);
+
+
+  const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
+  const itemsPerPage = 8;  // 페이지 당 게시글 개수
+  const totalPages = Math.ceil(resultSearchP.length / itemsPerPage); // 전체 페이지 번호
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const searchProdsLists = resultSearchP.slice(startIndex, endIndex);
+
   const itemsPerRow = 4;
   const rows = Math.ceil(searchProdsLists.length / itemsPerRow);
 
   return (
-    <div className="photo_line">
-      {[...Array(rows)].map((_, rowIndex) => (
-        <div className="photo_layout cf" key={rowIndex}>
-          <ul>
-            {searchProdsLists
-              .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
-              .map(item => renderItem(item))}
-          </ul>
+    <React.Fragment>
+      {!searchProdsLists || searchProdsLists.length === 0 ? (
+        <div class="searchNull">
+          검색 결과가 없습니다.
         </div>
-      ))}
-    </div>
+      ) : (
+        <div className="photo_line">
+          {[...Array(rows)].map((_, rowIndex) => (
+            <div className="photo_layout cf" key={rowIndex}>
+              <ul>
+                {searchProdsLists
+                  .slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow)
+                  .map(item => renderItem(item))}
+              </ul>
+            </div>
+          ))}
+          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} data={resultSearchP} />
+        </div>
+      )}
+    </React.Fragment>
   );
 };
 

@@ -41,17 +41,21 @@ const Header = () => {
 
         const mSearBarKeyword = document.getElementById('mSearBarKeyword').value;
         let url = "/product/searchProds/" + encodeURIComponent(mSearBarKeyword);
-
-        axios.post(url
+        console.log(mSearBarKeyword);
+        axios.get(url
         ).then((response) => {
-            if (response.data > 0) {
-                localStorage.setItem('searchProdsList', JSON.stringify(response.data));
-            } else {
-                localStorage.setItem('searchProdsList', JSON.stringify(null));
-            }
+            localStorage.setItem('searchProdsList', JSON.stringify(response.data));
+            console.log(response.data);
             navigateTo("/searchBItems");
         }).catch((err) => {
-            alert(`searchProdsBar 서버연결 실패 => ${err.message}`);
+            if (err.response.status == '502') {
+                alert("검색 결과 없음");
+            } else {
+                alert(`searchProdsBar 서버연결 실패 => ${err.message}`);
+            }
+            localStorage.setItem('searchProdsList', JSON.stringify([]));
+            alert("*****" + JSON.parse(localStorage.getItem('searchProdsList')).length);
+            navigateTo("/searchBItems");
         })
     }
 

@@ -2,10 +2,11 @@ package com.tbtConcept.tbt.restController;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,10 +44,15 @@ public class ProductRController {
 		return pr;
 	}
 
-	@PostMapping("/searchProds/{mSearBarKeyword}")
-	public List<Product> searchProductListA(@PathVariable("mSearBarKeyword") String mSearBarKeyword) {
+	@GetMapping("/searchProds/{mSearBarKeyword}")
+	public ResponseEntity<?> searchProductListA(@PathVariable("mSearBarKeyword") String mSearBarKeyword) {
 		List<Product> searchList = prodService.searchByProductLikeA(mSearBarKeyword);
-		return searchList;
+		
+		if (searchList.size() > 0) {
+			return ResponseEntity.ok(searchList);
+		} else {
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("검색 결과가 없습니다.");
+		}
 	}
 
 }
