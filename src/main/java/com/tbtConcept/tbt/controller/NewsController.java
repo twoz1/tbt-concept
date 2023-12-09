@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.News;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.service.NewsService;
 
 import lombok.AllArgsConstructor;
@@ -55,15 +59,20 @@ public class NewsController {
 	// List =====================================================
 
 	@GetMapping("/newsList")
-	public void getNewsList(Model model) {
-		model.addAttribute("newsList", newsService.selectList());
+	public void getNewsList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
+		
+        PageResultDTO<News> resultDTO = newsService.selectList(requestDTO);
+		
+        model.addAttribute("newsList",resultDTO.getEntityList());
+		model.addAttribute("resultDTO", resultDTO);
 	}
 
 	// Detail =====================================================
 	@GetMapping("/newsDetail")
 	public String getNewsDetail(Model model, News entity, HttpServletRequest request) {
 
-		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNews_id()));
+		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNewsId()));
 
 		if ("U".equals(request.getParameter("jCode"))) {
 			return "master/cs/newsUpdate";
@@ -76,7 +85,7 @@ public class NewsController {
 	// Update =====================================================
 	@GetMapping("/newsUpdate")
 	public void getNewsUpdate(Model model, News entity, HttpServletRequest request) {
-		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNews_id()));
+		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNewsId()));
 	}
 
 	@PostMapping("/newsUpdate")
@@ -99,7 +108,7 @@ public class NewsController {
 	// Delete =====================================================
 	@DeleteMapping("/newsDelete/{news_id}")
 	public ResponseEntity<?> axNewsDelete(@PathVariable("news_id") int id, News entity) {
-		entity.setNews_id(id);
+		entity.setNewsId(id);
 
 		if (newsService.delete(id) > 0) {
 			log.info("axNewsDelete HttpStatus.OK =>" + HttpStatus.OK);

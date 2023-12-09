@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.service.UserService;
 
@@ -28,13 +32,20 @@ public class UserController {
 	UserService userService;
 
 	@GetMapping(value = "/userList")
-	public void getUserList(Model model) {
-		model.addAttribute("userList", userService.selectList());
+	public void getUserList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
+		
+        PageResultDTO<User> resultDTO = userService.selectList(requestDTO);
+		
+        model.addAttribute("userList",resultDTO.getEntityList());
+		model.addAttribute("resultDTO", resultDTO);
+
+
 	}
 
 	@GetMapping(value = "/userDetail")
 	public String getUserdetail(HttpServletRequest request, Model model, User entity) {
-		model.addAttribute("userDetail", userService.selectOne(entity.getUser_id()));
+		model.addAttribute("userDetail", userService.selectOne(entity.getUserId()));
 
 		if ("U".equals(request.getParameter("jCode")))
 			return "master/user/userUpdate";
@@ -65,7 +76,7 @@ public class UserController {
 
 	@DeleteMapping("userdelete/{user_id}")
 	public ResponseEntity<?> axUserDelete(@PathVariable("user_id") String id, User entity) {
-		entity.setUser_id(id);
+		entity.setUserId(id);
 		if (userService.delete(id) != null) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");

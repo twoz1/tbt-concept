@@ -2,13 +2,17 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.OrderList;
+
 //import javax.transaction.Transactional;
 
 import com.tbtConcept.tbt.entity.Review;
 
 
 public interface ReviewService {
-	List<Review> selectList();
+	PageResultDTO<Review> selectList(PageRequestDTO requestDTO);
 	
 	//Review selectOne(int id);
 	

@@ -1,5 +1,6 @@
 package com.tbtConcept.tbt.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +24,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Review {
 	
+	@Column(name = "review_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int review_id;
+	private int reviewId;
 	
 	private int product_id;
 	

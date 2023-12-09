@@ -3,9 +3,15 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.News;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.repository.NewsRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -16,8 +22,14 @@ public class NewsServiceImpl implements NewsService {
 	private final NewsRepository repository;
 
 	@Override
-	public List<News> selectList() {
-		return repository.findAll();
+	public PageResultDTO<News> selectList(PageRequestDTO requestDTO) {
+	    Pageable pageable = requestDTO.getPageable(Sort.by("newsId").descending());
+
+        Page<News> result = repository.findAll(pageable);
+        
+        return new PageResultDTO<>(result);
+		
+//		return repository.findAll();
 	}
 
 	@Override
@@ -34,7 +46,7 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public int save(News entity) {
 		repository.save(entity);
-		return entity.getNews_id();
+		return entity.getNewsId();
 	}
 
 	@Override

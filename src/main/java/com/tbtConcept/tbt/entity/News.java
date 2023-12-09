@@ -19,10 +19,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class News {
-
+	
+	@Column(name = "news_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int news_id;
+	private int newsId;
 	
 	@Column(nullable=false)
 	private String news_title;

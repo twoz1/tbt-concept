@@ -31,19 +31,51 @@
 					<c:if test="${not empty requestScope.newsList}">
 						<c:forEach var="n" items="${requestScope.newsList}">
 							<tr>
-								<td>${n.news_id}</td>
-								<td><a href="newsDetail?news_id=${n.news_id}" class="n_titleW" id="hiddenContentsN">${n.news_title}</a></td>
-								<td><a href="newsDetail?news_id=${n.news_id}" class="n_contentW" id="hiddenContentsN">${n.news_content}</a></td>
+								<td>${n.newsId}</td>
+								<td><a href="newsDetail?newsId=${n.newsId}" class="n_titleW" id="hiddenContentsN">${n.news_title}</a></td>
+								<td><a href="newsDetail?newsId=${n.newsId}" class="n_contentW" id="hiddenContentsN">${n.news_content}</a></td>
 								<td>
-									<a href="newsDetail?news_id=${n.news_id}">상세보기</a>
+									<a href="newsDetail?newsId=${n.newsId}">상세보기</a>
 								</td>
 								<td>
-									<button onclick="axNewsDelete(${n.news_id})" id="${n.news_id}">삭제</button>
+									<button onclick="axNewsDelete(${n.newsId})" id="${n.newsId}">삭제</button>
 								</td>
 							</tr>
 						</c:forEach>
 					</c:if>
 				</table>
+				 <div class="pageNation">
+					 <c:choose>
+						<c:when test="${resultDTO.start != resultDTO.page}">
+						  	<a class ="firstB" href="newsList?page=${resultDTO.start}">처음</a>
+		  					<a class ="ltB" href="newsList?page=${resultDTO.page-1}">&LT;</a>
+						</c:when>
+						<c:otherwise>
+						  	<span class ="firstB">처음</span>
+						  	<span class ="ltB">&LT;</span>
+						</c:otherwise>
+					</c:choose> 	 
+					 
+					<c:forEach var="i" items="${resultDTO.pageList}">
+						<c:if test="${i==resultDTO.page}">
+							<span><strong>${i}</strong></span>&nbsp;
+						</c:if>
+						<c:if test="${i!=resultDTO.page}">
+							<a href="newsList?page=${i}">${i}</a>&nbsp;
+						</c:if>
+					</c:forEach>
+					 
+					<c:choose>
+						<c:when test="${resultDTO.end != resultDTO.page}">
+							<a class="gtB" href="newsList?page=${resultDTO.page+1}">&GT;</a>
+							<a class="lastB" href="newsList?page=${resultDTO.end}">마지막</a>
+						</c:when>
+						<c:otherwise>
+							<span class="gtB">&GT;</span>
+							<span class="lastB">마지막</span>
+						</c:otherwise>
+					</c:choose>
+				 </div>
 			</div>
 		</main>
 	</div>

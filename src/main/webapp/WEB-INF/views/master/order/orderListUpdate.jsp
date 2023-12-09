@@ -57,9 +57,9 @@ function changeDelNumber() {
                <table>
                   <tr>
                      <th>주문번호</th>
-                     <td><input type="text" name="order_id" id="order_id"
+                     <td><input type="text" name="orderId" id="orderId"
                         required readonly
-                        value="${requestScope.orderListDetail.order_id}" /></td>
+                        value="${requestScope.orderListDetail.orderId}" /></td>
                   </tr>
                   <tr>
                      <th>회원 아이디</th>
