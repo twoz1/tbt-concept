@@ -17,8 +17,8 @@
 					<table>
 						<tr>
 							<th>리뷰ID</th>
-							<td>${requestScope.reviewDetail.review_id}
-								<input type="hidden" name="review_id" id="review_id" value="${requestScope.reviewDetail.review_id}" />
+							<td>${requestScope.reviewDetail.reviewId}
+								<input type="hidden" name="reviewId" id="reviewId" value="${requestScope.reviewDetail.reviewId}" />
 							</td>
 						</tr>
 

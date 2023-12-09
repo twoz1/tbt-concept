@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Review;
 import com.tbtConcept.tbt.service.ReviewService;
 
@@ -26,15 +30,21 @@ public class ReviewController {
 	
 	// List
 	@GetMapping(value = "/reviewList")
-	public void getUserList(Model model) {
-		model.addAttribute("reviewList", reviewService.selectList());
+	public void getUserList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(1).build();
+		
+        PageResultDTO<Review> resultDTO = reviewService.selectList(requestDTO);
+		
+        model.addAttribute("reviewList",resultDTO.getEntityList());
+		model.addAttribute("resultDTO", resultDTO);
+		
 	}
 	
 	
 	// Detail
 	@GetMapping("/reviewDetail")
 	public void getReviewDetail(Model model, Review entity,HttpServletRequest request) {
-		model.addAttribute("reviewDetail", reviewService.selectDetail(entity.getReview_id()));
+		model.addAttribute("reviewDetail", reviewService.selectDetail(entity.getReviewId()));
 	}
 	
 	
