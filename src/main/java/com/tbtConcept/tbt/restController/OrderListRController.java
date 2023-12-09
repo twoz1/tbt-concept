@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tbtConcept.tbt.domain.OrderRequest;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.service.AddressService;
@@ -45,9 +46,13 @@ public class OrderListRController {
 	
 	
 	@PostMapping("/oListInsert")
-	public String postorderListInsert(@RequestBody OrderList entity, @RequestBody List<OrderDetail> orderDetails){
-		System.out.println("******** entity"+ entity);
-		System.out.println("******** dentity"+ orderDetails);		
+	public String postorderListInsert(@RequestBody OrderRequest request){
+		
+		OrderList orderList = request.getOrderList();
+	    List<OrderDetail> orderDetail = request.getOrderDetail();
+		
+		System.out.println("******** entity"+ orderList);
+		System.out.println("******** dentity"+ orderDetail);		
 		
 		try {
 			Random rn = new Random();
@@ -55,11 +60,10 @@ public class OrderListRController {
 			
 			String orderId = "T"+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"))+"B"+num;
 			
-			entity.setOrder_id(orderId);
-			// dentity.setOrder_id(orderId);
-			entity.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			orderList.setOrder_id(orderId);
+			orderList.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 			
-			for (OrderDetail dentity : orderDetails) {
+			for (OrderDetail dentity : orderDetail) {
 	            dentity.setOrder_id(orderId);
 	            
 	            orderdService.save(dentity);
@@ -67,7 +71,7 @@ public class OrderListRController {
 	            System.out.println(dentity);
 	        }
 			
-			orderService.save(entity);
+			orderService.save(orderList);
 			
 			System.out.println("** orderList insert 성공");
 			return "완료";
