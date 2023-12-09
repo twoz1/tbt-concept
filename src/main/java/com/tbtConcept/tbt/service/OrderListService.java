@@ -5,14 +5,15 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.User;
 
 public interface OrderListService {
 	
-	@Transactional
-	List<OrderList> findAllDesc();
+	PageResultDTO<OrderList> findAllDesc(PageRequestDTO requestDTO);
 	
 	List<OrderList> selectList();
 	

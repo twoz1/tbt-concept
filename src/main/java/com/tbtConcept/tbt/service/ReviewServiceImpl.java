@@ -5,8 +5,14 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Review;
 import com.tbtConcept.tbt.repository.ReviewRepository;
 
@@ -20,8 +26,12 @@ public class ReviewServiceImpl implements ReviewService{
 
 
 	@Override
-	public List<Review> selectList() {
-		return repository.findAll();
+	public PageResultDTO<Review> selectList(PageRequestDTO requestDTO) {
+		Pageable pageable = requestDTO.getPageable(Sort.by("reviewId").descending());
+
+        Page<Review> result = repository.findAll(pageable);
+        
+        return new PageResultDTO<>(result);
 	}
 
 	//	   @Override
@@ -38,8 +48,8 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public Review selectDetail(int review_id) {
-		Optional<Review> result = repository.findById(review_id);
+	public Review selectDetail(int reviewId) {
+		Optional<Review> result = repository.findById(reviewId);
 
 		if (result.isPresent()) {
 			return result.get();
@@ -52,13 +62,13 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public int save(Review entity) {
 		repository.save(entity);
-		return entity.getReview_id();
+		return entity.getReviewId();
 	}
 	
 	@Override
-	public int deleteReview(int review_id) {
-		repository.deleteById(review_id);
-		return review_id;
+	public int deleteReview(int reviewId) {
+		repository.deleteById(reviewId);
+		return reviewId;
 	}
 
 //	@Override

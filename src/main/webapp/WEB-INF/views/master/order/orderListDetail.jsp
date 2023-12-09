@@ -16,7 +16,7 @@
             <table>
                <tr>
                   <th>주문번호 :</th>
-                  <td>${requestScope.orderListDetail.order_id}</td>
+                  <td>${requestScope.orderListDetail.orderId}</td>
                </tr>
                <tr>
                   <th>회원 ID :</th>
@@ -50,7 +50,7 @@
                </tr>
                <tr>
                   <th>쿠폰 :</th>
-                  <td>${requestScope.orderListDetail.order_coupon}</td>
+                  <td>${requestScope.orderListDetail.coupon_id}</td>
                </tr>
                <tr>
                   <th>주문 상품 종류수량 :</th>

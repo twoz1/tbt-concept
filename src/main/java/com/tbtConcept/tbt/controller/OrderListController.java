@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.entity.UserCoupon;
 import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.OrderListService;
 
@@ -32,8 +36,13 @@ public class OrderListController {
 	OrderDetailService dorderService;
 	
 	@GetMapping("/orderList")
-	public void getOrderList(Model model) {
-		model.addAttribute("orderList", orderService.findAllDesc());
+	public void getOrderList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
+		
+        PageResultDTO<OrderList> resultDTO = orderService.findAllDesc(requestDTO);
+		
+        model.addAttribute("orderList",resultDTO.getEntityList());
+		model.addAttribute("resultDTO", resultDTO);
 		
 	}
 	
@@ -41,8 +50,8 @@ public class OrderListController {
 	
 	@GetMapping("/orderListDetail")
 	public String getOrderListDetail (Model model, OrderList entity, OrderDetail dentity, HttpServletRequest request) {
-		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
-		model.addAttribute("orderDetailList", dorderService.findByIdDetails(entity.getOrder_id()));
+		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrderId()));
+		model.addAttribute("orderDetailList", dorderService.findByIdDetails(entity.getOrderId()));
 		System.out.println("*********orderListDetail" + entity);
 		if ("O".equals(request.getParameter("jCode"))) {
 			return "master/order/orderListUpdate";
@@ -90,7 +99,7 @@ public class OrderListController {
 
 		      try {
 		         log.info("** updat 성공 id => " + orderService.save(entity));
-		         session.setAttribute("loginName", entity.getOrder_id());
+		         session.setAttribute("loginName", entity.getOrderId());
 		         model.addAttribute("message", "~~ 주문정보 수정 성공 ~~");
 		      } catch (Exception e) {
 		         log.info("** update Exception => "+e.toString());
@@ -105,7 +114,7 @@ public class OrderListController {
 	
 	@DeleteMapping("orderlistdelete/{order_id}")
 	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") String id, OrderList entity) {
-		entity.setOrder_id(id);
+		entity.setOrderId(id);
 		if (orderService.delete(id) != null) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");

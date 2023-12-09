@@ -21,27 +21,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-	
+	@Column(name = "user_id")
 	@Id
-	private String user_id;
-	
+	private String userId;
+
 	@Column(nullable=false)
 	private String user_name;
-	
+
 	@Column(nullable=false)
 	private String user_pw;
-	
 
-	
+
+
 	@Column(nullable=false)
 	private String user_birth;
-	
+
 	@ColumnDefault("white")
 	private String user_rank;
-	
+
 	@Column(nullable=false)
 	private String user_event_check;
-	
 
-	
+
+
 }
