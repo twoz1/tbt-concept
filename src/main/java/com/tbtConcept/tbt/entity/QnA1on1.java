@@ -27,7 +27,7 @@ public class QnA1on1 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int qna_id;
 	
-	private String product_id;
+	private int product_id;
 	private String user_id;
 	
 	@Column(nullable=false)

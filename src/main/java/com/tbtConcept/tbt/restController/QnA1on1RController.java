@@ -38,8 +38,8 @@ public class QnA1on1RController {
 
 	}
 
-	@PostMapping("/qna1on1Insert")
-	public String postqna1on1Insert(QnA1on1 entity, Model model, RedirectAttributes rttr) throws IOException {
+	@PostMapping("/qna1on1Insert/{product_id}")
+	public String postqna1on1Insert(@PathVariable("product_id") int product_id, QnA1on1 entity, Model model, RedirectAttributes rttr) throws IOException {
 		System.out.println("postqna1on1Insert 확인 => " + entity);
 
 		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\front\\src\\images\\cs\\";
@@ -75,6 +75,12 @@ public class QnA1on1RController {
 	@PostMapping("/qList/{user_id}")
 	public List<QnA1on1> postQList(@PathVariable("user_id") String user_id) {
 		return qna1on1Service.selectListByUserId(user_id);
+	}
+	
+	@PostMapping("/pqList/{product_id}")
+	public List<QnA1on1> postPQList(@PathVariable("product_id") int product_id) {
+	 System.out.println(qna1on1Service.selectListByProdId(product_id));
+		return qna1on1Service.selectListByProdId(product_id);
 	}
 
 	// Update =====================================================

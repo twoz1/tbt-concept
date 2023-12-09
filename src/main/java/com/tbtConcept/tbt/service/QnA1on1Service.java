@@ -10,6 +10,8 @@ public interface QnA1on1Service {
 
 	List<QnA1on1> selectListByUserId(String user_id);
 	
+	List<QnA1on1> selectListByProdId(int product_id);
+	
 	QnA1on1 selectDetail(int qna_id);
 
 	int save(QnA1on1 entity);
