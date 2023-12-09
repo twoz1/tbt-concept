@@ -24,7 +24,12 @@ public class QnA1on1ServiceImpl implements QnA1on1Service {
 	public List<QnA1on1> selectListByUserId(String user_id) {
 		return repository.selectListByUserId(user_id);
 	}
-
+	
+	@Override
+	public List<QnA1on1> selectListByProdId(int product_id) {
+		return repository.selectListByProdId(product_id);
+	}
+	
 	@Override
 	public QnA1on1 selectDetail(int qna_id) {
 		Optional<QnA1on1> result = repository.findById(qna_id);

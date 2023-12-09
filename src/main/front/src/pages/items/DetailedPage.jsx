@@ -106,9 +106,9 @@ const DetailedPage = ({ starScore }) => {
                         </ul>
                     </div>
 
-                    <DpQnABtn />
+                    <DpQnABtn  product_id={product_id} />
 
-                    <DpQnA />
+                    <DpQnA  product_id={product_id}  />
 
 
                     <div className="nav nav4">
