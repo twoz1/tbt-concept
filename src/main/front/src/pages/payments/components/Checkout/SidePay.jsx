@@ -110,19 +110,32 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
             order_quan: cart_quan
         }));
 
-        axios.post(url, {
+        const orderRequest = {
+            orderList: {
+                user_id: document.getElementById("user_id").value,
+                address_name: document.getElementById("address_name").value,
+                address_avc: document.getElementById("address_avc").value,
+                address_city: document.getElementById("address_city").value,
+                address_detail: document.getElementById("address_detail").value,
+                address_phone_num: document.getElementById("address_phone_num").value,
+                order_message: document.getElementById("order_message").value,
+                order_pay: document.getElementById("order_pay").value,
+                order_total_each_quan: document.getElementById("order_total_each_quan").value,
+                order_total_price: document.getElementById("order_total_price").value,
+                coupon_id: document.getElementById("coupon_id").value
+            },
+            orderDetail: productsWithoutName
+        };
+
+        axios.post(url, orderRequest, {
             headers: {
                 'Content-Type': 'application/json'
-            },
-            data: {
-                orderDetails: productsWithoutName
             }
 
         })
             .then(response => {
                 alert("주문" + response.data);
                 console.log("주문 완료");
-                navigateTo("/resultframe");
             }).catch(err => {
                 if (err.response.status == "502") {
                     alert("[입력 오류] 다시 시도하세요.");
