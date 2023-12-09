@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -62,5 +63,16 @@ public class ReviewRController {
 		}
 
 	}
+	
+//	=========================================
+	
+	
+	@GetMapping("/rList/{product_id}")
+	public List<Review> getRList(@PathVariable("product_id") int product_id) {
+	System.out.print("갔다왔니?" +reviewService.selectListByProductId(product_id));
+		return reviewService.selectListByProductId(product_id);
+	}
+	
+	
 	
 }

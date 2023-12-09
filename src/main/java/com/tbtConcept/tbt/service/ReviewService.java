@@ -11,7 +11,7 @@ public interface ReviewService {
 	
 	//Review selectOne(int id);
 	
-	//List<Review> selectListByProductId(int product_id);
+	List<Review> selectListByProductId(int product_id);
 	
 	Review selectDetail(int review_id);
 	
