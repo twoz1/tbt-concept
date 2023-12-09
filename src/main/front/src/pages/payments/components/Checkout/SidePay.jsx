@@ -1,4 +1,4 @@
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import useModal from './../../../customHooks/useModal';
 import Join_Modal02 from "../../../members/components/Join/Join_Modal02";
 import Join_Modal03 from "../../../members/components/Join/Join_Modal03";
@@ -11,7 +11,7 @@ import axios from 'axios';
 const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
 
     const { openModal, closeModal, isModal } = useModal();
-    
+
 
     const [selectAll, setSelectAll] = useState(false);
     const [individualSelect1, setIndividualSelect1] = useState(false);
@@ -49,9 +49,9 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
     //할인율
     // console.log(handleCouponChange());
     let feePrice;
-    if(totalPrice<200000){
+    if (totalPrice < 200000) {
         feePrice = 3000;
-    }else{
+    } else {
         feePrice = 0;
     }
 
@@ -97,26 +97,27 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
         };
     }, []);
 
-   
+
 
     function insertOrderList(e) {
         e.preventDefault();
 
         let url = "/order/oListInsert";
 
-        const productsWithoutName = updatedCheckoutList.map(({ product_id, product_price, cart_quan}) => ({
+        const productsWithoutName = updatedCheckoutList.map(({ product_id, product_price, cart_quan }) => ({
             product_id,
-            order_price : product_price * cart_quan,
-            order_quan : cart_quan
+            order_price: product_price * cart_quan,
+            order_quan: cart_quan
         }));
 
-            axios.post(url, formData, {headers: {
+        axios.post(url, {
+            headers: {
                 'Content-Type': 'application/json'
-                },
-                data: {
-                    orderDetails : productsWithoutName
-                }
-        
+            },
+            data: {
+                orderDetails: productsWithoutName
+            }
+
         })
             .then(response => {
                 alert("주문" + response.data);
@@ -129,7 +130,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
                     alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
                 }
             });
-    
+
     }
     // function navigateTo(url) {
     //     console.log("이동하고자 하는 URL:", url); 
@@ -160,10 +161,10 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
                         <tr>
                             <th>총 결제금액</th>
                             <td>
-                            <input type="text" name="order_total_price" id="order_total_price" required 
-                                value={calcPricing()+feePrice}
+                                <input type="text" name="order_total_price" id="order_total_price" required
+                                    value={calcPricing() + feePrice}
                                 />
-                                {(calcPricing()+feePrice).toLocaleString()} 원 
+                                {(calcPricing() + feePrice).toLocaleString()} 원
                             </td>
                         </tr>
                     </tbody>
@@ -225,7 +226,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
                 </table>
                 {/* </form> */}
             </div>
-            <button className="total_button" disabled={!selectAll} onClick={(e)=>insertOrderList(e)}  >
+            <button className="total_button" disabled={!selectAll} onClick={(e) => insertOrderList(e)}  >
                 결제하기
             </button>
         </div>//최종 div
