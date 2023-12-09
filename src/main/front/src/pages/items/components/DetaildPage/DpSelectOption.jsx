@@ -6,10 +6,10 @@ import Modal_gotobasket from './Modal_gotobasket';
 import axios from 'axios';
 
 
-const DpSelectOption = ({  product_name, product_price, product_img1, product_id, code }) => {
+const DpSelectOption = ({ product_name, product_price, product_img1, product_id, code }) => {
 
     const { openModal, closeModal, isModal } = useModal();
-   
+
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
     const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, product_price);
@@ -23,7 +23,7 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
         color: isLiked ? 'orangered' : 'gray'
     };
 
-    console.log("%%%%%%%%%%%",code);
+    console.log("%%%%%%%%%%%", code);
 
     function insertItemToCart(e) {
 
@@ -35,7 +35,7 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
             axios.post(url, {
                 user_id: loginUser.user_id,
                 product_id: product_id,
-                cart_quan:quantityGoods,
+                cart_quan: quantityGoods,
             })
                 .then(response => {
 
@@ -62,15 +62,19 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
             <form onSubmit={(e) => insertItemToCart(e)}>
                 <div className='choice_1'>
                     <span> {product_name} </span>
-                    <span>
-                        <i className="fa-solid fa-truck"></i>
-                        <em>무료배송</em></span>
+                    {totalPricing() >= 200000 ?
+                        <span>
+                            <i className="fa-solid fa-truck"></i>
+                            <em>무료배송</em>
+                        </span> :
+                        null
+                    }
                 </div>
                 <div className='choice_2'>
-                {typeof product_price === 'number' && (
-                <span>{product_price.toLocaleString()}원</span>
-                )}
-                </div> 
+                    {typeof product_price === 'number' && (
+                        <span>{product_price.toLocaleString()}원</span>
+                    )}
+                </div>
 
                 <div className="total">
                     <strong>TOTAL</strong>
@@ -87,15 +91,15 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
                 </div>
 
                 <div className="choice_button">
-                    <Link to={`/checkout`} 
-                    state={{
-                        product_id: product_id,
-                        quantityGoods: quantityGoods,
-                        product_name: product_name,
-                        product_img1: product_img1,
-                        product_price: product_price,
-                        code : code,
-                    }} >바로 구매</Link>
+                    <Link to={`/checkout`}
+                        state={{
+                            product_id: product_id,
+                            quantityGoods: quantityGoods,
+                            product_name: product_name,
+                            product_img1: product_img1,
+                            product_price: product_price,
+                            code: code,
+                        }} >바로 구매</Link>
 
                     <button className='gotoCart'>쇼핑백 담기</button>
                     {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}
@@ -103,8 +107,8 @@ const DpSelectOption = ({  product_name, product_price, product_img1, product_id
                         <i className="fa-sharp fa-solid fa-heart" style={heartIconStyle} ></i>
                     </button>
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     );
 }
 
