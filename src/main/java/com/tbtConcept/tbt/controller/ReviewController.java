@@ -39,17 +39,17 @@ public class ReviewController {
 	
 	
 	//Delete
-	@DeleteMapping("reviewdelete/{review_id}")
-	public ResponseEntity<?> axUserDelete(@PathVariable("review_id") int id, Review entity) {
-		entity.setReview_id(id);
-		if (reviewService.delete(id) >0) {
-			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
-			System.out.println("삭제 성공");
-			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
-		} else {
-			log.info("axidelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
-			System.out.println("삭제 실패");
-			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
-		}
-	}
+//	@DeleteMapping("reviewdelete/{review_id}")
+//	public ResponseEntity<?> axUserDelete(@PathVariable("review_id") int id, Review entity) {
+//		entity.setReview_id(id);
+//		if (reviewService.delete(id) >0) {
+//			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
+//			System.out.println("삭제 성공");
+//			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
+//		} else {
+//			log.info("axidelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
+//			System.out.println("삭제 실패");
+//			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+//		}
+//	}
 }
