@@ -3,6 +3,8 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.entity.Review;
@@ -52,11 +54,17 @@ public class ReviewServiceImpl implements ReviewService{
 		repository.save(entity);
 		return entity.getReview_id();
 	}
-
+	
 	@Override
-	public int delete(int id) {
-		repository.deleteById(id);
-		return id;
+	public int deleteReview(int review_id) {
+		repository.deleteById(review_id);
+		return review_id;
 	}
+
+//	@Override
+//	@Transactional
+//	public int deleteReview(int product_id, String user_id) {
+//		return repository.deleteReview(product_id,user_id);
+//	}
 
 }

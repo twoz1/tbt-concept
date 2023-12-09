@@ -41,4 +41,6 @@ public class Review {
 	@Transient
 	public MultipartFile review_upload_filef;
 	
+	public String review_date;
+	
 }
