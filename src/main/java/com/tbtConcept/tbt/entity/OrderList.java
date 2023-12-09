@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -55,7 +56,9 @@ public class OrderList {
    @Column(nullable=false)
    private int order_total_price;
    
+   @ColumnDefault("입금대기")
    private String order_state;
+   @ColumnDefault("배송대기")
    private String order_del_state;
    
    private String order_del_num;

@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tbtConcept.tbt.entity.Address;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.service.AddressService;
@@ -42,19 +42,41 @@ public class OrderListRController {
     // ==============================================================================================
 	
 	
+//	@PostMapping("/oListInsert")
+//	public String postorderListInsert(OrderList entity,OrderDetail dentity,  Model model, RedirectAttributes rttr){
+//		System.out.println("********"+ entity);
+//		System.out.println("********"+ dentity);
+//		
+//		try {
+//			orderdService.save(dentity);
+//			orderService.save(entity);
+//			// addressService.save(aentity);
+//			model.addAttribute("message", "주문등록 성공");
+//			System.out.println("** orderList insert 성공");
+//			return "완료";
+//		
+//		} catch (Exception e) {
+//			System.out.println("** OrderList insert Exception => " + e.toString());
+//			return "실패";
+//		}
+//	}
+//	
 	@PostMapping("/oListInsert")
-	public String postorderListInsert(OrderList entity,OrderDetail dentity, Address aentity, Model model, RedirectAttributes rttr){
+	public String postorderListInsert(OrderList entity, @RequestBody List<OrderDetail> orderDetails,  Model model, RedirectAttributes rttr){
 		System.out.println("********"+ entity);
-		System.out.println("********"+ dentity);
+//		System.out.println("********"+ dentity);
 		
 		try {
-			orderdService.save(dentity);
+//			orderdService.save(dentity);
+			   for (OrderDetail orderDetail : orderDetails) {
+				   orderdService.save(orderDetail);
+		        }
 			orderService.save(entity);
 			// addressService.save(aentity);
 			model.addAttribute("message", "주문등록 성공");
 			System.out.println("** orderList insert 성공");
 			return "완료";
-		
+			
 		} catch (Exception e) {
 			System.out.println("** OrderList insert Exception => " + e.toString());
 			return "실패";

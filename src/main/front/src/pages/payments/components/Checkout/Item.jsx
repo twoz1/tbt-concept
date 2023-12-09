@@ -30,7 +30,7 @@ const Item = ({ updatedCheckoutList}) => {
                     <tr className='orderinput_hidden'>
                         <th>리뷰상태</th>
                         <td>
-                           <input type="text"  name="review_state" id="review_state" value="작성하기" required  />
+                           {/* <input type="text"  name="review_state" id="review_state" value="작성하기" required  /> */}
                     <input type="text" name="order_total_each_quan" id="order_total_each_quan" value={updatedCheckoutList.length} required/>
                    </td>
                      </tr>
