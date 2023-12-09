@@ -11,7 +11,11 @@ const BasketPriceBox = ( { checkItems, cartUserList, calculateSelectedTotal } ) 
 
     // checkItems(체크된 product_id만 들어있음)에 포함된 product_id의 정보 가져오기
     const checkItemsInfo = cartUserList.filter(item => checkItems.includes(item.product_id));
-    console.log("checkItemsInfo => ", checkItemsInfo);
+
+    function prevCheckout() {
+        alert("주문하실 상품을 선택해주세요.");
+    }
+
     return (
         <div className= "basket_payment" >
             <h3>주문 금액</h3>
@@ -33,10 +37,11 @@ const BasketPriceBox = ( { checkItems, cartUserList, calculateSelectedTotal } ) 
                 </li>
             </ul>
 
-            <Link className='orderCheckItems' to={`/checkout`} state={{checkItemsInfo: checkItemsInfo,
-                                                                        selectedTotal: selectedTotal,fee: fee }} >
-                선택상품 주문하기
-            </Link>
+            {checkItemsInfo.length > 0 ?
+                <Link className='orderCheckItems' to={`/checkout`}
+                    state={{ checkItemsInfo: checkItemsInfo, selectedTotal: selectedTotal, fee: fee }} >선택상품 주문하기</Link>
+                : <div className='orderCheckItems' onClick={() => prevCheckout()}>선택상품 주문하기</div>
+            }
         </div>
     )
 }

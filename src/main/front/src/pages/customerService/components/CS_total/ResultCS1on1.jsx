@@ -103,8 +103,8 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
                             <figcaption><strong>1&#58;1 문의</strong></figcaption>
                             <table>
                                 <tbody>
-                                    <tr>                                       
-                                        <td className='disNone'>
+                                    <tr className='disNone'>                                       
+                                        <td>
                                             <input type="hidden" name="qna_id" id="qna_id" value={qna_id} />
                                             <input type="hidden" name="qna_phone_num" id="qna_phone_num" value={qna_phone_num} />
                                             <input type="hidden" name="qna_reply_check" id="qna_reply_check" value={qna_reply_check} />
