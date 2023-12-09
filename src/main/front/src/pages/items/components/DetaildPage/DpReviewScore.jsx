@@ -15,7 +15,7 @@ const DpReviewScore = ({product_id}) => {
 
         axios.get(url).then(response => {
             setReview(response.data);
-                //alert("QnA1on1List 출력 성공" + response.data);
+            console.log(response.data);
             }).catch(err => {
                 if (err.response.status == "502") {
                     alert("[입력 오류] 다시 시도하세요.");
@@ -25,7 +25,7 @@ const DpReviewScore = ({product_id}) => {
             });
     }, []);
 
-
+   
     
     const reviewScoreText = ["아주 좋아요", "마음에 들어요", "보통이에요", "그냥 그래요", "별로에요"];
 
@@ -41,17 +41,17 @@ const DpReviewScore = ({product_id}) => {
     }, {});
 
     const clickNewest = () => {
-        const rivewNewest = [...review].sort((a, b) => new Date(b.reviewDate) - new Date(a.reviewDate));
+        const rivewNewest = [...review].sort((a, b) => new Date(b.review_date) - new Date(a.review_date));
         setReview(rivewNewest);
         setspanActive("spanNewest");
     }
     const clickGradHigh = () => {
-        const rivewGradHigh = [...review].sort((a, b) => b.starLength - a.starLength);
+        const rivewGradHigh = [...review].sort((a, b) => b.review_star - a.review_star);
         setReview(rivewGradHigh);
         setspanActive("spanGradHigh");
     }
     const clickGradRow = () => {
-        const rivewGradRow = [...review].sort((a, b) => a.starLength - b.starLength);
+        const rivewGradRow = [...review].sort((a, b) => a.review_star - b.review_star);
         setReview(rivewGradRow);
         setspanActive("spanGradRow");
     }
@@ -60,7 +60,7 @@ const DpReviewScore = ({product_id}) => {
     const listPerPage = 3;
     const startIndex = ((page) - 1) * listPerPage;
 
-    console.log('아이디',product_id);
+    //console.log('아이디',product_id);
 
 
 

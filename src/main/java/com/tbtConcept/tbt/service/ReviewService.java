@@ -2,6 +2,7 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+//import javax.transaction.Transactional;
 
 import com.tbtConcept.tbt.entity.Review;
 
@@ -18,6 +19,7 @@ public interface ReviewService {
 	
     int save(Review entity);
 	
-	int delete(int id);
+    //@Transactional
+	int deleteReview(int review_id);
 	
 }
