@@ -11,14 +11,10 @@ import { useLocation } from 'react-router-dom';
 import navigateTo from '../config/navigateTo';
 import { useParams } from "react-router-dom";
 
+import axios from 'axios';
+
 // 임의의 상품 목록
 const checkoutList = [];
-
-// 임의의 쿠폰 목록
-const couponOptions = [
-    { value: 'welcome', label: '회원가입 감사 10% 할인 쿠폰', discount: 10 },
-    { value: 'summer', label: 's/s기념 10% 할인 쿠폰', discount: 10 },
-];
 
 const Checkout = () => {
     const [selectedAddress, setSelectedAddress] = useState(null);
@@ -33,6 +29,10 @@ const Checkout = () => {
     const [pageState, setPageState] = useState(false);
     console.log(loginUser);
 
+    // 쿠폰 받아오기
+    // 임의의 쿠폰 목록
+    const [couponOptions, setCouponOptions] = useState([]);
+
     useEffect(() => {
         if (loginUser == null) {
             alert("로그인 후 이용해주세요.");
@@ -40,7 +40,33 @@ const Checkout = () => {
         } else {
             setPageState(true);
         }
+
+        axios
+        .get('/coupon/cUserList', { params: { user_id: loginUser.user_id } })
+        .then(response => {
+            if (response.data != null) {
+                let arrayOfObjects = response.data.map(item => {
+                    return {
+                      coupon_id: parseInt(item[0]),
+                      coupon_name: item[1],
+                      coupon_disc: parseInt(item[2]),
+                      user_id: item[3],
+                      coupon_start: item[4],
+                      coupon_end: item[5]
+                    };
+                });
+                  
+                setCouponOptions(arrayOfObjects);
+                
+            }
+        }).catch((err) => {
+            alert(`** checkdata 서버연결 실패 => ${err.message}`);
+        });
     }, []);
+
+    //
+    console.log(couponOptions);
+
 
     const location = useLocation();
     const { quantityGoods, product_name, product_img1, product_price, product_id, checkItemsInfo } = location.state;
@@ -69,12 +95,15 @@ const Checkout = () => {
 
     const [selectedCoupon, setSelectedCoupon] = useState(null);
 
+
     const handleCouponChange = (event) => {
         const selectedValue = event.target.value;
-        const selectedCouponInfo = couponOptions.find((coupon) => coupon.value === selectedValue);
+        const selectedCouponInfo = couponOptions.find((coupon) => coupon.coupon_id === parseInt(selectedValue));
 
+        console.log("선택된 쿠폰" ,selectedCouponInfo);
         setSelectedCoupon(selectedCouponInfo);
     };
+    
 
     const calculateTotalPrice = (items) => {
         if (!items || !Array.isArray(items) || items.length === 0) {
@@ -95,6 +124,8 @@ const Checkout = () => {
     let totalPrice = calculateTotalPrice(updatedCheckoutList);
     console.log(totalPrice);
 
+
+
     return (
         pageState && (
             <div>
@@ -102,7 +133,7 @@ const Checkout = () => {
                     <div className="check_box">
                         <section className="check_left">
                             <Title />
-                            <form action="oListInsert" id='oListInsert'>
+                            <form id='oListInsert'>
                                 <Information user_id={loginUser.user_id} />
                                 <Item updatedCheckoutList={updatedCheckoutList} />
                                 <div className="discount">
@@ -115,8 +146,8 @@ const Checkout = () => {
                                                     <select className="checkout_cou" name="order_coupon" id="order_coupon" onChange={handleCouponChange}>
                                                         <option value="쿠폰선택">쿠폰선택</option>
                                                         {couponOptions.map((coupon) => (
-                                                            <option key={coupon.value} value={coupon.value}>
-                                                                {coupon.label}
+                                                            <option key={coupon.coupon_id} value={coupon.coupon_id}>
+                                                                {coupon.coupon_name}
                                                             </option>
                                                         ))}
                                                     </select>
@@ -127,7 +158,7 @@ const Checkout = () => {
                                 </div>
                                 <Pay />
                                 <section className="check_right">
-                                    <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} />
+                                    <SidePay totalPrice={totalPrice} selectedCoupon={selectedCoupon} updatedCheckoutList={updatedCheckoutList} />
                                 </section>
                             </form>
                         </section>

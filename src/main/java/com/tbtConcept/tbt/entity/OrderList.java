@@ -6,12 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@DynamicInsert
 @Entity
 @Table(name="order_list")
 @Data
@@ -58,6 +60,7 @@ public class OrderList {
    
    @ColumnDefault("입금대기")
    private String order_state;
+   
    @ColumnDefault("배송대기")
    private String order_del_state;
    

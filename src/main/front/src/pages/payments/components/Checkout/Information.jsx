@@ -127,25 +127,14 @@ const Information = ({ user_id}) => {
             <div>
                 <table className="information_table checkout_table">
                     <tbody>
-                        <tr className='orderinput_hidden'>
+                        {/* <tr className='orderinput_hidden'>
                             <th>주문번호</th>
                             <td>
                                 <input type="text" name="order_id" id="order_id" required />
                             </td>
-                        </tr>
-                        <tr className='orderinput_hidden'>
-                            <th>회원 아이디</th>
-                            <td>
-                                <input type="text" name="user_id" id="user_id" required value={user_id} />
-                            </td>
-                        </tr>
-                        <tr className='orderinput_hidden'>
-                            <th>주문일자</th>
-                            <td>
-                                <input type="text" name="order_date" id="order_date" required />
-                            </td>
-                        </tr>
-                        <tr className='orderinput_hidden'>
+                        </tr> */}
+                        
+                        {/* <tr className='orderinput_hidden'>
                             <th>입금상태</th>
                             <td>
                                 <input type="text" name="order_state" id="order_state" readonly value="입금대기" />
@@ -156,13 +145,14 @@ const Information = ({ user_id}) => {
                             <td>
                                 <input type="text" name="order_del_state" id="order_del_state" readonly value="배송대기" />
                             </td>
-                        </tr>
+                        </tr> */}
 
                         <tr>
                             <th>
                                 받으시는 분 <span>&#42;</span>
                             </th>
                             <td className="receiver">
+                                <input type="hidden" name="user_id" id="user_id" required value={user_id} />
                                 <input type="text" name="address_name" id="address_name" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required /> &nbsp;&nbsp;
                                 <span type="button" onClick={() => openModal('address')}>주소록</span>
                                 {isModal('address') && <CheckOut_Modal closeModal={closeModal} />}
@@ -198,6 +188,7 @@ const Information = ({ user_id}) => {
                             <th>배송 메시지</th>
                             <td className="message">
                                 <input type="text" name="order_message" id="order_message" />
+                                
                             </td>
                         </tr>
                     </tbody>

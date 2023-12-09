@@ -14,21 +14,21 @@ const Pay = () => {
                     </tr>
                     <tr>
                         <th colSpan="1">
-                            <a href="#">신용카드</a>
-                            <a href="#">간편결제</a>
-                            <a href="#">휴대폰결제</a>
+                            <input type="radio" name="order_pay" id="order_pay" value="신용카드" />신용카드
+                            <input type="radio" name="order_pay" id="order_pay" value="간편결제" />간편결제
+                            <input type="radio" name="order_pay" id="order_pay" value="휴대폰결제" />휴대폰결제
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            <select name="order_pay" id="order_pay" required> 
+                            <select id="order_pay2" required> 
                                 <option value="default">카드선택</option>
                                 <option value="신한">신한카드</option>
                                 <option value="농협">농협카드</option>
                                 <option value="국민">국민카드</option>
                                 <option value="삼성">삼성카드</option>
                             </select>
-                            <select name="order_pay" id="order_pay">
+                            <select id="order_pay2">
                                 <option value="default">할부선택</option>
                                 <option value="0">선택안함</option>
                                 <option value="1">1</option>

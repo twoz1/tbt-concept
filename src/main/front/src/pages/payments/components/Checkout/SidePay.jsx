@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
+const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
 
     const { openModal, closeModal, isModal } = useModal();
     
@@ -58,13 +58,15 @@ const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
     //할인 적용 금액
     const calcPricing = () => {
         if (selectedCoupon) {
-            const discountPrice = (totalPrice * selectedCoupon.discount) / 100;
+            const discountPrice = (totalPrice * selectedCoupon.coupon_disc) / 100;
             return totalPrice - discountPrice;
         } else {
             return totalPrice;
         }
 
     };
+
+    console.log(selectedCoupon);
 
     //할인 금액
     const discountPricing = () => {
@@ -97,11 +99,25 @@ const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
 
    
 
-    function insertOrderList() {
-        let url = "/order/oListInsert";
-        let formData = new FormData(document.getElementById('oListInsert'));
+    function insertOrderList(e) {
+        e.preventDefault();
 
-            axios.post(url, formData)
+        let url = "/order/oListInsert";
+
+        const productsWithoutName = updatedCheckoutList.map(({ product_id, product_price, cart_quan}) => ({
+            product_id,
+            order_price : product_price * cart_quan,
+            order_quan : cart_quan
+        }));
+
+            axios.post(url, formData, {headers: {
+                'Content-Type': 'application/json'
+                },
+                data: {
+                    orderDetails : productsWithoutName
+                }
+        
+        })
             .then(response => {
                 alert("주문" + response.data);
                 console.log("주문 완료");
@@ -209,7 +225,7 @@ const SidePay = ({ totalPrice, selectedCoupon, fee }) => {
                 </table>
                 {/* </form> */}
             </div>
-            <button type="submit" className="total_button" disabled={!selectAll} onClick={()=>insertOrderList()}  >
+            <button className="total_button" disabled={!selectAll} onClick={(e)=>insertOrderList(e)}  >
                 결제하기
             </button>
         </div>//최종 div

@@ -1,15 +1,18 @@
 package com.tbtConcept.tbt.restController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -42,41 +45,34 @@ public class OrderListRController {
     // ==============================================================================================
 	
 	
-//	@PostMapping("/oListInsert")
-//	public String postorderListInsert(OrderList entity,OrderDetail dentity,  Model model, RedirectAttributes rttr){
-//		System.out.println("********"+ entity);
-//		System.out.println("********"+ dentity);
-//		
-//		try {
-//			orderdService.save(dentity);
-//			orderService.save(entity);
-//			// addressService.save(aentity);
-//			model.addAttribute("message", "주문등록 성공");
-//			System.out.println("** orderList insert 성공");
-//			return "완료";
-//		
-//		} catch (Exception e) {
-//			System.out.println("** OrderList insert Exception => " + e.toString());
-//			return "실패";
-//		}
-//	}
-//	
 	@PostMapping("/oListInsert")
-	public String postorderListInsert(OrderList entity, @RequestBody List<OrderDetail> orderDetails,  Model model, RedirectAttributes rttr){
-		System.out.println("********"+ entity);
-//		System.out.println("********"+ dentity);
+	public String postorderListInsert(@RequestBody OrderList entity, @RequestBody List<OrderDetail> orderDetails){
+		System.out.println("******** entity"+ entity);
+		System.out.println("******** dentity"+ orderDetails);		
 		
 		try {
-//			orderdService.save(dentity);
-			   for (OrderDetail orderDetail : orderDetails) {
-				   orderdService.save(orderDetail);
-		        }
+			Random rn = new Random();
+			String num = rn.nextInt(1000) + "";
+			
+			String orderId = "T"+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"))+"B"+num;
+			
+			entity.setOrder_id(orderId);
+			// dentity.setOrder_id(orderId);
+			entity.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			
+			for (OrderDetail dentity : orderDetails) {
+	            dentity.setOrder_id(orderId);
+	            
+	            orderdService.save(dentity);
+	            
+	            System.out.println(dentity);
+	        }
+			
 			orderService.save(entity);
-			// addressService.save(aentity);
-			model.addAttribute("message", "주문등록 성공");
+			
 			System.out.println("** orderList insert 성공");
 			return "완료";
-			
+		
 		} catch (Exception e) {
 			System.out.println("** OrderList insert Exception => " + e.toString());
 			return "실패";
