@@ -94,9 +94,8 @@ const DetailedPage = ({ starScore }) => {
                     </ul>
                 </div>
 
-                <DpReviewScore></DpReviewScore>
-
-                <div>
+                <DpReviewScore product_id={product_id}/>
+                                <div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
                     <div className="nav nav3">
                         <ul>

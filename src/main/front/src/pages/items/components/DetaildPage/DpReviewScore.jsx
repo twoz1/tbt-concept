@@ -1,55 +1,37 @@
 import { useStar } from '../../../members/components/Mypage/ReviewModal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DpReviewItem from './DpReviewItem';
 import PageNation from '../PageNation';
-
-const reviewList = [
-    {
-        id: 0,
-        userId: "tbtconcept",
-        reviewDate: "2023.08.11",
-        starLength: 5,
-        reviewText: "선글라스 색감이 너무 예뻐요!! 친구들이 다 잘 어울린다고 칭찬해줘서 너무 기쁘네요 ㅠㅠ"
-    },
-    {
-        id: 1,
-        userId: "concepttbt",
-        reviewDate: "2023.07.14",
-        starLength: 4,
-        reviewText: "전에 구매하고 너무 좋아서 재구매 했어요. 너무 만족해요~",
-    },
-    {
-        id: 2,
-        userId: "kcmchanmi",
-        reviewDate: "2023.06.20",
-        starLength: 5,
-        reviewText: "라식 수술하면서 선글라스가 필요해서 구매했어요ㅇ.ㅇ 사람들이 저보고 연예인이래요.",
-    },
-    {
-        id: 3,
-        userId: "passion",
-        reviewDate: "2023.06.15",
-        starLength: 3,
-        reviewText: "화면과 색이 좀 다르네요.. 그래도 예뻐요.",
-    },
-    {
-        id: 4,
-        userId: "musician",
-        reviewDate: "2023.06.25",
-        starLength: 4,
-        reviewText: "저랑 찰떡입니당!",
-    }
-]
+import axios from 'axios';
 
 
-const DpReviewScore = () => {
 
-    const [review, setReview] = useState(reviewList);
+
+const DpReviewScore = ({product_id}) => {
+
+    const [review, setReview] = useState([]);
+    useEffect(() => {
+        let url = "/review/rList/" + product_id;
+
+        axios.get(url).then(response => {
+            setReview(response.data);
+                //alert("QnA1on1List 출력 성공" + response.data);
+            }).catch(err => {
+                if (err.response.status == "502") {
+                    alert("[입력 오류] 다시 시도하세요.");
+                } else {
+                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                }
+            });
+    }, []);
+
+
+    
     const reviewScoreText = ["아주 좋아요", "마음에 들어요", "보통이에요", "그냥 그래요", "별로에요"];
 
     const [spanActive, setspanActive] = useState("");
 
-    const starLengths = review.map(item => item.starLength);
+    const starLengths = review.map(item => item.review_star);
     const totalStar = starLengths.reduce((acc, star) => acc + star, 0);
     const totalStar2 = (totalStar / review.length).toFixed(1);
 
@@ -77,6 +59,11 @@ const DpReviewScore = () => {
     const [page, setPage] = useState(1);
     const listPerPage = 3;
     const startIndex = ((page) - 1) * listPerPage;
+
+    console.log('아이디',product_id);
+
+
+
 
 
     return (
@@ -131,7 +118,7 @@ const DpReviewScore = () => {
             </div >
             <hr />
             {/* ----------------리뷰2---------------- */}
-            {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText} />)}
+            {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText}/>)}
             <div className='page_nation'>
 
             <PageNation setPage={setPage} />

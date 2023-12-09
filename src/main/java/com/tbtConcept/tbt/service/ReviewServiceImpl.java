@@ -30,10 +30,10 @@ public class ReviewServiceImpl implements ReviewService{
 	//	   }
 
 
-//	@Override
-//	public List<Review> selectListByProductId(int product_id) {
-//		return repository.selectListByProductId(product_id);
-//	}
+	@Override
+	public List<Review> selectListByProductId(int product_id) {
+		return repository.selectListByProductId(product_id);
+	}
 
 	@Override
 	public Review selectDetail(int review_id) {

@@ -290,8 +290,8 @@ body {
 .customer_review {
     display: flex;
     flex-direction: column;
-    height: 150px;
-    justify-content: space-around;
+    /* height: 300px; */
+    gap: 30px;
     padding: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #ddd;
@@ -313,6 +313,15 @@ body {
 .page_nation {
     height: 100px;
 }
+
+.customer_review .reviewList_button{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    font-size: 11px;
+}
+
+
 
 /* ============================================================= */
 
