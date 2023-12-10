@@ -69,9 +69,9 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                 <span>{user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(user_id.length - 3))}</span>
                 {review_date} 
             </div>
-            <p>{review_content}
-            
-            </p>
+
+            <p>{review_content}</p>
+
             <div className="image-container" style={{ height: isImageExpanded ? '500px' : '100px' }} onClick={handleImageClick}>
                 <img
                     style={{ height: '100%', width: 'auto', objectFit: 'cover' }}
@@ -79,6 +79,7 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                     alt="review_upload_file"
                 />
             </div>
+            
             {user_id == loginUser.user_id ?
             <div className="reviewList_button">
                 <span onClick={()=>{openModal("DpReviewModal")}}>수정</span>
@@ -94,7 +95,6 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                 <span onClick={()=>{deleteReview(review_id)}}>삭제</span>
             </div>
              : 
-             
              <div></div>
              
              }

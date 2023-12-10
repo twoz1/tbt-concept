@@ -17,7 +17,6 @@ const NewsCS = () => {
 
         axios.get(url).then(response => {
             setNewsList(response.data);
-            console.log("News 출력 성공" + response.data);
         }).catch(err => {
             if (err.response.status == "502") {
                 alert("[News 입력 오류] 다시 시도하세요.");

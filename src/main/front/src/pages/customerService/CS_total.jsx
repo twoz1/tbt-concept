@@ -33,7 +33,6 @@ const CS_total = () => {
 
         axios.get(url).then(response => {
             setFaqBarList(response.data);
-            console.log("FAQBar 출력 성공" + response.data);
         }).catch(err => {
             if (err.response.status == "502") {
                 alert("[FAQBar 입력 오류] 다시 시도하세요.");

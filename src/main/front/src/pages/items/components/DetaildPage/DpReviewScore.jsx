@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const DpReviewScore = ({product_id}) => {
+const DpReviewScore = ({ product_id }) => {
 
     const [review, setReview] = useState([]);
     useEffect(() => {
@@ -15,18 +15,17 @@ const DpReviewScore = ({product_id}) => {
 
         axios.get(url).then(response => {
             setReview(response.data);
-            console.log(response.data);
-            }).catch(err => {
-                if (err.response.status == "502") {
-                    alert("[입력 오류] 다시 시도하세요.");
-                } else {
-                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
-                }
-            });
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
     }, []);
 
-   
-    
+
+
     const reviewScoreText = ["아주 좋아요", "마음에 들어요", "보통이에요", "그냥 그래요", "별로에요"];
 
     const [spanActive, setspanActive] = useState("");
@@ -118,10 +117,10 @@ const DpReviewScore = ({product_id}) => {
             </div >
             <hr />
             {/* ----------------리뷰2---------------- */}
-            {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText}/>)}
+            {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText} />)}
             <div className='page_nation'>
 
-            <PageNation setPage={setPage} />
+                <PageNation setPage={setPage} />
             </div>
         </div >
     );

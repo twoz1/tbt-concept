@@ -23,8 +23,6 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
         color: isLiked ? 'orangered' : 'gray'
     };
 
-    console.log("%%%%%%%%%%%", code);
-
     function insertItemToCart(e) {
 
         e.preventDefault();

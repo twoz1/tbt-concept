@@ -13,8 +13,6 @@ const FAQsearch = ({ faqBarList }) => {
     }
 
     const getSearchResult = () => {
-        console.log("getSearchResult 함수 실행");
-        console.log("검색결과 => " + search);
 
         return (
             search === '' ? [] : faqBarList.filter((f) =>
