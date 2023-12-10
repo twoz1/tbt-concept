@@ -49,7 +49,7 @@ const DpQnA = ({ product_id }) => {
 
   // pagination 구현
   const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
-  const listPerPage = 5;  // 페이지 당 게시글 개수
+  const listPerPage = 4;  // 페이지 당 게시글 개수
   const totalPages = Math.ceil(dpQnAList.length / listPerPage);    // 전체 페이지 번호
 
 
@@ -63,8 +63,6 @@ const DpQnA = ({ product_id }) => {
     return dpQnAList.slice(startIndex, endIndex);
   };
 
-
-
   return (
     <div>
       <table className='tableDpQnA'>
@@ -77,11 +75,18 @@ const DpQnA = ({ product_id }) => {
         </thead>
 
         <tbody>
-          {dpQnAList.map((qna) => (
+          {getPaginatedData().length === 0 ? (
+            <tr className='customer_q_a'>
+              <td colSpan="5">작성한 게시물이 없습니다.</td>
+            </tr>
+          ) : getPaginatedData().map((qna) => (
             <tr key={qna.qna_id} className="customer_q_a">
               <td id="q_a_inquiy">{qna.qna_type}</td>
+
               <td>{qna.user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(qna.user_id.length - 3))}</td>
-              <td onClick={() => openModal('titleInqProd')}>{qna.qna_title}</td>
+
+              {qna.user_id == loginUser.user_id ? <td className='titCurPoint' onClick={() => openModal('titleInqProd')}>{qna.qna_title}</td>
+                : <td>{qna.qna_title}</td>}
               {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
                 qna_id={qna.qna_id}
                 product_id={qna.product_id}
@@ -97,16 +102,19 @@ const DpQnA = ({ product_id }) => {
 
               {qna.qna_answer !== null && qna.qna_answer !== undefined && qna.qna_answer.length !== 0 ? <td className='dpQnAReply'>답변완료</td> : <td>답변대기</td>}
 
-
               <td>{qna.user_id == loginUser.user_id ? <button onClick={() => { deleteDpQnA(qna.qna_id) }}>삭제</button> : ""}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
-        <div>
-          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
-        </div>
+      {getPaginatedData().length !== 0 ?
+      <div>
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
+      </div> 
+      : <div></div>
+      }
+
     </div>
   )
 }

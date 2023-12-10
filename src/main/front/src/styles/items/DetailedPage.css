@@ -333,7 +333,6 @@ body {
     display: flex;
     justify-content: flex-end;
     border: none;
-    margin-right: 20px;
 }
 
 .q_a_button .QnA_Button {
@@ -344,21 +343,32 @@ body {
     line-height: 30px;
 }
 
+.q_a_button .QnA_Button:hover {
+    color: orangered;
+}
+
 .tableDpQnA {
-    width: 100%;
+    width: 90%;
     text-align: left;
 }
 
 .tableDpQnA thead {
-    padding: 2rem;
+    height: 40px;
+    font-size: 16px;
+    border-top: 1px solid #eee;
+}
+
+.tableDpQnA tbody td {
+    font-size: 14px;
+    line-height: 25px;
 }
 
 .tableDpQnA thead th:nth-of-type(1) {
-    width: 10%;
+    width: 15%;
 }
 
 .tableDpQnA thead th:nth-of-type(2) {
-    width: 30%;
+    width: 25%;
 }
 
 .tableDpQnA thead th:nth-of-type(3) {
@@ -366,12 +376,12 @@ body {
     cursor: pointer;
 }
 
-.tableDpQnA tbody td:nth-of-type(3) {
+.titCurPoint {
     cursor: pointer;
 }
 
 .tableDpQnA thead th:nth-of-type(4) {
-    width: 10%;
+    width: 15%;
 }
 
 .dpQnAReply {
@@ -379,7 +389,7 @@ body {
 }
 
 .tableDpQnA thead th:nth-of-type(5) {
-    width: 10%;
+    width: 5%;
 }
 
 

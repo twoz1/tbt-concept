@@ -1,7 +1,7 @@
 import { useStar } from '../../../members/components/Mypage/ReviewModal';
 import { useState, useEffect } from 'react';
 import DpReviewItem from './DpReviewItem';
-import PageNation from '../PageNation';
+import Pagination from '../../../customHooks/Pagination';
 import axios from 'axios';
 
 
@@ -32,7 +32,13 @@ const DpReviewScore = ({ product_id }) => {
 
     const starLengths = review.map(item => item.review_star);
     const totalStar = starLengths.reduce((acc, star) => acc + star, 0);
-    const totalStar2 = (totalStar / review.length).toFixed(1);
+    let totalStar2;
+
+    if (totalStar == 0 || review.length == 0) {
+        totalStar2 = 0;
+    } else {
+        totalStar2 = (totalStar / review.length).toFixed(1);
+    }
 
     const starFrequency = starLengths.reduce((frequency, star) => {
         frequency[star] = (frequency[star] || 0) + 1;
@@ -55,15 +61,21 @@ const DpReviewScore = ({ product_id }) => {
         setspanActive("spanGradRow");
     }
 
-    const [page, setPage] = useState(1);
-    const listPerPage = 3;
-    const startIndex = ((page) - 1) * listPerPage;
-
-    //console.log('아이디',product_id);
-
+    // pagination 구현
+    const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
+    const listPerPage = 4;  // 페이지 당 게시글 개수
+    const totalPages = Math.ceil(review.length / listPerPage);    // 전체 페이지 번호
 
 
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
+    const getPaginatedData = () => {
+        const startIndex = (currentPage - 1) * listPerPage;
+        const endIndex = startIndex + listPerPage;
+        return review.slice(startIndex, endIndex);
+    };
 
     return (
 
@@ -73,7 +85,7 @@ const DpReviewScore = ({ product_id }) => {
 
                     <span>
                         <strong>상품만족도&#40;{review.length}&#41;</strong></span>
-                    <p>구매하신 분들이 상품에 대한 평점입니다.</p>
+                    <p>구매하신 분들의 상품에 대한 평점입니다.</p>
                     <div id="star_icon">
                         <div>
                             <i className="fa-solid fa-star"></i>
@@ -101,10 +113,22 @@ const DpReviewScore = ({ product_id }) => {
                     {reviewScoreText.map((text, index) => (
                         <div key={index}>
                             <strong>{text}</strong>
-                            <div className="bar">
-                                <div style={{ width: `${(starFrequency[5 - index] || 0) / review.length * 100}%` }}></div>
-                            </div>
-                            <em>{((starFrequency[5 - index] || 0) / review.length * 100).toFixed(1)}%</em>
+
+                            {review.length === 0 ? (
+                                <div>
+                                    <div className="bar">
+                                        <div style={{ width: `${0}%` }}></div>
+                                    </div>
+                                    <em>0%</em>
+                                </div>
+                            ) : (
+                                <div>
+                                    <div className="bar">
+                                        <div style={{ width: `${(starFrequency[5 - index] || 0) / review.length * 100}%` }}></div>
+                                    </div>
+                                    <em>{((starFrequency[5 - index] || 0) / review.length * 100).toFixed(1)}%</em>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -116,12 +140,16 @@ const DpReviewScore = ({ product_id }) => {
                 {/* <span>추천순</span> */}
             </div >
             <hr />
-            {/* ----------------리뷰2---------------- */}
-            {review.slice(startIndex, startIndex + listPerPage).map((it) => <DpReviewItem key={it.id}{...it} reviewScoreText={reviewScoreText} />)}
-            <div className='page_nation'>
 
-                <PageNation setPage={setPage} />
-            </div>
+            {/* ----------------리뷰2---------------- */}
+            {getPaginatedData().map((dpReview) => <DpReviewItem key={dpReview.qna_id}{...dpReview} reviewScoreText={reviewScoreText} />)}
+
+            {getPaginatedData().length !== 0 ?
+                <div>
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
+                </div>
+                : <div></div>
+            }
         </div >
     );
 
