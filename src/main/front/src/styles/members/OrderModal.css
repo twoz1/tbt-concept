@@ -58,6 +58,13 @@
     background-color: #eee;
 }
 
+.modal_order .orderDetail {
+    display: block;
+    width: 100%;
+    max-height: 60px;
+    overflow-y: auto;
+}
+
 .modal_order div:first-child th {
     width: 100px;
 }
@@ -67,12 +74,12 @@
     width: 120px;
 }
 
-.modal_order div:nth-child(3) th:not(:last-child),
-.modal_order div:nth-child(3) td:not(:last-child) {
+.modal_order div:nth-child(3)>table>tbody>tr>th:not(:last-child),
+.modal_order div:nth-child(3)>table>tbody>tr>td:not(:last-child) {
     border-right: 1px solid #ddd;
 }
 
-.modal_order div:nth-child(3) tr:last-child td {
+.modal_order .lastP {
     border-top: 1px solid #888;
     border-bottom: 1px solid #888;
     height: 35px;

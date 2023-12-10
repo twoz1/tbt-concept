@@ -1,20 +1,18 @@
 import '../../../../styles/members/MyOrderItem.css';
-import { ReviewModal } from './ReviewModal';
 import OrderModal from './OrderModal';
 import useModal from '../../../customHooks/useModal';
-import axios from 'axios';
 
-const MyOrderItem = ({ orderId, coupon_list_id, order_date, address_name, address_avc, address_detail, address_phone_num,
-    order_message, order_pay, order_total_each_quan, order_total_price, order_state, order_del_num }) => {
+
+const MyOrderItem = ({ order_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail,
+    address_phone_num, order_message, order_pay, order_total_each_quan, order_total_price, order_state, order_del_num }) => {
 
     const { openModal, closeModal, isModal } = useModal();
-
 
     return (
         <tbody className="MyOrderItem">
             <tr>
                 <td>{order_date}</td>
-                <td>{orderId}</td>
+                <td>{order_id}</td>
                 {/* <td>
                     <a href="#" className="product">
                         <strong>{itemName}</strong>
@@ -27,12 +25,10 @@ const MyOrderItem = ({ orderId, coupon_list_id, order_date, address_name, addres
                 <td>
                     <p>{order_state}</p>
                     {order_state === "배송중" && <p className="delivery"><button onClick={() => openModal('delivery')}>배송조회</button></p>}
-                    {isModal('delivery') && <OrderModal closeModal={closeModal} />}
+                    {isModal('delivery') && <OrderModal closeModal={closeModal} order_id={order_id} order_date={order_date}
+                        address_name={address_name} address_avc={address_avc} address_city={address_city} address_detail={address_detail} address_phone_num={address_phone_num}
+                        order_total_price={order_total_price} order_state={order_state} order_del_num={order_del_num} />}
 
-                </td>
-                <td>
-                    {order_state === "작성하기" ? <button className="review" onClick={() => openModal('review')}>작성하기</button> : "작성완료"}
-                    {isModal('review') && <ReviewModal closeModal={closeModal} />}
                 </td>
                 <td><button onClick={() => openModal('delivery')}>더보기&gt;</button></td>
             </tr>

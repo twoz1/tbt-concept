@@ -1,16 +1,7 @@
-.modal_cover {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
 .modal_review {
     background-color: #fff;
     padding: 50px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -36,6 +27,7 @@
     font-size: 16px;
     height: auto;
     text-align: left;
+    border: none;
 }
 
 .modal_review table tr td:first-child {
