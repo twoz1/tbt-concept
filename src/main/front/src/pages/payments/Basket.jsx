@@ -9,14 +9,14 @@ const Basket = () => {
 
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
-    
-    
+
+
     // 장바구니에 담긴 DB 요청 (cart, product Join)
     const [cartUserList, setCartUserList] = useState([]);
 
     useEffect(() => {
         let url = "/rCart/cpJList/" + loginUser.user_id;
-            
+
         axios.get(url).then(response => {
             setCartUserList(response.data);
         }).catch(err => {
@@ -29,7 +29,7 @@ const Basket = () => {
     }, []);
 
     const [checkItems, setCheckItems] = useState([]);
-    
+
     //체크박스 구현============================
     const handleAllCheck = (checked) => {
         if (checked) {
@@ -76,19 +76,20 @@ const Basket = () => {
 
     // 선택 상품 삭제============================
     const handleDeleteSelected = () => {
-        const checkItemsQS = qs.stringify({product_id:checkItems}, { arrayFormat: 'repeat' });
+        const checkItemsQS = qs.stringify({ product_id: checkItems }, { arrayFormat: 'repeat' });
         console.log(checkItemsQS);
 
         // 장바구니 삭제 DB 요청
-        if(checkItems !== null){
+        if (checkItems !== null) {
             axios.delete("/rCart/cDelete?user_id=" + loginUser.user_id + "&" + checkItemsQS
             ).then(response => {
                 const updatedCartItems = cartUserList.filter(item => !checkItems.includes(item.product_id));
                 setCartUserList(updatedCartItems);
                 setCheckItems([]); // 체크된 아이템 초기화
                 alert("상품이 삭제되었습니다.");
+                window.location.reload();
             }).catch(err => {
-                alert("상품이 삭제가 안되었습니다.");
+                alert("[상품삭제 실패] 다시 시도해주세요.");
             });
         }
     };
@@ -100,7 +101,7 @@ const Basket = () => {
     //선택 상품 총합 계산 (개수 반영)
     const calculateSelectedTotal = () => {
         let selectedTotal = 0;
-    
+
         for (const item of cartUserList) {
             if (checkItems.includes(item.product_id)) {
                 selectedTotal += totalPricing(item.product_price, item.cart_quan);
@@ -170,13 +171,8 @@ const Basket = () => {
                                     </div>
                                 </figure>
 
-                                <BasketPriceBox checkItems={checkItems} cartUserList={cartUserList} calculateSelectedTotal={calculateSelectedTotal}/>
-
-
-
+                                <BasketPriceBox checkItems={checkItems} cartUserList={cartUserList} calculateSelectedTotal={calculateSelectedTotal} />
                             </div>
-
-
                         </form>
                     </div>
                 </div>

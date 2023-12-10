@@ -67,42 +67,47 @@ const DpQnA = ({ product_id }) => {
 
   return (
     <div>
-      {dpQnAList.map((qna) => (
-        <div key={qna.qna_id} className="customer_q_a">
-          <span id="q_a_inquiy">{qna.qna_type}</span>
-          {/* <span id="q_a_inquiy">{qna.qna_title}</span> */}
-          <span onClick={() => openModal('titleInqProd')}>{qna.qna_title}</span>
-          {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
-            qna_id={qna.qna_id}
-            product_id={qna.product_id}
-            user_id={qna.user_id}
-            qna_type={qna.qna_type}
-            qna_phone_num={qna.qna_phone_num}
-            qna_reply_check={qna.qna_reply_check}
-            qna_title={qna.qna_title}
-            qna_content={qna.qna_content}
-            qna_upload_file={qna.qna_upload_file}
-            qna_answer={qna.qna_answer}
-          />}
-          <span>{qna.user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(qna.user_id.length - 3))}</span>
-          <span id="q_a_answer_complecation">
-            {qna.qna_answer !== null && qna.qna_answer !== undefined && qna.qna_answer.length !== 0 ? "답변완료" : "답변대기"}
-          </span>
+      <table className='tableDpQnA'>
+        <thead>
+          <th>문의 유형</th>
+          <th>작성자</th>
+          <th>제목</th>
+          <th>답글</th>
+          <th></th>
+        </thead>
 
-          {qna.user_id == loginUser.user_id ? <button onClick={() => { deleteDpQnA(qna.qna_id) }}>삭제</button> : <span></span>}
+        <tbody>
+          {dpQnAList.map((qna) => (
+            <tr key={qna.qna_id} className="customer_q_a">
+              <td id="q_a_inquiy">{qna.qna_type}</td>
+              <td>{qna.user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(qna.user_id.length - 3))}</td>
+              <td onClick={() => openModal('titleInqProd')}>{qna.qna_title}</td>
+              {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
+                qna_id={qna.qna_id}
+                product_id={qna.product_id}
+                user_id={qna.user_id}
+                qna_type={qna.qna_type}
+                qna_phone_num={qna.qna_phone_num}
+                qna_reply_check={qna.qna_reply_check}
+                qna_title={qna.qna_title}
+                qna_content={qna.qna_content}
+                qna_upload_file={qna.qna_upload_file}
+                qna_answer={qna.qna_answer}
+              />}
+
+              {qna.qna_answer !== null && qna.qna_answer !== undefined && qna.qna_answer.length !== 0 ? <td className='dpQnAReply'>답변완료</td> : <td>답변대기</td>}
+
+
+              <td>{qna.user_id == loginUser.user_id ? <button onClick={() => { deleteDpQnA(qna.qna_id) }}>삭제</button> : ""}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+        <div>
+          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
         </div>
-      ))}
-
-      <div>
-        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
-      </div>
-
-
     </div>
-
-
-
-
   )
 }
 

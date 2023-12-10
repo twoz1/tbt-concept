@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 //모달창 컴포넌트
-const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
+const DpProductCSModal = ({ openModal, closeModal, isModal, product_id }) => {
 
 	const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
@@ -25,14 +25,14 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 	};
 
 	// QnA1on1 insert ===================================================
-	function insertQnA1on1() {
+	function insertQnA1on1(product_id) {
 
 		let formData = new FormData(document.getElementById("DpProductqnaModal"));
 
-		let url = "/qna1on1/qna1on1Insert/"+product_id;
+		let url = "/qna1on1/qna1on1Insert/" + product_id;
 
 		axios.post(url, formData, {
-			headers:{"Content-Type": "multipart/form-data"}
+			headers: { "Content-Type": "multipart/form-data" }
 		}).then(response => {
 			console.log("insertProductQnA1on1 등록 완료");
 			alert("등록되었습니다");
@@ -69,26 +69,26 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 
 							<table>
 								<tbody>
-							
-							
+
+
 									<tr className="tr_custInfo">
 										<th>
 											회원정보
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<input type="email"
 												name="user_id"
 												value={loginUser.user_id}
 											/>
-											<input type='hidden' name='product_id' value={product_id}/>
+											<input type='hidden' name='product_id' value={product_id} />
 										</td>
 									</tr>
 
 									<tr className="tr_inquiry">
 										<th>
 											문의유형
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<select name="qna_type" required>
@@ -100,14 +100,14 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 
 											<span>
 												&#8903; 구매 전 상품문의는 상품페이지 하단 상품 Q&#38;A로 문의해주시기 바랍니다.
-                                            </span>
+											</span>
 										</td>
 									</tr>
 
 									<tr className="tr_replyAlert">
 										<th>
 											답변 알림
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<input type="text"
@@ -121,15 +121,15 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 											<div className='alertDiv'>
 												<span>
 													&#8903; 답변이 등록되면 휴대폰 SMS로 알려드립니다.
-                                                </span>
+												</span>
 
 												<label>
 													<input type="radio" name="qna_reply_check" id="answerYes" value="yes" checked required />예
-                                                </label>
+												</label>
 
 												<label>
 													<input type="radio" name="qna_reply_check" id="answerNo" value="no" required />아니오
-                                                </label>
+												</label>
 											</div>
 
 											<div className='validCheck'>
@@ -147,7 +147,7 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 									<tr className="tr_inqTitle">
 										<th>
 											제목
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<input name="qna_title" type="text" maxLength="40" required />
@@ -157,7 +157,7 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 									<tr className="tr_inqContent">
 										<th>
 											문의 내용
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<div>
@@ -169,7 +169,7 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 									<tr className="tr_fileRef">
 										<th>
 											파일첨부
-                                        </th>
+										</th>
 										<td>
 											<input className='fileUpload' type="file" name="qna_upload_filef" id="btn_fileRef" multiple />
 										</td>
@@ -177,10 +177,15 @@ const DpProductCSModal = ({ openModal, closeModal, isModal,product_id }) => {
 								</tbody>
 							</table>
 						</figure>
+						
+						<div className="privacy_Agree">
+							<input type="radio" required />
+                            개인정보 수집 및 이용에 대한 동의 &#40;필수&#41;
+                        </div>
 
 						<div className="btn_submit">
 							<button onClick={() => closeModal('dpProductCSModal')}>취소</button>
-							<button onClick={() => insertQnA1on1()}>등록</button>
+							<button onClick={() => insertQnA1on1(product_id)}>등록</button>
 						</div>
 					</form>
 				</div>

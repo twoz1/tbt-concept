@@ -290,7 +290,6 @@ body {
 .customer_review {
     display: flex;
     flex-direction: column;
-    /* height: 300px; */
     gap: 30px;
     padding: 20px;
     box-sizing: border-box;
@@ -345,12 +344,48 @@ body {
     line-height: 30px;
 }
 
+.tableDpQnA {
+    width: 100%;
+    text-align: left;
+}
 
-.customer_q_a {
+.tableDpQnA thead {
+    padding: 2rem;
+}
+
+.tableDpQnA thead th:nth-of-type(1) {
+    width: 10%;
+}
+
+.tableDpQnA thead th:nth-of-type(2) {
+    width: 30%;
+}
+
+.tableDpQnA thead th:nth-of-type(3) {
+    width: 40%;
+    cursor: pointer;
+}
+
+.tableDpQnA tbody td:nth-of-type(3) {
+    cursor: pointer;
+}
+
+.tableDpQnA thead th:nth-of-type(4) {
+    width: 10%;
+}
+
+.dpQnAReply {
+    color: orangered;
+}
+
+.tableDpQnA thead th:nth-of-type(5) {
+    width: 10%;
+}
+
+
+/* .customer_q_a {
     margin: 30px;
     height: 80px;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
     display: flex;
     align-items: center;
 }
@@ -389,7 +424,7 @@ body {
 
 .customer_q_a_next_page a {
     font-size: 12px;
-}
+} */
 
 /* =======return&delivery================================ */
 .return_delivery {

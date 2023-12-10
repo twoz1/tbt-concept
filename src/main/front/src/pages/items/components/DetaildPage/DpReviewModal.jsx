@@ -23,7 +23,6 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
 
 
     function uploadReview() {
-        console.log("css확인");
 
         let helements = document.querySelectorAll(".hiddenForRUpdate");
         helements.forEach(function (element) {
@@ -65,9 +64,6 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
             };
         }
     };
-
-
-
 
     function updateReview() {
 

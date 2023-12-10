@@ -44,8 +44,8 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 	function insertQnA1on1() {
 
 		let formData = new FormData(document.getElementById("subtitleID_1on1"));
-
-		let url = "/qna1on1/qna1on1Insert";
+		let product_id = 0;
+		let url = "/qna1on1/qna1on1Insert/" + product_id;
 
 		axios.post(url, formData, {
 			headers:{"Content-Type": "multipart/form-data"}
@@ -130,7 +130,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 											</select>
 
 											<span>
-												&#8903; 구매 전 상품문의는 상품페이지 하단 상품 Q&#38;A로 문의해주시기 바랍니다.
+												&#8903; 구매 전 상품문의는 상품 상세페이지 하단 상품Q&#38;A로 문의해주시기 바랍니다.
                                             </span>
 										</td>
 									</tr>

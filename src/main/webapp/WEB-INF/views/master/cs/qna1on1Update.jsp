@@ -100,7 +100,7 @@
 				<hr/>
 				
 				<div class="nav_box">
-					<a class="m_button" href="qna1on1List">상품목록</a>
+					<a class="m_button" href="qna1on1List">QnA목록</a>
 				</div>
 			</div>
 		</main>
