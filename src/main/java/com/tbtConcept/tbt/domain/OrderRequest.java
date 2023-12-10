@@ -11,4 +11,5 @@ import lombok.Data;
 public class OrderRequest {
 	private OrderList orderList;
 	private List<OrderDetail> orderDetail;
+
 }

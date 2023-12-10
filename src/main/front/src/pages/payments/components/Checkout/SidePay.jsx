@@ -136,7 +136,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
             .then(response => {
                 alert("주문" + response.data);
                 console.log("주문 완료");
-                navigateTo("/resultframe");
+                navigateTo("/resultframe")
             }).catch(err => {
                 if (err.response.status == "502") {
                     alert("[입력 오류] 다시 시도하세요.");

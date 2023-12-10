@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tbtConcept.tbt.domain.CartDeleteDTO;
 import com.tbtConcept.tbt.domain.OrderRequest;
+import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
@@ -47,6 +48,7 @@ public class OrderListRController {
 		System.out.println("******** dentity" + orderDetail);
 
 		try {
+
 			Random rn = new Random();
 			String num = rn.nextInt(1000) + "";
 
@@ -65,7 +67,15 @@ public class OrderListRController {
 				Product product = productService.selectDetail(dentity.getProduct_id());
 				int currentStock = product.getProduct_stock();
 				int cartQuantity = dentity.getOrder_quan();
+
+
 				int updatedStock = currentStock - cartQuantity;
+				try {
+					cartService.delete(new CartId(orderList.getUser_id(), dentity.getProduct_id()));
+				} catch (EmptyResultDataAccessException ex) {
+					// 예외가 발생해도 주문(OrderList) 정보는 저장되어야 하므로 로깅만 수행
+					System.out.println("** Cart 엔터티를 찾지 못했습니다. User_id: " + orderList.getUser_id() + ", Product_id: " + dentity.getProduct_id());
+				}
 
 				if (updatedStock >= 0) {
 					product.setProduct_stock(updatedStock);
@@ -73,11 +83,10 @@ public class OrderListRController {
 				} else {
 					throw new RuntimeException("제품 ID(" + product.getProduct_id() + ")에 대한 재고가 부족합니다.");
 				}
-
 			}
 
 			orderService.save(orderList);
-			
+
 
 			System.out.println("** orderList insert 성공");
 			return "완료";
@@ -96,13 +105,13 @@ public class OrderListRController {
 
 		return orderService.userOrderList(id);
 	}
-	
+
 
 	@GetMapping("/userOrderDetail")
-	      public List<OrderDetail> userOrderDetailL(Model model, @RequestParam("id") String id) {
-	         
-	         return orderdService.findByIdDetails(id);
-	      }
+	public List<OrderDetail> userOrderDetailL(Model model, @RequestParam("id") String id) {
+
+		return orderdService.findByIdDetails(id);
+	}
 
 
 }
