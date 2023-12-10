@@ -1,8 +1,32 @@
+import { useState, useEffect } from 'react';
 import MyOrderItem from './MyOrderItem';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
-const MyOrderList = ({order}) => {
+const MyOrderList = ({ loginUser }) => {
+
+    const [order, setOrder] = useState([]);
+
+    useEffect(() => {
+
+        axios.get('/order/userOrderList?id=' + loginUser.user_id)
+            .then((response) => {
+                if (response.data !== null) {
+                    setOrder(response.data);
+                }
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
+
+
+    }, [])
+
+    console.log(order);
+
+
+
     return (
         <div className="MyOrderList">
             <div className="orderlist cover">

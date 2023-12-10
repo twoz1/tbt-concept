@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
@@ -45,6 +46,12 @@ public class OrderListServiceImpl implements OrderListService {
 			return null;
 		}
 	}
+	
+	@Override
+	public List<OrderList> userOrderList(String id){
+		
+		return repository.userOrderList(id);
+	};
 
 	@Override
 	public String save(OrderList entity) {

@@ -27,6 +27,7 @@
 						<th>입금상태</th>
 						<th>배송상태</th>
 						<th>상세보기</th>
+						<th></th>
 					</tr>
 					<c:if test="${not empty requestScope.orderList}">
 						<c:forEach var="o" items="${requestScope.orderList}">

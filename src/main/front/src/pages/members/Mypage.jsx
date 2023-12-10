@@ -43,12 +43,14 @@ const Mypage = ({ order }) => {
             });
 
         console.log(couponList);
+
+
     }, []);
 
     function axUserDelete() {
 
         let url = "/user/uDelete/" + loginUser.user_id;
-    
+
 
         if (window.confirm("탈퇴하시겠습니까?")) {
             axios.delete(
@@ -106,7 +108,7 @@ const Mypage = ({ order }) => {
                         </div>
                     </div>
                 </div>
-                <MyOrderList order={order} />
+                <MyOrderList loginUser={loginUser} />
                 <MyCouponList loginUser={loginUser} />
                 <MyWishList />
             </div>
