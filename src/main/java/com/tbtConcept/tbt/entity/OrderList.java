@@ -24,9 +24,8 @@ import lombok.NoArgsConstructor;
 public class OrderList {
    
  
-   @Column(name = "order_id")
    @Id
-   private String orderId;
+   private String order_id;
    
    @Column(nullable=false)
    private String user_id;
@@ -67,6 +66,7 @@ public class OrderList {
    private String order_del_state;
    
    private String order_del_num;
-   private int coupon_id;
+   
+   private String coupon_id;
 
 }

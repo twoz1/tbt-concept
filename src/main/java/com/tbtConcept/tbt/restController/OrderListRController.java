@@ -5,37 +5,35 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tbtConcept.tbt.domain.CartDeleteDTO;
 import com.tbtConcept.tbt.domain.OrderRequest;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
-import com.tbtConcept.tbt.service.AddressService;
+import com.tbtConcept.tbt.entity.Product;
+import com.tbtConcept.tbt.service.CartService;
 import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.OrderListService;
+import com.tbtConcept.tbt.service.ProductService;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 
 @AllArgsConstructor
-@Log4j2
 @RequestMapping(value = "/order")
 @RestController
 public class OrderListRController {
 
 	OrderListService orderService;
 	OrderDetailService orderdService;
-	AddressService addressService;
+	ProductService productService;
+	CartService cartService;
 
 	// ==============================================================================================
 
@@ -54,7 +52,7 @@ public class OrderListRController {
 
 			String orderId = "T" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + "B" + num;
 
-			orderList.setOrderId(orderId);
+			orderList.setOrder_id(orderId);
 			orderList.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
 			for (OrderDetail dentity : orderDetail) {
@@ -63,9 +61,23 @@ public class OrderListRController {
 				orderdService.save(dentity);
 
 				System.out.println(dentity);
+
+				Product product = productService.selectDetail(dentity.getProduct_id());
+				int currentStock = product.getProduct_stock();
+				int cartQuantity = dentity.getOrder_quan();
+				int updatedStock = currentStock - cartQuantity;
+
+				if (updatedStock >= 0) {
+					product.setProduct_stock(updatedStock);
+					productService.save(product);
+				} else {
+					throw new RuntimeException("제품 ID(" + product.getProduct_id() + ")에 대한 재고가 부족합니다.");
+				}
+
 			}
 
 			orderService.save(orderList);
+			
 
 			System.out.println("** orderList insert 성공");
 			return "완료";
@@ -77,17 +89,20 @@ public class OrderListRController {
 	}
 
 
-// ==============================================================================================
+	// ==============================================================================================
 
-		@GetMapping("/userOrderList")
-		public List<OrderList> getUserCouponList(Model model, @RequestParam("id") String id) {
-			
-			return orderService.userOrderList(id);
-		}
-		
-		
-		
-		
-		
+	@GetMapping("/userOrderList")
+	public List<OrderList> userOrderList(Model model, @RequestParam("user_id") String id) {
+
+		return orderService.userOrderList(id);
+	}
+	
+
+	@GetMapping("/userOrderDetail")
+	      public List<OrderDetail> userOrderDetailL(Model model, @RequestParam("id") String id) {
+	         
+	         return orderdService.findByIdDetails(id);
+	      }
+
 
 }

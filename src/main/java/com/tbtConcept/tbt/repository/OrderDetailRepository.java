@@ -11,10 +11,6 @@ import com.tbtConcept.tbt.entity.OrderList;
 
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Integer> {
 	@Query(nativeQuery = true, 
-			value =  "SELECT * FROM order_detail  where order_id = :id order by order_detail_id desc")
-	List<OrderDetail> findByIdDetails(@Param("id") String order_id);
-	
-	@Query(nativeQuery = true, value="SELECT * FROM order_detail Where order_id = :order_id")
-	List<OrderList> userOrderList(@Param("order_id") String order_id);
-	
+	         value =  "SELECT * FROM order_detail  where order_id = :id order by order_detail_id")
+	   List<OrderDetail> findByIdDetails(@Param("id") String order_id);
 }

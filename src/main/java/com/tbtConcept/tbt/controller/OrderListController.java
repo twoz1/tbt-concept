@@ -36,22 +36,16 @@ public class OrderListController {
 	OrderDetailService dorderService;
 	
 	@GetMapping("/orderList")
-	public void getOrderList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
-		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
-		
-        PageResultDTO<OrderList> resultDTO = orderService.findAllDesc(requestDTO);
-		
-        model.addAttribute("orderList",resultDTO.getEntityList());
-		model.addAttribute("resultDTO", resultDTO);
-		
+    public void getOrderList(Model model) {
+        model.addAttribute("orderList", orderService.findAllDesc());
 	}
 	
 	// ========================================================================
 	
 	@GetMapping("/orderListDetail")
 	public String getOrderListDetail (Model model, OrderList entity, OrderDetail dentity, HttpServletRequest request) {
-		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrderId()));
-		model.addAttribute("orderDetailList", dorderService.findByIdDetails(entity.getOrderId()));
+		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
+		model.addAttribute("orderDetailList", dorderService.findByIdDetails(entity.getOrder_id()));
 		System.out.println("*********orderListDetail" + entity);
 		if ("O".equals(request.getParameter("jCode"))) {
 			return "master/order/orderListUpdate";
@@ -99,7 +93,7 @@ public class OrderListController {
 
 		      try {
 		         log.info("** updat 성공 id => " + orderService.save(entity));
-		         session.setAttribute("loginName", entity.getOrderId());
+		         session.setAttribute("loginName", entity.getOrder_id());
 		         model.addAttribute("message", "~~ 주문정보 수정 성공 ~~");
 		      } catch (Exception e) {
 		         log.info("** update Exception => "+e.toString());
@@ -114,7 +108,7 @@ public class OrderListController {
 	
 	@DeleteMapping("orderlistdelete/{order_id}")
 	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") String id, OrderList entity) {
-		entity.setOrderId(id);
+		entity.setOrder_id(id);
 		if (orderService.delete(id) != null) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");

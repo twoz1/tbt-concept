@@ -13,7 +13,8 @@ import com.tbtConcept.tbt.entity.User;
 
 public interface OrderListService {
 	
-	PageResultDTO<OrderList> findAllDesc(PageRequestDTO requestDTO);
+    @Transactional
+    List<OrderList> findAllDesc();
 	
 	List<OrderList> selectList();
 	

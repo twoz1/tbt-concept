@@ -3,11 +3,8 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
@@ -22,15 +19,12 @@ public class OrderListServiceImpl implements OrderListService {
 
 	private final OrderListRepository repository;
 
-	@Override
-	public PageResultDTO<OrderList> findAllDesc(PageRequestDTO requestDTO) {
-        Pageable pageable = requestDTO.getPageable(Sort.by("orderId").descending());
-
-        Page<OrderList> result = repository.findAll(pageable);
-        
-        return new PageResultDTO<>(result);
+    @Transactional
+    @Override
+    public List<OrderList> findAllDesc() {
+    	 return repository.findAllDesc();
     }
-	
+    
 	@Override
 	public List<OrderList> selectList() {
 		return repository.findAll();
@@ -56,7 +50,7 @@ public class OrderListServiceImpl implements OrderListService {
 	@Override
 	public String save(OrderList entity) {
 		repository.save(entity);
-		return entity.getOrderId();
+		return entity.getOrder_id();
 	}
 
 

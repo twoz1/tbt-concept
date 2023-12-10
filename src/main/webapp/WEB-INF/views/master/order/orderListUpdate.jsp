@@ -51,15 +51,15 @@ function changeDelNumber() {
    <div id="master_wrap">
       <%@ include file="../masterHeader.jsp"%>
       <main id="master_main">
-         <div class="order_list master_save">
+         <div class="order_list master_list">
             <h2 class="master_title">주문 상테 업데이트</h2>
             <form action="orderListUpdate" method="Post">
                <table>
                   <tr>
                      <th>주문번호</th>
-                     <td><input type="text" name="orderId" id="orderId"
+                     <td><input type="text" name="order_id" id="order_id"
                         required readonly
-                        value="${requestScope.orderListDetail.orderId}" /></td>
+                        value="${requestScope.orderListDetail.order_id}" /></td>
                   </tr>
                   <tr>
                      <th>회원 아이디</th>

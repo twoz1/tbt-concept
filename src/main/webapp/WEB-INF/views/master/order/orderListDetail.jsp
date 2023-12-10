@@ -11,12 +11,12 @@
    <div id="master_wrap">
       <%@ include file="../masterHeader.jsp"%>
       <main id="master_main">
-         <div class="order_Listdetail master_save">
+         <div class="order_Listdetail master_list">
             <h2 class="master_title">주문 상세</h2>
             <table>
                <tr>
                   <th>주문번호</th>
-                  <td>${requestScope.orderListDetail.orderId}</td>
+                  <td>${requestScope.orderListDetail.order_id}</td>
                </tr>
                <tr>
                   <th>회원ID</th>
@@ -74,7 +74,7 @@
                </tr>
             </table>
             <a class="m_button"
-               href="orderListDetail?jCode=O&orderId=${requestScope.orderListDetail.orderId}">주문수정
+               href="orderListDetail?jCode=O&order_id=${requestScope.orderListDetail.order_id}">주문수정
             </a>
         </div>
         <div class="order_detailList master_list">
