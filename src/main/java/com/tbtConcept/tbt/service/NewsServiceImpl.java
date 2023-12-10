@@ -22,14 +22,8 @@ public class NewsServiceImpl implements NewsService {
 	private final NewsRepository repository;
 
 	@Override
-	public PageResultDTO<News> selectList(PageRequestDTO requestDTO) {
-	    Pageable pageable = requestDTO.getPageable(Sort.by("newsId").descending());
-
-        Page<News> result = repository.findAll(pageable);
-        
-        return new PageResultDTO<>(result);
-		
-//		return repository.findAll();
+	public List<News> selectList() {
+		return repository.findAll();
 	}
 
 	@Override
@@ -46,7 +40,7 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public int save(News entity) {
 		repository.save(entity);
-		return entity.getNewsId();
+		return entity.getNews_id();
 	}
 
 	@Override

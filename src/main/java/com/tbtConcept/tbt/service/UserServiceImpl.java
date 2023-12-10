@@ -1,14 +1,10 @@
 package com.tbtConcept.tbt.service;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.tbtConcept.tbt.domain.PageRequestDTO;
-import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.repository.UserRepository;
 
@@ -22,12 +18,8 @@ public class UserServiceImpl implements UserService {
 
 	// ** selectList
 	@Override
-	public PageResultDTO<User> selectList(PageRequestDTO requestDTO) {
-		Pageable pageable = requestDTO.getPageable(Sort.by("userId").descending());
-
-		Page<User> result = repository.findAll(pageable);
-
-		return new PageResultDTO<>(result);
+	public List<User> selectList() {
+		return repository.findAll();
 	}
 
 	// ** selectOne
@@ -41,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String save(User entity) {
 		repository.save(entity);
-		return entity.getUserId();
+		return entity.getUser_id();
 	}
 
 	// ** delete

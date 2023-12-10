@@ -59,20 +59,15 @@ public class NewsController {
 	// List =====================================================
 
 	@GetMapping("/newsList")
-	public void getNewsList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
-		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
-		
-        PageResultDTO<News> resultDTO = newsService.selectList(requestDTO);
-		
-        model.addAttribute("newsList",resultDTO.getEntityList());
-		model.addAttribute("resultDTO", resultDTO);
+	public void getNewsList(Model model) {
+		model.addAttribute("newsList", newsService.selectList());
 	}
 
 	// Detail =====================================================
 	@GetMapping("/newsDetail")
 	public String getNewsDetail(Model model, News entity, HttpServletRequest request) {
 
-		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNewsId()));
+		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNews_id()));
 
 		if ("U".equals(request.getParameter("jCode"))) {
 			return "master/cs/newsUpdate";
@@ -85,7 +80,7 @@ public class NewsController {
 	// Update =====================================================
 	@GetMapping("/newsUpdate")
 	public void getNewsUpdate(Model model, News entity, HttpServletRequest request) {
-		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNewsId()));
+		model.addAttribute("newsDetail", newsService.selectDetail(entity.getNews_id()));
 	}
 
 	@PostMapping("/newsUpdate")
@@ -108,7 +103,7 @@ public class NewsController {
 	// Delete =====================================================
 	@DeleteMapping("/newsDelete/{news_id}")
 	public ResponseEntity<?> axNewsDelete(@PathVariable("news_id") int id, News entity) {
-		entity.setNewsId(id);
+		entity.setNews_id(id);
 
 		if (newsService.delete(id) > 0) {
 			log.info("axNewsDelete HttpStatus.OK =>" + HttpStatus.OK);

@@ -18,7 +18,7 @@
 				<table>
 					<tr>
 						<th>News ID</th>
-						<td>${requestScope.newsDetail.newsId}</td>
+						<td>${requestScope.newsDetail.news_id}</td>
 					</tr>
 					<tr>
 						<th>제목</th>
@@ -35,7 +35,7 @@
 				
 				
 				<div class="nav_box">
-					<a class="m_button" href="newsDetail?jCode=U&newsId=${requestScope.newsDetail.newsId}">News 수정</a>
+					<a class="m_button" href="newsDetail?jCode=U&news_id=${requestScope.newsDetail.news_id}">News 수정</a>
 					<a class="m_button" href="newsList">News목록</a>
 				</div>
 			</div>

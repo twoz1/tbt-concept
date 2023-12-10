@@ -16,7 +16,7 @@
             <table>
                <tr>
 					<th>회원ID</th>               
-               		<td>${requestScope.userDetail.userId}</td>
+               		<td>${requestScope.userDetail.user_id}</td>
                </tr>
                <tr>
 					<th>이름</th>               
@@ -42,7 +42,7 @@
              
             </table>
             
-            <a class="m_button" href="userDetail?jCode=U&userId=${requestScope.userDetail.userId}">회원수정</a>
+            <a class="m_button" href="userDetail?jCode=U&user_id=${requestScope.userDetail.user_id}">회원수정</a>
             <a class="m_button" href="userList">회원목록</a>
          </div>
       </main>

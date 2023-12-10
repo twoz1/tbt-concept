@@ -30,21 +30,15 @@ public class ReviewController {
 	
 	// List
 	@GetMapping(value = "/reviewList")
-	public void getUserList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
-		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(1).build();
-		
-        PageResultDTO<Review> resultDTO = reviewService.selectList(requestDTO);
-		
-        model.addAttribute("reviewList",resultDTO.getEntityList());
-		model.addAttribute("resultDTO", resultDTO);
-		
+	public void getUserList(Model model) {
+		model.addAttribute("reviewList", reviewService.selectList());
 	}
 	
 	
 	// Detail
 	@GetMapping("/reviewDetail")
 	public void getReviewDetail(Model model, Review entity,HttpServletRequest request) {
-		model.addAttribute("reviewDetail", reviewService.selectDetail(entity.getReviewId()));
+		model.addAttribute("reviewDetail", reviewService.selectDetail(entity.getReview_id()));
 	}
 	
 	

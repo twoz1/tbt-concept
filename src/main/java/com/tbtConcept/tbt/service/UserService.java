@@ -11,15 +11,15 @@ import com.tbtConcept.tbt.entity.User;
 
 public interface UserService {
 
-	   // ** selectList
-		PageResultDTO<User> selectList(PageRequestDTO requestDTO);
-	   // ** selectOne
-	   User selectOne(String id);
+	// ** selectList
+	List<User> selectList();
+	// ** selectOne
+	User selectOne(String id);
 
-	   // ** insert, update
-	   String save(User entity);
+	// ** insert, update
+	String save(User entity);
 
-	   // ** delete
-	   String delete(String id);
+	// ** delete
+	String delete(String id);
 
 }

@@ -32,20 +32,15 @@ public class UserController {
 	UserService userService;
 
 	@GetMapping(value = "/userList")
-	public void getUserList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
-		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
-		
-        PageResultDTO<User> resultDTO = userService.selectList(requestDTO);
-		
-        model.addAttribute("userList",resultDTO.getEntityList());
-		model.addAttribute("resultDTO", resultDTO);
+	public void getUserList(Model model) {
+		model.addAttribute("userList", userService.selectList());
 
 
 	}
 
 	@GetMapping(value = "/userDetail")
 	public String getUserdetail(HttpServletRequest request, Model model, User entity) {
-		model.addAttribute("userDetail", userService.selectOne(entity.getUserId()));
+		model.addAttribute("userDetail", userService.selectOne(entity.getUser_id()));
 
 		if ("U".equals(request.getParameter("jCode")))
 			return "master/user/userUpdate";
@@ -76,7 +71,7 @@ public class UserController {
 
 	@DeleteMapping("userdelete/{user_id}")
 	public ResponseEntity<?> axUserDelete(@PathVariable("user_id") String id, User entity) {
-		entity.setUserId(id);
+		entity.setUser_id(id);
 		if (userService.delete(id) != null) {
 			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
 			System.out.println("삭제 성공");

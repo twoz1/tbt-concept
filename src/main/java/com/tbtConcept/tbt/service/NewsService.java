@@ -8,7 +8,7 @@ import com.tbtConcept.tbt.entity.News;
 import com.tbtConcept.tbt.entity.OrderList;
 
 public interface NewsService {
-	PageResultDTO<News> selectList(PageRequestDTO requestDTO);
+	List<News> selectList();
 
 	News selectDetail(int news_id);
 

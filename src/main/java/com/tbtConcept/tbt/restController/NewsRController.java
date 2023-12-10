@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.News;
+import com.tbtConcept.tbt.entity.Review;
 import com.tbtConcept.tbt.service.NewsService;
 
 import lombok.AllArgsConstructor;
@@ -25,12 +26,7 @@ public class NewsRController {
 
 	// List =====================================================
 	@GetMapping("/nList")
-	public void getNewsList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
-		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(20).build();
-		
-        PageResultDTO<News> resultDTO = newsService.selectList(requestDTO);
-		
-        model.addAttribute("newsList",resultDTO.getEntityList());
-		model.addAttribute("resultDTO", resultDTO);
+	public List<News> getNewsList(Model model) {
+		return newsService.selectList();
 	}
 }

@@ -20,10 +20,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class News {
 	
-	@Column(name = "news_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int newsId;
+	private int news_id;
 	
 	@Column(nullable=false)
 	private String news_title;

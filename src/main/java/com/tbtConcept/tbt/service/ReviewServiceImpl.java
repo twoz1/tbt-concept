@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.Faq;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Review;
 import com.tbtConcept.tbt.repository.ReviewRepository;
@@ -26,14 +27,11 @@ public class ReviewServiceImpl implements ReviewService{
 
 
 	@Override
-	public PageResultDTO<Review> selectList(PageRequestDTO requestDTO) {
-		Pageable pageable = requestDTO.getPageable(Sort.by("reviewId").descending());
-
-        Page<Review> result = repository.findAll(pageable);
-        
-        return new PageResultDTO<>(result);
+	public List<Review> selectList() {
+		return repository.findAll();
 	}
-
+	
+	
 	//	   @Override
 	//	   public Review selectOne(int id) {
 	//	      Optional<Review> result = repository.findById(id);
@@ -62,7 +60,7 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public int save(Review entity) {
 		repository.save(entity);
-		return entity.getReviewId();
+		return entity.getReview_id();
 	}
 	
 	@Override

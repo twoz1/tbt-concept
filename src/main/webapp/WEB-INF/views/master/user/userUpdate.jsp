@@ -17,8 +17,8 @@
 					<table>
 						<tr>
 							<th>회원ID</th>
-							<td>${requestScope.userDetail.userId}
-								<input type="hidden" name="userId" value="${requestScope.userDetail.userId}">
+							<td>${requestScope.userDetail.user_id}
+								<input type="hidden" name="user_id" value="${requestScope.userDetail.user_id}">
 							</td>
 						</tr>
 						<tr>
@@ -69,7 +69,7 @@
 						</tr>
 					</table>
 				</form>
-				<a class="m_button" href="userDetail?userId=${requestScope.userDetail.userId}">회원상세</a>
+				<a class="m_button" href="userDetail?user_id=${requestScope.userDetail.user_id}">회원상세</a>
 				<a class="m_button" href="userList">회원상세</a>
 				&nbsp; <a href="javascript:history.go(-1)">이전</a>&nbsp;
 			</div>

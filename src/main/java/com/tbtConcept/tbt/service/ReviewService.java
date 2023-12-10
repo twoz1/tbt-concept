@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.Faq;
 import com.tbtConcept.tbt.entity.OrderList;
 
 //import javax.transaction.Transactional;
@@ -12,7 +13,7 @@ import com.tbtConcept.tbt.entity.Review;
 
 
 public interface ReviewService {
-	PageResultDTO<Review> selectList(PageRequestDTO requestDTO);
+	List<Review> selectList();
 	
 	//Review selectOne(int id);
 	

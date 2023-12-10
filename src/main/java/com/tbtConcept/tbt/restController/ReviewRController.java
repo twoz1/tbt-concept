@@ -119,10 +119,10 @@ public class ReviewRController {
 
 
 
-	@DeleteMapping("/rDelete/{reviewId}")
-	public ResponseEntity<?> axrDelete(@PathVariable("reviewId") int reviewId , Review entity) {
-			entity.setReviewId(reviewId);
-		 if (reviewService.deleteReview(reviewId) > 0) {
+	@DeleteMapping("/rDelete/{review_id}")
+	public ResponseEntity<?> axrDelete(@PathVariable("review_id") int review_id , Review entity) {
+			entity.setReview_id(review_id);
+		 if (reviewService.deleteReview(review_id) > 0) {
 		        log.info("axrDelete HttpStatus.OK =>" + HttpStatus.OK);
 		        System.out.println("삭제 성공");
 		        return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);

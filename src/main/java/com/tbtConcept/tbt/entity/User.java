@@ -21,9 +21,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-	@Column(name = "user_id")
 	@Id
-	private String userId;
+	private String user_id;
 
 	@Column(nullable=false)
 	private String user_name;

@@ -30,14 +30,14 @@
 					<c:if test="${not empty requestScope.userList}">
 						<c:forEach var="u" items="${requestScope.userList}">
 							<tr>
-								<td><a href="userDetail?userId=${u.userId}">${u.userId}</a></td>
+								<td><a href="userDetail?user_id=${u.user_id}">${u.user_id}</a></td>
 								<td>${u.user_name}</td>
 								<td>${u.user_birth}</td>
 								<td>${u.user_rank}</td>
 								<td>${u.user_event_check}</td>
 								
-								<td><a href="userDetail?userId=${u.userId}">상세보기</a></td>
-								<td><button onclick="axUserDelete('${u.userId}')" id="${u.userId}">탈퇴</button></td>
+								<td><a href="userDetail?user_id=${u.user_id}">상세보기</a></td>
+								<td><button onclick="axUserDelete('${u.user_id}')" id="${u.user_id}">탈퇴</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>

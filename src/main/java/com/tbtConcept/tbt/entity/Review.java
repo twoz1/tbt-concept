@@ -24,10 +24,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Review {
 	
-	@Column(name = "review_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int reviewId;
+	private int review_id;
 	
 	private int product_id;
 	

@@ -31,14 +31,14 @@
 					<c:if test="${not empty requestScope.newsList}">
 						<c:forEach var="n" items="${requestScope.newsList}">
 							<tr>
-								<td>${n.newsId}</td>
-								<td><a href="newsDetail?newsId=${n.newsId}" class="n_titleW" id="hiddenContentsN">${n.news_title}</a></td>
-								<td><a href="newsDetail?newsId=${n.newsId}" class="n_contentW" id="hiddenContentsN">${n.news_content}</a></td>
+								<td>${n.news_id}</td>
+								<td><a href="newsDetail?news_id=${n.news_id}" class="n_titleW" id="hiddenContentsN">${n.news_title}</a></td>
+								<td><a href="newsDetail?news_id=${n.news_id}" class="n_contentW" id="hiddenContentsN">${n.news_content}</a></td>
 								<td>
-									<a href="newsDetail?newsId=${n.newsId}">상세보기</a>
+									<a href="newsDetail?news_id=${n.news_id}">상세보기</a>
 								</td>
 								<td>
-									<button onclick="axNewsDelete(${n.newsId})" id="${n.newsId}">삭제</button>
+									<button onclick="axNewsDelete(${n.news_id})" id="${n.news_id}">삭제</button>
 								</td>
 							</tr>
 						</c:forEach>

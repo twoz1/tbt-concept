@@ -44,7 +44,7 @@ public class UserRController {
 	public int postUserJoin(Model model, @RequestBody User entity) {
 		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
 		try {
-			if(userService.selectOne(entity.getUserId()) == null && userService.save(entity) != null) {
+			if(userService.selectOne(entity.getUser_id()) == null && userService.save(entity) != null) {
 				return 1;
 			}else {
 				return 0;
@@ -61,7 +61,7 @@ public class UserRController {
 		
 		try {
 			String pw = entity.getUser_pw();
-	        User user = userService.selectOne(entity.getUserId());
+	        User user = userService.selectOne(entity.getUser_id());
 			
 			
 			if(user != null && passwordEncoder.matches(pw, user.getUser_pw())) {
@@ -89,7 +89,7 @@ public class UserRController {
 			System.out.println("넘어온 데이터"+entity);
 			String pw = entity.getUser_pw();
 			
-			entity = userService.selectOne(entity.getUserId());
+			entity = userService.selectOne(entity.getUser_id());
 			System.out.println("아이디에 맞는 데이터"+entity);
 			
 			
@@ -97,7 +97,7 @@ public class UserRController {
 			if( entity != null && 
 				passwordEncoder.matches(pw, entity.getUser_pw())) {
 				
-				session.setAttribute("loginUser", entity.getUserId());
+				session.setAttribute("loginUser", entity.getUser_id());
 				session.setAttribute("loginName", entity.getUser_name());
 				
 				return true;
