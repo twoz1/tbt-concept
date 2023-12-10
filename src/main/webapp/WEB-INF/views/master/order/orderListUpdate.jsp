@@ -51,7 +51,7 @@ function changeDelNumber() {
    <div id="master_wrap">
       <%@ include file="../masterHeader.jsp"%>
       <main id="master_main">
-         <div class="user_list master_list">
+         <div class="order_list master_save">
             <h2 class="master_title">주문 상테 업데이트</h2>
             <form action="orderListUpdate" method="Post">
                <table>
@@ -120,9 +120,9 @@ function changeDelNumber() {
                   </tr>
                   <tr>
                      <th>쿠폰</th>
-                     <td><input type="text" name="order_coupon" id="order_coupon"
+                     <td><input type="text" name="coupon_id" id="coupon_id"
                         required readonly
-                        value="${requestScope.orderListDetail.order_coupon}" /></td>
+                        value="${requestScope.orderListDetail.coupon_id}" /></td>
                   </tr>
                   <tr>
                      <th>물품 종류</th>
@@ -175,6 +175,9 @@ function changeDelNumber() {
                      </td>
                   </tr>
                </table>
+           </form>
+               </div>
+               <div class="order_detailList master_list">
                <table>
                   <tr>
                      <th>주문번호</th>
@@ -214,7 +217,6 @@ function changeDelNumber() {
                      </c:forEach>
                   </c:if>
                </table>
-            </form>
          </div>
       </main>
    </div>

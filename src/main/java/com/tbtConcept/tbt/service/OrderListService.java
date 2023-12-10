@@ -17,6 +17,8 @@ public interface OrderListService {
 	
 	List<OrderList> selectList();
 	
+	List<OrderList> userOrderList(String id);
+	
 	OrderList selectDetail(String id);
 	
 	String save(OrderList entity);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tbtConcept.tbt.domain.OrderRequest;
@@ -51,8 +52,7 @@ public class OrderListRController {
 			Random rn = new Random();
 			String num = rn.nextInt(1000) + "";
 
-			String orderId = "T" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + "B"
-					+ num;
+			String orderId = "T" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + "B" + num;
 
 			orderList.setOrderId(orderId);
 			orderList.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -75,6 +75,19 @@ public class OrderListRController {
 			return "실패";
 		}
 	}
-}
+
 
 // ==============================================================================================
+
+		@GetMapping("/userOrderList")
+		public List<OrderList> getUserCouponList(Model model, @RequestParam("id") String id) {
+			
+			return orderService.userOrderList(id);
+		}
+		
+		
+		
+		
+		
+
+}
