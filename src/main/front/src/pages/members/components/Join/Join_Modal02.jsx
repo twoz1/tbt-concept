@@ -1,5 +1,5 @@
 import '../../../../styles/members/join_modal02.css';
-const Join_Modal02 = ({closeModal}) => {
+const Join_Modal02 = ({ closeModal }) => {
     return (
         <div className="Join_Modal02">
             <div className="modal_cover1">
@@ -41,7 +41,10 @@ const Join_Modal02 = ({closeModal}) => {
                     <ul className='text_underLine2'>
                         <li>개인정보의 보유 및 이용 기간: 회원 탈퇴 시&#40;이메일 아이디, 휴대폰 번호, 연계정보, 중복가입확인정보는 탈퇴 후 30일 &#41; 또는 법정 의무 보유기간</li>
                     </ul>
-                        <button className='close_button' onClick={()=>{closeModal('joinModal_2')}}>닫기</button>
+                    <div className="modal_close_btn2">
+
+                        <button className='modal_close_button2' onClick={() => { closeModal('joinModal_2') }}>닫기</button>
+                    </div>
                 </div>
             </div>
         </div>

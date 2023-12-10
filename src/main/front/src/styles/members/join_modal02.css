@@ -9,7 +9,6 @@
 
 .modal_2 {
     width: 30%;
-    height: 500px;
     border: 1px solid;
     display: flex;
     flex-direction: column;
@@ -52,17 +51,18 @@
 
 /* ========================================= */
 
+.modal_close_btn2{
+    padding-top: 30px;
+}
 
-
-.close_button{
-    margin-top: 25px;
-    margin-bottom: 25px;
+.modal_close_button2{
     width: 120px;
     line-height: 35px;
     text-align: center;
     background-color: black;
     border: none;
     color:#fff;
+    margin: auto;
     display:flex;
     align-items: center;
     justify-content: center;

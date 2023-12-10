@@ -1,0 +1,120 @@
+.cAddress_Modal .Cmodal_cover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0009;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+
+.cAddress_Modal .Cmodal{
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 990px;
+    background-color: white;
+}
+
+.cAddress_Modal .Cmodal table{
+    border-collapse: collapse;
+    height: 100px;
+    width: 990px;
+    margin-top: 20px;
+}
+
+.Cmodal h3{
+padding: 30px;
+text-align: center;
+}
+.newAddressSubmit{
+    text-align: right;
+}
+.newAddressSubmit_btn {
+
+    background-color: orangered;
+    color: white;
+    padding: 7px;
+    cursor: pointer;
+}
+
+#address_phone_num1{
+    width: 50px;
+}
+
+#address_phone_num2{
+    width: 70px;
+}
+
+#address_phone_num3{
+    width: 70px;
+}
+#first_tr{
+    border-top: 3px solid;
+}
+
+#first_tr td{
+    padding-left: 20px;
+}
+
+
+.Cmodal table tr{
+    border-top: 1px solid ;
+    
+    text-align: center;
+}
+
+.Cmodal table{
+    border-bottom: 1px solid;
+}
+
+
+.newAddressInput tr>td{
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+/* ==================버튼==================================== */
+
+.checkout_close_button,
+.checkout_submit_button{
+    
+    width: 120px;
+    line-height: 35px;
+    text-align: center;
+    background-color: black;
+    border: none;
+    color:#fff;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout_modal_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+.orderinput_hidden{
+    display: none;
+}
