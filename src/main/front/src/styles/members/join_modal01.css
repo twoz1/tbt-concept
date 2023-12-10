@@ -44,9 +44,10 @@
     font-size: 15px;
 }
 
-.close_button{
-    margin-top: 25px;
-    margin-bottom: 25px;
+.modal_close_btn1{
+    padding: 30px;
+}
+.modal_close_button1{
     width: 120px;
     line-height: 35px;
     text-align: center;

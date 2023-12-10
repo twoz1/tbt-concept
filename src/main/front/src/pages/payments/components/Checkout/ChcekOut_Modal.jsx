@@ -1,14 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AddressForm from './AddressForm';
 import ChcekOut_address from './ChcekOut_address';
 import useModal from "../../../customHooks/useModal";
-import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
+//import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
 import navigateTo from "../../../config/navigateTo";
+import '../../../../styles/payments/CheckOut_Modal.css';
 
 const CheckOut_Modal = ({ closeModal }) => {
-  const { openModal, isModal } = useModal();
+
   const loginUser = JSON.parse(sessionStorage.getItem('loginUser'));
   const [addressList, setAddressList] = useState([]);
   //const [showNewAddressForm, setShowNewAddressForm] = useState(false);
@@ -102,18 +102,18 @@ const CheckOut_Modal = ({ closeModal }) => {
 
   return (
     pageState && (
-    <div className="Join_Modal03">
-      <div className="modal_cover">
-        <div className="modal_3">
+    <div className="cAddress_Modal">
+      <div className="Cmodal_cover">
+        <div className="Cmodal">
           <h3>주소 선택</h3>
-          <div>
-            <button type="button" onClick={newAddressClick}>
-              배송지 신규 입력
-            </button>
+          <div className='newAddressSubmit'>
+            <span className='newAddressSubmit_btn' type="button" onClick={newAddressClick}>
+              배송지 신규 입력하기
+            </span>
             {showAddressFormContent && (
               <div>
 
-                <table>
+                <table className='newAddressInput'>
 
                   <tr className='orderinput_hidden'>
                     <th >
@@ -135,11 +135,7 @@ const CheckOut_Modal = ({ closeModal }) => {
                       휴대폰 번호 <span>&#42;</span>
                     </th>
                     <td className="receiver_phone">
-                      <select id="address_phone_num1" style={{ backgroundColor: showPlaceholder ? '' : 'white' }}>
-                        <option value="010">010</option>
-                        <option value="011">011</option>
-                        <option value="070">070</option>
-                      </select>
+                      <input type='text' id="address_phone_num1" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required/>
                       <span className="hyphen"> - </span>
                       <input type="text" minLength="3" id="address_phone_num2" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                       <span className="hyphen"> - </span>
@@ -178,7 +174,7 @@ const CheckOut_Modal = ({ closeModal }) => {
                     </td>
                   </tr>
                 </table>
-                <div className='checkout_modal'>
+                <div className='checkout_modal_btn'>
                   <button className='checkout_submit_button' type='button' onClick={() => { insertAddressList() }}>등록</button>
                 </div>
 
@@ -206,7 +202,7 @@ const CheckOut_Modal = ({ closeModal }) => {
               </tbody>
             </table>
           </form>
-            <div className="checkout_modal">
+            <div className="checkout_modal_btn">
               <button className="checkout_close_button" type="button" onClick={() => closeModal("address")}>
                 닫기
               </button>

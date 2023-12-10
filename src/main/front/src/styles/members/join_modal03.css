@@ -10,7 +10,6 @@
 
 .modal_3{
     width:30%;
-    height: 400px;
     border: 1px solid;
     display: flex;
     flex-direction: column;
@@ -72,38 +71,3 @@
 }
 /* ==================버튼==================================== */
 
-
-
-.close_button,
-.checkout_close_button,
-.checkout_submit_button{
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 120px;
-    line-height: 35px;
-    text-align: center;
-    background-color: black;
-    border: none;
-    color:#fff;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.checkout_modal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-.checkout_submit_button{
-    background-color: white;
-    border: 1px solid;
-    color: black;
-}
-
-.orderinput_hidden{
-    display: none;
-}
