@@ -67,16 +67,16 @@ public class OrderListRController {
 				Product product = productService.selectDetail(dentity.getProduct_id());
 				int currentStock = product.getProduct_stock();
 				int cartQuantity = dentity.getOrder_quan();
-
-
+				
+				
 				int updatedStock = currentStock - cartQuantity;
-				try {
-					cartService.delete(new CartId(orderList.getUser_id(), dentity.getProduct_id()));
-				} catch (EmptyResultDataAccessException ex) {
-					// 예외가 발생해도 주문(OrderList) 정보는 저장되어야 하므로 로깅만 수행
-					System.out.println("** Cart 엔터티를 찾지 못했습니다. User_id: " + orderList.getUser_id() + ", Product_id: " + dentity.getProduct_id());
-				}
 
+	            try {
+	                cartService.delete(new CartId(orderList.getUser_id(), dentity.getProduct_id()));
+	            } catch (EmptyResultDataAccessException ex) {
+	                // 예외가 발생해도 주문(OrderList) 정보는 저장되어야 하므로 로깅만 수행
+	                System.out.println("** Cart 엔터티를 찾지 못했습니다. User_id: " + orderList.getUser_id() + ", Product_id: " + dentity.getProduct_id());
+	            }
 				if (updatedStock >= 0) {
 					product.setProduct_stock(updatedStock);
 					productService.save(product);
