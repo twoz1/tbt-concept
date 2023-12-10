@@ -10,7 +10,7 @@ const MyOrderList = ({ loginUser }) => {
 
     useEffect(() => {
 
-        axios.get('/order/userOrderList?id=' + loginUser.user_id)
+        axios.get('/order/userOrderList?user_id=' + loginUser.user_id)
             .then((response) => {
                 if (response.data !== null) {
                     setOrder(response.data);
@@ -23,7 +23,6 @@ const MyOrderList = ({ loginUser }) => {
 
     }, [])
 
-    console.log(order);
 
 
 
@@ -39,16 +38,15 @@ const MyOrderList = ({ loginUser }) => {
                         <tr>
                             <th scope="col">주문일</th>
                             <th scope="col">주문번호</th>
-                            <th scope="col">상품정보</th>
-                            <th scope="col">옵션</th>
-                            <th scope="col">수량</th>
-                            <th scope="col">상품금액</th>
+                            <th scope="col">상품 종류 수량</th>
+                            <th scope="col">상품 총 금액</th>
+                            <th scope="col">결제 수단</th>
                             <th scope="col">주문상황</th>
                             <th scope="col">리뷰</th>
                             <th></th>
                         </tr>
                     </thead>
-                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.id}{...order} />) })}
+                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.orderId} {...order} />) })}
                 </table>
             </div>
         </div>

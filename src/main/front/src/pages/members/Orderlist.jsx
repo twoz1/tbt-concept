@@ -2,10 +2,31 @@ import '../../styles/members/Orderlist.css';
 import { useEffect, useState } from 'react';
 import MyOrderItem from './components/Mypage/MyOrderItem';
 import useScrollToTop from '../customHooks/useScrollToTop';
+import axios from 'axios';
 
-const Orderlist = ({ order }) => {
+const Orderlist = ({ }) => {
     useScrollToTop();
-    
+
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
+    // order데이터 가져오기
+    const [order, setOrder] = useState([]);
+
+    useEffect(() => {
+
+        axios.get('/order/userOrderList?user_id=' + loginUser.user_id)
+            .then((response) => {
+                if (response.data !== null) {
+                    setOrder(response.data);
+                }
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
+
+
+    }, [])
+
     const [btnActive, setBtnActive] = useState("");
     const [startDate, setStartDate] = useState(new Date().toISOString().split('T')[0]);
     const [endDate, setEndDate] = useState(new Date().toISOString().split('T')[0]);
@@ -17,7 +38,7 @@ const Orderlist = ({ order }) => {
 
     const filterDate = () => {
         return order.filter((order) => {
-            const orderDate = new Date(order.date).toISOString().split('T')[0];
+            const orderDate = new Date(order.order_date).toISOString().split('T')[0];
             return orderDate >= startDate && orderDate <= endDate;
         });
     };
@@ -70,7 +91,7 @@ const Orderlist = ({ order }) => {
                                 <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                             </label>
                         </div>
-                        <button className="date_submit" type="submit" onClick={clickSearch}>검색</button>
+                        <button className="date_submit" type="button" onClick={clickSearch}>검색</button>
                     </div>
                 </div>
                 <table className="ordertable">
@@ -78,16 +99,14 @@ const Orderlist = ({ order }) => {
                         <tr>
                             <th scope="col">주문일</th>
                             <th scope="col">주문번호</th>
-                            <th scope="col">상품정보</th>
-                            <th scope="col">옵션</th>
-                            <th scope="col">수량</th>
-                            <th scope="col">상품금액</th>
+                            <th scope="col">상품 종류 수량</th>
+                            <th scope="col">상품 총 금액</th>
                             <th scope="col">주문상황</th>
                             <th scope="col">리뷰</th>
                             <th></th>
                         </tr>
                     </thead>
-                    {searchDate && filterDate().map((it) => <MyOrderItem key={it.id}{...it} />)}
+                    {searchDate && filterDate().map((it) => <MyOrderItem key={it.orderId}{...it} />)}
                 </table>
             </div>
         </div>
