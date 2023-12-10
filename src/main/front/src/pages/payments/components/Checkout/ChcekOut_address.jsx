@@ -56,7 +56,7 @@ const ChcekOut_address = ({ closeModal, index, address_name, address_city, addre
             <td>{address_name}</td>
             <td>{`${address_avc}${address_city}${address_detail}`}</td>
             <td>{address_phone_num}</td>
-            <td></td>
+            <td>{order_message}</td>
             <td>
                 <button type='button' onClick={() => select()}>선택</button>
             </td>

@@ -154,7 +154,7 @@ const Information = ({ user_id}) => {
                             <td className="receiver">
                                 <input type="hidden" name="user_id" id="user_id" required value={user_id} />
                                 <input type="text" name="address_name" id="address_name" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required /> &nbsp;&nbsp;
-                                <span type="button" onClick={() => openModal('address')}>주소록</span>
+                                <button type="button" onClick={() => openModal('address')}>주소록</button>
                                 {isModal('address') && <CheckOut_Modal closeModal={closeModal} />}
                             </td>
                         </tr>
