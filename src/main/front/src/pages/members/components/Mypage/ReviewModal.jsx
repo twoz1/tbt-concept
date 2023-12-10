@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../../styles/members/ReviewModal.css';
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 export function useStar() {
@@ -23,24 +23,24 @@ export const ReviewModal = ({ closeModal }) => {
 
     function insertReview() {
 
-		let formData = new FormData(document.getElementById("subtitleID_review"));
+        let formData = new FormData(document.getElementById("subtitleID_review"));
 
-		let url = "/review/reviewInsert";
+        let url = "/review/reviewInsert";
 
-		axios.post(url, formData, {
-			headers:{"Content-Type": "multipart/form-data"}
-		}).then(response => {
-			console.log("reviewInsert 등록 완료");
-			alert("등록되었습니다");
-			//navigateInsertTo("/detail");
-		}).catch(err => {
-			if (err.response.status == "502") {
-				alert("[입력 오류] 다시 시도하세요.");
-			} else {
-				alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
-			}
-		});
-	}
+        axios.post(url, formData, {
+            headers: { "Content-Type": "multipart/form-data" }
+        }).then(response => {
+            console.log("reviewInsert 등록 완료");
+            alert("등록되었습니다");
+            //navigateInsertTo("/detail");
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
+    }
 
     // function navigateInsertTo(url) {
     //     window.location.href = url;
@@ -60,7 +60,7 @@ export const ReviewModal = ({ closeModal }) => {
 
     return (
         <p className="ReviewModal">
-            <div className="modal_cover">
+            <div className="review_cover">
                 <div className="modal_review" >
                     <form id='subtitleID_review' enctype="multipart/form-data">
                         <table>
@@ -80,9 +80,9 @@ export const ReviewModal = ({ closeModal }) => {
                             </tr>
                             <tr>
                                 <td>파일첨부
-                                <input type='hidden' name="review_star" id="review_star" value={starScore}/>
+                                    <input type='hidden' name="review_star" id="review_star" value={starScore} />
                                 </td>
-                                <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple/></td>
+                                <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple /></td>
                             </tr>
                             <tr>
                                 <td>리뷰작성</td>
@@ -91,7 +91,7 @@ export const ReviewModal = ({ closeModal }) => {
                         </table>
                         <div className="review_button">
                             <button type="reset" onClick={() => closeModal('review')}>취소</button>
-                            <button onClick={()=> insertReview()}>완료</button>
+                            <button onClick={() => insertReview()}>완료</button>
                         </div>
                     </form>
                 </div>

@@ -42,11 +42,10 @@ const MyOrderList = ({ loginUser }) => {
                             <th scope="col">상품 총 금액</th>
                             <th scope="col">결제 수단</th>
                             <th scope="col">주문상황</th>
-                            <th scope="col">리뷰</th>
                             <th></th>
                         </tr>
                     </thead>
-                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.orderId} {...order} />) })}
+                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.order_id} {...order} />) })}
                 </table>
             </div>
         </div>

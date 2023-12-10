@@ -1,7 +1,31 @@
 import React from 'react';
 import '../../../../styles/members/OrderModal.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import OrderDetail from './OrderDetail';
 
-const OrderModal = ({ closeModal }) => {
+const OrderModal = ({ closeModal, order_id, order_date, address_name, address_avc, address_city,
+    address_detail, address_phone_num, order_total_price, order_state, order_del_num }) => {
+
+    const [orderDetail, setOrderDetail] = useState([]);
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
+    useEffect(() => {
+
+        axios.get('/order/userOrderDetail?id=' + order_id)
+            .then((response) => {
+                if (response.data !== null) {
+                    setOrderDetail(response.data);
+                }
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
+
+    }, [])
+
+    console.log(orderDetail);
+
     return (
         <div>
             <div className="modal_cover">
@@ -10,15 +34,15 @@ const OrderModal = ({ closeModal }) => {
                         <table>
                             <tr>
                                 <th scope="row">주문번호</th>
-                                <td>20230101S210</td>
+                                <td>{order_id}</td>
                                 <th scope="row">주문일자</th>
-                                <td>2023-01-01</td>
+                                <td>{order_date}</td>
                             </tr>
                             <tr>
                                 <th scope="row">주문자</th>
-                                <td>최고조</td>
+                                <td>{loginUser.user_name}</td>
                                 <th scope="row">입금현황</th>
-                                <td>입금완료</td>
+                                <td>{order_state}</td>
                             </tr>
                         </table></div>
 
@@ -27,13 +51,13 @@ const OrderModal = ({ closeModal }) => {
                         <table>
                             <tr>
                                 <th scope="row">수취인명</th>
-                                <td>최고조</td>
+                                <td>{address_name}</td>
                                 <th>수취인 연락처</th>
-                                <td scope="row">010-1234-1234</td>
+                                <td scope="row">{address_phone_num}</td>
                             </tr>
                             <tr>
                                 <th scope="row">주소</th>
-                                <td colspan="3">경기도 성남시 수정구 구미동</td>
+                                <td colspan="3">{address_avc} {address_city} {address_detail}</td>
                             </tr>
                         </table>
                     </div>
@@ -43,23 +67,14 @@ const OrderModal = ({ closeModal }) => {
                         <table>
                             <tr>
                                 <th scope="col">상품명</th>
-                                <th scope="col">옵션</th>
                                 <th scope="col">수량</th>
                                 <th scope="col">금액</th>
+                                <th scope="col">리뷰</th>
                             </tr>
-                            <tr>
-                                <td>antonCrystal</td>
-                                <td>black</td>
-                                <td>1</td>
-                                <td>100,000원</td>
-                            </tr>
-                            <tr>
-                                <td>antonCrystal</td>
-                                <td>black</td>
-                                <td>1</td>
-                                <td>100,000원</td>
-                            </tr>
-                            <tr>
+                            <tbody class="orderDetail">
+                                {orderDetail.map((detail) => { return (<OrderDetail {...detail} />) })}
+                            </tbody>
+                            <tr class="lastP">
                                 <td colspan="4" className="total">상품금액 <strong>200,000원</strong> + 배송비 <strong>0원</strong> =
                                     <strong className="strPoint"> 200,000원</strong>
                                 </td>

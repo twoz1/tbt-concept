@@ -23,9 +23,8 @@ const Orderlist = ({ }) => {
             }).catch((err) => {
                 alert(`** checkdata 서버연결 실패 => ${err.message}`);
             });
-
-
     }, [])
+
 
     const [btnActive, setBtnActive] = useState("");
     const [startDate, setStartDate] = useState(new Date().toISOString().split('T')[0]);
