@@ -113,7 +113,7 @@
 .item_table tbody .itemComp .item_img {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .item_table tbody .itemComp .item_img a {

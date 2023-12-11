@@ -175,7 +175,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
                         <tr>
                             <th>총 결제금액</th>
                             <td>
-                                <input type="text" name="order_total_price" id="order_total_price" required
+                                <input type="hidden" name="order_total_price" id="order_total_price" required
                                     value={calcPricing() + feePrice}
                                 />
                                 {(calcPricing() + feePrice).toLocaleString()} 원

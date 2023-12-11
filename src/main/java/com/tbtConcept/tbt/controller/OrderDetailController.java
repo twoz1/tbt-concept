@@ -83,17 +83,17 @@ public class OrderDetailController {
 
 	// ========================================================================
 
-	@DeleteMapping("orderDetaildelete/{order_detail_id}")
-	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") int id, OrderDetail entity) {
-		entity.setOrder_detail_id(id);
-		if (orderDetailService.delete(id) > 0 ) {
-			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
-			System.out.println("삭제 성공");
-			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
-		} else {
-			log.info("axidelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
-			System.out.println("삭제 실패");
-			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
-		}
-	}
+//	@DeleteMapping("orderDetaildelete/{order_detail_id}")
+//	public ResponseEntity<?> axOrderListDelete(@PathVariable("order_id") int id, OrderDetail entity) {
+//		entity.setOrder_detail_id(id);
+//		if (orderDetailService.delete(id) > 0 ) {
+//			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
+//			System.out.println("삭제 성공");
+//			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
+//		} else {
+//			log.info("axidelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
+//			System.out.println("삭제 실패");
+//			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+//		}
+//	}
 }

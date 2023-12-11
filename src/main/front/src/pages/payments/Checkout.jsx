@@ -17,7 +17,6 @@ import axios from 'axios';
 const checkoutList = [];
 
 const Checkout = () => {
-    const [selectedAddress, setSelectedAddress] = useState(null);
 
     const { user_id } = useParams();
     useEffect(() => {
@@ -143,7 +142,7 @@ const Checkout = () => {
                                             <th>할인 쿠폰</th>
                                             <td>
                                                 <select className="checkout_cou" name="coupon_id" id="coupon_id" onChange={handleCouponChange}>
-                                                    <option value="쿠폰선택">쿠폰선택</option>
+                                                    <option value="0">쿠폰선택</option>
                                                     {couponOptions.map((coupon) => (
                                                         <option key={coupon.coupon_id} value={coupon.coupon_id}>
                                                             {coupon.coupon_name}

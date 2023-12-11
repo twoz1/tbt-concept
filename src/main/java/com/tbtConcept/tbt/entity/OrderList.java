@@ -67,6 +67,6 @@ public class OrderList {
    
    private String order_del_num;
    
-   private String coupon_id;
+   private int coupon_id;
 
 }

@@ -16,7 +16,7 @@ const ResultFrame = () => {
                     <p>결제가 정상적으로 완료됐습니다.</p>
                     <div className="button_cover">
                         <div className="button"><a href="/">메인페이지로 이동 &gt;</a></div>
-                        <div className="button"><a href="#">마이페이지로 이동 &gt;</a></div>
+                        <div className="button"><a href="/my">마이페이지로 이동 &gt;</a></div>
                     </div>
                 </div>
             </div>

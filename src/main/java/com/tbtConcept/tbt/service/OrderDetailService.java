@@ -20,7 +20,7 @@ public interface OrderDetailService {
 	
 	int delete(int id);
 	
-
+	String allDelte(String id);
 	
 	
 }

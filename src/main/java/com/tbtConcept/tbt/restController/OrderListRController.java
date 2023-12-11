@@ -7,7 +7,9 @@ import java.util.Random;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,22 +21,27 @@ import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
+import com.tbtConcept.tbt.entity.UserCouponId;
 import com.tbtConcept.tbt.service.CartService;
 import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.OrderListService;
 import com.tbtConcept.tbt.service.ProductService;
+import com.tbtConcept.tbt.service.UserCouponService;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
 @AllArgsConstructor
 @RequestMapping(value = "/order")
 @RestController
+@Log4j2
 public class OrderListRController {
 
 	OrderListService orderService;
 	OrderDetailService orderdService;
 	ProductService productService;
 	CartService cartService;
+	UserCouponService userCouponService;
 
 	// ==============================================================================================
 
@@ -111,5 +118,29 @@ public class OrderListRController {
 		return orderdService.findByIdDetails(id);
 	}
 
+	// ==============================================================================================
+	
+	
+	@DeleteMapping("orderlistdelete/{order_id}")
+	public String orderlistdelete(@PathVariable("order_id") String id, OrderList entity, OrderDetail dentity, Model model) {
+		entity.setOrder_id(id);
+		dentity.setOrder_id(id);
+		
+		
+		try {
+			// 디테일 삭제
+			orderdService.allDelte(id);
+			log.info("~~ allDelete 성공 !!");
+			// 총주문 삭제
+			log.info("~~ orderList Delete 성공 ID =>" + orderService.delete(id));
+			return "삭제성공";
+			
+		} catch (Exception e) {
+			log.info("** allDelte Exception => "+e.toString());
+			model.addAttribute("message", "~~ 주문정보 수정 실패 !! 다시 하세요 ~~");
+			return "삭제실패";
+		}
+	
+	}
 
 }

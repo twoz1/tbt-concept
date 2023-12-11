@@ -1,13 +1,13 @@
 "use strict";
 
 function axOrderDelete(id) {
-	let url = "/master/order/orderlistdelete/" + id;
+	let url = "/order/orderlistdelete/" + id;
 
 
 	if (confirm("삭제하시겠습니까?")) {
 		axios.delete(url
 		).then(response => {
-			alert("삭제되었습니다.");
+			alert("삭제되었습니다. =>" + response.data);
 			location.reload();
 			console.log(response.data);
 		}).catch(err => {

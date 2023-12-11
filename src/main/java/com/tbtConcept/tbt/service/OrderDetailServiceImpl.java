@@ -54,4 +54,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		repository.deleteById(id);
 		return id;
 	}
+	
+	@Override
+	public String allDelte(String id) {
+		repository.allDelete(id);
+		return id;
+	}
 }
