@@ -19,6 +19,8 @@ const MyCouponList = ({ loginUser }) => {
 
   }, []);
 
+  const filterCoupons = coupon.filter(c => c[5] !== "사용완료");
+
   return (
     <div className="MycouponList">
       <div className="couponlist cover">
@@ -32,7 +34,7 @@ const MyCouponList = ({ loginUser }) => {
               <th scope="col">유효기간</th>
             </tr>
           </thead>
-          {coupon.map((c) => {
+          {filterCoupons.map((c) => {
 
             return (<MyCouponItem key={c[0]}
               couponName={c[1]}

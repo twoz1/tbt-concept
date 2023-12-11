@@ -21,6 +21,7 @@ import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
+import com.tbtConcept.tbt.entity.UserCoupon;
 import com.tbtConcept.tbt.entity.UserCouponId;
 import com.tbtConcept.tbt.service.CartService;
 import com.tbtConcept.tbt.service.OrderDetailService;
@@ -75,6 +76,13 @@ public class OrderListRController {
 				int currentStock = product.getProduct_stock();
 				int cartQuantity = dentity.getOrder_quan();
 				int updatedStock = currentStock - cartQuantity;
+				
+				UserCoupon uentity = userCouponService.selectDetail(new UserCouponId(orderList.getCoupon_id(),orderList.getUser_id()));
+				
+				if(uentity != null) {
+					uentity.setCouponEnd("사용완료");
+				}
+				
 
 	            try {
 	                cartService.delete(new CartId(orderList.getUser_id(), dentity.getProduct_id()));
