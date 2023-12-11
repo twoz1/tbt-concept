@@ -4,7 +4,7 @@ import useModal from '../../../customHooks/useModal';
 
 
 const MyOrderItem = ({ order_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail,
-    address_phone_num, order_message, order_pay, order_total_each_quan, order_total_price, order_state, order_del_num }) => {
+    address_phone_num, order_del_state, order_message, order_pay, order_total_each_quan, order_total_price, order_state, order_del_num }) => {
 
     const { openModal, closeModal, isModal } = useModal();
 
@@ -23,8 +23,8 @@ const MyOrderItem = ({ order_id, coupon_id, order_date, address_name, address_av
                 <td>{order_total_price.toLocaleString()}원</td>
                 <td>{order_pay}</td>
                 <td>
-                    <p>{order_state}</p>
-                    {order_state === "배송중" && <p className="delivery"><button onClick={() => openModal('delivery')}>배송조회</button></p>}
+                    <p>{order_del_state}</p>
+                    {order_del_state === "배송중" && <p className="delivery"><button onClick={() => openModal('delivery')}>배송조회</button></p>}
                     {isModal('delivery') && <OrderModal closeModal={closeModal} order_id={order_id} order_date={order_date}
                         address_name={address_name} address_avc={address_avc} address_city={address_city} address_detail={address_detail} address_phone_num={address_phone_num}
                         order_total_price={order_total_price} order_state={order_state} order_del_num={order_del_num} />}

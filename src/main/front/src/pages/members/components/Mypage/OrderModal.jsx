@@ -70,13 +70,16 @@ const OrderModal = ({ closeModal, order_id, order_date, address_name, address_av
                                 <th scope="col">수량</th>
                                 <th scope="col">금액</th>
                                 <th scope="col">리뷰</th>
+                                <th scope="col"></th>
                             </tr>
                             <tbody class="orderDetail">
                                 {orderDetail.map((detail) => { return (<OrderDetail {...detail} />) })}
                             </tbody>
                             <tr class="lastP">
-                                <td colspan="4" className="total">상품금액 <strong>200,000원</strong> + 배송비 <strong>0원</strong> =
-                                    <strong className="strPoint"> 200,000원</strong>
+                                <td colspan="4" className="total">
+                                    {/* 상품금액 <strong>200,000원</strong> + 배송비 <strong>0원</strong> = */}
+                                    총 결제 금액
+                                    <strong className="strPoint"> {order_total_price.toLocaleString()}원</strong>
                                 </td>
                             </tr>
                         </table>
@@ -89,7 +92,7 @@ const OrderModal = ({ closeModal, order_id, order_date, address_name, address_av
                                 <th>배송사</th>
                                 <td>CJ대한통운</td>
                                 <th>송장번호</th>
-                                <td>1234567890</td>
+                                <td>{order_del_num}</td>
                             </tr>
                         </table>
                     </div>

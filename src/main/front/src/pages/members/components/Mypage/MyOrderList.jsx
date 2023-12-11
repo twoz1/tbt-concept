@@ -41,7 +41,7 @@ const MyOrderList = ({ loginUser }) => {
                             <th scope="col">상품 종류 수량</th>
                             <th scope="col">상품 총 금액</th>
                             <th scope="col">결제 수단</th>
-                            <th scope="col">주문상황</th>
+                            <th scope="col">배송 상태</th>
                             <th></th>
                         </tr>
                     </thead>

@@ -23,7 +23,7 @@ const Orderlist = ({ }) => {
             }).catch((err) => {
                 alert(`** checkdata 서버연결 실패 => ${err.message}`);
             });
-    }, [])
+    }, [loginUser])
 
 
     const [btnActive, setBtnActive] = useState("");
@@ -41,6 +41,8 @@ const Orderlist = ({ }) => {
             return orderDate >= startDate && orderDate <= endDate;
         });
     };
+
+    console.log(filterDate());
 
     const clickBtn = (e) => {
         setBtnActive(e.target.value);
@@ -100,12 +102,12 @@ const Orderlist = ({ }) => {
                             <th scope="col">주문번호</th>
                             <th scope="col">상품 종류 수량</th>
                             <th scope="col">상품 총 금액</th>
-                            <th scope="col">주문상황</th>
-                            <th scope="col">리뷰</th>
+                            <th scope="col">결제 수단</th>
+                            <th scope="col">배송 상태</th>
                             <th></th>
                         </tr>
                     </thead>
-                    {searchDate && filterDate().map((it) => <MyOrderItem key={it.orderId}{...it} />)}
+                    {searchDate && filterDate().map((it) => <MyOrderItem key={it.order_id}{...it} />)}
                 </table>
             </div>
         </div>
