@@ -28,7 +28,10 @@ public class OrderDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int order_detail_id;
 	
+	@Column(name = "order_id")
 	private String order_id;
+	
+	
 	private int product_id;
 	
 	@Column(nullable=false)
