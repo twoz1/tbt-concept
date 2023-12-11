@@ -9,6 +9,7 @@ const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qn
     // custom modal hook을 이용한 모달창 구현
     const {openModal, closeModal, isModal} = useModal();
 
+    // QnA1on1 delete
     function deleteInqProd(qna_id) {
         let url = "/qna1on1/qDelete/" + qna_id;
 
