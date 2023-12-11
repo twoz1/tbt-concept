@@ -6,15 +6,15 @@
     left: 0;
     background-color: #0009;
     z-index: 9999;
-    overflow-y: auto;
+
 }
 
 
-.cAddress_Modal .Cmodal{
+.cAddress_Modal .Cmodal {
     border: 1px solid;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     padding-right: 30px;
     padding-left: 30px;
     position: absolute;
@@ -23,22 +23,26 @@
     transform: translate(-50%, -50%);
     min-width: 990px;
     background-color: white;
+    max-height: 700px;
+    overflow-y: auto;
 }
 
-.cAddress_Modal .Cmodal table{
+.cAddress_Modal .Cmodal table {
     border-collapse: collapse;
     height: 100px;
     width: 990px;
     margin-top: 20px;
 }
 
-.Cmodal h3{
-padding: 30px;
-text-align: center;
+.Cmodal h3 {
+    padding: 30px;
+    text-align: center;
 }
-.newAddressSubmit{
+
+.newAddressSubmit {
     text-align: right;
 }
+
 .newAddressSubmit_btn {
 
     background-color: orangered;
@@ -47,38 +51,39 @@ text-align: center;
     cursor: pointer;
 }
 
-#address_phone_num1{
+#address_phone_num1 {
     width: 50px;
 }
 
-#address_phone_num2{
+#address_phone_num2 {
     width: 70px;
 }
 
-#address_phone_num3{
+#address_phone_num3 {
     width: 70px;
 }
-#first_tr{
+
+#first_tr {
     border-top: 3px solid;
 }
 
-#first_tr td{
+#first_tr td {
     padding-left: 20px;
 }
 
 
-.Cmodal table tr{
-    border-top: 1px solid ;
-    
+.Cmodal table tr {
+    border-top: 1px solid;
+
     text-align: center;
 }
 
-.Cmodal table{
+.Cmodal table {
     border-bottom: 1px solid;
 }
 
 
-.newAddressInput tr>td{
+.newAddressInput tr>td {
     text-align: left;
 }
 
@@ -92,20 +97,20 @@ text-align: center;
 /* ==================버튼==================================== */
 
 .checkout_close_button,
-.checkout_submit_button{
-    
+.checkout_submit_button {
+
     width: 120px;
     line-height: 35px;
     text-align: center;
     background-color: black;
     border: none;
-    color:#fff;
-    display:flex;
+    color: #fff;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.checkout_modal_btn{
+.checkout_modal_btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,6 +120,6 @@ text-align: center;
 
 
 
-.orderinput_hidden{
+.orderinput_hidden {
     display: none;
 }
