@@ -85,34 +85,47 @@ const DpQnA = ({ product_id }) => {
 
               <td>{qna.user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(qna.user_id.length - 3))}</td>
 
-              {qna.user_id == loginUser.user_id ? <td className='titCurPoint' onClick={() => openModal('titleInqProd')}>{qna.qna_title}</td>
-                : <td>{qna.qna_title}</td>}
-              {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
-                qna_id={qna.qna_id}
-                product_id={qna.product_id}
-                user_id={qna.user_id}
-                qna_type={qna.qna_type}
-                qna_phone_num={qna.qna_phone_num}
-                qna_reply_check={qna.qna_reply_check}
-                qna_title={qna.qna_title}
-                qna_content={qna.qna_content}
-                qna_upload_file={qna.qna_upload_file}
-                qna_answer={qna.qna_answer}
-              />}
+              {qna.user_id == loginUser.user_id ? (
+                <td className='titCurPoint' onClick={() => openModal('titleInqProd')}>
+                  {qna.qna_title}
+                </td>
+              ) : (
+                <td>{qna.qna_title}</td>
+              )}
+
+              {isModal('titleInqProd') && (
+                <ResultCS1on1
+                  closeModal={closeModal}
+                  qna_id={qna.qna_id}
+                  product_id={qna.product_id}
+                  user_id={qna.user_id}
+                  qna_type={qna.qna_type}
+                  qna_phone_num={qna.qna_phone_num}
+                  qna_reply_check={qna.qna_reply_check}
+                  qna_title={qna.qna_title}
+                  qna_content={qna.qna_content}
+                  qna_upload_file={qna.qna_upload_file}
+                  qna_answer={qna.qna_answer}
+                />
+              )}
 
               {qna.qna_answer !== null && qna.qna_answer !== undefined && qna.qna_answer.length !== 0 ? <td className='dpQnAReply'>답변완료</td> : <td>답변대기</td>}
 
-              <td>{qna.user_id == loginUser.user_id ? <button onClick={() => { deleteDpQnA(qna.qna_id) }}>삭제</button> : ""}</td>
+              {qna.user_id == loginUser.user_id ? (
+                <button onClick={() => { deleteDpQnA(qna.qna_id) }}>삭제</button>
+              ) : (
+                null
+              )}
             </tr>
           ))}
         </tbody>
       </table>
 
       {getPaginatedData().length !== 0 ?
-      <div>
-        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
-      </div> 
-      : <div></div>
+        <div>
+          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
+        </div>
+        : <div></div>
       }
 
     </div>
