@@ -20,14 +20,14 @@
 						<th>리뷰ID</th>
 						<th>상품ID</th>
 						<th>회원ID</th>
-						<th></th>
+						<th>삭제</th>
 					</tr>
 					<c:if test="${not empty requestScope.reviewList}">
 						<c:forEach var="r" items="${requestScope.reviewList}">
 							<tr>
-								<td>${r.review_id}</td>
+								<td><a href="reviewDetail?review_id=${r.review_id}">${r.review_id}</a></td>
 								<td>${r.product_id}</td>
-								<td><a href="reviewDetail?user_id=${r.user_id}">${r.user_id}</a></td>
+								<td>${r.user_id}</a></td>
 								<td><button onclick="axReviewDelete(${r.review_id})"
 										id="${r.review_id}">삭제</button></td>
 							</tr>

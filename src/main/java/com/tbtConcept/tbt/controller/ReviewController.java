@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
-import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.Review;
 import com.tbtConcept.tbt.service.ReviewService;
 
@@ -41,19 +41,20 @@ public class ReviewController {
 		model.addAttribute("reviewDetail", reviewService.selectDetail(entity.getReview_id()));
 	}
 	
+
 	
 	//Delete
-//	@DeleteMapping("reviewdelete/{review_id}")
-//	public ResponseEntity<?> axUserDelete(@PathVariable("review_id") int id, Review entity) {
-//		entity.setReview_id(id);
-//		if (reviewService.delete(id) >0) {
-//			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
-//			System.out.println("삭제 성공");
-//			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
-//		} else {
-//			log.info("axidelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
-//			System.out.println("삭제 실패");
-//			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
-//		}
-//	}
+	@DeleteMapping("reviewdelete/{review_id}")
+	public ResponseEntity<?> axUserDelete(@PathVariable("review_id") int id, Review entity) {
+		entity.setReview_id(id);
+		if (reviewService.deleteReview(id) >0) {
+			log.info("axidelete HttpStatus.OK =>" + HttpStatus.OK);
+			System.out.println("삭제 성공");
+			return new ResponseEntity<String>("[삭제 성공]", HttpStatus.OK);
+		} else {
+			log.info("axidelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
+			System.out.println("삭제 실패");
+			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+		}
+	}
 }
