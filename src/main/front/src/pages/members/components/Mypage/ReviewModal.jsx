@@ -18,7 +18,7 @@ export function useStar() {
 
 }
 
-export const ReviewModal = ({ closeModal }) => {
+export const ReviewModal = ({ closeModal, product_id, user_id }) => {
 
 
     function insertReview() {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import OrderDetail from './OrderDetail';
 
-const OrderModal = ({ closeModal, order_id, order_date, address_name, address_avc, address_city,
+const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, address_avc, address_city,
     address_detail, address_phone_num, order_total_price, order_state, order_del_num }) => {
 
     const [orderDetail, setOrderDetail] = useState([]);
@@ -73,7 +73,7 @@ const OrderModal = ({ closeModal, order_id, order_date, address_name, address_av
                                 <th scope="col"></th>
                             </tr>
                             <tbody class="orderDetail">
-                                {orderDetail.map((detail) => { return (<OrderDetail {...detail} />) })}
+                                {orderDetail.map((detail) => { return (<OrderDetail user_id={user_id} {...detail} />) })}
                             </tbody>
                             <tr class="lastP">
                                 <td colspan="4" className="total">

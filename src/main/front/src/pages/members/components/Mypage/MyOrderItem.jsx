@@ -3,7 +3,7 @@ import OrderModal from './OrderModal';
 import useModal from '../../../customHooks/useModal';
 
 
-const MyOrderItem = ({ order_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail,
+const MyOrderItem = ({ user_id, order_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail,
     address_phone_num, order_del_state, order_message, order_pay, order_total_each_quan, order_total_price, order_state, order_del_num }) => {
 
     const { openModal, closeModal, isModal } = useModal();
@@ -25,7 +25,7 @@ const MyOrderItem = ({ order_id, coupon_id, order_date, address_name, address_av
                 <td>
                     <p>{order_del_state}</p>
                     {order_del_state === "배송중" && <p className="delivery"><button onClick={() => openModal('delivery')}>배송조회</button></p>}
-                    {isModal('delivery') && <OrderModal closeModal={closeModal} order_id={order_id} order_date={order_date}
+                    {isModal('delivery') && <OrderModal closeModal={closeModal} user_id={user_id} order_id={order_id} order_date={order_date}
                         address_name={address_name} address_avc={address_avc} address_city={address_city} address_detail={address_detail} address_phone_num={address_phone_num}
                         order_total_price={order_total_price} order_state={order_state} order_del_num={order_del_num} />}
 
