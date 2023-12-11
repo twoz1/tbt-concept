@@ -45,7 +45,7 @@ const MyOrderList = ({ loginUser }) => {
                             <th></th>
                         </tr>
                     </thead>
-                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.order_id} {...order} user_id={user_id} />) })}
+                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.order_id} {...order} user_id={loginUser.user_id} />) })}
                 </table>
             </div>
         </div>
