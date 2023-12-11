@@ -81,6 +81,8 @@ export const ReviewModal = ({ closeModal, product_id, user_id }) => {
                             <tr>
                                 <td>파일첨부
                                     <input type='hidden' name="review_star" id="review_star" value={starScore} />
+                                    <input type='hidden' name="product_id" id="product_id" value={product_id} />
+                                    <input type='hidden' name="user_id" id="user_id" value={user_id} />
                                 </td>
                                 <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple /></td>
                             </tr>

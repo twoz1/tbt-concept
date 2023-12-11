@@ -142,8 +142,11 @@ const DpReviewScore = ({ product_id }) => {
             <hr />
 
             {/* ----------------리뷰2---------------- */}
-            {getPaginatedData().map((dpReview) => <DpReviewItem key={dpReview.qna_id}{...dpReview} reviewScoreText={reviewScoreText} />)}
-
+            {getPaginatedData().length !== 0 ?
+            
+            getPaginatedData().map((dpReview) => <DpReviewItem key={dpReview.qna_id}{...dpReview} reviewScoreText={reviewScoreText} />) :
+             <div>작성한 게시물이 없습니다.</div>}
+            
             {getPaginatedData().length !== 0 ?
                 <div>
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
