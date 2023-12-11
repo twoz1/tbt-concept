@@ -67,8 +67,6 @@ public class OrderListRController {
 				Product product = productService.selectDetail(dentity.getProduct_id());
 				int currentStock = product.getProduct_stock();
 				int cartQuantity = dentity.getOrder_quan();
-				
-				
 				int updatedStock = currentStock - cartQuantity;
 
 	            try {
