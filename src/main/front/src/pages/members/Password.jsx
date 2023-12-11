@@ -81,6 +81,25 @@ const Password = () => {
     }
 
 
+    function axUserDelete() {
+
+        let url = "/user/pwUpdate/" + loginUser.user_id;
+            axios.post(
+                url
+            ).then(response => {
+                sessionStorage.removeItem("loginUser");
+                window.location.reload();
+                console.log(response.data);
+                navigateTo("/my")
+            }).catch(err => {
+                if (err.response && err.response.status === 502) {
+                    alert("[삭제 오류]" + err.response.data);
+                } else {
+                    alert("[시스템 오류]" + err.message);
+                }
+            });
+    }
+
 
     
     // ------------------------------------------------------------------------
@@ -88,32 +107,24 @@ const Password = () => {
 
     const clickUpdate = (e) => {
         e.preventDefault();
-            axios
-                .post('/user/uUpdate', {
-                    user_id: document.getElementById('update_id').value,
-                    user_name: document.getElementById('update_name').value,
-                    user_rank: document.getElementById('update_rank').value,
-                    user_pw: document.getElementById('update_pw').value,
-                    user_birth: document.getElementById('update_birth').value,
-                    // user_event_check: document.getElementById('update_event_check').value,
-                    user_event_check: eventCheck,
-                })
-                .then((response) => {
-                    console.log(response.data);
-                    if (response.data == "성공") {
-                        alert("수정이 완료되었습니다.");
-                        navigateTo("/");
-                    } else {
-                        alert("수정에 실패했습니다.");
-                    }
+        axios
+            .post('/user/pwUpdate', {
+                user_id: document.getElementById('update_id').value,
+                user_pw: document.getElementById('update_pw').value,
+            })
+            .then((response) => {
+                console.log(response.data);
+                if (response.data == "성공") {
+                    alert("수정이 완료되었습니다.");
+                    navigateTo("/");
+                } else {
+                    alert("수정에 실패했습니다.");
+                }
 
-                    console.log(`** checkdata 서버연결 성공 => ${response.data}`);
-                }).catch((err) => {
-                    alert(`** checkdata 서버연결 실패 => ${err.message}`);
-                });
-       
-
-
+                console.log(`** checkdata 서버연결 성공 => ${response.data}`);
+            }).catch((err) => {
+                alert(`** checkdata 서버연결 실패 => ${err.message}`);
+            });
     }
 
     const handleEventCheckChange = (value) => {
@@ -136,6 +147,7 @@ const Password = () => {
                 </div>
 
                 <form action="/user/uUpdate" method="post" onSubmit={e => { clickUpdate(e) }}>
+                {/* <form action="/user/uUpdate" method="post" > */}
                     <div className="required_entry">
                         <p>필수 입력항목 <span className="point_color">&#42;</span></p>
                     </div>
@@ -191,7 +203,7 @@ const Password = () => {
                     </table>
                     <div className="join_button">
                         <button type="reset">초기화</button>
-                        <button type="submit" >수정하기</button>
+                        <button type="submit" onClick={axUserDelete}>수정하기</button>
                     </div>
                   
 
