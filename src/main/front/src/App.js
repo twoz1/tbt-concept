@@ -28,6 +28,7 @@ import CheckOut_Modal from './pages/payments/components/Checkout/ChcekOut_Modal'
 import Information from './pages/payments/components/Checkout/Information';
 import Update from './pages/members/Update';
 import SearchBItems from './pages/items/SearchBItems';
+import Password from './pages/members/Password';
 
 
 const orderList = [
@@ -123,6 +124,7 @@ function App() {
                         <CheckOut_Modal />
                     )} />
                     <Route path='/my/update' element={<Update />}></Route >
+                    <Route path='/my/update/password' element={<Password />}></Route >
 
                     <Route path='/detail/:product_id' element={<DetailedPage />}></Route>
 
