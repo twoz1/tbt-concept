@@ -3,8 +3,11 @@ import useScrollToTop from '../customHooks/useScrollToTop';
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import navigateTo from "../config/navigateTo";
+import { Link } from 'react-router-dom';
+
 
 const Update = () => {
+    useScrollToTop();
 
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
     const [pageState, setPageState] = useState(false);
@@ -22,8 +25,31 @@ const Update = () => {
         }
     }, []);
 
-    useScrollToTop();
+    function axUserDelete() {
 
+        let url = "/user/uDelete/" + loginUser.user_id;
+
+
+        if (window.confirm("탈퇴하시겠습니까?")) {
+            axios.delete(
+                url
+            ).then(response => {
+                alert("탈퇴되었습니다.");
+                sessionStorage.removeItem("loginUser");
+                window.location.reload();
+                console.log(response.data);
+                navigateTo("/")
+            }).catch(err => {
+                if (err.response && err.response.status === 502) {
+                    alert("[삭제 오류]" + err.response.data);
+                } else {
+                    alert("[시스템 오류]" + err.message);
+                }
+            });
+        } else {
+            alert("취소되었습니다.");
+        }
+    }
 
 
 
@@ -97,6 +123,7 @@ const Update = () => {
                                 <input type="hidden" id="update_id" value={loginUser.user_id}/>
                                 <input type="hidden" id="update_birth" value={loginUser.user_birth} />
                                 <input type="hidden" id="update_rank" value={loginUser.user_rank} />
+                                <input className="input_box" type="hidden" id="update_pw" value={loginUser.user_pw}  required readOnly />
                             </td>
 
                         </tr>
@@ -110,13 +137,6 @@ const Update = () => {
                                
                             </td>
 
-                        </tr>
-
-                        <tr>
-                            <th>비밀번호 <span className="point_color">&#42;</span></th>
-                            <td>
-                                <input className="input_box" type="password" id="update_pw" value={loginUser.user_pw}  required readOnly />
-                            </td>
                         </tr>
 
 
@@ -159,6 +179,10 @@ const Update = () => {
                     <div className="join_button">
                         <button type="reset">초기화</button>
                         <button type="submit" >수정하기</button>
+                        <button type='button' onClick={axUserDelete}>회원탈퇴</button>
+                        <Link to="password">
+                                <button>비밀번호 수정</button>
+                        </Link>
                     </div>
                   
 
