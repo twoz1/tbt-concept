@@ -42,9 +42,10 @@ const NewsCS = () => {
                         {isModal(`nModal${n.news_id}`) && <div className="modal_cover">
                             <div className="pop_CS">
                                 <div>
-                                    <span>&#91;안내&#93; {n.news_title}</span>
+                                    <span><strong>&#91;안내&#93;</strong></span>
+                                    <span>{n.news_title}</span>
                                     <div className="d-flex">
-                                        <p>{n.news_content}</p>
+                                        <p className='newsConWS'>{n.news_content.replaceAll('\\n','<br>')}</p>
                                     </div>
                                 </div>
 

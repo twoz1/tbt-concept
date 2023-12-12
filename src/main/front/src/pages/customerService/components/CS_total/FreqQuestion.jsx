@@ -37,15 +37,16 @@ const FreqQuestion = () => {
                     <div key={f.faq_id}>
                         <p>
                             <button onClick={() => openModal(`fModal${f.faq_id}`)}>
-                                <strong>{f.faq_type}</strong>
+                                <strong>[{f.faq_type}]</strong>
                                 {f.faq_title}&#63;
                             </button>
                             {isModal(`fModal${f.faq_id}`) && <div className="modal_cover">
                                 <div className="pop_CS">
                                     <div>
-                                        <span>{f.faq_type}</span>
+                                        <span><strong>[{f.faq_type}]</strong></span>
+                                        <span>{f.faq_title}</span>
                                         <div className="d-flex">
-                                            <p>{f.faq_content}</p>
+                                            <p className='faqContWS'>{f.faq_content.replaceAll('\\n','<br>')}</p>
                                         </div>
                                     </div>
 

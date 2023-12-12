@@ -40,3 +40,7 @@
     width: 120px;
     height: 35px;
 }
+
+.newsConWS {
+    white-space: pre-line;
+}

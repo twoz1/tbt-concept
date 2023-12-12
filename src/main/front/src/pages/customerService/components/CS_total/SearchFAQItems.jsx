@@ -15,18 +15,18 @@ const SearchFAQItems = ({ faq_id, faq_type, faq_title, faq_content }) => {
                 <div>
                     <p>
                         <button onClick={() => openModal(`fbModal${faq_id}`)}>
-                            <strong>{faq_type}</strong>
-                            {faq_title}
+                            <strong>[{faq_type}]</strong>
+                            <span>{faq_title}</span>
                         </button>
 
                         {isModal(`fbModal${faq_id}`) && <div className="modal_cover">
 
                             <div className="pop_CS">
                                 <div>
-                                    <span>{faq_type}</span>
-                                    {faq_title}
+                                    <span><strong>[{faq_type}]</strong></span>
+                                    <span>{faq_title}</span>
                                     <div className="d-flex">
-                                        <p>{faq_content}</p>
+                                        <p className='faqContWS'>{faq_content.replaceAll('\\n','<br>')}</p>
                                     </div>
                                 </div>
 

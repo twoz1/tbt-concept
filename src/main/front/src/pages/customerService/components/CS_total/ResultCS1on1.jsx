@@ -157,7 +157,7 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
                                                 문의내용
                                             </th>
                                             <td className='content_qna_update'>
-                                                <div className='hiddenForUpdate'>{qna_content}</div>
+                                                <div className='hiddenForUpdate'>{qna_content.replaceAll('\\n','<br>')}</div>
                                                 <textarea className='blockForUpdate' name="qna_content" minLength={20} maxLength="500" placeholder="20자 이상 작성하세요. (최대 500자)">{qna_content}</textarea>
                                             </td>
                                         </tr>
@@ -182,7 +182,7 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
                                                 답변
                                             </th>
                                             <td>
-                                                <div>{qna_answer}</div>
+                                                <div className='qna_ansWS'>{qna_answer.replaceAll('\\n','<br>')}</div>
                                                 <textarea name="qna_answer" className="disNone">{qna_answer}</textarea>
                                             </td>
                                         </tr>

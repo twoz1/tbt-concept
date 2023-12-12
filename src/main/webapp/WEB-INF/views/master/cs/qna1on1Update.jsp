@@ -69,7 +69,7 @@
 
 						<tr>
 							<th>내용</th>
-							<td>${requestScope.qna1on1Detail.qna_content}
+							<td>${requestScope.qna1on1Detail.qna_content.replaceAll('\\n','<br>')}
 								<input type="hidden" name="qna_content" id="qna_content" value="${requestScope.qna1on1Detail.qna_content}" />
 							</td>
 						</tr>

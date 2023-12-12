@@ -70,3 +70,7 @@
     width: 120px;
     height: 35px;
 }
+
+.faqContWS {
+    white-space: pre-line;
+}

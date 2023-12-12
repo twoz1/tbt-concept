@@ -27,7 +27,7 @@
 					<tr>
 						<th>내용</th>
 						<td>
-							${requestScope.newsDetail.news_content}
+							${requestScope.newsDetail.news_content.replaceAll('\\n','<br>')}
 						</td>
 					</tr>
 				</table>

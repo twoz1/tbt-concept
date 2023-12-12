@@ -118,6 +118,7 @@
 
 .content_qna_update div {
     width: 80%;
+    white-space: pre-line;
 }
 
 .content_qna_update textarea {
@@ -191,4 +192,8 @@
 
 .btn_UpdateSubmit {
     display: none;
+}
+
+.qna_ansWS {
+    white-space: pre-line;
 }

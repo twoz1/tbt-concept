@@ -36,7 +36,7 @@
 					<tr>
 						<th>내용</th>
 						<td>
-							${requestScope.faqDetail.faq_content}
+							${requestScope.faqDetail.faq_content.replaceAll('\\n','<br>')}
 						</td>
 					</tr>
 				</table>
