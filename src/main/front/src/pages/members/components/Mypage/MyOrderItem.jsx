@@ -3,7 +3,7 @@ import OrderModal from './OrderModal';
 import useModal from '../../../customHooks/useModal';
 
 
-const MyOrderItem = ({ user_id, order_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail,
+const MyOrderItem = ({ user_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail, order_id,
     address_phone_num, order_del_state, order_message, order_pay, order_total_each_quan, order_total_price, order_state, order_del_num }) => {
 
     const { openModal, closeModal, isModal } = useModal();

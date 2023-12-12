@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.Review;
+import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.ReviewService;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +33,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class ReviewRController {
 	ReviewService reviewService;
+	OrderDetailService orderDetailService;
 	
 	@GetMapping("/reviewInsert")
 	public void getReviewInsert() {
@@ -37,7 +41,7 @@ public class ReviewRController {
 	}
 	
 	@PostMapping("/reviewInsert")
-	public String postReviewInsert(Review entity, Model model, RedirectAttributes rttr) throws IOException {
+	public String postReviewInsert(@RequestParam("order_detail_id") int order_detail_id, Review entity, Model model, RedirectAttributes rttr) throws IOException {
 		System.out.println("reviewInsert 확인 => " + entity);
 
 		String realPath = "C:\\tbt_concept\\tbt\\src\\main\\front\\src\\images\\review\\";
@@ -54,9 +58,13 @@ public class ReviewRController {
 		}
 		
 		 entity.setReview_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-
+		 
+		System.out.println("order 디테일 아이디" + order_detail_id);
+		 OrderDetail od = orderDetailService.selectDetail(order_detail_id);
+		 od.setReview_state("작성완료");
+		 
 		try {
-			if (reviewService.save(entity) > 0) {
+			if (reviewService.save(entity) > 0 && orderDetailService.save(od) > 0 ) {
 				model.addAttribute("message", "리뷰 등록 성공");
 				System.out.println("** Review insert 성공");
 				return "성공";
