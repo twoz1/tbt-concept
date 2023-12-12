@@ -44,4 +44,6 @@ public class Review {
 	
 	public String review_date;
 	
+	public int order_detail_id;
+	
 }
