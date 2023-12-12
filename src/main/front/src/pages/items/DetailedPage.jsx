@@ -33,13 +33,13 @@ const DetailedPage = ({ starScore }) => {
             } catch (err) {
                 alert(`** product db 연결 실패 => ${err.message}`);
                 console.log("error");
-            }finally {
+            } finally {
                 setLoading(false); // 데이터 로딩 완료 후 상태 변경
             }
         };
 
         fetchData();
-    },  [product_id]);
+    }, [product_id]);
 
     console.log("-->", productDetail);
 
@@ -48,27 +48,12 @@ const DetailedPage = ({ starScore }) => {
         return <div>Loading...</div>;
     }
 
-    // 데이터 로딩 완료 후 상세페이지 렌더링
-
-    // -----------------------------------------------------------------
-
-
-
-
-    
-
     return (
         <div className="DetailedPage">
             <div className="center m_c">
                 <div className="section">
-                    {/* <DpTopSection key={productDetail.product_id}{...productDetail} /> */}
-
-
                     <DpTopSection key={productDetail.product_id}{...productDetail} />
-                     <DpSelectOption key={productDetail.product_id}{...productDetail} />
-
-
-                 
+                    <DpSelectOption key={productDetail.product_id}{...productDetail} />
                 </div>
 
                 <div className="nav nav1">
@@ -80,7 +65,7 @@ const DetailedPage = ({ starScore }) => {
                     </ul>
                 </div>
 
-                <DpProductDetail key={productDetail.product_id}{...productDetail} /> 
+                <DpProductDetail key={productDetail.product_id}{...productDetail} />
 
                 {/* <!-- ==============리뷰1======================================================= --> */}
 
@@ -94,8 +79,8 @@ const DetailedPage = ({ starScore }) => {
                     </ul>
                 </div>
 
-                <DpReviewScore product_id={product_id}/>
-                                <div>
+                <DpReviewScore product_id={product_id} />
+                <div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
                     <div className="nav nav3">
                         <ul>
@@ -106,9 +91,9 @@ const DetailedPage = ({ starScore }) => {
                         </ul>
                     </div>
 
-                    <DpQnABtn  product_id={product_id} />
+                    <DpQnABtn product_id={product_id} />
 
-                    <DpQnA  product_id={product_id}  />
+                    <DpQnA product_id={product_id} />
 
 
                     <div className="nav nav4">

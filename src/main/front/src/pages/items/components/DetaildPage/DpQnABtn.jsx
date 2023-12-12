@@ -4,7 +4,7 @@ import DpProductCSModal from './DpProductCSModal';
 
 
 
-const DpQnABtn = ({product_id}) => {
+const DpQnABtn = ({ product_id }) => {
 
   const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
   const { openModal, closeModal, isModal } = useModal();
@@ -12,14 +12,16 @@ const DpQnABtn = ({product_id}) => {
 
 
   return (
-    
-
-      <div className="q_a_button">
-        <button className='QnA_Button' onClick={() => { openModal('dpProductCSModal') }}>상품문의</button>
-        {isModal('dpProductCSModal') && <DpProductCSModal closeModal={closeModal} product_id={product_id} />}
-      </div>
-
-      
+    <div>
+      {loginUser && loginUser.user_id !== null ?
+        <div className="q_a_button">
+          <button className='QnA_Button' onClick={() => { openModal('dpProductCSModal') }}>상품문의</button>
+          {isModal('dpProductCSModal') && <DpProductCSModal closeModal={closeModal} product_id={product_id} />}
+        </div>
+        :
+        <div></div>
+      }
+    </div>
   );
 }
 
