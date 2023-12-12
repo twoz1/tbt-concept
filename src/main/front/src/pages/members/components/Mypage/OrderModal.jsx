@@ -24,6 +24,27 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
 
     }, [])
 
+    function axOrderDelete(id) {
+        let url = "/order/orderlistdelete/" + id;
+    
+        if (window.confirm("주문취소 하시겠습니까?")) {
+            axios.delete(url
+            ).then(response => {
+                alert("취소되었습니다." );
+                window.location.reload();
+                console.log(response.data);
+            }).catch(err => {
+                if (err.response && err.response.status === 502) {
+                    alert("[취소 오류]" + err.response.data);
+                } else {
+                    alert("[시스템 오류]" + err.message);
+                }
+            });
+        } else {
+            alert("취소되었습니다.");
+        }
+    }
+
     console.log(orderDetail);
 
     return (
@@ -100,6 +121,7 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
                     <div className="Modal_btn">
                         <button onClick={() => window.open("https://www.cjlogistics.com/ko/tool/parcel/tracking", '_blank')}>베송조회</button>
                         <button className="close" onClick={() => closeModal('delivery')}>닫기</button>
+                        <button className='order_cancel' onClick={()=>axOrderDelete(order_id)}>주문취소</button>
                     </div>
                 </div>
             </div>
