@@ -64,7 +64,7 @@ const Information = ({ user_id}) => {
                                 <input type="hidden" name="user_id" id="user_id" required value={user_id} />
                                 <input type="text" name="address_name" id="address_name"  required /> &nbsp;&nbsp;
                                 <button type="button" onClick={() => openModal('address')}>주소록</button>
-                                {isModal('address') && <CheckOut_Modal closeModal={closeModal} />}
+                                {isModal('address') && <CheckOut_Modal closeModal={closeModal} user_id={user_id} />}
                             </td>
                         </tr>
                         <tr>

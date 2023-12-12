@@ -7,7 +7,7 @@ import useModal from "../../../customHooks/useModal";
 import navigateTo from "../../../config/navigateTo";
 import '../../../../styles/payments/CheckOut_Modal.css';
 
-const CheckOut_Modal = ({ closeModal }) => {
+const CheckOut_Modal = ({ closeModal, user_id }) => {
 
   const loginUser = JSON.parse(sessionStorage.getItem('loginUser'));
   const [addressList, setAddressList] = useState([]);
@@ -17,16 +17,23 @@ const CheckOut_Modal = ({ closeModal }) => {
   const [pageState, setPageState] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('/address/aList')
-      .then((response) => {
-        setAddressList(response.data);
-        console.log(`** checkdata 서버연결 성공 => ${response.data}`);
-      })
-      .catch((err) => {
-        alert(`** checkdata 서버연결 실패 => ${err.message}`);
-      });
-  }, []);
+    if (loginUser == null) {
+      alert("로그인 후 이용해주세요.");
+      navigateTo("/");
+    } else {
+      setPageState(true);
+      axios
+        .get('/address/aList')
+        .then((response) => {
+          const userAddressList = response.data.filter(address => address.user_id === loginUser.user_id);
+          setAddressList(userAddressList);
+          console.log(`** checkdata 서버연결 성공 => ${userAddressList}`);
+        })
+        .catch((err) => {
+          alert(`** checkdata 서버연결 실패 => ${err.message}`);
+        });
+    }
+  }, [loginUser]);
 
 
   // 주소 추가 함수
@@ -196,6 +203,7 @@ const CheckOut_Modal = ({ closeModal }) => {
               </thead>
 
               <tbody>
+                
                 {addressList.map((address, index) => (
                   <ChcekOut_address key={index} {...address} closeModal={closeModal} setAddressList={setAddressList} />
                 ))}

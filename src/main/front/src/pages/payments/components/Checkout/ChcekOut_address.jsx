@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import Configstore from '../../../../pages/config/Configstore';
 import { setAddress } from '../../../../pages/config/Configstore';
 
-const ChcekOut_address = ({ closeModal, index, address_name, address_city, address_avc, address_detail, address_phone_num, order_message, duplicate_user_id ,setAddressList}) => {
+const ChcekOut_address = ({closeModal, index, address_name, address_city, address_avc, address_detail, address_phone_num, order_message, duplicate_user_id ,setAddressList}) => {
     const dispatch = useDispatch();
-
+    const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
     const DeleteAddress = (duplicate_user_id) => {
         axios
             .delete(`/address/aDelete/${duplicate_user_id}`)
@@ -51,8 +51,8 @@ const ChcekOut_address = ({ closeModal, index, address_name, address_city, addre
     return (
 
 
-
         <tr key={index}>
+            
             <td>{address_name}</td>
             <td>{`${address_avc} ${address_city} ${address_detail}`}</td>
             <td>{address_phone_num}</td>

@@ -18,7 +18,7 @@ export function useStar() {
 
 }
 
-export const ReviewModal = ({ closeModal, product_id, user_id }) => {
+export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id }) => {
 
 
     function insertReview() {
@@ -41,11 +41,6 @@ export const ReviewModal = ({ closeModal, product_id, user_id }) => {
             }
         });
     }
-
-    // function navigateInsertTo(url) {
-    //     window.location.href = url;
-    // }
-
 
 
     const array = [0, 1, 2, 3, 4];
@@ -83,6 +78,8 @@ export const ReviewModal = ({ closeModal, product_id, user_id }) => {
                                     <input type='hidden' name="review_star" id="review_star" value={starScore} />
                                     <input type='hidden' name="product_id" id="product_id" value={product_id} />
                                     <input type='hidden' name="user_id" id="user_id" value={user_id} />
+                                    <input type='hidden' name="order_detail_id" id="order_detail_id" value={order_detail_id} />
+
                                 </td>
                                 <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple /></td>
                             </tr>
