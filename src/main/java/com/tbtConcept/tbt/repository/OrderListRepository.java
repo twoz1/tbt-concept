@@ -10,7 +10,7 @@ import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 
 public interface OrderListRepository extends JpaRepository<OrderList, String> {
-    @Query("SELECT o FROM OrderList o order by o.order_id desc")
+    @Query("SELECT o FROM OrderList o order by o.order_date desc")
     List<OrderList> findAllDesc();
     
     
