@@ -134,7 +134,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
 
         })
             .then(response => {
-                alert("주문" + response.data);
+                // alert("주문" + response.data);
                 console.log("주문 완료");
                 navigateTo("/resultframe")
             }).catch(err => {
