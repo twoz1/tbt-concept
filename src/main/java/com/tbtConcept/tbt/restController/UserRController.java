@@ -136,31 +136,22 @@ public class UserRController {
 	}
 
 
-	@PostMapping(value="/pwUpdate/{user_id}")
-	public String passwordUpdate(HttpServletRequest request, Model model, User entity) {
+	@PostMapping(value="/pwUpdate")
+	public String passwordUpdate( @RequestBody User entity ) {
 
-		String rawPassword = entity.getUser_pw();
-		
-		System.out.println("&&&&&&&&&&&" + entity);
-		
-		
-//		if (rawPassword == null) {
-//			model.addAttribute("message", "비밀번호가 null입니다.");
-//			return "에러";
-//		}
+		String pw = entity.getUser_pw();
+		System.out.println(pw);
+		System.out.println(entity.getUser_id());
+	    
+	    entity = userService.selectOne(entity.getUser_id());
 
-		String id =(String)request.getSession().getAttribute("user_id");
-
-		entity.setUser_id(id);
-		entity.setUser_pw(passwordEncoder.encode(entity.getUser_pw()));
-
-		if ( userService.save(entity) != null ) {
-			model.addAttribute("message", "~~ password 수정 성공, 재로그인 하세요 ~~");
-			return "성공";
-		}else {
-			model.addAttribute("message", "~~ password 수정 실패 , 다시 하세요 ~~");
-			return "실패";
-		}
+	    if (entity != null) {
+	        entity.setUser_pw(passwordEncoder.encode(pw));
+	        userService.save(entity);
+	        return "성공";
+	    } else {
+	        return "실패";
+	    }
 	} //passwordUpdate
 
 
