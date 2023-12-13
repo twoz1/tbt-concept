@@ -122,7 +122,7 @@ const Login = () => {
                         </div>
                     </div>
                     <hr />
-                    <Sns></Sns>
+                    {/* <Sns></Sns> */}
                 </section>
             </div>
         </div>
