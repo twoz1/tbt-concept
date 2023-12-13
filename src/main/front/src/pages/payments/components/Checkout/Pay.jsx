@@ -15,8 +15,8 @@ const Pay = () => {
                     <tr>
                         <th colSpan="1">
                             <input type="radio" name="order_pay" id="order_pay" value="신용카드" />신용카드
-                            <input type="radio" name="order_pay" id="order_pay" value="간편결제" />간편결제
-                            <input type="radio" name="order_pay" id="order_pay" value="휴대폰결제" />휴대폰결제
+                            {/* <input type="radio" name="order_pay" id="order_pay" value="간편결제" />간편결제
+                            <input type="radio" name="order_pay" id="order_pay" value="휴대폰결제" />휴대폰결제 */}
                         </th>
                     </tr>
                     <tr>
