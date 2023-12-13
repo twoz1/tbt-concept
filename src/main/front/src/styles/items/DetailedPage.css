@@ -487,3 +487,7 @@ body {
     width: 100px;
     padding: 10px;
 }
+
+.revContWS {
+    white-space: pre-line;
+}

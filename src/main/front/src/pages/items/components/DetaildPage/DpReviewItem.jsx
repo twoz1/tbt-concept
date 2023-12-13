@@ -70,7 +70,7 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                 {review_date} 
             </div>
 
-            <p>{review_content}</p>
+            <p className='revContWS'>{review_content.replaceAll('\\n','<br>')}</p>
 
             <div className="image-container" style={{ height: isImageExpanded ? '500px' : '100px' }} onClick={handleImageClick}>
                 <img
@@ -80,7 +80,7 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                 />
             </div>
             
-            {user_id == loginUser.user_id ?
+            {loginUser && loginUser.user_id && user_id === loginUser.user_id ?
             <div className="reviewList_button">
                 <span onClick={()=>{openModal("DpReviewModal")}}>수정</span>
                 {isModal("DpReviewModal") && <DpReviewModal closeModal={closeModal} product_id={product_id}

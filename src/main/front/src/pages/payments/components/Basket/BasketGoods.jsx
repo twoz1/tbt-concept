@@ -19,6 +19,7 @@ const BasketGoods = ({ cart_quan, product_id, product_name, product_price, produ
             }).then(response => {
                 if (response.data == "성공") {
                     alert("수량이 수정되었습니다.");
+                    window.location.reload();
                 } else {
                     alert("[수량 변경 실패] 다시 시도하세요.");
                 }
