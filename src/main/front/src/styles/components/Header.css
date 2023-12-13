@@ -91,6 +91,11 @@
     font-size: 28px;
     text-align: center;
 }
+
+.h_icon>li {
+    text-align: center;
+}
+
 .h_icon li button .fa-solid {
     margin: 0 auto;
     display: block;
@@ -119,7 +124,7 @@
     display: inline-block;
     text-align: center;
     padding: 0 12px;
-    font-size: 16px ;
+    font-size: 16px;
     font-weight: bold;
     position: relative;
 }
@@ -147,6 +152,7 @@
     text-align: center;
     color: #fff;
 }
+
 .userName {
     float: right;
     color: gray;

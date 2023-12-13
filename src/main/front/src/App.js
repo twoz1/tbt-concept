@@ -31,33 +31,6 @@ import SearchBItems from './pages/items/SearchBItems';
 import Password from './pages/members/Password';
 
 
-const orderList = [
-    {
-        id: 0,
-        date: new Date("2023-03-03"),
-        orderNumber: "20230101S210",
-        itemName: "antonCrystal",
-        itemTitle: "[찐추천템] 선글라스 g_antonCrystal",
-        itemColor: "Black",
-        itemQuantity: 1,
-        itemPrice: 100000,
-        orderState: "배송중",
-        review: "작성하기"
-    },
-    {
-        id: 0,
-        date: new Date("2023-08-03"),
-        orderNumber: "20230101S210",
-        itemName: "antonCrystal",
-        itemTitle: "[찐추천템] 선글라스 g_antonCrystal",
-        itemColor: "Black",
-        itemQuantity: 1,
-        itemPrice: 100000,
-        orderState: "배송완료",
-        review: "작성완료"
-    }
-]
-
 const configstore = configureStore({
     reducer: {
         address: addressReducer,
@@ -67,8 +40,6 @@ const configstore = configureStore({
 });
 
 function App() {
-
-    const [order, setOrder] = useState(orderList);
 
     const { sArr, gArr } = useContext(mockItemsContext);
     const mockItemsData = [...sArr, ...gArr];
@@ -95,7 +66,6 @@ function App() {
                 <Routes>
                     <Route path='/addressOpen' element={<CheckOut_Modal />}></Route>
                 </Routes>
-                <a href="http://localhost:8080/home">관리자Home ${data}</a>
                 <Header />
                 <Routes>
                     {/* ----------------고정 헤더의 링크-------- */}
@@ -108,7 +78,7 @@ function App() {
                     <Route path='/store' element={<Store />}></Route >
 
                     <Route path='/cart' element={<Basket mockItemsData={mockItemsData} />}></Route>
-                    <Route path='/my' element={<Mypage order={order} />}></Route >
+                    <Route path='/my' element={<Mypage />}></Route >
                     <Route path='/login' element={<Login />}></Route >
                     <Route path='/join' element={<Join />}></Route >
 
@@ -140,7 +110,7 @@ function App() {
 
 
                     <Route path='/resultframe' element={<ResultFrame />}></Route>
-                    <Route path='/orderlist' element={<Orderlist order={order} />}></Route>
+                    <Route path='/orderlist' element={<Orderlist />}></Route>
 
 
                     {/* ----------------현주 링크투-------- */}
