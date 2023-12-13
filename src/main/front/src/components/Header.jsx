@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faBagShopping, faRightToBracket, faUserPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faBagShopping, faRightToBracket, faUserPlus, faSignOutAlt, faHouse } from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/Header.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -49,7 +49,7 @@ const Header = () => {
             navigateTo("/searchBItems");
         }).catch((err) => {
             if (err.response.status == '502') {
-                
+
             } else {
                 alert(`searchProdsBar 서버연결 실패 => ${err.message}`);
             }
@@ -109,12 +109,20 @@ const Header = () => {
                             </Link>
                         </li>
                     )}
-                    {!loggedIn && (
+                    {!loggedIn ? (
                         <li>
                             <Link to="/join">
                                 <FontAwesomeIcon icon={faUserPlus} className="fa-solid" />
                                 {/* <i class="fa-solid fa-user-plus"></i> */}
                                 <span>JOIN</span>
+                            </Link>
+                        </li>
+                    ) : (
+                        <li>
+                            <Link to="/cs">
+                                <FontAwesomeIcon icon={faHouse} className="fa-solid" />
+                                {/* <i class="fa-solid fa-user-plus"></i> */}
+                                <span id="csCenter">CS</span>
                             </Link>
                         </li>
                     )}
