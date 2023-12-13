@@ -26,7 +26,7 @@ const SearchFAQItems = ({ faq_id, faq_type, faq_title, faq_content }) => {
                                     <span><strong>[{faq_type}]</strong></span>
                                     <span>{faq_title}</span>
                                     <div className="d-flex">
-                                        <p className='faqContWS'>{faq_content.replaceAll('\\n','<br>')}</p>
+                                        <p className='faqContWS'>{faq_content}</p>
                                     </div>
                                 </div>
 

@@ -45,7 +45,7 @@ const NewsCS = () => {
                                     <span><strong>&#91;안내&#93;</strong></span>
                                     <span>{n.news_title}</span>
                                     <div className="d-flex">
-                                        <p className='newsConWS'>{n.news_content.replaceAll('\\n','<br>')}</p>
+                                        <p className='newsConWS'>{n.news_content}</p>
                                     </div>
                                 </div>
 

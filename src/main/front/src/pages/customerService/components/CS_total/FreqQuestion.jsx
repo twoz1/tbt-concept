@@ -46,7 +46,7 @@ const FreqQuestion = () => {
                                         <span><strong>[{f.faq_type}]</strong></span>
                                         <span>{f.faq_title}</span>
                                         <div className="d-flex">
-                                            <p className='faqContWS'>{f.faq_content.replaceAll('\\n','<br>')}</p>
+                                            <p className='faqContWS'>{f.faq_content}</p>
                                         </div>
                                     </div>
 

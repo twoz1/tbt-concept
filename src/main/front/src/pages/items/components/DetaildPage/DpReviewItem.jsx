@@ -70,7 +70,7 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                 {review_date} 
             </div>
 
-            <p className='revContWS'>{review_content.replaceAll('\\n','<br>')}</p>
+            <p className='revContWS'>{review_content}</p>
 
             <div className="image-container" style={{ height: isImageExpanded ? '500px' : '100px' }} onClick={handleImageClick}>
                 <img

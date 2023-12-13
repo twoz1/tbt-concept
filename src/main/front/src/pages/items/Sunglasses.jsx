@@ -2,7 +2,6 @@
 import '../../styles/items/Glasses.css'
 // import Category from './components/Category';
 import Product1 from './components/Product1';
-import PageNation from './components/PageNation';
 import { useState, useReducer } from 'react';
 // import { useParams } from "react-router-dom";
 import { useContext, useEffect } from 'react';

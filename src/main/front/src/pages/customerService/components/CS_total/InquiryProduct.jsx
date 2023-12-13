@@ -11,8 +11,8 @@ const InquiryProduct = () => {
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
     // custom modal hook을 이용한 모달창 구현 ===============================
-    const {openModal, closeModal, isModal} = useModal();
-    
+    const { openModal, closeModal, isModal } = useModal();
+
     // QnA1on1 List 출력 ===================================================
     const [qna1on1List, setQna1on1List] = useState([]);
 
@@ -20,15 +20,15 @@ const InquiryProduct = () => {
         let url = "/qna1on1/qList/" + loginUser.user_id;
 
         axios.post(url).then(response => {
-                setQna1on1List(response.data);
-                //alert("QnA1on1List 출력 성공" + response.data);
-            }).catch(err => {
-                if (err.response.status == "502") {
-                    alert("[입력 오류] 다시 시도하세요.");
-                } else {
-                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
-                }
-            });
+            setQna1on1List(response.data);
+            //alert("QnA1on1List 출력 성공" + response.data);
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
     }, []);
 
     // pagination 구현
@@ -38,8 +38,8 @@ const InquiryProduct = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-      };
-    
+    };
+
     const getPaginatedData = () => {
         const startIndex = (currentPage - 1) * listPerPage;
         const endIndex = startIndex + listPerPage;
@@ -75,8 +75,12 @@ const InquiryProduct = () => {
                         })
                         }
                     </table>
-                    
-                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
+                    {getPaginatedData().length !== 0 ? (
+                        <div>
+                            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
+                        </div>
+                    ) : <div></div>}
+
                 </div>
             </section>
 
