@@ -113,7 +113,7 @@ const Update = () => {
                     <table className='join_table'>
                         <tr id="sale_coupon">
                             <td colspan="2">
-                                <strong>회원으로 가입하시면 즉시 사용가능한 10&#37; 할인쿠폰을 드립니다. </strong>
+                                <strong>회원탈퇴 및 비밀번호 수정은 하단 버튼을 눌러주세요.</strong>
                             </td>
                         </tr>
 
