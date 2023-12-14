@@ -3,23 +3,19 @@ package com.tbtConcept.tbt.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tbtConcept.tbt.domain.PageRequestDTO;
-import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
-import com.tbtConcept.tbt.entity.UserCoupon;
 import com.tbtConcept.tbt.service.OrderDetailService;
 import com.tbtConcept.tbt.service.OrderListService;
 
@@ -36,16 +32,35 @@ public class OrderListController {
 	OrderDetailService dorderService;
 
 	@GetMapping("/orderList")
-	public void getOrderList(Model model) {
-		model.addAttribute("orderList", orderService.findAllDesc());
+	public void getOrderList(@RequestParam(name = "id", defaultValue = "") String id,
+			@RequestParam(name = "page", defaultValue = "1") int page,
+			@RequestParam(name = "size", defaultValue = "1") int size,
+			Model model) {
+		Pageable pageable = PageRequest.of(Math.max(page - 1, 0), size);
+		Page<OrderList> findAllDescPage = orderService.findAllDescPage(pageable);
+
+
+		model.addAttribute("findAllDescPage", findAllDescPage.getContent());
+		model.addAttribute("itemPage", findAllDescPage);
+		model.addAttribute("currentPage", findAllDescPage.getNumber() + 1);
+		model.addAttribute("totalPages", findAllDescPage.getTotalPages());
+		model.addAttribute("totalItems", findAllDescPage.getTotalElements());
+
+		log.info("faq_service.getFaqList(category, pageable) : " + orderService.findAllDescPage(pageable));
+		log.info("faqPageList.getContent() : " + findAllDescPage.getContent());
+		log.info("faqPageList : " + findAllDescPage);
+		log.info("faqPageList.getNumber() : " + findAllDescPage.getNumber());
+		log.info("faqPageList.getTotalElements() : " + findAllDescPage.getTotalElements());
 	}
+	//	public void getOrderList(Model model) {
+	//		model.addAttribute("orderList", orderService.findAllDesc());
+	//	}
 
 	// ========================================================================
 
 	@GetMapping("/orderListDetail")
 	public String getOrderListDetail (String order_id, Model model, OrderList entity, OrderDetail dentity, HttpServletRequest request) {
 		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
-//		model.addAttribute("orderDetailList", dorderService.findByIdDetails(entity.getOrder_id()));
 		model.addAttribute("orderDetailList", dorderService.perOrderUser(order_id));
 		System.out.println("*********orderListDetail" + entity);
 		if ("O".equals(request.getParameter("jCode"))) {
