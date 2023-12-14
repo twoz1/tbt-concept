@@ -40,7 +40,7 @@ const Footer = () => {
                     <div>
                         <em className="fc_tit">고객센터</em>
                         <p className="fc_number">
-                            031&#45;1234&#45;5678
+                            1566&#45;1234
                             <br />
                         </p>
                         <p>운영시간 &#58; 09&#58;00 &sim; 18&#58;00</p>
