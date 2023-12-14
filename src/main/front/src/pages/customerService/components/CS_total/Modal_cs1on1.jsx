@@ -40,32 +40,50 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 		}
 	};
 
-	// QnA1on1 insert ===================================================
-	function insertQnA1on1(e) {
+
+	// QnA1on1 insert
+	const insertQnA1on1 = async (e) => {
 		e.preventDefault();
+	
+		const qna_typeReq = document.getElementById("qna_type").value;
+		if (qna_typeReq === "문의 유형 선택") { // 선택되지 않은 경우
+			alert(`문의 유형을 선택해주세요.`);
+			return;
+		  }
 
-		let formData = new FormData(document.getElementById("subtitleID_1on1"));
-		let product_id = 0;
-		let url = "/qna1on1/qna1on1Insert/" + product_id;
-
-		axios.post(url, formData, {
-			headers:{"Content-Type": "multipart/form-data"}
-		}).then(response => {
-			console.log("insertQnA1on1 등록 완료");
-			alert("등록되었습니다");
-			navigateInsertTo("/cs");
-		}).catch(err => {
-			if (err.response.status == "502") {
-				alert("[입력 오류] 다시 시도하세요.");
-			} else {
-				alert("입력 내용을 다시 확인하세요.");
-			}
-		});
-	}
-
-	function navigateInsertTo(url) {
-        window.location.href = url;
-    }
+		const qna_phone_numReq = userPhoneNum; // 수정: userPhoneNum을 사용
+		const qna_titleReq = document.getElementById("qna_title").value;
+		const qna_contentReq = document.getElementById("qna_content").value;
+		const privacy_AgreeReq = document.getElementById("privacy_Agree").value;
+	
+		const requiredElemv = [qna_typeReq, qna_phone_numReq, qna_titleReq, qna_contentReq, privacy_AgreeReq];
+	
+		for (const elem of requiredElemv) {
+		  const value = elem.trim(); // 수정: elem이 이미 value를 갖고 있으므로 trim을 직접 호출
+		  if (!value) {
+			alert(`형식에 맞게 작성해주세요.`);
+			return;
+		  }
+		}
+	
+		const formData = new FormData(document.getElementById("subtitleID_1on1"));
+		const product_id = 0;
+		const url = "/qna1on1/qna1on1Insert/" + product_id;
+	
+		try {
+		  const response = await axios.post(url, formData, {
+			headers: { "Content-Type": "multipart/form-data" }
+		  });
+		  alert("등록되었습니다");
+		  window.location.reload();
+		} catch (err) {
+		  if (err.response && err.response.status === 502) {
+			alert("[입력 오류] 다시 시도하세요.");
+		  } else {
+			alert("형식에 맞게 입력 내용을 작성하세요.");
+		  }
+		}
+	  };
 
 	return (
 		<div>
@@ -93,7 +111,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 									<tr className="tr_custInfo">
 										<th>
 											회원정보
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<input type="email"
@@ -116,11 +134,11 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 									<tr className="tr_inquiry">
 										<th>
 											문의유형
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
-											<select name="qna_type" required>
-												<option value="문의유형선택">문의 유형 선택</option>
+											<select id='qna_type' name="qna_type" required>
+												<option>문의 유형 선택</option>
 												<option value="취소문의">취소문의</option>
 												<option value="배송문의">배송문의</option>
 												<option value="반품문의">반품문의</option>
@@ -132,17 +150,18 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
 											<span>
 												&#8903; 구매 전 상품문의는 상품 상세페이지 하단 상품Q&#38;A로 문의해주시기 바랍니다.
-                                            </span>
+											</span>
 										</td>
 									</tr>
 
 									<tr className="tr_replyAlert">
 										<th>
 											답변 알림
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<input type="text"
+												id='qna_phone_num'
 												name="qna_phone_num"
 												value={userPhoneNum}
 												maxLength={11}
@@ -153,15 +172,15 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 											<div className='alertDiv'>
 												<span>
 													&#8903; 답변이 등록되면 휴대폰 SMS로 알려드립니다.
-                                                </span>
+												</span>
 
 												<label>
 													<input type="radio" name="qna_reply_check" id="answerYes" value="yes" checked required />예
-                                                </label>
+												</label>
 
 												<label>
 													<input type="radio" name="qna_reply_check" id="answerNo" value="no" required />아니오
-                                                </label>
+												</label>
 											</div>
 
 											<div className='validCheck'>
@@ -179,21 +198,21 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 									<tr className="tr_inqTitle">
 										<th>
 											제목
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
-											<input name="qna_title" type="text" maxLength="40" required />
+											<input id='qna_title' name="qna_title" type="text" maxLength="40" required />
 										</td>
 									</tr>
 
 									<tr className="tr_inqContent">
 										<th>
 											문의 내용
-                                            <span className="spanRed">&#42;</span>
+											<span className="spanRed">&#42;</span>
 										</th>
 										<td>
 											<div>
-												<textarea name="qna_content" cols="120" rows="30" minLength={20} maxLength="500" placeholder="20자 이상 작성하세요. (최대 500자)"></textarea>
+												<textarea id='qna_content' name="qna_content" cols="120" rows="30" minLength={20} maxLength="500" placeholder="20자 이상 작성하세요. (최대 500자)" required></textarea>
 											</div>
 										</td>
 									</tr>
@@ -201,7 +220,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 									<tr className="tr_fileRef">
 										<th>
 											파일첨부
-                                        </th>
+										</th>
 										<td>
 											<input className='fileUpload' type="file" name="qna_upload_filef" id="btn_fileRef" multiple />
 										</td>
@@ -211,9 +230,9 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 						</figure>
 
 						<div className="privacy_Agree">
-							<input type="radio" required />
-                            개인정보 수집 및 이용에 대한 동의 &#40;필수&#41;
-                        </div>
+							<input id='privacy_Agree' name="privacy_Agree" type="radio" required />
+							개인정보 수집 및 이용에 대한 동의 &#40;필수&#41;
+						</div>
 
 						<div className="btn_submit">
 							<button onClick={() => closeModal('inqProdCS1on1')}>취소</button>

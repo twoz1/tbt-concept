@@ -23,7 +23,7 @@
 .modal_cs1on1 {
     background-color: white;
     width: 70vw;
-    min-width: 700px;
+    min-width: 750px;
     height: 80vh;
     overflow-y: scroll;
     border: 1px solid black;
@@ -144,7 +144,7 @@
 
 /* ===========main - table - 문의 내용 ========== */
 .tr_inqContent th {
-    height: 500px;
+    height: 300px;
 }
 
 .tr_inqContent div {
@@ -152,6 +152,8 @@
 }
 
 .tr_inqContent textarea {
+    width: 600px;
+    height: 180px;
     resize: none;
 }
 
