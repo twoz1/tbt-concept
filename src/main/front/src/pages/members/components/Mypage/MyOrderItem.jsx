@@ -1,6 +1,7 @@
 import '../../../../styles/members/MyOrderItem.css';
 import OrderModal from './OrderModal';
 import useModal from '../../../customHooks/useModal';
+import { useEffect } from 'react';
 
 
 const MyOrderItem = ({ user_id, coupon_id, order_date, address_name, address_avc, address_city, address_detail, order_id,

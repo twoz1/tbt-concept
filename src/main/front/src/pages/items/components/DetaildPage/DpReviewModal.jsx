@@ -59,7 +59,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
                 const imgElement = document.querySelector('.img_upload_filef');
                 if (imgElement) {
                     imgElement.src = e.target.result;
-                    imgElement.style.width = '80%';
+                    imgElement.style.width = '150px';
                 }
             };
         }
@@ -142,20 +142,22 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
 
                             <tr>
                                 <td>파일첨부</td>
-                                <td>
-                                    <img className='img_upload_filef' src={review_upload_file ? require(`../../../../images/review/${review_upload_file}`) : "첨부파일 없음"} alt="첨부사진" ></img>
+                                <td className='dp_review_img'>
+                                    {review_upload_file ?
+                                        <img className='img_upload_file' src={require(`../../../../images/review/${review_upload_file}`)} alt="첨부사진" ></img>
+                                        : "첨부파일 없음"}
                                     <input type="hidden" name="review_upload_file" value={review_upload_file} />
                                     <input className='blockForRUpdate' type="file" name="review_upload_filef" id="review_upload_filef" />
                                 </td>
                             </tr>
 
-                            <input type='hidden' name="review_star" id="review_star" value={starScore} /> 
+                            <input type='hidden' name="review_star" id="review_star" value={starScore} />
 
                             <tr>
                                 <td>리뷰작성</td>
 
                                 <td>
-                                    <div className='hiddenForRUpdate'>{review_content}</div>
+                                    <div className='hiddenForRUpdate contentUpdate'>{review_content}</div>
                                     <textarea className='blockForRUpdate' name="review_content" id="review_content" placeholder="30자 이상 200자 이하" minLength={30} maxLength={200} >{review_content}</textarea>
                                 </td>
                             </tr>
