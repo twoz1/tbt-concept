@@ -58,7 +58,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 			if (err.response.status == "502") {
 				alert("[입력 오류] 다시 시도하세요.");
 			} else {
-				alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+				alert("입력 내용을 다시 확인하세요.");
 			}
 		});
 	}
