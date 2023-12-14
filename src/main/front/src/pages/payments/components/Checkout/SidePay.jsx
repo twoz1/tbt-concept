@@ -102,6 +102,17 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
     function insertOrderList(e) {
         e.preventDefault();
 
+        const requiredFields = ["address_name", "address_avc", "address_city", "address_detail", "address_phone_num"];
+
+        for (const field of requiredFields) {
+            const value = document.getElementById(field).value.trim(); // 값 얻기 및 공백 제거
+            if (!value) {
+                // 값이 비어 있다면 알림 표시 후 함수 종료
+                alert(`주문자정보를 입력하세요.`);
+                return;
+            }
+        }
+
         let url = "/order/oListInsert";
 
         const productsWithoutName = updatedCheckoutList.map(({ product_id, product_price, cart_quan }) => ({
@@ -134,7 +145,6 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
 
         })
             .then(response => {
-                // alert("주문" + response.data);
                 console.log("주문 완료");
                 navigateTo("/resultframe")
             }).catch(err => {

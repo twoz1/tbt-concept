@@ -72,7 +72,7 @@ const Information = ({ user_id}) => {
                                 휴대폰 번호 <span>&#42;</span>
                             </th>
                             <td className="receiver_phone">
-                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num" maxLength="4" required />
+                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num" maxLength="4"required />
 
                             </td>
                         </tr>

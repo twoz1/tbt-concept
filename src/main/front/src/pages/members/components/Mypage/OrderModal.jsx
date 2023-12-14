@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import OrderDetail from './OrderDetail';
 
 const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, address_avc, address_city,
-    address_detail, address_phone_num, order_total_price, order_state, order_del_num }) => {
+    address_detail, address_phone_num, order_total_price, order_state, order_del_num, order_del_state }) => {
 
     const [orderDetail, setOrderDetail] = useState([]);
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
@@ -121,7 +121,8 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
                     <div className="Modal_btn">
                         <button onClick={() => window.open("https://www.cjlogistics.com/ko/tool/parcel/tracking", '_blank')}>베송조회</button>
                         <button className="close" onClick={() => closeModal('delivery')}>닫기</button>
-                        <button className='order_cancel' onClick={()=>axOrderDelete(order_id)}>주문취소</button>
+                        {order_state=== "입금대기" || order_del_state === "배송완료" ? <button className='order_cancel' onClick={()=>axOrderDelete(order_id)}>주문취소</button> : ""}
+                        {/* <button className='order_cancel' onClick={()=>axOrderDelete(order_id)}>주문취소</button> */}
                     </div>
                 </div>
             </div>

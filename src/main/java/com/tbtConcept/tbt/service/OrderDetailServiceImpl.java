@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.OrderProdDTO;
 import com.tbtConcept.tbt.entity.OrderDetail;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.Product;
@@ -20,6 +21,11 @@ import lombok.RequiredArgsConstructor;
 public class OrderDetailServiceImpl implements OrderDetailService {
 	private final OrderDetailRepository repository;
 	
+	
+	@Override
+	public List<OrderProdDTO> perOrderUser(String order_id) {
+		return repository.perOrderUser(order_id);
+	}
 	
 	// @Transactional
 	@Override
