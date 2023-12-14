@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ChcekOut_address from './ChcekOut_address';
 import useModal from "../../../customHooks/useModal";
-//import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
+import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
 import navigateTo from "../../../config/navigateTo";
 import '../../../../styles/payments/CheckOut_Modal.css';
 
@@ -167,6 +167,7 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
                         &nbsp;&nbsp; 우편번호 찾기
                       </button>
                       {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />} */}
+                      
                       <p>
                         <input type="text" id="address_city1" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
                         &nbsp; - &nbsp;

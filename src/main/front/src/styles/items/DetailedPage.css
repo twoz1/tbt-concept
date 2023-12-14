@@ -41,8 +41,10 @@ body {
     flex-direction: column;
     gap: 45px;
     width: 450px;
+    
 }
 
+.choice 
 .choice_1 {
     display: flex;
     justify-content: space-between
@@ -142,6 +144,7 @@ body {
 }
 
 .nav ul li a {
+    display: block;
     color: black;
 }
 
@@ -281,6 +284,10 @@ body {
     background-color: #000;
 }
 
+.review_board{
+    padding: 100px;
+    text-align: center;
+}
 /* ========================================== */
 
 .review_nav {
@@ -299,7 +306,12 @@ body {
 
 .star_id_date {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+}
+
+.star_id_date .review_id_date{
+    display: flex;
+    gap: 20px;
 }
 
 .customer_review {
@@ -313,7 +325,7 @@ body {
 
 /* ======================================== */
 
-.customer_review_button {
+reviewList_buttonstar_id_date.customer_review_button {
     background-color: white;
     border: 0;
     display: flex;
@@ -356,6 +368,7 @@ body {
     width: 70px;
     text-align: center;
     line-height: 30px;
+    margin-bottom: 5px;
 }
 
 .q_a_button .QnA_Button:hover {
@@ -363,7 +376,7 @@ body {
 }
 
 .tableDpQnA {
-    width: 90%;
+    width: 100%;
     text-align: left;
 }
 

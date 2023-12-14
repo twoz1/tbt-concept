@@ -145,7 +145,7 @@ const DpReviewScore = ({ product_id }) => {
             {getPaginatedData().length !== 0 ?
             
             getPaginatedData().map((dpReview) => <DpReviewItem key={dpReview.qna_id}{...dpReview} reviewScoreText={reviewScoreText} />) :
-             <div>작성한 게시물이 없습니다.</div>}
+             <div className='review_board'><span>작성한 게시물이 없습니다.</span></div>}
             
             {getPaginatedData().length !== 0 ?
                 <div>

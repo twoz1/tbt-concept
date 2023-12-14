@@ -14,6 +14,7 @@ import DpQnA from "./components/DetaildPage/DpQnA";
 import axios from 'axios';
 
 
+
 const DetailedPage = ({ starScore }) => {
 
     const [productDetail, setProductDetail] = useState("");
@@ -82,7 +83,7 @@ const DetailedPage = ({ starScore }) => {
                 <DpReviewScore product_id={product_id} />
                 <div>
                     {/* <!-- ================큐앤에이========================================================================================== --> */}
-                    <div className="nav nav3">
+                    <div className="nav nav3" id="question_answer">
                         <ul>
                             <li><a href="#detail">DETAIL</a></li>
                             <li><a href="#review">REVIEW</a></li>

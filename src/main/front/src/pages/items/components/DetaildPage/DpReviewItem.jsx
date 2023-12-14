@@ -66,8 +66,13 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                         <i key={i} className="fa-solid fa-star"></i>
                     ))} {reviewScoreTextView}
                 </span>
-                <span>{user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(user_id.length - 3))}</span>
-                {review_date} 
+                <div className='review_id_date'>
+
+                <span >{user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(user_id.length - 3))}
+                </span>
+                <span>{review_date}</span>
+
+                </div>
             </div>
 
             <p className='revContWS'>{review_content}</p>
