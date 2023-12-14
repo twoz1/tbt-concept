@@ -63,7 +63,7 @@ public class OrderListRController {
 			String orderId = "T" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + "B" + num;
 
 			orderList.setOrder_id(orderId);
-			orderList.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			orderList.setOrder_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"+" "+"HH:mm")));
 
 			for (OrderDetail dentity : orderDetail) {
 				dentity.setOrder_id(orderId);

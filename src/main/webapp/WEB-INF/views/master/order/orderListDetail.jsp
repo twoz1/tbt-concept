@@ -82,7 +82,9 @@
             <tr>
                   <th>주문번호</th>
                   <th>개별주문번호</th>
+                  <th>상품이미지</th>
                   <th>상품ID</th>
+                  <th>상품이름</th>
                   <th>수량</th>
                   <th>가격</th>
                   <th>리뷰상태</th>
@@ -92,6 +94,8 @@
                   <tr>
                      <td>${od.order_id}</td>
                      <td>${od.order_detail_id}</td>  
+                     <td>${od.product_img1}</td>  
+                     <td>${od.product_name}</td>  
                      <td>${od.product_id}</td>  
                      <td>${od.order_quan}</td>  
                      <td>${od.order_price}</td>  

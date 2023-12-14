@@ -108,7 +108,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
             const value = document.getElementById(field).value.trim(); // 값 얻기 및 공백 제거
             if (!value) {
                 // 값이 비어 있다면 알림 표시 후 함수 종료
-                alert(`${field}을(를) 필수로 입력하세요.`);
+                alert(`주문자정보를 입력하세요.`);
                 return;
             }
         }
