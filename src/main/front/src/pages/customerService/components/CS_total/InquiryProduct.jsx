@@ -58,17 +58,17 @@ const InquiryProduct = () => {
 
                 <div>
                     <table className='tableInqProd'>
-                        <thead className='tHeadInqProd'>
+                        <tr className='tHeadInqProd'>
                             <th>문의 유형</th>
                             <th>작성자</th>
                             <th>제목</th>
                             <th>답글</th>
                             <th></th>
-                        </thead>
+                        </tr>
 
                         {getPaginatedData().length === 0 ? (
                             <tr className='noInqProd'>
-                                <td colSpan="4">작성한 게시물이 없습니다.</td>
+                                <td colSpan="5">작성한 게시물이 없습니다.</td>
                             </tr>
                         ) : getPaginatedData().map((qna1on1) => {
                             return (<InqProdItems key={qna1on1.qna_id} {...qna1on1} />);

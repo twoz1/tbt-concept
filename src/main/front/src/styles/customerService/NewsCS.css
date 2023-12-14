@@ -44,3 +44,9 @@
 .newsConWS {
     white-space: pre-line;
 }
+
+.noNewsList {
+    color: #a3a3a3;
+    text-align: center;
+    padding: 70px;
+}

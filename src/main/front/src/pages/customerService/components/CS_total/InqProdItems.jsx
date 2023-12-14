@@ -7,7 +7,7 @@ import axios from 'axios';
 const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qna_reply_check, qna_title, qna_content, qna_upload_file, qna_answer }) => {
 
     // custom modal hook을 이용한 모달창 구현
-    const {openModal, closeModal, isModal} = useModal();
+    const { openModal, closeModal, isModal } = useModal();
 
     // QnA1on1 delete
     function deleteInqProd(qna_id) {
@@ -37,27 +37,27 @@ const InqProdItems = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qn
     }
 
     return (
-        <tbody className='tBodyInqProdItems'>
-            <tr>
-                <td>{qna_type}</td>
-                <td>{user_id}</td>
-                <td onClick={() => openModal('titleInqProd')}><span id="curPointer">{qna_title}</span></td>
-                {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
-                                            qna_id={qna_id}
-                                            product_id={product_id}
-                                            user_id={user_id}
-                                            qna_type={qna_type}
-                                            qna_phone_num={qna_phone_num}
-                                            qna_reply_check={qna_reply_check}
-                                            qna_title={qna_title}
-                                            qna_content={qna_content}
-                                            qna_upload_file={qna_upload_file}
-                                            qna_answer={qna_answer}
-                                            />}
-                {qna_answer !== null && qna_answer !== undefined && qna_answer.length !== 0 ? <td className='qnaAnswer_td'>Y</td> : <td>N</td>}
-                <td><button onClick={() => {deleteInqProd(qna_id)}}>삭제</button></td>
-            </tr>
-        </tbody>
+
+        <tr className='tBodyInqProdItems'>
+            <td>{qna_type}</td>
+            <td>{user_id}</td>
+            <td onClick={() => openModal('titleInqProd')}><span id="curPointer">{qna_title}</span></td>
+            {isModal('titleInqProd') && <ResultCS1on1 closeModal={closeModal}
+                qna_id={qna_id}
+                product_id={product_id}
+                user_id={user_id}
+                qna_type={qna_type}
+                qna_phone_num={qna_phone_num}
+                qna_reply_check={qna_reply_check}
+                qna_title={qna_title}
+                qna_content={qna_content}
+                qna_upload_file={qna_upload_file}
+                qna_answer={qna_answer}
+            />}
+            {qna_answer !== null && qna_answer !== undefined && qna_answer.length !== 0 ? <td className='qnaAnswer_td'>Y</td> : <td>N</td>}
+            <td><button onClick={() => { deleteInqProd(qna_id) }}>삭제</button></td>
+        </tr>
+
     )
 }
 

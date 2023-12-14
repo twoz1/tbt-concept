@@ -74,3 +74,9 @@
 .faqContWS {
     white-space: pre-line;
 }
+
+.noFaqList {
+    color: #a3a3a3;
+    text-align: center;
+    padding: 70px;
+}

@@ -32,31 +32,35 @@ const NewsCS = () => {
                 <h3><strong>NEWS</strong></h3>
                 <hr />
 
-                {newsList.map((n) => (
-                <div key={n.news_id} className="news_list">
-                    <p>
-                        <button onClick={() => openModal(`nModal${n.news_id}`)}>
-                            <strong>&#91;안내&#93;</strong>
-                            {n.news_title}
-                        </button>
-                        {isModal(`nModal${n.news_id}`) && <div className="modal_cover">
-                            <div className="pop_CS">
-                                <div>
-                                    <span><strong>&#91;안내&#93;</strong></span>
-                                    <span>{n.news_title}</span>
-                                    <div className="d-flex">
-                                        <p className='newsConWS'>{n.news_content}</p>
-                                    </div>
-                                </div>
 
-                                <div className="newsCloseBTN">
-                                    <button onClick={() => closeModal(`nModal${n.news_id}`)}>닫기</button>
-                                </div>
-                            </div>
-                        </div>}
-                    </p>
-                </div>
-                ))}
+                {newsList.length === 0 ? (
+                    <div className='noNewsList'>작성한 게시물이 없습니다.</div>
+                ) :
+                    newsList.map((n) => (
+                        <div key={n.news_id} className="news_list">
+                            <p>
+                                <button onClick={() => openModal(`nModal${n.news_id}`)}>
+                                    <strong>&#91;안내&#93;</strong>
+                                    &nbsp;{n.news_title}
+                                </button>
+                                {isModal(`nModal${n.news_id}`) && <div className="modal_cover">
+                                    <div className="pop_CS">
+                                        <div>
+                                            <span><strong>&#91;안내&#93;</strong></span>
+                                            <span>{n.news_title}</span>
+                                            <div className="d-flex">
+                                                <p className='newsConWS'>{n.news_content}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="newsCloseBTN">
+                                            <button onClick={() => closeModal(`nModal${n.news_id}`)}>닫기</button>
+                                        </div>
+                                    </div>
+                                </div>}
+                            </p>
+                        </div>
+                    ))}
             </section>
         </div>//최종div
     )
