@@ -29,25 +29,36 @@
 						<th>상세보기</th>
 						<th></th>
 					</tr>
-					<c:if test="${not empty requestScope.orderList}">
-						<c:forEach var="o" items="${requestScope.orderList}">
+					<c:if test="${not empty requestScope.findAllDescPage}">
+						<c:forEach var="o" items="${requestScope.findAllDescPage}">
 							<tr>
 								<td><a href="orderListDetail?order_id=${o.order_id}">${o.order_id}</a></td>
 								<td>${o.user_id}</td>
 								<td>${o.order_date}</td>
 								<td>${o.address_name}</td>
-								<td>${o.address_avc}${o.address_city} ${o.address_detail}</td>
+								<td>${o.address_avc}${o.address_city}${o.address_detail}</td>
 								<td>${o.order_total_price}</td>
 								<td>${o.order_state}</td>
 								<td>${o.order_del_state}</td>
 								<td><a href="orderListDetail?order_id=${o.order_id}">상세보기</a></td>
-								<td><button onclick="axOrderDelete('${o.order_id}')"
-										id="${o.order_id}">삭제</button></td>
+								<td>
+									<button onclick="axOrderDelete('${o.order_id}')"
+										id="${o.order_id}">삭제</button>
+								</td>
 							</tr>
 						</c:forEach>
 					</c:if>
 				</table>
-
+				<div class="pagination_wrap">
+					<c:if test="${not empty requestScope.itemPage}">
+						<c:forEach var="pageNumber" begin="0"
+							end="${requestScope.totalPages - 1}">
+							<span onclick="orderListPage(${pageNumber})"
+								class="${pageNumber == requestScope.itemPage.number ? 'currentPage' : ''}">
+								${pageNumber + 1} </span>
+						</c:forEach>
+					</c:if>
+				</div>
 			</div>
 		</main>
 	</div>

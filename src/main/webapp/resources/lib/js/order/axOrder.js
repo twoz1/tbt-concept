@@ -21,3 +21,16 @@ function axOrderDelete(id) {
 		alert("취소되었습니다.");
 	}
 }
+
+function orderListPage(pageNumber) {
+    let url = "/master/order/orderList?page=" + pageNumber;
+
+    axios.get(url)
+        .then(response => {
+            document.getElementById('master/order/orderList').innerHTML = response.data;
+        })
+        .catch(err => {
+            alert("OrderList Pagination response 실패 =>" + err.message);
+        });
+    document.getElementById("master/order/orderList").innerHTML = "";
+}

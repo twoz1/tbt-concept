@@ -3,6 +3,8 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +21,13 @@ public class OrderListServiceImpl implements OrderListService {
 
     @Transactional
     @Override
-    public List<OrderList> findAllDesc() {
-    	 return repository.findAllDesc();
+    public Page<OrderList> findAllDescPage(Pageable pageable) {
+    	return repository.findAllDesc(pageable);
     }
+    
+//    public List<OrderList> findAllDesc() {
+//    	return repository.findAllDesc();
+//    }
     
 	@Override
 	public List<OrderList> selectList() {
