@@ -69,6 +69,16 @@
     background-color: #eee;
 }
 
+.modal_order div:nth-child(4)>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.modal_order div:nth-child(4)>div>a {
+    margin-bottom: 3px;
+}
+
 .modal_order .orderDetail {
     display: block;
     max-height: 58px;

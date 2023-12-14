@@ -34,15 +34,23 @@ const MyCouponList = ({ loginUser }) => {
               <th scope="col">유효기간</th>
             </tr>
           </thead>
-          {filterCoupons.map((c) => {
+          {filterCoupons.length == 0 ?
+            <tbody>
+              <tr>
+                <td colSpan={4}>발급 받은 쿠폰이 없습니다.</td>
+              </tr>
+            </tbody> :
 
-            return (<MyCouponItem key={c[0]}
-              couponName={c[1]}
-              couponDisc={c[2]}
-              couponStart={c[4]}
-              couponEnd={c[5]}
-            />)
-          })}
+            filterCoupons.map((c) => {
+
+              return (<MyCouponItem key={c[0]}
+                couponName={c[1]}
+                couponDisc={c[2]}
+                couponStart={c[4]}
+                couponEnd={c[5]}
+              />)
+            })
+          }
         </table>
       </div>
     </div>

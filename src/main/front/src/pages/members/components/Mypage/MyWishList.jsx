@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import MyWishItem from './MyWishItem';
 import axios from 'axios';
+import Pagination from '../../../customHooks/Pagination';
 
 const MyWishList = ({ loginUser }) => {
 
@@ -27,14 +28,21 @@ const MyWishList = ({ loginUser }) => {
 
     }, [])
 
+    // pagination 구현
+    const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
+    const listPerPage = 3;  // 페이지 당 게시글 개수
+    const totalPages = Math.ceil(wish.length / listPerPage);    // 전체 페이지 번호
 
-    const onRemove = targetId => {
-        const wishConf = window.confirm("관심상품을 해제하시겠습니까?");
-        if (wishConf) {
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
-            alert("관심상품이 해제되었습니다.");
-        };
-    }
+    const getPaginatedData = () => {
+        const startIndex = (currentPage - 1) * listPerPage;
+        const endIndex = startIndex + listPerPage;
+        return wish.slice(startIndex, endIndex);
+    };
+
 
     return (
         <div className="MyWishList">
@@ -49,8 +57,21 @@ const MyWishList = ({ loginUser }) => {
                             <th></th>
                         </tr>
                     </thead>
-                    {wish.map((it) => { return (<MyWishItem {...it} onRemove={onRemove} />) })}
+
+                    {getPaginatedData().length == 0 ? <tbody>
+                        <tr>
+                            <td colSpan={4}>추가한 관심 상품이 없습니다.</td>
+                        </tr>
+                    </tbody> :
+                        getPaginatedData().map((it) => { return (<MyWishItem {...it} user_id={loginUser.user_id} />) })}
                 </table>
+                {getPaginatedData().length !== 0 ? (
+                    <div>
+                        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}></Pagination>
+                    </div>
+                ) : <div></div>}
+
+
             </div>
         </div>
     )

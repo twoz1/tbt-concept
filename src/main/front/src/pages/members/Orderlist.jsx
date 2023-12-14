@@ -23,7 +23,7 @@ const Orderlist = ({ }) => {
             }).catch((err) => {
                 alert(`** checkdata 서버연결 실패 => ${err.message}`);
             });
-    }, [loginUser])
+    }, [])
 
 
     const [btnActive, setBtnActive] = useState("");

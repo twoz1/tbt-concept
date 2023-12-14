@@ -45,7 +45,13 @@ const MyOrderList = ({ loginUser }) => {
                             <th></th>
                         </tr>
                     </thead>
-                    {order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.order_id} {...order} user_id={loginUser.user_id} />) })}
+                    {order.length == 0 ?
+                        <tbody>
+                            <tr>
+                                <td colSpan={7}>주문 내역이 없습니다.</td>
+                            </tr>
+                        </tbody> :
+                        order.slice(0, 3).map((order) => { return (<MyOrderItem key={order.order_id} {...order} user_id={loginUser.user_id} />) })}
                 </table>
             </div>
         </div>

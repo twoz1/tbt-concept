@@ -26,11 +26,11 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
 
     function axOrderDelete(id) {
         let url = "/order/orderlistdelete/" + id;
-    
+
         if (window.confirm("주문취소 하시겠습니까?")) {
             axios.delete(url
             ).then(response => {
-                alert("취소되었습니다." );
+                alert("취소되었습니다.");
                 window.location.reload();
                 console.log(response.data);
             }).catch(err => {
@@ -51,7 +51,8 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
         <div>
             <div className="modal_cover">
                 <div className="modal_order">
-                    <div><h4>주문자 정보</h4>
+                    <div>
+                        <h4>주문자 정보</h4>
                         <table>
                             <tr>
                                 <th scope="row">주문번호</th>
@@ -65,7 +66,8 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
                                 <th scope="row">입금현황</th>
                                 <td>{order_state}</td>
                             </tr>
-                        </table></div>
+                        </table>
+                    </div>
 
                     <div>
                         <h4>배송지 정보</h4>
@@ -94,7 +96,7 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
                                 <th scope="col"></th>
                             </tr>
                             <tbody class="orderDetail">
-                                {orderDetail.map((detail) => { return (<OrderDetail user_id={user_id} {...detail} />) })}
+                                {orderDetail.map((detail) => { return (<OrderDetail user_id={user_id} {...detail} order_del_state={order_del_state} />) })}
                             </tbody>
                             <tr class="lastP">
                                 <td colspan="4" className="total">
@@ -107,7 +109,10 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
                     </div>
 
                     <div>
-                        <h4>배송 현황</h4>
+                        <div>
+                            <h4>배송 현황</h4>
+                            <a href='https://www.cjlogistics.com/ko/tool/parcel/tracking'>배송조회 바로가기</a>
+                        </div>
                         <table>
                             <tr>
                                 <th>배송사</th>
@@ -119,9 +124,9 @@ const OrderModal = ({ closeModal, user_id, order_id, order_date, address_name, a
                     </div>
 
                     <div className="Modal_btn">
-                        <button onClick={() => window.open("https://www.cjlogistics.com/ko/tool/parcel/tracking", '_blank')}>베송조회</button>
+                        {/* <button onClick={() => window.open("https://www.cjlogistics.com/ko/tool/parcel/tracking", '_blank')}>배송조회</button> */}
+                        {order_state === "입금대기" || order_del_state === "배송완료" ? <button className='order_cancel' onClick={() => axOrderDelete(order_id)}>주문취소</button> : ""}
                         <button className="close" onClick={() => closeModal('delivery')}>닫기</button>
-                        {order_state=== "입금대기" || order_del_state === "배송완료" ? <button className='order_cancel' onClick={()=>axOrderDelete(order_id)}>주문취소</button> : ""}
                         {/* <button className='order_cancel' onClick={()=>axOrderDelete(order_id)}>주문취소</button> */}
                     </div>
                 </div>
