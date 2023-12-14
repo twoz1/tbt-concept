@@ -39,7 +39,7 @@ body {
 .section .choice {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    /* gap: 60px; */
     width: 450px;
     
 }
@@ -59,12 +59,19 @@ body {
     color: orangered;
 }
 
+
 .choice_1,
 .choice_2,
 .total {
-    margin-bottom: 30px;
+    padding-left: 25px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+.choice_1,
+.choice_2{
     border-bottom: 1px solid #eee;
-    padding: 25px;
 }
 
 .choice_button {
@@ -75,7 +82,6 @@ body {
 
 .choice_button>a,
 .gotoCart {
-    margin-top: 20px;
     width: 40%;
     height: 50px;
     line-height: 50px;
@@ -86,7 +92,6 @@ body {
 }
 
 .likedItem {
-    margin-top: 20px;
     border: 2px solid #aba8a8;
     height: 50px;
     line-height: 50px;
@@ -294,6 +299,8 @@ body {
     display: flex;
     gap: 10px;
     margin-bottom: 5px;
+    border-bottom: 1px solid;
+    padding: 5px;
 }
 
 .review_nav span {
@@ -380,15 +387,19 @@ reviewList_buttonstar_id_date.customer_review_button {
     text-align: left;
 }
 
-.tableDpQnA thead {
+.tableDpQnA thead th{
     height: 40px;
     font-size: 16px;
-    border-top: 1px solid #eee;
+    border-bottom: 1px solid;
+    padding-left: 5px;
 }
+
+
 
 .tableDpQnA tbody td {
     font-size: 14px;
     line-height: 25px;
+    padding: 5px;
 }
 
 .tableDpQnA thead th:nth-of-type(1) {
@@ -420,50 +431,9 @@ reviewList_buttonstar_id_date.customer_review_button {
     width: 5%;
 }
 
-
-/* .customer_q_a {
-    margin: 30px;
-    height: 80px;
-    display: flex;
-    align-items: center;
+.dpQnABtn{
+    padding: 11px;
 }
-
-#q_a_answer_complecation {
-    flex: 1;
-}
-
-#q_a_answer_complecation em {
-    font-style: normal;
-    border: 1px solid;
-    border-radius: 10%;
-    padding: 1px;
-    background-color: #eee;
-}
-
-#q_a_inquiy {
-    flex: 6;
-}
-
-#q_a_user_id {
-    flex: 1;
-}
-
-#q_a_date {
-    flex: 1;
-}
-
-.customer_q_a_next_page {
-    text-align: center;
-    margin-bottom: 30px;
-    border: none;
-    background-color: white;
-    margin: 3px
-}
-
-.customer_q_a_next_page a {
-    font-size: 12px;
-} */
-
 /* =======return&delivery================================ */
 .return_delivery {
     display: flex;

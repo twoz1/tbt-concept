@@ -3,8 +3,8 @@ import useModal from '../../../customHooks/useModal';
 import { useState } from 'react';
 import axios from "axios";
 
-const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_star, review_content, review_upload_file , product_id, review_date}) => {
-   
+const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id, review_star, review_content, review_upload_file, product_id, review_date }) => {
+
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
     const { openModal, closeModal, isModal } = useModal();
@@ -27,7 +27,7 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
         default: reviewScoreTextView = reviewScoreText[0];
     }
 
-    
+
     const [isImageExpanded, setIsImageExpanded] = useState(false);
 
     const handleImageClick = () => {
@@ -57,7 +57,6 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
         }
     }
 
-    
     return (
         <div className="customer_review" id="question_answer">
             <div className="star_id_date">
@@ -67,42 +66,38 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id,review_
                     ))} {reviewScoreTextView}
                 </span>
                 <div className='review_id_date'>
-
-                <span >{user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(user_id.length - 3))}
-                </span>
-                <span>{review_date}</span>
-
+                    <span >{user_id.replace(/^(.{3}).*/, (_, chars) => chars + "*".repeat(user_id.length - 3))}</span>
+                    <span>{review_date}</span>
                 </div>
             </div>
 
             <p className='revContWS'>{review_content}</p>
+            {review_upload_file == null ? null :
+                <div className="image-container" style={{ height: isImageExpanded ? '500px' : '100px' }} onClick={handleImageClick}>
+                    <img
+                        style={{ height: '100%', width: 'auto', objectFit: 'cover' }}
+                        src={require(`../../../../images/review/${review_upload_file}`)}
+                        alt="review_upload_file"
+                    />
+                </div>}
 
-            <div className="image-container" style={{ height: isImageExpanded ? '500px' : '100px' }} onClick={handleImageClick}>
-                <img
-                    style={{ height: '100%', width: 'auto', objectFit: 'cover' }}
-                    src={require(`../../../../images/review/${review_upload_file}`)}
-                    alt="review_upload_file"
-                />
-            </div>
-            
             {loginUser && loginUser.user_id && user_id === loginUser.user_id ?
-            <div className="reviewList_button">
-                <span onClick={()=>{openModal("DpReviewModal")}}>수정</span>
-                {isModal("DpReviewModal") && <DpReviewModal closeModal={closeModal} product_id={product_id}
-                                                            review_id={review_id}
-                                                             starLength={starLength}
-                                                             reviewScoreText={reviewScoreText}
-                                                             user_id={user_id}
-                                                            review_star={review_star}
-                                                             review_content={review_content}
-                                                             review_upload_file={review_upload_file}
-                />}
-                <span onClick={()=>{deleteReview(review_id)}}>삭제</span>
-            </div>
-             : 
-             <div></div>
-             
-             }
+                <div className="reviewList_button">
+                    <span onClick={() => { openModal("DpReviewModal") }}>수정</span>
+                    {isModal("DpReviewModal") && <DpReviewModal closeModal={closeModal} product_id={product_id}
+                        review_id={review_id}
+                        starLength={starLength}
+                        reviewScoreText={reviewScoreText}
+                        user_id={user_id}
+                        review_star={review_star}
+                        review_content={review_content}
+                        review_upload_file={review_upload_file}
+                    />}
+                    <span onClick={() => { deleteReview(review_id) }}>삭제</span>
+                </div>
+                :
+                <div></div>
+            }
         </div>
     );
 }

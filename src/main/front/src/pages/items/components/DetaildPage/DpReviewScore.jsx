@@ -139,7 +139,7 @@ const DpReviewScore = ({ product_id }) => {
                 <span onClick={clickGradRow} className={spanActive === 'spanGradRow' ? 'active' : ''}>평점낮은순</span>
                 {/* <span>추천순</span> */}
             </div >
-            <hr />
+            
 
             {/* ----------------리뷰2---------------- */}
             {getPaginatedData().length !== 0 ?

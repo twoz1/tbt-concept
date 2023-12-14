@@ -71,7 +71,7 @@ const DpQnAList = ({ qna_id, product_id, user_id, qna_type, qna_phone_num, qna_r
         )}
 
         {loginUser && loginUser.user_id && user_id === loginUser.user_id ? (
-          <button onClick={() => { deleteDpQnA(qna_id) }}>삭제</button>
+          <button className="dpQnABtn" onClick={() => { deleteDpQnA(qna_id) }}>삭제</button>
         ) : (
           null
         )}
