@@ -82,7 +82,7 @@ const Mypage = ({ order }) => {
                 </div>
                 <MyOrderList loginUser={loginUser} />
                 <MyCouponList loginUser={loginUser} />
-                <MyWishList />
+                <MyWishList loginUser={loginUser} />
             </div>
         </div >
     ));

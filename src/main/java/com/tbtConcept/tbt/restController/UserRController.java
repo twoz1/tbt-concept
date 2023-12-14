@@ -3,6 +3,7 @@ package com.tbtConcept.tbt.restController;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -186,20 +187,19 @@ public class UserRController {
 	// ======================================================================================
 	
 	
-	@GetMapping("/wlist/{user_id}")
-	public List<WishProdDTO> getWishList(@PathVariable("user_id") String user_id) {
+	@GetMapping("/wlist")
+	public List<WishProdDTO> getWishList(@RequestParam("user_id") String user_id) {
 		
-		return wishService.selectListDesc();
+		return wishService.selectListDesc(user_id);
 	}
 	
 	@GetMapping("/wdetail")
-	public Wish getWishDetail(@RequestParam("user_id") String user_id,@RequestParam("product_id") int product_id ) {
-		
-		return wishService.selectDetail(new WishId(user_id, product_id));
+	public Optional<Wish> getWishDetail(@RequestParam("user_id") String user_id, @RequestParam("product_id") int product_id ) {
+			return wishService.selectDetail(new WishId(user_id, product_id));
 	}
 	
 	@PostMapping(value="/winsert")
-	public String postWishInsert( @RequestBody Wish entity ) {
+	public String postWishInsert(@RequestBody Wish entity) {
 		
 		entity.setWish_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
