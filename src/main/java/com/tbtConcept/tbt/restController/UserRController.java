@@ -1,9 +1,12 @@
 package com.tbtConcept.tbt.restController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,10 +17,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tbtConcept.tbt.domain.WishProdDTO;
 import com.tbtConcept.tbt.entity.User;
+import com.tbtConcept.tbt.entity.Wish;
+import com.tbtConcept.tbt.entity.WishId;
 import com.tbtConcept.tbt.service.UserService;
+import com.tbtConcept.tbt.service.WishService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -29,7 +37,10 @@ import lombok.extern.log4j.Log4j2;
 public class UserRController {
 	UserService userService;
 	PasswordEncoder passwordEncoder;
+	
+	WishService wishService;
 
+	
 	@GetMapping("/idDupCheck")
 	public String idDupCheck(HttpServletRequest request, Model model) {
 		String id = request.getParameter("id");
@@ -155,8 +166,7 @@ public class UserRController {
 	} //passwordUpdate
 
 
-
-
+	
 	@DeleteMapping(value = "uDelete/{userId}")
 	public ResponseEntity<?> axUserDelete(@PathVariable("userId") String id) {
 		if (userService.delete(id) != null) {
@@ -169,6 +179,49 @@ public class UserRController {
 			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
 		}
 	}
+	
+	
+	
+	
+	// ======================================================================================
+	
+	
+	@GetMapping("/wlist/{user_id}")
+	public List<WishProdDTO> getWishList(@PathVariable("user_id") String user_id) {
+		
+		return wishService.selectListDesc();
+	}
+	
+	@GetMapping("/wdetail")
+	public Wish getWishDetail(@RequestParam("user_id") String user_id,@RequestParam("product_id") int product_id ) {
+		
+		return wishService.selectDetail(new WishId(user_id, product_id));
+	}
+	
+	@PostMapping(value="/winsert")
+	public String postWishInsert( @RequestBody Wish entity ) {
+		
+		entity.setWish_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+		if(wishService.save(entity)>0) {
+			return "성공";
+		}else {
+			return "실패";
+		}
+		
+	}
+
+
+	@DeleteMapping(value = "/wdelete")
+	public ResponseEntity<?> deleteWish(@RequestBody Wish entity) {
+		
+		if (wishService.delete(new WishId(entity.getUser_id(),entity.getProduct_id())) != null) {
+			return new ResponseEntity<String>("[삭제성공]", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>("[삭제실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+		}
+	}
+	
 
 
 
