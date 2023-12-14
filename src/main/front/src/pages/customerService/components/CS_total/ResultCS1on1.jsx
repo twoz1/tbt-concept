@@ -38,7 +38,7 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
             }).then(response => {
                 console.log("updateQnA1on1 수정 완료");
                 alert("수정되었습니다");
-                navigateUpdateTo("/cs");
+                window.location.reload();
             }).catch(err => {
                 if (err.response.status == "502") {
                     alert("[입력 오류] 다시 시도하세요.");
@@ -46,10 +46,6 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
                     alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
                 }
             });
-        }
-
-        function navigateUpdateTo(url) {
-            window.location.href = url;
         }
 
         // 파일 update 시에 사진 스위치를 위한 useEffect

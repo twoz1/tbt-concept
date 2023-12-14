@@ -57,7 +57,7 @@ const DetailedPage = ({ starScore }) => {
                     <DpSelectOption key={productDetail.product_id}{...productDetail} />
                 </div>
 
-                <div className="nav nav1">
+                <div className="nav nav1" id="detail">
                     <ul>
                         <li><a href="#detail">DETAIL</a></li>
                         <li><a href="#review">REVIEW</a></li>
@@ -71,7 +71,7 @@ const DetailedPage = ({ starScore }) => {
                 {/* <!-- ==============리뷰1======================================================= --> */}
 
 
-                <div className="nav nav2">
+                <div className="nav nav2" id="review">
                     <ul>
                         <li><a href="#detail">DETAIL</a></li>
                         <li><a href="#review">REVIEW</a></li>
@@ -97,7 +97,7 @@ const DetailedPage = ({ starScore }) => {
                     <DpQnA product_id={product_id} />
 
 
-                    <div className="nav nav4">
+                    <div className="nav nav4" id="return_delivery">
                         <ul>
                             <li><a href="#detail">DETAIL</a></li>
                             <li><a href="#review">REVIEW</a></li>

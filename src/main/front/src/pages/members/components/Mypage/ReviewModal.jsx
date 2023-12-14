@@ -18,10 +18,16 @@ export function useStar() {
 
 }
 
-export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id }) => {
+export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id}) => {
 
 
     function insertReview() {
+
+        const review_content = document.getElementById("review_content").value;
+        if (review_content.length < 30) {
+            alert("리뷰는 30자 이상이어야 합니다.");
+            return;
+        }
 
         let formData = new FormData(document.getElementById("subtitleID_review"));
 
