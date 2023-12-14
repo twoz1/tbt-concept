@@ -72,14 +72,25 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id, review
             </div>
 
             <p className='revContWS'>{review_content}</p>
-            {review_upload_file == null ? null :
+
+            {review_upload_file ? (
                 <div className="image-container" style={{ height: isImageExpanded ? '500px' : '100px' }} onClick={handleImageClick}>
                     <img
                         style={{ height: '100%', width: 'auto', objectFit: 'cover' }}
                         src={require(`../../../../images/review/${review_upload_file}`)}
                         alt="review_upload_file"
                     />
-                </div>}
+                </div>
+            ) : (
+                isImageExpanded ? (
+
+                    <img
+                        style={{ height: '100%', width: 'auto', objectFit: 'cover' }}
+                        src={require(`../../../../images/review/${review_upload_file}`)}
+                        alt="review_upload_file"
+                    />
+                ) : null
+            )}
 
             {loginUser && loginUser.user_id && user_id === loginUser.user_id ?
                 <div className="reviewList_button">
