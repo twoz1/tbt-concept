@@ -41,7 +41,8 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 	};
 
 	// QnA1on1 insert ===================================================
-	function insertQnA1on1() {
+	function insertQnA1on1(e) {
+		e.preventDefault();
 
 		let formData = new FormData(document.getElementById("subtitleID_1on1"));
 		let product_id = 0;
@@ -83,7 +84,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 					</div>
 
 					{/* ==========1:1 문의 입력 정보창=========== */}
-					<form id='subtitleID_1on1' className="subtitle_1on1" enctype="multipart/form-data">
+					<form id='subtitleID_1on1' className="subtitle_1on1" enctype="multipart/form-data" onSubmit={(e) => insertQnA1on1(e)}>
 						<figure>
 							<figcaption><strong>1&#58;1 문의</strong></figcaption>
 
@@ -216,7 +217,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 
 						<div className="btn_submit">
 							<button onClick={() => closeModal('inqProdCS1on1')}>취소</button>
-							<button onClick={() => insertQnA1on1()}>등록</button>
+							<button>등록</button>
 						</div>
 					</form>
 				</div>
