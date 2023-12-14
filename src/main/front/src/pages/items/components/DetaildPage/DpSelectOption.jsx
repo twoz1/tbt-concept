@@ -15,8 +15,74 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
     const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, product_price);
 
     const [isLiked, setIsLiked] = useState(false);
-    const likedItem = () => {
-        setIsLiked(!isLiked);
+
+    useEffect(() => {
+
+        if (loginUser != null) {
+            axios.get("/user/wdetail", {
+                user_id: loginUser.user_id,
+                product_id: product_id,
+            }).then(response => {
+                if (response.data != null) {
+                    setIsLiked(true);
+                } else {
+                    setIsLiked(false);
+                }
+            }).catch(err => {
+                if (err.response.status == "502") {
+                    alert("[입력 오류] 다시 시도하세요.");
+                } else {
+                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                }
+            });
+        }
+    }, [])
+
+
+    const likedItem = (e) => {
+
+        e.preventDefault();
+
+        if (loginUser != null) {
+
+            if (!isLiked) {
+                axios.post("/user/winsert", {
+                    user_id: loginUser.user_id,
+                    product_id: product_id,
+                })
+                    .then(response => {
+                        if (response.data == "성공") {
+                            setIsLiked(true);
+                        } else {
+                            setIsLiked(false);
+                        }
+                    }).catch(err => {
+                        setIsLiked(false);
+                        if (err.response.status == "502") {
+                            alert("[입력 오류] 다시 시도하세요.");
+                        } else {
+                            alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                        }
+                    });
+            } else {
+                axios.delete("/user/wdelete", {
+                    user_id: loginUser.user_id,
+                    product_id: product_id,
+                })
+                    .then(response => {
+                        setIsLiked(false);
+                    }).catch(err => {
+                        if (err.response.status == "502") {
+                            alert("[입력 오류] 다시 시도하세요.");
+                        } else {
+                            alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                        }
+                    });
+            }
+
+        } else {
+            alert("로그인 후 이용해주세요.");
+        }
     }
 
     const heartIconStyle = {
@@ -101,7 +167,7 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
 
                     <button className='gotoCart'>쇼핑백 담기</button>
                     {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}
-                    <button type="button" className="likedItem" onClick={likedItem} >
+                    <button type="button" className="likedItem" onClick={(e) => likedItem(e)} >
                         <i className="fa-sharp fa-solid fa-heart" style={heartIconStyle} ></i>
                     </button>
                 </div>
