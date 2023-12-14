@@ -1,32 +1,37 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyWishItem from './MyWishItem';
+import axios from 'axios';
 
-const wishList = [
-    {
-        id: 0,
-        wishDate: "2023-01-01",
-        wishName: "antonCrystal",
-        wishTitle: "sunglass N-01 시리즈 black,white,navy",
-        wishColor: "Black"
-    },
-    {
-        id: 1,
-        wishDate: "2023-01-01",
-        wishName: "antonCrystal",
-        wishTitle: "sunglass N-01 시리즈 black,white,navy",
-        wishColor: "Black"
-    }
-]
+const MyWishList = ({ loginUser }) => {
 
-const MyWishList = () => {
+    const [wish, setWish] = useState([]);
 
-    const [wish, setWish] = useState(wishList);
+    useEffect(() => {
+
+        axios.get("/user/wlist", {
+            params: {
+                user_id: loginUser.user_id,
+            }
+        }).then(response => {
+            if (response.data !== null) {
+                setWish(response.data);
+            }
+        }).catch(err => {
+            if (err.response.status == "502") {
+                alert("[wish detail 입력 오류] 다시 시도하세요.");
+            } else {
+                alert("[wish detail 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+            }
+        });
+
+    }, [])
+
 
     const onRemove = targetId => {
         const wishConf = window.confirm("관심상품을 해제하시겠습니까?");
         if (wishConf) {
-            setWish(wish.filter((wish) => wish.id !== targetId));
+
             alert("관심상품이 해제되었습니다.");
         };
     }
@@ -40,12 +45,11 @@ const MyWishList = () => {
                         <tr>
                             <th scope="col">관심등록일</th>
                             <th scope="col">상품명</th>
-                            <th scope="col">옵션</th>
                             <th scope="col">상태</th>
                             <th></th>
                         </tr>
                     </thead>
-                    {wish.map((it) => { return (<MyWishItem key={it.id}{...it} onRemove={onRemove} />) })}
+                    {wish.map((it) => { return (<MyWishItem {...it} onRemove={onRemove} />) })}
                 </table>
             </div>
         </div>

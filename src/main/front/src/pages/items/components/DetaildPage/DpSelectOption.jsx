@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useModal from '../../../customHooks/useModal';
 import Modal_gotobasket from './Modal_gotobasket';
 import axios from 'axios';
+import navigateTo from '../../../config/navigateTo';
 
 
 const DpSelectOption = ({ product_name, product_price, product_img1, product_id, code }) => {
@@ -11,6 +12,7 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
     const { openModal, closeModal, isModal } = useModal();
 
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+    console.log(loginUser);
 
     const { quantityGoods, changeQuantity, totalPricing } = usePricing(1, product_price);
 
@@ -18,32 +20,37 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
 
     useEffect(() => {
 
-        if (loginUser != null) {
+        if (loginUser !== null) {
+
             axios.get("/user/wdetail", {
-                user_id: loginUser.user_id,
-                product_id: product_id,
+                params: {
+                    user_id: loginUser.user_id,
+                    product_id: product_id,
+                }
             }).then(response => {
-                if (response.data != null) {
+                if (response.data !== null) {
                     setIsLiked(true);
                 } else {
                     setIsLiked(false);
                 }
             }).catch(err => {
                 if (err.response.status == "502") {
-                    alert("[입력 오류] 다시 시도하세요.");
+                    alert("[wish detail 입력 오류] 다시 시도하세요.");
                 } else {
-                    alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                    alert("[wish detail 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
                 }
             });
         }
     }, [])
+
+    console.log(isLiked);
 
 
     const likedItem = (e) => {
 
         e.preventDefault();
 
-        if (loginUser != null) {
+        if (loginUser !== null) {
 
             if (!isLiked) {
                 axios.post("/user/winsert", {
@@ -53,35 +60,34 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
                     .then(response => {
                         if (response.data == "성공") {
                             setIsLiked(true);
-                        } else {
-                            setIsLiked(false);
                         }
                     }).catch(err => {
-                        setIsLiked(false);
                         if (err.response.status == "502") {
-                            alert("[입력 오류] 다시 시도하세요.");
+                            alert("[wish insert 입력 오류] 다시 시도하세요.");
                         } else {
-                            alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                            alert("[wish insert 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
                         }
                     });
             } else {
                 axios.delete("/user/wdelete", {
-                    user_id: loginUser.user_id,
-                    product_id: product_id,
-                })
-                    .then(response => {
-                        setIsLiked(false);
-                    }).catch(err => {
-                        if (err.response.status == "502") {
-                            alert("[입력 오류] 다시 시도하세요.");
-                        } else {
-                            alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
-                        }
-                    });
+                    data: {
+                        user_id: loginUser.user_id,
+                        product_id: product_id,
+                    }
+                }).then(response => {
+                    setIsLiked(false);
+                }).catch(err => {
+                    if (err.response.status == "502") {
+                        alert("[wish delete 입력 오류] 다시 시도하세요.");
+                    } else {
+                        alert("[wish delete 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                    }
+                });
             }
 
         } else {
             alert("로그인 후 이용해주세요.");
+            navigateTo("/login");
         }
     }
 
@@ -110,9 +116,9 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
                     }
                 }).catch(err => {
                     if (err.response.status == "502") {
-                        alert("[입력 오류] 다시 시도하세요.");
+                        alert("[cart 입력 오류] 다시 시도하세요.");
                     } else {
-                        alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
+                        alert("[cart 시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
                     }
                 });
         } else {

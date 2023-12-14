@@ -18,19 +18,15 @@ public class WishServiceImpl implements WishService {
 	private final WishRepository repository;
 
 	@Override
-	public List<WishProdDTO> selectListDesc() {
-		return repository.selectListDesc();
+	public List<WishProdDTO> selectListDesc(String user_id) {
+		return repository.selectListDesc(user_id);
 	}
 	
 	@Override
-	public Wish selectDetail(WishId wish_id) {
-		Optional<Wish> result = repository.findById(wish_id);
+	public Optional<Wish> selectDetail(WishId wish_id) {
+		return repository.findById(wish_id);
 		
-		if(result.isPresent()) {
-			return result.get();
-		}else {
-			return null;
-		}
+	
 	}
 	
 	@Override
