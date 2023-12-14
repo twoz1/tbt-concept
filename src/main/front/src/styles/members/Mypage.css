@@ -1,6 +1,5 @@
 .cover {
     margin: 50px 0;
-    
 }
 
 h3 {
@@ -115,7 +114,7 @@ h3 {
     font-size: 16px;
 }
 
-.update_span{
+.update_span {
     text-decoration: underline;
 }
 
@@ -131,7 +130,7 @@ h3 {
 
 /* 관심상품 */
 
-.wishlist i {
+.wishlist i.fa-heart {
     font-size: 24px;
     color: orangered;
 }

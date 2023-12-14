@@ -213,12 +213,12 @@ public class UserRController {
 
 
 	@DeleteMapping(value = "/wdelete")
-	public ResponseEntity<?> deleteWish(@RequestBody Wish entity) {
+	public String deleteWish(@RequestBody Wish entity) {
 		
 		if (wishService.delete(new WishId(entity.getUser_id(),entity.getProduct_id())) != null) {
-			return new ResponseEntity<String>("[삭제성공]", HttpStatus.OK);
+			return "삭제성공";
 		} else {
-			return new ResponseEntity<String>("[삭제실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+			return "삭제실패";
 		}
 	}
 	

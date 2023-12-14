@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tbtConcept.tbt.domain.OrderProdDTO;
 import com.tbtConcept.tbt.domain.OrderRequest;
 import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.entity.OrderDetail;
@@ -121,9 +122,9 @@ public class OrderListRController {
 
 
 	@GetMapping("/userOrderDetail")
-	public List<OrderDetail> userOrderDetailL(Model model, @RequestParam("id") String id) {
+	public List<OrderProdDTO> userOrderDetailL(Model model, @RequestParam("id") String id) {
 
-		return orderdService.findByIdDetails(id);
+		return orderdService.perOrderUser(id);
 	}
 
 	// ==============================================================================================
