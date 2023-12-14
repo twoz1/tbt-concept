@@ -55,8 +55,8 @@ const DpQnA = ({ product_id }) => {
 
         <tbody>
           {getPaginatedData().length === 0 ? (
-            <tr className="customer_q_a">
-              <td colSpan="5">작성한 게시물이 없습니다.</td>
+            <tr>
+              <td className='review_board' colSpan="5">작성한 게시물이 없습니다.</td>
             </tr>
           ) : getPaginatedData().map((qna) => {
             return (<DpQnAList key={qna.qna_id}{...qna} />);
