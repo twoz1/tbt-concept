@@ -37,13 +37,16 @@ public class CouponController {
 	}
 	
 	@GetMapping("/couponDownList")
-	public void getUserCList(Model model, @RequestParam(value="page", defaultValue="1") int page) {
+	public void getUserCList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
 		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(5).build();
 		
-        PageResultDTO<UserCoupon> resultDTO = couListService.selectList(requestDTO);
+        PageResultDTO<UserCoupon> resultDTO = couListService.selectList(requestDTO, searchType, keyword);
 		
 		model.addAttribute("couponDownList", resultDTO.getEntityList());
 		model.addAttribute("resultDTO", resultDTO);
+		model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 		
 	}
 	

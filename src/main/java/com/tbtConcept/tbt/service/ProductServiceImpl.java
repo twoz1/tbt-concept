@@ -5,8 +5,12 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.repository.ProductRepository;
 
@@ -19,23 +23,24 @@ public class ProductServiceImpl implements ProductService {
 	private final ProductRepository repository;
 	
 	@Override
-	public List<Product> selectList() {
-		return repository.findAll();
+	public PageResultDTO<Product> selectList(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+        Page<Product> result = repository.selectList(pageable, searchType, keyword);
+		
+		return new PageResultDTO<>(result);
 	}
 	
-	@Transactional
 	@Override
 	public List<Product> findAllDesc() {
 		return repository.findAllDesc();
 	}
 
-	@Transactional
 	@Override
 	public List<Product> selectSDesc(){
 		return repository.selectSDesc();
 	};
-	
-	@Transactional
+
 	@Override
 	public List<Product> selectGDesc(){
 		return repository.selectGDesc();

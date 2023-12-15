@@ -5,8 +5,6 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
@@ -24,12 +22,12 @@ public class UserCouponServiceImpl implements UserCouponService {
 	private final UserCouponRepository repository;
 	
 	@Override
-	public PageResultDTO<UserCoupon> selectList(PageRequestDTO requestDTO) {
-        Pageable pageable = requestDTO.getPageable(Sort.by("couponStart").descending());
+	public PageResultDTO<UserCoupon> selectList(PageRequestDTO requestDTO, String searchType, String keyword) {
+        Pageable pageable = requestDTO.getPageable();
 
-        Page<UserCoupon> result = repository.findAll(pageable);
+        Page<UserCoupon> result = repository.selectList(pageable, searchType, keyword);
         
-        return new PageResultDTO<>(result);
+        return new PageResultDTO<UserCoupon>(result);
     }
 	
 	@Override

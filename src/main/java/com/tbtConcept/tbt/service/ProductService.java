@@ -2,24 +2,20 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Product;
 
 public interface ProductService {
 	
-	List<Product> selectList();
+	PageResultDTO<Product> selectList(PageRequestDTO requestDTO, String searchType, String keyword);
 	
-	@Transactional
 	List<Product> findAllDesc();
 	
-	@Transactional
 	List<Product> selectSDesc();
 	
-	@Transactional
 	List<Product> selectGDesc();
 	
-	@Transactional
 	List<Product> searchByProductLikeA(String mSearBarKeyword);
 	
 	Product selectDetail(int id);

@@ -3,8 +3,12 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.domain.WishProdDTO;
 import com.tbtConcept.tbt.entity.Wish;
 import com.tbtConcept.tbt.entity.WishId;
@@ -20,6 +24,15 @@ public class WishServiceImpl implements WishService {
 	@Override
 	public List<WishProdDTO> selectListDesc(String user_id) {
 		return repository.selectListDesc(user_id);
+	}
+	
+	@Override
+	public PageResultDTO<WishProdDTO> selectList(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+        Page<WishProdDTO> result = repository.selectList(pageable, searchType, keyword);
+		
+		return new PageResultDTO<>(result);
 	}
 	
 	@Override

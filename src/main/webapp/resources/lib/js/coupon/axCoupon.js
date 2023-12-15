@@ -1,6 +1,5 @@
 "use strict";
 
-history.replaceState({}, null, location.pathname); 
 function axCouponDelete(id) {
 	let url = "/master/coupon/coupondelete/" + id;
 

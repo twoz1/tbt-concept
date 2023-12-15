@@ -5,54 +5,51 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 쿠폰 발급 목록 | tbt_concept</title>
+<title>관심상품 목록 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/resources/lib/js/coupon/axCoupon.js"></script>
-<link rel="stylesheet" href="/resources/lib/css/coupon/couponList.css" />
+<script src="/resources/lib/js/user/axUser.js"></script>
 </head>
 <body>
 	<div id="master_wrap">
 		<%@ include file="../masterHeader.jsp" %>
 		<main id="master_main">
-			<div class="couponU_list master_list">
-				<h2 class="master_title">회원 쿠폰 발급 리스트</h2>
-				<a class="m_button l_button" href="couponList">쿠폰관리</a>
-				<div class="searchBox">
-					<form action="couponDownList" method="get">
+			<div class="wish_list master_list">
+				<h2 class="master_title">관심상품 리스트</h2>
+				<form action="wishList" method="get">
 					    <select name="searchType" id="searchType" onchange="keywordClear()">
 					        <option value="all" ${requestScope.searchType == 'all' ? "selected" : "" }>전체</option>
 					        <option value="user_id" ${requestScope.searchType == 'user_id' ? "selected" : "" }>회원ID</option>
-					        <option value="coupon_id" ${requestScope.searchType == 'coupon_id' ? "selected" : "" }>쿠폰ID</option>
+					        <option value="product_name" ${requestScope.searchType == 'product_name' ? "selected" : "" }>쿠폰ID</option>
 					    </select>
 					    <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." value="${requestScope.keyword}" />
 					    <button type="submit" id="searchBtn">Search</button>
 					</form>
-				</div>
 				<table>
 					<tr>
-						<th>쿠폰ID</th>
+						<th>관심등록일</th>
 						<th>회원ID</th>
-						<th>쿠폰발급일</th>
-						<th>쿠폰만료일</th>
+						<th>상품ID</th>
+						<th>상품명</th>
+						<th></th>
 					</tr>
 					
-					<c:if test="${not empty requestScope.couponDownList}">
-						<c:forEach var="c" items="${requestScope.couponDownList}">
+					<c:if test="${not empty requestScope.wishList}">
+						<c:forEach var="w" items="${requestScope.wishList}">
 							<tr>
-								<td>${c.coupon_id}</td>
-								<td>${c.user_id}</td>
-								<td>${c.coupon_start}</td>
-								<td>${c.coupon_end}</td>
+								<td>${w.wish_date}</td>
+								<td>${w.user_id}</td>
+								<td>${w.product_id}</td>
+								<td>${w.product_name}</td>
+								<td><button onclick="axWishDelete('${w.user_id}')">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>
 				</table>
-				 
 				 <div class="pageNation">
 					 <c:choose>
 						<c:when test="${resultDTO.start != resultDTO.page}">
-						  	<a class ="firstB" href="couponDownList?page=${resultDTO.start}&searchType=${searchType}&keyword=${keyword}">처음</a>
-		  					<a class ="ltB" href="couponDownList?page=${resultDTO.page-1}&searchType=${searchType}&keyword=${keyword}">&LT;</a>
+						  	<a class ="firstB" href="wishList?page=${resultDTO.start}&searchType=${searchType}&keyword=${keyword}">처음</a>
+		  					<a class ="ltB" href="wishList?page=${resultDTO.page-1}&searchType=${searchType}&keyword=${keyword}">&LT;</a>
 						</c:when>
 						<c:otherwise>
 						  	<span class ="firstB">처음</span>
@@ -65,14 +62,14 @@
 							<span><strong>${i}</strong></span>&nbsp;
 						</c:if>
 						<c:if test="${i!=resultDTO.page}">
-							<a href="couponDownList?page=${i}&searchType=${searchType}&keyword=${keyword}">${i}</a>&nbsp;
+							<a href="wishList?page=${i}&searchType=${searchType}&keyword=${keyword}">${i}</a>&nbsp;
 						</c:if>
 					</c:forEach>
 					 
 					<c:choose>
 						<c:when test="${resultDTO.end != resultDTO.page}">
-							<a class="gtB" href="couponDownList?page=${resultDTO.page+1}&searchType=${searchType}&keyword=${keyword}">&GT;</a>
-							<a class="lastB" href="couponDownList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
+							<a class="gtB" href="wishList?page=${resultDTO.page+1}&searchType=${searchType}&keyword=${keyword}">&GT;</a>
+							<a class="lastB" href="wishList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
 						</c:when>
 						<c:otherwise>
 							<span class="gtB">&GT;</span>
@@ -80,7 +77,6 @@
 						</c:otherwise>
 					</c:choose>
 				 </div>
-				 
 			</div>
 		</main>
 	</div>

@@ -2,7 +2,7 @@
 
 
 .product_list{
-	min-width:530px;
+	min-width:630px;
 }
 
 .product_list table th:not(:nth-child(3)){

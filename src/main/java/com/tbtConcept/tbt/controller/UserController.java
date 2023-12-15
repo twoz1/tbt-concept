@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
-import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.domain.WishProdDTO;
 import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.service.UserService;
+import com.tbtConcept.tbt.service.WishService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -30,6 +30,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class UserController {
 	UserService userService;
+	WishService wishService;
 
 	@GetMapping(value = "/userList")
 	public void getUserList(Model model) {
@@ -82,5 +83,20 @@ public class UserController {
 			return new ResponseEntity<String>("[삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
 		}
 	}
+	
+	@GetMapping("/wishList")
+	public void getWishList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<WishProdDTO> resultDTO = wishService.selectList(requestDTO, searchType, keyword);
+		
+		model.addAttribute("wishList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
+	}
+	
 
 }

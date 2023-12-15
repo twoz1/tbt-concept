@@ -5,7 +5,7 @@ import useModal from '../../../customHooks/useModal';
 import Modal_gotobasket from '../../../items/components/DetaildPage/Modal_gotobasket';
 
 
-const MyWishItem = ({ wish_date, product_id, product_name, user_id }) => {
+const MyWishItem = ({ wish_date, product_id, product_name, user_id, product_img1 }) => {
 
     const { openModal, closeModal, isModal } = useModal();
 
@@ -73,6 +73,7 @@ const MyWishItem = ({ wish_date, product_id, product_name, user_id }) => {
             <tr>
                 <td>{wish_date}</td>
                 <td>
+                    <img src={require(`../../../../images/${product_img1}`)} alt={product_name} />
                     <Link to={`/detail/${product_id}`}>{product_name}</Link>
                 </td>
                 <td><button onClick={(e) => onRemove(e)}><i className="fa-sharp fa-solid fa-heart"></i></button></td>

@@ -141,4 +141,17 @@ h3 {
     margin: 15px 5px 0 0;
 }
 
+.MyWishItem tr>td:nth-child(2) {
+    text-align: left;
+    width: 35%;
+}
+
+.MyWishItem tr>td:nth-child(2)>img {
+    width: auto;
+    height: 90px;
+    margin-right: 10px;
+    vertical-align: middle;
+
+}
+
 /*_list 끝*/

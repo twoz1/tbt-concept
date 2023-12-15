@@ -23,6 +23,7 @@
 				<ul>
 					<li><a href="/master/product/productList">상품목록</a></li>
 					<li><a href="/master/product/productInsert">상품등록</a></li>
+					<li><a href="/master/user/wishList">관심상품</a></li>
 				</ul>
 			</li>
 

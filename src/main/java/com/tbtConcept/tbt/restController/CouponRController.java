@@ -52,8 +52,8 @@ public class CouponRController {
 			
 			UserCouponId id = new UserCouponId(entity.getCoupon_id(), entity.getUser_id());
 
-			entity.setCouponStart(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-			entity.setCouponEnd(LocalDateTime.now().plusYears(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+			entity.setCoupon_start(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+			entity.setCoupon_end(LocalDateTime.now().plusYears(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 			
 			if(couListService.selectDetail(id) == null && couListService.save(entity) > 0) {
 				return "발급완료";

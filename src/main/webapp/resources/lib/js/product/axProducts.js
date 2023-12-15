@@ -1,5 +1,21 @@
 "use strict";
 
+
+function searchDB() {
+    let searchType = document.getElementById("searchType").value;
+    let keyword = document.getElementById("keyword").value;
+    let currentPage = new URLSearchParams(window.location.search).get('page') || 1;
+
+    axios.get(`/productList?page=${currentPage}&searchType=${searchType}&keyword=${keyword}`)
+        .then(response => {
+            // 응답 처리 로직
+            // 예를 들어, 검색 결과를 화면에 업데이트하는 등의 작업 수행
+        })
+        .catch(error => {
+            // 에러 처리 로직
+        });
+}
+
 function axProductDelete(id) {
 	let url = "/master/product/productdelete/" + id;
 

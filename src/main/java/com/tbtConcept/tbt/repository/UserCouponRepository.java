@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.UserCoupon;
 import com.tbtConcept.tbt.entity.UserCouponId;
 
@@ -25,8 +26,11 @@ public interface UserCouponRepository extends JpaRepository<UserCoupon, UserCoup
 	@Query("SELECT cl FROM UserCoupon cl WHERE cl.user_id=:user_id")
 	List<UserCoupon> UserCouponInUser(String user_id);
 	
-	@Query("SELECT c FROM UserCoupon c order by coupon_start desc")
-	List<UserCoupon> selectList();
+	@Query("SELECT c FROM UserCoupon c WHERE (:keyword = '' OR :searchType = 'all' OR "
+	        + "(:searchType = 'user_id' AND c.user_id LIKE %:keyword%) OR "
+	        + "(:searchType = 'coupon_id' AND c.coupon_id LIKE %:keyword%)) "
+	        + "ORDER BY coupon_start DESC")
+	Page<UserCoupon> selectList(Pageable pageable, @Param("searchType") String searchType, @Param("keyword") String keyword);
 	
 	@Transactional
 	@Modifying
