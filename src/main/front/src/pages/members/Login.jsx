@@ -1,6 +1,6 @@
 import '../../styles/members/Login.css';
 import Sns from './components/Login/Sns';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import useScrollToTop from '../customHooks/useScrollToTop';
@@ -18,6 +18,7 @@ const Login = () => {
     });
 
     const [emailMessage, setEmailMessage] = useState('');
+    const [rememberID, setRememberID] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -30,8 +31,18 @@ const Login = () => {
         }));
     };
 
+    const handelCheckBox = (e) => {
+        setRememberID(e.target.checked);
+    }
+
     const changeButton = (e) => {
         e.preventDefault();
+
+        if (rememberID) {
+            localStorage.setItem("rememberedUserID", credentials.user_id);
+        } else {
+            localStorage.removeItem("rememberedUserID");
+        }
 
         axios
             .post('/user/uLogin', {
@@ -55,6 +66,15 @@ const Login = () => {
             });
 
     };
+
+    useEffect(() => {
+        if (localStorage.rememberedUserID != null) {
+            setCredentials((prevCredentials) => ({
+                ...prevCredentials,
+                user_id: localStorage.rememberedUserID,
+            }));
+        }
+    }, []);
 
     return (
         <div>
@@ -110,10 +130,13 @@ const Login = () => {
                                 <button>로그인</button>
                             </form>
                             <div className="remember">
-                                <input className="user_remember" type="checkbox" />
+                                <input className="user_remember" type="checkbox" onChange={handelCheckBox} />
                                 아이디&nbsp;저장
                                 <Link to="/join" className="join">
                                     회원가입&nbsp;바로가기
+                                </Link>
+                                <Link to="/findPW" className="findPW">
+                                    비밀번호&nbsp;찾기
                                 </Link>
                             </div>
                             <div className="error_message">

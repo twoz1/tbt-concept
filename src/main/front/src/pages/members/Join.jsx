@@ -184,9 +184,6 @@ const Join = () => {
         } else {
             alert("입력 내용을 확인해주세요.");
         }
-
-
-
     }
 
     return (

@@ -11,6 +11,6 @@ public class TBTConfig {
 	@Bean
 	public PasswordEncoder getPasswordEncord() {
 		return new BCryptPasswordEncoder();
-	}
+	}	
 
 } //class

@@ -29,6 +29,7 @@ import Information from './pages/payments/components/Checkout/Information';
 import Update from './pages/members/Update';
 import SearchBItems from './pages/items/SearchBItems';
 import Password from './pages/members/Password';
+import FindPW from './pages/members/FindPW';
 
 
 const configstore = configureStore({
@@ -81,6 +82,7 @@ function App() {
                     <Route path='/my' element={<Mypage />}></Route >
                     <Route path='/login' element={<Login />}></Route >
                     <Route path='/join' element={<Join />}></Route >
+                    <Route path='/findPW' element={<FindPW />}></Route >
 
                     {/* ----------------고정 헤더의 링크-------- */}
                     {/* ----------------고정 풋터의 링크-------- */}
