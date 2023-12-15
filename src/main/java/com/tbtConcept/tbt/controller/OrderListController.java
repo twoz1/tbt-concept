@@ -33,10 +33,10 @@ public class OrderListController {
 
 	@GetMapping("/orderList")
 	public void getOrderList(@RequestParam(name = "id", defaultValue = "") String id,
-			@RequestParam(name = "page", defaultValue = "1") int page,
-			@RequestParam(name = "size", defaultValue = "1") int size,
+			@RequestParam(name = "page", defaultValue = "0") int page,
+			@RequestParam(name = "size", defaultValue = "5") int size,
 			Model model) {
-		Pageable pageable = PageRequest.of(Math.max(page - 1, 0), size);
+		Pageable pageable = PageRequest.of(page, size);
 		Page<OrderList> findAllDescPage = orderService.findAllDescPage(pageable);
 
 

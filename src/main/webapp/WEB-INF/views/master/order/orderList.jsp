@@ -15,7 +15,6 @@
 		<main id="master_main">
 			<div class="order_list master_list">
 				<h2 class="master_title">주문 리스트</h2>
-				<a class="m_button l_button" href="/master/order/orderListInsert">주문등록</a>
 				<table>
 					<tr>
 						<th>주문번호</th>

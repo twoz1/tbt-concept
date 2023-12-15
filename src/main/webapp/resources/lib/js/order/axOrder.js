@@ -27,10 +27,10 @@ function orderListPage(pageNumber) {
 
     axios.get(url)
         .then(response => {
-            document.getElementById('master/order/orderList').innerHTML = response.data;
+            document.getElementById('master_main').innerHTML = response.data;
         })
         .catch(err => {
             alert("OrderList Pagination response 실패 =>" + err.message);
         });
-    document.getElementById("master/order/orderList").innerHTML = "";
+    document.getElementById("master_main").innerHTML = "";
 }

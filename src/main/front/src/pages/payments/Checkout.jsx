@@ -144,9 +144,11 @@ const Checkout = () => {
                                                 <select className="checkout_cou" name="coupon_id" id="coupon_id" onChange={handleCouponChange}>
                                                     <option value="0">쿠폰선택</option>
                                                     {couponOptions.map((coupon) => (
-                                                        <option key={coupon.coupon_id} value={coupon.coupon_id}>
+                                                        coupon.coupon_end !== "사용완료" && (
+                                                            <option key={coupon.coupon_id} value={coupon.coupon_id}>
                                                             {coupon.coupon_name}
                                                         </option>
+                                                        )
                                                     ))}
                                                 </select>
                                             </td>
