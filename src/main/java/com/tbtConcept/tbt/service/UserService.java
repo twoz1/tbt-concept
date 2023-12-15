@@ -2,6 +2,8 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
+
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.OrderList;
@@ -13,6 +15,7 @@ public interface UserService {
 
 	// ** selectList
 	List<User> selectList();
+	
 	// ** selectOne
 	User selectOne(String id);
 
@@ -21,5 +24,9 @@ public interface UserService {
 
 	// ** delete
 	String delete(String id);
+	
+	// ** checkUser
+	User checkUser(String user_id, String user_name);
+	
 
 }
