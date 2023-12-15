@@ -164,3 +164,9 @@ img {
     height: 25.9vh;
     color: #6b6b6b;
 }
+
+.soldOut{
+    display: block;
+    height: 30px;
+    color: #767373;
+}

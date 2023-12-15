@@ -14,6 +14,7 @@ const renderItem = ({ item }) => (
          <span>SHOP THIS &#62;</span> 
       </Link>
     </div>
+      {item.product_stock == 0 ? <span className='soldOut'>품절</span> : <span className='soldOut'></span> }
   </li>
 );
 

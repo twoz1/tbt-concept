@@ -3,7 +3,7 @@ import '../../../../styles/members/OrderModal.css';
 import useModal from '../../../customHooks/useModal';
 import { ReviewModal } from './ReviewModal';
 
-const OrderDetail = ({ user_id, product_id, order_quan, order_price, review_state ,order_detail_id ,order_del_state}) => {
+const OrderDetail = ({ user_id, product_id, product_name, order_quan, order_price, review_state ,order_detail_id ,order_del_state}) => {
 
     const { openModal, closeModal, isModal } = useModal();
    
@@ -12,7 +12,7 @@ const OrderDetail = ({ user_id, product_id, order_quan, order_price, review_stat
 
     return (
         <tr>
-            <td>{product_id}</td>
+            <td>{product_name}</td>
             <td>{order_quan}</td>
             <td>{order_price.toLocaleString()}원</td>
              <td>

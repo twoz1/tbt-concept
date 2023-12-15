@@ -7,14 +7,13 @@ import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
 import navigateTo from "../../../config/navigateTo";
 import '../../../../styles/payments/CheckOut_Modal.css';
 
-const CheckOut_Modal = ({ closeModal, user_id }) => {
+const CheckOut_Modal = ({ closeModal}) => {
 
   const loginUser = JSON.parse(sessionStorage.getItem('loginUser'));
   const [addressList, setAddressList] = useState([]);
-  //const [showNewAddressForm, setShowNewAddressForm] = useState(false);
   const [showAddressFormContent, setShowAddressFormContent] = useState(false);
-  const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [pageState, setPageState] = useState(false);
+
 
   useEffect(() => {
     if (loginUser == null) {
@@ -33,7 +32,7 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
           alert(`** checkdata 서버연결 실패 => ${err.message}`);
         });
     }
-  }, [loginUser]);
+  }, []);
 
 
   // 주소 추가 함수
@@ -45,46 +44,51 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
     const confirmResult = window.confirm('주소를 등록하시겠습니까?');
 
     if (confirmResult) {
-      let url = '/address/aListInsert';
+        const addressAvc = document.getElementById('address_avc1').value;
+        const addressName = document.getElementById('address_name1').value;
+        const addressCity = document.getElementById('address_city1').value;
+        const addressDetail = document.getElementById('address_detail1').value;
+        const phoneNum1 = document.getElementById('address_phone_num1').value;
+        const phoneNum2 = document.getElementById('address_phone_num2').value;
+        const phoneNum3 = document.getElementById('address_phone_num3').value;
 
-      let num =
-        document.getElementById('address_phone_num1').value +
-        '-' +
-        document.getElementById('address_phone_num2').value +
-        '-' +
-        document.getElementById('address_phone_num3').value;
+  
+        if (!addressAvc || !addressName || !addressCity || !addressDetail || !phoneNum1 || !phoneNum2 || !phoneNum3) {
+            alert('모든 필수 항목을 입력하세요.');
+            return;
+        }
 
-      axios
-        .post(url, {
-          user_id: loginUser.user_id,
-          address_avc: document.getElementById('address_avc1').value,
-          address_name: document.getElementById('address_name1').value,
-          address_city: document.getElementById('address_city1').value,
-          address_detail: document.getElementById('address_detail1').value,
-          address_phone_num: num,
-          order_message: document.getElementById('order_message1').value,
-        })
-        .then((response) => {
-          if (response.data === '완료') {
-            alert('주소가 등록되었습니다.');
-            //closeModal('addressForm');
-            //setShowCheckOutModal(true);
-            const newAddress = {
-              address_name: document.getElementById('address_name1').value,
-              address_avc: document.getElementById('address_avc1').value,
-              address_city: document.getElementById('address_city1').value,
-              address_detail: document.getElementById('address_detail1').value,
-              address_phone_num: num,  // 여기에 전화번호 등 추가 필드도 포함할 수 있습니다.
-              order_message: document.getElementById('order_message1').value,
-            };
-            addAddressToList(newAddress);
-          }
-        })
-        .catch((err) => {
-          alert('[시스템 오류] 잠시 후에 다시 시도하세요.' + err.message);
-        });
+        const num = `${phoneNum1}-${phoneNum2}-${phoneNum3}`;
+
+        axios
+            .post('/address/aListInsert', {
+                user_id: loginUser.user_id,
+                address_avc: addressAvc,
+                address_name: addressName,
+                address_city: addressCity,
+                address_detail: addressDetail,
+                address_phone_num: num,
+                order_message: document.getElementById('order_message1').value,
+            })
+            .then((response) => {
+                if (response.data === '완료') {
+                    alert('주소가 등록되었습니다.');
+                    const newAddress = {
+                        address_name: addressName,
+                        address_avc: addressAvc,
+                        address_city: addressCity,
+                        address_detail: addressDetail,
+                        address_phone_num: num,
+                        order_message: document.getElementById('order_message1').value,
+                    };
+                    addAddressToList(newAddress);
+                }
+            })
+            .catch((err) => {
+                alert('[시스템 오류] 잠시 후에 다시 시도하세요.' + err.message);
+            });
     }
-  }
+}
 
   useEffect(() => {
     if (loginUser == null) {
@@ -98,15 +102,25 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
   const newAddressClick = () => {
     setShowAddressFormContent(true);
   };
-  // useEffect(() => {
-  //   if (loginUser == null) {
-  //     alert("로그인 후 이용해주세요.");
-  //     navigateTo("/");
-  //   } else {
-  //     setPageState(true);
-  //   }
-  // }, []);
 
+  const [enroll_company, setEnroll_company] = useState({
+    zonecode:'',
+    address:'',
+  });
+  
+  const [popup, setPopup] = useState(false);
+  
+  const handleInput = (e) => {
+    setEnroll_company({
+        ...enroll_company,
+          [e.target.name]:e.target.value,
+      })
+  }
+  
+  const handleComplete = (data) => {
+    setPopup(!popup);
+  }
+      
   return (
     pageState && (
     <div className="cAddress_Modal">
@@ -117,6 +131,7 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
             <span className='newAddressSubmit_btn' type="button" onClick={newAddressClick}>
               배송지 신규 입력하기
             </span>
+
             {showAddressFormContent && (
               <div>
 
@@ -134,7 +149,7 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
                       받으시는 분 <span>&#42;</span>
                     </th>
                     <td className="receiver">
-                      <input type="text" id="address_name1" placeholder={showPlaceholder ? '최*조' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                      <input type="text" id="address_name1" required />
                     </td>
                   </tr>
                   <tr>
@@ -142,11 +157,11 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
                       휴대폰 번호 <span>&#42;</span>
                     </th>
                     <td className="receiver_phone">
-                      <input type='text' id="address_phone_num1" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required/>
+                      <input type='text' id="address_phone_num1"  required/>
                       <span className="hyphen"> - </span>
-                      <input type="text" minLength="3" id="address_phone_num2" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                      <input type="text" minLength="3" id="address_phone_num2" maxLength="4"  required />
                       <span className="hyphen"> - </span>
-                      <input type="text" minLength="4" id="address_phone_num3" maxLength="4" style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                      <input type="text" minLength="4" id="address_phone_num3" maxLength="4" required />
                     </td>
                   </tr>
                   <tr>
@@ -156,22 +171,18 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
                     <td className="customer_address">
                       <input type="text" id="address_avc1"
                         minLength="5" maxLength="7"
-                        placeholder={showPlaceholder ? '13630' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }}
+                        onChange={handleInput} value={enroll_company.zonecode}
                         required
                       />
-                      {/* <button className='addressAvcbtn' type='button'
-                        onClick={() => {
-                          openModal('ChcekOut_OrderAVC');
-                        }}
-                      >
-                        &nbsp;&nbsp; 우편번호 찾기
-                      </button>
-                      {isModal('ChcekOut_OrderAVC') && <ChcekOut_OrderAVC closeModal={closeModal} />} */}
-                      
+
+
+                    <button className='addressSearchBtn' onClick={handleComplete}> 우편번호 찾기</button>
+                    {popup && <ChcekOut_OrderAVC company={enroll_company} setcompany={setEnroll_company}></ChcekOut_OrderAVC>}
+
                       <p>
-                        <input type="text" id="address_city1" placeholder={showPlaceholder ? '경기도 성남시 분당구 돌마로 46 ' : '상세주소를 입력해주세요.'} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                        <input type="text" id="address_city1" onChange={handleInput} value={enroll_company.address} required />
                         &nbsp; - &nbsp;
-                        <input type="text" id="address_detail1" placeholder={showPlaceholder ? '광천빌딩 5층' : ''} style={{ backgroundColor: showPlaceholder ? '' : 'white' }} required />
+                        <input type="text" id="address_detail1"required />
                       </p>
                     </td>
                   </tr>
@@ -183,7 +194,7 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
                   </tr>
                 </table>
                 <div className='checkout_modal_btn'>
-                  <button className='checkout_submit_button' type='button' onClick={() => { insertAddressList() }}>등록</button>
+                  <button className='checkout_submit_button' type='button' onClick={() => { insertAddressList()}}>등록</button>
                 </div>
 
               </div>
@@ -204,7 +215,6 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
               </thead>
 
               <tbody>
-                
                 {addressList.map((address, index) => (
                   <ChcekOut_address key={index} {...address} closeModal={closeModal} setAddressList={setAddressList} />
                 ))}
@@ -216,8 +226,6 @@ const CheckOut_Modal = ({ closeModal, user_id }) => {
                 닫기
               </button>
             </div>
-
-
         </div>
       </div>
     </div>
