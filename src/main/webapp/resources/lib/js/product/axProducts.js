@@ -1,6 +1,5 @@
 "use strict";
 
-history.replaceState({}, null, location.pathname); 
 
 function searchDB() {
     let searchType = document.getElementById("searchType").value;

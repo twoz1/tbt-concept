@@ -16,6 +16,8 @@ function loadPage(page) {
 }
 */
 
+history.replaceState({}, null, location.pathname); 
+
 function keywordClear() {
 	if (document.getElementById('searchType').value == 'all')
 		document.getElementById('keyword').value = '';
