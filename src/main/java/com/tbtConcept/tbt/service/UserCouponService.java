@@ -12,7 +12,7 @@ import com.tbtConcept.tbt.entity.UserCouponId;
 public interface UserCouponService {
 	
 	
-	PageResultDTO<UserCoupon> selectList(PageRequestDTO requestDTO);
+	PageResultDTO<UserCoupon> selectList(PageRequestDTO requestDTO, String searchType, String keyword);
 		
 	List<Object> couponJoinList(String user_id);
 	

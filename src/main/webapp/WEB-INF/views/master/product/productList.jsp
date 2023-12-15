@@ -18,16 +18,14 @@
 				<h2 class="master_title">상품 리스트</h2>
 				<a class="m_button l_button" href="productInsert">상품등록</a>
 				<div class="searchBox">
-					<!-- 검색창 구현 -->
-					<form action="searchList" method="get">
-						<select name="searchType" id="searchType" onchange="keywordClear()">
-							<option value="all">전체</option>
-							<option value="name">모델명</option>
-							<option value="prodId">상품ID</option>
-						</select>
-						
-						<input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." />
-						<button id="searchBtn">Search</button>
+					<form action="productList" method="get">
+					    <select name="searchType" id="searchType" onchange="keywordClear()">
+					        <option value="all" ${requestScope.searchType == 'all' ? "selected" : "" }>전체</option>
+					        <option value="product_name" ${requestScope.searchType == 'product_name' ? "selected" : "" }>모델명</option>
+					        <option value="product_id" ${requestScope.searchType == 'product_id' ? "selected" : "" }>상품ID</option>
+					    </select>
+					    <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." value="${requestScope.keyword}" />
+					    <button type="submit" id="searchBtn">Search</button>
 					</form>
 				</div>
 				<table>
@@ -65,6 +63,39 @@
 						</c:forEach>
 					</c:if>
 				</table>
+				
+				<div class="pageNation">
+					 <c:choose>
+						<c:when test="${resultDTO.start != resultDTO.page}">
+						  	<a class ="firstB" href="productList?page=${resultDTO.start}&searchType=${searchType}&keyword=${keyword}">처음</a>
+		  					<a class ="ltB" href="productList?page=${resultDTO.page-1}&searchType=${searchType}&keyword=${keyword}">&LT;</a>
+						</c:when>
+						<c:otherwise>
+						  	<span class ="firstB">처음</span>
+						  	<span class ="ltB">&LT;</span>
+						</c:otherwise>
+					</c:choose> 	 
+					 
+					<c:forEach var="i" items="${resultDTO.pageList}">
+						<c:if test="${i==resultDTO.page}">
+							<span><strong>${i}</strong></span>&nbsp;
+						</c:if>
+						<c:if test="${i!=resultDTO.page}">
+							<a href="productList?page=${i}&searchType=${searchType}&keyword=${keyword}">${i}</a>&nbsp;
+						</c:if>
+					</c:forEach>
+					 
+					<c:choose>
+						<c:when test="${resultDTO.end != resultDTO.page}">
+							<a class="gtB" href="productList?page=${resultDTO.page+1}&searchType=${searchType}&keyword=${keyword}">&GT;</a>
+							<a class="lastB" href="productList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
+						</c:when>
+						<c:otherwise>
+							<span class="gtB">&GT;</span>
+							<span class="lastB">마지막</span>
+						</c:otherwise>
+					</c:choose>
+				</div>
 			</div>
 		</main>
 	</div>

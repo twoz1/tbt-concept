@@ -81,7 +81,7 @@ public class OrderListRController {
 				UserCoupon uentity = userCouponService.selectDetail(new UserCouponId(orderList.getCoupon_id(),orderList.getUser_id()));
 				
 				if(uentity != null) {
-					uentity.setCouponEnd("사용완료");
+					uentity.setCoupon_end("사용완료");
 				}
 				
 

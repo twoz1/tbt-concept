@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.service.ProductService;
 
@@ -93,9 +95,19 @@ public class ProductController {
 
 	// =====================================================
 	@GetMapping("/productList")
-	public void getProductList(Model model) {
-		model.addAttribute("productList", prodService.findAllDesc());
+	public void getProductList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<Product> resultDTO = prodService.selectList(requestDTO, searchType, keyword);
+		
+		model.addAttribute("productList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
+	
 
 	// =====================================================
 	@GetMapping("/productDetail")

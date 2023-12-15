@@ -30,7 +30,7 @@ const MyWishList = ({ loginUser }) => {
 
     // pagination 구현
     const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
-    const listPerPage = 3;  // 페이지 당 게시글 개수
+    const listPerPage = 2;  // 페이지 당 게시글 개수
     const totalPages = Math.ceil(wish.length / listPerPage);    // 전체 페이지 번호
 
     const handlePageChange = (page) => {

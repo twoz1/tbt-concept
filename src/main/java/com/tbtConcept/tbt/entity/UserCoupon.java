@@ -1,15 +1,12 @@
 package com.tbtConcept.tbt.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,9 +28,9 @@ public class UserCoupon implements Serializable {
 	private String user_id;
 	
 	@Column(name = "coupon_start")
-	private String couponStart;
+	private String coupon_start;
 	
 	@Column(name = "coupon_end")
-	private String couponEnd;
+	private String coupon_end;
 	
 }
