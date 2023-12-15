@@ -76,7 +76,9 @@
     margin-left: 10px;
 }
 
-
+.addressSearchBtn{
+    padding: 13px;
+}
 .information #receiver_phone_read {
     width: 80px;
 }

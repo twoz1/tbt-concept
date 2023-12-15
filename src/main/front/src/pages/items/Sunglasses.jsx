@@ -18,6 +18,8 @@ const Sunglasses = () => {
 
     const arrayReducer = (state, action) => {
         switch (action.type) {
+            case "popular" :
+                return state ? [...state].sort((a , b) => a.product_stock - b.product_stock) :[];
             case "low":
                 return state ? [...state].sort((a, b) => a.product_price - b.product_price) : [];
             case "high":
@@ -104,7 +106,7 @@ const Sunglasses = () => {
 
                         <li>sort by &#58;
                             <ul>
-                                {/* <li onClick={() => dispatch({ type: "popular" })}>인기순</li> */}
+                            {/* <li onClick={() => handleSort( "popular")}><a>상품판매순</a></li> */}
                                 <li onClick={() => handleSort("low")}><a>낮은가격순</a></li>
                                 <li onClick={() => handleSort("high")}><a>높은가격순</a></li>
                                 {/* <li onClick={() => dispatch({ type: "new" })}>신상품순</li> */}

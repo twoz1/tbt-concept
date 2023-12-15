@@ -7,7 +7,7 @@ import axios from 'axios';
 import navigateTo from '../../../config/navigateTo';
 
 
-const DpSelectOption = ({ product_name, product_price, product_img1, product_id, code }) => {
+const DpSelectOption = ({ product_name, product_price, product_img1, product_id, code, product_stock }) => {
 
     const { openModal, closeModal, isModal } = useModal();
 
@@ -98,7 +98,10 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
     function insertItemToCart(e) {
 
         e.preventDefault();
-
+        if (product_stock === 0) {
+            alert("품절된 상품입니다.")
+            return;
+        }
         let url = "/rCart/cInsert";
 
         if (loginUser != null) {
@@ -161,15 +164,28 @@ const DpSelectOption = ({ product_name, product_price, product_img1, product_id,
                 </div>
 
                 <div className="choice_button">
-                    <Link to={`/checkout`}
-                        state={{
-                            product_id: product_id,
-                            quantityGoods: quantityGoods,
-                            product_name: product_name,
-                            product_img1: product_img1,
-                            product_price: product_price,
-                            code: code,
-                        }} >바로 구매</Link>
+                    {product_stock === 0 ?
+                        <span className='soldOut_btn'
+                            onClick={(e) => {
+                                    e.preventDefault();}}>
+                                SOLD OUT</span>
+                        :
+                        <Link to={`/checkout`}
+                            onClick={(e) => {
+                                if (product_stock === 0) {
+                                    e.preventDefault();
+                                    alert("품절된 상품입니다.")
+                                }
+                            }}
+                            state={{
+                                product_id: product_id,
+                                quantityGoods: quantityGoods,
+                                product_name: product_name,
+                                product_img1: product_img1,
+                                product_price: product_price,
+                                code: code,
+                            }} >바로 구매</Link>
+                    }
 
                     <button className='gotoCart'>쇼핑백 담기</button>
                     {isModal('gotoCartModal') && <Modal_gotobasket closeModal={closeModal} />}

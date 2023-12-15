@@ -14,6 +14,8 @@ const renderItem = (item) => (
       <Link to={`/detail/${item.product_id}`} key={item.product_id} >
         <span>SHOP THIS &#62;</span>
       </Link>
+      {item.product_stock == 0 ? <span className='soldOut'>품절</span> : null }
+      
     </div>
   </li>
 );

@@ -163,7 +163,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
                             </tr>
                         </table>
 
-                        <div className="review_button hiddenForRUpdate">
+                        <div className="first_review_button hiddenForRUpdate">
                             <button type="reset" onClick={() => closeModal('DpReviewModal')}>취소</button>
                             <button type='button' onClick={() => uploadReview()}>수정하기</button>
                         </div>

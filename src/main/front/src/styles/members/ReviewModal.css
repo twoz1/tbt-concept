@@ -80,7 +80,16 @@
     text-align: center;
 }
 
-.review_button button {
+.first_review_button{
+   display: flex;
+   gap: 10px;
+   justify-content: center;
+   width: 420px;
+   margin-top:40px;
+}
+
+.review_button button,
+.first_review_button button {
     width: 120px;
     height: 35px;
     font-size: 14px;
@@ -92,6 +101,12 @@
     margin-left: 10px;
     background-color: #000;
     color: #fff;
+}
+
+.first_review_button button:last-child{
+ 
+    background-color: #000;
+    color: #fff; 
 }
 
 .img_upload_file {
