@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.domain.WishProdDTO;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.service.UserService;
 import com.tbtConcept.tbt.service.WishService;
@@ -32,11 +33,23 @@ public class UserController {
 	UserService userService;
 	WishService wishService;
 
-	@GetMapping(value = "/userList")
-	public void getUserList(Model model) {
-		model.addAttribute("userList", userService.selectList());
-
-
+//	@GetMapping(value = "/userList")
+//	public void getUserList(Model model) {
+//		model.addAttribute("userList", userService.selectList());
+//	}
+	
+	@GetMapping("/userList")
+	public void getUserList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<User> resultDTO = userService.findAllDescPage(requestDTO, searchType, keyword);
+		
+		model.addAttribute("user", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
 
 	@GetMapping(value = "/userDetail")

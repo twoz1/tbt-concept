@@ -83,7 +83,7 @@
 					<c:choose>
 						<c:when test="${resultDTO.end != resultDTO.page}">
 							<a class="gtB" href="orderList?page=${resultDTO.page+1}&searchType=${searchType}&keyword=${keyword}">&GT;</a>
-							<a class="lastB" href="oorderList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
+							<a class="lastB" href="orderList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
 						</c:when>
 						<c:otherwise>
 							<span class="gtB">&GT;</span>
