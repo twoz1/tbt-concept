@@ -1,7 +1,5 @@
 package com.tbtConcept.tbt.controller;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,8 +8,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tbtConcept.tbt.entity.Cart;
+import com.tbtConcept.tbt.domain.CartProdDTO;
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.service.CartService;
 
@@ -28,32 +29,18 @@ public class CartController {
 
 	// List =====================================================
 	@GetMapping("/cartList")
-	public List<Cart> getShowDetailCart(Model model) {
-		return cartService.selectList();
+	public void getCartList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<CartProdDTO> resultDTO = cartService.selectList(requestDTO, searchType, keyword);
+		
+		model.addAttribute("cartList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
-
-	// search =====================================================
-
-//	// => cartList search
-//	@GetMapping("/searchCartListA")
-//	public String searchCartListA(Model model, @RequestParam("searchType") String searchType,
-//									@RequestParam("keyword") String keyword) {
-//		
-//		System.out.println("searchType -> " + searchType +  ", keyword -> " + keyword);
-//		
-//		String uri = "master/cart/cartList";
-//		List<Cart> searchList = cartService.searchByCartLikeA(keyword);
-//		
-//		if ("userId".equals(searchType)) {
-//			searchList = cartService.searchByCartLikeU(keyword);
-//		} else if ("prodId".equals(searchType)) {
-//			searchList = cartService.searchByCartLikeP(keyword);
-//		}
-//		
-//		model.addAttribute("cartList", searchList);
-//		
-//		return uri;
-//	}
 
 	
 	// Delete =====================================================

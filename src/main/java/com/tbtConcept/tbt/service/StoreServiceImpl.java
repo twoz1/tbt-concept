@@ -3,8 +3,13 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.Store;
 import com.tbtConcept.tbt.repository.StoreRepository;
 
@@ -18,6 +23,15 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public List<Store> selectList() {
 		return repository.findAll();
+	}
+	
+	@Override
+	public PageResultDTO<Store> selectList(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+        Page<Store> result = repository.selectList(pageable, searchType, keyword);
+		
+		return new PageResultDTO<>(result);
 	}
 	
 	@Override

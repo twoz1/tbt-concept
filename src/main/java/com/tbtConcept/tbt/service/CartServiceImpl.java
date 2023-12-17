@@ -3,9 +3,13 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.tbtConcept.tbt.domain.CartProdDTO;
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
 import com.tbtConcept.tbt.repository.CartRepository;
@@ -24,8 +28,12 @@ public class CartServiceImpl implements CartService {
 
 
 	@Override
-	public List<Cart> selectList() {
-		return repository.findAll();
+	public PageResultDTO<CartProdDTO> selectList(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+        Page<CartProdDTO> result = repository.selectList(pageable, searchType, keyword);
+		
+		return new PageResultDTO<>(result);
 	}
 
 //	@Override
