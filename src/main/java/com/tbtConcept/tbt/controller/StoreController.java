@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.Store;
 import com.tbtConcept.tbt.service.StoreService;
 
@@ -26,8 +30,17 @@ public class StoreController {
 	StoreService storeService;
 	
 	@GetMapping("/storeList")
-	public void getStoreList(Model model) {
-		model.addAttribute("storeList", storeService.selectList());
+	public void getProductList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<Store> resultDTO = storeService.selectList(requestDTO, searchType, keyword);
+		
+		model.addAttribute("storeList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
 	
 	// ==============================================================

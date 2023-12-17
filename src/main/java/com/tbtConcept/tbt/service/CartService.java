@@ -3,6 +3,8 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 
 import com.tbtConcept.tbt.domain.CartProdDTO;
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
 
@@ -10,7 +12,7 @@ public interface CartService {
 //	@Transactional
 //	List<Cart> findAllDesc();
 
-	List<Cart> selectList();
+	PageResultDTO<CartProdDTO> selectList(PageRequestDTO requestDTO, String searchType, String keyword);
 
 //	@Transactional
 //	List<Cart> searchByCartLikeU(String keyword);

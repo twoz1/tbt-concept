@@ -16,14 +16,14 @@
 			<div class="wish_list master_list">
 				<h2 class="master_title">관심상품 리스트</h2>
 				<form action="wishList" method="get">
-					    <select name="searchType" id="searchType" onchange="keywordClear()">
-					        <option value="all" ${requestScope.searchType == 'all' ? "selected" : "" }>전체</option>
-					        <option value="user_id" ${requestScope.searchType == 'user_id' ? "selected" : "" }>회원ID</option>
-					        <option value="product_name" ${requestScope.searchType == 'product_name' ? "selected" : "" }>쿠폰ID</option>
-					    </select>
-					    <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." value="${requestScope.keyword}" />
-					    <button type="submit" id="searchBtn">Search</button>
-					</form>
+					<select name="searchType" id="searchType" onchange="keywordClear()">
+					    <option value="all" ${requestScope.searchType == 'all' ? "selected" : "" }>전체</option>
+					    <option value="user_id" ${requestScope.searchType == 'user_id' ? "selected" : "" }>회원ID</option>
+					    <option value="product_name" ${requestScope.searchType == 'product_name' ? "selected" : "" }>상품명</option>
+					</select>
+					<input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." value="${requestScope.keyword}" />
+					<button type="submit" id="searchBtn">Search</button>
+				</form>
 				<table>
 					<tr>
 						<th>관심등록일</th>
@@ -40,7 +40,7 @@
 								<td>${w.user_id}</td>
 								<td>${w.product_id}</td>
 								<td>${w.product_name}</td>
-								<td><button onclick="axWishDelete('${w.user_id}')">삭제</button></td>
+								<td><button onclick="axWishDelete('${w.user_id}',${w.product_id})">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.tbtConcept.tbt.domain.CartProdDTO;
 import com.tbtConcept.tbt.entity.Cart;
 import com.tbtConcept.tbt.entity.CartId;
+import com.tbtConcept.tbt.entity.Product;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart, CartId> {
@@ -46,5 +49,14 @@ public interface CartRepository extends JpaRepository<Cart, CartId> {
 	@Query(nativeQuery = true, value = "insert into cart VALUES (:user_id, :product_id, :cart_quan)"
 			+ " ON DUPLICATE KEY UPDATE cart_quan = :cart_quan")
 	int cartUpdateCount2(@Param("user_id") String user_id, @Param("product_id") int product_id, @Param("cart_quan") int cart_quan);
+	
+	@Query("SELECT new com.tbtConcept.tbt.domain.CartProdDTO(c.user_id, c.product_id, c.cart_quan, "
+			 + "p.product_name, p.product_price, p.product_stock, p.product_img1) "
+			 + "FROM Cart c JOIN Product p ON c.product_id = p.product_id "
+			 + "WHERE (:keyword = '' OR :searchType = 'all' OR" 
+		     +  "(:searchType = 'user_id' AND c.user_id LIKE %:keyword%) OR " 
+		     +  "(:searchType = 'product_name' AND p.product_name LIKE %:keyword%)) "
+		     +  "ORDER BY c.product_id")
+	Page<CartProdDTO> selectList(Pageable pageable, @Param("searchType") String searchType, @Param("keyword") String keyword);
 
 }
