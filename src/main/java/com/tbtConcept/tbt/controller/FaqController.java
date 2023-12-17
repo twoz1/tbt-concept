@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Faq;
 import com.tbtConcept.tbt.service.FaqService;
 
@@ -54,10 +57,18 @@ public class FaqController {
 	}
 	
 	// List =====================================================
-
 	@GetMapping("/faqList")
-	public void getFaqList(Model model) {
-		model.addAttribute("faqList", faqService.selectList());
+	public void getFaqList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<Faq> resultDTO = faqService.findAllDescPage(requestDTO, searchType, keyword);
+		
+		model.addAttribute("faqList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
 	
 	// Detail =====================================================

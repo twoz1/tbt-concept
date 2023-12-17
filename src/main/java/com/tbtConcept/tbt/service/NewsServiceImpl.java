@@ -5,14 +5,12 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.News;
-import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.repository.NewsRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class NewsServiceImpl implements NewsService {
 	private final NewsRepository repository;
 	
-	 @Transactional
+	@Transactional
 	@Override
 	public PageResultDTO<News> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword) {
 		Pageable pageable = requestDTO.getPageable();

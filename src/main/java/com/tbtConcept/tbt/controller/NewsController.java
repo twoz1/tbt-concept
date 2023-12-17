@@ -17,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.News;
-import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.service.NewsService;
 
 import lombok.AllArgsConstructor;

@@ -2,11 +2,15 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.QnA1on1;
 
 public interface QnA1on1Service {
-
-	List<QnA1on1> selectList();
+	@Transactional
+	PageResultDTO<QnA1on1> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword);
 
 	List<QnA1on1> selectListByUserId(String user_id);
 	
@@ -17,7 +21,4 @@ public interface QnA1on1Service {
 	int save(QnA1on1 entity);
 
 	int delete(int qna_id);
-
-	//Page<QnA1on1> pagination(int page, int size);
-
 }

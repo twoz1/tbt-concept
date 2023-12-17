@@ -3,8 +3,14 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Faq;
 import com.tbtConcept.tbt.repository.FaqRepository;
 
@@ -14,6 +20,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FaqServiceImpl implements FaqService {
 	private final FaqRepository repository;
+	
+	@Transactional
+	@Override
+	public PageResultDTO<Faq> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+		Page<Faq> result  = repository.findAllDesc(pageable, searchType, keyword);
+
+		return new PageResultDTO<>(result);
+	}
 
 	@Override
 	public List<Faq> selectList() {

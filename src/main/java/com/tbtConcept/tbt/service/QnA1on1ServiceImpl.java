@@ -3,8 +3,12 @@ package com.tbtConcept.tbt.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.QnA1on1;
 import com.tbtConcept.tbt.repository.QnA1on1Repository;
 
@@ -14,12 +18,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class QnA1on1ServiceImpl implements QnA1on1Service {
 	private final QnA1on1Repository repository;
-
-	@Override
-	public List<QnA1on1> selectList() {
-		return repository.findAll();
-	}
 	
+	@Override
+	public PageResultDTO<QnA1on1> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+		Page<QnA1on1> result  = repository.findAllDesc(pageable, searchType, keyword);
+
+		return new PageResultDTO<>(result);
+	}
+
 	@Override
 	public List<QnA1on1> selectListByUserId(String user_id) {
 		return repository.selectListByUserId(user_id);
@@ -52,9 +60,5 @@ public class QnA1on1ServiceImpl implements QnA1on1Service {
 		repository.deleteById(qna_id);
 		return qna_id;
 	}
-	
-	/*
-	 * @Override public Page<QnA1on1> pagination(int page, int size) { // TODO
-	 * Auto-generated method stub return null; }
-	 */
+
 }

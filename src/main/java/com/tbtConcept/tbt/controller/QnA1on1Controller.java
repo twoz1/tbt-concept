@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tbtConcept.tbt.entity.Product;
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.QnA1on1;
 import com.tbtConcept.tbt.service.QnA1on1Service;
 
@@ -29,8 +31,16 @@ public class QnA1on1Controller {
 	
 	// List =====================================================
 	@GetMapping("/qna1on1List")
-	public void getQList(Model model) {
-		model.addAttribute("qna1on1List", qna1on1Service.selectList());
+	public void getFaqList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<QnA1on1> resultDTO = qna1on1Service.findAllDescPage(requestDTO, searchType, keyword);
+		
+		model.addAttribute("qna1on1List", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
 	
 	// Detail =====================================================
