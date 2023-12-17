@@ -2,12 +2,17 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.News;
-import com.tbtConcept.tbt.entity.OrderList;
 
 public interface NewsService {
+	
+	@Transactional
+    PageResultDTO<News> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword);
+	
 	List<News> selectList();
 
 	News selectDetail(int news_id);

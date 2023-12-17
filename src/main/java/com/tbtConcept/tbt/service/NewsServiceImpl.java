@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
@@ -20,6 +21,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class NewsServiceImpl implements NewsService {
 	private final NewsRepository repository;
+	
+	 @Transactional
+	@Override
+	public PageResultDTO<News> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+		Page<News> result  = repository.findAllDesc(pageable, searchType, keyword);
+
+		return new PageResultDTO<>(result);
+	}
 
 	@Override
 	public List<News> selectList() {

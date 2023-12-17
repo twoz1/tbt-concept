@@ -15,6 +15,17 @@
 		<main id="master_main">
 			<div class="user_list master_list">
 				<h2 class="master_title">회원 리스트</h2>
+				<div class="searchBox">
+					<form action="userList" method="get">
+					    <select name="searchType" id="searchType" onchange="keywordClear()">
+					        <option value="all" ${requestScope.searchType == 'all' ? "selected" : "" }>전체</option>
+					        <option value="user_id" ${requestScope.searchType == 'user_id' ? "selected" : "" }>회원ID</option>
+					        <option value="user_name" ${requestScope.searchType == 'user_name' ? "selected" : "" }>회원이름</option>
+					    </select>
+					    <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." value="${requestScope.keyword}" />
+					    <button type="submit" id="searchBtn">Search</button>
+					</form>
+				</div>
 				<table>
 					<tr>
 						<th>회원ID</th>
@@ -27,8 +38,8 @@
 						<th></th>
 					</tr>
 					
-					<c:if test="${not empty requestScope.userList}">
-						<c:forEach var="u" items="${requestScope.userList}">
+					<c:if test="${not empty requestScope.user}">
+						<c:forEach var="u" items="${requestScope.user}">
 							<tr>
 								<td><a href="userDetail?user_id=${u.user_id}">${u.user_id}</a></td>
 								<td>${u.user_name}</td>
@@ -42,11 +53,11 @@
 						</c:forEach>
 					</c:if>
 				</table>
-				 <div class="pageNation">
+				<div class="pageNation">
 					 <c:choose>
 						<c:when test="${resultDTO.start != resultDTO.page}">
-						  	<a class ="firstB" href="userList?page=${resultDTO.start}">처음</a>
-		  					<a class ="ltB" href="userList?page=${resultDTO.page-1}">&LT;</a>
+						  	<a class ="firstB" href="userList?page=${resultDTO.start}&searchType=${searchType}&keyword=${keyword}">처음</a>
+		  					<a class ="ltB" href="userList?page=${resultDTO.page-1}&searchType=${searchType}&keyword=${keyword}">&LT;</a>
 						</c:when>
 						<c:otherwise>
 						  	<span class ="firstB">처음</span>
@@ -59,21 +70,21 @@
 							<span><strong>${i}</strong></span>&nbsp;
 						</c:if>
 						<c:if test="${i!=resultDTO.page}">
-							<a href="userList?page=${i}">${i}</a>&nbsp;
+							<a href="userList?page=${i}&searchType=${searchType}&keyword=${keyword}">${i}</a>&nbsp;
 						</c:if>
 					</c:forEach>
 					 
 					<c:choose>
 						<c:when test="${resultDTO.end != resultDTO.page}">
-							<a class="gtB" href="userList?page=${resultDTO.page+1}">&GT;</a>
-							<a class="lastB" href="userList?page=${resultDTO.end}">마지막</a>
+							<a class="gtB" href="userList?page=${resultDTO.page+1}&searchType=${searchType}&keyword=${keyword}">&GT;</a>
+							<a class="lastB" href="userList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
 						</c:when>
 						<c:otherwise>
 							<span class="gtB">&GT;</span>
 							<span class="lastB">마지막</span>
 						</c:otherwise>
 					</c:choose>
-				 </div>
+				</div>
 			</div>
 		</main>
 	</div>

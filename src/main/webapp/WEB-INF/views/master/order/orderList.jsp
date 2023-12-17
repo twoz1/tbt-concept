@@ -15,6 +15,17 @@
 		<main id="master_main">
 			<div class="order_list master_list">
 				<h2 class="master_title">주문 리스트</h2>
+				<div class="searchBox">
+					<form action="orderList" method="get">
+					    <select name="searchType" id="searchType" onchange="keywordClear()">
+					        <option value="all" ${requestScope.searchType == 'all' ? "selected" : "" }>전체</option>
+					        <option value="order_date" ${requestScope.searchType == 'order_date' ? "selected" : "" }>날짜별</option>
+					        <option value="user_id" ${requestScope.searchType == 'user_id' ? "selected" : "" }>회원ID</option>
+					    </select>
+					    <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력하세요." value="${requestScope.keyword}" />
+					    <button type="submit" id="searchBtn">Search</button>
+					</form>
+				</div>
 				<table>
 					<tr>
 						<th>주문번호</th>
@@ -28,8 +39,8 @@
 						<th>상세보기</th>
 						<th></th>
 					</tr>
-					<c:if test="${not empty requestScope.findAllDescPage}">
-						<c:forEach var="o" items="${requestScope.findAllDescPage}">
+					<c:if test="${not empty requestScope.OrderList}">
+						<c:forEach var="o" items="${requestScope.OrderList}">
 							<tr>
 								<td><a href="orderListDetail?order_id=${o.order_id}">${o.order_id}</a></td>
 								<td>${o.user_id}</td>
@@ -48,15 +59,37 @@
 						</c:forEach>
 					</c:if>
 				</table>
-				<div class="pagination_wrap">
-					<c:if test="${not empty requestScope.itemPage}">
-						<c:forEach var="pageNumber" begin="0"
-							end="${requestScope.totalPages - 1}">
-							<span onclick="orderListPage(${pageNumber})"
-								class="${pageNumber == requestScope.itemPage.number ? 'currentPage' : ''}">
-								${pageNumber + 1} </span>
-						</c:forEach>
-					</c:if>
+				<div class="pageNation">
+					 <c:choose>
+						<c:when test="${resultDTO.start != resultDTO.page}">
+						  	<a class ="firstB" href="orderList?page=${resultDTO.start}&searchType=${searchType}&keyword=${keyword}">처음</a>
+		  					<a class ="ltB" href="orderList?page=${resultDTO.page-1}&searchType=${searchType}&keyword=${keyword}">&LT;</a>
+						</c:when>
+						<c:otherwise>
+						  	<span class ="firstB">처음</span>
+						  	<span class ="ltB">&LT;</span>
+						</c:otherwise>
+					</c:choose> 	 
+					 
+					<c:forEach var="i" items="${resultDTO.pageList}">
+						<c:if test="${i==resultDTO.page}">
+							<span><strong>${i}</strong></span>&nbsp;
+						</c:if>
+						<c:if test="${i!=resultDTO.page}">
+							<a href="orderList?page=${i}&searchType=${searchType}&keyword=${keyword}">${i}</a>&nbsp;
+						</c:if>
+					</c:forEach>
+					 
+					<c:choose>
+						<c:when test="${resultDTO.end != resultDTO.page}">
+							<a class="gtB" href="orderList?page=${resultDTO.page+1}&searchType=${searchType}&keyword=${keyword}">&GT;</a>
+							<a class="lastB" href="orderList?page=${resultDTO.end}&searchType=${searchType}&keyword=${keyword}">마지막</a>
+						</c:when>
+						<c:otherwise>
+							<span class="gtB">&GT;</span>
+							<span class="lastB">마지막</span>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</main>

@@ -57,11 +57,26 @@ public class NewsController {
 	}
 
 	// List =====================================================
-
+	
 	@GetMapping("/newsList")
-	public void getNewsList(Model model) {
-		model.addAttribute("newsList", newsService.selectList());
+	public void getNewsList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<News> resultDTO = newsService.findAllDescPage(requestDTO, searchType, keyword);
+		
+		model.addAttribute("newsList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
+	
+
+//	@GetMapping("/newsList")
+//	public void getNewsList(Model model) {
+//		model.addAttribute("newsList", newsService.selectList());
+//	}
 
 	// Detail =====================================================
 	@GetMapping("/newsDetail")

@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.repository.OrderListRepository;
 
@@ -21,13 +23,15 @@ public class OrderListServiceImpl implements OrderListService {
 
     @Transactional
     @Override
-    public Page<OrderList> findAllDescPage(Pageable pageable) {
-    	return repository.findAllDesc(pageable);
+    public PageResultDTO<OrderList> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword) {
+    	Pageable pageable = requestDTO.getPageable();
+    	
+   	    Page<OrderList> result  = repository.findAllDesc(pageable, searchType, keyword);
+   	    
+   	    return new PageResultDTO<>(result);
     }
     
-//    public List<OrderList> findAllDesc() {
-//    	return repository.findAllDesc();
-//    }
+   
     
 	@Override
 	public List<OrderList> selectList() {

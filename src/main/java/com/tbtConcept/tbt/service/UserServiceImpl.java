@@ -5,8 +5,13 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
+import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.User;
 import com.tbtConcept.tbt.repository.UserRepository;
 
@@ -17,6 +22,16 @@ import lombok.RequiredArgsConstructor;
 public class UserServiceImpl implements UserService {
 
 	private final UserRepository repository;
+	
+	@Transactional
+	@Override
+	public PageResultDTO<User> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+		Page<User> result  = repository.findAllDesc(pageable, searchType, keyword);
+
+		return new PageResultDTO<>(result);
+	}
 
 	// ** selectList
 	@Override

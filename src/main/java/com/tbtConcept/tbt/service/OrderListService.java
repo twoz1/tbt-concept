@@ -5,18 +5,18 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
+import com.tbtConcept.tbt.domain.PageRequestDTO;
+import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.OrderList;
 
 public interface OrderListService {
 	
     @Transactional
-//    List<OrderList> findAllDesc();
-    Page<OrderList> findAllDescPage(Pageable pageable);
+    PageResultDTO<OrderList> findAllDescPage(PageRequestDTO requestDTO, String searchType, String keyword);
 	
 	List<OrderList> selectList();
+	
 	
 	List<OrderList> userOrderList(String id);
 	
