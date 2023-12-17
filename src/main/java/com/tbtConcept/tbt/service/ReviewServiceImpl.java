@@ -14,6 +14,7 @@ import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Faq;
 import com.tbtConcept.tbt.entity.OrderList;
+import com.tbtConcept.tbt.entity.Product;
 import com.tbtConcept.tbt.entity.Review;
 import com.tbtConcept.tbt.repository.ReviewRepository;
 
@@ -27,9 +28,14 @@ public class ReviewServiceImpl implements ReviewService{
 
 
 	@Override
-	public List<Review> selectList() {
-		return repository.findAll();
+	public PageResultDTO<Review> selectList(PageRequestDTO requestDTO, String searchType, String keyword) {
+		Pageable pageable = requestDTO.getPageable();
+
+        Page<Review> result = repository.selectList(pageable, searchType, keyword);
+		
+		return new PageResultDTO<>(result);
 	}
+	
 	
 	
 	//	   @Override

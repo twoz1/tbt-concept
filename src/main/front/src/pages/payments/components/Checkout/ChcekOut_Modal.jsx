@@ -34,6 +34,7 @@ const CheckOut_Modal = ({ closeModal}) => {
     }
   }, []);
 
+  console.log('리스트다냐옹',addressList);
 
   // 주소 추가 함수
   const addAddressToList = (newAddress) => {
@@ -53,7 +54,7 @@ const CheckOut_Modal = ({ closeModal}) => {
         const phoneNum3 = document.getElementById('address_phone_num3').value;
 
   
-        if (!addressAvc || !addressName || !addressCity || !addressDetail || !phoneNum1 || !phoneNum2 || !phoneNum3) {
+        if (!addressAvc || !addressName || !addressCity || !phoneNum1 || !phoneNum2 || !phoneNum3) {
             alert('모든 필수 항목을 입력하세요.');
             return;
         }
@@ -182,7 +183,7 @@ const CheckOut_Modal = ({ closeModal}) => {
                       <p>
                         <input type="text" id="address_city1" onChange={handleInput} value={enroll_company.address} required />
                         &nbsp; - &nbsp;
-                        <input type="text" id="address_detail1"required />
+                        <input type="text" id="address_detail1" />
                       </p>
                     </td>
                   </tr>

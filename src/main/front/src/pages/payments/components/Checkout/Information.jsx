@@ -62,9 +62,9 @@ const Information = ({ user_id}) => {
                             </th>
                             <td className="receiver">
                                 <input type="hidden" name="user_id" id="user_id" required value={user_id} />
-                                <input type="text" name="address_name" id="address_name"  required /> &nbsp;&nbsp;
+                                <input type="text" name="address_name" id="address_name"   value={""} readonly required /> &nbsp;&nbsp;
                                 <button type="button" onClick={() => openModal('address')}>주소록</button>
-                                {isModal('address') && <CheckOut_Modal closeModal={closeModal} user_id={user_id} />}
+                                {isModal('address') && <CheckOut_Modal closeModal={closeModal} user_id={user_id}/>}
                             </td>
                         </tr>
                         <tr>
@@ -72,7 +72,7 @@ const Information = ({ user_id}) => {
                                 휴대폰 번호 <span>&#42;</span>
                             </th>
                             <td className="receiver_phone">
-                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num" maxLength="4"required />
+                                <input type="text" minLength="3" name="address_phone_num" id="address_phone_num" maxLength="4"  value={""} readonly required />
 
                             </td>
                         </tr>
@@ -82,19 +82,19 @@ const Information = ({ user_id}) => {
                             </th>
                             <td className="customer_address">
                                 <input type="text" name="address_avc" id="address_avc"
-                                    minLength="5" maxLength="7" required
+                                    minLength="5" maxLength="7" value={""} readonly required
                                 />
                                 <p>
-                                    <input type="text" name="address_city" id="address_city" required />
+                                    <input type="text" name="address_city" id="address_city" value={""} readonly required />
                                     &nbsp; - &nbsp;
-                                    <input type="text" name="address_detail" id="address_detail" required />
+                                    <input type="text" name="address_detail" id="address_detail"  value={""} readonly required />
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <th>배송 메시지</th>
                             <td className="message">
-                                <input type="text" name="order_message" id="order_message" />
+                                <input type="text" name="order_message" id="order_message" value={""} readonly />
                                 
                             </td>
                         </tr>

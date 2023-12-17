@@ -30,8 +30,16 @@ public class ReviewController {
 	
 	// List
 	@GetMapping(value = "/reviewList")
-	public void getUserList(Model model) {
-		model.addAttribute("reviewList", reviewService.selectList());
+	public void getUserList(Model model, @RequestParam(value="page", defaultValue="1") int page,
+			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
+		
+		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
+		PageResultDTO<Review> resultDTO = reviewService.selectList(requestDTO, searchType, keyword);
+		
+		model.addAttribute("reviewList", resultDTO.getEntityList());
+	    model.addAttribute("resultDTO", resultDTO);
+	    model.addAttribute("searchType", searchType);
+	    model.addAttribute("keyword", keyword);
 	}
 	
 	

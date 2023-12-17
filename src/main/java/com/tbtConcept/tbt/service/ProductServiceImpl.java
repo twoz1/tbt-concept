@@ -62,6 +62,16 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	   @Override
+	   public List<Object> productGSales() {
+	      return repository.productGSales();
+	   }
+	   
+	   @Override
+	   public List<Object> productSSales() {
+	      return repository.productSSales();
+	   }
+	
 	@Override
 	public int save(Product entity) {
 		repository.save(entity);

@@ -43,6 +43,17 @@ public class ProductRController {
 		System.out.println("getProductDetail ->" + pr);
 		return pr;
 	}
+	
+	   @GetMapping("/pSSales/")
+	   public List<Object> getProductSSales() {
+	      return prodService.productSSales();
+	   }
+	   
+	   @GetMapping("/pGSales")
+	   public List<Object> getProductGSales() {
+	      return prodService.productGSales();
+	   }
+	
 
 	@GetMapping("/searchProds/{mSearBarKeyword}")
 	public ResponseEntity<?> searchProductListA(@PathVariable("mSearBarKeyword") String mSearBarKeyword) {

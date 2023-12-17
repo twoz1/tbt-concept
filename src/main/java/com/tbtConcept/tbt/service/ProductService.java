@@ -2,6 +2,8 @@ package com.tbtConcept.tbt.service;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.entity.Product;
@@ -17,6 +19,12 @@ public interface ProductService {
 	List<Product> selectGDesc();
 	
 	List<Product> searchByProductLikeA(String mSearBarKeyword);
+	
+	@Transactional
+	List<Object> productSSales();
+	   
+	@Transactional
+    List<Object> productGSales();
 	
 	Product selectDetail(int id);
 	

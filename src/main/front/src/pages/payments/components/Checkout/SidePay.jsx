@@ -102,7 +102,7 @@ const SidePay = ({ totalPrice, selectedCoupon, updatedCheckoutList }) => {
     function insertOrderList(e) {
         e.preventDefault();
 
-        const requiredFields = ["address_name", "address_avc", "address_city", "address_detail", "address_phone_num"];
+        const requiredFields = ["address_name", "address_avc", "address_city", "address_phone_num"];
 
         for (const field of requiredFields) {
             const value = document.getElementById(field).value.trim(); // 값 얻기 및 공백 제거
