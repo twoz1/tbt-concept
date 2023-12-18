@@ -147,7 +147,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
                                         <img className='img_upload_file' src={require(`../../../../images/review/${review_upload_file}`)} alt="첨부사진" ></img>
                                         : "첨부파일 없음"}
                                     <input type="hidden" name="review_upload_file" value={review_upload_file} />
-                                    <input className='blockForRUpdate' type="file" name="review_upload_filef" id="review_upload_filef" />
+                                    <input className='blockForRUpdate' type="file" name="review_upload_filef" id="review_upload_filef"  accept="image/*" />
                                 </td>
                             </tr>
 

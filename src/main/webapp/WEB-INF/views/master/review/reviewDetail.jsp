@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>리뷰 디테일 | tbt_concept</title>
+<link rel="stylesheet" href="/resources/lib/css/review/reviewDetail.css" />
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/review/axReview.js"></script>
 </head>
@@ -46,7 +47,7 @@
 					<tr>
 						<th>사진</th>
 						<td><img
-							src="${requestScope.reviewDetail.review_upload_file}" alt="리뷰이미지" /></td>
+							src="/resources/images/review/${requestScope.reviewDetail.review_upload_file}" alt="리뷰이미지" /></td>
 					</tr>
 					
 					<tr>

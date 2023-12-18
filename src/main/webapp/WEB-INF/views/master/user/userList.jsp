@@ -8,6 +8,9 @@
 <title>회원 목록 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/user/axUser.js"></script>
+<script>
+   history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">

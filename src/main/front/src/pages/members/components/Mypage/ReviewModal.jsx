@@ -87,7 +87,7 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id})
                                     <input type='hidden' name="order_detail_id" id="order_detail_id" value={order_detail_id} />
 
                                 </td>
-                                <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple /></td>
+                                <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple  accept="image/*"/></td>
                             </tr>
                             <tr>
                                 <td>리뷰작성</td>
