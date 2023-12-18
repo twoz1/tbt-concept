@@ -49,7 +49,6 @@ public class OrderListController {
 	@GetMapping("/orderListDetail")
 	public String getOrderListDetail (String order_id, Model model, OrderList entity, OrderDetail dentity, HttpServletRequest request) {
 		 if (entity != null && entity.getOrder_id() != null) {
-		        // entity가 null이 아니고, order_id가 null이 아닌 경우에만 주문 정보 조회
 		        model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));
 		    }
 //		model.addAttribute("orderListDetail", orderService.selectDetail(entity.getOrder_id()));

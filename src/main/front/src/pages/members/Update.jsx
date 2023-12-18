@@ -73,6 +73,7 @@ const Update = () => {
                     console.log(response.data);
                     if (response.data == "성공") {
                         alert("수정이 완료되었습니다.");
+                        sessionStorage.setItem("loginUser", null);
                         navigateTo("/");
                     } else {
                         alert("수정에 실패했습니다.");
