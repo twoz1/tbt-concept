@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,9 @@
 <link rel="stylesheet" href="/resources/lib/css/product/productList.css" />
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/product/axProducts.js"></script>
+<script>
+	history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -50,7 +54,7 @@
 								<td><c:if test="${p.code == 'S'}">SUNGLASS</c:if> <c:if
 										test="${p.code == 'G'}">GLASS</c:if></td>
 								<td><a href="productDetail?product_id=${p.product_id}">${p.product_name}</a></td>
-								<td>${p.product_price}</td>
+								<td><fmt:formatNumber value="${p.product_price}" pattern="#,##0원"/></td>
 								<td>${p.product_stock}</td>
 								<!-- <td>${p.product_detail}</td>
 								<td><img src="/${p.product_img1}" alt="상품이미지1" /></td>

@@ -48,22 +48,22 @@
 
 						<tr>
 							<th>상품이미지1<span class="required">&#42;</span></th>
-							<td><input class="product_img" type="file" name="product_img1f" id="product_img1f" required /></td>
+							<td><input class="product_img" type="file" name="product_img1f" id="product_img1f" accept="image/*" required /></td>
 						</tr>
 
 						<tr>
 							<th>상품이미지2<span class="required">&#42;</span></th>
-							<td><input class="product_img" type="file" name="product_img2f" id="product_img2f" required /></td>
+							<td><input class="product_img" type="file" name="product_img2f" id="product_img2f" accept="image/*" required /></td>
 						</tr>
 
 						<tr>
 							<th>상품이미지3<span class="required">&#42;</span></th>
-							<td><input class="product_img" type="file" name="product_img3f" id="product_img3f" required /></td>
+							<td><input class="product_img" type="file" name="product_img3f" id="product_img3f" accept="image/*" required /></td>
 						</tr>
 
 						<tr>
 							<th>상품이미지4<span class="required">&#42;</span></th>
-							<td><input class="product_img" type="file" name="product_img4f" id="product_img4f" required /></td>
+							<td><input class="product_img" type="file" name="product_img4f" id="product_img4f" accept="image/*" required /></td>
 						</tr>
 
 						<tr>

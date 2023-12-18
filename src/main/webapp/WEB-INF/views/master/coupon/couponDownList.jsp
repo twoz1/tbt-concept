@@ -9,6 +9,9 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/coupon/axCoupon.js"></script>
 <link rel="stylesheet" href="/resources/lib/css/coupon/couponList.css" />
+<script>
+	history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">

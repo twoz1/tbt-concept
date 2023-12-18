@@ -66,8 +66,8 @@
 							<th>상품이미지1<span class="required">&#42;</span></th>
 							<td>
 								<!--  -->
-								<img id="img1" alt="상품이미지1" src="/${requestScope.productDetail.product_img1}">
-								<input type="file" name="product_img1f" id="product_img1f" onchange="previewImage(event, 'img1')" />
+								<img id="img1" alt="상품이미지1" src="/resources/images/${requestScope.productDetail.product_img1}">
+								<input type="file" name="product_img1f" id="product_img1f" onchange="previewImage(event, 'img1')" accept="image/*"/>
 								<input type="hidden" name="product_img1" id="product_img1" value="${requestScope.productDetail.product_img1}"/>
 							</td>
 						</tr>
@@ -75,8 +75,8 @@
 						<tr>
 							<th>상품이미지2<span class="required">&#42;</span></th>
 							<td>
-								<img id="img2" alt="상품이미지2" src="/${requestScope.productDetail.product_img2}">
-								<input type="file" name="product_img2f" id="product_img2f" onchange="previewImage(event, 'img2')"/>
+								<img id="img2" alt="상품이미지2" src="/resources/images/${requestScope.productDetail.product_img2}">
+								<input type="file" name="product_img2f" id="product_img2f" onchange="previewImage(event, 'img2')" accept="image/*"/>
 								<input type="hidden" name="product_img2" id="product_img2" value="${requestScope.productDetail.product_img2}"/>
 							</td>
 						</tr>
@@ -84,8 +84,8 @@
 						<tr>
 							<th>상품이미지3<span class="required">&#42;</span></th>
 							<td>
-								<img id="img3" alt="상품이미지3" src="/${requestScope.productDetail.product_img3}">
-								<input type="file" name="product_img3f" id="product_img3f" onchange="previewImage(event, 'img3')"/>
+								<img id="img3" alt="상품이미지3" src="/resources/images/${requestScope.productDetail.product_img3}">
+								<input type="file" name="product_img3f" id="product_img3f" onchange="previewImage(event, 'img3')" accept="image/*"/>
 								<input type="hidden" name="product_img3" id="product_img3" value="${requestScope.productDetail.product_img3}"/>
 							</td>
 						</tr>
@@ -93,8 +93,8 @@
 						<tr>
 							<th>상품이미지4<span class="required">&#42;</span></th>
 							<td>
-								<img id="img4" alt="상품이미지4" src="/${requestScope.productDetail.product_img4}">
-								<input type="file" name="product_img4f" id="product_img4f" onchange="previewImage(event, 'img4')"/>
+								<img id="img4" alt="상품이미지4" src="/resources/images/${requestScope.productDetail.product_img4}">
+								<input type="file" name="product_img4f" id="product_img4f" onchange="previewImage(event, 'img4')" accept="image/*"/>
 								<input type="hidden" name="product_img4" id="product_img4" value="${requestScope.productDetail.product_img4}"/>
 							</td>
 						</tr>

@@ -8,6 +8,9 @@
 <title>쿠폰 목록 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/coupon/axCoupon.js"></script>
+<script>
+	history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">
