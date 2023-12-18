@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.tbtConcept.tbt.domain.PageRequestDTO;
 import com.tbtConcept.tbt.domain.PageResultDTO;
 import com.tbtConcept.tbt.domain.WishProdDTO;
-import com.tbtConcept.tbt.entity.OrderList;
 import com.tbtConcept.tbt.entity.User;
+import com.tbtConcept.tbt.entity.WishId;
 import com.tbtConcept.tbt.service.UserService;
 import com.tbtConcept.tbt.service.WishService;
 
@@ -97,6 +97,8 @@ public class UserController {
 		}
 	}
 	
+	// -------------------------------------------------------------------------------------
+	
 	@GetMapping("/wishList")
 	public void getWishList(Model model, @RequestParam(value="page", defaultValue="1") int page,
 			@RequestParam(value="searchType", defaultValue = "") String searchType, @RequestParam(value="keyword", defaultValue = "") String keyword) {
@@ -109,6 +111,20 @@ public class UserController {
 	    model.addAttribute("resultDTO", resultDTO);
 	    model.addAttribute("searchType", searchType);
 	    model.addAttribute("keyword", keyword);
+	}
+	
+	@DeleteMapping("/wishDelete/{user_id}/{product_id}")
+	public ResponseEntity<?> axWishDelete(@PathVariable("user_id") String user_id, @PathVariable("product_id") int product_id) {
+		
+		System.out.println(user_id + product_id);
+		
+		if (wishService.delete(new WishId(user_id, product_id)) != null) {
+			log.info("wishDelete HttpStatus.OK =>" + HttpStatus.OK);
+			return new ResponseEntity<String>("[관심상품 삭제 성공]", HttpStatus.OK);
+		} else {
+			log.info("wisDelete HttpStatus.BAD_GATEWAY =>" + HttpStatus.BAD_GATEWAY);
+			return new ResponseEntity<String>("[관심상품 삭제 실패] - Data_NotFound", HttpStatus.BAD_GATEWAY);
+		}
 	}
 	
 

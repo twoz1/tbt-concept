@@ -33,7 +33,7 @@ const Footer = () => {
                     <p> 상호명 &#58; TbT concept ㅣ 주소 &#58; 경기도 성남시 분당구 돌마로 46 &#40;광천빌딩 5층&#41;</p>
                     <p> &#40;주&#41;티비티컨셉코리아 &nbsp;&copy;ALL&nbsp;RIGHT&nbsp;RESERVED ㅣ 사업자등록번호 &#58;221&#45;90&#45;2000</p>
                     <p> 개인정보보호책임자 &#58; 최고조 ㅣ 호스팅서비스 &#58; &#40;TBT concept&#41;</p>
-                    {loginUser != null && loginUser.user_id == "admin" ? <a href="http://localhost:8080/">❤️</a> : ""}
+                    {loginUser != null && loginUser.user_id == "admin" ? <a href="http://localhost:8080/" target="_blank">❤️</a> : ""}
                 </div>
 
                 <div className="foot_right">
