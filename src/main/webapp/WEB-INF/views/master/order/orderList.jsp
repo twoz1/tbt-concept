@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,9 @@
 <title>주문 리스트 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/order/axOrder.js"></script>
+<script>
+   history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -47,7 +51,10 @@
 								<td>${o.order_date}</td>
 								<td>${o.address_name}</td>
 								<td>${o.address_avc}${o.address_city}${o.address_detail}</td>
-								<td>${o.order_total_price}</td>
+								<td>
+								<fmt:formatNumber value="${o.order_total_price}" pattern="#,##0원"/>
+									<%-- ${o.order_total_price} --%>
+								</td>
 								<td>${o.order_state}</td>
 								<td>${o.order_del_state}</td>
 								<td><a href="orderListDetail?order_id=${o.order_id}">상세보기</a></td>

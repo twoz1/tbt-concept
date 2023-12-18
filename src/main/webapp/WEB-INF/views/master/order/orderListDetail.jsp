@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +59,10 @@
                </tr>
                <tr>
                   <th>총결제금액</th>
-                  <td>${requestScope.orderListDetail.order_total_price}</td>
+                  <td>
+                  	<fmt:formatNumber value="${requestScope.orderListDetail.order_total_price}" pattern="#,##0원"/>
+                  	<%-- ${requestScope.orderListDetail.order_total_price} --%>
+                  </td>
                </tr>
                <tr>
                   <th>입금상태</th>
@@ -94,11 +98,17 @@
                   <tr>
                      <td>${od.order_id}</td>
                      <td>${od.order_detail_id}</td>  
-                     <td>${od.product_img1}</td>  
+                     <td>
+                     	<img src="/resources/images/${od.product_img1}" alt="상품이미지1" />
+                     	<%-- ${od.product_img1} --%>
+                     </td>  
                      <td>${od.product_name}</td>  
                      <td>${od.product_id}</td>  
                      <td>${od.order_quan}</td>  
-                     <td>${od.order_price}</td>  
+                     <td>
+                     <fmt:formatNumber value="${od.order_price}" pattern="#,##0원"/>
+                     	<%-- ${od.order_price} --%>
+                     </td>  
                      <td>${od.review_state}</td>  
                   </tr>
                </c:forEach>
