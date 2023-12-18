@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="/resources/lib/css/cs/faqList.css" />
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/cs/axCS.js"></script>
+<script>
+   history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">

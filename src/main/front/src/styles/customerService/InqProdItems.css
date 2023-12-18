@@ -6,13 +6,16 @@
     padding-left: 0.2rem;
 }
 
-.tBodyInqProdItems tr td:nth-child(3) #curPointer {
+.tBodyInqProdItems tr td:nth-child(3) {
     width:480px;
     display:inline-block;
-    cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#curPointer {
+    cursor: pointer;
 }
 
 .qnaAnswer_td {

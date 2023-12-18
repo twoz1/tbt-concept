@@ -222,7 +222,7 @@ const Modal_cs1on1 = ({ openModal, closeModal, isModal }) => {
 											파일첨부
 										</th>
 										<td>
-											<input className='fileUpload' type="file" name="qna_upload_filef" id="btn_fileRef" multiple />
+											<input className='fileUpload' type="file" name="qna_upload_filef" id="btn_fileRef" multiple  accept="image/*" />
 										</td>
 									</tr>
 								</tbody>

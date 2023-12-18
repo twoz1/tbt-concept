@@ -9,6 +9,9 @@
 <title>장바구니 리스트 | tbt_concept</title>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/resources/lib/js/cart/axCart.js"></script>
+<script>
+   history.replaceState({}, null, location.pathname);
+</script>
 </head>
 <body>
 	<div id="master_wrap">
@@ -16,7 +19,6 @@
 		<main id="master_main">
 			<div class="cart_list master_list">
 				<h2 class="master_title">장바구니 리스트</h2>
-				<a class="m_button l_button" href="cartInsert">장바구니 등록</a>
 
 				<form action="cartList" method="get">
 					<select name="searchType" id="searchType" onchange="keywordClear()">

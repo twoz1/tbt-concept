@@ -76,7 +76,8 @@
 
 						<tr>
 							<th>사진</th>
-							<td>${requestScope.qna1on1Detail.qna_upload_file}
+							<td>
+								<img src="/resources/images/cs/${requestScope.qna1on1Detail.qna_upload_file}" alt="QnA_IMG" />
 								<input type="hidden" name="qna_upload_file" id="qna_upload_file" value="${requestScope.qna1on1Detail.qna_upload_file}" />
 							</td>
 						</tr>
