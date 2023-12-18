@@ -171,7 +171,7 @@ const DpProductCSModal = ({ openModal, closeModal, isModal, product_id }) => {
 											파일첨부
 										</th>
 										<td>
-											<input className='fileUpload' type="file" name="qna_upload_filef" id="btn_fileRef" multiple />
+											<input className='fileUpload' type="file" name="qna_upload_filef" id="btn_fileRef"  accept="image/*" multiple  />
 										</td>
 									</tr>
 								</tbody>
@@ -190,7 +190,7 @@ const DpProductCSModal = ({ openModal, closeModal, isModal, product_id }) => {
 					</form>
 				</div>
 			</div>
-		</div>//최종div
+		</div>
 	);
 };
 
