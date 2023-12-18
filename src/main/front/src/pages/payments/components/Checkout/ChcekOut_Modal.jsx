@@ -21,12 +21,13 @@ const CheckOut_Modal = ({ closeModal}) => {
       navigateTo("/");
     } else {
       setPageState(true);
+
+      let url ="/address/aList/" +loginUser.user_id;
       axios
-        .get('/address/aList')
+        .get(url)
         .then((response) => {
-          const userAddressList = response.data.filter(address => address.user_id === loginUser.user_id);
-          setAddressList(userAddressList);
-          console.log(`** checkdata 서버연결 성공 => ${userAddressList}`);
+          setAddressList(response.data);
+          console.log(`** checkdata 서버연결 성공 => ${setAddressList}`);
         })
         .catch((err) => {
           alert(`** checkdata 서버연결 실패 => ${err.message}`);

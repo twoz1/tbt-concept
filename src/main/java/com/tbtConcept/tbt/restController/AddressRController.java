@@ -2,6 +2,7 @@ package com.tbtConcept.tbt.restController;
 
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -29,9 +30,9 @@ public class AddressRController {
    AddressService addressService;
 
    
-   @GetMapping("/aList")
-   public List<Address> getAddressList(Model model){
-      return addressService.selectList();
+   @GetMapping("/aList/{user_id}")
+   public List<Address> getAddressList(@PathVariable("user_id") String user_id){
+      return addressService.selectAList(user_id);
  }
    
    @DeleteMapping("aDelete/{duplicate_user_id}")

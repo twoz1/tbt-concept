@@ -20,12 +20,6 @@ public interface ProductService {
 	
 	List<Product> searchByProductLikeA(String mSearBarKeyword);
 	
-	@Transactional
-	List<Object> productSSales();
-	   
-	@Transactional
-    List<Object> productGSales();
-	
 	Product selectDetail(int id);
 	
 	int save(Product entity);
