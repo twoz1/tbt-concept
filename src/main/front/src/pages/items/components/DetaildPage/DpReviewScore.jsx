@@ -24,7 +24,7 @@ const DpReviewScore = ({ product_id }) => {
         });
     }, []);
 
-
+    console.log(review);
 
     const reviewScoreText = ["아주 좋아요", "마음에 들어요", "보통이에요", "그냥 그래요", "별로에요"];
 

@@ -32,6 +32,11 @@
 						<th>회원ID</th>
 						<td>${requestScope.reviewDetail.user_id}</td>
 					</tr>
+					
+					<tr>
+						<th>작성일</th>
+						<td>${requestScope.reviewDetail.review_date}</td>
+					</tr>
 
 					<tr>
 						<th>별점</th>

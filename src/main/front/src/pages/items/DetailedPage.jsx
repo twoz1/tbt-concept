@@ -46,7 +46,7 @@ const DetailedPage = ({ starScore }) => {
 
     if (loading) {
         // 데이터 로딩 중일 때의 처리
-        return <div>Loading...</div>;
+        return <div></div>;
     }
 
     return (

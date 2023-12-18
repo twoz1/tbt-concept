@@ -58,8 +58,7 @@ public class ReviewRController {
 		}
 		
 		 entity.setReview_date(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-		 
-		System.out.println("order 디테일 아이디" + order_detail_id);
+		
 		 OrderDetail od = orderDetailService.selectDetail(order_detail_id);
 		 od.setReview_state("작성완료");
 		 
