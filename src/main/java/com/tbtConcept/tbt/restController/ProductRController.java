@@ -44,17 +44,6 @@ public class ProductRController {
 		return pr;
 	}
 	
-	   @GetMapping("/pSSales/")
-	   public List<Object> getProductSSales() {
-	      return prodService.productSSales();
-	   }
-	   
-	   @GetMapping("/pGSales")
-	   public List<Object> getProductGSales() {
-	      return prodService.productGSales();
-	   }
-	
-
 	@GetMapping("/searchProds/{mSearBarKeyword}")
 	public ResponseEntity<?> searchProductListA(@PathVariable("mSearBarKeyword") String mSearBarKeyword) {
 		List<Product> searchList = prodService.searchByProductLikeA(mSearBarKeyword);

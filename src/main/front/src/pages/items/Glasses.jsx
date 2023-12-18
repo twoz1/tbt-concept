@@ -45,23 +45,7 @@ const Glasses = () => {
         fetchData();
     }, []);
 
-    const [pgdata, setPSData] = useState([]);
 
-    useEffect(() => {
-        let url = "/product/pGSales/";
-
-        axios.get(url).then(response => {
-            setPSData(response.data);
-        }).catch(err => {
-            if (err.response.status == "502") {
-                alert("productSales 오류 다시 시도하세요.");
-            } else {
-                alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
-            }
-        });
-    }, []);
-    
-    
     const handleSort = (type) => {
         dispatch({ type });
     };

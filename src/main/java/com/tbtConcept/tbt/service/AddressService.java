@@ -12,7 +12,7 @@ public interface AddressService {
 
 	PageResultDTO<Address> selectAList(PageRequestDTO requestDTO, String searchType, String keyword);
 	
-    List<Address> selectList();
+    List<Address> selectAList(String user_id);
 
     Address selectOne(int id);  // 메소드 시그니처 수정
 

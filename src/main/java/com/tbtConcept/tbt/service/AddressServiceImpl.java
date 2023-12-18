@@ -31,8 +31,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public List<Address> selectList() {
-        return repository.findAll();
+    public List<Address> selectAList(String user_id) {
+        return repository.selectAList(user_id);
     }
 
     @Override
