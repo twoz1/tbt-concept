@@ -3,7 +3,7 @@ import useModal from '../../../customHooks/useModal';
 import { useState } from 'react';
 import axios from "axios";
 
-const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id, review_star, review_content, review_upload_file, product_id, review_date }) => {
+const DpReviewItem = ({ review_id, starLength, reviewScoreText, user_id, review_star, review_content, review_upload_file, product_id, review_date }) => {
 
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 
@@ -103,6 +103,7 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id, review
                         review_star={review_star}
                         review_content={review_content}
                         review_upload_file={review_upload_file}
+                        review_date={review_date}
                     />}
                     <span onClick={() => { deleteReview(review_id) }}>삭제</span>
                 </div>
@@ -113,4 +114,4 @@ const DpReviewScore = ({ review_id, starLength, reviewScoreText, user_id, review
     );
 }
 
-export default DpReviewScore;
+export default DpReviewItem;

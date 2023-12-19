@@ -18,7 +18,7 @@
       <%@ include file="../masterHeader.jsp" %>
       <main id="master_main">
          <div class="address_list master_list">
-            <h2 class="master_title">회원 리스트</h2>
+            <h2 class="master_title">주소 목록</h2>
             <div class="searchBox">
 					<form action="addressList" method="get">
 					    <select name="searchType" id="searchType" onchange="keywordClear()">

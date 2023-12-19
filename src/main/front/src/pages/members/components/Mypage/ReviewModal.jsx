@@ -18,10 +18,12 @@ export function useStar() {
 
 }
 
-export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id}) => {
+export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id }) => {
 
 
-    function insertReview() {
+    function insertReview(e) {
+
+        e.preventDefault();
 
         const review_content = document.getElementById("review_content").value;
         if (review_content.length < 30) {
@@ -38,9 +40,10 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id})
         }).then(response => {
             console.log("reviewInsert 등록 완료");
             alert("등록되었습니다");
+            window.location.reload();
             //navigateInsertTo("/detail");
         }).catch(err => {
-            if (err.response.status == "502") {
+            if (err.response.status == 502) {
                 alert("[입력 오류] 다시 시도하세요.");
             } else {
                 alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
@@ -63,7 +66,7 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id})
         <p className="ReviewModal">
             <div className="review_cover">
                 <div className="modal_review" >
-                    <form id='subtitleID_review' enctype="multipart/form-data">
+                    <form id='subtitleID_review' action='post' onSubmit={(e) => insertReview(e)} enctype="multipart/form-data">
                         <table>
                             <caption>리뷰작성</caption>
                             <tr>
@@ -87,7 +90,7 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id})
                                     <input type='hidden' name="order_detail_id" id="order_detail_id" value={order_detail_id} />
 
                                 </td>
-                                <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple  accept="image/*"/></td>
+                                <td><input type="file" name="review_upload_filef" id="review_upload_filef" multiple accept="image/*" /></td>
                             </tr>
                             <tr>
                                 <td>리뷰작성</td>
@@ -96,7 +99,7 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id})
                         </table>
                         <div className="review_button">
                             <button type="reset" onClick={() => closeModal('review')}>취소</button>
-                            <button onClick={() => insertReview()}>완료</button>
+                            <button>완료</button>
                         </div>
                     </form>
                 </div>

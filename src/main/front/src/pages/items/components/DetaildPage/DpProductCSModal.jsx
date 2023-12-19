@@ -25,15 +25,15 @@ const DpProductCSModal = ({ openModal, closeModal, isModal, product_id }) => {
 	};
 
 	// QnA1on1 insert ===================================================
-	function insertQnA1on1(product_id) {
-
+	function insertQnA1on1(e,product_id) {
+		e.preventDefault();
 		let formData = new FormData(document.getElementById("DpProductqnaModal"));
 
 		let url = "/qna1on1/qna1on1Insert/" + product_id;
 
 		axios.post(url, formData, {
 			headers: { "Content-Type": "multipart/form-data" }
-		}).then(response => {
+		}).then((response) => {
 			console.log("insertProductQnA1on1 등록 완료");
 			alert("등록되었습니다");
 			window.location.reload();
@@ -63,7 +63,7 @@ const DpProductCSModal = ({ openModal, closeModal, isModal, product_id }) => {
 					</div>
 
 					{/* ==========1:1 문의 입력 정보창=========== */}
-					<form id='DpProductqnaModal' className="subtitle_1on1" enctype="multipart/form-data">
+					<form id='DpProductqnaModal' className="subtitle_1on1"  onSubmit={(e) => insertQnA1on1(e, product_id)} enctype="multipart/form-data">
 						<figure>
 							<figcaption><strong>1&#58;1 문의</strong></figcaption>
 
@@ -184,8 +184,8 @@ const DpProductCSModal = ({ openModal, closeModal, isModal, product_id }) => {
                         </div>
 
 						<div className="btn_submit">
-							<button onClick={() => closeModal('dpProductCSModal')}>취소</button>
-							<button onClick={() => insertQnA1on1(product_id)}>등록</button>
+							<button type='button' onClick={() => closeModal('dpProductCSModal')}>취소</button>
+							<button>등록</button>
 						</div>
 					</form>
 				</div>

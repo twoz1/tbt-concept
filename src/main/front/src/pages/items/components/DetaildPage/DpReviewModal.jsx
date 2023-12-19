@@ -19,7 +19,7 @@ export function useStar() {
 
 }
 
-export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, reviewScoreText, user_id, review_star, review_content, review_upload_file }) => {
+export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, user_id, review_star, review_content, review_upload_file }) => {
 
 
     function uploadReview() {
@@ -65,7 +65,9 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
         }
     };
 
-    function updateReview() {
+    function updateReview(e) {
+
+        e.preventDefault();
 
         const reviewContent = document.getElementById("review_content").value;
         if (reviewContent.length < 30) {
@@ -76,7 +78,6 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
         let formData = new FormData(document.getElementById("update_review"));
 
         let url = "/review/rUpdate";
-
         axios.post(url, formData, {
             headers: { "Content-Type": "multipart/form-data" }
         }).then(response => {
@@ -84,7 +85,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
             alert("등록되었습니다");
             window.location.reload();
         }).catch(err => {
-            if (err.response.status == "502") {
+            if (err.response.status == 502) {
                 alert("[입력 오류] 다시 시도하세요.");
             } else {
                 alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
@@ -108,7 +109,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
         <p className="ReviewModal">
             <div className="modal_cover">
                 <div className="modal_review" >
-                    <form id='update_review' enctype="multipart/form-data">
+                    <form id='update_review' action='post' onSubmit={(e) => updateReview(e)} enctype="multipart/form-data">
                         <table>
                             <caption>리뷰작성</caption>
 
@@ -117,6 +118,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
                                     <input type="hidden" name="review_id" id="review_id" value={review_id} />
                                     <input type="hidden" name="product_id" id="product_id" value={product_id} />
                                     <input type="hidden" name="user_id" id="user_id" value={user_id} />
+                                    <input type="hidden" name="review_date" id="review_date" value={review_date} />
                                 </td>
                             </tr>
 
@@ -147,7 +149,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
                                         <img className='img_upload_file' src={require(`../../../../images/review/${review_upload_file}`)} alt="첨부사진" ></img>
                                         : "첨부파일 없음"}
                                     <input type="hidden" name="review_upload_file" value={review_upload_file} />
-                                    <input className='blockForRUpdate' type="file" name="review_upload_filef" id="review_upload_filef"  accept="image/*" />
+                                    <input className='blockForRUpdate' type="file" name="review_upload_filef" id="review_upload_filef" accept="image/*" />
                                 </td>
                             </tr>
 
@@ -169,8 +171,8 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
                         </div>
 
                         <div className="review_button blockForRUpdate">
-                            <button onClick={() => closeModal('DpReviewModal')}>취소</button>
-                            <button onClick={() => updateReview()}>수정완료</button>
+                            <button type='button' onClick={() => closeModal('DpReviewModal')}>취소</button>
+                            <button >수정완료</button>
                         </div>
                     </form>
                 </div>
@@ -178,3 +180,5 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, starLength, r
         </p>
     );
 }
+
+export default DpReviewModal;

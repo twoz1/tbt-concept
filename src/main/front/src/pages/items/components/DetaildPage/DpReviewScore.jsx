@@ -16,7 +16,7 @@ const DpReviewScore = ({ product_id }) => {
         axios.get(url).then(response => {
             setReview(response.data);
         }).catch(err => {
-            if (err.response.status == "502") {
+            if (err.response.status == 502) {
                 alert("[입력 오류] 다시 시도하세요.");
             } else {
                 alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
