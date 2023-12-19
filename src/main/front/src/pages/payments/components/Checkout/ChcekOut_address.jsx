@@ -12,8 +12,7 @@ const ChcekOut_address = ({closeModal, index, address_name, address_city, addres
         axios
             .delete(`/address/aDelete/${duplicate_user_id}`)
             .then((response) => {
-                console.log(`** 주소 삭제 성공 => ${response.data}`);
-                //삭제 성공 시, 주소 목록을 갱신
+                alert("삭제되었습니다.");
                 setAddressList((prevAddresses) =>
                     prevAddresses.filter((address) => address.duplicate_user_id !== duplicate_user_id)
                 );
