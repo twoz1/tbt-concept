@@ -28,7 +28,8 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
         // title input 태그의 초기값 설정을 위한 useState 사용
         const [qnaTitle, setQnaTitle] = useState(qna_title);
 
-        function updateQnA1on1() {
+        function updateQnA1on1(e) {
+            e.preventDefault();
             let formData = new FormData(document.getElementById("subtitleID_1on1_1"));
 
             let url = "/qna1on1/qUpdate";
@@ -94,7 +95,7 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
                         </div>
 
                         {/* ==========1:1 문의 입력 정보창=========== */}
-                        <form id='subtitleID_1on1_1' className="subtitle_1on1_1" enctype="multipart/form-data">
+                        <form id='subtitleID_1on1_1' className="subtitle_1on1_1"  onSubmit={(e) => updateQnA1on1(e)}  enctype="multipart/form-data">
                             <figure>
                                 <figcaption><strong>1&#58;1 문의</strong></figcaption>
                                 <table>
@@ -193,7 +194,7 @@ const ResultCS1on1 = ({ closeModal, qna_id, product_id, user_id, qna_type, qna_p
 
                             <div className="btn_UpdateSubmit">
                                 <button onClick={() => closeModal('titleInqProd')}>취소</button>
-                                <button onClick={() => updateQnA1on1()}>수정완료</button>
+                                <button>수정완료</button>
                             </div>
                         </form>
                     </div>
