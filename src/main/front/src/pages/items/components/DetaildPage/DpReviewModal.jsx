@@ -12,7 +12,7 @@ export function useStar() {
         const starStates = array.map((i) => { return (i <= index) });
         setCheckStar(starStates);
     };
-    // 별점값 내보내기
+
     let starScore = checkStar.filter(Boolean).length;
 
     return { starScore };
@@ -20,7 +20,6 @@ export function useStar() {
 }
 
 export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, user_id, review_star, review_content, review_upload_file }) => {
-
 
     function uploadReview() {
 
@@ -36,7 +35,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, 
 
     }
 
-    // 파일 update 시에 사진 스위치를 위한 useEffect
+
     useEffect(() => {
         const fileInput = document.getElementById('review_upload_filef');
 
@@ -44,14 +43,12 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, 
             fileInput.addEventListener('change', handleFileChange);
 
             return () => {
-                // 컴포넌트가 언마운트될 때 리스너를 제거
                 fileInput.removeEventListener('change', handleFileChange);
             };
         }
-    }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행
+    }, []); 
 
     const handleFileChange = (e) => {
-        // 파일 변경 시 실행되는 로직
         if (e.target.files && e.target.files[0]) {
             let reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
@@ -64,6 +61,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, 
             };
         }
     };
+
 
     function updateReview(e) {
 
@@ -78,11 +76,13 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, 
         let formData = new FormData(document.getElementById("update_review"));
 
         let url = "/review/rUpdate";
+        
+        if(window.confirm("수정하시겠습니까?")){
         axios.post(url, formData, {
             headers: { "Content-Type": "multipart/form-data" }
         }).then(response => {
             console.log("reviewUpdate 완료");
-            alert("등록되었습니다");
+            alert("수정되었습니다.");
             window.location.reload();
         }).catch(err => {
             if (err.response.status == 502) {
@@ -91,6 +91,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, 
                 alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
             }
         });
+     }
     }
 
 
@@ -101,7 +102,7 @@ export const DpReviewModal = ({ closeModal, product_id, review_id, review_date, 
         const starStates = array.map((i) => { return (i <= index) });
         setCheckStar(starStates);
     };
-    // 별점값 내보내기
+
     let starScore = checkStar.filter(Boolean).length;
     console.log(starScore);
 

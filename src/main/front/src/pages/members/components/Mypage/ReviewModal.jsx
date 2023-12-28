@@ -34,12 +34,14 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id }
         let formData = new FormData(document.getElementById("subtitleID_review"));
 
         let url = "/review/reviewInsert";
+        
+        if(window.confirm("등록하시겠습니까?")){
 
         axios.post(url, formData, {
             headers: { "Content-Type": "multipart/form-data" }
         }).then(response => {
             console.log("reviewInsert 등록 완료");
-            alert("등록되었습니다");
+            alert("등록되었습니다.");
             window.location.reload();
             //navigateInsertTo("/detail");
         }).catch(err => {
@@ -49,6 +51,7 @@ export const ReviewModal = ({ order_detail_id, closeModal, product_id, user_id }
                 alert("[시스템 오류] 잠시 후에 다시 시도하세요." + err.message);
             }
         });
+     }
     }
 
 

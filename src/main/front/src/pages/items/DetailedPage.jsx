@@ -2,40 +2,30 @@
 import "../../styles/items/DetailedPage.css";
 import DpTopSection from "../items/components/DetaildPage/DpTopSection";
 import DpSelectOption from "../items/components/DetaildPage/DpSelectOption";
-// import DpNavigation from "../items/components/DetaildPage/DpNavigation";
 import DpReviewScore from "../items/components/DetaildPage/DpReviewScore";
 import DpProductDetail from "../items/components/DetaildPage/DpProductDetail";
 import DpQnABtn from "./components/DetaildPage/DpQnABtn";
 import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from 'react';
-//import mockItemsContext from './MockItems';
+import { useEffect, useState } from 'react';
 import useScrollToTop from "../customHooks/useScrollToTop";
 import DpQnA from "./components/DetaildPage/DpQnA";
 import axios from 'axios';
 
 
-
-const DetailedPage = ({ starScore }) => {
-
-    const [productDetail, setProductDetail] = useState("");
-    const [loading, setLoading] = useState(true);
+const DetailedPage = () => {
+    const [productDetail, setProductDetail] = useState(null); 
     const { product_id } = useParams();
 
     useScrollToTop();
 
     useEffect(() => {
-
         const fetchData = async () => {
             try {
                 const response = await axios.get('/product/pDetail/' + product_id);
                 setProductDetail(response.data);
-                console.log("너 있냐?", response.data);
-
             } catch (err) {
                 alert(`** product db 연결 실패 => ${err.message}`);
                 console.log("error");
-            } finally {
-                setLoading(false); // 데이터 로딩 완료 후 상태 변경
             }
         };
 
@@ -44,13 +34,10 @@ const DetailedPage = ({ starScore }) => {
 
     console.log("-->", productDetail);
 
-    if (loading) {
-        // 데이터 로딩 중일 때의 처리
-        return <div></div>;
-    }
 
     return (
         <div className="DetailedPage">
+         {productDetail && (
             <div className="center m_c">
                 <div className="section">
                     <DpTopSection key={productDetail.product_id}{...productDetail} />
@@ -184,6 +171,7 @@ const DetailedPage = ({ starScore }) => {
                     </div>
                 </div>
             </div>
+              )}
         </div>
     );
 }

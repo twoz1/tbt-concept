@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useModal from "../../../customHooks/useModal";
-import CheckOut_Modal from "./ChcekOut_Modal";
-import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
+import CheckOut_Modal from "./CheckOut_Modal";
+import CheckOut_OrderAVC from "./CheckOut_OrderAVC";
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';

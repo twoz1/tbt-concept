@@ -24,7 +24,7 @@ import axios from 'axios';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { addressReducer } from './pages/config/Configstore';
-import CheckOut_Modal from './pages/payments/components/Checkout/ChcekOut_Modal';
+import CheckOut_Modal from './pages/payments/components/Checkout/CheckOut_Modal';
 import Information from './pages/payments/components/Checkout/Information';
 import Update from './pages/members/Update';
 import SearchBItems from './pages/items/SearchBItems';

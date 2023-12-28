@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../../styles/members/OrderModal.css';
 import useModal from '../../../customHooks/useModal';
+import { Link } from 'react-router-dom';
 import { ReviewModal } from './ReviewModal';
 
 const OrderDetail = ({ user_id, product_id, product_name, order_quan, order_price, review_state ,order_detail_id ,order_del_state}) => {
@@ -19,7 +20,11 @@ const OrderDetail = ({ user_id, product_id, product_name, order_quan, order_pric
                 {showReviewButton ? (
                     <button className="review" onClick={() => openModal('review')}>작성하기</button>
                 ) : (
-                     review_state === "작성완료" ? "작성완료" : null
+                     review_state === "작성완료" ? 
+                     <Link to={`/detail/${product_id}`} key={product_id} >
+                      <span>리뷰보기</span>
+                    </Link>
+                     : null
                 )}
                 {isModal('review') && (
                     <ReviewModal

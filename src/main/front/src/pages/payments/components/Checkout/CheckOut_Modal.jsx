@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ChcekOut_address from './ChcekOut_address';
+import CheckOut_address from './CheckOut_address';
 import useModal from "../../../customHooks/useModal";
-import ChcekOut_OrderAVC from "./ChcekOut_OrderAVC";
+import CheckOut_OrderAVC from "./CheckOut_OrderAVC";
 import navigateTo from "../../../config/navigateTo";
 import '../../../../styles/payments/CheckOut_Modal.css';
 
@@ -179,7 +179,7 @@ const CheckOut_Modal = ({ closeModal}) => {
 
 
                     <button className='addressSearchBtn' onClick={handleComplete}> 우편번호 찾기</button>
-                    {popup && <ChcekOut_OrderAVC company={enroll_company} setcompany={setEnroll_company}></ChcekOut_OrderAVC>}
+                    {popup && <CheckOut_OrderAVC company={enroll_company} setcompany={setEnroll_company}></CheckOut_OrderAVC>}
 
                       <p>
                         <input type="text" id="address_city1" onChange={handleInput} value={enroll_company.address} required />
@@ -218,7 +218,7 @@ const CheckOut_Modal = ({ closeModal}) => {
 
               <tbody>
                 {addressList.map((address, index) => (
-                  <ChcekOut_address key={index} {...address} closeModal={closeModal} setAddressList={setAddressList} />
+                  <CheckOut_address key={index} {...address} closeModal={closeModal} setAddressList={setAddressList} />
                 ))}
               </tbody>
             </table>

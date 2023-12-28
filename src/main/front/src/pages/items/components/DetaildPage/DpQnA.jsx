@@ -2,12 +2,10 @@ import React from 'react';
 import Pagination from '../../../customHooks/Pagination';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import useModal from '../../../customHooks/useModal';
-import ResultCS1on1 from '../../../customerService/components/CS_total/ResultCS1on1';
 import DpQnAList from './DpQnAList';
 
 const DpQnA = ({ product_id }) => {
-  const { openModal, closeModal, isModal } = useModal();
+
   const loginUser = JSON.parse(sessionStorage.getItem('loginUser'));
   const [dpQnAList, setDpQnAList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

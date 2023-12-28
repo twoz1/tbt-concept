@@ -1,7 +1,7 @@
 import React from 'react'
 
 const DpProductDetail = ({ product_img1,product_img2,product_img3,product_img4 }) => {
- // const {product_img1,product_img2,product_img3,product_img4,summary}=ProductListSelected;
+  
   return (
     <div>
     <div className="product_detail">

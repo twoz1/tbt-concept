@@ -1,5 +1,5 @@
 import usePricing from '../../../customHooks/usePricing';
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useModal from '../../../customHooks/useModal';
 import Modal_gotobasket from './Modal_gotobasket';

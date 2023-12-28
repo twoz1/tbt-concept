@@ -1,4 +1,4 @@
-import { useStar } from '../../../members/components/Mypage/ReviewModal';
+
 import { useState, useEffect } from 'react';
 import DpReviewItem from './DpReviewItem';
 import Pagination from '../../../customHooks/Pagination';
@@ -25,6 +25,9 @@ const DpReviewScore = ({ product_id }) => {
     }, []);
 
     console.log(review);
+
+
+    //===============별점=====================================================================
 
     const reviewScoreText = ["아주 좋아요", "마음에 들어요", "보통이에요", "그냥 그래요", "별로에요"];
 
@@ -61,11 +64,11 @@ const DpReviewScore = ({ product_id }) => {
         setspanActive("spanGradRow");
     }
 
-    // pagination 구현
-    const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지 번호
-    const listPerPage = 4;  // 페이지 당 게시글 개수
-    const totalPages = Math.ceil(review.length / listPerPage);    // 전체 페이지 번호
-
+ //===============페이지 네이션=================================================================
+    
+ const [currentPage, setCurrentPage] = useState(1); 
+    const listPerPage = 4; 
+    const totalPages = Math.ceil(review.length / listPerPage); 
 
     const handlePageChange = (page) => {
         setCurrentPage(page);

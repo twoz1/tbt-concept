@@ -1,7 +1,5 @@
 import React from 'react';
-import Pagination from '../../../customHooks/Pagination';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import useModal from '../../../customHooks/useModal';
 import ResultCS1on1 from '../../../customerService/components/CS_total/ResultCS1on1';
 

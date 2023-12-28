@@ -34,6 +34,7 @@ const DpReviewItem = ({ review_id, starLength, reviewScoreText, user_id, review_
         setIsImageExpanded(!isImageExpanded);
     };
 
+//=================리뷰 삭제==========================================
 
     function deleteReview(review_id) {
         let url = "/review/rDelete/" + review_id;

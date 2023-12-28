@@ -5,10 +5,13 @@ import { useDispatch } from 'react-redux';
 import Configstore from '../../../../pages/config/Configstore';
 import { setAddress } from '../../../../pages/config/Configstore';
 
-const ChcekOut_address = ({closeModal, index, address_name, address_city, address_avc, address_detail, address_phone_num, order_message, duplicate_user_id ,setAddressList}) => {
+const CheckOut_address = ({closeModal, index, address_name, address_city, address_avc, address_detail, address_phone_num, order_message, duplicate_user_id ,setAddressList}) => {
     const dispatch = useDispatch();
     const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
     const DeleteAddress = (duplicate_user_id) => {
+
+      if(window.confirm("삭제하시겠습니까?")){
+
         axios
             .delete(`/address/aDelete/${duplicate_user_id}`)
             .then((response) => {
@@ -20,6 +23,7 @@ const ChcekOut_address = ({closeModal, index, address_name, address_city, addres
             .catch((err) => {
                 alert(`** 주소 삭제 실패 => ${err.message}`);
             });
+        }
     }
 
 
@@ -68,4 +72,4 @@ const ChcekOut_address = ({closeModal, index, address_name, address_city, addres
     );
 };
 
-export default ChcekOut_address;
+export default CheckOut_address;
