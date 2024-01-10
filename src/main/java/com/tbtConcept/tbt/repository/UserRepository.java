@@ -1,6 +1,6 @@
 package com.tbtConcept.tbt.repository;
 
-import java.util.List;
+
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,4 +24,7 @@ extends JpaRepository<User, String>{
 
 	@Query("SELECT u FROM User u Where u.user_id = :user_id and u.user_name = :user_name")
 	User checkUser(@Param("user_id") String user_id, @Param("user_name") String user_name);
+	
+	@Query("SELECT COUNT(u.user_id) as user_count from User u")
+	Long getUserCount();
 }

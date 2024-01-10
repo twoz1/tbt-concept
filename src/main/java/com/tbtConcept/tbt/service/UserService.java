@@ -30,6 +30,8 @@ public interface UserService {
 
 	// ** checkUser
 	User checkUser(String user_id, String user_name);
-
+	
+	@Transactional
+	Long getUserCount();
 
 }

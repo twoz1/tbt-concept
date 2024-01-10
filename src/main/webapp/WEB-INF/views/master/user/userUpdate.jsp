@@ -70,7 +70,6 @@
 					</table>
 				</form>
 				<a class="m_button" href="userDetail?user_id=${requestScope.userDetail.user_id}">회원상세</a>
-				<a class="m_button" href="userList">회원상세</a>
 				&nbsp; <a href="javascript:history.go(-1)">이전</a>&nbsp;
 			</div>
 		</main>

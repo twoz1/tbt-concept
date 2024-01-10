@@ -46,10 +46,13 @@ public class UserController {
 		PageRequestDTO requestDTO = PageRequestDTO.builder().page(page).size(15).build();
 		PageResultDTO<User> resultDTO = userService.findAllDescPage(requestDTO, searchType, keyword);
 		
+		Long userCount = userService.getUserCount();
+		model.addAttribute("getUserCount",userCount);
 		model.addAttribute("user", resultDTO.getEntityList());
 	    model.addAttribute("resultDTO", resultDTO);
 	    model.addAttribute("searchType", searchType);
 	    model.addAttribute("keyword", keyword);
+	    
 	}
 
 	@GetMapping(value = "/userDetail")

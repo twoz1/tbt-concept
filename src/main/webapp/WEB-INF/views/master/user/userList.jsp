@@ -29,6 +29,9 @@
 					    <button type="submit" id="searchBtn">Search</button>
 					</form>
 				</div>
+				<div>
+					회원 수 : ${getUserCount}
+				</div>
 				<table>
 					<tr>
 						<th>회원ID</th>

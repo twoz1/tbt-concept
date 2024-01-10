@@ -61,6 +61,11 @@ public class UserServiceImpl implements UserService {
 		repository.deleteById(id);
 		return id; // 삭제후 Key return
 	}
+	
+	@Override
+	public Long getUserCount() {
+	    return repository.getUserCount();
+	}
 
 	@Override
 	@Transactional
