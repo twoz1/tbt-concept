@@ -28,5 +28,5 @@
 - **Database** : My SQL  
 
 
-## 🥸 회고 (더 자세한 기능 설명은 아래 url을 참고해주세요.)
+## 🥸 PPT (더 자세한 기능 설명은 아래 url을 참고해주세요.)
 - https://docs.google.com/presentation/d/1Vdcjs8bSxJ77gqF5NnLFMEblUsQWozTB/edit?usp=sharing&ouid=106521139797057917156&rtpof=true&sd=true
